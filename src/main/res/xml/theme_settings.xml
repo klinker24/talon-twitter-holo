@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/theme_options" >
+
+        <ListPreference
+            android:key="layout"
+            android:title="@string/layout"
+            android:summary="@string/layout_summary"
+            android:defaultValue="0"
+            android:entries="@array/choose_layout"
+            android:entryValues="@array/choose_layout_inserted"
+            />
+
+        <ListPreference
+            android:key="theme"
+            android:title="@string/theme"
+            android:defaultValue="1"
+            android:entries="@array/choose_theme"
+            android:entryValues="@array/choose_theme_inserted"
+            />
+
+        <CheckBoxPreference
+            android:key="night_mode"
+            android:title="@string/night_mode"
+            android:defaultValue="false"
+            />
+
+        <ListPreference
+            android:key="widget_theme"
+            android:title="@string/widget_theme"
+            android:summary="@string/widget_theme_summary"
+            android:defaultValue="3"
+            android:entries="@array/widget_themes"
+            android:entryValues="@array/widget_themes_inserted"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/font_options" >
+
+        <ListPreference
+            android:key="text_size"
+            android:title="@string/text_size"
+            android:defaultValue="14"
+            android:entries="@array/text_size"
+            android:entryValues="@array/text_size"
+            />
+
+        <ListPreference
+            android:key="font_type"
+            android:title="@string/font_type"
+            android:defaultValue="1"
+            android:entries="@array/font_type"
+            android:entryValues="@array/font_type_inserted"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/addon_themes" >
+
+
+        <Preference
+            android:key="addon_themes"
+            android:title="@string/use_addon_themes"
+            android:defaultValue="@null"
+            />
+
+        <Preference
+            android:title="@string/make_a_theme" >
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/klinker24/talon_theme" />
+        </Preference>
+
+        <!--<Preference
+            android:key="download_portal"
+            android:title="@string/download_portal"
+            android:summary="@string/download_portal_summary" >
+        </Preference>-->
+
+        <Preference
+            android:summary="@string/addon_note">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/details?id=com.klinker.android.theme_spotlight" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/other_options" >
+
+        <CheckBoxPreference
+            android:key="ui_extras"
+            android:title="@string/ui_extras"
+            android:summary="@string/ui_extras_summary"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="use_toast"
+            android:title="@string/use_toast"
+            android:defaultValue="true"
+            android:dependency="ui_extras"
+            />
+
+        <CheckBoxPreference
+            android:key="floating_compose"
+            android:title="@string/floating_compose"
+            android:defaultValue="true"
+            android:dependency="ui_extras"
+            />
+
+        </PreferenceCategory>
+
+</PreferenceScreen>

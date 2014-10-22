@@ -1,0 +1,55 @@
+*Talon for Twitter - The Future*
+
+Alright guys, it happened, when I started this project I knew that it would eventually - didn't think it would be this quick - and I respect the game that Twitter plays with developers, despite the majority of you hating it.
+
+Yes, we hit the token limit. I guess I can say that I am both proud and a little sad at the same time.
+
+When I started this app, I never imagined where it would go, where it would take me, or what I could accomplish with a little hard work and a hell of a lot of time. I open this app every day and I love what I see. I really do. I am astounded that a kid like me could accomplish something like this in just a few short months between breaks in class and late night jam sessions working out a new feature. I see my icon on my homescreen (even if some of you hate it!) and just have to be so proud of what I made, despite the stress and the hard work, I can't even wipe the smile off my face most days anymore.
+
+That being said, I have sacrived a lot for this app, for the community, and for Android. Obviously I love what I have done and what I have learned, but that doesn't come without costs. I doubt that many of you have ever seen an app updated this much, let alone the huge updates I have pushed out every few weeks, like I said though, it all comes at a cost. I have given this app all my time, constantly stressed, never beeing able to pull myself away to take a break. It is an unimaginable amount of work that I have put in and that certainly takes its tole on the body and the mind. If ever you are looking to lose weight, just go into app developement! All jokes aside though, I desperately need a little bit of a break.
+
+I have said it many times when I was doing the same kind of work with Sliding Messaging, but never on this scale. With that app, I always had my partner, best friend, and twin brother right along with me. When we started creating these new apps though, we decided to go solo, and looking back, despite the success and triumphs we may have had, I can't help but wonder if that was the right thing to do.
+
+Now, more than ever, I can say this with certainty, I need a break. Hopefully most of you think that I deserve it as well.
+
+
+
+Enough about me though, now onto the future of the app and where I plan to take it and do with it. You have all read this far just looking for one answer from me: no, I am not just going to abandon it.
+
+An app is never really done, it can get to a point where it can manage itself for awhile, but there are always new ideas, new features, and just cool things to add. I know that just as well as all of you. It may surprise some to hear this, but I do in fact do this for fun and enjoy creating new things and coming up with new features. It is my belief that if you make apps for any other reason, you aren't doing it for the right one. That is the reason that I decided to create a Twitter app to begin with, it isn't all about money, users, and fame. Some of us really do it because it is what we love.
+
+So, I have said from the beginning that if I ever hit the token limit, I would open source the app, and I will keep my word on that. There is plenty that you can learn from an app like this, we have some radically different ideas put in here, such as the theme engine or Talon Pull, and there is quite a bit that can be learned from that. I am not saying that my code is pretty, not in the slightest. When I started, it was a race to catch up to Jacob and have something ready to release on our January dead-line, that shows in some places. Some places on the other hand are pretty solid and nice looking.
+
+Just don't judge me on the code haha remember that this is the work of a then-19, now-20 year old kid with only one high school programming class! (And by the way, if I can do it with those credentials, then any of you clearly could too! Just takes some hard work is all)
+
+But anyways, I will get it up on my GitHub soon so anyone can go in and check it out, mess with stuff, make pull requests, whatever.
+
+I did say that I was going to take a little bit of time off though, so most of that time off will be spent commenting, cleaning it up, that kind of work to get it more presentable, because as of now, there is very minimal comments, because, well, there was no one else that had to look at it other than me!
+
+So I will get all of that up an running for you. I am not going to put the keystore up or the API keys of course, so if you want to make builds for yourself, it will be up to you to get all of that set up yourself.
+
+I am not saying at all that it is easy to compile haha there are some dependecies involved, but they are all up to date on my end, so it might take a little start up time, but not overly horrendous. I will probably make a compile guide sometime during my coding break as well, if you go into this though, then it is expected that you have at least a little background on development or have at least done a little bit of research before coming to me for help.
+
+
+I do have some conditions for my open source work though:
+1.) Do not just steal my code, release an app with a different layout or something and call it your own. That would make me very sad.
+2.) If you have a better way to do something, submit a pull request and I will have a look. My way is more often than not, not the best way, so if you can do it better, please feel free to have a go
+3.) If you make a build, do not post it or share it anywhere. Twitter has that token limit for a reason and I expect every single one of you to comply with it, just as I have done. It is the same app and would be wrong to distribute it under a different API key to get more users.
+4.) Use it to learn, like I said, there is some pretty neat stuff in there that isn't all Twitter related, you can learn a ton from an app like this and that is exactly what open source work should be about. It isn't as much about coming to me with these feature requests and stuff anymore, it is more about you learning how to implement them for yourself, then doing so. Believe me, you feel pretty good when you create something from nothing and I would encourage anyone with a little bit of extra time to try it out.
+5.) Raise an issue if you have one. But if you do so, please be ready to go into detail about it, don't just say that something is broken, show me that it is broken, convince me that I am the one that needs to fix it
+
+
+So that is about it from me, I will probably add to this post in the future. Like I have said above though, I do plan on taking a little bit of a break here. This app has completely consumed my life for the past months and I think that I deserve a few weeks off.
+
+The goal when I started was to work as hard as I could and get an incredibly solid product before that token limit hit. I believe I have accomplished that goal and hopefully you do too. In the future, I am not going to confine myself just to Talon either. That is one of the reasons for open sourcing it, so other people can help me manage it and I can work on other projects if I so choose. Some of you may hate me for that, but it is my choice to do so. I have already said that I have no plans of leaving the app out to dry, I use it too and enjoy working on it. That doesn't mean it will remain my only project though. I have some other really cool ideas that I would like to make and some that I would love to let see the light of day, so look forward to that in the future.
+
+Hopefully you all understand where I am coming from here, I can't limit myself at this point in my "career", so if you want to help me manage it, that would be wonderful, if not, just sit back, relax, and see what we can create. 
+
+While I am commenting and cleaning though, I need to straighten out some other aspects of my life that have been neglected over the past months where Talon has consumed me. Who knows, maybe I can even find myself a lady-friend ;)
+
+Until next time friends, thanks for making this app what it is today, without your support and help along the way, it never would have got here.
+
+Thanks for reading my book if you made it this far, and just remember Android, #keepsliding
+
+
+#talonfortwitter

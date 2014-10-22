@@ -1,0 +1,72 @@
+Tauche ein in Twitter mit diesem wunderschönen, mit Funktionen überhäuften Twitter-Client, der ein Design bietet, das sogar Sinn ergibt!
+
+Mit Android 4.4 (KitKat) im Hinterkopf erschaffen, bietet "Talon" ein Vollbild-Layout (transluzent!), atemberaubende Animation und mehr! Das bedeutet natürlich nicht, dass vorherige Android-Versionen ausgeschlossen werden! Das Einzige, was wir in Android 4.3 und niedriger nicht implementieren konnten, sind die transparenten Navigtions- und Statusleisten... Sorry! Es ist einfach nicht möglich :(
+
+Wundervolle, den aktuellen Standards entsprechende Designs und Animationen sind allerdings nicht die einzigen Dinge, die "Talon" bieten kann! Die Liste der Funktionen ist riesig, da alles, was du dir in einer Twitter-App schon immer gewünscht hast, schon von Anfang an dabei ist. Ich habe jede noch so kleine Twitter-Funktion implementeirt, die meiner Meinung nach Pflicht ist - sowie viele weitere Funktionen, an die so mamcher Nutzer nicht einmal im entfernesten Sinne gedacht hätte. Hier ist eine Liste der Funktionen:
+
+Twitter-Funktionen:
+- Live-Streaming
+- Unterstützung für bis zu 2 Benutzerkonten
+- Favorisieren von Nutzern
+- Twitter durchsuchen
+- Tweets löschen, favorisieren, retweeten, zitieren und darauf antworten
+- Unterhaltungen zu Tweets ansehen
+- Profilbild, Profilbanner, Standort und Profilbio lassen sich bearbeiten
+- Nutzer können gefolgt, entfolgt, blockiert, entblockt und zu Listen hinzugefügt werden
+- Während des Verfassens können zu erwähnende Nutzernamen eingefügt werden
+- Bilder können an Tweets angehängt werden
+- Standorte können an Tweets angehängt werden
+- Und noch Vieles mehr :)
+
+Anpassungen:
+- Extrem leistungsfähige Theme-Engine für Entwickler (https://github.com/klinker24/talon_theme)
+- Wahl zwischen "Talon"- oder "Hangouts"-Layout
+- 3 verschiedene Standard-Themes (hell, dunkel und schwarz)
+- Benutzerdefinierte Textgrößen
+- Nachtmodus
+- Optionen zur automatischen Aktualisierung
+- Einstellungen zu Benachrichtigungen
+- Und viele weitere Leckereien!
+
+App-Funktionen:
+- "Talon Pull"-Dienst, der automatisch auf neue Interaktionen prüft (Erwähnungen, Retweets, Favoriten, neue Followers, Direktnachrichten)
+- Erweiterbare, dynamische Benachrichtigungen mit Aktionen
+- App-Pop-Up
+- Vollständige Emoji-Unterstützung
+- Twitter- und Instagram-Bilder inline anzeigen
+- YouTube-Vorschaubilder inline anzeigen
+- Nativer YouTube-Player
+- In-App-Browser
+- Muted Users
+- Vollständige Tablet- und Querformat-Modi
+- Seiten in eine Fensteransicht erweiterbar
+- Timeline muss dank Inline-Antworten, -Favoriten und -Retweets nie wieder verlassen werden
+- Verbergen der Aktionsleiste
+- "Nicht stören"-Modus
+- Widget für Haupt-Timeline
+- DashClock-Erweiterung
+- "Ziehen zum Aktualisieren..." im Google-Stil
+
+Du wirst nie wieder zu deinem alten Twitter-Clienten zurückkehren wollen!
+
+Viel Spaß mit Talon und zögere nicht mich mit Fragen, Vorschlägen oder Bugs zu kontaktiere! Der beste Weg wäre eine E-Mail zu schreiben, oder der Google+-Community beizutreten.
+
+Danke!
+
+Kontakt (Luke Klinker):
+E-Mail: klinkerapps@gmail.com
+Mein Twitter: @lukeklinker
+Talons Twitter: @TalonAndroid
+Google+-Beta-Community: http://goo.gl/KCXlZk
+XDA-Developers-Thread: http://forum.xda-developers.com/showthread.php?t=2608962
+
+Hier findest du zwei verschiedene Emoji-Plugins. Wähle, welches dir besser gefällt und kümmere dich anschließend nie wieder darum!
+Android: https://play.google.com/store/apps/details?id=com.klinker.android.emoji_keyboard_trial
+iOS 7: https://play.google.com/store/apps/details?id=com.klinker.android.emoji_keyboard_trial_ios
+
+
+Credit:
+- Jacob Klinker: für viele Dinge auf dieser Liste! Eine Menge an Ideen, Unterstützung und Inspiration
+- Aaron Klinker: Icon-Design
+- JRW - For an awesome name
+- Verwendete Open-Source-Bibliotheken und -Ressourcen können im "Hilfe"-Bereich der Talon-Einstellungen eingesehen werden.

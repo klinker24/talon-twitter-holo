@@ -1,0 +1,83 @@
+Talon like never before. Bold and beautiful. All material, all speed.
+
+Created with Android L and Material Design at it's center. Talon (Plus) includes stunning and beautiful layouts, eye catching animations, the smoothness you should expect from the latest and greatest apps, plus so much more.
+
+This isn't the Talon of the past, it has been fully rebuilt around Android L (and is only supported on Android L) to give you the most power, speed, and style possible. You have never experienced an app like this before. You won't even be able to think about going back to your "Holo" Twitter app.
+
+Beautiful, up-to-date layouts, designs, and neat animations isn't the only thing Talon has going for it though! The list of features is off the charts, doing everything you could ever want from your Twitter app. Here is a pretty comprehensive list of its features:
+
+Twitter features:
+- Live streaming support
+- Support for 2 accounts
+- Favorite users
+- Swipe between timelines and lists
+- Update your profile picture, banner, location, and user description
+- Block, follow, and add users to lists
+- Attach locations to your tweets
+- And the list goes on :)
+
+Customization features:
+- "Materialized" theme engine for primary and accent colors
+- Light and dark theme support
+- Translucent system bars
+- Night mode
+- Custom text sizes
+- Custom notification settings
+- And many other goodies in there as well!
+
+App Features:
+- "Talon Pull" to be always listening for tweets/interactions
+- Expand tweets right from your timeline for quick interaction
+- Clickable and long clickable links, hashtags, and @ mentions
+- Expandable, actionable, and dynamic notification system
+- Full app popup
+- Top-down mode if you prefer to always start at the top of your timeline
+- iOS emoji support (see notes section below)
+- View in-line Twitter, Instagram, and other major image service pictures
+- View in-line YouTube thumbnails
+- Native YouTube player
+- In-app browser
+- Layouts take full advantage of screen space
+- "Do not disturb" mode
+- Widget for main timeline
+- Unread tweets, mentions, and DM's widget
+- DashClock Extension
+- Google style pull to refresh for quick refreshing
+
+You will never go back to your old Twitter client again!
+
+Enjoy Talon and don't hesitate to contact me with questions, requests, or bugs! The best way would be either through email or get involved on the Google+ page.
+
+If you want to know more about this version vs the classic version, check out the post I wrote, here: http://goo.gl/ZKNGzU
+
+Thanks and enjoy!
+
+Contact me (Luke Klinker):
+Email: support@klinkerapps.com
+My Twitter: @lukeklinker
+Talon's Twitter: @TalonAndroid
+Google+ Beta Page: http://goo.gl/KCXlZk
+
+
+--- Other Notes ---
+
+Android has built in support for emojis, but if you want the iOS style, just download this plugin and apply them from advanced settings.
+
+https://play.google.com/store/apps/details?id=com.klinker.android.emoji_keyboard_trial_ios
+
+Permissions Explained:
+- Write to Storage: Saves pictures to your SD card and writes them into the cache.
+- Read from Storage: Used when backing up settings.
+- Location: Used for trends and attaching locations to tweets.
+- Network Communication: Obviously have to be able to interact with Twitter ;)
+- Network State: Used so the user can toggle background sync to only over WiFi.
+- Run at Startup: Re-schedules the background refreshes.
+- Keep Awake: Used for background refreshes and waking the screen.
+- Vibrate: Used for the notifications.
+
+
+Credit:
+- Jacob Klinker: to many things to list! Tons of ideas, support, and inspiration
+- Aaron Klinker: Icon Design
+- Other open-source libraries and resources used can be found under the 'Get Help' section in settings.
+

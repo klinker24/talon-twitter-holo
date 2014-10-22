@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/prompt_pos"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?tweetBackgroundNoDialog"
+                    android:layout_margin="@dimen/tweet_activ_margin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textDirection="ltr">
+
+                            <include layout="@layout/contact_info"
+                                android:id="@+id/contact_info"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_margin="10dp" />
+
+                            <ImageButton
+                                android:id="@+id/expand"
+                                android:layout_height="48dp"
+                                android:layout_width="48dp"
+                                android:src="?showMoreButton"
+                                android:scaleType="fitCenter"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="Expand Picture"
+                                android:background="@drawable/pressed_button"
+                                android:layout_margin="10dp"
+                                android:rotation="180"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <include android:id="@+id/tweet_background"
+                                layout="@layout/tweet_for_fragment"
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+                        android:id="@+id/imageView"
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="@dimen/tweet_activ_margin"
+                        android:paddingRight="6dp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:id="@+id/buttons"
+                android:background="@drawable/background_card"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_margin="@dimen/tweet_activ_margin"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/at_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/pressed_button"
+                    android:contentDescription="Find User"
+                    android:src="@drawable/mentions_light"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="#807f7f" />
+
+                <ImageButton
+                    android:id="@+id/attach_button"
+                    android:contentDescription="Attach Picture"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_attach_light"
+                    android:background="@drawable/pressed_button" />
+
+                <ImageButton
+                    android:id="@+id/emoji"
+                    android:contentDescription="Emojis"
+                    android:layout_height="48dp"
+                    android:layout_width="48dp"
+                    android:src="@drawable/ic_emoji_keyboard_dark"
+                    android:background="@drawable/pressed_button" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/attach"
+            android:layout_height="96dp"
+            android:layout_width="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_bar" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?drawerDividerColor"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/expansion"
+            android:paddingTop="4dp"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="6dp"
+            android:paddingLeft="6dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dp"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/quote_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="?quote_button"
+                        android:contentDescription="Quote Tweet"
+                        android:minHeight="32dp" android:minWidth="32dp"
+                        android:scaleType="fitCenter" android:adjustViewBounds="true"
+                        android:maxWidth="32dp" android:maxHeight="32dp"
+                        android:background="@drawable/pressed_button"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="?drawerDividerColor" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/favorite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Favorite Tweet"
+                        android:src="?notFavoritedButton"
+                        android:background="@drawable/pressed_button"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal|bottom"
+                        android:orientation="horizontal"
+                        android:layoutDirection="ltr">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:minHeight="32dp" android:minWidth="32dp"
+                            android:scaleType="fitCenter" android:adjustViewBounds="true"
+                            android:maxWidth="32dp" android:maxHeight="32dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|right"
+                            android:layoutDirection="ltr">
+
+                            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="-4dp"
+                                android:layout_marginBottom="2dp"
+                                android:textSize="13dp"
+                                android:singleLine="true"
+                                android:paddingRight="3dp"
+                                android:id="@+id/fav_count" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="?drawerDividerColor" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="1">
+
+                    <ImageButton
+                        android:id="@+id/retweet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Retweet"
+                        android:src="?retweetButton"
+                        android:background="@drawable/pressed_button"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal|bottom"
+                        android:orientation="horizontal"
+                        android:layoutDirection="ltr">
+
+                        <ImageView
+                            android:layout_width="37dp"
+                            android:layout_height="37dp"
+                            android:minHeight="37dp" android:minWidth="37dp"
+                            android:scaleType="fitCenter" android:adjustViewBounds="true"
+                            android:maxWidth="37dp" android:maxHeight="37dp"
+                            android:background="@drawable/pressed_button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|right"
+                            android:layoutDirection="ltr">
+
+                            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="-4dp"
+                                android:layout_marginBottom="2dp"
+                                android:paddingRight="3dp"
+                                android:textSize="13dp"
+                                android:singleLine="true"
+                                android:gravity="bottom|right"
+                                android:id="@+id/retweet_count" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="?drawerDividerColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="37dp"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/view_retweeters"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="View Retweeters"
+                        android:minHeight="37dp" android:minWidth="37dp"
+                        android:scaleType="fitCenter" android:adjustViewBounds="true"
+                        android:maxWidth="37dp" android:maxHeight="37dp"
+                        android:background="@drawable/pressed_button"
+                        android:src="?favUser"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom" >
+
+            <ImageButton
+                android:id="@+id/overflow_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="?showMoreButton"
+                android:rotation="-90"
+                android:contentDescription="Overflow Options"
+                android:background="@drawable/pressed_button" />
+
+            <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+                android:id="@+id/reply"
+                android:layout_height="wrap_content"
+                android:maxLines="5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:hint="@string/reply"
+                android:layout_gravity="center_vertical"
+                android:inputType="textMultiLine|textCapSentences"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content">
+
+                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                    android:layout_height="13dp"
+                    android:layout_width="match_parent"
+                    android:textSize="10dp"
+                    android:gravity="right"
+                    android:paddingRight="5dp"
+                    android:id="@+id/char_remaining" />
+
+                <ImageButton
+                    android:id="@+id/reply_button"
+                    android:layout_marginTop="-16dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="?sendButton"
+                    android:contentDescription="Send Reply"
+                    android:background="@drawable/pressed_button" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/emoji_keyboard"/>
+
+</LinearLayout>

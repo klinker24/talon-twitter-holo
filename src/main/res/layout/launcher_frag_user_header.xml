@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+               android:id="@+id/background_image"
+               android:layout_height="150dp"
+               android:layout_width="match_parent"
+               android:scaleType="centerCrop"
+               android:background="@drawable/pressed_button"
+               android:contentDescription="Background Picture"
+            />
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom|center_horizontal"
+            android:background="@drawable/gradient">
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:id="@+id/profile_pic_contact"
+            android:src="@drawable/circle_border_dark"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="10dp"
+            android:minHeight="56dp" android:minWidth="56dp"
+            android:scaleType="centerCrop" android:adjustViewBounds="true"
+            android:maxWidth="56dp" android:maxHeight="56dp"
+            android:contentDescription="Profile Picture" />
+
+        <View android:id="@+id/divider"
+              android:background="@color/white_divider"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginLeft="6dp"
+              android:layout_marginRight="6dp" />
+
+        <ImageButton
+                android:id="@+id/options"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_action_expand_dark"
+                android:scaleType="fitCenter" android:adjustViewBounds="true"
+                android:background="@drawable/pressed_toast"
+                android:contentDescription="Options"
+                android:paddingRight="6dp"
+                android:paddingLeft="6dp"
+                android:alpha="30"
+                />
+
+    </LinearLayout>
+</RelativeLayout>

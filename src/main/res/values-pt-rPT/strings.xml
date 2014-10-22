@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_full">Talon para Twitter</string>
+    <string name="extension_description">Quando atualizados mostra o número de tweet não lidos, menções e DM\'S</string>
+    <!-- Action Bar -->
+    <string name="menu_refresh">Atualizar Timiline</string>
+    <string name="menu_compose">Novo Tweet</string>
+    <string name="menu_logout">Sair</string>
+    <string name="menu_settings">Definições</string>
+    <string name="menu_follow">Seguir</string>
+    <string name="menu_unfollow">Deixar de seguir</string>
+    <string name="menu_tweet">Enviar Tweet</string>
+    <string name="menu_dm">Enviar Mensagem</string>
+    <string name="menu_block">Bloquear</string>
+    <string name="menu_unblock">Desbloquear</string>
+    <string name="menu_add_to_list">Adicionar à lista</string>
+    <string name="menu_change_picture">Alterar a foto de perfil</string>
+    <string name="menu_change_bio">Alterar informação de perfil</string>
+    <string name="menu_change_banner">Alterar Capa</string>
+    <string name="menu_direct_message">Nova Mensagem</string>
+    <string name="menu_save_image">Guardar Imagem</string>
+    <string name="menu_create_list">Criar Nova Lista</string>
+    <string name="menu_spam">Marcar como Spam</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="just_now">Agora</string>
+    <string name="a_min_ago">à um minuto</string>
+    <string name="minutes_ago">%s minutos</string>
+    <string name="an_hour_ago">à uma hora</string>
+    <string name="hours_ago">%s horas</string>
+    <string name="yesterday">ontem</string>
+    <string name="days_ago">%s dias</string>
+    <!-- Muting -->
+    <string name="mute">Mute</string>
+    <string name="unmute">Un-Mute</string>
+    <string name="muted_users">Utilizadores Muted</string>
+    <string name="no_users">Sem utilizadores</string>
+    <!-- Main Activity -->
+    <string name="links">Links</string>
+    <string name="pictures">Imagens</string>
+    <string name="timeline">Timeline</string>
+    <string name="mentions">Menções</string>
+    <string name="direct_messages">Mensagens</string>
+    <string name="retweets">Retweets</string>
+    <string name="favorite_tweets">Tweets Favoritos</string>
+    <string name="favorite_users">Utilizadores Favoritos</string>
+    <string name="trends">Trending</string>
+    <string name="local_trends">Trends Locais</string>
+    <string name="world_trends">Trends Mundiais</string>
+    <string name="search">Pesquisar</string>
+    <string name="lists">Listas</string>
+    <string name="search_hint">\@usarname ou pesquisar...</string>
+    <string name="new_tweet">novo tweet</string>
+    <string name="new_tweets">novos tweets</string>
+    <string name="no_new_tweets">Sem novos tweets</string>
+    <string name="new_mention">nova menção</string>
+    <string name="new_mentions">novas menções</string>
+    <string name="no_new_mentions">Sem novas menções</string>
+    <string name="new_direct_message">nova mensagem</string>
+    <string name="new_direct_messages">novas mensagens</string>
+    <string name="no_new_direct_messages">Sem novas mensagens</string>
+    <string name="tap_to_setup">Clique para definir</string>
+    <string name="new_account">Nova Conta</string>
+    <!-- Notifications -->
+    <string name="tweet">Tweet</string>
+    <string name="tweets">Tweets</string>
+    <string name="mention">Menção</string>
+    <string name="message">Mensagem</string>
+    <string name="messages">Mensagens</string>
+    <string name="new_message">nova mensagem</string>
+    <string name="new_messages">novas mensagens</string>
+    <string name="mentioned_by">Mencionado por</string>
+    <string name="message_from">Mensagem de</string>
+    <string name="mark_read">Ler</string>
+    <string name="noti_reply">Responder</string>
+    <string name="popup">Popup</string>
+    <string name="new_interactions">Novas interações</string>
+    <!-- Login Screen -->
+    <!-- Compose New Activity -->
+    <!-- Actionbar Done-Discard -->
+    <!-- Other -->
+    <!-- User Profile Activity -->
+    <!-- Retweets Activity -->
+    <!-- Tweet Activity -->
+    <!-- User Lists -->
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <!-- added after release -->
+    <!-- Long click methods -->
+</resources>

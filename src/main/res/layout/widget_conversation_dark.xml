@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignBottom="@+id/widget_card_background"
+               android:layout_alignParentTop="true"
+               android:id="@+id/itemBackground"/>
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:id="@+id/widget_card_background"
+                  android:background="@drawable/pressed_button">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="top" >
+
+            <ImageView
+                android:id="@+id/contactPicture"
+                android:contentDescription="Profile Picture"
+                android:layout_height="48dp"
+                android:layout_width="48dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="15dp"
+                android:scaleType="centerCrop" />
+
+            </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/contactName"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:textColor="@color/dark_text"
+                    android:paddingRight="12dp"
+                    android:paddingTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:singleLine="true"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/dark_text"
+                    android:paddingRight="12dp"
+                    android:paddingTop="10dp"
+                    android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+            <TextView
+                    android:id="@+id/contactText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_text"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="10dp"
+                    android:fontFamily="sans-serif-light"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

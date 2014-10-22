@@ -1,0 +1,23 @@
+A Developer's Perspective: Immersive Mode vs Translucent Mode
+
+
+Finally, with the release of Talon and Evolve, today is the day I can share this and what my thoughts are about this new trend towards immersive mode. As a developer who knows what is actually possible with these new styles and has actually put them into practice, I'm sure I have a much different perspective than the average end users.
+
+Hint: I don't like it and there are much better ways to take advantage of the whole screen space, in my opinion. Immersive mode is simply the lazy way out.
+
+So, as you all know, along with the introduction of Android 4.4 came all these new fancy styles and designs, which I think is great, Google always innovating and making new things for developers to dive into and create with. KitKat really is the next level of design, capitalizing on the Holo design language created two years ago with the introduction of Ice Cream Sandwich.
+
+That being said, I don't like this kick that people are getting into. People want immersive mode in every app and sites are highlighting apps just because they added the extra 3 lines to flag the window as immersive mode. But "oh it's so new" and "so handy." Sure it let's you take advantage of that beautiful screen you have, it gives you those precious extra pixels, but there are just some times where it isn't necessary, doesn't look good, and, most importantly, isn't fast or intuative. Again, there is a better way.
+
+People now use their phones for just about everything, but one thing we are always going to them for is that quick access to messages, a quick look at the internet, or a quick check the news for the day. Maybe I am emphasizing it, but the keyword there for me is quick, and immersive mode goes against that. It is an extra swipe just to back out of a picture or go to a different article. I'm not saying immersive mode isn't good for some things, when I'm sitting around reading a book or something similar, great, I absolutely love immersive mode. THAT is what it should be used for.
+
+Is it easy for devs to add this immersive mode style? Yes, its incredibly simple. But what I'm trying to say here is that you shouldn't take the easy way out with this kind of thing. Something that me and Jacob really wanted to highlight with these new apps is, what we believe, the "better way" and, in my opinion, we were sucessful with this. I think Talon and Evolve are both great examples of how this translucency can be implemented, each showcasing a different and unique style with it. Using a little outside the box thinking, you can do just about anything with this translucent style. It doesn't compromise or take away from any of Google's regular styles or designs at all, only adds to it.
+
+Translucency is the best of both worlds, it gives the users that extra screen space they crave but it doesn't compromise on speed or performance. If you extend your list views through the navigation and status bar, it just gives your app that next level of style and design. Is it extra work? Yes, most definitely it is. But please, don't let that stop you! This is something I don't want devs to take the easy way out on and just go with immersive. Go for translucent instead. It works better and its faster, easier on the user, it isn't the gimmick that immersive mode is, and if you do it correctly, it really puts your apps above the rest and gives your users some style to talk about.
+
+So I'll leave you with this today: don't take the easy way out. I know everyone wants devs to use these great new styles that Google provided, but don't just do it because its new. Do it for a reason.
+
+Paranoid Android recently shared a post about this same type of thing along with OnePlus, don't just put in a feature because it is new, different, cool, and easy. Make it count, make it a feature that will pop and get you the attention your hard work deserves. Don't take the easy way out, make something great, cool, and functional. Use these new tools to make something truely special for Android.
+
+#talonfortwitter #android #design
+

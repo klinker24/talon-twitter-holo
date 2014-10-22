@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_full">Talon για το Twitter</string>
+    <string name="extension_description">"Προβάλει τον αριθμό των μη αναγνωσμένων tweets, αναφορών και απευθείας μηνυμάτων καθώς αυτά ανανεώνονται. "</string>
+    <!-- Action Bar -->
+    <string name="menu_refresh">Ανανέωση γραμμής ενημερώσεων</string>
+    <string name="menu_compose">Νέο Tweet</string>
+    <string name="menu_logout">Αποσύνδεση</string>
+    <string name="menu_settings">Ρυθμίσεις</string>
+    <string name="menu_dm">Αποστολή μηνύματος</string>
+    <string name="menu_block">Αποκλεισμός Χρήστη</string>
+    <string name="menu_unblock">Άρση αποκλεισμού Χρήστη</string>
+    <string name="menu_add_to_list">Προσθήκη σε Λίστα</string>
+    <string name="menu_change_picture">Αλλαγή Εικόνας Προφίλ</string>
+    <string name="menu_change_bio">Αλλαγή Στοιχείων Προφίλ</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <!-- Muting -->
+    <!-- Main Activity -->
+    <!-- Notifications -->
+    <!-- Login Screen -->
+    <!-- Compose New Activity -->
+    <!-- Actionbar Done-Discard -->
+    <!-- Other -->
+    <!-- User Profile Activity -->
+    <!-- Retweets Activity -->
+    <!-- Tweet Activity -->
+    <!-- User Lists -->
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <!-- added after release -->
+    <!-- Long click methods -->
+</resources>

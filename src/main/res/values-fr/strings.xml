@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Talon</string>
+    <string name="app_name_full">Talon pour Twitter</string>
+    <string name="extension_description">Affiche le nombre de tweets non lus, mentions et messages directs quand ils sont mis à jour.</string>
+    <!-- Action Bar -->
+    <string name="menu_refresh">Rafraîchir la Timeline</string>
+    <string name="menu_compose">Nouveau Tweet</string>
+    <string name="menu_logout">Déconnexion</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="menu_follow">S\'abonner à l\'utilisateur</string>
+    <string name="menu_unfollow">Se désabonner de l\'utilisateur</string>
+    <string name="menu_tweet">Envoyer le Tweet</string>
+    <string name="menu_dm">Envoyer un message direct</string>
+    <string name="menu_block">Bloquer de l\'utilisateur</string>
+    <string name="menu_unblock">Débloquer l\'utilisateur</string>
+    <string name="menu_add_to_list">Ajouter à la liste</string>
+    <string name="menu_change_picture">Changer l\'image du profil</string>
+    <string name="menu_change_bio">Changer les informations du profil</string>
+    <string name="menu_change_banner">Changer la bannière du profil</string>
+    <string name="menu_direct_message">Nouveau message direct</string>
+    <string name="menu_save_image">Sauver l\'image</string>
+    <string name="menu_favorite">Utilisateur favoris</string>
+    <string name="menu_unfavorite">Retirer l\'utilisateur des favoris</string>
+    <string name="menu_create_list">Créer une nouvelle liste</string>
+    <string name="menu_spam">Marquer comme spam</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="just_now">à l\'instant</string>
+    <string name="a_min_ago">Il y a 1 minute</string>
+    <string name="minutes_ago">%s minutes</string>
+    <string name="an_hour_ago">il y a une heure</string>
+    <string name="hours_ago">Il y a %s heures</string>
+    <string name="yesterday">hier</string>
+    <string name="days_ago">Il y a %s jours</string>
+    <!-- Muting -->
+    <string name="mute">Muet</string>
+    <string name="unmute">Non muet</string>
+    <string name="muted_users">Utilisateurs muets</string>
+    <string name="no_users">Pas d\'utilisateurs</string>
+    <!-- Main Activity -->
+    <string name="links">Liens</string>
+    <string name="pictures">Photos</string>
+    <string name="timeline">Timeline</string>
+    <string name="mentions">Mentions</string>
+    <string name="direct_messages">Message direct</string>
+    <string name="retweets">Retweets</string>
+    <string name="favorite_tweets">Tweets favoris</string>
+    <string name="favorite_users">Utilisateurs favoris</string>
+    <string name="trends">Tendance</string>
+    <string name="local_trends">Tendances locales</string>
+    <string name="world_trends">Mots tendances</string>
+    <string name="search">Rechercher</string>
+    <string name="lists">Listes</string>
+    <string name="new_tweet">nouveau tweet</string>
+    <string name="new_tweets">nouveaux tweets</string>
+    <string name="no_new_tweets">Aucun nouveau tweet</string>
+    <string name="new_mention">nouvelle mention</string>
+    <string name="new_mentions">nouvelles mentions</string>
+    <string name="no_new_mentions">Aucune nouvelle mention</string>
+    <string name="new_direct_message">nouveau message direct</string>
+    <string name="new_direct_messages">nouveaux messages directs</string>
+    <string name="no_new_direct_messages">Aucun nouveau message direct</string>
+    <string name="tap_to_setup">Taper pour configurer</string>
+    <string name="new_account">Nouveau compte</string>
+    <string name="jump_to_top">Aller au premier</string>
+    <string name="all_read">Tout lu !</string>
+    <string name="view_new">Charger ?</string>
+    <string name="old_interactions">Toutes les interactions</string>
+    <!-- Notifications -->
+    <string name="tweet">Tweet</string>
+    <string name="tweets">Tweets</string>
+    <string name="mention">Mention</string>
+    <string name="message">Message</string>
+    <string name="messages">Messages</string>
+    <string name="new_message">nouveau message</string>
+    <string name="new_messages">nouveaux messages</string>
+    <string name="mentioned_by">Mentionné par</string>
+    <string name="message_from">Message de</string>
+    <string name="mark_read">Lu</string>
+    <string name="noti_reply">Répondre</string>
+    <string name="sec_acc">Second compte</string>
+    <string name="new_interaction_upper">Nouvelle interaction</string>
+    <string name="new_interactions_lower">nouvelles interactions</string>
+    <string name="new_interactions">Nouvelles interactions</string>
+    <string name="retweeted">retweeter votre statut</string>
+    <string name="favorited">mettre votre statut en favoris</string>
+    <string name="followed">vous a suivi</string>
+    <string name="new_retweets">retweets</string>
+    <!-- Login Screen -->
+    <!-- Compose New Activity -->
+    <!-- Actionbar Done-Discard -->
+    <!-- Other -->
+    <!-- User Profile Activity -->
+    <!-- Retweets Activity -->
+    <!-- Tweet Activity -->
+    <!-- User Lists -->
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <!-- added after release -->
+    <!-- Long click methods -->
+</resources>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+
+    <string-array name="choose_theme">
+        <item>@string/theme_light</item>
+        <item>@string/theme_dark</item>
+        <item>@string/theme_black</item>
+    </string-array>
+
+    <string-array name="choose_theme_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="viewer_page">
+        <item>@string/tweet_page</item>
+        <item>@string/web_page</item>
+        <item>@string/conversation_page</item>
+    </string-array>
+
+    <string-array name="viewer_page_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="choose_layout">
+        <item>@string/app_name</item>
+        <item>@string/layout_hangouts</item>
+        <item>@string/layout_full_screen</item>
+    </string-array>
+
+    <string-array name="choose_layout_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="text_size">
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>30</item>
+        <item>32</item>
+        <item>34</item>
+    </string-array>
+
+    <string-array name="sync_interval">
+        <item>@string/five_mins</item>
+        <item>@string/ten_mins</item>
+        <item>@string/twenty_mins</item>
+        <item>@string/thirty_mins</item>
+        <item>@string/fourty_five_mins</item>
+        <item>@string/one_hour</item>
+        <item>@string/two_hours</item>
+        <item>@string/three_hours</item>
+        <item>@string/four_hours</item>
+        <item>@string/manual</item>
+    </string-array>
+
+    <string-array name="sync_interval_inserted">
+        <item>300000</item>
+        <item>600000</item>
+        <item>1200000</item>
+        <item>1800000</item>
+        <item>2700000</item>
+        <item>3600000</item>
+        <item>7200000</item>
+        <item>10800000</item>
+        <item>14400000</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="max_number">
+        <item>200</item>
+        <item>400</item>
+        <item>600</item>
+        <item>800</item>
+        <item>1000</item>
+    </string-array>
+
+    <!-- Number of pages -->
+    <string-array name="max_number_inserted">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="timeline_size">
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="mentions_size">
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+    </string-array>
+
+    <string-array name="lists_options">
+        <item>@string/delete_list</item>
+        <item>@string/view_users</item>
+    </string-array>
+
+    <string-array name="attach_options">
+        <item>@string/take_picture</item>
+        <item>@string/from_file</item>
+        <item>@string/attach_gif</item>
+    </string-array>
+
+    <string-array name="font_type">
+        <item>@string/device</item>
+        <item>@string/roboto_light</item>
+        <item>@string/roboto_condensed</item>
+        <item>@string/roboto_l</item>
+    </string-array>
+
+    <string-array name="font_type_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="alert_types">
+        <item>@string/vibrate</item>
+        <item>@string/led</item>
+        <item>@string/wake_screen</item>
+        <item>@string/sound</item>
+    </string-array>
+
+    <string-array name="alert_types_inserted">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="timeline_notifications">
+        <item>@string/timeline</item>
+        <item>@string/mentions</item>
+        <item>@string/direct_messages</item>
+    </string-array>
+
+    <string-array name="interactions_notifications">
+        <item>@string/favorited_tweet</item>
+        <item>@string/retweets</item>
+        <item>@string/new_followers</item>
+    </string-array>
+
+    <string-array name="interaction_notifications_inserted">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>Algeria</item>
+        <item>Argentina</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Bahrain</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Brazil</item>
+        <item>Canada</item>
+        <item>Chile</item>
+        <item>Colombia</item>
+        <item>Denmark</item>
+        <item>Dominican Republic</item>
+        <item>Ecuador</item>
+        <item>Egypt</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>Ghana</item>
+        <item>Greece</item>
+        <item>Guatemala</item>
+        <item>India</item>
+        <item>Indonesia</item>
+        <item>Ireland</item>
+        <item>Israel</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>Jordan</item>
+        <item>Kenya</item>
+        <item>Korea</item>
+        <item>Kuwait</item>
+        <item>Latvia</item>
+        <item>Lebanon</item>
+        <item>Malaysia</item>
+        <item>Mexico</item>
+        <item>Netherlands</item>
+        <item>New Zealand</item>
+        <item>Nigeria</item>
+        <item>Norway</item>
+        <item>Oman</item>
+        <item>Pakistan</item>
+        <item>Panama</item>
+        <item>Peru</item>
+        <item>Philippines</item>
+        <item>Poland</item>
+        <item>Portugal</item>
+        <item>Puerto Rico</item>
+        <item>Qatar</item>
+        <item>Russia</item>
+        <item>Saudi Arabia</item>
+        <item>Singapore</item>
+        <item>South Africa</item>
+        <item>Spain</item>
+        <item>Sweden</item>
+        <item>Switzerland</item>
+        <item>Thailand</item>
+        <item>Turkey</item>
+        <item>Ukraine</item>
+        <item>United Arab Emirates</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>Venezuela</item>
+        <item>Vietnam</item>
+    </string-array>
+
+    <string-array name="widget_themes">
+        <item>@string/widget_light</item>
+        <item>@string/widget_dark</item>
+        <item>@string/widget_trans_light</item>
+        <item>@string/widget_trans_black</item>
+    </string-array>
+
+    <string-array name="widget_themes_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="tweetmarker">
+        <item>@string/do_not_use</item>
+        <item>@string/automatic_refresh</item>
+        <item>@string/manual_refresh</item>
+    </string-array>
+
+    <string-array name="tweetmarker_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="long_click_mentions">
+        <item>@string/open_profile</item>
+        <item>@string/copy_handle</item>
+        <item>@string/search_user</item>
+        <item>@string/favorite_user_text</item>
+        <item>@string/mute_user</item>
+        <item>@string/mute_retweets</item>
+        <item>@string/share_profile</item>
+    </string-array>
+
+    <string-array name="long_click_web">
+        <item>@string/open_webpage</item>
+        <item>@string/copy_link</item>
+        <item>@string/share_link</item>
+    </string-array>
+
+    <string-array name="long_click_hashtag">
+        <item>@string/search_hashtag</item>
+        <item>@string/mute_hashtag</item>
+        <item>@string/copy_hashtag</item>
+    </string-array>
+
+    <string-array name="long_click_cashtag">
+        <item>@string/search_cashtag</item>
+        <item>@string/copy_cashtag</item>
+    </string-array>
+</resources>

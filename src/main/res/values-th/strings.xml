@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Action Bar -->
+    <string name="menu_compose">ทวีตใหม่</string>
+    <string name="menu_logout">ออกจากระบบ</string>
+    <string name="menu_settings">ตั้งค่า</string>
+    <string name="menu_add_to_list">เพิ่มสู่ลิสต์</string>
+    <string name="menu_change_picture">เปลี่ยนรูปภาพโปรไฟล์</string>
+    <string name="menu_save_image">บันทึกรูปภาพ</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="just_now">ตอนนี้</string>
+    <string name="yesterday">เมื่อวานนี้</string>
+    <!-- Muting -->
+    <!-- Main Activity -->
+    <string name="pictures">รูปภาพ</string>
+    <string name="timeline">ไทม์ไลน์</string>
+    <string name="retweets">รีทวีต</string>
+    <string name="search">ค้นหา</string>
+    <string name="lists">ลิสต์</string>
+    <string name="new_tweet">ทวีตใหม่</string>
+    <string name="no_new_tweets">ไม่มีทวีตใหม่</string>
+    <string name="tap_to_setup">แตะเพื่อตั้งค่า</string>
+    <string name="view_new">โหลด?</string>
+    <!-- Notifications -->
+    <string name="mention">เมนชั่น</string>
+    <string name="message_from">ข้อความจาก</string>
+    <string name="noti_reply">ตอบกลับ</string>
+    <string name="downloading">กำลังดาวโหลด</string>
+    <string name="new_interaction_upper">การโต้ตอบใหม่</string>
+    <!-- Login Screen -->
+    <string name="second_welcome">กำลังซิงค์ข้อมูล</string>
+    <string name="second_info">เยี่ยม!\n\n\n\n</string>
+    <string name="third_info">\n\n-- Luke Klinker</string>
+    <string name="syncing_timeline">กำลังซิงค์ไทม์ไลน์...</string>
+    <string name="syncing_mentions">กำลังซิงค์เมนชั่น...</string>
+    <string name="syncing_direct_messages">กำลังซิงค์ข้อความส่วนตัว</string>
+    <string name="no_network">คุณไม่ได้เชื่อมต่ออินเตอร์เน็ต</string>
+    <!-- Compose New Activity -->
+    <string name="compose_tweet_hint">พิมทวีตที่นี่...</string>
+    <!-- Actionbar Done-Discard -->
+    <!-- Other -->
+    <string name="cancel">ยกเลิก</string>
+    <string name="tweet_success">ทวีตสำเร็จ</string>
+    <string name="ok">ตกลง</string>
+    <string name="no">ไม่</string>
+    <string name="changelog">มีอะไรใหม่</string>
+    <string name="from_file">แนบรูปภาพ</string>
+    <string name="via">ผ่านทาง</string>
+    <string name="version">เวอร์ชั่น</string>
+    <!-- User Profile Activity -->
+    <string name="following">กำลังติดตาม</string>
+    <string name="update">อัพเดต</string>
+    <!-- Retweets Activity -->
+    <string name="retweeter">รีทวีตโดย @</string>
+    <!-- Tweet Activity -->
+    <string name="menu_share">แชร์ทวีต</string>
+    <string name="menu_delete_tweet">ลบทวีต</string>
+    <string name="conversation">บทสนทนา</string>
+    <string name="saving_picture">กำลังบันทึกรูปภาพ</string>
+    <string name="favorite_success">ชื่นชอบสำเร็จ</string>
+    <string name="success">สำเร็จ</string>
+    <!-- User Lists -->
+    <string name="delete_list">ลบลิสต์</string>
+    <string name="from_list">จากลิสต์</string>
+    <string name="create_new_list">สร้างลิสต์ใหม่</string>
+    <string name="list_name">ชื่อลิสต์...</string>
+    <string name="sPrivate">ส่วนตัว</string>
+    <string name="sPublic">สาธารณะ</string>
+    <string name="choose_list">เลือกลิสต์</string>
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <string name="theme_settings">ตั้งค่าธีม</string>
+    <string name="theme">ธีม</string>
+    <string name="text_size">ขนาดตัวอักษร</string>
+    <string name="enable_emojis">เปิดใช้อีโมจิ</string>
+    <string name="to_market">ไปยัง Play Store</string>
+    <string name="emoji_dialog_summary">"การเปิดใช้อีโมจิในแอพนี้ คุณจำเป็นต้องมี \"Sliding Emoji Keyboard\" หรือ \"Sliding Emoji Keyboard - iOS\" ที่ติดตั้งจาก Play Store \n\n
+
+"</string>
+    <string name="theme_dark">ธีมมืด</string>
+    <string name="theme_black">ธีมสีดำ</string>
+    <string name="sync_settings">ตั้งค่าการซิงค์</string>
+    <string name="notifications">การแจ้งเตือน</string>
+    <string name="sound">เสียงแจ้งเตือน</string>
+    <string name="sync_success">ซิงค์สำเร็จ</string>
+    <string name="notification_settings">ตั้งค่าการแจ้งเตือน</string>
+    <string name="extra_pages_summary">เพิ่มหน้าลิงก์และรูปภาพทางซ้ายของไทม์ไลน์</string>
+    <string name="cache_dialog">ลบแคช?</string>
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <string name="five_mins">5 นาที</string>
+    <string name="ten_mins">10 นาที</string>
+    <string name="twenty_mins">20 นาที</string>
+    <string name="thirty_mins">30 นาที</string>
+    <string name="fourty_five_mins">45 นาที</string>
+    <string name="one_hour">1 ชั่วโมง</string>
+    <string name="two_hours">2 ชั่วโมง</string>
+    <string name="three_hours">3 ชั่วโมง</string>
+    <string name="four_hours">4 ชั่วโมง</string>
+    <string name="layout_hangouts">แฮงเอาท์</string>
+    <!-- added after release -->
+    <string name="notification_types">ประเภทการแจ้งเตือน</string>
+    <string name="new_followers">ผู้ติดตามใหม่</string>
+    <string name="follows_you">ติดตามคุณ</string>
+    <string name="roboto_condensed">Roboto Condensed</string>
+    <string name="our_website">เว็บไซต์</string>
+    <string name="timeline_notifications">แจ้งเตือนไทม์ไลน์</string>
+    <string name="interactions_notifications">แจ้งเตือนการโต้ตอบ</string>
+    <string name="timelines_settings">ตั้งค่าไทม์ไลน์</string>
+    <string name="edit">แก้ไข</string>
+    <string name="use_twitpic">ใช้ TwitPic</string>
+    <string name="loading">กำลังโหลด</string>
+    <string name="loading_tweets">กำลังโหลดทวีต...</string>
+    <string name="menu_share_link">แบ่งปันลิงก์</string>
+    <string name="page_1">หน้าที่ 1</string>
+    <string name="page_2">หน้าที่ 2</string>
+    <string name="load_tweets">โหลดทวีต</string>
+    <string name="compose_dm_hint">พิมพ์ข้อความส่วนตัวที่นี่...</string>
+    <string name="pwiccer">Pwiccer</string>
+    <string name="menu_save_search">บันทึกการค้นหา</string>
+    <string name="version_two">เวอร์ชั่น 2.0.0</string>
+    <string name="city">เมือง</string>
+    <string name="widget_light">ธีมสว่าง</string>
+    <string name="ui_settings">ตั้งค่า UI</string>
+    <string name="show_pos_dashclock">แสดงตำแหน่งไทม์ไลน์</string>
+    <!-- Long click methods -->
+</resources>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/tweet_look_options" >
+
+        <CheckBoxPreference
+            android:key="inline_pics"
+            android:title="@string/inline_pics"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="both_handle_name"
+            android:title="@string/handle_and_name"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="display_screen_name"
+            android:title="@string/use_screen_name"
+            android:summary="@string/use_screen_name_summary"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="military_time"
+            android:title="@string/timestamp"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="absolute_date"
+            android:title="@string/absolute_date"
+            android:defaultValue="false"
+            />
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/limiting_options" >
+
+        <Preference
+            android:key="manage_mutes"
+            android:title="@string/muted_users"
+            />
+
+        <Preference
+            android:key="manage_mutes_rt"
+            android:title="@string/muted_rts"
+            />
+
+        <Preference
+            android:key="manage_mutes_hashtags"
+            android:title="@string/muted_hashtags"
+            android:summary="@string/muted_hashtags_summary"
+            />
+
+        <Preference
+            android:key="manage_muted_clients"
+            android:title="@string/muted_clients"
+            android:summary="@string/muted_clients_summary"
+            />
+
+        <Preference
+            android:key="mute_regex"
+            android:title="@string/mute_expression"
+            android:summary="@string/regex_disclaimer"
+            />
+
+        <Preference
+            android:key="manage_regex_mute"
+            android:title="@string/view_muted_expressions"
+            />
+
+        <CheckBoxPreference
+            android:key="ignore_retweets"
+            android:title="@string/ignore_retweets"
+            android:summary="@string/ignore_retweets_summary"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="show_muted_mentions"
+            android:title="@string/show_muted_mentions"
+            android:defaultValue="false"
+            />
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/other_options" >
+
+        <ListPreference
+            android:key="viewer_page"
+            android:title="@string/viewer_page"
+            android:summary="@string/viewer_page_summary"
+            android:defaultValue="0"
+            android:entries="@array/viewer_page"
+            android:entryValues="@array/viewer_page_inserted"
+            />
+
+        <CheckBoxPreference
+            android:key="reverse_click_option"
+            android:title="@string/reverse_click_actions"
+            android:summary="@string/reverse_click_actions_summary"
+            android:defaultValue="true"
+            />
+
+        <Preference
+            android:key="pages"
+            android:title="@string/configure_pages"
+            />
+
+        </PreferenceCategory>
+
+</PreferenceScreen>

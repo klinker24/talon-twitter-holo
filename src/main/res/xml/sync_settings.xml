@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/push_notification_options" >
+
+        <Preference
+            android:summary="@string/push_notification_warning" >
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://plus.google.com/117432358268488452276/posts/31oSKEmMFnq" />
+        </Preference>
+
+        <CheckBoxPreference
+            android:key="push_notifications"
+            android:title="@string/push_notifications"
+            android:summary="@string/push_notifications_summary"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="live_streaming"
+            android:title="@string/live_streaming"
+            android:defaultValue="true"
+            android:dependency="push_notifications"
+            />
+
+        <Preference
+            android:key="fill_gaps"
+            android:title="@string/fill_gaps"
+            android:summary="@string/fill_gaps_summary"
+            android:dependency="push_notifications"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="auto_refresh_category"
+        android:title="@string/auto_refresh_category" >
+
+        <CheckBoxPreference
+            android:key="sync_mobile_data"
+            android:title="@string/sync_mobile_data"
+            android:summary="@string/sync_mobile_data_summary"
+            android:defaultValue="true"
+            />
+
+        <!-- Default of 30 mins -->
+        <ListPreference
+            android:key="timeline_sync_interval"
+            android:title="@string/timeline_sync_interval"
+            android:defaultValue="0"
+            android:entries="@array/sync_interval"
+            android:entryValues="@array/sync_interval_inserted"
+            />
+
+        <!-- Default of 30 mins -->
+        <ListPreference
+            android:key="mentions_sync_interval"
+            android:title="@string/mentions_sync_interval"
+            android:defaultValue="0"
+            android:entries="@array/sync_interval"
+            android:entryValues="@array/sync_interval_inserted"
+            />
+
+        <!-- Default of 30 mins -->
+        <ListPreference
+            android:key="dm_sync_interval"
+            android:title="@string/dm_sync_interval"
+            android:defaultValue="0"
+            android:entries="@array/sync_interval"
+            android:entryValues="@array/sync_interval_inserted"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pre_cache_settings" >
+
+        <CheckBoxPreference
+            android:key="pre_cache_images"
+            android:title="@string/pre_cache_images"
+            android:summary="@string/pre_cache_summary"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="pre_cache_wifi_only"
+            android:title="@string/pre_cache_only_wifi"
+            android:defaultValue="false"
+            android:dependency="pre_cache_images"
+            />
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="other_options"
+        android:title="@string/other_options" >
+
+        <CheckBoxPreference
+            android:key="sync_second_mentions"
+            android:title="@string/sync_second_mentions"
+            android:summary="@string/sync_second_mentions_summary"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="refresh_on_start"
+            android:title="@string/refresh_on_startup"
+            android:defaultValue="false"
+            />
+
+        <ListPreference
+            android:key="max_tweets"
+            android:title="@string/max_number_on_refresh"
+            android:summary="@string/max_number_summary"
+            android:defaultValue="1"
+            android:entries="@array/max_number"
+            android:entryValues="@array/max_number_inserted"
+            />
+
+        <Preference
+            android:key="sync_friends"
+            android:title="@string/sync_friends"
+            android:summary="@string/sync_friends_summary2"
+            />
+
+        </PreferenceCategory>
+
+
+</PreferenceScreen>

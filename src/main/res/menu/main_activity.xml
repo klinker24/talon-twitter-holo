@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_dismiss"
+        android:orderInCategory="1"
+        android:title="@string/dismiss_all"
+        android:showAsAction="always"
+        android:icon="?cancelButton"/>
+
+    <item android:id="@+id/menu_search"
+        android:orderInCategory="2"
+        android:title="@string/search"
+        android:showAsAction="always"
+        android:icon="?searchIcon"
+        android:actionViewClass="android.widget.SearchView" />
+
+    <item android:id="@+id/menu_compose"
+          android:orderInCategory="3"
+          android:title="@string/menu_compose"
+          android:showAsAction="always"
+          android:icon="?sendButton" />
+
+    <item android:id="@+id/menu_notifications"
+        android:orderInCategory="4"
+        android:title="@string/notifications"
+        android:showAsAction="always"
+        android:icon="?notification_button_empty" />
+
+    <item android:id="@+id/menu_direct_message"
+          android:orderInCategory="5"
+          android:title="@string/menu_direct_message"
+          android:showAsAction="never" />
+
+    <item android:id="@+id/menu_settings"
+          android:orderInCategory="6"
+          android:title="@string/menu_settings"
+          android:showAsAction="never" />
+
+    <item android:id="@+id/menu_to_first"
+        android:orderInCategory="7"
+        android:title="@string/jump_to_top"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/menu_tweetmarker"
+          android:orderInCategory="8"
+          android:title="@string/fetch_tweetmarker"
+          android:showAsAction="never" />
+
+    <item android:id="@+id/menu_get_help"
+          android:orderInCategory="15"
+          android:title="@string/help_and_feedback"
+          android:showAsAction="never" />
+
+</menu>

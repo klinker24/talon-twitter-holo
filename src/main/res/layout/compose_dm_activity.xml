@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="?compose_window_background"
+              android:layout_marginBottom="5dp">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="56dp"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical"
+                          android:paddingLeft="12dp" >
+
+                <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+                        android:id="@+id/profile_pic"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:minHeight="42dp" android:minWidth="42dp"
+                        android:scaleType="centerCrop" android:adjustViewBounds="true"
+                        android:maxWidth="42dp" android:maxHeight="42dp"/>
+
+                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                        android:id="@+id/current_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:textSize="16dp"
+                        android:paddingLeft="12dp"/>
+
+                <ImageButton
+                        android:id="@+id/discard_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="Attach Image"
+                        android:background="@drawable/pressed_toast"
+                        android:src="?cancelButton"
+                        android:gravity="center"
+                        android:layout_gravity="center" />
+
+            </LinearLayout>
+
+            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                    android:id="@+id/reply_to"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:padding="18dp"
+                    android:textSize="14sp"
+                    android:textColor="?dateColor"
+                    android:visibility="gone"/>
+
+            <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+                    android:id="@+id/contact_entry"
+                    android:layout_width="match_parent"
+                    android:contentDescription="Enter Contact"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/send_to"
+                    android:gravity="top"
+                    android:padding="15dp"
+                    android:textSize="16sp"
+                    android:background="@android:color/transparent" />
+
+
+            <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+                    android:id="@+id/tweet_content"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textColor="?textColor"
+                    android:padding="15dp"
+                    android:layout_gravity="top"
+                    android:layout_marginBottom="12dp"
+                    android:textSize="16sp"
+                    android:hint="@string/compose_dm_hint"
+                    android:gravity="top"
+                    android:background="@android:color/transparent"
+                    android:inputType="textCapSentences|textMultiLine" />
+
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/prompt_pos" />
+
+            <HorizontalScrollView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:fillViewport="true"
+                                  android:paddingBottom="10dp">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <View android:layout_width="16dp" android:layout_height="match_parent" />
+
+                    <ImageView
+                            android:id="@+id/picture1"
+                            android:layout_height="150dp"
+                            android:layout_width="150dp"
+                            android:padding="4dp"
+                            android:background="@drawable/ic_cancel_dark"
+                            android:minHeight="150dp" android:minWidth="150dp"
+                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:maxWidth="150dp" android:maxHeight="150dp"
+                            android:visibility="gone"/>
+
+                    <ImageView
+                            android:id="@+id/picture2"
+                            android:layout_height="150dp"
+                            android:layout_width="150dp"
+                            android:padding="4dp"
+                            android:background="@drawable/ic_cancel_dark"
+                            android:minHeight="150dp" android:minWidth="150dp"
+                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:maxWidth="150dp" android:maxHeight="150dp"
+                            android:visibility="gone"/>
+
+                    <ImageView
+                            android:id="@+id/picture3"
+                            android:layout_height="150dp"
+                            android:layout_width="150dp"
+                            android:padding="4dp"
+                            android:background="@drawable/ic_cancel_dark"
+                            android:minHeight="150dp" android:minWidth="150dp"
+                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:maxWidth="150dp" android:maxHeight="150dp"
+                            android:visibility="gone"/>
+
+                    <ImageView
+                            android:id="@+id/picture4"
+                            android:layout_height="150dp"
+                            android:layout_width="150dp"
+                            android:padding="4dp"
+                            android:background="@drawable/ic_cancel_dark"
+                            android:minHeight="150dp" android:minWidth="150dp"
+                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:maxWidth="150dp" android:maxHeight="150dp"
+                            android:visibility="gone"/>
+
+                    <View android:layout_width="16dp" android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="?drawerDividerColor">
+
+        <ImageButton
+                android:id="@+id/attach"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Attach Image"
+                android:background="@drawable/pressed_toast"
+                android:src="?attachButton"
+                android:gravity="center"
+                android:layout_gravity="center" />
+
+
+        <ImageButton
+                android:id="@+id/emoji"
+                android:layout_height="48dp"
+                android:layout_width="48dp"
+                android:contentDescription="Add Emojis"
+                android:src="?emoji_button_changing"
+                android:background="@drawable/pressed_toast"
+                android:minHeight="48dp" android:minWidth="48dp"
+                android:scaleType="center" android:adjustViewBounds="true"
+                android:maxWidth="48dp" android:maxHeight="48dp" />
+
+        <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/send_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@drawable/pressed_toast"
+                android:paddingLeft="10dp">
+
+            <TextView
+                    android:id="@+id/char_remaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"/>
+
+            <ImageView
+                    android:layout_height="48dp"
+                    android:layout_width="48dp"
+                    android:contentDescription="Send Button"
+                    android:src="?sendButton"
+                    android:focusable="false"
+                    android:minHeight="48dp" android:minWidth="48dp"
+                    android:scaleType="center" android:adjustViewBounds="true"
+                    android:maxWidth="48dp" android:maxHeight="48dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/emoji_keyboard"/>
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<!-- The main content view -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ptr_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout android:id="@+id/spinner"
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+            android:indeterminateOnly="true" />
+
+        <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading_tweets"
+            android:textColor="?textColor"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/load_tweets"
+        android:orientation="vertical"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/load_tweets_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load_tweets"/>
+    </LinearLayout>
+
+    <org.lucasr.smoothie.AsyncListView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:scrollbars="vertical"
+        android:background="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:visibility="gone"
+        />
+
+    <LinearLayout android:id="@+id/toastBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:id="@+id/toast_background"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/toast_color"
+            android:baselineAligned="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:id="@+id/toastDescription"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textAllCaps="true"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/white"
+                android:alpha="20"/>
+
+            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:id="@+id/toastButton"
+                android:background="@drawable/pressed_toast"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:contentDescription="To First"
+                android:textAllCaps="true"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

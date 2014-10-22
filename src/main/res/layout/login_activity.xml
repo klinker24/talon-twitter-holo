@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <LinearLayout android:id="@+id/mainLayout"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center_vertical"
+                  android:padding="25dp" >
+
+        <LinearLayout
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="300dp"  >
+
+            <TextSwitcher
+                    android:id="@+id/welcome"
+                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:textSize="30dp"
+                    android:textColor="?textColor" />
+
+            <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:id="@+id/progress_bar"
+                    android:minHeight="24dip"
+                    android:maxHeight="24dip"
+                    app:spb_color="@color/app_color"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"  />
+
+            <TextSwitcher
+                    android:id="@+id/progress_desc"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="?textColor"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:visibility="invisible"/>
+
+            <TextSwitcher
+                    android:id="@+id/info"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="?textColor"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+        <!-- Twitter Login Button -->
+        <LinearLayout
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="fill_parent"
+                      android:gravity="center">
+
+            <Button android:id="@+id/btnLoginTwitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Progress through Login"
+                android:text="@string/login_to_twitter"/>
+
+            <Button android:id="@+id/dont_follow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Follow Talon"
+                android:text="@string/follow_me"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/loginWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>

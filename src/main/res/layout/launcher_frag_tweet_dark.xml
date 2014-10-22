@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/background"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:layoutDirection="ltr"
+        android:background="@drawable/pressed_button" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+
+            <!-- The tweeters picture -->
+            <ImageView
+                android:layout_width="@dimen/pro_pic_size"
+                android:layout_height="@dimen/pro_pic_size"
+                android:id="@+id/profile_pic"
+                android:contentDescription="Profile Picture"
+                android:src="@drawable/square_border_dark"
+                android:minHeight="@dimen/pro_pic_size" android:minWidth="@dimen/pro_pic_size"
+                android:scaleType="centerCrop"
+                android:maxWidth="@dimen/pro_pic_size" android:maxHeight="@dimen/pro_pic_size"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_height="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_text"
+                    android:paddingTop="4dp"
+                    android:singleLine="true"
+                    android:gravity="center_vertical"
+                    android:fontFamily="sans-serif-light" />
+
+                <TextView
+                    android:id="@+id/screenname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/dark_date"
+                    android:singleLine="true"
+                    android:gravity="center_vertical"
+                    android:fontFamily="sans-serif-light" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="6dp"
+                android:gravity="right|bottom"
+                android:paddingBottom="6dp"
+                android:textColor="@color/dark_date"
+                android:fontFamily="sans-serif-light" />
+
+        </LinearLayout>
+
+        <!-- Holds the name, screen name, and time-->
+
+        <TextView
+            android:id="@+id/tweet"
+            android:tag="tweet"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/dark_text"
+            android:paddingTop="6dp" />
+
+        <TextView
+            android:id="@+id/retweeter"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:paddingBottom="4dp"
+            android:paddingTop="3dp"
+            android:gravity="right"
+            android:textColor="@color/dark_date"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/placeholder"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/expansion"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="3dp"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/quote_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_action_reply_all_dark"
+                        android:contentDescription="Quote Tweet"
+                        android:minHeight="32dp" android:minWidth="32dp"
+                        android:scaleType="fitCenter" android:adjustViewBounds="true"
+                        android:maxWidth="32dp" android:maxHeight="32dp"
+                        android:background="@drawable/pressed_button"
+                        android:layout_marginLeft="5dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="37dp"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/share_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Share"
+                        android:minHeight="37dp" android:minWidth="37dp"
+                        android:scaleType="fitCenter" android:adjustViewBounds="true"
+                        android:maxWidth="37dp" android:maxHeight="37dp"
+                        android:background="@drawable/pressed_button"
+                        android:src="@drawable/ic_action_share_dark"/>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/favorite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Favorite Tweet"
+                        android:src="@drawable/ic_action_not_important_dark"
+                        android:background="@drawable/pressed_button"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal|bottom"
+                        android:orientation="horizontal"
+                        android:layoutDirection="ltr">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:minHeight="32dp" android:minWidth="32dp"
+                            android:scaleType="fitCenter" android:adjustViewBounds="true"
+                            android:maxWidth="32dp" android:maxHeight="32dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|right"
+                            android:layoutDirection="ltr">
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="-4dp"
+                                android:layout_marginBottom="2dp"
+                                android:textSize="13dp"
+                                android:singleLine="true"
+                                android:paddingRight="3dp"
+                                android:fontFamily="sans-serif-light"
+                                android:id="@+id/fav_count" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="37dp"
+                    android:layout_weight="2">
+
+                    <ImageButton
+                        android:id="@+id/retweet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Retweet"
+                        android:src="@drawable/ic_action_repeat_dark"
+                        android:background="@drawable/pressed_button"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal|bottom"
+                        android:orientation="horizontal"
+                        android:layoutDirection="ltr">
+
+                        <ImageView
+                            android:layout_width="37dp"
+                            android:layout_height="37dp"
+                            android:minHeight="37dp" android:minWidth="37dp"
+                            android:scaleType="fitCenter" android:adjustViewBounds="true"
+                            android:maxWidth="37dp" android:maxHeight="37dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|right"
+                            android:layoutDirection="ltr">
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="-4dp"
+                                android:layout_marginBottom="2dp"
+                                android:paddingRight="3dp"
+                                android:textSize="13dp"
+                                android:singleLine="true"
+                                android:gravity="bottom|right"
+                                android:id="@+id/retweet_count"
+                                android:fontFamily="sans-serif-light" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
+
+                <EditText
+                    android:id="@+id/reply"
+                    android:layout_height="50dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="@string/reply"
+                    android:contentDescription="Reply"
+                    android:textSize="14dp"
+                    android:fontFamily="sans-serif-light"
+                    android:background="@drawable/twitter_edit_text_holo_dark"
+                    android:inputType="textMultiLine|textCapSentences"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/play_button"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/ic_action_play"
+                android:layout_height="275dp"
+                android:layout_width="match_parent"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_text_drawer" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

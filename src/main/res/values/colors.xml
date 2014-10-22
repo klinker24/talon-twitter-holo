@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+
+    <color name="app_color">#FF8800</color>
+    <color name="pressed_app_color">#77FF8800</color>
+    <color name="holo_blue">#33B5E5</color>
+    <color name="holo_blue_alpha">#4433B5E5</color>
+    <color name="pressed_white">#55ffffff</color>
+    <color name="pressed_dark">#55000000</color>
+    <color name="toast_color">#DDFF8800</color>
+    <color name="image_darken">#25222222</color>
+    <color name="photo_dialog_background">#90000000</color>
+    <color name="white_divider">#40ffffff</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Light Theme -->
+    <color name="light_ptr_1">#80FFFFFF</color>
+    <color name="light_ptr_2">#4DFFFFFF</color>
+    <color name="light_background">#dddddd</color>
+    <color name="light_background_settings">#f6f6f6</color>
+    <color name="light_text">#020202</color>
+    <color name="light_text_drawer">#20020202</color>
+    <color name="light_date">#555555</color>
+    <color name="light_drawer">#ffffff</color>
+    <color name="emoji_divider_light">#22333333</color>
+    <color name="circle_outline_light">#AA444444</color>
+    <color name="action_bar_light">#DDDDDD</color>
+    <color name="light_message">#FFFFFF</color>
+    <color name="border_light">#18222222</color>
+    <color name="icon_light">#CC5c5c5c</color>
+
+    <!-- Dark Theme -->
+    <color name="dark_background">#262626</color>
+    <color name="dark_text">#f4f4f4</color>
+    <color name="dark_text_drawer">#20f4f4f4</color>
+    <color name="dark_date">#989898</color>
+    <color name="dark_drawer">#292929</color>
+    <color name="emoji_divider_dark">#22000000</color>
+    <color name="circle_outline_dark">#AAAAAAAA</color>
+    <color name="action_bar_dark">#1B1B1B</color>
+    <color name="dark_message">#404040</color>
+    <color name="border_dark">#18FFFFFF</color>
+    <color name="icon_dark">#CCebebeb</color>
+
+    <!-- Black Theme -->
+    <color name="action_bar_black">@android:color/black</color>
+    <color name="black_message">#171717</color>
+    <color name="black_background">#000000</color>
+
+
+    <!-- Widgets -->
+    <color name="widget_dark_trans_ab">#99000000</color>
+    <color name="widget_dark_trans_list">#66000000</color>
+    <color name="widget_light_trans_ab">#99FFFFFF</color>
+    <color name="widget_light_trans_list">#66FFFFFF</color>
+
+</resources>

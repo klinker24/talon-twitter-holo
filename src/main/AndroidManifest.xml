@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.klinker.android.twitter">
+
+    <uses-sdk tools:overrideLibrary="android.support.v13,android.support.v4,android.support.v7.cardview,android.support.wearable"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+            android:name=".data.App"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:hardwareAccelerated="true"
+            android:supportsRtl="true" >
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/play_services_version" />
+
+        <provider
+            android:name=".data.sq_lite.HomeContentProvider"
+            android:multiprocess="true"
+            android:exported="true"
+            android:authorities="com.klinker.android.twitter.provider" />
+
+        <activity android:name=".ui.setup.TutorialActivity"
+            android:theme="@style/Theme.Tutorial"/>
+
+        <activity android:name=".ui.MainActivity"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+                  android:launchMode="singleTop"
+                  android:theme="@style/Theme.TalonDark" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.RetweetActivity"
+                  android:label="@string/retweets"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize"
+                  android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".manipulations.PhotoViewerDialog"
+                    android:configChanges="orientation|screenSize"
+                    android:theme="@style/Theme.PhotoViewerDark" />
+
+        <activity android:name=".manipulations.LauncherPhotoViewerDialog"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.PhotoViewerDark.Popup" />
+
+        <activity android:name=".ui.drawer_activities.FavoritesActivity"
+                  android:label="@string/favorite_tweets"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize"
+                  android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.FavoriteUsersActivity"
+            android:label="@string/favorite_users"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.lists.ViewUsers"
+            android:label="@string/favorite_users"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.discover.DiscoverPager"
+            android:label="@string/local_trends"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.lists.ListsActivity"
+            android:label="@string/lists"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.scheduled_tweets.NewScheduledTweet"
+            android:label="@string/scheduled_tweets"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.scheduled_tweets.ViewScheduledTweets"
+            android:label="@string/scheduled_tweets"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.SavedSearchesActivity"
+            android:label="@string/saved_searches"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.lists.ChoosenListActivity"
+            android:label="@string/lists"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.DirectMessageConversation"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".settings.configure_pages.ConfigurePagerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark"
+            />
+
+        <activity android:name=".settings.configure_pages.ListChooser"
+            android:label="@string/lists"
+            android:theme="@style/Theme.TalonDark"
+            />
+
+        <activity android:name=".ui.search.SearchPager"
+            android:label="@string/search"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="twitter.com" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="mobile.twitter.com" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="twitter.com" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="mobile.twitter.com"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="www.twitter.com" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="www.mobile.twitter.com" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="www.twitter.com" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="www.mobile.twitter.com"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.discover.trends.SearchedTrendsActivity"
+            android:label="@string/trends"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.TalonDark.Popup" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.discover.trends.LauncherSearchedTrends"
+            android:label="@string/trends"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleInstance"
+            android:exported="true"
+            android:theme="@style/Theme.TalonDark.Popup" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+
+        <activity android:name=".ui.setup.LoginActivity"
+                  android:label="@string/app_name_full"
+                  android:configChanges="orientation|screenSize"
+                  android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.setup.Version2Setup"
+            android:label="@string/app_name_full"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.BrowserActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="@string/app_name_full"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.PlainTextBrowserActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="@string/app_name_full"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.MainActivityPopup"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark.Popup"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".ui.launcher_page.LauncherPopup"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark.Popup"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.RedirectToPopup"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark.Popup"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.RedirectToLauncherPopup"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark.Popup"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.RedirectToTimeline"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.RedirectToMentions"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.RedirectToDMs"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.RedirectToDrawer"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <activity android:name=".utils.redirects.SwitchAccountsRedirect"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonDark" >
+        </activity>
+
+        <activity android:name=".ui.compose.ComposeActivity"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation|screenSize"
+                  android:launchMode="singleTop"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+                  android:theme="@style/Theme.TalonDark.Popup" >
+
+        </activity>
+
+        <activity android:name=".ui.compose.NotificationCompose"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.compose.NotificationComposeSecondAcc"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+                  android:launchMode="singleInstance"
+                  android:excludeFromRecents="true"
+                  android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.compose.NotificationDMCompose"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.compose.RetryCompose"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.TalonDark.Popup" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".ui.compose.WidgetCompose"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.compose.LauncherCompose"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:theme="@style/Theme.TalonDark.Popup" >
+        </activity>
+
+        <activity android:name=".ui.compose.ComposeDMActivity"
+                  android:label="@string/compose_activity"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+                  android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".settings.FAQActivity"
+            android:label="@string/faq"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".settings.FeaturesActivity"
+            android:label="@string/features_explained"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.tweet_viewer.TweetPager"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+                  android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.tweet_viewer.LauncherTweetPager"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.tweet_viewer.NotiTweetPager"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.tweet_viewer.ViewRetweeters"
+            android:label="@string/view_retweeters"
+            android:configChanges="orientation"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.tweet_viewer.ViewPictures"
+            android:label="@string/pictures"
+            android:configChanges="orientation"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.drawer_activities.discover.people.PeopleSearch"
+            android:label="@string/suggested_users"
+            android:configChanges="orientation"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.tweet_viewer.TweetActivityWidget"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.profile_viewer.ProfilePager"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+                  android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".ui.profile_viewer.LauncherProfilePager"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/Theme.TalonDark.Popup">
+        </activity>
+
+        <activity android:name=".settings.SettingsActivity"
+            android:label="@string/talon_settings"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.TalonDark">
+        </activity>
+
+        <activity android:name=".settings.PrefActivity"
+                  android:label="@string/talon_settings"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+                  android:launchMode="singleTop"
+                  android:theme="@style/Theme.TalonDark">
+        </activity>
+
+        <service android:name=".services.TalonPullNotificationService">
+        </service>
+
+        <service android:name=".services.SendTweet">
+        </service>
+
+
+        <service android:name=".services.SendQueue">
+        </service>
+
+        <service android:name=".services.CatchupPull">
+        </service>
+
+        <service android:name=".services.StopPull">
+        </service>
+
+        <service android:name=".services.PreCacheService"
+                android:exported="true">
+        </service>
+
+        <service android:name=".services.MarkReadService">
+        </service>
+
+        <service android:name=".services.MarkReadSecondAccService">
+        </service>
+
+        <service android:name=".services.ReadInteractionsService">
+        </service>
+
+        <service android:name=".services.TimelineRefreshService"
+                android:exported="true">
+        </service>
+
+        <service android:name=".services.WidgetRefreshService">
+        </service>
+
+        <service android:name=".services.MentionsRefreshService"
+            android:exported="true">
+        </service>
+
+        <service android:name=".services.SecondMentionsRefreshService">
+        </service>
+
+        <service android:name=".services.DirectMessageRefreshService">
+        </service>
+
+        <service android:name=".services.SendScheduledTweet">
+        </service>
+
+        <service android:name=".services.TrimDataService">
+        </service>
+
+        <service android:name=".ui.launcher_page.HandleScrollService"
+            android:exported="true" >
+        </service>
+
+        <service android:name=".ui.launcher_page.SetAccount"
+                 android:exported="true" >
+        </service>
+
+        <service android:name=".ui.launcher_page.StartPull"
+                 android:exported="true" >
+        </service>
+
+        <service android:name=".services.TweetWearableService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".receivers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.NotificationDeleteReceiverOne"
+                  android:exported="true"/>
+
+        <receiver android:name=".receivers.NotificationDeleteReceiverTwo"
+                  android:exported="true"/>
+
+        <receiver android:name=".receivers.ConnectivityChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.QueueTweets" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.ThemeConfigurationReceiver"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.klinker.android.SET_THEME"/>
+            </intent-filter>
+        </receiver>
+
+        <provider android:name=".utils.MySuggestionsProvider"
+            android:authorities="com.klinker.android.MySuggestionsProvider" />
+
+        <!-- Widget -->
+        <receiver android:name=".widget.WidgetProvider"
+            android:label="@string/talon_large_widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.klinker.android.talon.UPDATE_WIDGET" />
+            </intent-filter>
+
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/card_widget" />
+        </receiver>
+
+        <!-- unread widget -->
+        <receiver android:name=".widget.UnreadWidgetProvider"
+            android:label="@string/unread_bar_widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.klinker.android.talon.UPDATE_WIDGET" />
+            </intent-filter>
+
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/unread_widget" />
+        </receiver>
+
+        <activity android:name=".widget.WidgetProxyActivity"
+            android:theme="@style/Theme.TalonDark"/>
+        <service android:name="com.klinker.android.twitter.widget.WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <service android:name="com.klinker.android.twitter.widget.WidgetProvider$CardWidgetService2" />
+        <service android:name="com.klinker.android.twitter.widget.UnreadWidgetProvider$UnreadWidgetService" />
+
+        <!-- DashClock -->
+        <service android:name=".widget.TalonDashClockExtension"
+                     android:icon="@mipmap/ic_launcher"
+                     android:label="@string/app_name_full"
+                     android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+                     <intent-filter>
+                         <action android:name="com.google.android.apps.dashclock.Extension" />
+                     </intent-filter>
+                     <meta-data android:name="protocolVersion" android:value="2" />
+                     <meta-data android:name="worldReadable" android:value="true" />
+                     <meta-data android:name="description"
+                         android:value="@string/extension_description" />
+                     <meta-data android:name="settingsActivity"
+                         android:value=".settings.DashClockSettingsActivity" />
+                 </service>
+
+        <activity android:name=".settings.DashClockSettingsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TalonLight"
+            android:exported="true" />
+
+    </application>
+</manifest>

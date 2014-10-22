@@ -1,0 +1,283 @@
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<faq>
+    <question
+            name="Push Notifications"
+            description="Not going to happen, but....">
+
+        <text>
+            I am just going to say this now, before anyone asks: Push notifications will not be coming to Talon unless something changes with the Twitter APIs. I have created "Talon Pull" with is simply an always on, listening/streaming service that will receive new tweets from Twitter whenever your Twitter handle is included. To read more about this option, look at the "Talon Pull" section below the "Reasons" section.
+
+            REASONS:
+            This will be the more technical part of this post, if you don't want to read and understand it, then you will have to just accept my answer from above. If you don't accept that I know what I am talking about... Then by all means, read on, I will try to keep it as simple as possible.
+
+            To access Twitter, they have provided us with the REST APIs (currently version 1.1). These APIs allow developers to communicate with Twitter in real time by just submitting requests to get data from the network. They make it relatively simple - if you know what your doing - to obtain the data that they allow you to get and store, but there are plenty of limitations to these APIs, which make sense: Twitter is a completely free service and make their money off of advertisements. They want people to use their official Twitter products (such as the web or their own Android app) to access their services because they are able to place advertisements in them and that is the only way they make money. So they just aren't going to make some things available for 3rd party developers.
+
+            One of those things is their push notification system. As I said before, they allow us to access their services with these REST APIs, but they also have a Streaming API available so that a 3rd party service, such as this one, could be "always connected". Sounds great right? Maybe, maybe not. More testing probably needs to go into it, because it is very new in Talon. For the past few weeks though, I can say that it doesn't seem to take up much more battery than sycning on an intervol does. So try it and let me know. I have done the best I can to optimize this service, but if you want to know more about it, read below in the "Talon Pull" section
+
+            What these streaming APIs should be used for is a server side interaction that would then connect to GCM (Google Cloud Messaging) and send push notifications from there. I would love to say I am working on something like this, but it isn't possible for a developer like me. I don't have the time, resources, or knowledge to set up a complex server like this. The knowledge I could get, but I am a 20 year old kid, working off of this 1 MB/sec internet connection while being a full time college student at the University of Iowa. I wouldn't be able to handle the upkeep of the system like this or the traffic. I just don't have the backend necessary for this type of thing, and there aren't many developers who do. So push notifications from the server side? Way out of the question.
+
+            That leaves only one thing to do: wait. Maybe Twitter will open up some kind of push notification service to it's developers, but I wouldn't count on that. The ideal thing for them to do would be to set up their own GCM server for us to communicate with, but I don't see that as being likely at all because of the advertising. That would take away one of the main draws for their app, leaving it with almost nothing that 3rd party developers can't do. For now though, "Talon Pull" seems to be working well and I would encourage you all to try it out. Battery seems to be fine, the one drawback is that you must be connected to a datasource right when the interaction happens or it won't be saved or shown.
+
+
+            TALON PULL - My solution/workaround
+            As I said before, this is NOT push notifications. Push notifications are sent to your device to notify you from some kind of server. They aren't always on, and only turn on when your device receives the info from the web service.
+
+            Talon Pull on the other hand, uses Twitter's Streaming API to just create an "always on" service to be constantly listening for and streaming tweets that contain your Twitter Handle. The way this works is that you are signed in with your API keys after you turn on the option to enable Talon Pull. I then just create this "listener" that Twitter's servers will send new tweets to. Luckily, they will take care of most of the filtering of those tweets on their end, to reduce the load as much as possible on your device (because before the filtering, it literally will receive every single public tweet that is happening. It was amazing when I first flipped and saw the tweets flowing over my log haha). So we filter it down to as few of tweets actually reaching your device as possible, then I start broadcasting the notifications when you receive the new ones.
+
+            Overall, it is a relatively simple process, the problem with it though, you have probably already realized, you have to be constantly connected with a data service or the app won't know when to receive the new tweets. Obviously that is the part that is going to end up taking the battery (if it does), not "bloated" or "un-optimized" code as some of you I sure believed. So far though, through my testing, it doesn't seem to have a very big impact on battery overall, but I suppose that it potentially could if you are using Twitter that much more than I do.
+
+            If there was a better way, I wish I could find it. I think that this is the method that most 3rd party services use to send you those fake "push notifications". So there ya have it, hope you learned something. It works well and it is the only way to get a lot of information like who favorited or retweeted your statuses
+
+
+            CONCLUSION
+            Thanks for the read, if you made it all the way, hope that gives you an idea as to why push notifications just aren't even an option at this point and what my solution to that problem has been, even if it is not ideal.﻿ It works, and it seems to be working quite well for me.
+
+            So just know: "Talon Pull" isn't quite the same as push notifications, but it is as close as you are going to get and is working better for me than I would have ever imagined. Enjoy!
+        </text>
+
+    </question>
+
+    <question
+            name="Talon Pull Notification"
+            description="I do not like it in the drawer, can I remove it?">
+
+        <text>
+            This is something that will not be possible. That notification creates what is called a "foreground service" in Android. That tells the system to keep the process alive and running even when you start to run out of resources.
+
+            Without the notification, there would be nothing stopping the streaming service from getting shut down by the Android system.
+        </text>
+
+    </question>
+
+    <question
+            name="Favorites on a status"
+            description="I can see retweets, but where are the favorites??">
+
+        <text>
+            Unfortunately, Twitter does not allow third party apps direct access to who favorites a status. Bummer, I know :(
+
+            The only real solution I have, for at least viewing favorites on your own status, is to use "Talon Pull". This will allow you to get real time notifications for when someone favorites your own statuses.
+        </text>
+
+    </question>
+
+    <question
+            name="Viewing GIFs"
+            description="Twitter made this super cool and awesome feature, but I can't see them!">
+
+        <text>
+            If you read the last FAQ about favorites on your status, unfortunately this is the same deal. Twitter doesn't allow third party apps to view these GIFs.
+
+            Until something changes on their end with it, it isn't going to happen in Talon, sorry about that. Currently you can post animated GIFs though by hitting the attach button on the compose window and selecting "Animated GIF".
+
+            I know that TweetBot for iOS can do it now, but it isn't really the same as the official Twitter app and they just use some resources specific to iOS for that functionality. Not possible for me.
+        </text>
+
+    </question>
+
+    <question
+        name="Auto-Complete Users"
+        description="Not all of them show up..">
+
+        <text>
+            With Talon, you have the ability to simply type "@", then the name of a user and they will appear so that you can add them to the tweet.
+
+            You might notice that not all of the people you follow are available to mention with this auto-complete though. This is due to Twitter's rate limiting. Talon is only able to find the newest 300 users you follow.
+
+            To add more users to this auto-complete list, simply visit their profile.
+
+            If you want to start fresh with the latest 300 people you follow, use the "Sync Users" option under "Sync Settings".
+        </text>
+
+    </question>
+
+    <question
+            name="Logging into a second account"
+            description="I got to many people to keep track of here...">
+
+        <text>
+            Talon supports up to two accounts. It won't be more than that because of Twitter's token limit.
+
+            If you want to add your second account, simply click the down arrow on the right side of the main drawer, then the blank circle to start the login.
+        </text>
+
+    </question>
+
+    <question
+            name="Battery Consumption"
+            description="Here are some of my suggestions">
+
+        <text>
+            If you use Talon a lot throughout the day, it is going to take up battery, simple as that. I find that on a 30 min refresh intervol for the different timelines and manually going in and browsing/updating throughout the day, it takes about 4-5% of my battery. I would say this is pretty normal because there are days that Google+ takes up to 10% with just casual browsing.
+
+            If that isn't acceptable for you though, then there are a few things you can do to reduce battery consumption:
+            1.) Turn down the refresh interval on the timelines. This is the big one. It is those background services that are going to drain your battery.
+            2.) Turn off "Refresh on Startup".
+            3.) Turn off "Talon Pull" and "Live Streaming"
+            4.) Don't have it sync the second account's mentions
+
+            And if all else fails... Get off Twitter and do something productive for awhile =D haha any app that accesses the internet and refreshes as much as a Twitter client is inherently going to use more battery in the background. There are ways to reduce it, but not always ways around it!
+        </text>
+
+    </question>
+
+    <question
+            name="Streaming Problems"
+            description="Interactions aren't coming in like they should...">
+
+        <text>
+            This is a bit of a sore subject around 3rd party Twitter apps right now. Twitter has had lots of issues lately with users connecting to their streaming APIs as well as faulty error codes.
+
+            To check out their API page, go here: https://dev.twitter.com/overview/status
+
+            The main thing to check out from your streaming problems is the User Stream. It has unfortunately been marked as disrupted for months on end, without really any communication from Twitter about it's status or what is happening.
+
+            I am hopeful that they will be able to get it fixed, but if you are having problems with the stream, that is where they are coming from.
+
+            Some people are able to get around this problem by logging out (pressing the down arrow in the main drawer, then the "Logout" button at the bottom) and back in.
+        </text>
+
+    </question>
+
+    <question
+            name="Tweets do not refresh"
+            description="Your timeline doesn't want to refresh or other parts of the app aren't loading data...">
+
+        <text>
+           There could be a few different causes to this one:
+
+            1.) You are being rate limited.
+
+            Twitter only allows users to refresh their feeds 15 times in a 15 min period. If you go over that, there is nothing Talon can do to get your feed to refresh other than wait.
+
+            Other parts of the API are rate limited as well. You can check here for a list of all of them: https://dev.twitter.com/rest/public/rate-limits
+
+            All you can do to overcome the limit is to wait.
+
+            2.) If you are trying to refresh your home timeline, much like the streaming problems FAQ, Twitter has had some issues with it lately. Their Home Timeline APIs have been marked with performance issues for months. Sometimes it would seem that that just means slow, whereas other times, it would seem as though the data requests just time out.
+
+            Unfortunately I don't know much more than you on this one. If you can give me a LOG of it happening, then I can let you know what is causing it in the background. For more info on logs, there is another FAQ you can view.
+        </text>
+
+    </question>
+
+    <question
+            name="Remove Retweets"
+            description="Oops, did not actually want to press that button..">
+
+        <text>
+            Talon makes it pretty easy to remove a retweet if you know what you are doing. Just long click the retweet button and a dialog will come up about it.
+
+            It doesn't work quite like the favorite button because the backend data for those two actions is quite a bit different.
+        </text>
+
+    </question>
+
+    <question
+            name="Images do not upload"
+            description="Sometimes they fail, sometimes they go through">
+
+        <text>
+             Although Twitter hasn't come out and said anything about it, I fairly certain that the issue is on their end for this. Recently, their image upload APIs have undergone some massive changes for things like GIFs and multiple images. I think that that has something to do with the problems, because I have encounted them as well lately.
+
+            Technical response:
+            When they fail as of late, every single time it is marked with an error message that the user is unable to be authenticated. This cannot be the correct response to those failures, I believe they just do not have any better responses to send the client at this time.
+
+            Authentication cannot be the problem here because it is the same authentication used throughout the rest of the app. Talon need only provide the 4 tokens (consumer, user, consumer secret, and user secret) to authenticate with any of Twitter's APIs. Since these credentials work throughout the rest of the app, this cannot possibly be the problem, especially since it is off and on and they will work at some times and not others.
+        </text>
+
+
+    </question>
+
+    <question
+        name="Extra Pages"
+        description="Why only two? I need more!">
+
+        <text>
+            Unfortunately, every feature has it's consequences as well. I think the idea of user defined extra pages is awesome (access them from advanced settings by the way), but they also can potentially hog a ton of resources and slow things down...
+
+            Think about it, the more you have open and ready to view, as a single swipe away, the more resource intensive that activity will be. Talon is no exception.
+
+            I pride myself on the fact that Talon is one of the fastest and smoothest apps around. By allowing an unlimited number of extra pages or even increasing it to 5 would be a huge draw on the performance.
+
+            I chose two as a balance between functionality and performance, this is a decision I will be sticking with for the time being.
+        </text>
+    </question>
+
+    <question
+        name="Multiple Pictures"
+        description="Sometimes they do not show, why?">
+
+        <text>
+            As this is a relatively new feature, it does have some problems on the third party API. The main problems come when you are live streaming. For some reason, Twitter doesn't always send the "extended_entities" (which is what holds the extra pictures) when tweets are downloaded through their Streaming APIs.
+
+            This presents a pretty big problem for us because there is no indication that that tweet does in fact have more than one image. Hopefully Twitter gets this patched up eventually, although it seems to work off and on.
+
+            Until they get this done, note that you can always see multiple images in a tweet though by opening up the tweet viewer, then clicking on the image after the retweet and favorite counts have loaded.
+        </text>
+    </question>
+
+    <question
+            name="Debugging/Providing Logs"
+            description="Sometimes I have to actually know the backend to debug, not just the problem description">
+
+        <text>
+            Especially with something like Twitter and accessing another companies services, it can be hard to debug off of just a problem description when I cannot replicate that problem.
+
+            Image uploads and problems refreshing data are part of those situations. If you come to me asking about them, chances are, I will ask you to get me a log to help debug.
+
+            To get a log and learn about what they are, you can check out this post I wrote: http://goo.gl/wtUViQ
+        </text>
+
+    </question>
+
+    <question
+        name="Feature Requests"
+        description="Some people have much better ideas than me">
+
+        <text>
+            As a one person team making this app, unfortunately I can't possibly implement every single request from every single user. If you have something that you think is cool though, feel free to shoot me an email: support@klinkerapps.com
+
+            Just remember though, we do get a ton of requests and chances are someone has requested the same thing as you already :) sooo, here is a list of requests/features that I would like to get done. Unfortunately I cannot provide a timetable on them at this point, not even an estimate:
+
+            1.) More extra pages (like saved searches, search, and favorite tweets)
+            2.) 1x1 widget to compose tweets
+            3.) Tweetmarker in lists
+            4.) Easier manipulation of lists and what lists a user is in from their profiles
+            5.) Mute users for a time period
+            6.) Instagram video support
+            7.) Conversation indicator on tweets
+            8.) QSlide for LG devices
+            9.) User's lists on their profiles
+            10.) Twitter Cards
+            11.) Show info on a linked tweet (ie: one tweet contains a link to another)
+            12.) Notifications for saved searches
+            13.) Expand the widget for multiple account support and mention support
+
+
+            Things requested that won't happen at this point:
+
+            1.) Samsung multi-window support (it breaks some features and isn't something you can have an option for in settings)
+            2.) More extra pages (read the faq above)
+            3.) Viewing GIF support (check the faq above about GIFs)
+            4.) Integration with FaceBook or other social networks (this app will remain only a Twitter client)
+            5.) Vine support (they do not have a developer API to plug into at the moment)
+        </text>
+
+    </question>
+</faq>

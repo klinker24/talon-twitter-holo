@@ -1,0 +1,7 @@
+*Live Streaming*
+
+One of the cool things about the newest Twitter API is their Streaming API's. This gives developers some amazing tools to work with and use while crafting your user experience.
+
+One of the things that can be done with this Streaming API is the livestreaming of tweets to your timeline. Whenever someone tweets that you follow, it will automatically be saved and give you the option to load this tweet when you are in the app! An great way to get the latest news as soon as possible!
+
+Note that right now, the "Talon Pull" service and this "Live Streaming" service don't work that great together... So if you have "Talon Pull" enabled, "Live Streaming" will be automatically disabled. I will get it worked out soon enough, but I put these features in last week while I was relaxing on the beach and didn't have a ton of motivation to get more worked out ;P They will come together very soon!

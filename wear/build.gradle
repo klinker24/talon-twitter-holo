@@ -1,0 +1,73 @@
+/*
+ * Copyright (C) 2014 Jacob Klinker
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.13.3'
+    }
+}
+apply plugin: 'com.android.application'
+
+repositories {
+        mavenCentral()
+}
+
+android {
+    compileSdkVersion Integer.parseInt(project.TARGET_SDK)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.klinker.android.twitter"
+        minSdkVersion Integer.parseInt(project.MIN_SDK)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+
+    File keystore = new File("../keystore")
+    if (keystore.exists()) {
+        signingConfigs {
+            release {
+                storeFile file("../keystore")
+                storePassword "klinker1127"
+                keyAlias "talon"
+                keyPassword "klinker1127"
+            }
+        }
+
+        buildTypes {
+            release {
+                runProguard false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile (project(":shared_assets"))
+    compile 'com.android.support:support-v13:+'
+    compile 'com.google.android.support:wearable:+'
+    compile 'com.google.android.gms:play-services-wearable:+'
+}

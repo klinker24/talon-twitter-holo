@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/dev_name" >
+
+        <Preference
+            android:key="evolvesms"
+            android:title="@string/evolvesms" />
+
+        <Preference
+            android:key="blur_launcher"
+            android:title="@string/blur" />
+
+        <Preference
+            android:key="source"
+            android:title="Source News Reader" />
+
+        <Preference
+            android:key="sliding_messaging"
+            android:title="@string/sliding_messaging" />
+
+        <Preference
+            android:key="theme_spotlight"
+            android:title="@string/theme_spotlight" />
+
+        <Preference
+            android:key="theme_engine"
+            android:title="@string/sliding_theme_engine" />
+
+        <Preference
+            android:key="emoji_keyboard"
+            android:title="@string/emoji_keyboard" />
+
+        <Preference
+            android:key="emoji_keyboard_ios"
+            android:title="@string/emoji_keyboard_ios" />
+
+        <Preference
+            android:key="emoji_keyboard_unlock"
+            android:title="@string/emoji_keyboard_unlock" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/dev_name_open_source" >
+
+        <Preference
+            android:key="halopop"
+            android:title="@string/halopop" />
+
+        <Preference
+            android:key="floating_windows"
+            android:title="@string/floating_windows" />
+
+        <Preference
+            android:key="slideover_messaging"
+            android:title="@string/slideover_messaging" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

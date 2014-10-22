@@ -1,0 +1,110 @@
+[B]Talon for Twitter - Version 2.0.0[/B]
+
+#TalonTwo
+
+
+Here is just a little something to make this horrible Monday a little bit better, go big or go home they say!
+
+
+[B]NEW:[/B]
+- Talon Pull will automatically shut down to preserve battery when no data connection is active, then restart and check your timeline for missed tweets when data becomes available again.
+- Compose button can now float over the main timelines instead of being in the action bar
+- New Discover tab in the drawer for trends, suggested users, and nearby tweets
+- Pictures page on a users profile
+- Custom Light Flow support (In future Light Flow update)
+- Favorite users timeline is now an option for the extra pages
+- Animations for opening new pages and windows
+- Post tweets from different accounts in the compose window
+- Notifications button in the action bar for Talon Pull iteractions
+- Unread "bar" widget
+- Separated the DashClock settings from the notification settings
+- Widget themed differently
+- Two new transparent widget themes
+- Added time ago to the widget items
+- Mute expressions and keywords on tweets
+- View up to 100 retweeters of a status (API limit)
+- View users mentions and favorites on their profiles
+- Favorite user tweet notifications will now open directly to the tweet
+- Added option to manually select location for local trends
+- Saved Searches drawer item
+- Save and destroy saved searches
+- Added picture filter to searches
+- Added retweet filter to searches
+- Auto-complete users from the tweet reply
+- RTL support for Android 4.2 and above
+- Themers can now theme the action bar
+- Themers can now change the background for the windows
+- Live streaming should now preform a background refresh to avoid missing tweets if your data connection changes
+- DashClock updates immediately after closing the app
+- Better organization of settings
+- Some support for ow.ly images in-line
+- Option to automatically open the keyboard when you open the tweet viewer
+
+
+[B]IMPROVED:[/B]
+- Layout and sizing optimizations for Talon layout
+- Super smooth scrolling optimizations
+- Higher quality profile pictures
+- Management of Talon Pull and keeping it active
+- Remade the tweet viewer layout
+- Much better image sizing on tweet viewer
+- Faster and more efficient loading of data on the timelines
+- Photo viewer tweeks
+- Unread count for live streaming
+- New time format on tweets for better sizing
+- Changed the conversation and discussion style
+- Opening notifications will now take you to the correct place
+- Auto-complete of users. Opening their profile will now make them searchable
+- Much more efficient and useful highlighting of users, hashtags, and links
+- Ability to open retweeters profile when viewing a retweet
+- Displaying links on timeline
+- Uploading new profile and banner pictures
+- Don't blur the banner picture in the drawer. Will have to clear cache for this to take effect
+- Displaying and sharing Twitter picture links
+- Hashtag muting support, works on mentions now too
+- Set up so themers could use a transparent action bar if they would like
+- Retweets from Talon Pull in interactions drawer, they now stack on top of each other instead of creating an instance for every new one
+- Theme selection
+- Better support for multiple links in tweets
+- Doesn't reset search when device is rotated
+- Typos and casing in settings
+- Bad search icon on some of the pages
+- Cleaned up advanced settings
+- User names in action bar on profile viewer
+- Better management of live streaming unread count
+- Management of widget updates
+- Swipe to dismiss updates on the interactions drawer
+- A bit larger auto-complete box
+- Better memory management again
+- Updated all of the translations
+- Styling of Pebble notifications
+- Translations
+
+
+[B]FIXES:[/B]
+- Images won't get mixed up between people or tweets anymore
+- Images will be full screen when the load on the tweet viewer if you had problems with that
+- Action bar not always being set to overlay, so it created a jumpy behavior and big margin at the top
+- A little bit better Vine support. Sound is an issue though.
+- Excessive lag when closing the tweet viewer or profiles on lower end devices (caused from the background processes not being stopped)
+- TONS of Tweetmarker fixes (I think it should be working very well now... at least through my testing!)
+- Talon Pull sometimes shutting down the connection with the server
+- Pebble notifications will now work for everyone
+- Fixed the compose window not always shutting
+- Problems with the drawer states and both drawers sometimes being open
+- Disable custom font option if an addon theme is applied
+- Leaky cursors and receivers
+- Your avatar sometimes changing when scrolling through the timeline (hopefully)
+- Some things not being translated correctly
+- Match international characters correctly in hashtags
+- Some audio problems with playing videos in the in-app browser
+- Tons of play store crash reports
+
+
+Enjoy this one guys, a lot of testing and hard work went into it, that's for sure!
+
+Hope you like it!
+
+#talonfortwitter #TalonTwo
+
+#keepsliding

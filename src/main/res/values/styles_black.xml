@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+
+    <style name="Theme.TalonBlack" parent="@android:style/Theme.Holo">
+
+        <item name="android:actionOverflowButtonStyle">@style/CircleOverflow.Dark</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/BlackActionBar</item>
+        <item name="android:editTextBackground">@drawable/twitter_edit_text_holo_dark</item>
+        <item name="android:textColorHighlight">#99ff8800</item>
+        <item name="android:textSelectHandleLeft">@drawable/twitter_text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/twitter_text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/twitter_text_select_handle_middle</item>
+        <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewTwitter</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/twitter_btn_check_holo_dark</item>
+        <item name="android:buttonStyle">@style/ButtonTwitter</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonTwitter</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerTwitter</item>
+        <item name="android:progressBarStyleHorizontal">@style/ProgressBarTwitter</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/twitter_list_selector_holo_dark</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/twitter_activated_background_holo_dark</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/twitter_fastscroll_thumb_holo</item>
+        <item name="android:seekBarStyle">@style/SeekBarTwitter</item>
+
+        <item name="textColor">@color/dark_text</item>
+        <item name="action_bar_color">@color/action_bar_black</item>
+        <item name="drawerDividerColor">@color/dark_text_drawer</item>
+        <item name="dateColor">@color/dark_date</item>
+        <item name="drawerBackground">@android:color/black</item>
+        <item name="oppDrawerBackground">@color/dark_drawer</item>
+        <item name="headerTextColor">@android:color/white</item>
+        <item name="textShadowColor">@android:color/black</item>
+        <item name="windowBackground">@android:color/black</item>
+        <item name="emojiDivider">@color/emoji_divider_dark</item>
+        <item name="circle_border">@color/circle_outline_dark</item>
+        <item name="message_color">@color/black_message</item>
+        <item name="border_color">@color/border_dark</item>
+        <item name="icon_color">@color/icon_dark</item>
+
+        <item name="fullScreenTweet">@drawable/full_screen_background_black</item>
+        <item name="myTweetBackground">@drawable/sent_background_black</item>
+        <item name="tweetBackground">@drawable/received_background_black</item>
+        <item name="tweetBackgroundNoDialog">@drawable/received_bubble_black</item>
+        <item name="cancelButton">@drawable/ic_cancel_dark</item>
+        <item name="sendButton">@drawable/ic_send_dark</item>
+        <item name="attachButton">@drawable/ic_attach_dark</item>
+        <item name="drawerIcon">@drawable/ic_drawer_dark</item>
+        <item name="newIcon">@drawable/ic_action_new_dark</item>
+        <item name="drawerDrawable">@drawable/drawer_background_black</item>
+        <item name="acceptButton">@drawable/ic_action_accept_dark</item>
+        <item name="showMoreButton">@drawable/ic_action_expand_dark</item>
+        <item name="retweetButton">@drawable/ic_action_repeat_dark</item>
+        <item name="favoritedButton">@drawable/ic_action_important_dark</item>
+        <item name="notFavoritedButton">@drawable/ic_action_not_important_dark</item>
+        <item name="circleBorder">@drawable/circle_border_dark</item>
+        <item name="squareBorder">@drawable/square_border_dark</item>
+        <item name="timelineItem">@drawable/timeline_dark</item>
+        <item name="mentionItem">@drawable/mentions_dark</item>
+        <item name="directMessageItem">@drawable/ic_action_reply_dark</item>
+        <item name="rectangle_border">@drawable/rect_border_dark</item>
+        <item name="emoji_button">@drawable/ic_emoji_keyboard_dark</item>
+        <item name="emoji_button_changing">@drawable/ic_emoji_keyboard_light</item>
+        <item name="shareButton">@drawable/ic_action_share_dark</item>
+        <item name="location_button">@drawable/ic_action_place_dark</item>
+        <item name="overflow_button">@drawable/ic_action_overflow_dark</item>
+        <item name="keyboardButton">@drawable/ic_keyboard_light</item>
+        <item name="keyboard_button_changing">@drawable/ic_keyboard_dark</item>
+        <item name="emojiBackspace">@drawable/ic_backspace_dark</item>
+        <item name="picturePlaceholder">@drawable/ic_action_picture_dark</item>
+        <item name="read_button">@drawable/ic_action_read_dark</item>
+        <item name="unread_button">@drawable/ic_action_unread_dark</item>
+        <item name="quote_button">@drawable/ic_action_reply_all_dark</item>
+        <item name="check_box">@drawable/twitter_btn_check_holo_dark</item>
+        <item name="background_card">@drawable/send_card_black</item>
+        <item name="notification_button">@drawable/ic_action_notification_dark</item>
+        <item name="notification_button_empty">@drawable/ic_action_notification_none_dark</item>
+        <item name="hashtag_button">@drawable/ic_action_hashtag_dark</item>
+
+        <item name="themeSettings">@drawable/drawer_theme_dark</item>
+        <item name="notificationSettings">@drawable/drawer_notifications_dark</item>
+        <item name="syncSettings">@drawable/drawer_sync_dark</item>
+        <item name="advancedSettings">@drawable/advanced_settings_dark</item>
+        <item name="whatsNew">@drawable/ic_action_new_dark</item>
+        <item name="getHelp">@drawable/drawer_help_dark</item>
+        <item name="links">@drawable/drawer_trends_dark</item>
+        <item name="worldTrends">@drawable/ic_action_map_dark</item>
+        <item name="otherApps">@drawable/drawer_other_apps_dark</item>
+        <item name="rateIt">@drawable/drawer_rate_it_dark</item>
+        <item name="favUser">@drawable/drawer_user_dark</item>
+        <item name="listIcon">@drawable/list_dark</item>
+        <item name="memManagement">@drawable/ic_action_sd_storage_dark</item>
+
+        <item name="actionbar">@drawable/ab_solid_black</item>
+        <item name="searchIcon">@drawable/ic_action_search_dark</item>
+        <item name="circle_overflow">@drawable/ic_action_circle_overflow_dark</item>
+
+        <item name="compose_window_background">@drawable/compose_background_black</item>
+
+    </style>
+
+    <style name="Theme.TalonBlack.Hangouts" parent="@style/Theme.TalonBlack">
+        <item name="tweetBackground">@drawable/received_background_hangouts_black</item>
+    </style>
+
+    <style name="Theme.TalonBlack.Hangouts.Popup" parent="@style/Theme.TalonBlack.Popup">
+        <item name="tweetBackground">@drawable/received_background_hangouts_black</item>
+    </style>
+
+    <style name="Theme.TalonBlack.Hangouts.Popup.Notif" parent="@style/Theme.TalonBlack.Popup.Notif">
+        <item name="tweetBackground">@drawable/received_background_hangouts_black</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="Theme.TalonBlack.Settings" parent="@style/Theme.TalonBlack">
+        <item name="android:homeAsUpIndicator">@drawable/ic_drawer_dark</item>
+    </style>
+
+    <style name="Theme.TalonBlack.Popup" parent="@style/Theme.TalonBlack">
+
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">stateUnchanged</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+        <item name="android:windowFrame">@drawable/rect_border_light</item>
+        <!-- <item name="android:windowAnimationStyle">@style/PopupAnimation</item> -->
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+
+    </style>
+
+    <style name="Theme.TalonBlack.Popup.Notif" parent="@style/Theme.TalonBlack.Popup" >
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="BlackActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_solid_black</item>
+    </style>
+
+</resources>

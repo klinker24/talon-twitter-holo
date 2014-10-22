@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/left_drawer"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" >
+
+    <View android:id="@+id/drawer_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@android:color/black"
+        android:visibility="gone"/>
+
+    <include layout="@layout/ab_header"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content" />
+
+    <include layout="@layout/user_header"
+             android:id="@+id/header"
+             android:layout_height="120dp"
+             android:layout_width="match_parent"
+             android:background="?drawerBackground"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="?drawerBackground"
+        android:orientation="vertical" >
+
+        <LinearLayout
+                android:id="@+id/logoutLayout"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:visibility="gone" >
+
+            <!-- second profile stuff -->
+            <RelativeLayout
+                android:id="@+id/second_profile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pro_pic_size"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp" >
+
+                <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+                    android:layout_width="@dimen/pro_pic_size"
+                    android:layout_height="@dimen/pro_pic_size"
+                    android:id="@+id/profile_pic_2"
+                    android:src="?circleBorder"
+                    android:minHeight="@dimen/pro_pic_size" android:minWidth="@dimen/pro_pic_size"
+                    android:scaleType="fitCenter" android:adjustViewBounds="true"
+                    android:maxWidth="@dimen/pro_pic_size" android:maxHeight="@dimen/pro_pic_size"
+                    android:contentDescription="Profile Picture - Account 2"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginStart="2dp"/>
+
+                <LinearLayout
+                    android:layout_toRightOf="@id/profile_pic_2"
+                    android:layout_alignTop="@id/profile_pic_2"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp" >
+
+                    <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                        android:id="@+id/name_2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxLines="1"
+                        android:textStyle="bold"
+                        android:textColor="?textColor"/>
+
+                    <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                        android:id="@+id/screen_name_2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxLines="1"
+                        android:paddingBottom="3dp"
+                        android:textColor="?textColor"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <Button android:id="@+id/logoutButton"
+                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:text="@string/menu_logout"
+                android:contentDescription="Logout from Twitter"
+                android:background="@drawable/pressed_button"/>
+
+            <View
+                android:id="@+id/nav_bar_seperator"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/drawer_list"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="?drawerDividerColor"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"/>
+
+        </LinearLayout>
+
+
+</LinearLayout>

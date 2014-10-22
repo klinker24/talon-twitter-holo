@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="notifications"
+        android:title="@string/notifications"
+        android:defaultValue="true"
+        />
+
+    <CheckBoxPreference
+        android:key="quiet_hours"
+        android:title="@string/quiet_hours"
+        android:defaultValue="false"
+        android:dependency="notifications"
+        />
+
+    <MultiSelectListPreference
+        android:key="alert_types"
+        android:title="@string/alert_types"
+        android:defaultValue="@array/alert_types_inserted"
+        android:entries="@array/alert_types"
+        android:entryValues="@array/alert_types_inserted"
+        android:dependency="notifications"
+        />
+
+    <RingtonePreference
+        android:key="ringtone"
+        android:title="@string/custom_ringtone"
+        android:dependency="notifications"
+        android:ringtoneType="notification"
+        android:defaultValue="content://settings/system/notification_sound"
+        />
+
+    <PreferenceCategory
+        android:title="@string/notification_types" >
+
+        <MultiSelectListPreference
+            android:key="timeline_set"
+            android:title="@string/timeline_notifications"
+            android:defaultValue="@array/interaction_notifications_inserted"
+            android:entries="@array/timeline_notifications"
+            android:entryValues="@array/interaction_notifications_inserted"
+            android:dependency="notifications"
+            />
+
+        <MultiSelectListPreference
+            android:key="interactions_set"
+            android:summary="@string/with_talon_pull"
+            android:title="@string/interactions_notifications"
+            android:defaultValue="@array/interaction_notifications_inserted"
+            android:entries="@array/interactions_notifications"
+            android:entryValues="@array/interaction_notifications_inserted"
+            android:dependency="notifications"
+            />
+
+        <CheckBoxPreference
+            android:key="favorite_users_notifications"
+            android:title="@string/fav_users_notifications"
+            android:defaultValue="true"
+            android:dependency="notifications"
+            />
+
+        <CheckBoxPreference
+            android:key="pebble_notification"
+            android:title="@string/pebble_notifications"
+            android:summary="@string/pebble_notifications_summary"
+            android:defaultValue="false"
+            android:dependency="notifications"
+            />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="tutorial"
+        android:title="@string/rerun_tutorial" />
+
+    <Preference
+        android:key="faq"
+        android:title="@string/faq" />
+
+    <Preference
+        android:key="features"
+        android:title="@string/features_explained" />
+
+    <Preference
+        android:key="klinkerapps"
+        android:title="@string/our_website" >
+        <intent android:action="android.intent.action.VIEW"
+            android:data="http://klinkerapps.com" />
+        </Preference>
+
+    <Preference
+        android:key="youtube"
+        android:title="@string/youtube" />
+
+    <Preference
+        android:key="google_plus"
+        android:title="@string/google_plus" />
+
+    <Preference
+        android:key="email_me"
+        android:title="@string/email_me" />
+
+    <Preference
+        android:key="tweet_me"
+        android:title="@string/tweet_me" />
+
+    <Preference
+        android:key="follow_talon"
+        android:title="@string/follow_talon" />
+
+    <Preference
+        android:key="credits"
+        android:title="@string/credits" />
+
+</PreferenceScreen>

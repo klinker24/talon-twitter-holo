@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/local_trend_options" >
+
+        <CheckBoxPreference
+            android:key="manually_config_location"
+            android:title="@string/manually_config_location"
+            android:defaultValue="false"
+            />
+
+        <ListPreference
+            android:key="country"
+            android:title="@string/country_region"
+            android:defaultValue="United States"
+            android:entries="@array/countries"
+            android:entryValues="@array/countries"
+            android:dependency="manually_config_location"
+            />
+
+        <Preference
+            android:key="city"
+            android:title="@string/city"
+            android:dependency="manually_config_location" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="third_party"
+        android:title="@string/third_party_services" >
+
+        <ListPreference
+            android:key="tweetmarker_options"
+            android:title="@string/use_tweetmarker"
+            android:defaultValue="0"
+            android:entries="@array/tweetmarker"
+            android:entryValues="@array/tweetmarker_inserted"
+            />
+
+        <CheckBoxPreference
+            android:key="twitlonger"
+            android:title="@string/use_shortening_service"
+            android:summary="@string/use_shortening_service_summary"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="twitpic"
+            android:title="@string/use_twitpic"
+            android:summary="@string/twitpic_summary"
+            android:defaultValue="false"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="display_other"
+        android:title="@string/display_options" >
+
+        <CheckBoxPreference
+            android:key="use_emojis"
+            android:title="@string/enable_emojis"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="advance_windowed"
+            android:title="@string/advance_windowed"
+            android:summary="@string/advance_windowed_summary"
+            android:defaultValue="true"
+            />
+
+        <CheckBoxPreference
+            android:key="open_keyboard"
+            android:title="@string/open_keyboard"
+            android:summary="@string/open_keyboard_summary"
+            android:defaultValue="false"
+            />
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="advanced_other"
+        android:title="@string/other_options" >
+
+        <CheckBoxPreference
+            android:key="prefer_rt"
+            android:title="@string/rt_style_quotes"
+            android:summary="@string/rt_style_quotes_summary"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="auto_insert_hashtags"
+            android:title="@string/auto_insert_hashtags"
+            android:summary="@string/to_replies"
+            android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="jumping_workaround"
+            android:title="@string/jumping_workaround"
+            android:summary="@string/jumping_workaround_summary"
+            android:defaultValue="false"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

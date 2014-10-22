@@ -1,0 +1,62 @@
+Esittelyssä täysin uudenlainen Twitter-sovellus, jossa saat Twitterin parhaat palat kauniissa ja monipuolisessa paketissa!
+
+Suunniteltu Android 4.4:ää (KitKat) silmällä pitäen. Sisältää koko ruudun (läpikuultava) ulkoasun, upeita animaatioita ja paljon muuta! Tämä ei tarkoita, että olisimme unohtaneet vanhemmat Android-laitteet! Ainoa asia, jota emme valitettavasti voi tuoda Android 4.3 tai vanhemmille laitteille on läpinäkyvä tila- ja toimintapalkin.
+
+Kaunis, tuore ulkoasu ja siistit animaatiot eivät ole ainoita asioita, jotka tulet löytämään Talonista! Listaominaisuus on erinomainen, joka tekee kaikkea mitä ikinä haluat Twitter-sovellukselta. Olen myös lisännyt jokaisen suuren ja pienen Twitterin ominaisuuden, joka mielestäni on erittäin tärkeää. Tässä olisi melko kattava luettelo ominaisuuksista:
+
+Twitter-ominaisuudet:
+- Livestriimi-tuki
+- Tuki 2 tilille
+- Tarkastele aikajanaasi (ensisijainen, maininnat, yksityisviestit, linkit ja kuvat)
+- Suosikkikäyttäjät
+- Päivitä profiilisi kuvasi, taustasi, sijaintisi ja kuvauksesi
+- Estä, seuraa ja lisää käyttäjiä listoihisi
+- Liitä sijaintisi twiittiisi
+- Ja lista vain jatkuu :)
+
+Mukautuvia ominaisuuksia:
+- Erittäin tehokas työkalu teemojen suunnitteluun (https://github.com/klinker24/talon_theme)
+- Valitse joko "Talon"- tai "Hangouts"-asettelu
+. Valitse 3 kauniista teemasta tyyliisi sopiva (vaalea, tumma ja musta)
+- Mukautettava tekstin koko
+- Yötila
+- Asetukset automaattiselle päivitykselle
+- Mukautetut ilmoitusasetukset
+- Ja paljon muuta löydettävänä!
+
+Sovelluksen ominaisuudet:
+- "Talon Pull" on aina kuuntelemassa twiittejä/vuorovaikutuksia
+- Laajennettava, käytännöllinen ja dynaaminen ilmoitusjärjestelmä
+- Ponnahdusikkunasovellus
+- Tarkastele upotettuja Twitter- Instagram-kuvia
+- Natiivi YouTube-soitin
+- Sovelluksen sisäinen selain
+- Täydellinen vaakatilassa ja tabletilla käytettäväksi
+- Siirry uusille sivuille ikkunanäkymässä
+- Toimintapalkin piilottaminen
+- "Älä häiritse" -tila
+- Widgetti pääaikajanalle
+- DashClock-laajennus
+- Google-tyylinen "Päivitä liu'uttamalla" -ominaisuus
+
+Et palaa koskaan vanhaan Twitter-sovellukseen!
+
+Nauti Talonista ja älä epäröi ottaa meihin yhteyttä! Parhaat tavat ovat joko sähköpostiste tai liittymällä Google+-ryhmään.
+
+Kiitos!
+
+Ota minuun yhteyttä (Luke Klinker):
+Sähköposti: klinkerapps@gmail.com
+Twitter-tilini: @lukeklinker
+Talonin Twitter-tili @TalonAndroid
+Google+-beetasivu: http://goo.gl/KCXlZk
+XDA Developers -ketju: http://forum.xda-developers.com/showthread.php?t=2608962
+
+Tässä on kaksi emoji-lisäosaa joista voit valita itsellesi sopivimman!
+Android: https://play.google.com/store/apps/details?id=com.klinker.android.emoji_keyboard_trial
+iOS 7: https://play.google.com/store/apps/details?id=com.klinker.android.emoji_keyboard_trial_ios
+
+Kehityksessä mukana:
+- Jacob Klinker: liian monta asiaa luetteloitavaksi! Monista ideoista, tuesta ja inspiraatiosta
+- Aaron Klinker: Kuvakesuunnittelu
+- Muut avoimen lähdekoodin kirjastot ja resurssit voit löytää "Hae apua" osiosta.

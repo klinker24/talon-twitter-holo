@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bar_widget_dark"
+    android:padding="5dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/launcherIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@mipmap/ic_launcher"
+            android:background="@drawable/pressed_toast"
+            />
+
+        <ImageButton
+            android:id="@+id/replyButton"
+            android:contentDescription="Compose New Tweet"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="7dp"
+            android:alpha=".6"
+            android:background="@drawable/pressed_toast"
+            android:paddingBottom="3dp"
+            android:src="@drawable/ic_send_dark"
+            android:scaleX=".85"
+            android:scaleY=".85"/>
+
+        </LinearLayout>
+
+    <!-- these are the buttons for the timelines -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical|right"
+        android:paddingRight="10dp">
+
+        <ImageButton
+            android:id="@+id/timeline"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:alpha=".6"
+            android:scaleX=".85"
+            android:scaleY=".85"
+            android:src="@drawable/timeline_dark"
+            android:background="@drawable/pressed_toast"
+            />
+
+        <TextView
+            android:id="@+id/home_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="0"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="16sp"/>
+
+
+        <ImageButton
+            android:id="@+id/mentions"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:alpha=".6"
+            android:scaleX=".85"
+            android:scaleY=".85"
+            android:src="@drawable/mentions_dark"
+            android:background="@drawable/pressed_toast"
+            />
+
+        <TextView
+            android:id="@+id/mention_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="0"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="16sp"/>
+
+
+        <ImageButton
+            android:id="@+id/dms"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:alpha=".6"
+            android:scaleX=".85"
+            android:scaleY=".85"
+            android:src="@drawable/ic_action_reply_dark"
+            android:background="@drawable/pressed_toast"
+            />
+
+        <TextView
+            android:id="@+id/dm_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="0"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="16sp"/>
+
+        </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Talon</string>
+    <string name="app_name_full">Talon untuk Twitter</string>
+    <!-- Action Bar -->
+    <string name="menu_compose">Kicauan Baru</string>
+    <string name="menu_logout">Keluar</string>
+    <string name="menu_settings">Pengaturan</string>
+    <string name="menu_follow">Ikuti Pengguna</string>
+    <string name="menu_unfollow">Batal Mengikuti Pengguna</string>
+    <string name="menu_tweet">Kirim Kicauan</string>
+    <string name="menu_dm">Kirim Pesan Langsung</string>
+    <string name="menu_block">Blokir Pengguna</string>
+    <string name="menu_unblock">Batal Blokir Pengguna</string>
+    <string name="menu_add_to_list">Tambahkan ke Daftar</string>
+    <string name="menu_change_picture">Ganti Gambar Profil</string>
+    <string name="menu_change_bio">Ganti Info Profil</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <!-- Muting -->
+    <!-- Main Activity -->
+    <!-- Notifications -->
+    <!-- Login Screen -->
+    <!-- Compose New Activity -->
+    <!-- Actionbar Done-Discard -->
+    <!-- Other -->
+    <!-- User Profile Activity -->
+    <!-- Retweets Activity -->
+    <!-- Tweet Activity -->
+    <!-- User Lists -->
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <!-- added after release -->
+    <!-- Long click methods -->
+</resources>

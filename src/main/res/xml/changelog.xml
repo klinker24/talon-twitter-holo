@@ -1,0 +1,929 @@
+<!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<changelog>
+
+	<version name="3.3.0">
+		<text>Talon is now fully open source. View the project here: https://github.com/klinker24/Talon-for-Twitter</text>
+	</version>
+
+    <version name="3.2.6">
+        <text>Pre-Cache changes</text>
+        <text>Bug fixes</text>
+        <text>Forced to remove TwitPic once again</text>
+    </version>
+
+    <version name="3.2.5">
+        <text>Fix the YouTube player on some devices</text>
+    </version>
+
+    <version name="3.2.4">
+        <text>Favorite a user from a long click</text>
+        <text>Bug fixes</text>
+        <text>Crash fixes</text>
+    </version>
+    <version name="3.2.3">
+        <text>Updated translations</text>
+        <text>Added a few more FAQ</text>
+    </version>
+
+    <version name="3.2.2">
+        <text>Problem with usernames not being inserted on replies</text>
+    </version>
+
+    <version name="3.2.1">
+        <text>Force close viewing your following with addon theme applied</text>
+        <text>Fix the wear app</text>
+    </version>
+
+    <version name="3.2.0">
+        <text>View your timeline on your Android Wear device</text>
+        <text>Long click links, user handles, and hashtags for more options</text>
+        <text>Notification when rate limits are reached on the home timeline</text>
+        <text>Shows whether you follow the user or not when viewing your own followers list</text>
+        <text>Much better FAQ section and "Help/Feedback" option added to the overflow menu</text>
+        <text>Workaround for Twitter's webpage going missing when logging into your second account</text>
+        <text>Some reported bug fixes</text>
+        <text>Reduced clutter in the tweet viewer overflow menu</text>
+    </version>
+
+    <version name="3.1.7">
+        <text>Added support TwitPic again</text>
+        <text>Fixes for the YouTube player</text>
+        <text>Fixed not being able to create lists</text>
+        <text>Force close fixes</text>
+    </version>
+    <version name="3.1.6">
+        <text>Nearby tweets now use the manual location preference</text>
+    </version>
+
+    <version name="3.1.5">
+        <text>TweetMarker changes: option between automatic tweetmarker and manual tweetmarker</text>
+        <text>To first option in the overflow menu when viewing lists</text>
+        <text>Fixed a problem with expanding pictures on the tweet viewer</text>
+        <text>Removed TwitPic because Twitter shut them down</text>
+        <text>Various other bug fixes</text>
+    </version>
+
+    <version name="3.1.4">
+        <text>Better matching of hashtags, mentions, and urls</text>
+        <text>Bug fixes</text>
+    </version>
+
+    <version name="3.1.3">
+        <text>Few bugs fixed</text>
+    </version>
+
+    <version name="3.1.2">
+        <text>Better coloring of settings for some devices/themes</text>
+    </version>
+
+    <version name="3.1.0">
+        <text>View multiple images from the timeline (won't work on tweets already saved to device)</text>
+        <text>New settings menu</text>
+        <text>Save and automatically apply whether you have location attached to your tweets</text>
+        <text>Some animation changes</text>
+        <text>Fixed duplicate followers and following on profiles</text>
+        <text>More fixes for clickable links</text>
+        <text>Small changes for attaching location</text>
+        <text>One more slight change to prevent duplicates</text>
+    </version>
+
+    <version name="3.0.5">
+        <text>More fixes for refresh on startup</text>
+        <text>Fixed incorrect links on some tweets</text>
+    </version>
+
+    <version name="3.0.4">
+        <text>Hopefully fixed refresh on startup causing duplicates</text>
+    </version>
+
+    <version name="3.0.3">
+        <text>Better notification dismissal</text>
+        <text>Better styling for some add-on themes on popup windows</text>
+        <text>Fixed a progress dialog getting stuck</text>
+        <text>Other small bug fixes</text>
+        <text>Translation updates</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="3.0.2">
+        <text>Updates to better support the Blur launcher page extension</text>
+        <text>Another fix for favorite users</text>
+    </version>
+
+    <version name="3.0.1">
+        <text>Fix favorite user notifications</text>
+    </version>
+
+    <version name="3.0.0">
+        <text>Support for "Blur - A Launcher Replacement" by Klinker Apps Inc. (https://play.google.com/store/apps/details?id=com.klinker.android.launcher)</text>
+    </version>
+
+    <version name="2.6.5">
+        <text>Auto open web links to profiles and tweets</text>
+        <text>Turning off advance windowed (advanced settings) feature allows themes to use custom backgrounds on the tweet and profile viewers</text>
+        <text>Search layout fixes</text>
+        <text>Small changes for location attaching</text>
+        <text>Fixes for saved searches</text>
+        <text>Clearing notification fixes</text>
+        <text>Custom theme style fixes</text>
+        <text>Some web link fixes</text>
+        <text>Some widget fixes</text>
+    </version>
+
+    <version name="2.6.4">
+        <text>Updated translations</text>
+    </version>
+
+    <version name="2.6.3">
+        <text>Auto insert hashtags working on in-line replies</text>
+        <text>Crash fixes</text>
+        <text>Small bug fixes</text>
+    </version>
+
+    <version name="2.6.2">
+        <text>New icon</text>
+        <text>New Talon-L version themes (check @TalonAndroid on Twitter for links)</text>
+        <text>Smoooother</text>
+        <text>Some timeline jumping fixes</text>
+        <text>Auto-complete now works in the middle of the tweet</text>
+        <text>New default background image</text>
+        <text>Avatar mixups fixed</text>
+        <text>Some login errors fixed</text>
+        <text>Translation updates</text>
+    </version>
+
+    <version name="2.6.1">
+        <text>Image viewer fixes</text>
+        <text>Updated fonts and added an Android "L" Roboto font option</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="2.6.0">
+        <text>New compose window</text>
+        <text>View the tweet you are replying to in the compose window</text>
+        <text>Post tweets with animated GIFs (Twitter doesn't support viewing yet)</text>
+        <text>Upload multiple images to twitters native hosting</text>
+        <text>Better notifications for mentions, direct messages, and favorite users</text>
+        <text>Better clearing of notification data</text>
+        <text>Support for Klinker Apps Theme Spotlight</text>
+        <text>Small changes for sending normal pictures</text>
+        <text>Random fixes and requests</text>
+        <text>Added to the "Our Apps" section</text>
+        <text>Improvements to changelog viewing</text>
+        <text>Various bug and force closes</text>
+    </version>
+
+    <version name="2.5.4">
+        <text>Profile pictures getting mixed up</text>
+        <text>Better client muting</text>
+        <text>Updated local trend locations</text>
+        <text>Other bug fixes</text>
+    </version>
+
+    <version name="2.5.3">
+        <text>Android Wear fixes</text>
+        <text>Crash fix</text>
+    </version>
+
+    <version name="2.5.2">
+        <text>Full release</text>
+        <text>Fixed some pictures getting stretched</text>
+    </version>
+
+    <version name="2.5.1">
+        <text>Few fixes</text>
+        <text>Updated translations</text>
+    </version>
+
+    <version name="2.5.0">
+        <text>Auto-complete hashtags</text>
+        <text>Mute by client (long press the timestamp)</text>
+        <text>View pictures from twitters native client in direct messages</text>
+        <text>Share your pictures from the photo viewer dialog to any apps</text>
+        <text>Background sync of your second account's DM's</text>
+        <text>High quality profile pictures</text>
+        <text>Some rotation fixes</text>
+        <text>Character counter on the scheduled tweets</text>
+        <text>Better backup of settings</text>
+    </version>
+
+    <version name="2.4.7">
+        <text>Fix for refresh on startup</text>
+        <text>Better restoring of settings backups</text>
+        <text>Changes to attaching images on KitKat</text>
+        <text>Various stability and small performance improvements</text>
+    </version>
+
+    <version name="2.4.6.1">
+        <text>Force close on drafts</text>
+    </version>
+
+    <version name="2.4.6">
+        <text>Fix re-searching</text>
+        <text>Added a delete all button to the drafts list</text>
+        <text>Changes to refresh on startup</text>
+        <text>Better translation of tweets</text>
+        <text>Fix duplicate users while searching</text>
+        <text>Some changes for attaching pictures on KitKat</text>
+        <text>Open to the correct page when going to the timeline from a drawer activity</text>
+        <text>Changes to attaching pictures from the widget tweet viewer</text>
+        <text>Hopefully block alert dialogs coming from the in-app browser</text>
+        <text>Added separator in direct message list (full screen layout)</text>
+    </version>
+
+    <version name="2.4.5">
+        <text>A few crash fixes</text>
+    </version>
+
+    <version name="2.4.4">
+        <text>Use the correct theme on scheduled tweets</text>
+        <text>Background cleanup and fixes</text>
+    </version>
+
+    <version name="2.4.3">
+        <text>Force external browser for translations</text>
+        <text>Fix top tweets on trends</text>
+    </version>
+
+    <version name="2.4.2">
+        <text>Android Wear support</text>
+        <text>Improved list member viewing</text>
+        <text>Insert composed text into a scheduled tweet</text>
+        <text>Few changes for loading circle images</text>
+    </version>
+
+    <version name="2.4.1">
+        <text>More on viewing multiple images. Twitter releases this feature tomorrow.</text>
+    </version>
+
+    <version name="2.4.0">
+        <text>Translate tweets (redirects to website)</text>
+        <text>View multiple images in a tweet</text>
+        <text>Schedule tweets from the compose window</text>
+        <text>Automatically queue tweets to send from the compose window when data connection is established</text>
+        <text>Filter in "top tweets" when searching</text>
+        <text>Attach pictures from the Talon Pull compose button</text>
+        <text>A little better handling of drafts</text>
+        <text>Better handling of clicks on the interaction drawer</text>
+        <text>Improvements for RTL</text>
+        <text>Changed the way that picture links are displayed</text>
+        <text>In-line twipple image support</text>
+        <text>Small changes to trend searching</text>
+    </version>
+
+    <version name="2.3.7">
+        <text>Disable the send button on tweet viewer until you have typed something</text>
+        <text>Move the logout button to the bottom of the drawer</text>
+        <text>Fixed the timeline losing its position when you mute something</text>
+        <text>Resolve twitpics new urls to display on pictures on timeline</text>
+    </version>
+
+    <version name="2.3.6">
+        <text>Hopefully fixed a bug with refresh on startup sometimes causing duplicates</text>
+        <text>Fixed problem with muted expressions containing apostrophes</text>
+        <text>Reported bug and crash fixes</text>
+    </version>
+
+    <version name="2.3.5">
+        <text>Fixed the custom notification sounds</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="2.3.4">
+        <text>Random bug fixes for release</text>
+    </version>
+
+    <version name="2.3.3">
+        <text>Clear the TeslaUnread badges correctly</text>
+        <text>Don't notify you of a mention from a muted user</text>
+        <text>Light tweaks for Talon Pull and Tweetmarker</text>
+        <text>Other small fixes</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="2.3.2">
+        <text>TeslaUnread for homescreen unread badges</text>
+        <text>Small random bug fixes</text>
+    </version>
+
+    <version name="2.3.1">
+        <text>Page for searching your own timeline</text>
+        <text>Changes for DashClock</text>
+        <text>Fixed Tweetmarker</text>
+        <text>Fixed auto loading tweets at the top of the timeline</text>
+        <text>Some RTL and localization fixes</text>
+    </version>
+
+    <version name="2.3.0">
+        <text>Mute retweets from selected users</text>
+        <text>Revamp of search</text>
+        <text>Major rewrite of a lot of the background in preparation for some cool new stuff to come</text>
+        <text>Immediate switch to night mode</text>
+        <text>Pull to refresh bar on custom rom's immersive mode</text>
+        <text>Clicking the time on the tweet viewer will open that tweet in the browser</text>
+        <text>Fixed some lag when viewing the members of a list</text>
+    </version>
+
+    <version name="2.2.6">
+        <text>Fixes for the pull to refresh getting stuck</text>
+        <text>Alert when viewing protected accounts</text>
+        <text>Other random reported bug fixes</text>
+    </version>
+
+    <version name="2.2.5">
+        <text>Google Now style pull-to-refresh</text>
+        <text>Refresh different pages at once</text>
+        <text>Choice of which page to open a tweet to (under Timeline Settings)</text>
+        <text>Image loading fixes</text>
+        <text>Cashtag highlighting and searching</text>
+        <text>Settings cleanup</text>
+        <text>Fix some problems uploading profile pic and banner</text>
+        <text>Lots of small reported bug fixes</text>
+        <text>Some more crash fixes</text>
+        <text>Translation updates</text>
+    </version>
+
+    <version name="2.2.3">
+        <text>Small bug fixes</text>
+    </version>
+
+    <version name="2.2.2">
+        <text>Image rotation fixes when tweeting</text>
+        <text>Rotate the screen in the photo viewer</text>
+        <text>Small vibrate on tweet sent</text>
+        <text>Notification fixes</text>
+        <text>Updated translations</text>
+    </version>
+
+    <version name="2.2.1">
+        <text>Better notification when replying to tweet</text>
+        <text>Only pre-cache over wifi option</text>
+        <text>Bug fixes</text>
+        <text>Crash fixes</text>
+        <text>Translation updates</text>
+    </version>
+
+    <version name="2.2.0">
+        <text>[New] Full screen layout option</text>
+        <text>[New] Pre-cache images option</text>
+        <text>[New] Draft system for multiple drafts</text>
+        <text>[New] Plain text browser option</text>
+        <text>[New] Tweet multiple images</text>
+        <text>[New] Pictures in DM's with TwitPic</text>
+        <text>[New] Live streaming mentions</text>
+        <text>[New] Force overflow in some places</text>
+        <text>[Improved] Notification while tweeting</text>
+        <text>[Improved] Options for in app browser</text>
+        <text>[Improved] Refresh tweets count on timeline</text>
+        <text>[Improved] Cache and image loading</text>
+        <text>[Improved] Style changes for UI</text>
+        <text>[Improved] Updated Twitter4j</text>
+        <text>[Fix] Some problems with uploading photos</text>
+        <text>[Fix] Toast bar sticking</text>
+        <text>[Fix] Max tweets to download</text>
+    </version>
+
+    <version name="2.1.6">
+        <text>More duplication fixes</text>
+        <text>Crash fixes</text>
+        <text>Translation updates</text>
+    </version>
+
+    <version name="2.1.5">
+        <text>Fixed black loading screen and duplicates occurring from it</text>
+        <text>Toast bar shouldn't get stuck anymore</text>
+        <text>Internal browser updates</text>
+        <text>Removed echo sound when clicking a tweet from the timeline</text>
+        <text>Reply to all screennames from a mention notification</text>
+        <text>Fixed adding users to lists</text>
+        <text>Some crash fixes</text>
+        <text>Translation updates</text>
+    </version>
+
+    <version name="2.1.3">
+        <text>Bug fixes for the clickable links</text>
+        <text>Change the background of the internal browser to match the theme</text>
+        <text>In-line previews for any direct image links</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="2.1.2">
+        <text>Fix showing muted mentions</text>
+        <text>Fixed pictures not showing correctly if they weren't loaded before opening the tweet</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="2.1.1">
+        <text>Feedback for link clicks</text>
+        <text>Better handling of clicks on pictures in a profile</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="2.1.0">
+        <text>Clickable links, mentions, and hashtags on the timeline</text>
+        <text>Crash fixes</text>
+        <text>Translation updates</text>
+    </version>
+
+    <version name="2.0.9">
+        <text>Option to show mentions for muted users</text>
+        <text>Rotating the screen on the main timelines will save the page you are on</text>
+    </version>
+
+    <version name="2.0.8">
+        <text>Fixes for uploading images</text>
+        <text>Fix for the second accounts mentions notifications</text>
+        <text>Will now refresh the second accounts mentions by pulling to refresh on the mentions page (if that option is enabled)</text>
+        <text>Better duplicate prevention</text>
+        <text>More crash fixes</text>
+    </version>
+
+    <version name="2.0.7">
+        <text>Faster and more stable method for accessing and saving tweets</text>
+        <text>In-app browser background adjusts according to theme</text>
+        <text>Fixes for the Dashclock settings</text>
+        <text>Show position option for Dashclock</text>
+        <text>Fixed trimming the databases</text>
+        <text>Open play store or YouTube links from the in-app browser to the correct app</text>
+        <text>More TweetMarker fixes</text>
+    </version>
+
+    <version name="2.0.5">
+        <text>Search friends by screenname from the Action Bar</text>
+        <text>Fixed some problems with the drawer</text>
+        <text>Fixed some links not appearing properly</text>
+        <text>More crash fixes</text>
+        <text>More RTL fixes</text>
+        <text>Some duplication fixes</text>
+    </version>
+
+    <version name="2.0.2">
+        <text>Safer database reads and writes for better stability</text>
+        <text>More optimization for timelines for better speed</text>
+        <text>Fixed profile pictures not always showing on searches</text>
+        <text>Fixed some RTL errors</text>
+        <text>Some fixes for saved searches not displaying content</text>
+        <text>A few more tweeks for TweetMarker</text>
+        <text>Fixed Pwiccer</text>
+        <text>Fixed emojis not appearing correctly</text>
+        <text>Fixed a small bug for uploading images</text>
+    </version>
+
+    <version name="2.0.1">
+        <text>Slight style changes on the bar widget</text>
+        <text>Some reported bugs from 2.0.0 fixed</text>
+    </version>
+
+    <version name="2.0.0">
+        <text>[NEW] Talon Pull will automatically shut down to preserve battery when no data connection is active, then restart and check your timeline for missed tweets when data becomes available again.</text>
+        <text>[NEW] Compose button can now float over the main timelines instead of being in the action bar</text>
+        <text>[NEW] New Discover tab in the drawer for trends, suggested users, and nearby tweets</text>
+        <text>[NEW] Pictures page on a users profile</text>
+        <text>[NEW] Custom Light Flow support (In future Light Flow update)</text>
+        <text>[NEW] Favorite users timeline is now an option for the extra pages</text>
+        <text>[NEW] Animations for opening new pages and windows</text>
+        <text>[NEW] Post tweets from different accounts in the compose window</text>
+        <text>[NEW] Notifications button in the action bar for Talon Pull interations</text>
+        <text>[NEW] Unread "bar" widget</text>
+        <text>[NEW] Seperated the DashClock settings from the notification settings</text>
+        <text>[NEW] Widget themed differently</text>
+        <text>[NEW] Two new transparent widget themes</text>
+        <text>[NEW] Added time ago to the widget items</text>
+        <text>[NEW] Mute expressions and keywords on tweets</text>
+        <text>[NEW] View up to 100 retweeters of a status (API limit)</text>
+        <text>[NEW] View users mentions and favorites on their profiles</text>
+        <text>[NEW] Favorite user tweet notifications will now open directly to the tweet</text>
+        <text>[NEW] Added option to manually select location for local trends</text>
+        <text>[NEW] Saved Searches drawer item</text>
+        <text>[NEW] Save and destroy saved searches</text>
+        <text>[NEW] Added picture filter to searches</text>
+        <text>[NEW] Added retweet filter to searches</text>
+        <text>[NEW] Auto-complete users from the tweet reply</text>
+        <text>[NEW] RTL support for Android 4.2 and above</text>
+        <text>[NEW] DashClock updates immediately after closing the app</text>
+        <text>[NEW] Themers can now theme the action bar</text>
+        <text>[NEW] Themers can now change the background for the windows</text>
+        <text>[NEW] Live streaming should now preform a background refresh to avoid missing tweets if your data connection changes</text>
+        <text>[NEW] Better organization of settings</text>
+        <text>[NEW] Some support for ow.ly images in-line</text>
+        <text>[NEW] Option to automatically open the keyboard when you open the tweet viewer</text>
+        <text>[IMPROVED] Layout and sizing optimizations for Talon layout</text>
+        <text>[IMPROVED] Super smooth scrolling optimizations</text>
+        <text>[IMPROVED] Higher quality profile pictures</text>
+        <text>[IMPROVED] Management of Talon Pull and keeping it active</text>
+        <text>[IMPROVED] Remade the tweet viewer layout</text>
+        <text>[IMPROVED] Much better image sizing on tweet viewer</text>
+        <text>[IMPROVED] Photo viewer tweeks</text>
+        <text>[IMPROVED] Unread count for live streaming</text>
+        <text>[IMPROVED] New time format on tweets for better sizing</text>
+        <text>[IMPROVED] Changed the conversation and discussion style</text>
+        <text>[IMPROVED] Opening notifications will now take you to the correct place</text>
+        <text>[IMPROVED] Auto-complete of users. Opening their profile will now make them searchable</text>
+        <text>[IMPROVED] Much more efficient and useful highlighting of users, hashtags, and links</text>
+        <text>[IMPROVED] Ability to open retweeters profile when viewing a retweet</text>
+        <text>[IMPROVED] Displaying links on timeline</text>
+        <text>[IMPROVED] Uploading new profile and banner pictures</text>
+        <text>[IMPROVED] Don't blur the banner picture in the drawer. Will have to clear cache for this to take effect</text>
+        <text>[IMPROVED] Displaying and sharing Twitter picture links</text>
+        <text>[IMPROVED] Hashtag muting support, works on mentions now too</text>
+        <text>[IMPROVED] Set up so themers could use a transparent action bar if they would like</text>
+        <text>[IMPROVED] Retweets from Talon Pull in interactions drawer, they now stack on top of each other instead of creating an instance for every new one.</text>
+        <text>[IMPROVED] Theme selection</text>
+        <text>[IMPROVED] Better support for multiple links in tweets</text>
+        <text>[IMPROVED] Doesn't reset search when device is rotated</text>
+        <text>[IMPROVED] Typos and casing in settings</text>
+        <text>[IMPROVED] Cleaned up advanced settings</text>
+        <text>[IMPROVED] User names in action bar on profile viewer</text>
+        <text>[IMPROVED] Better management of live streaming unread count</text>
+        <text>[IMPROVED] Management of widget updates</text>
+        <text>[IMPROVED] A bit larger auto-complete box</text>
+        <text>[IMPROVED] Better memory management again</text>
+        <text>[IMPROVED] Swipe to dismiss updates for the interactions drawer</text>
+        <text>[IMPROVED] Updated all of the translations</text>
+        <text>[IMPROVED] Styling of Pebble notifications</text>
+        <text>[IMPROVED] Translation updates</text>
+        <text>[FIX] Images won't get mixed up between people or tweets anymore</text>
+        <text>[FIX] Images will be full screen when the load on the tweet viewer if you had problems with that</text>
+        <text>[FIX] Action bar not always being set to overlay, so it created a jumpy behavior and big margin at the top</text>
+        <text>[FIX] A little bit better Vine support. Sound is an issue though.</text>
+        <text>[FIX] Excessive lag when closing the tweet viewer or profiles on lower end devices (caused from the background processes not being stopped)</text>
+        <text>[FIX] TONS of Tweetmarker fixes (I think it should be working very well now... at least through my testing!)</text>
+        <text>[FIX] Talon Pull sometimes shutting down the connection with the server</text>
+        <text>[FIX] Pebble notifications will now work for everyone</text>
+        <text>[FIX] Fixed the compose window not always shutting</text>
+        <text>[FIX] Problems with the drawer states and both drawers sometimes being open</text>
+        <text>[FIX] Disable custom font option if an addon theme is applied</text>
+        <text>[FIX] Leaky cursors and receivers</text>
+        <text>[FIX] Your avatar sometimes changing when scrolling through the timeline (hopefully)</text>
+        <text>[FIX] Some things not being translated correctly</text>
+        <text>[FIX] Match international characters correctly in hashtags</text>
+        <text>[FIX] Some audio problems with playing videos in the in-app browser</text>
+        <text>[FIX] Tons of play store crash reports</text>
+    </version>
+
+    <version name="1.4.4">
+        <text>Pwiccer support</text>
+        <text>Mention retweeter when replying</text>
+        <text>Fixes for live streaming sometimes setting up multiple listeners causing duplicates</text>
+        <text>Open play store links to the play store</text>
+        <text>Clicking a "Saved Image" notification will take you to that image in the gallery</text>
+        <text>Search users from a web link</text>
+        <text>Play store crash fixes</text>
+        <text>Simple style changes to extra page setup</text>
+        <text>Random small reported bug fixes</text>
+        <text>Updated more translations</text>
+    </version>
+
+    <version name="1.4.3">
+        <text>Attempted fixes for TweetMarker</text>
+        <text>Translation updates</text>
+        <text>Crash fixes</text>
+    </version>
+
+    <version name="1.4.2">
+        <text>Fixes for Talon Pull with multiple accounts</text>
+        <text>Fixed duplicate tweets</text>
+        <text>Way better support for sharing and uploading images</text>
+        <text>Open statuses from a web link in talon</text>
+    </version>
+
+    <version name="1.4.1">
+        <text>Major speed improvements when viewing tweets, profiles, searches, lists, and other networked tasks</text>
+        <text>Automatically load more search results, profile tweets, followers, and more at the bottom of the pages</text>
+        <text>View replies to retweets</text>
+        <text>Fade in animation for pictures</text>
+        <text>Fix for sharing from gallery</text>
+        <text>Support for Samsung Multi-window</text>
+        <text>Many more crash fixes</text>
+    </version>
+
+    <version name="1.4.0">
+        <text>Customize the two pages on the left of the main timeline</text>
+        <text>Long click to remove favorite users</text>
+        <text>Progress bar for in-app browser</text>
+        <text>Better calculation of tweet lengths</text>
+        <text>MUCH refresh times again</text>
+        <text>More stability fixes</text>
+        <text>Better memory management again</text>
+        <text>Download the Portal app for themes and news from "Theme Settings"</text>
+    </version>
+
+    <version name="1.3.4">
+        <text>New method for faster refresh times</text>
+        <text>Small bug fixes</text>
+    </version>
+
+    <version name="1.3.3">
+        <text>Few fixes for attaching images to tweets</text>
+    </version>
+
+    <version name="1.3.2">
+        <text>A little bit higher quality YouTube thumbnails</text>
+        <text>Better stability</text>
+    </version>
+
+    <version name="1.3.0">
+        <text>TweetMarker support</text>
+        <text>TwitLonger support</text>
+        <text>Upload with TwitPic</text>
+        <text>Much better handling of user searches</text>
+        <text>Added share and quote button to the in-line expansions on tweets</text>
+        <text>Add color to the retweet and favorite buttons so you can better distinguish your actions on a tweet</text>
+        <text>Live streamed tweets will be automatically loaded when you are at the top of the timeline</text>
+        <text>Higher quality Instagram, TwitPic, and Imgur pictures</text>
+        <text>Remove retweets by long pressing the retweet button</text>
+        <text>Pull to refresh on searched trends</text>
+        <text>Don't show youtube in pictures timeline</text>
+        <text>Better feedback for when you retweet or favorite a status</text>
+        <text>Much better support for auto-trimming the databases</text>
+        <text>Added size 30 font</text>
+        <text>Mark direct messages and mentions as read when the notification is dismissed</text>
+        <text>Better handling of retweets when viewing the tweet</text>
+        <text>Reply to your own tweets</text>
+        <text>Share individual links in a tweet using the "Share Link" button in the overflow menu when viewing a tweet</text>
+        <text>View your current account on the talon pull notification if you have more than one</text>
+        <text>Workaround under advanced settings for if your timeline jumped down a spot after a refresh</text>
+        <text>Better stability</text>
+        <text>Tons of bug fixes</text>
+        <text>Updated translations</text>
+    </version>
+
+    <version name="1.2.0 Beta 3">
+        <text>More saving position on timeline</text>
+        <text>Fix for 24 hour clock</text>
+        <text>Fixed refresh on startup</text>
+        <text>Pull to refresh on search</text>
+        <text>Pull to refresh on lists</text>
+        <text>Issues with direct message and mentions notifications replaying</text>
+    </version>
+
+    <version name="1.20 Beta 2">
+        <text>Real URL's on profiles</text>
+        <text>Fixed 7 in tablet mode</text>
+        <text>Custom notification sound</text>
+        <text>Huge cleanup of settings</text>
+        <text>See user's location when viewing a tweet (if it is provided)</text>
+        <text>Changed the way that composing is done in-line. Now opens the compose window. Sorry but this is the way it will have to work.</text>
+        <text>Attempted some fixes for uploading large images</text>
+        <text>More jumping fixes on the timeline</text>
+        <text>Updated all the translations</text>
+    </version>
+
+    <version name="1.20 Beta 1">
+        <text>Color option for custom themes</text>
+        <text>In-line twitpic pictures</text>
+        <text>In-line imgur pictures</text>
+        <text>No more jumping on the timeline</text>
+        <text>7 in tablet layout also used in landscape on phones</text>
+        <text>Roboto Condensed font option</text>
+        <text>View users locations, websites, and following status on user profiles</text>
+        <text>Get more search results</text>
+        <text>Option to open to in app browser on tweets that contain websites</text>
+        <text>Use twitter's automatic link shortening</text>
+        <text>Got rid of the zoom button in the in app browser</text>
+        <text>Fixes for widget</text>
+        <text>Italian and French translations</text>
+    </version>
+
+    <version name="1.13">
+        <text>Threaded direct messages</text>
+        <text>Fill gaps in the timeline from Sync settings</text>
+        <text>Theme fixes</text>
+    </version>
+
+    <version name="1.11">
+        <text>Threaded direct messages</text>
+        <text>Fixes for duplicates - If it does happen, go to advanced settings then clean timeline</text>
+        <text>Fix user names not always being highlighted</text>
+        <text>More changes/fixes for the toast bar</text>
+        <text>Lots of other random fixes and crash reports</text>
+    </version>
+
+    <version name="1.10 Beta 3">
+        <text>Much better refreshing of mentions from the main timeline</text>
+        <text>"To first" button added in the action bar if you disable the toast</text>
+        <text>Mute hashtags from the overflow menu on a tweet</text>
+        <text>Option to ignore all retweets on your timeline</text>
+        <text>Fix for night mode when it starts after midnight</text>
+        <text>Better widget updating</text>
+        <text>Might have fixed the profiles not showing correctly for everyone</text>
+        <text>More fixes for the toast bar</text>
+        <text>Option to auto insert hashtags when replying to a tweet</text>
+        <text>Polish translation added</text>
+    </version>
+
+    <version name="1.10 Beta 2">
+        <text>Limit the number of tweets on the timeline according to the "Timeline size" under Advanced Settings</text>
+        <text>"To First" toast is now optional</text>
+        <text>Fixed the YouTube player and thumbnails</text>
+        <text>Faster refreshes</text>
+        <text>Attempted a few fixes for the jumping around on timelines (with load button and viewing picture/tweet)</text>
+        <text>More translation edits and fully added the Dutch translation</text>
+    </version>
+
+    <version name="1.10 Beta 1">
+        <text>View replies to your tweet on the discussions panel of the tweet viewer</text>
+        <text>Huge update for 7 inch tablet layouts</text>
+        <text>Better support for image loading on timelines</text>
+        <text>Option to use old style RT for quotes instead of current method (under advanced settings)</text>
+        <text>Option to use absolute dates on the timelines instead of relative</text>
+        <text>Added translation (Hungarian, Brazilian Portuguese, Spanish, Russian, started Dutch)</text>
+        <text>Compose tweets with the current search query while searching</text>
+        <text>Much better handling of mentions on the timeline from Talon Pull. *Should* solve the problem of things getting saved twice</text>
+        <text>Clear Searches option under advanced settings</text>
+        <text>Fixed the flickering of the actionable toast bar</text>
+        <text>Clicking a YouTube video on the timeline will take you directly to that video to view</text>
+        <text>Fixes for multiple accounts</text>
+        <text>Play Store crash fixes</text>
+    </version>
+
+    <version name="1.06">
+        <text>Huge expansion of notification options</text>
+        <text>Fixed links when sharing or quoting a tweet</text>
+        <text>Fixed the tweets being constrained to 139 chars</text>
+        <text>Fixed the action bar showing the "links" title at incorrect times</text>
+        <text>Much better support for blind users</text>
+        <text>Play store crash report fixes</text>
+    </version>
+
+    <version name="1.05">
+        <text>Correctly mute retweets</text>
+        <text>Higher quality images on timeline</text>
+        <text>Dismiss all on interactions drawer</text>
+        <text>In-app browser is now optional</text>
+        <text>Lowered swipe length for Pull to Refresh</text>
+        <text>Option to display both screenname and name on timeline tweets</text>
+        <text>Open app from clicking icon on widget</text>
+        <text>Finished German translation</text>
+        <text>Fixed contact images on layout change</text>
+        <text>Attempted fixes for Play Store crash reports</text>
+    </version>
+
+    <version name="1.01">
+        <text>Should fix the problem with Talon Pull not working right for some</text>
+        <text>Fix problems with tweets being saved twice</text>
+    </version>
+
+    <version name="1.00">
+        <text>"Talon Pull" for push notifications and live streaming... AWESOME feature :) </text>
+        <text>Added a very powerful 'Theme Engine' for developers (https://github.com/lklinker/talon_theme)</text>
+        <text>Added live streaming to the main timeline</text>
+        <text>Redesigned the tweet viewer to use a ViewPager. Allows for more dynamic content</text>
+        <text>Added a tutorial after login</text>
+        <text>Added a 'Hangouts' layout option as a default theme</text>
+        <text>Open multiple links from the tweet activity</text>
+        <text>Option to enable favorite user notifications</text>
+        <text>Mentions notifications for second account</text>
+        <text>Convert the search to the action bar instead of drawer</text>
+        <text>New notification icon</text>
+        <text>Save images from the photo viewer</text>
+        <text>Option to show Twitter handles instead of names on the timelines</text>
+        <text>Revamped the login to alleviate any problems</text>
+        <text>Higher quality instagram pictures</text>
+        <text>Report as spam option</text>
+        <text>Added a do not disturb time setting to block Talon's notifications</text>
+        <text>Any links that you open from a tweet will now open to my full screen browser first, then you can open them in the default browser from the Action bar</text>
+        <text>Applied the holo orange theme though out the rest of the ui</text>
+        <text>Added Pebble notifications</text>
+        <text>Changed the main drawer around</text>
+        <text>Added to the 'Get Help' and 'Other Apps' section of settings</text>
+        <text>Tweaks to style and performance across the board</text>
+    </version>
+
+    <version name="0.80">
+        <text>Added a real icon! Still need a notifications one</text>
+        <text>Added a pictures and links tab to the main page (optional)</text>
+        <text>Added a windowed photo view with a click on the pictures</text>
+        <text>Much better style on the main drawer</text>
+        <text>User pictures shown on notifications</text>
+        <text>Fixed force closes on the popup and sharing</text>
+    </version>
+
+    <version name="0.70">
+        <text>Got the popup working for real this time</text>
+        <text>Rewrote all the notification stuff. Expandable, actionable, and dynamic</text>
+        <text>DashClock changes</text>
+        <text>Native YouTube player</text>
+        <text>YouTube thumbnails</text>
+        <text>LOTS of speed optimizations for main timeline</text>
+        <text>Option to not show the inline pictures</text>
+        <text>Much better support for hashtags, links, and user entities in tweets</text>
+        <text>Option to turn off and on emoji keyboard from settings. Check if it is installed too</text>
+        <text>Major widget changes</text>
+        <text>Major updates to the Direct Message compose window</text>
+        <text>Add more than one screen name from the user selection dialog</text>
+        <text>Widget and image caching fixes</text>
+        <text>Lowered the data footprint again</text>
+        <text>Made the "Sliding Emoji Keyboard - iOS" compatible as a plugin</text>
+        <text>Inline Instagram pictures</text>
+    </version>
+
+    <version name="0.60">
+        <text>Optimized caching for less data usage and more speed</text>
+        <text>Tons of cleanup on the images</text>
+        <text>Re-made the compose, profiles, and tweet activities. Look much cleaner now.</text>
+        <text>Draft system for unsent tweets</text>
+        <text>Emojis added. You have to have our sliding emoji keyboard trial app. Link in settings.</text>
+        <text>Fixes for the highlighting of hashtags, users, and links</text>
+        <text>New widget</text>
+        <text>DashClock Extension</text>
+        <text>Style changes to profiles</text>
+        <text>Can now search for users by their username as well</text>
+        <text>Attach locations to new tweets</text>
+    </version>
+
+    <version name="0.50">
+        <text>Open profiles, hashtags, and websites that are highlighted in tweets</text>
+        <text>Can now search for users when composing a new tweet. It will sync your friends when you login and add them if you follow someone</text>
+        <text>Manually sync friends option</text>
+        <text>Only auto-refresh on wifi option</text>
+        <text>Cool landscape mode</text>
+        <text>Overhaul of unread tweets and marking them as read</text>
+        <text>Attach images from the camera to send</text>
+        <text>Notifications can now wake the screen</text>
+        <text>Night Mode Option</text>
+        <text>24-Hour Timestamp Option</text>
+        <text>Style changes</text>
+    </version>
+
+    <version name="0.40">
+        <text>Support for a second account</text>
+        <text>Awesome kitkat styling stuff</text>
+        <text>Cool actionable toast bar when scrolling the list</text>
+        <text>Hiding action bar as you scroll up the list</text>
+        <text>Working popup from the notification</text>
+        <text>Quote tweets from the action bar</text>
+        <text>Change your own profile info, picture, and banner</text>
+        <text>Pager for world and local trends. Requires new permissions</text>
+        <text>Vines now show in WebView</text>
+        <text>Parse hashtags and users to a different text color in timeline</text>
+        <text>Added a default user header if they have no banner</text>
+        <text>fixes for list refreshing after clicking notification</text>
+        <text>fixes for the notifications and added expanded options for them</text>
+        <text>fixes for the unread counts and how they work</text>
+        <text>fix for mentions sometimes getting messed up with timeline</text>
+        <text>changes to search to allow searching by username</text>
+    </version>
+
+    <version name="0.30">
+        <text>All settings working in the settings menu.</text>
+        <text>World trends working </text>
+        <text>Searching twitter working </text>
+        <text>Twitter lists working</text>
+        <text>Followers and following lists now working for profiles </text>
+        <text>Notifications for new tweets, direct messages, and mentions</text>
+        <text>Favorite Users page. They can be added from the profile activities</text>
+        <text>Trimming of databases and cache</text>
+        <text>New slim font (Roboto Light)</text>
+        <text>Updates mentions when you update the timeline as well</text>
+        <text>Changes to the profiles</text>
+        <text>Feedback on button presses</text>
+        <text>Attach images from the compose activity and reply activity</text>
+        <text>Style changes</text>
+        <text>Fix for user pictures on profiles</text>
+        <text>Refresh changes</text>
+        <text>Changelog added</text>
+        <text>number of tweets, followers, and following on profile</text>
+        <text>length counter on tweets (can't go over 140)</text>
+        <text>Shadows on the drawers</text>
+        <text>tons of other bug fixes</text>
+    </version>
+
+    <version name="0.20">
+        <text>Reduced memory footprint</text>
+        <text>Better Handling of images everywhere</text>
+        <text>Favorite Tweets page</text>
+        <text>Retweets of you page</text>
+        <text>New actions in the action bar on the tweets</text>
+        <text>Compose new direct messages from action bar and profiles</text>
+        <text>Delete direct messages with long click</text>
+        <text>Save images from tweets</text>
+        <text>Fix for not going back and finding all the tweets</text>
+        </version>
+
+    <version name="0.10">
+        <text>Style changes for main timeline activity (long press opens tweet, click expands, this will be an option later)</text>
+        <text>Fixed the animations stuttering</text>
+        <text>Direct message fixes</text>
+        <text>Made profile activities! Yay! Man that was a lot of work</text>
+        <text>Expand tweets contents from the tweet activity</text>
+        <text>Reply lists now fully working, can't look into the future yet though, only back</text>
+        <text>Better handling of dates in the tweet activity</text>
+    </version>
+
+</changelog>

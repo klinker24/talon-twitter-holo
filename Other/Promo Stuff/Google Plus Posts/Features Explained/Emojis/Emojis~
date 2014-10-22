@@ -1,0 +1,9 @@
+*Emoji Support*
+
+Talon comes ready to go with a few different emoji options, including support for either the iOS 7 or Android's "Hangouts" emojis. They are very easy to manage, just download one of the Sliding Emoji Keyboard packages from the Play Store, then turn on the option under "Theme Settings" to use the emojis! 
+
+If both keyboards are installed, Talon is going to default to the Android emojis, so if you wish to use the iOS ones, you will have to completely uninstall the Android one.
+
+Note that these two emoji keyboards are also a trial, however, Talon doesn't apply to that trial. You will be able to continue using the keyboards in Talon or EvolveSMS even past your 5 day trial period. That trial only applies to the keyboard as a stand-alone app that you can use anywhere in your system, on any apps.
+
+We decided to make them a seperate plug-in download to reduce the size of our app packages on the Play Store.

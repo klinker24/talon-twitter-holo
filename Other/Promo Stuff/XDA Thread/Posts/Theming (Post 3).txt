@@ -1,0 +1,14 @@
+[B]Theming in Talon for Twitter[/B]
+Real quick, before you get to far into the content, I want to let all you developers know about one of, if not the standout feature of Talon and EvolveSMS: one incredibly powerful theme engine.
+
+Along with these apps, me and Jacob have completely redesigned and rethought our old "Theme Engine" from Sliding Messaging! Although the Sliding Messaging one was cool and great for the average user to customize, it was slow, cluttered, limited, and just bad design from a developer perspective. This won't be an issue with these apps though. We remade everything about it to bring you the ultimate themeing and customization experience, without the bloat and slowdowns. You won't be disappointed when you see what it can do!
+
+All this theme engine takes is a little bit of knowledge about layouts and resources in Android, along with the Android SDK to compile and distribute your package as an APK, then you can make both of these apps into literally ANYTHING you want. We are able to read the layouts, drawables, and some of the colors directly from your compiled package and place them in our apps! Sweet huh, you thought this kind of design your own thing was only for homescreens :D
+
+And the best part: it is completely free and you can easily share these themes with anyone when you are done by just sending the APK or putting it on the Google Play Store!
+
+For more info on these and to start making Talon really your own, check out these links:
+
+1.) [URL="https://github.com/klinker24/talon_theme"]Talon Theming Example/Walkthrough on GitHub[/URL]
+2.) [URL="http://goo.gl/Odutkx"]Google+ Community Theming Section[/URL] - A great place to share so anyone can see and use your themes, not just XDA users
+3.) [URL="http://goo.gl/4gJ0uF"]Google+ Theming Post[/URL]

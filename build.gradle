@@ -1,0 +1,134 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.13.3'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.0'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+        flatDir {
+            dirs 'lib'
+        }
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'robolectric'
+
+android {
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'README.md'
+        exclude 'Other/'
+        exclude 'keystore.jks'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+	exclude 'META-INF/DEPENDENCIES'
+    }
+
+    compileSdkVersion Integer.parseInt(project.TARGET_SDK)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.klinker.android.twitter"
+        minSdkVersion Integer.parseInt(project.MIN_SDK)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+    }
+
+    File keystore = new File("keystore")
+    if (keystore.exists()) {
+        signingConfigs {
+            release {
+                storeFile file("keystore")
+                storePassword "klinker1127"
+                keyAlias "talon"
+                keyPassword "klinker1127"
+            }
+        }
+
+        buildTypes {
+            release {
+                runProguard false
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    sourceSets {
+        androidTest {
+            setRoot('src/test')
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+robolectric {
+    include '**/*Test.class'
+    exclude '**/espresso/**/*.class'
+}
+
+dependencies {
+
+    wearApp project(':wear')
+
+    androidTestCompile 'org.hamcrest:hamcrest-integration:1.1',
+            'org.hamcrest:hamcrest-core:1.1',
+            'org.hamcrest:hamcrest-library:1.1'
+    androidTestCompile 'junit:junit:4.11'
+    androidTestCompile 'org.robolectric:robolectric:2.4-SNAPSHOT'
+    androidTestCompile 'com.squareup:fest-android:1.0.8'
+    androidTestCompile 'org.mockito:mockito-all:1.9.5'
+
+    provided 'org.projectlombok:lombok:1.14.8'
+
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile 'com.github.castorflex.smoothprogressbar:library:0.5.1'
+    compile 'com.github.chrisbanes.photoview:library:1.2.3'
+    compile 'de.timroes.android:EnhancedListView:0.3.2@aar'
+    compile 'org.lucasr.smoothie:smoothie:0.1.0'
+    compile 'com.klinkerapps:launcher-apis:1.1.0@aar'
+
+    compile 'org.twitter4j:twitter4j-core:4.0.2'
+    compile 'org.twitter4j:twitter4j-stream:4.0.2'
+
+    compile 'com.android.support:support-v13:20.0.0'
+    compile 'com.google.android.gms:play-services:5.0.+'
+    compile 'com.google.android.support:wearable:1.0.0'
+
+    compile files('lib/httpmime-4.3.2.jar')
+    compile files('lib/dashclock-api-r2.0.jar')
+    compile files('lib/YouTubeAndroidPlayerApi.jar')
+    compile files('lib/httpcore-4.3.1.jar')
+    compile files('lib/jsoup-1.7.3.jar')
+    compile files('lib/nineoldandroids-2.4.0.jar')
+
+    compile(name: 'datetimepicker', ext: 'aar')
+    compile(name: 'bitmap-cache', ext: 'aar')
+
+    compile(project(":shared_assets"))
+}
+
+apply plugin: 'idea'
+
+idea {
+    module {
+        testOutputDir = file('build/test-classes/debug')
+    }
+}
