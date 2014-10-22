@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+build/
+*.iml
+Other/Video/
+.gitignore~
+readme.md~
+local.properties
+*.mp4
+keystore
