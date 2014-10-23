@@ -575,7 +575,8 @@ public class NotificationUtils {
             if (tweets.size() == 1) {
                 makeFavsNotificationToActivity(tweets, context);
             } else {
-                makeFavsNotification(tweets, context, true);
+                AppSettings settings = AppSettings.getInstance(context);
+                makeFavsNotification(tweets, context, settings.liveStreaming || settings.pushNotifications);
             }
         }
     }
