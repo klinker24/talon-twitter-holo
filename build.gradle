@@ -54,9 +54,9 @@ android {
         signingConfigs {
             release {
                 storeFile file("keystore")
-                storePassword "klinker1127"
+                storePassword project.RELEASE_KEY_SIGNATURE
                 keyAlias "talon"
-                keyPassword "klinker1127"
+                keyPassword project.RELEASE_KEY_SIGNATURE
             }
         }
 
