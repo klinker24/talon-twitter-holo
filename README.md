@@ -4,9 +4,9 @@
 
 This is the complete version of the Twitter client that I created for Android. It is 100% open source, the only thing that you will have to do plug in is your own API keys.
 
-I made the majority of this app when I was 19 years old, with one high school java class and half of a college one, and you can tell at some places. I know it isn't the prettiest code that you have ever seen, but it works, and it works pretty well! So don't judge to hard on the code, it definitely got better over time :)
+I made the majority of this app when I was 19 years old, with one high school java class and half of a college one, and you can tell at some places. I know it isn't the prettiest code that you have ever seen, but it works, and it works pretty well! So don't judge too hard on the code, it definitely got better over time :)
 
-As of now, it doesn't have to many comments throughout it, most of it is pretty easy to understand if you just dig for awhile, but as time goes on, I will go through and attempt to comment more of it.
+As of now, it doesn't have too many comments throughout it, most of it is pretty easy to understand if you just dig for awhile, but as time goes on, I will go through and attempt to comment more of it.
 
 
 ### What you can use this for ###
@@ -32,8 +32,8 @@ Please don't try to compile it as an ANT build. I beg you, just use Android Stud
 
 To compile it:
 
-1. Check out the project with a *git clone <clone path here>*
-2. You can compile it from the command line by CDing into the folder then *./gradlew assembleDebug*
+1. Check out the project with a `git clone <clone URL>`
+2. You can compile it from the command line by CDing into the folder then `./gradlew assembleDebug`
 3. Import it to IntelliJ or Android Studio by going to File -> Import Project... then selecting the *build.gradle* file in the root of the project
 
 To get your Twitter API key, go through these steps:
