@@ -152,6 +152,7 @@ public class TimelineRefreshService extends IntentService {
                 sendBroadcast(new Intent("com.klinker.android.twitter.TIMELINE_REFRESHED").putExtra("number_new", 0));
 
                 TimelineRefreshService.isRunning = false;
+                context.getContentResolver().notifyChange(HomeContentProvider.CONTENT_URI, null);
                 return;
             } else {
                 sharedPrefs.edit().putLong("last_timeline_insert", currentTime).commit();
