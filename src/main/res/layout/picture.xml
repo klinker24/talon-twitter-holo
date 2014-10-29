@@ -18,15 +18,16 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="400dp">
+    android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
 
     <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
         android:id="@+id/picture"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:background="@drawable/rect_border_light"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:layout_margin="20dp" />
+        android:layout_margin="4dp"/>
 
 </LinearLayout>

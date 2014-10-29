@@ -20,6 +20,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -27,12 +28,11 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.adapters.ArrayListLoader;
-import com.klinker.android.twitter.adapters.PeopleArrayAdapter;
-import com.klinker.android.twitter.adapters.PicturesArrayAdapter;
+import com.klinker.android.twitter.adapters.*;
 import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout;
 import com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.SwipeProgressBar;
@@ -60,7 +60,7 @@ public class ViewPictures extends Activity {
 
     private LinearLayout spinner;
     private LinearLayout noContent;
-    public AsyncListView listView;
+    public GridView listView;
 
     public ArrayList<String> images;
 
@@ -83,12 +83,12 @@ public class ViewPictures extends Activity {
 
         Utils.setUpPopupTheme(this, settings);
 
-        setContentView(R.layout.list_view_activity);
+        setContentView(R.layout.grid_view_activity);
 
         spinner = (LinearLayout) findViewById(R.id.list_progress);
         noContent = (LinearLayout) findViewById(R.id.no_content);
 
-        listView = (AsyncListView) findViewById(R.id.listView);
+        listView = (GridView) findViewById(R.id.listView);
 
         images = getIntent().getStringArrayListExtra("images");
 
@@ -99,7 +99,21 @@ public class ViewPictures extends Activity {
             }
         }
 
-        listView.setAdapter(new PicturesArrayAdapter(this, images, null));
+        Display display = ((Activity)context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
+        int numColumns;
+
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            numColumns = 5;
+        } else {
+            numColumns = 3;
+        }
+
+        listView.setAdapter(new MultiplePicsGridAdapter(this, images, null, width/numColumns));
 
         spinner.setVisibility(View.GONE);
         listView.setVisibility(View.VISIBLE);

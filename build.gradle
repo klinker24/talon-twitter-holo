@@ -6,7 +6,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:0.13.3'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.0'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
     }
 }
 
@@ -76,6 +76,10 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    aaptOptions {
+        noCompress 'apk'
     }
 }
 

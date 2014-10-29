@@ -20,17 +20,22 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.PicturesArrayAdapter;
+import com.klinker.android.twitter.adapters.PicturesGridAdapter;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.utils.TweetLinkUtils;
 import com.klinker.android.twitter.utils.Utils;
@@ -51,7 +56,7 @@ public class ProfilePicturesFragment extends Fragment {
     public AppSettings settings;
     public SharedPreferences sharedPrefs;
 
-    public AsyncListView listView;
+    public GridView listView;
     public LinearLayout spinner;
 
     public String screenName;
@@ -80,7 +85,7 @@ public class ProfilePicturesFragment extends Fragment {
 
         layout = inflater.inflate(R.layout.pictures_fragment, null);
 
-        listView = (AsyncListView) layout.findViewById(R.id.listView);
+        listView = (GridView) layout.findViewById(R.id.listView);
         spinner = (LinearLayout) layout.findViewById(R.id.spinner);
 
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -119,7 +124,7 @@ public class ProfilePicturesFragment extends Fragment {
     public Paging paging = new Paging(1, 60);
     public boolean hasMore = true;
     public boolean canRefresh = false;
-    public PicturesArrayAdapter adapter;
+    public PicturesGridAdapter adapter;
 
     public void doSearch() {
         spinner.setVisibility(View.VISIBLE);
@@ -160,7 +165,22 @@ public class ProfilePicturesFragment extends Fragment {
                     ((Activity)context).runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            adapter = new PicturesArrayAdapter(context, pics, tweetsWithPics);
+
+                            Display display = ((Activity)context).getWindowManager().getDefaultDisplay();
+                            Point size = new Point();
+                            display.getSize(size);
+                            int width = size.x;
+
+                            int numColumns;
+
+                            int currentOrientation = getResources().getConfiguration().orientation;
+                            if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                                numColumns = 5;
+                            } else {
+                                numColumns = 3;
+                            }
+
+                            adapter = new PicturesGridAdapter(context, pics, tweetsWithPics, width / numColumns);
                             listView.setAdapter(adapter);
                             listView.setVisibility(View.VISIBLE);
 
