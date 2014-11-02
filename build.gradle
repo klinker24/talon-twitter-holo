@@ -108,6 +108,8 @@ dependencies {
     compile 'de.timroes.android:EnhancedListView:0.3.2@aar'
     compile 'org.lucasr.smoothie:smoothie:0.1.0'
     compile 'com.klinkerapps:launcher-apis:1.1.0@aar'
+    compile 'com.google.android.apps.dashclock:dashclock-api:+'
+    compile 'com.nineoldandroids:library:2.4.0'
 
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     compile 'org.twitter4j:twitter4j-stream:4.0.2'
@@ -116,13 +118,11 @@ dependencies {
     compile 'com.google.android.gms:play-services:5.0.+'
     compile 'com.google.android.support:wearable:1.0.0'
 
-    compile files('lib/httpmime-4.3.2.jar')
-    compile files('lib/dashclock-api-r2.0.jar')
-    compile files('lib/YouTubeAndroidPlayerApi.jar')
-    compile files('lib/httpcore-4.3.1.jar')
-    compile files('lib/jsoup-1.7.3.jar')
-    compile files('lib/nineoldandroids-2.4.0.jar')
+    compile 'org.apache.httpcomponents:httpmime:4.3.5'
+    compile 'org.apache.httpcomponents:httpcore:4.3.2'
+    compile 'org.jsoup:jsoup:1.7.3'
 
+    compile files('lib/YouTubeAndroidPlayerApi.jar')
     compile(name: 'datetimepicker', ext: 'aar')
     compile(name: 'bitmap-cache', ext: 'aar')
 
