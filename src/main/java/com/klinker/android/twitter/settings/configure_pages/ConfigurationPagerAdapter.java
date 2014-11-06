@@ -22,50 +22,50 @@ import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
 
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.adapters.PicturesGridAdapter;
+import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
+import com.klinker.android.twitter.settings.configure_pages.fragments.ChooserFragment;
 import com.klinker.android.twitter.settings.configure_pages.fragments.ExampleHomeFragment;
 import com.klinker.android.twitter.settings.configure_pages.fragments.PageOneFragment;
 import com.klinker.android.twitter.settings.configure_pages.fragments.PageTwoFragment;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConfigurationPagerAdapter extends FragmentPagerAdapter {
 
     private Context context;
+    private List<Fragment> frags = new ArrayList<Fragment>();
 
     public ConfigurationPagerAdapter(FragmentManager manager, Context context) {
         super(manager);
         this.context = context;
+
+        for (int i = 0; i <= TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+            if (i == TimelinePagerAdapter.MAX_EXTRA_PAGES) {
+                frags.add(new ExampleHomeFragment());
+            } else {
+                frags.add(new ChooserFragment());
+            }
+        }
     }
 
     @Override
     public Fragment getItem(int i) {
-
-        switch (i) {
-            case 0:
-                return new PageOneFragment();
-            case 1:
-                return new PageTwoFragment();
-            case 2:
-                return new ExampleHomeFragment();
-        }
-
-        return null;
+        return frags.get(i);
     }
 
     @Override
     public int getCount() {
-        return 3; // 3 pages
+        return TimelinePagerAdapter.MAX_EXTRA_PAGES + 1;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 0:
-                return context.getResources().getString(R.string.page_1);
-            case 1:
-                return context.getResources().getString(R.string.page_2);
-            case 2:
-                return context.getResources().getString(R.string.timeline);
+        if (position == TimelinePagerAdapter.MAX_EXTRA_PAGES) {
+            return context.getResources().getString(R.string.timeline);
+        } else {
+            return context.getResources().getString(R.string.page).replace("%s", (position + 1) + "");
         }
-        return null;
     }
 }

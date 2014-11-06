@@ -33,7 +33,7 @@ import com.klinker.android.twitter.settings.configure_pages.ListChooser;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 
 
-public abstract class ChooserFragment extends Fragment {
+public class ChooserFragment extends Fragment {
 
     protected Context context;
     protected ActionBar actionBar;
@@ -127,7 +127,17 @@ public abstract class ChooserFragment extends Fragment {
         }
     }
 
-    protected abstract void setType(int type);
-    protected abstract void setId(long id);
-    protected abstract void setListName(String name);
+    public int type = AppSettings.PAGE_TYPE_NONE;
+    public long listId = 0;
+    public String listName = "";
+
+    protected void setType(int type) {
+        this.type = type;
+    }
+    protected void setId(long id) {
+        this.listId = id;
+    }
+    protected void setListName(String listName) {
+        this.listName = listName;
+    }
 }

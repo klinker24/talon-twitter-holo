@@ -16,9 +16,6 @@
 
 package com.klinker.android.twitter;
 
-/**
- *  To use these keys, simply replace the blank string with the string you obtain from the service.
- **/
 public class APIKeys {
 
     /**

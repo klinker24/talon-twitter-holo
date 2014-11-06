@@ -660,6 +660,9 @@
     </string>
     <string name="contact">Contact</string>
     <string name="follow">Follow</string>
+    <string name="menu_number_of_pages">Number of Extra Pages</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Page %s</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>
