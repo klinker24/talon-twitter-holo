@@ -82,7 +82,28 @@ public class ConfigurePagerActivity extends Activity {
         mViewPager.setAdapter(chooserAdapter);
         mViewPager.setOverScrollMode(ViewPager.OVER_SCROLL_NEVER);
 
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(6);
+
+        if (sharedPrefs.getBoolean("show_performance_tip", true)) {
+            new AlertDialog.Builder(context)
+                    .setTitle("Timeline Tip")
+                    .setMessage("With this version of Talon, you can completely customize your swipable timelines." +
+                            "\n\n" +
+                            "You can place up to 6 swipeable pages on the main screen of Talon, including lists, mentions, direct messages, your 'home' timeline, and some filtered timelines.")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("Don't Show Again", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sharedPrefs.edit().putBoolean("show_performance_tip", false).commit();
+                        }
+                    })
+                    .create().show();
+        }
     }
 
     public void setUpDoneDiscard() {
@@ -108,6 +129,10 @@ public class ConfigurePagerActivity extends Activity {
                                 editor.putInt("account_" + currentAccount + "_page_" + num, f.type);
                                 editor.putLong("account_" + currentAccount + "_list_" + num + "_long", f.listId);
                                 editor.putString("account_" + currentAccount + "_name_" + num, f.listName);
+
+                                if (f.check.isChecked()) {
+                                    editor.putInt("default_timeline_page", i);
+                                }
                             }
                         }
 

@@ -171,21 +171,20 @@ public class MainActivity extends DrawerActivity {
         });
 
         actionBar = getActionBar();
-        actionBar.setTitle(getResources().getString(R.string.timeline));
 
         if (!settings.isTwitterLoggedIn) {
             Intent login = new Intent(context, LoginActivity.class);
             startActivity(login);
-        } /*else if (!sharedPrefs.getBoolean("setup_v_two", false) && !PreferenceManager.getDefaultSharedPreferences(context).getBoolean("setup_v_two", false)) {
-            Intent setupV2 = new Intent(context, Version2Setup.class);
-            startActivity(setupV2);
-        }*/
+        }
 
         mSectionsPagerAdapter = new TimelinePagerAdapter(getFragmentManager(), context, sharedPrefs, getIntent().getBooleanExtra("from_launcher", false));
 
+        int defaultPage = sharedPrefs.getInt("default_timeline_page", 1);
+        actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(defaultPage));
+
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        mViewPager.setCurrentItem(mSectionsPagerAdapter.getCount() - 3);
+        mViewPager.setCurrentItem(defaultPage);
 
         if (getIntent().getBooleanExtra("from_launcher", false)) {
             actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(getIntent().getIntExtra("launcher_page", 0)));
@@ -226,7 +225,7 @@ public class MainActivity extends DrawerActivity {
             }
         });
 
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(TimelinePagerAdapter.MAX_EXTRA_PAGES);
 
         if (getIntent().getBooleanExtra("tutorial", false) && !sharedPrefs.getBoolean("done_tutorial", false)) {
             getIntent().putExtra("tutorial", false);

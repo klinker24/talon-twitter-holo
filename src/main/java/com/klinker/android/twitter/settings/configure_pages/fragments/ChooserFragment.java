@@ -19,14 +19,18 @@ package com.klinker.android.twitter.settings.configure_pages.fragments;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.settings.configure_pages.ListChooser;
@@ -35,9 +39,24 @@ import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 
 public class ChooserFragment extends Fragment {
 
+    private static final String DEFAULT_CLICKED = "com.klinker.android.twitter.CLICKED_CHECK";
+
     protected Context context;
     protected ActionBar actionBar;
     protected HoloTextView current;
+    public CheckBox check;
+
+    private boolean thisFragmentClicked = false;
+    BroadcastReceiver defaultClicked = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (!thisFragmentClicked) {
+                check.setChecked(false);
+            } else {
+                thisFragmentClicked = false;
+            }
+        }
+    };
 
     @Override
     public void onAttach(Activity activity) {
@@ -100,6 +119,49 @@ public class ChooserFragment extends Fragment {
             }
         });
 
+        Button timeline = (Button) layout.findViewById(R.id.use_home);
+        timeline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.timeline));
+                setType(AppSettings.PAGE_TYPE_HOME);
+            }
+        });
+
+        Button mentions = (Button) layout.findViewById(R.id.use_mentions);
+        mentions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.mentions));
+                setType(AppSettings.PAGE_TYPE_MENTIONS);
+            }
+        });
+
+        Button dms = (Button) layout.findViewById(R.id.use_dms);
+        dms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.direct_messages));
+                setType(AppSettings.PAGE_TYPE_DMS);
+            }
+        });
+
+        check = (CheckBox) layout.findViewById(R.id.default_page);
+        final LinearLayout checkLayout = (LinearLayout) layout.findViewById(R.id.default_page_layout);
+        checkLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (check.isChecked()) {
+                    check.setChecked(false);
+                } else {
+                    check.setChecked(true);
+                    thisFragmentClicked = true;
+                    context.sendBroadcast(new Intent(DEFAULT_CLICKED));
+
+
+                }
+            }
+        });
 
         return layout;
     }
@@ -139,5 +201,20 @@ public class ChooserFragment extends Fragment {
     }
     protected void setListName(String listName) {
         this.listName = listName;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        IntentFilter filter = new IntentFilter(DEFAULT_CLICKED);
+        context.registerReceiver(defaultClicked, filter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        context.unregisterReceiver(defaultClicked);
     }
 }

@@ -72,6 +72,9 @@ public class AppSettings {
     public static final int PAGE_TYPE_LINKS = 2;
     public static final int PAGE_TYPE_LIST = 3;
     public static final int PAGE_TYPE_FAV_USERS = 4;
+    public static final int PAGE_TYPE_HOME = 5;
+    public static final int PAGE_TYPE_MENTIONS = 6;
+    public static final int PAGE_TYPE_DMS = 7;
 
     public static final int LAYOUT_TALON = 0;
     public static final int LAYOUT_HANGOUT = 1;
