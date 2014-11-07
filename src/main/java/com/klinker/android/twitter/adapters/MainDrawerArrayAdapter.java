@@ -28,17 +28,26 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
+import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
     private final Activity context;
-    private final ArrayList<String> text;
+    private final ArrayList<String> text = new ArrayList<String>();
     public SharedPreferences sharedPrefs;
     public static int current = 0;
     public int textSize;
+
+    public List<Long> listIds = new ArrayList<Long>(); // 0 is the furthest to the left
+    public List<Integer> pageTypes = new ArrayList<Integer>();
+    public List<String> pageNames = new ArrayList<String>();
 
     static class ViewHolder {
         public HoloTextView name;
@@ -47,9 +56,6 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
 
     public static String[] getItems(Context context1) {
         String[] items = new String[] {
-                context1.getResources().getString(R.string.timeline),
-                context1.getResources().getString(R.string.mentions),
-                context1.getResources().getString(R.string.direct_messages),
                 context1.getResources().getString(R.string.discover),
                 context1.getResources().getString(R.string.lists),
                 context1.getResources().getString(R.string.favorite_users),
@@ -60,14 +66,51 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         return items;
     }
 
-    public MainDrawerArrayAdapter(Context context, ArrayList<String> text) {
+    public MainDrawerArrayAdapter(Context context) {
         super(context, 0);
         this.context = (Activity) context;
-        this.text = text;
         this.sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
         textSize = 15;
+
+
+        int currentAccount = sharedPrefs.getInt("current_account", 1);
+
+        for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+            String listIdentifier = "account_" + currentAccount + "_list_" + (i + 1) + "_long";
+            String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+            String nameIdentifier = "account_" + currentAccount + "_name_" + (i + 1);
+
+            int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
+
+            if (type != AppSettings.PAGE_TYPE_NONE) {
+                pageTypes.add(type);
+                listIds.add(sharedPrefs.getLong(listIdentifier, 0l));
+                pageNames.add(sharedPrefs.getString(nameIdentifier, ""));
+            }
+        }
+
+        for (int i = 0; i < pageTypes.size(); i++) {
+            switch (pageTypes.get(i)) {
+                case AppSettings.PAGE_TYPE_HOME:
+                    text.add(context.getResources().getString(R.string.timeline));
+                    break;
+                case AppSettings.PAGE_TYPE_MENTIONS:
+                    text.add(context.getResources().getString(R.string.mentions));
+                    break;
+                case AppSettings.PAGE_TYPE_DMS:
+                    text.add(context.getResources().getString(R.string.direct_messages));
+                    break;
+                default:
+                    text.add(getName(pageNames.get(i), pageTypes.get(i)));
+                    break;
+            }
+        }
+
+        for (String s : getItems(context)) {
+            text.add(s);
+        }
     }
 
     @Override
@@ -149,6 +192,21 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
+            } else if (text.get(position).equals(context.getResources().getString(R.string.links))) {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.links});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else if (text.get(position).equals(context.getResources().getString(R.string.pictures))) {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.picturePlaceholder});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.listIcon});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
             }
         } catch (OutOfMemoryError e) {
 
@@ -171,5 +229,20 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         }
 
         return rowView;
+    }
+
+    public String getName(String listName, int type) {
+        switch (type) {
+            case AppSettings.PAGE_TYPE_LIST:
+                return listName;
+            case AppSettings.PAGE_TYPE_LINKS:
+                return context.getResources().getString(R.string.links);
+            case AppSettings.PAGE_TYPE_PICS:
+                return context.getResources().getString(R.string.pictures);
+            case AppSettings.PAGE_TYPE_FAV_USERS:
+                return context.getString(R.string.favorite_users);
+        }
+
+        return null;
     }
 }

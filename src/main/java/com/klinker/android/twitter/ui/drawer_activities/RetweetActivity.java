@@ -68,7 +68,7 @@ public class RetweetActivity extends DrawerActivity {
 
         setUpTheme();
         setContentView(R.layout.retweets_activity);
-        setUpDrawer(6, getResources().getString(R.string.retweets));
+        setUpDrawer(3, getResources().getString(R.string.retweets));
 
         actionBar = getActionBar();
         actionBar.setTitle(getResources().getString(R.string.retweets));

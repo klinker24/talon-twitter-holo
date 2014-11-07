@@ -182,14 +182,6 @@ public class MainActivity extends DrawerActivity {
         int defaultPage = sharedPrefs.getInt("default_timeline_page", 1);
         actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(defaultPage));
 
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        mViewPager.setCurrentItem(defaultPage);
-
-        if (getIntent().getBooleanExtra("from_launcher", false)) {
-            actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(getIntent().getIntExtra("launcher_page", 0)));
-        }
-
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             public void onPageScrollStateChanged(int state) {
             }
@@ -209,21 +201,20 @@ public class MainActivity extends DrawerActivity {
 
                 String title = "" + mSectionsPagerAdapter.getPageTitle(position);
 
-                if (title.equals(getResources().getString(R.string.mentions))) {
-                    MainDrawerArrayAdapter.current = 1;
-                } else if (title.equals(getResources().getString(R.string.direct_messages))) {
-                    MainDrawerArrayAdapter.current = 2;
-                } else if (title.equals(getResources().getString(R.string.timeline))) {
-                    MainDrawerArrayAdapter.current = 0;
-                } else {
-                    MainDrawerArrayAdapter.current = -1;
-                }
-
+                MainDrawerArrayAdapter.current = position;
                 drawerList.invalidateViews();
 
                 actionBar.setTitle(title);
             }
         });
+
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        mViewPager.setCurrentItem(defaultPage);
+
+        if (getIntent().getBooleanExtra("from_launcher", false)) {
+            actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(getIntent().getIntExtra("launcher_page", 0)));
+        }
 
         mViewPager.setOffscreenPageLimit(TimelinePagerAdapter.MAX_EXTRA_PAGES);
 
