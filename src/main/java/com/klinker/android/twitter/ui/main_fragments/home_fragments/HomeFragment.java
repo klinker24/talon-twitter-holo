@@ -38,6 +38,7 @@ import android.widget.CursorAdapter;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.TimeLineCursorAdapter;
+import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.data.sq_lite.HomeContentProvider;
 import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
 import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
@@ -99,7 +100,8 @@ public class HomeFragment extends MainFragment { // implements LoaderManager.Loa
                 extraPages++;
             }
 
-            MainActivity.mViewPager.setCurrentItem(1 + extraPages, true);
+            MainActivity.mViewPager.setCurrentItem(
+                    ((TimelinePagerAdapter)MainActivity.mViewPager.getAdapter()).mentionIndex, true);
             hideToastBar(400);
         }
     };

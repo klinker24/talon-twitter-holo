@@ -280,7 +280,7 @@ public class MainActivity extends DrawerActivity {
         setLauncherPage();
 
         if (getIntent().getBooleanExtra("from_drawer", false)) {
-            mViewPager.setCurrentItem(getIntent().getIntExtra("page_to_open", 3));
+            mViewPager.setCurrentItem(getIntent().getIntExtra("page_to_open", 1));
         }
     }
 
@@ -332,7 +332,7 @@ public class MainActivity extends DrawerActivity {
 
         if (sharedPrefs.getBoolean("open_a_page", false)) {
             sharedPrefs.edit().putBoolean("open_a_page", false).commit();
-            int page = sharedPrefs.getInt("open_what_page", 3);
+            int page = sharedPrefs.getInt("open_what_page", 1);
             String title = "" + mSectionsPagerAdapter.getPageTitle(page);
             actionBar.setTitle(title);
             mViewPager.setCurrentItem(page);
