@@ -42,6 +42,10 @@ import com.klinker.android.twitter.ui.drawer_activities.discover.DiscoverPager;
 import com.klinker.android.twitter.ui.drawer_activities.lists.ListsActivity;
 import com.klinker.android.twitter.manipulations.widgets.NotificationDrawerLayout;
 
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 public class MainDrawerClickListener implements AdapterView.OnItemClickListener {
 
     private Context context;
@@ -49,6 +53,9 @@ public class MainDrawerClickListener implements AdapterView.OnItemClickListener 
     private ViewPager viewPager;
     private boolean noWait;
     private int swipablePages = 0;
+
+    private String[] shownElements;
+    private Set<String> set;
 
     private SharedPreferences sharedPreferences;
 
@@ -71,11 +78,36 @@ public class MainDrawerClickListener implements AdapterView.OnItemClickListener 
                 swipablePages++;
             }
         }
+
+        set = sharedPreferences.getStringSet("drawer_elements_shown", new HashSet<String>());
+        shownElements = new String[set.size()];
+        int i = 0;
+        for (Object o : set.toArray()) {
+            shownElements[i] = (String) o;
+            i++;
+        }
+
+        /*realPages = swipablePages;
+        for(i = 0; i < realPages; i++) {
+            if (!set.contains("" + i)) {
+                swipablePages--;
+            }
+        }*/
     }
+
+    int realPages = 0;
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         context.sendBroadcast(new Intent("com.klinker.android.twitter.MARK_POSITION"));
+
+        // we will increment until we find one that is in the set of shown elements
+        for (int index = 0; index <= i; index++) {
+            if (!set.contains(index + "")) {
+                i++;
+            }
+        }
+
         if (i < swipablePages) {
             if (MainDrawerArrayAdapter.current < swipablePages) {
                 new Handler().postDelayed(new Runnable() {

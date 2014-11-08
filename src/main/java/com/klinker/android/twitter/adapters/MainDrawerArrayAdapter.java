@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.manipulations.widgets.NotificationDrawerLayout;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
@@ -36,7 +38,9 @@ import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
     private final Activity context;
@@ -48,6 +52,8 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
     public List<Long> listIds = new ArrayList<Long>(); // 0 is the furthest to the left
     public List<Integer> pageTypes = new ArrayList<Integer>();
     public List<String> pageNames = new ArrayList<String>();
+
+    public Set<String> shownItems;
 
     static class ViewHolder {
         public HoloTextView name;
@@ -111,6 +117,15 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         for (String s : getItems(context)) {
             text.add(s);
         }
+
+        shownItems = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
+
+        for (int i = text.size() - 1; i >= 0; i--) {
+            if (!shownItems.contains(i + "")) {
+                text.remove(i);
+            }
+        }
+
     }
 
     @Override
@@ -212,7 +227,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
 
         }
 
-        if (current == position) {
+        if (highlightedCurrent == position) {
             if (!DrawerActivity.settings.addonTheme) {
                 holder.icon.setColorFilter(context.getResources().getColor(R.color.app_color));
                 holder.name.setTextColor(context.getResources().getColor(R.color.app_color));
@@ -229,6 +244,25 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         }
 
         return rowView;
+    }
+
+    public static int highlightedCurrent;
+    public static void setCurrent(Context context, int i) {
+        current = i;
+        highlightedCurrent = i;
+
+        SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+
+        Set<String> shownItems = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
+        for (int index = 0; index < highlightedCurrent; index++) {
+            if (!shownItems.contains(index + "")) {
+                highlightedCurrent--;
+            }
+        }
+
+        Log.v("talon_pages", "highlightedCurrent: " + highlightedCurrent);
+        Log.v("talon_pages", "current: " + current);
     }
 
     public String getName(String listName, int type) {

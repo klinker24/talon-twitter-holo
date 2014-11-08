@@ -137,6 +137,8 @@ public class MainActivity extends DrawerActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        UpdateUtils.checkUpdate(this);
+
         MainActivity.sendHandler = new Handler();
 
         context = this;
@@ -178,8 +180,8 @@ public class MainActivity extends DrawerActivity {
         }
 
         mSectionsPagerAdapter = new TimelinePagerAdapter(getFragmentManager(), context, sharedPrefs, getIntent().getBooleanExtra("from_launcher", false));
-
-        int defaultPage = sharedPrefs.getInt("default_timeline_page", 1);
+        int currAccount = sharedPrefs.getInt("current_account", 1);
+        int defaultPage = sharedPrefs.getInt("default_timeline_page_" + currAccount, 0);
         actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(defaultPage));
 
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -201,7 +203,7 @@ public class MainActivity extends DrawerActivity {
 
                 String title = "" + mSectionsPagerAdapter.getPageTitle(position);
 
-                MainDrawerArrayAdapter.current = position;
+                MainDrawerArrayAdapter.setCurrent(context, position);
                 drawerList.invalidateViews();
 
                 actionBar.setTitle(title);
@@ -211,6 +213,9 @@ public class MainActivity extends DrawerActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
         mViewPager.setCurrentItem(defaultPage);
+        MainDrawerArrayAdapter.setCurrent(this, defaultPage);
+
+        drawerList.invalidateViews();
 
         if (getIntent().getBooleanExtra("from_launcher", false)) {
             actionBar.setTitle(mSectionsPagerAdapter.getPageTitle(getIntent().getIntExtra("launcher_page", 0)));
@@ -429,8 +434,6 @@ public class MainActivity extends DrawerActivity {
 
         // clear the pull unread
         sharedPrefs.edit().putInt("pull_unread", 0).commit();
-
-        UpdateUtils.checkUpdate(this);
 
         /*new Thread(new Runnable() {
             @Override

@@ -123,11 +123,6 @@
             android:defaultValue="true"
             />
 
-        <Preference
-            android:key="pages"
-            android:title="@string/configure_pages"
-            />
-
         </PreferenceCategory>
 
 </PreferenceScreen>

@@ -502,7 +502,7 @@
     <string name="jumping_workaround_summary">Enable this if your timeline jumps down one spot after you refresh your feed.</string>
     <string name="menu_share_link">Share Link</string>
     <string name="no_links">No Links</string>
-    <string name="configure_pages">Configure Extra Pages</string>
+    <string name="configure_pages">Choose Swipe-able Pages</string>
     <string name="picture_page">Picture Timeline</string>
     <string name="link_page">Link Timeline</string>
     <string name="list_page">List Timeline</string>
@@ -664,6 +664,9 @@
     <!-- %s will be replaced with a number for the currently selected page -->
     <string name="page">Page %s</string>
     <string name="set_as_default">Set as Default</string>
+    <string name="main_pages_and_drawer">Main Pages and Drawer</string>
+    <string name="drawer_elements">Visible Drawer Items</string>
+    <string name="drawer_elements_summary">Show or hide the items in the apps main navigation drawer.</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

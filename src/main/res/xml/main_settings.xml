@@ -42,6 +42,10 @@
                 android:title="@string/advanced_settings"
                 android:icon="?advancedSettings" />
 
+    <Preference android:key="main_pages_and_drawer"
+                android:title="@string/main_pages_and_drawer"
+                android:icon="?settings_pages" />
+
     <Preference android:key="memory_management"
                 android:title="@string/memory_manage"
                 android:icon="?memManagement" />

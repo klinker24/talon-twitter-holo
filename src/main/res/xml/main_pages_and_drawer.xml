@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+            android:key="pages"
+            android:title="@string/configure_pages" />
+
+    <Preference
+        android:key="drawer_elements"
+        android:title="@string/drawer_elements"
+        android:summary="@string/drawer_elements_summary" />
+</PreferenceScreen>

@@ -55,6 +55,8 @@ import android.widget.Toast;
 
 import com.android.datetimepicker.time.RadialPickerLayout;
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.adapters.MainDrawerArrayAdapter;
+import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.data.Item;
 import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
 import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
@@ -74,10 +76,7 @@ import com.klinker.android.twitter.manipulations.widgets.HoloEditText;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import twitter4j.PagableResponseList;
 import twitter4j.Paging;
@@ -128,14 +127,18 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 setUpAdvancedSettings();
                 break;
             case 6:
+                addPreferencesFromResource(R.xml.main_pages_and_drawer);
+                setUpPageSettings();
+                break;
+            case 7:
                 addPreferencesFromResource(R.xml.memory_management_settings);
                 setUpMemManagementSettings();
                 break;
-            case 7:
+            case 8:
                 addPreferencesFromResource(R.xml.get_help_settings);
                 setUpGetHelpSettings();
                 break;
-            case 8:
+            case 9:
                 addPreferencesFromResource(R.xml.other_apps_settings);
                 setUpOtherAppSettings();
                 break;
@@ -158,6 +161,124 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
     public void setUpBrowserSettings() {
 
+    }
+
+    public void setUpPageSettings() {
+        Preference pages = findPreference("pages");
+        pages.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent configurePages = new Intent(context, ConfigurePagerActivity.class);
+                startActivity(configurePages);
+                return false;
+            }
+        });
+
+        Preference drawerItems = findPreference("drawer_elements");
+        drawerItems.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+
+                final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+                        Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+
+                List<Integer> pageTypes = new ArrayList<Integer>();
+                List<String> pageNames = new ArrayList<String>();
+                List<String> text = new ArrayList<String>();
+
+                int currentAccount = sharedPrefs.getInt("current_account", 1);
+
+                for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+                    String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+                    String nameIdentifier = "account_" + currentAccount + "_name_" + (i + 1);
+
+                    int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
+
+                    if (type != AppSettings.PAGE_TYPE_NONE) {
+                        pageTypes.add(type);
+                        pageNames.add(sharedPrefs.getString(nameIdentifier, ""));
+                    }
+                }
+                for (int i = 0; i < pageTypes.size(); i++) {
+                    switch (pageTypes.get(i)) {
+                        case AppSettings.PAGE_TYPE_HOME:
+                            text.add(context.getResources().getString(R.string.timeline));
+                            break;
+                        case AppSettings.PAGE_TYPE_MENTIONS:
+                            text.add(context.getResources().getString(R.string.mentions));
+                            break;
+                        case AppSettings.PAGE_TYPE_DMS:
+                            text.add(context.getResources().getString(R.string.direct_messages));
+                            break;
+                        default:
+                            text.add(getName(pageNames.get(i), pageTypes.get(i)));
+                            break;
+                    }
+                }
+
+                for (String s : MainDrawerArrayAdapter.getItems(context)) {
+                    text.add(s);
+                }
+
+                String[] strings = new String[text.size()];
+                boolean[] bools = new boolean[text.size()];
+
+                final Set<String> set = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
+
+                for (int i = 0; i < strings.length; i++) {
+                    strings[i] = text.get(i);
+                    if (set.contains(i + "")) {
+                        bools[i] = true;
+                    } else {
+                        bools[i] = false;
+                    }
+                }
+
+                new AlertDialog.Builder(context)
+                        .setTitle(preference.getTitle())
+                        .setMultiChoiceItems(strings, bools, new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                if (!isChecked) {
+                                    // remove it
+                                    set.remove(which + "");
+                                } else {
+                                    set.add("" + which);
+                                }
+                            }
+                        })
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sharedPrefs.edit().putStringSet("drawer_elements_shown", set).commit();
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .create().show();
+                return false;
+            }
+        });
+    }
+
+    public String getName(String listName, int type) {
+        switch (type) {
+            case AppSettings.PAGE_TYPE_LIST:
+                return listName;
+            case AppSettings.PAGE_TYPE_LINKS:
+                return context.getResources().getString(R.string.links);
+            case AppSettings.PAGE_TYPE_PICS:
+                return context.getResources().getString(R.string.pictures);
+            case AppSettings.PAGE_TYPE_FAV_USERS:
+                return context.getString(R.string.favorite_users);
+        }
+
+        return null;
     }
 
     public void setUpMemManagementSettings() {
@@ -412,16 +533,6 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 }
 
                 return true;
-            }
-        });
-
-        Preference pages = findPreference("pages");
-        pages.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                Intent configurePages = new Intent(context, ConfigurePagerActivity.class);
-                startActivity(configurePages);
-                return false;
             }
         });
 

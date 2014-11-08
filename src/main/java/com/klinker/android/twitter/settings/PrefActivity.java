@@ -96,23 +96,28 @@ public class PrefActivity extends Activity {
             int resource = a.getResourceId(0, 0);
             a.recycle();
             ab.setIcon(resource);
-        } else if (position == 7) {
+        } else if (position == 8) {
             TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.getHelp});
             int resource = a.getResourceId(0, 0);
             a.recycle();
             ab.setIcon(resource);
-        } else if (position == 8) {
+        } else if (position == 9) {
             TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.otherApps});
             int resource = a.getResourceId(0, 0);
             a.recycle();
             ab.setIcon(resource);
-        } else if (position == 6) {
+        } else if (position == 7) {
             TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.memManagement});
             int resource = a.getResourceId(0, 0);
             a.recycle();
             ab.setIcon(resource);
         } else if (position == 4) {
             TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.links});
+            int resource = a.getResourceId(0, 0);
+            a.recycle();
+            ab.setIcon(resource);
+        } else if (position == 6) {
+            TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.settings_pages});
             int resource = a.getResourceId(0, 0);
             a.recycle();
             ab.setIcon(resource);

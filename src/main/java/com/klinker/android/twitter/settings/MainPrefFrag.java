@@ -100,10 +100,19 @@ public class MainPrefFrag extends PreferenceFragment {
             }
         });
 
-        findPreference("memory_management").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        findPreference("main_pages_and_drawer").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 showSettings(6, preference.getTitle().toString());
+                return false;
+            }
+        });
+
+
+        findPreference("memory_management").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                showSettings(7, preference.getTitle().toString());
                 return false;
             }
         });

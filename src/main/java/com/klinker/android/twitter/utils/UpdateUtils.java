@@ -34,6 +34,8 @@ import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.MainActivity;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class UpdateUtils {
@@ -136,6 +138,41 @@ public class UpdateUtils {
                 sharedPrefs.edit().putString("tweetmarker_options", "1").commit();
                 AppSettings.invalidate();
             }
+        }
+
+        if (sharedPrefs.getBoolean("3.4.0_1", true)) {
+            SharedPreferences.Editor e = sharedPrefs.edit();
+            e.putBoolean("3.4.0_1", false);
+
+            // show them all for now
+            Set<String> set = new HashSet<String>();
+            set.add("0"); // timeline
+            set.add("1"); // mentions
+            set.add("2"); // dm's
+            set.add("3"); // discover
+            set.add("4"); // lists
+            set.add("5"); // favorite users
+            set.add("6"); // retweets
+            set.add("7"); // favorite Tweets
+            set.add("8"); // saved searches
+
+            e.putStringSet("drawer_elements_shown", set);
+
+            // reset their pages to just home,
+            String pageIdentifier = "account_" + 1 + "_page_";
+            e.putInt(pageIdentifier + 1, AppSettings.PAGE_TYPE_HOME);
+            e.putInt(pageIdentifier + 2, AppSettings.PAGE_TYPE_MENTIONS);
+            e.putInt(pageIdentifier + 3, AppSettings.PAGE_TYPE_DMS);
+
+            pageIdentifier = "account_" + 2 + "_page_";
+            e.putInt(pageIdentifier + 1, AppSettings.PAGE_TYPE_HOME);
+            e.putInt(pageIdentifier + 2, AppSettings.PAGE_TYPE_MENTIONS);
+            e.putInt(pageIdentifier + 3, AppSettings.PAGE_TYPE_DMS);
+
+            e.putInt("default_timeline_page_" + 1, 0);
+            e.putInt("default_timeline_page_" + 2, 0);
+
+            e.commit();
         }
     }
 }

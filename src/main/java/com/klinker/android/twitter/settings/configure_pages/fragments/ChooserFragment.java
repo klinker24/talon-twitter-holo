@@ -163,6 +163,10 @@ public class ChooserFragment extends Fragment {
             }
         });
 
+        if (getArguments().getInt("position", 0) == 0) {
+            checkLayout.performClick();
+        }
+
         return layout;
     }
 
