@@ -41,7 +41,7 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
     // I chose two at this time for a balance between performance and usability. Adding more will slow it down,
     // possibly dramatically. But there are obvious benefits as well.
     // Keep that in mind if you choose to change this value.
-    public static final int MAX_EXTRA_PAGES = 5;
+    public static final int MAX_EXTRA_PAGES = 6;
 
     private Context context;
     private SharedPreferences sharedPrefs;

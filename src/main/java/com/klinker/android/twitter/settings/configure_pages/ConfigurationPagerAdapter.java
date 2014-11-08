@@ -37,7 +37,7 @@ public class ConfigurationPagerAdapter extends FragmentPagerAdapter {
         super(manager);
         this.context = context;
 
-        for (int i = 0; i <= TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+        for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
             ChooserFragment f = new ChooserFragment();
             Bundle b = new Bundle();
             b.putInt("position", i);
