@@ -16,6 +16,14 @@
 
 <changelog>
 
+    <version name="3.4.0">
+        <text>Completely customize the swipe-able pages on your timeline</text>
+        <text>Hold up to 6 pages on your timeline</text>
+        <text>Edit what elements show up in the main navigation drawer</text>
+        <text>Better picture viewing for tweets with multiple pics and on profiles</text>
+        <text>Login workaround for users with an existing token</text>
+    </version>
+
     <version name="3.3.1">
         <text>Improve picture viewing on profiles and tweets with multiple images</text>
     </version>
