@@ -186,7 +186,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 List<String> pageNames = new ArrayList<String>();
                 List<String> text = new ArrayList<String>();
 
-                int currentAccount = sharedPrefs.getInt("current_account", 1);
+                final int currentAccount = sharedPrefs.getInt("current_account", 1);
 
                 for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
                     String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
@@ -223,7 +223,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 String[] strings = new String[text.size()];
                 boolean[] bools = new boolean[text.size()];
 
-                final Set<String> set = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
+                final Set<String> set = sharedPrefs.getStringSet("drawer_elements_shown_" + currentAccount, new HashSet<String>());
 
                 for (int i = 0; i < strings.length; i++) {
                     strings[i] = text.get(i);
@@ -250,7 +250,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                sharedPrefs.edit().putStringSet("drawer_elements_shown", set).commit();
+                                sharedPrefs.edit().putStringSet("drawer_elements_shown_" + currentAccount, set).commit();
                                 dialog.dismiss();
                             }
                         })

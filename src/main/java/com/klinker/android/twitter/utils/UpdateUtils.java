@@ -156,7 +156,8 @@ public class UpdateUtils {
             set.add("7"); // favorite Tweets
             set.add("8"); // saved searches
 
-            e.putStringSet("drawer_elements_shown", set);
+            e.putStringSet("drawer_elements_shown_1", set);
+            e.putStringSet("drawer_elements_shown_2", set);
 
             // reset their pages to just home,
             String pageIdentifier = "account_" + 1 + "_page_";

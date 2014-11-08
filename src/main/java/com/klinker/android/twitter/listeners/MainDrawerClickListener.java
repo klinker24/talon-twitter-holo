@@ -79,20 +79,13 @@ public class MainDrawerClickListener implements AdapterView.OnItemClickListener 
             }
         }
 
-        set = sharedPreferences.getStringSet("drawer_elements_shown", new HashSet<String>());
+        set = sharedPreferences.getStringSet("drawer_elements_shown_" + currentAccount, new HashSet<String>());
         shownElements = new String[set.size()];
         int i = 0;
         for (Object o : set.toArray()) {
             shownElements[i] = (String) o;
             i++;
         }
-
-        /*realPages = swipablePages;
-        for(i = 0; i < realPages; i++) {
-            if (!set.contains("" + i)) {
-                swipablePages--;
-            }
-        }*/
     }
 
     int realPages = 0;

@@ -118,7 +118,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
             text.add(s);
         }
 
-        shownItems = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
+        shownItems = sharedPrefs.getStringSet("drawer_elements_shown_" + currentAccount, new HashSet<String>());
 
         for (int i = text.size() - 1; i >= 0; i--) {
             if (!shownItems.contains(i + "")) {
@@ -254,7 +254,9 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
-        Set<String> shownItems = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
+        int currentAccount = sharedPrefs.getInt("current_account", 1);
+
+        Set<String> shownItems = sharedPrefs.getStringSet("drawer_elements_shown_" + currentAccount, new HashSet<String>());
         for (int index = 0; index <= highlightedCurrent; index++) {
             if (!shownItems.contains(index + "")) {
                 highlightedCurrent--;
