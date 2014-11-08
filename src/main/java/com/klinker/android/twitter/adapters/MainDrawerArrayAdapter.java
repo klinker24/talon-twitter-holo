@@ -255,14 +255,11 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
         Set<String> shownItems = sharedPrefs.getStringSet("drawer_elements_shown", new HashSet<String>());
-        for (int index = 0; index < highlightedCurrent; index++) {
+        for (int index = 0; index <= highlightedCurrent; index++) {
             if (!shownItems.contains(index + "")) {
                 highlightedCurrent--;
             }
         }
-
-        Log.v("talon_pages", "highlightedCurrent: " + highlightedCurrent);
-        Log.v("talon_pages", "current: " + current);
     }
 
     public String getName(String listName, int type) {

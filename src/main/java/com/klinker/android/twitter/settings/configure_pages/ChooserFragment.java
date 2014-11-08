@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.klinker.android.twitter.settings.configure_pages.fragments;
+package com.klinker.android.twitter.settings.configure_pages;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -25,16 +25,18 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.*;
 
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.settings.configure_pages.ListChooser;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ChooserFragment extends Fragment {
@@ -43,7 +45,6 @@ public class ChooserFragment extends Fragment {
 
     protected Context context;
     protected ActionBar actionBar;
-    protected HoloTextView current;
     public CheckBox check;
 
     private boolean thisFragmentClicked = false;
@@ -69,102 +70,87 @@ public class ChooserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
+        List<String> list = new ArrayList<String>();
+        list.add(context.getString(R.string.do_not_use));
+        list.add(context.getString(R.string.timeline));
+        list.add(context.getString(R.string.mentions));
+        list.add(context.getString(R.string.direct_messages));
+        list.add(context.getString(R.string.list_page));
+        list.add(context.getString(R.string.favorite_users));
+        list.add(context.getString(R.string.link_page));
+        list.add(context.getString(R.string.picture_page));
+
         View layout = inflater.inflate(R.layout.configuration_page, null);
 
-        current = (HoloTextView) layout.findViewById(R.id.current);
-        current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.dont_use));
-
-        Button dontUse = (Button) layout.findViewById(R.id.dont_use);
-        dontUse.setOnClickListener(new View.OnClickListener() {
+        Spinner spinner = (Spinner) layout.findViewById(R.id.selection_spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.dont_use));
-                setType(AppSettings.PAGE_TYPE_NONE);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        setType(AppSettings.PAGE_TYPE_NONE);
+                        break;
+                    case 1:
+                        setType(AppSettings.PAGE_TYPE_HOME);
+                        break;
+                    case 2:
+                        setType(AppSettings.PAGE_TYPE_MENTIONS);
+                        break;
+                    case 3:
+                        setType(AppSettings.PAGE_TYPE_DMS);
+                        break;
+                    case 4:
+                        Intent chooser = new Intent(context, ListChooser.class);
+                        startActivityForResult(chooser, REQUEST_LIST);
+                        break;
+                    case 5:
+                        setType(AppSettings.PAGE_TYPE_FAV_USERS);
+                        break;
+                    case 6:
+                        setType(AppSettings.PAGE_TYPE_LINKS);
+                        break;
+                    case 7:
+                        setType(AppSettings.PAGE_TYPE_PICS);
+                        break;
+                    default:
+                        setType(AppSettings.PAGE_TYPE_NONE);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
-        Button pics = (Button) layout.findViewById(R.id.use_pics);
-        pics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.picture_page));
-                setType(AppSettings.PAGE_TYPE_PICS);
-            }
-        });
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
 
-        Button links = (Button) layout.findViewById(R.id.use_links);
-        links.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.link_page));
-                setType(AppSettings.PAGE_TYPE_LINKS);
-            }
-        });
-
-        Button favUsers = (Button) layout.findViewById(R.id.use_fav_users);
-        favUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.favorite_users));
-                setType(AppSettings.PAGE_TYPE_FAV_USERS);
-            }
-        });
-
-        Button list = (Button) layout.findViewById(R.id.use_list);
-        list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent chooser = new Intent(context, ListChooser.class);
-                startActivityForResult(chooser, REQUEST_LIST);
-            }
-        });
-
-        Button timeline = (Button) layout.findViewById(R.id.use_home);
-        timeline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.timeline));
-                setType(AppSettings.PAGE_TYPE_HOME);
-            }
-        });
-
-        Button mentions = (Button) layout.findViewById(R.id.use_mentions);
-        mentions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.mentions));
-                setType(AppSettings.PAGE_TYPE_MENTIONS);
-            }
-        });
-
-        Button dms = (Button) layout.findViewById(R.id.use_dms);
-        dms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.direct_messages));
-                setType(AppSettings.PAGE_TYPE_DMS);
-            }
-        });
 
         check = (CheckBox) layout.findViewById(R.id.default_page);
+        check.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         final LinearLayout checkLayout = (LinearLayout) layout.findViewById(R.id.default_page_layout);
         checkLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (check.isChecked()) {
-                    check.setChecked(false);
-                } else {
+                if (!check.isChecked()) {
                     check.setChecked(true);
                     thisFragmentClicked = true;
                     context.sendBroadcast(new Intent(DEFAULT_CLICKED));
-
-
                 }
             }
         });
 
         if (getArguments().getInt("position", 0) == 0) {
-            checkLayout.performClick();
+            check.setChecked(true);
         }
 
         return layout;
@@ -180,12 +166,10 @@ public class ChooserFragment extends Fragment {
                 setId(data.getLongExtra("listId", 0));
                 String listName = data.getStringExtra("listName");
                 setListName(listName);
-                current.setText(getResources().getString(R.string.current) + ": \n" + listName);
                 setType(AppSettings.PAGE_TYPE_LIST);
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
-                current.setText(getResources().getString(R.string.current) + ": \n" + getResources().getString(R.string.dont_use));
                 setType(AppSettings.PAGE_TYPE_NONE);
                 setListName("");
                 setId(0);

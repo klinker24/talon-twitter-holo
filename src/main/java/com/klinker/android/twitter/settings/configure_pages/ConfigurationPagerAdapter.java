@@ -24,7 +24,6 @@ import android.support.v13.app.FragmentPagerAdapter;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
-import com.klinker.android.twitter.settings.configure_pages.fragments.ChooserFragment;
 
 import java.util.ArrayList;
 import java.util.List;
