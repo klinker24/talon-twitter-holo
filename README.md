@@ -1,6 +1,6 @@
 # Talon for Twitter (Classic) #
 
-![Main Drawer](feature.png)
+![Main Drawer](https://raw.githubusercontent.com/klinker24/Talon-for-Twitter/master/Other/Promo%20Stuff/Graphics/Classic/Final%20Promos/Feature%20graphic.png)
 
 This is the complete version of the Twitter client that I created for Android. It is 100% open source, the only thing that you will have to do plug in is your own API keys.
 
