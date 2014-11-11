@@ -96,7 +96,7 @@ dependencies {
             'org.hamcrest:hamcrest-core:1.1',
             'org.hamcrest:hamcrest-library:1.1'
     androidTestCompile 'junit:junit:4.11'
-    androidTestCompile 'org.robolectric:robolectric:2.4-SNAPSHOT'
+    androidTestCompile 'org.robolectric:robolectric:2.4'
     androidTestCompile 'com.squareup:fest-android:1.0.8'
     androidTestCompile 'org.mockito:mockito-all:1.9.5'
 
