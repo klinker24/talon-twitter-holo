@@ -35,6 +35,7 @@ import android.widget.TextView;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.MainDrawerArrayAdapter;
+import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.data.sq_lite.InteractionsDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.MainActivity;
@@ -48,7 +49,7 @@ public class InteractionClickListener implements AdapterView.OnItemClickListener
     private Context context;
     private NotificationDrawerLayout drawer;
     private ViewPager viewPager;
-    private int extraPages = 0;
+    private int mentionsPage = 0;
 
     private SharedPreferences sharedPreferences;
 
@@ -62,15 +63,13 @@ public class InteractionClickListener implements AdapterView.OnItemClickListener
 
         int currentAccount = sharedPreferences.getInt("current_account", 1);
 
-        int page1Type = sharedPreferences.getInt("account_" + currentAccount + "_page_1", AppSettings.PAGE_TYPE_NONE);
-        int page2Type = sharedPreferences.getInt("account_" + currentAccount + "_page_2", AppSettings.PAGE_TYPE_NONE);
+        for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+            String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+            int type = sharedPreferences.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
 
-        if (page1Type != AppSettings.PAGE_TYPE_NONE) {
-            extraPages++;
-        }
-
-        if (page2Type != AppSettings.PAGE_TYPE_NONE) {
-            extraPages++;
+            if (type == AppSettings.PAGE_TYPE_MENTIONS) {
+                mentionsPage = i;
+            }
         }
     }
 
@@ -98,7 +97,7 @@ public class InteractionClickListener implements AdapterView.OnItemClickListener
                     }
                 }, 300);
 
-                viewPager.setCurrentItem((1 + extraPages), true);
+                viewPager.setCurrentItem((mentionsPage), true);
             } else {
                 final int pos = i;
                 try {
@@ -111,7 +110,7 @@ public class InteractionClickListener implements AdapterView.OnItemClickListener
                     public void run() {
                         Intent intent = new Intent(context, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        intent.putExtra("page_to_open", (1 + extraPages));
+                        intent.putExtra("page_to_open", mentionsPage);
                         intent.putExtra("from_drawer", true);
 
                         sharedPreferences.edit().putBoolean("should_refresh", false).commit();

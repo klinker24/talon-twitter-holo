@@ -131,7 +131,7 @@ public class TweetLinkUtils {
                 } catch (Exception e) {
                     tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
                 }
-                if(str.contains("instag") && !str.contains("blog.insta")) {
+                if (str.contains("instag") && !str.contains("blog.insta")) {
                     imageUrl = exp + "media/?size=m";
                     otherUrl += exp + "  ";
                 } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user"))) {
@@ -166,16 +166,16 @@ public class TweetLinkUtils {
                     otherUrl += exp + "  ";
                 } else if (str.contains("twitpic")) {
                     int start = exp.indexOf(".com/") + 5;
-                    imageUrl = "http://twitpic.com/show/full/" + exp.substring(start).replace("/","");
+                    imageUrl = "http://twitpic.com/show/full/" + exp.substring(start).replace("/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("i.imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 5;
-                    imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "m.jpg" ;
+                    imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "m.jpg";
                     imageUrl = imageUrl.replace("gallery/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 6;
-                    imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "m.jpg" ;
+                    imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "m.jpg";
                     imageUrl = imageUrl.replace("gallery/", "").replace("a/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("pbs.twimg.com")) {
@@ -189,6 +189,9 @@ public class TweetLinkUtils {
                     otherUrl += exp + "  ";
                 } else if (str.contains(".jpg") || str.contains(".png")) {
                     imageUrl = exp;
+                    otherUrl += exp + "  ";
+                } else if (str.contains("img.ly")) {
+                    imageUrl = exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/");
                     otherUrl += exp + "  ";
                 } else {
                     otherUrl += exp + "  ";
@@ -364,6 +367,9 @@ public class TweetLinkUtils {
                 } else if (str.contains(".jpg") || str.contains(".png")) {
                     imageUrl = exp;
                     otherUrl += exp + "  ";
+                } else if (str.contains("img.ly")) {
+                    imageUrl = exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/");
+                    otherUrl += exp + "  ";
                 } else {
                     otherUrl += exp + "  ";
                 }
@@ -376,11 +382,6 @@ public class TweetLinkUtils {
 
             if (comp.length() > 1 && exp.length() > 1) {
                 tweetTexts = tweetTexts.replace(comp, sMediaDisply[i]);
-                /*try {
-                    tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", "").substring(0, 30) + "...");
-                } catch (Exception e) {
-                    tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
-                }*/
                 imageUrl = status.getMediaEntities()[0].getMediaURL();
                 otherUrl += sMediaDisply[i];
             }
@@ -497,6 +498,8 @@ public class TweetLinkUtils {
                     images.add("http://p.twipple.jp/show/large/" + exp.replace("p.twipple.jp/", "").replace("http://", "").replace("https://", "").replace("www.", ""));
                 } else if (str.contains(".jpg") || str.contains(".png")) {
                     images.add(exp);
+                } else if (str.contains("img.ly")) {
+                    images.add(exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/"));
                 }
             }
         }
