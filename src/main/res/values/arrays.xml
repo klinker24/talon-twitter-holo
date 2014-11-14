@@ -294,7 +294,8 @@
     </string-array>
 
     <string-array name="long_click_web">
-        <item>@string/open_webpage</item>
+        <item>@string/open_to_external_browser</item>
+        <item>@string/open_to_internal_browser</item>
         <item>@string/copy_link</item>
         <item>@string/share_link</item>
     </string-array>

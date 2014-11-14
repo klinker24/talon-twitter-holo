@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="3.4.1">
+        <text>Open to internal or external browser when long clicking a link</text>
+    </version>
+
     <version name="3.4.0">
         <text>Completely customize the swipe-able pages on your timeline</text>
         <text>Hold up to 6 pages on your timeline</text>

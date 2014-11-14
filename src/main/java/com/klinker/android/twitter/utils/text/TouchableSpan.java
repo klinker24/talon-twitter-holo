@@ -37,7 +37,6 @@ import android.util.Patterns;
 import android.view.View;
 
 import android.widget.Toast;
-import com.jakewharton.disklrucache.Util;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.Link;
 import com.klinker.android.twitter.data.sq_lite.FavoriteUsersDataSource;
@@ -203,7 +202,8 @@ public class TouchableSpan extends ClickableSpan {
 
     public void onLongClick() {
         if (Patterns.WEB_URL.matcher(mValue).find()) {
-            // open link
+            // open external
+            // open internal
             // copy link
             // share link
             longClickWeb();
@@ -256,13 +256,27 @@ public class TouchableSpan extends ClickableSpan {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 switch (i) {
-                    case 0: // open web
-                        TouchableSpan.this.onClick(null);
+                    case 0: // open external
+                        String data = full.replace("http://", "").replace("https://", "").replace("\"", "");
+                        Uri weburi = Uri.parse("http://" + data);
+                        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, weburi);
+                        launchBrowser.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        try {
+                            mContext.startActivity(launchBrowser);
+                        } catch (Exception e) {
+                            Toast.makeText(mContext, "No browser found.", Toast.LENGTH_SHORT).show();
+                        }
                         break;
-                    case 1: // copy link
+                    case 1: // open internal
+                        data = "http://" + full.replace("http://", "").replace("https://", "").replace("\"", "");
+                        launchBrowser = new Intent(mContext, mobilizedBrowser ? PlainTextBrowserActivity.class :BrowserActivity.class);
+                        launchBrowser.putExtra("url", data);
+                        mContext.startActivity(launchBrowser);
+                        break;
+                    case 2: // copy link
                         copy();
                         break;
-                    case 2: // share link
+                    case 3: // share link
                         share(full);
                         break;
                 }

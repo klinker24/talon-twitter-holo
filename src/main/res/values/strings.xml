@@ -675,7 +675,8 @@
     <string name="mute_user">Mute User</string>
     <string name="mute_retweets">Mute Retweets</string>
     <string name="share_profile">Share Profile</string>
-    <string name="open_webpage">Open Link</string>
+    <string name="open_to_external_browser">Open to External Browser</string>
+    <string name="open_to_internal_browser">Open to Internal Browser</string>
     <string name="copy_link">Copy Link</string>
     <string name="share_link">Share Link</string>
     <string name="search_hashtag">Search Hashtag</string>
