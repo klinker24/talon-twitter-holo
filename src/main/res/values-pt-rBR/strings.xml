@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
@@ -607,6 +622,7 @@
     <string name="second_account">2ª Conta</string>
     <string name="second_account_login_info">Desde que o Twitter grava algumas das suas informações de login no seu sistema, a próxima tela pode não permitir você fazer o login com uma nova informação de conta imediatamente. Se ele pular este login e for diretamente para a página de autorização, basta clicar no botão \"Sair\" no canto superior direito do site para poder fazer login em sua segunda conta.</string>
     <string name="fetch_tweetmarker">Carregar TweetMarker</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">Abrir Perfil</string>
     <string name="copy_handle">Copiar @Nome</string>
@@ -614,7 +630,6 @@
     <string name="mute_user">Silenciar Usuário</string>
     <string name="mute_retweets">Silenciar Retweets</string>
     <string name="share_profile">Compartilhar Perfil</string>
-    <string name="open_webpage">Abrir Link</string>
     <string name="copy_link">Copiar Link</string>
     <string name="share_link">Compartilhar Link</string>
     <string name="search_hashtag">Buscar Hashtag</string>
@@ -625,4 +640,5 @@
     <string name="copied">Texto Copiado</string>
     <string name="open_to_web">Tweets com links</string>
     <string name="open_to_web_summary">Se o tweet contém um link, marcar essa opção fará com que ao abrir o tweet, o navegador seja mostrado primeiro ao invés do em si.</string>
+    <string name="open_webpage">Abrir Link</string>
 </resources>

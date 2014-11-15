@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
@@ -52,7 +67,7 @@
     <string name="world_trends">Мировые тренды</string>
     <string name="search">Поиск</string>
     <string name="lists">Списки</string>
-    <string name="search_hint">\@никнейм или ключевые слова...</string>
+    <string name="search_hint">Поиск...</string>
     <string name="new_tweet">новый твит</string>
     <string name="new_tweets">новых твитов</string>
     <string name="no_new_tweets">Новых твитов нет</string>
@@ -115,7 +130,7 @@
     <string name="syncing_direct_messages">Синхронизация личных сообщений...</string>
     <string name="syncing_user">Синхронизация друзей...</string>
     <string name="done_syncing">Синхронизация завершена.</string>
-    <string name="login_error">Что-то пошло не так! Пожалуйста, повторите попытку.</string>
+    <string name="login_error">Что-то пошло не так! Пожалуйста, повторите попытку.\n\nВозможно, дата и время на вашем устройстве не установлены автоматически. Это требование API Твиттера.</string>
     <string name="no_network">Вы не подключены к интернету</string>
     <string name="no_thanks">Не сейчас</string>
     <string name="follow_me">Да, давайте!</string>
@@ -288,8 +303,8 @@
     <string name="quiet_hours">Не беспокоить</string>
     <string name="max_number_on_refresh">Число загружаемых твитов</string>
     <string name="fav_users_notifications">Избранные пользователи</string>
-    <string name="sync_second_mentions">Синхронизировать второй аккаунт</string>
-    <string name="sync_second_mentions_summary">Автоматически проверять и уведомлять о новых упоминаниях на втором аккаунте вместе с первым.</string>
+    <string name="sync_second_mentions">Синхр. второй аккаунт</string>
+    <string name="sync_second_mentions_summary">Автоматически проверять и уведомлять о новых упоминаниях и сообщениях на втором аккаунте.</string>
     <string name="max_number_summary">Чем больше число, тем медленнее обновление.</string>
     <string name="auto_refresh_category">Настройки автообновления</string>
     <string name="refresh_on_startup">Обновлять при запуске</string>
@@ -443,8 +458,11 @@
     <string name="use_twitpic">Использовать TwitPic</string>
     <string name="twitpic_summary">Использовать TwitPic для загрузки изображений вместо хостинга Твиттера.</string>
     <string name="verified">Подтверждён</string>
-    <string name="use_tweetmarker">Использовать TweetMarker</string>
-    <string name="tweetmarker_summary">Функция не вполне стабильна. Иногда могут возникать проблемы с восстановлением позиции.</string>
+    <string name="use_tweetmarker">TweetMarker</string>
+    <string name="tweetmarker_summary">Используется для синхронизации позиии в ленте между устройствами</string>
+    <string name="do_not_use">Не использовать</string>
+    <string name="automatic_refresh">Автоматический TweetMarker</string>
+    <string name="manual_refresh">Ручной TweetMarker</string>
     <string name="finding_tweetmarker">Синхронизация TweetMarker</string>
     <string name="loading">Загрузка</string>
     <string name="loading_tweets">Загрузка твитов...</string>
@@ -518,14 +536,14 @@
     <string name="display_options">Настройки отображения</string>
     <string name="third_party_services">Сторонние сервисы</string>
     <string name="open_keyboard">Автопоказ клавиатуры</string>
-    <string name="open_keyboard_summary">Автоматически открывать клавиатуру при просмотре твита</string>
+    <string name="open_keyboard_summary">Автоматически открывать клавиатуру при просмотре твита.</string>
     <string name="no_retweets">Нет ретвитов</string>
     <string name="profile">Профиль</string>
     <string name="favorites">Избранное</string>
     <string name="load_pictures">Загрузить</string>
     <string name="pic_search_disclaimer">Выполняет поиск изображений в ленте пользователя. Это может занять некоторое время в зависимости от их давности.</string>
     <string name="widget_theme">Тема виджета</string>
-    <string name="widget_theme_summary">Применяется к виджетам на рабочем столе</string>
+    <string name="widget_theme_summary">Применяется к виджетам на рабочем столе.</string>
     <string name="widget_light">Светлая</string>
     <string name="widget_dark">Тёмная</string>
     <string name="widget_trans_light">Прозрачная светлая</string>
@@ -601,7 +619,26 @@
     <string name="both_accounts">Оба аккаунта</string>
     <string name="attach_gif">GIF-анимация</string>
     <string name="roboto_l">Android "L" Roboto</string>
+    <string name="second_account">Второй аккаунт</string>
+    <string name="second_account_login_info">Поскольку Твиттер хранит некоторую информацию о входе, на следующем экране он может не позволить вам сразу войти во второй аккаунт. Если ввод логина и пароля пропускается, просто нажмите \"Выйти\" в правом верхнем углу, чтобы войти вторым аккаунтом. Это не повлияет на первый.</string>
+    <string name="fetch_tweetmarker">Загрузить TweetMarker</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
+    <string name="open_profile">Открыть профиль</string>
+    <string name="copy_handle">Копировать имя</string>
+    <string name="search_user">Искать пользователя</string>
+    <string name="mute_user">Скрыть польз.</string>
+    <string name="mute_retweets">Скрыть ретвиты</string>
+    <string name="share_profile">Поделиться профилем</string>
+    <string name="copy_link">Копировать ссылку</string>
+    <string name="share_link">Поделиться ссылкой</string>
+    <string name="search_hashtag">Искать по хэштегу</string>
+    <string name="mute_hashtag">Скрыть хэштег</string>
+    <string name="copy_hashtag">Копировать хэштег</string>
+    <string name="search_cashtag">Искать по кэштегу</string>
+    <string name="copy_cashtag">Копировать кэштег</string>
+    <string name="copied">Скопирован текст</string>
     <string name="open_to_web">Открывать ссылки в твитах</string>
     <string name="open_to_web_summary">Если твит содержит ссылку, будет открываться страница с ней, а не сам твит.</string>
+    <string name="open_webpage">Открыть ссылку</string>
 </resources>

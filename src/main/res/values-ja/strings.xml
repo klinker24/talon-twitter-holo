@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
@@ -607,6 +622,7 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="second_account">二つ目のアカウント</string>
     <string name="second_account_login_info">Twitterはログイン情報の一部を残したままにするため、次の画面で別のアカウントにログインできる状態ではないことがあります。ログインページが表示されない場合は、右上にある「ログアウト」をタップしてください。</string>
     <string name="fetch_tweetmarker">TweetMarkerの取得</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">プロフィールを開く</string>
     <string name="copy_handle">名前のコピー</string>
@@ -614,7 +630,6 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="mute_user">ユーザーをミュート</string>
     <string name="mute_retweets">リツイートをミュート</string>
     <string name="share_profile">プロフィールの共有</string>
-    <string name="open_webpage">リンクを開く</string>
     <string name="copy_link">リンクのコピー</string>
     <string name="share_link">リンクの共有</string>
     <string name="search_hashtag">ハッシュタグの検索</string>
@@ -625,4 +640,5 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="copied">コピーしました</string>
     <string name="open_to_web">ツイートのURLを直接開く</string>
     <string name="open_to_web_summary">ツイートにURLが含まれている場合に、ツイート自体ではなくそのURLを直接開くようにします。</string>
+    <string name="open_webpage">リンクを開く</string>
 </resources>

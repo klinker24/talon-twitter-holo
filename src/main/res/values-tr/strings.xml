@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Twitter için Talon</string>
@@ -10,7 +25,7 @@
     <string name="menu_settings">Ayarlar</string>
     <string name="menu_follow">Takip Et</string>
     <string name="menu_unfollow">Takibi Bırak</string>
-    <string name="menu_tweet">Tweet Yolla</string>
+    <string name="menu_tweet">Tweet Gönder</string>
     <string name="menu_dm">Direkt Mesaj Gönder</string>
     <string name="menu_block">Kullanıcıyı Engelle</string>
     <string name="menu_unblock">Engellemeyi Kaldır</string>
@@ -20,8 +35,8 @@
     <string name="menu_change_banner">Profil Arka Plan Resmini Değiştir</string>
     <string name="menu_direct_message">Yeni Direkt Mesaj</string>
     <string name="menu_save_image">Resmi Kaydet</string>
-    <string name="menu_favorite">Favori Kişiler</string>
-    <string name="menu_unfavorite">Favori Olmayan Kişiler</string>
+    <string name="menu_favorite">Kişiyi Favorilere Ekle</string>
+    <string name="menu_unfavorite">Kişiyi Favorilerden Çıkar</string>
     <string name="menu_create_list">Yeni Liste Oluştur</string>
     <string name="menu_spam">Spam Olarak İşaretle</string>
     <!-- Times -->
@@ -34,16 +49,16 @@
     <string name="yesterday">dün</string>
     <string name="days_ago">%s gün önce</string>
     <!-- Muting -->
-    <string name="mute">Sessiz</string>
-    <string name="unmute">Sessiz Olmayan</string>
-    <string name="muted_users">Sessizleştirilen Kullanıcılar</string>
+    <string name="mute">Sessize al</string>
+    <string name="unmute">Sessizden çıkar</string>
+    <string name="muted_users">Sessiz Kullanıcılar</string>
     <string name="no_users">Hiçbir Kullanıcı Yok</string>
     <!-- Main Activity -->
     <string name="links">Bağlantılar</string>
     <string name="pictures">Resimler</string>
     <string name="timeline">Ana Sayfa</string>
-    <string name="mentions">Bildirimler</string>
-    <string name="direct_messages">Direkt Mesajlar</string>
+    <string name="mentions">Bahsedenler</string>
+    <string name="direct_messages">Direk Mesajlar</string>
     <string name="retweets">ReTweet\'ler</string>
     <string name="favorite_tweets">Favori Tweet\'ler</string>
     <string name="favorite_users">Favori Kişiler</string>
@@ -52,7 +67,7 @@
     <string name="world_trends">Dünya Trendleri</string>
     <string name="search">Ara</string>
     <string name="lists">Listeler</string>
-    <string name="search_hint">\@kullanıcı adı aranıyor...</string>
+    <string name="search_hint">Ara...</string>
     <string name="new_tweet">yeni tweet</string>
     <string name="new_tweets">yeni tweetler</string>
     <string name="no_new_tweets">Yeni tweet yok</string>
@@ -65,8 +80,8 @@
     <string name="tap_to_setup">Kurulum için dokunun</string>
     <string name="new_account">Yeni Hesap</string>
     <string name="from_top">üstten</string>
-    <string name="jump_to_top">Yeni</string>
-    <string name="all_read">Hepsi Hazır!</string>
+    <string name="jump_to_top">Yeniye git</string>
+    <string name="all_read">Hepsi okundu!</string>
     <string name="view_new">Yüklensin mi?</string>
     <string name="old_interactions">Tüm Etkileşimler</string>
     <!-- Notifications -->
@@ -77,7 +92,7 @@
     <string name="messages">Mesajlar</string>
     <string name="new_message">Yeni mesaj</string>
     <string name="new_messages">yeni mesajlar</string>
-    <string name="mentioned_by">Adı Geçenler</string>
+    <string name="mentioned_by">Bahseden:</string>
     <string name="message_from">Gelen Mesaj</string>
     <string name="mark_read">Oku</string>
     <string name="noti_reply">Cevapla</string>
@@ -94,8 +109,8 @@
     <string name="new_interactions_lower">yeni etkileşimler</string>
     <string name="new_interactions">Yeni Etkileşimler</string>
     <string name="retweeted">durumunuzu retweetleyin</string>
-    <string name="favorited">favori dumumunuz</string>
-    <string name="followed">takip edildin</string>
+    <string name="favorited">"Dumumunuzu favoriledi "</string>
+    <string name="followed">seni takip ediyor</string>
     <string name="new_retweets">retweetler</string>
     <string name="new_favorites">favoriler</string>
     <string name="new_tweets_upper">Yeni Tweetler</string>
@@ -115,19 +130,19 @@
     <string name="syncing_direct_messages">Direkt mesajlar senkronize ediliyor...</string>
     <string name="syncing_user">Arkadaşlar senkronize ediliyor...</string>
     <string name="done_syncing">Senkronize tamamlandı.</string>
-    <string name="login_error">Bir şeyler yanlış gitti ... Lütfen yeniden deneyin!</string>
+    <string name="login_error">Bir şeyler yanlış gitti ... Lütfen yeniden deneyin!\n\nBu, aygıtınızın tarih ve saati "otomatik" olarak ayarlanmadığı için kaynaklanmış olarabilir.</string>
     <string name="no_network">İnternet bağlantınızı kontrol edin</string>
     <string name="no_thanks">Şimdi değil</string>
     <string name="follow_me">Takip Et!</string>
-    <string name="follow_me_description">Takip Et @TalonAndroid ve @lukeklinker Tüm yeni özellikler ve destek için!</string>
+    <string name="follow_me_description">Tüm yeni özellikler ve destek için Takip Et @TalonAndroid ve @lukeklinker!</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">Yeni Tweet</string>
-    <string name="compose_tweet_hint">Burada tweet yazın ...</string>
-    <string name="send_to">Kullanıcının ekran adını girin</string>
-    <string name="direct_message_sent">Direkt Mesaj Gönder</string>
-    <string name="type_user">Kullanıcı Türü</string>
+    <string name="compose_tweet_hint">Tweet yazın ...</string>
+    <string name="send_to">Kullanıcı adını girin...</string>
+    <string name="direct_message_sent">Direkt Mesaj Gönderildi</string>
+    <string name="type_user">Kullanıcı gir</string>
     <string name="add_user">Kullanıcı Ekle</string>
-    <string name="location_connected">Konum ekle</string>
+    <string name="location_connected">Konum eklendi</string>
     <string name="location_disconnected">Konum bulunamadı</string>
     <string name="finding_location">Konuma bakılıyor</string>
     <string name="draft_found">Taslak bulundu</string>
@@ -142,34 +157,34 @@
     <string name="placeholder">Yer Tutucu</string>
     <string name="reply">Cevap...</string>
     <string name="error">Hata</string>
-    <string name="error_loading_page">Hata web sayfası yükleniyor</string>
+    <string name="error_loading_page">"Web sayfası yüklenirken hata oluştu "</string>
     <string name="delete">Sil</string>
     <string name="cancel">Vazgeç</string>
     <string name="delete_direct_message">Mesajı Sil?</string>
     <string name="save_image">Görüntü Kaydedildi</string>
     <string name="tweet_success">Tweet Gönderildi</string>
     <string name="error_sending_tweet">Tweet Gönderme Hatası</string>
-    <string name="tweet_to_long">Tweet uzun!</string>
+    <string name="tweet_to_long">Tweet çok uzun!</string>
     <string name="ok">Tamam</string>
     <string name="no">Hayır</string>
-    <string name="changelog">Neler Yeni</string>
-    <string name="created_by">Düzenleyen</string>
+    <string name="changelog">Neler yeni?</string>
+    <string name="created_by">Oluşturan:</string>
     <string name="no_location">Yer bulunamadı</string>
-    <string name="take_picture">Görüntü Yakalama</string>
-    <string name="from_file">Resmi yükleyin</string>
-    <string name="via">yol</string>
+    <string name="take_picture">Görüntü Yakala</string>
+    <string name="from_file">Resmi ekle</string>
+    <string name="via">aracılığıyla</string>
     <string name="version">Versiyon</string>
     <string name="from">İtibaren</string>
     <string name="save">Kaydet</string>
     <string name="stop">Dur</string>
-    <string name="tweeted">tweetler</string>
+    <string name="tweeted">tweetledi</string>
     <!-- User Profile Activity -->
     <string name="followers">Takipçiler</string>
-    <string name="following">Takip Edilenler</string>
-    <string name="blocked_user">Engellenen Kişi</string>
-    <string name="unblocked_user">Engellenmeyen Kişi</string>
-    <string name="followed_user">Takip Edilen Kişi</string>
-    <string name="unfollowed_user">Takip Edilmeyen Kişi</string>
+    <string name="following">Takip Ediyor</string>
+    <string name="blocked_user">"Kişi Engellendi "</string>
+    <string name="unblocked_user">Engelleme kaldırıldı</string>
+    <string name="followed_user">Takip Ediliyor</string>
+    <string name="unfollowed_user">Artık Takip Edilmiyor</string>
     <string name="no_description">Kişiye ait açıklama yok.</string>
     <string name="favorite_user">Favori Kişi</string>
     <string name="unfavorite_user">Favori Olmayan Kişi</string>
@@ -209,7 +224,7 @@
     <string name="saving_picture">Resmi Kaydet</string>
     <string name="saved_picture">Resim Başarıyla Kaydedildi</string>
     <string name="retweet_success">Retweet Başarılı</string>
-    <string name="favorite_success">Beğenilen Başarılı</string>
+    <string name="favorite_success">Favori Başarılı</string>
     <string name="success">Başarılı</string>
     <!-- User Lists -->
     <string name="view_users">Kişilerin Görünümü</string>
@@ -217,9 +232,9 @@
     <string name="remove_user">Kişiyi Kaldır</string>
     <string name="remove">Kaldır</string>
     <string name="from_list">listeden</string>
-    <string name="removed_user">Silinen Kişi</string>
+    <string name="removed_user">Kişi kaldırıldı</string>
     <string name="create_new_list">Yeni Liste Oluştur</string>
-    <string name="list_name">Liste Adı...</string>
+    <string name="list_name">Liste adı...</string>
     <string name="list_description">İsteğe bağlı liste açıklaması...</string>
     <string name="deleted_list">Silinen Liste</string>
     <string name="back_to_refresh">Listeleri yenilemek için geri gelin</string>
@@ -229,9 +244,9 @@
     <string name="choose_list">Liste Seçin</string>
     <string name="added_to_list">Listeye eklendi</string>
     <!-- Tutorial Activity -->
-    <string name="part_1_tablet">Açılabilir çekmeceye \ndokunduğun da\ngörünen erişim\nözellikleri!</string>
-    <string name="part_1_phone">Ekranın soluna \ndokunun ve \nsağa doğru \nkaydırın!</string>
-    <string name="part_2">Ekranın ortasına\nkadar açılır, ekranın \ndiğer kalan \nbölümünde ana\nsayfa görüntülenir !</string>
+    <string name="part_1_tablet">Açılabilir çekmeceye \ndokunarak özelliklere\nerişin!</string>
+    <string name="part_1_phone">\nNavigation Drawer\niçin ekranın\nsolundan sağa\ndoğru kaydır!</string>
+    <string name="part_2">\nEkranın ortasından\nyukarı-aşağı\nkaydırarak\nanasayfada\ngeçiş yapın!</string>
     <string name="part_3">İşte bu!\n\nBaşlamak için\nekrana\ndokunun!</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Tema Ayarları</string>
@@ -239,34 +254,34 @@
     <string name="font_options">Yazı Karakteri Seçenekleri</string>
     <string name="other_options">Diğer Seçenekler</string>
     <string name="theme">Tema</string>
-    <string name="addon_themes">Eklenen Temalar</string>
+    <string name="addon_themes">Eklenebilir Temalar</string>
     <string name="addon_note">Yeni temalar bulmak için buraya tıklayın. \n\nNOTLAR: \n- Bu yerleşik gülen suratlar klavye bir tweet verirken kullanımını devre dışı bırakır.\n- Uygulanan özel tema olmadan bunları onaylamadan hataları rapor etmeyiniz.</string>
-    <string name="use_addon_themes">Eklenebilir tema kullan</string>
-    <string name="make_a_theme">Tema oluştur</string>
+    <string name="use_addon_themes">Eklenebilir Tema Kullan</string>
+    <string name="make_a_theme">Tema Yap</string>
     <string name="layout">Düzen</string>
-    <string name="themeing_complete">Temayı Uygula</string>
+    <string name="themeing_complete">Tema Uygulandı</string>
     <string name="themeing_complete_summary">\"Talon\" şimdi kapanacak.\n\n
-Ana sayfa akışını tam zamanında almak ve görmek için son uygulamalar üzerinden \"Talon\" u kaydırmak zorunda kalacak.\n\n
-Profil resimlerini (yani daire veya kare) gerektiği şekilde göstermek istemiyorsanız, widget\'i kaldırmak ve yeniden eklemek zorunda kalacaksınız.</string>
-    <string name="layout_summary">Bu değiştiğin de uygulamanın ön belleğini temizleyecektir.</string>
+Ana sayfa akışını tam zamanında almak ve görmek için son uygulamalar listesinden \"Talon\" u kaldırmak zorundasınız.\n\n
+Profil resimlerini (yani daire veya kare) gerektiği şekilde görünmüyorsa, widget\'i kaldırmak ve yeniden eklemek zorunda kalacaksınız.</string>
+    <string name="layout_summary">Bunu değiştirmek uygulamanın ön belleğini temizleyecektir.</string>
     <string name="text_size">Yazı Boyutu</string>
     <string name="night_mode">Gece Modu</string>
-    <string name="night_mode_night">Gece Saati Başlangıcı</string>
-    <string name="night_mode_day">Gündüz Saati Başlangıcı</string>
-    <string name="night_mode_theme">Gece Modu için Tema Seçin</string>
+    <string name="night_mode_night">Gece Başlangıcını Seç</string>
+    <string name="night_mode_day">Gündüz Başlangıcını Seç</string>
+    <string name="night_mode_theme">Gece Modu için Tema Seç</string>
     <string name="device_font">Cihazın Yazı Karakterini Kullan</string>
-    <string name="device_font_summary">Çoğu cihazlarda normal \"Roboto\". Talon varsayılan yazı tipi \"Roboto Hafif\" dir.</string>
-    <string name="ui_extras">Ekstra Görünüm</string>
+    <string name="device_font_summary">Çoğu cihazlarda normal \"Roboto\". Talon\'un varsayılan yazı tipi \"Roboto Light\" dir.</string>
+    <string name="ui_extras">Görünüm Ekstraları</string>
     <string name="ui_extras_summary">Şunları içerir:\n
 - Eylem Çubuğunu gizlemek\n
 - Actionable Toast Bar\n
 - Şeffaf Sistem Çubuğu (Yanlızca Andriod 4.4)\n\n
 Bu ayarın etkinleştirilmesi kaydırma performansını etkileyecektir.</string>
-    <string name="inline_pics">Display In-Line Pictures</string>
-    <string name="use_screen_name">Twitter Ekran Parçası</string>
+    <string name="inline_pics">Resimleri Göster</string>
+    <string name="use_screen_name">Twitter Kullanıcı Adını Göster</string>
     <string name="use_screen_name_summary">Ana Sayfa yerine, kendi kullanıcı adının ve Twitter tanıtıcı görüntüleri.</string>
     <string name="timestamp">24-Saat Damgası</string>
-    <string name="enable_emojis">Emojileri etkinleştirin</string>
+    <string name="enable_emojis">Emojileri etkinleştir</string>
     <string name="to_market">Play Store\'a Git</string>
     <string name="get_android">Android Emoji (Gülen Suratlar) Satın Al.</string>
     <string name="get_ios">İOS Emoji (Gülen Suratlar) Satın Al.</string>
@@ -277,26 +292,26 @@ NOT: Bu uygulamanın deneme süresi dolsa bile Emojiler kullanılmaya devam edil
     <string name="theme_dark">Koyu Tema</string>
     <string name="theme_black">Siyah Tema</string>
     <string name="sync_settings">Senkronize Ayarları</string>
-    <string name="sync_mobile_data">Mobil veri kullan</string>
-    <string name="sync_mobile_data_summary">Mobil veri ve WiFi üzerinden Ana Sayfa akışını otomatik yenileme.</string>
+    <string name="sync_mobile_data">Mobil Veri Kullan</string>
+    <string name="sync_mobile_data_summary">Mobil veri ve WiFi üzerinden Ana Sayfa akışını otomatik yenile.</string>
     <string name="auto_sync_notifications">Otomatik Yenileme Bildirim Seçenekleri</string>
     <string name="notifications">Bildirimler</string>
     <string name="vibrate">Titreşim</string>
     <string name="led">Flaş LED</string>
     <string name="wake_screen">Ekranı Uyandır</string>
     <string name="sound">Bildirim Sesi</string>
-    <string name="quiet_hours">Rahatsız Etmesin</string>
+    <string name="quiet_hours">Rahatsız Etme</string>
     <string name="max_number_on_refresh">Yenilenecek Maksimum Tweet</string>
     <string name="fav_users_notifications">Favori Kişi Bildirimleri</string>
-    <string name="sync_second_mentions">Sync Second Acc. Mentions</string>
-    <string name="sync_second_mentions_summary">Birinci ve ikinci hesabınızı otomatik olarak kontrol eder ve yeni haberlerden bahseder.</string>
-    <string name="max_number_summary">Maksimum yüksek araçlar yavaş bir yenileme anlamına gelmektedir.</string>
+    <string name="sync_second_mentions">Diğer Hesabı Senkronize Et</string>
+    <string name="sync_second_mentions_summary">İkinci hesabı birinci ile birlikte otomatik olarak kontrol et.</string>
+    <string name="max_number_summary">Yüksek max yavaş bir yenileme anlamına gelir.</string>
     <string name="auto_refresh_category">Otomatik Yenileme Ayarları</string>
     <string name="refresh_on_startup">Başlangıçta Yenile</string>
     <string name="timeline_sync_interval">Ana Sayfa Yenileme Hızı</string>
     <string name="mentions_sync_interval">Bildirimlerin Yenilenme Hızı</string>
-    <string name="dm_sync_interval">Direkt Mesajların Yenilenme Hızı</string>
-    <string name="sync_friends">Arkadaş Bilgilerini Senkronize Et</string>
+    <string name="dm_sync_interval">Direk Mesajların Yenilenme Hızı</string>
+    <string name="sync_friends">Arkadaşları Senkronize Et</string>
     <string name="sync_friends_summary2">Yeni Tweetler oluşturabilmek için arkadaş verilerinizi tekrar senkronize edebilirsiniz.</string>
     <string name="sync_friends_summary">Arkadaş verilerini el ile senkronize et.\n\nSizin adınıza giriş yapılır ve Talon takip ettiklerinizi otomatik olarak ekler, ancak bu seçenek en son takip etmeye başladıklarınızı kapsar.\n\n
 Bir tweet oluştururken, kişileri ararken bu veriler kullanılır.</string>
@@ -318,29 +333,29 @@ Bir tweet oluştururken, kişileri ararken bu veriler kullanılır.</string>
     <string name="reverse_click_actions">Geri Dönme Simgesine Tıklama Eylemleri</string>
     <string name="reverse_click_actions_summary">Geri tıklandığında tweetler görüntülenir.\n\n
 Standart (devre dışı bırakıldığında):\n
--- Uzun basılı tutmak tweet açmak için\n
-- Kısa basılı tutmak tweet genişletmek için</string>
-    <string name="extra_pages">Ekstra Sayfalar Kullanın</string>
-    <string name="extra_pages_summary">Ana Sayfa\' nın sol tarafına bağlantıları ve resim sayfalarını ekleme</string>
+- Tweeti açmak için uzun bas \n
+ - Tweeti genişletmek için dokun</string>
+    <string name="extra_pages">Ekstra Sayfalar Kullan</string>
+    <string name="extra_pages_summary">Ana Sayfa\'nın sol tarafına bağlantıları ve resim sayfalarını ekle.</string>
     <string name="live_streaming">Canlı Akış</string>
     <string name="memory_management">Bellek Yönetimi Seçenekleri</string>
     <string name="delete_cache">Ön Belleği Şimdi Sil</string>
     <string name="cache_dialog">Ön Bellek Silinsin Mi?</string>
     <string name="not_cache">Bu uygulama önbelleği için geçerli değildir.</string>
     <string name="current_cache_size">Geçerli önbellek boyutu</string>
-    <string name="cache_dialog_summary">Bu eylem tekrar yapılamaz.</string>
+    <string name="cache_dialog_summary">Bu eylem geri alınamaz.</string>
     <string name="timeline_size">Ana Sayfa Boyutu</string>
-    <string name="timeline_size_summary">Veri tabanında depolamak için maksimum tweet adeti</string>
-    <string name="mentions_size">Bildirim Boyutu</string>
-    <string name="mentions_size_summary">Veri tabanında depolamak için maksimum bildirimlerin adeti</string>
+    <string name="timeline_size_summary">Veri tabanında depolanacak maksimum tweet sayısı</string>
+    <string name="mentions_size">Bahsedenler Boyutu</string>
+    <string name="mentions_size_summary">Veri tabanında depolamak için maksimum bahsedenlerin sayısı</string>
     <string name="dm_size">Direkt Mesaj Boyutu</string>
-    <string name="dm_size_summary">Veri tabanında depolamak için maksimum direkt mesaj adeti</string>
-    <string name="auto_trim">Otomatik Düzen Veri Tabanı</string>
-    <string name="trim_now">Düzen Veri Tabanı</string>
-    <string name="trim_dialog">Düzen veri tabanı şimdi?</string>
-    <string name="trimming">Düzenleniyor...</string>
-    <string name="trim_success">Düzenleme başarılı</string>
-    <string name="trim_fail">Düzenleme başarısız</string>
+    <string name="dm_size_summary">Veri tabanında depolamak için maksimum direk mesaj sayısı</string>
+    <string name="auto_trim">Veri Tabanını Otomatik Kes</string>
+    <string name="trim_now">Veri Tabanını Şimdi Kes</string>
+    <string name="trim_dialog">Veri Tabanı Şimdi Kesilsin?</string>
+    <string name="trimming">Kesiliyor...</string>
+    <string name="trim_success">Kesme başarılı</string>
+    <string name="trim_fail">Kesme başarısız</string>
     <string name="backup_category">Yedekleme ve Geri Yükleme Seçenekleri</string>
     <string name="backup_settings">Yedekleme Ayarları</string>
     <string name="backup_settings_dialog">Yeni yedekleme oluşturulsun mu?</string>
@@ -349,16 +364,16 @@ Standart (devre dışı bırakıldığında):\n
     <string name="restore_success">Geri Yükleme Başarılı</string>
     <string name="restore_settings">Geri Yükleme Ayarları</string>
     <string name="restore_settings_summary">Herhangi bir tema değişiklikleri uygulamak için ön belleği temizleyecektir.</string>
-    <string name="get_help_settings">Yardım İsteyin!</string>
+    <string name="get_help_settings">Yardım Al</string>
     <string name="rerun_tutorial">Başlangıç Eğitimini Başlat</string>
     <string name="faq">Sıkça Sorulan Sorular</string>
     <string name="features_explained">Özelliklerin Açıklaması</string>
     <string name="youtube">YouTube Video</string>
     <string name="google_plus">Google+ Topluluğu</string>
-    <string name="xda_thread">XDA Konusu</string>
-    <string name="email_me">Bize Mail</string>
-    <string name="tweet_me">Bize Tweet</string>
-    <string name="follow_talon">Tweetter için Talon\'u Takip Et</string>
+    <string name="xda_thread">XDA bağı</string>
+    <string name="email_me">Bana Mail At</string>
+    <string name="tweet_me">Bana Tweet At</string>
+    <string name="follow_talon">Talon\'u Tweetter\'da Takip Et</string>
     <string name="credits">Credits</string>
     <string name="disclaimer">Emeği Geçenler</string>
     <string name="other_apps">Diğer Uygulamalar</string>
@@ -374,94 +389,97 @@ Standart (devre dışı bırakıldığında):\n
     <string name="places">Yer</string>
     <string name="symbols">Semboller</string>
     <!-- Array value for translation -->
-    <string name="five_mins">5 Dakika</string>
-    <string name="ten_mins">10 Dakika</string>
-    <string name="twenty_mins">20 Dakika</string>
-    <string name="thirty_mins">30 Dakika</string>
-    <string name="fourty_five_mins">45 Dakika</string>
-    <string name="one_hour">1 Saat</string>
-    <string name="two_hours">2 Saat</string>
-    <string name="three_hours">3 Saat</string>
-    <string name="four_hours">4 Saat</string>
+    <string name="five_mins">5 dakika</string>
+    <string name="ten_mins">10 dakika</string>
+    <string name="twenty_mins">20 dakika</string>
+    <string name="thirty_mins">30 dakika</string>
+    <string name="fourty_five_mins">45 dakika</string>
+    <string name="one_hour">1 saat</string>
+    <string name="two_hours">2 saat</string>
+    <string name="three_hours">3 saat</string>
+    <string name="four_hours">4 saat</string>
     <string name="manual">El ile</string>
     <string name="layout_hangouts">Hangouts</string>
     <!-- added after release -->
-    <string name="use_inapp_browser">Uygulamayı Tarayıcıda Kullanın</string>
+    <string name="use_inapp_browser">Uygulamada Tarayıcı Kullan</string>
     <string name="use_browser_on_tweet">Tweet Tarayıcı Sayfası</string>
     <string name="dismiss_all">Tümünü Kapat</string>
-    <string name="handle_and_name">Ekran handle ve isim</string>
+    <string name="handle_and_name">Kullanıcı adı ve isim göster</string>
     <string name="notification_types">Bildirim Türleri</string>
-    <string name="with_talon_pull">\'\'Talon Pull\'\' aracığılıyla erişilen</string>
+    <string name="with_talon_pull">\'\'Talon Pull\'\' aracığılıyla eriş</string>
     <string name="favorited_tweet">Favoriler üzerinden Tweetler</string>
     <string name="new_followers">Yeni Takipçiler</string>
     <string name="discussion">Tartışma</string>
     <string name="no_replies">Cevap Yok</string>
-    <string name="rt_style_quotes">\"RT\" tarzı tırnak tercih</string>
+    <string name="rt_style_quotes">Tırnak Tarzı \"RT\" Tercih Et</string>
     <string name="rt_style_quotes_summary">Eski alınttı \"RT @kullanıcıadı: ...\" yerine Talon alıntı yöntemi kullanır.\n\nHerhangi bir tweet üzerine Eylem Çubuğundan veya menüden ulaşılabilir.</string>
-    <string name="absolute_date">Mutlak tarihleri ​​kullanın</string>
+    <string name="absolute_date">Mutlak Tarih ​​Kullan</string>
     <string name="clear_searches">Aramaları Temizle</string>
     <string name="compose_with_search">Arama ile Tweet Oluştur</string>
     <string name="use_toast">Use \"To First\" Toast</string>
     <string name="ignore_retweets">Retweetleri Görmezden Gel</string>
-    <string name="ignore_retweets_summary">Ana Sayfa\' yı kaydırma sırasında herhangi retweeti gösterme</string>
+    <string name="ignore_retweets_summary">Ana Sayfa\'yı kaydırma sırasında herhangi retweeti gösterme</string>
     <string name="view">Görünüm</string>
     <string name="muted_hashtags">Sessizleştirilen Hashtag\'ler</string>
     <string name="muted_hashtags_summary">Sessizleştirmeyi kaldırmak için hashtag\'i tıklayın.</string>
-    <string name="no_hashtags">Hashtagler Yok</string>
+    <string name="no_hashtags">Hashtag Yok</string>
     <string name="mute_hashtags">Sessiz Hashtag</string>
     <string name="muted">Sessiz</string>
-    <string name="auto_insert_hashtags">Otomatik Hashtag Ekleme</string>
+    <string name="auto_insert_hashtags">Otomatik Hashtag Ekle</string>
     <string name="to_replies">Cevap içine tweet bulunan herhangi hashtagleri yerleştirin.</string>
     <string name="clean_now">Veri Tabanlarını Şimdi Temizle</string>
     <string name="clean_now_summary">Veri tabanınızı düzenler ve eşleşmeleri kaldırır.</string>
     <string name="delete_conversation">Konuşmaları Sil?</string>
     <string name="deleting_messages">Mesajları Sil</string>
-    <string name="type_message">Mesajı yazın ...</string>
-    <string name="fill_gaps">Ana Sayfa boşluklarını doldurmak</string>
+    <string name="type_message">Mesaj yaz...</string>
+    <string name="fill_gaps">Ana Sayfa Boşluklarını Doldur</string>
     <string name="fill_gaps_summary">Canlı izleme etkinken kötü bir bağlantı akışında meydana  gelen boşlukları doldurun.</string>
     <string name="filling_timeline">Ana Sayfa boşlukları doldurma</string>
     <string name="follows_you">Seni takip ediyor</string>
     <string name="not_following_you">Seni takip etmiyor</string>
-    <string name="device">Cihaz Yaz Biçimi</string>
-    <string name="roboto_light">Roboto Hafif (Varsayılan)</string>
+    <string name="device">Cihaz Yazı Biçimi</string>
+    <string name="roboto_light">Roboto Light (Varsayılan)</string>
     <string name="roboto_condensed">Roboto Yoğun</string>
     <string name="font_type">Yazı Tipi</string>
-    <string name="our_website">Web site</string>
-    <string name="alert_types">Uyarı Türleri</string>
+    <string name="our_website">Web sayfası</string>
+    <string name="alert_types">Uyarı Yöntemleri</string>
     <string name="timeline_notifications">Ana Sayfa Bildirimleri</string>
     <string name="interactions_notifications">Etkileşim Bildirimleri</string>
     <string name="timelines_settings">Ana Sayfa Ayarları</string>
-    <string name="tweet_look_options">Tweet Bakma Seçenekleri</string>
+    <string name="tweet_look_options">Tweet Görünüm Seçenekleri</string>
     <string name="limiting_options">Sınırlandırma Seçenekleri</string>
     <string name="browser_options">Tarayıcı Seçenekleri</string>
     <string name="custom_ringtone">Özel Zil Sesi</string>
-    <string name="use_twitlonger">TwitLonger (Daha Uzun Tweet)\'ı Ektinleştirin</string>
-    <string name="twitlonger">TwitLonger (Daha Uzun Tweet)</string>
-    <string name="post_with_twitlonger">Tweet 140 karakterden daha büyüktür. \n\nTwitLonger kullanarak göndermek istiyormusunuz?</string>
+    <string name="use_twitlonger">TwitLonger\'ı Ektinleştirin</string>
+    <string name="twitlonger">TwitLonger</string>
+    <string name="post_with_twitlonger">Tweet 140 karakterden daha büyük. \n\nTwitLonger kullanarak göndermek istiyor musunuz?</string>
     <string name="remove_retweet">Retweet Kaldır</string>
     <string name="edit">Düzenle</string>
-    <string name="use_twitpic">TwitPic\'i kullanın</string>
+    <string name="use_twitpic">TwitPic kullan</string>
     <string name="twitpic_summary">Twitter\'ın resim yükleme servisi yerine, tweetlere görüntüleri eklemek için TwitPic kullanın.</string>
     <string name="verified">Onaylanmış</string>
-    <string name="use_tweetmarker">Tweet İşaretleyiciyi Etkinleştir</string>
-    <string name="tweetmarker_summary">Hala deneysel bir parçasıdır. Bazı ufak tefek sorunlar olabilir.</string>
+    <string name="use_tweetmarker">Tweet İşaretleyici</string>
+    <string name="tweetmarker_summary">Aygıtlar arasındaki yerinizin senkronizesinde kullanılır</string>
+    <string name="do_not_use">Kullanma</string>
+    <string name="automatic_refresh">Otomatik TweetMarker</string>
+    <string name="manual_refresh">Manuel TweetMarker</string>
     <string name="finding_tweetmarker">Tweet işaretleyici bulma</string>
     <string name="loading">Yükleniyor</string>
     <string name="loading_tweets">Tweetler Yükleniyor...</string>
-    <string name="pull_to_refresh">Pull\' u Yenileyin</string>
-    <string name="removing_retweet">Retweet Kaldırma</string>
-    <string name="retweeting_status">Retweetlerin Durumu</string>
-    <string name="removing_favorite">Favorilerden Çıkart</string>
-    <string name="favoriting_status">Favoriler Durumu</string>
+    <string name="pull_to_refresh">Yenilemek İçin Çek</string>
+    <string name="removing_retweet">Retweet Kaldırılıyor</string>
+    <string name="retweeting_status">Durum Retweetleniyor</string>
+    <string name="removing_favorite">Favorilerden Çıkarılıyor</string>
+    <string name="favoriting_status">Durum Favorilere Ekleniyor</string>
     <string name="jumping_workaround">Çözüm Atlama</string>
-    <string name="jumping_workaround_summary">Eğer zaman akışı bir bölüm aşağı atlarsa bu etkinleştirin.</string>
+    <string name="jumping_workaround_summary">Eğer zaman akışı bir bölüm aşağı atlarsa bunu etkinleştirin.</string>
     <string name="menu_share_link">Link Paylaş</string>
-    <string name="no_links">Linkler Yok</string>
-    <string name="configure_pages">Ekstra Sayfaları Yapılandırma</string>
+    <string name="no_links">Link Yok</string>
+    <string name="configure_pages">Ekstra Sayfaları Yapılandır</string>
     <string name="picture_page">Ana Sayfa Resmi</string>
     <string name="link_page">Ana Sayfa Bağlantısı</string>
     <string name="list_page">Ana Sayfa Listesi</string>
-    <string name="current">Current</string>
+    <string name="current">Şimdiki</string>
     <string name="here_is_home">İşte senin ana sayfan!</string>
     <string name="dont_use">Bu sayfayı kullanmayınız</string>
     <string name="page_1">Sayfa 1</string>
@@ -469,35 +487,35 @@ Standart (devre dışı bırakıldığında):\n
     <string name="load_tweets">Tweetleri Yükle</string>
     <string name="download_portal">Tema - Portal Uygulamasını İndir</string>
     <string name="download_portal_summary">En son haberleri ile güncel alır, Talon ve EvolveSMS için tüm yeni temaları bulmak için Klinker Apps \"Portal\" uygulaması!</string>
-    <string name="compose_dm_hint">Buradan direkt mesaj yazın ...</string>
+    <string name="compose_dm_hint">Mesaj yaz...</string>
     <string name="pwiccer">Pwiccer</string>
     <string name="select_shortening_service">Bir kısaltma servisi seçin veya tweet\'i düzenleyin.</string>
-    <string name="use_shortening_service">Kısaltma servisini kullanın</string>
-    <string name="use_shortening_service_summary">TwitLonger veya Pwiccer dan birini seçmek mümkün olabilir. (uzun bir tweet gönderimi için bunu dönüştüren bir hizmet).</string>
-    <string name="view_retweeters">Retweetler</string>
+    <string name="use_shortening_service">Kısaltma Servisi Kullan</string>
+    <string name="use_shortening_service_summary">TwitLonger veya Pwiccer  (uzun bir tweet gönderimi için bunu dönüştüren bir hizmet)\'dan birini seçebilirsiniz.</string>
+    <string name="view_retweeters">Retweetleyenler</string>
     <string name="no_tweets">Tweet Bulunamadı</string>
     <string name="only_7_days">Sadece 7 gün kullanılabilir</string>
     <string name="saved_searches">Kaydedilen Aramalar</string>
     <string name="error_check_network">Profil yükleme hatası. Ağ bağlantısını kontrol edin.</string>
     <string name="error_loading_timeline">Ana Sayfa yüklenemedi! Veri bağlantınızı kontrol etmeyi deneyin.</string>
     <string name="currently_in_beta">Şuan için BETA.</string>
-    <string name="changed_screenname">Kullanıcı adınızı değiştirdikten sonra Talon Kimliğinizi kurtarabilecek! Doğu değişiklikleri yapabilmek için bir kez oturum kapatılarak ve tekrar giriş yapılmalıdır!</string>
+    <string name="changed_screenname">Talon Kimliğinizi kaydetmeden kullanıcı adınızı değiştirdiniz! Doğru değişiklikleri yapabilmek için hemen oturumu kapatarak tekrar giriş yapmalısınız!</string>
     <string name="menu_save_search">Aramaları Kaydet</string>
     <string name="saving_search">Aramalar Kaydedildi</string>
     <string name="delete_saved_search">Kaydedilen Aramaları Sil</string>
     <string name="deleting_search">Aramalar Siliniyor</string>
-    <string name="none">Hiç Biri</string>
-    <string name="start">Başlat!</string>
+    <string name="none">Hiçbiri</string>
+    <string name="start">Başla!</string>
     <string name="version_two">Versiyon 2.0.0</string>
     <string name="cleaning_databases">Veritabanları temizleniyor ..</string>
     <string name="setup_version_two">Son zamanlarda Talonda birçok değişiklikler oldu, ve ben size en iyi deneyimi sunduğumdan emin olmak için, uygulamaya giriş yapmadan önce bir kaç temizlik yapmak zorundayız!\n\nBu depolanan tweetlerin sayısına bağlı olarak biraz zaman alabilir!</string>
     <string name="setting_up_timeline">Ana Sayfa Ayarlanıyor...</string>
-    <string name="setting_up_mentions">Bildirimler ayarlanıyor...</string>
+    <string name="setting_up_mentions">Bahsedenler ayarlanıyor...</string>
     <string name="setting_up_dms">Direkt mesajlar ayarlanıyor...</string>
     <string name="setting_up_lists">Listeler ayarlanıyor...</string>
     <string name="version_two_setup_done">Talon 2.0 nin kurulumu bitti, tadını çıkarın! :)</string>
     <string name="no_content">Ekranda hiçbir şey yok!</string>
-    <string name="discover">Keşfedin</string>
+    <string name="discover">Keşfet</string>
     <string name="suggested_users">Önerilen Kullanıcılar</string>
     <string name="nearby_tweets">Yakınlardaki Tweetler</string>
     <string name="local_trend_options">Yerel Trend Seçenekleri</string>
@@ -505,27 +523,27 @@ Standart (devre dışı bırakıldığında):\n
     <string name="country_region">Ülke / Bölge</string>
     <string name="city">Şehir</string>
     <string name="menu_apply_picture_filter">Resim Filtresi Uygula</string>
-    <string name="menu_remove_rt">ReTweetleri Kaldır</string>
-    <string name="input_expression">Sessiz ifade için...</string>
-    <string name="mute_expression">Sessiz İfade</string>
+    <string name="menu_remove_rt">Retweetleri Kaldır</string>
+    <string name="input_expression">Sessiz alınacak ifade</string>
+    <string name="mute_expression">İfadeyi Sessize Al</string>
     <string name="view_muted_expressions">Sessiz İfadeleri Kaldır</string>
     <string name="no_expression">İfade Yok!</string>
-    <string name="regex_disclaimer">Birçok ifadeleri sessizleştirme başlangıç ve yenileme sürelerini etkiliyor olabilir.</string>
+    <string name="regex_disclaimer">Birçok ifadeyi sessizleştirmek başlangıç ve yenileme sürelerini etkileyebilir.</string>
     <string name="cleaning_cache">Önbellek temizleniyor...</string>
     <string name="floating_compose">Yüzer Oluşturma Düğmesi</string>
     <string name="settings_links">Bağlantı Ayarları</string>
     <string name="other_links">Diğer Bağlantılar</string>
     <string name="display_options">Ekran Ayarları</string>
     <string name="third_party_services">Üçüncü Parti Servisleri</string>
-    <string name="open_keyboard">Klavye\'yi Otomatik Aç</string>
-    <string name="open_keyboard_summary">Tweet cevaplamak için görüntülendiğinde klavye otomatik olarak açılır</string>
-    <string name="no_retweets">Retweetler hariç</string>
+    <string name="open_keyboard">Klavyeyi Otomatik Aç</string>
+    <string name="open_keyboard_summary">Tweet görüntüleyicide klavye otomatik olarak açılır</string>
+    <string name="no_retweets">Retweet yok</string>
     <string name="profile">Profil</string>
     <string name="favorites">Favoriler</string>
     <string name="load_pictures">Resim Yükle</string>
     <string name="pic_search_disclaimer">Resimler için kullanıcı ana sayfasını tarar. Kişileri resimlerinin geçerliliğine bağlı olarak daha fazla zaman alacaktır.</string>
     <string name="widget_theme">Widget Teması</string>
-    <string name="widget_theme_summary">Ana Sayfa widgetleri için uygulanan</string>
+    <string name="widget_theme_summary">Ana ekran widgetleri için uygulandı.</string>
     <string name="widget_light">Açık Renk Tema</string>
     <string name="widget_dark">Koyu Renk Tema</string>
     <string name="widget_trans_light">Şeffaf Açık Renk Tema</string>
@@ -538,7 +556,7 @@ Standart (devre dışı bırakıldığında):\n
     <string name="show_muted_mentions">Sessiz Bildirimleri Göster</string>
     <string name="force_overflow_summary">Her zaman Eylem Çubuğun\'da 3-Nokta \"Taşma Menüsü\" göstermektedir. Telefonlar için Fiziksel menü butonu ile kullanılır.</string>
     <string name="menu_view_drafts">Taslakları Görüntüle</string>
-    <string name="menu_schedule_tweet">Bir Tweet Programlayın</string>
+    <string name="menu_schedule_tweet">Tweet Zamanla</string>
     <string name="menu_save_draft">Taslağı Kaydet</string>
     <string name="saved_draft">Taslak Kaydedildi</string>
     <string name="delete_draft">Taslağı Sil</string>
@@ -557,7 +575,7 @@ Talon yerine TwitPic kullanarak resim yükleme.</string>
     <string name="plain_text_browser">Düz Metin Tarayıcı</string>
     <string name="plain_text_summary">Web tarayıcı görüntüleri ve biçimlendirmeyi kaldırır ve sadece bir web sayfasındaki metinleri gösterir.</string>
     <string name="plain_text_on_data">Mobil Veri üzerinden Düz Metin</string>
-    <string name="plain_text_on_data_summary">Sadece WiFi üzerinden değil, bir mobil veri bağlantısı üzerinde de düz metin tarayıcısını etkinleştirin.</string>
+    <string name="plain_text_on_data_summary">WiFi üzerinden değil, mobil veri bağlantısı üzerinde düz metin tarayıcısını etkinleştirin.</string>
     <string name="layout_full_screen">Tam Ekran</string>
     <string name="pre_cache_images">Ön Bellekteki Görüntüler</string>
     <string name="pre_cache_summary">Onlar canlı akış veya çizelgesinin bir arka plan yenilemesini alınan olarak derhal görüntüleri indirin.</string>
@@ -573,10 +591,54 @@ Talon yerine TwitPic kullanarak resim yükleme.</string>
     <string name="protected_account">Kullanıcının korunan bir hesabı var!</string>
     <string name="mute_rt">Sessiz Retweetler</string>
     <string name="unmute_rt">Tekrar Aktif Edilen Retweetler</string>
-    <string name="muted_rts">Sessizleştiriln Retwetler</string>
+    <string name="muted_rts">Sessizleştirilen Retwetler</string>
     <string name="twitter">Twitter</string>
     <string name="user">Kullanıcılar</string>
+    <string name="menu_translate">Tweeti Çevir</string>
+    <string name="add_new_tweet">Yeni Tweet Ekle</string>
+    <string name="scheduled_tweets">Zamanlanmış Tweetler</string>
+    <string name="done_label">Tamamlandı</string>
+    <string name="tweet_queued">Tweet Kuyruğa Eklendi!</string>
+    <string name="only_queue_no_pic">Sadece fotoğrafsız tweetler kuyruğa eklenebilir!</string>
+    <string name="menu_view_queued">Kuyruğa Eklenmiş Tweetleri Göster</string>
+    <string name="keep_queued_tweet">Kuyruğa Eklenmiş Tweet Saklansın Mı?</string>
+    <string name="date_picker">Tarih Seç</string>
+    <string name="time_picker">Saat Seç</string>
+    <string name="complete_form">Lütfen formu doldurun!</string>
+    <string name="no_drafts">Taslak yok</string>
+    <string name="no_queued">Kuyruğa eklenmiş tweet yok</string>
+    <string name="menu_show_top_tweets">\"Zirve Tweet\" Filtresi</string>
+    <string name="delete_all">Tüm taslakları sil</string>
+    <string name="muted_clients">Sessize Alınmış Alıcılar</string>
+    <string name="mute_client">Alıcıyı Sessize Al</string>
+    <string name="no_clients">Alıcı yok</string>
+    <string name="muted_clients_summary">Belirli bir uygulamadan gelen tweetleri sessize almanıza izin verir.</string>
+    <string name="client_not_found">Alıcı bulunamadı!</string>
+    <string name="pick_time">Saat seç</string>
+    <string name="pick_date">Tarih seç</string>
+    <string name="both_accounts">İki hesap</string>
+    <string name="attach_gif">Animasyonlu GIF</string>
+    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="second_account">2nci Hesap</string>
+    <string name="second_account_login_info">Twitter bazı giriş bilgilerinizi sisteminde tuttuğundan dolayı, sonraki ekran yeni hesabınızla oturum açmanıza hemen izin vermeyebilir. Eğer oturum açmayı atlayıp doğrulama sayfasına giderse, uygulamanın ikinci hesabınıza girmesine izin vermek için sayfanın sağ üstündeki \"Sign Out\" butonuna dokunun.</string>
+    <string name="fetch_tweetmarker">TweetMarker\'i getir</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
-    <string name="open_to_web">Twetleri web sayfasında göster</string>
+    <string name="open_profile">Profili aç</string>
+    <string name="copy_handle">Kullanıcı adını kopyala</string>
+    <string name="search_user">Kullanıcı ara</string>
+    <string name="mute_user">Kullanıcıyı sessize al</string>
+    <string name="mute_retweets">Retweetleri sessize al</string>
+    <string name="share_profile">Profili paylaş</string>
+    <string name="copy_link">Linki Kopyala</string>
+    <string name="share_link">Linki Paylaş</string>
+    <string name="search_hashtag">Hashtag Ara</string>
+    <string name="mute_hashtag">Hashtagı sessize al</string>
+    <string name="copy_hashtag">Hashtag Kopyala</string>
+    <string name="search_cashtag">Cashtag Ara</string>
+    <string name="copy_cashtag">Cashtag Kopyala</string>
+    <string name="copied">Kopyalanmış Metin</string>
+    <string name="open_to_web">Web Sayfasında Aç</string>
     <string name="open_to_web_summary">Tweet bir web bağlantısı içeriyorsa, o bağlantı yerine tweet\'in kendisi doğrudan açılacaktır.</string>
+    <string name="open_webpage">Linki Aç</string>
 </resources>

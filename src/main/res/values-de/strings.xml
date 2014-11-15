@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon für Twitter</string>
@@ -231,7 +246,7 @@
     <!-- Tutorial Activity -->
     <string name="part_1_tablet">\nFunktionen verwenden,\nindem Sie Einträge\nim \nNavigationsmenü\nantippen!</string>
     <string name="part_1_phone">\nÖffnen Sie das\nNavigationsmenü\nmit einer Wischgeste\nvom linken Bildschirmrand!</string>
-    <string name="part_2">Wechsle die\nAnsicht mit\neiner Wischgeste\nvon der Mitte des\nBildschirms!</string>
+    <string name="part_2">\nWechslen Sie die\nAnsicht mit\neiner Wischgeste\nvon der Mitte des\nBildschirms!</string>
     <string name="part_3">Das war\'s!\n\nBerühre den\nBildschirm um\nzu beginnen!</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Theme</string>
@@ -607,13 +622,14 @@
     <string name="second_account">Zweitkonto</string>
     <string name="second_account_login_info">Da Twitter einige deiner Login-Informationen in seinem System behält, können Sie sich vielleicht nicht sofort mit Ihren neuen Benutzerkonto anmelden. Wenn die Login-Seite übersprungen wird und Sie direkt auf der Au­to­ri­sie­rungsseite beginnen, klicken Sie einfach auf die \"Abmelden\"-Schaltfläche in der rechten oberen Ecke der Website, um der App die Anmeldung in Ihrem Zweitkonto zu ermöglichen.</string>
     <string name="fetch_tweetmarker">TweetMarker wird abgerufen…</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">Profil öffnen</string>
+    <string name="copy_handle">Kopiere Nutzernamen</string>
     <string name="search_user">Nutzer suchen</string>
-    <string name="mute_user">Nutzer muten</string>
+    <string name="mute_user">Nutzer stummschalten</string>
     <string name="mute_retweets">Retweets stummschalten</string>
     <string name="share_profile">Profil teilen</string>
-    <string name="open_webpage">Link öffnen</string>
     <string name="copy_link">Link kopieren</string>
     <string name="share_link">Link teilen</string>
     <string name="search_hashtag">Hashtag suchen</string>
@@ -624,4 +640,5 @@
     <string name="copied">Kopierter Text</string>
     <string name="open_to_web">Webseite in Tweet öffnen</string>
     <string name="open_to_web_summary">Falls ein Tweet eine Webseiten-URL beinhaltet, wird direkt diese URL anstatt des Tweets geöffnet.</string>
+    <string name="open_webpage">Link öffnen</string>
 </resources>

@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
-    <string name="extension_description">Viser antallet af ulæste tweets, meninger og direkte beskeder efterhånden som de bliver opdateret</string>
+    <string name="extension_description">Viser antallet af ulæste tweets, meninger og direkte beskeder, efterhånden som de bliver opdateret</string>
     <!-- Action Bar -->
     <string name="menu_refresh">Opdater tidslinje</string>
     <string name="menu_compose">Nyt tweet</string>
@@ -607,6 +622,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="second_account">Sekundær konto</string>
     <string name="second_account_login_info">Eftersom Twitter ikke videregiver noget af din log ind information fra deres system, vil du fra den næste skærm muligvis ikke umiddelbart kunne logge ind med din  nyoprettet profil. Hvis det sker og du sendes direkte til deres  side for bekræftelse af din identitet, tap på \"Log af\" i toppen øverst til højre på hjemmesiden, for at lade app\'en logge dig ind med din sekundære konto</string>
     <string name="fetch_tweetmarker">Fastgør TweetMarker</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
     <string name="copy_handle">Kopiér indhold</string>
@@ -614,7 +630,6 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="mute_user">Mute bruger</string>
     <string name="mute_retweets">Mute Retweets</string>
     <string name="share_profile">Del profil</string>
-    <string name="open_webpage">Åbn link</string>
     <string name="copy_link">Kopiér link</string>
     <string name="share_link">Del link</string>
     <string name="search_hashtag">Søg hashtag</string>
@@ -625,4 +640,5 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="copied">Kopieret tekst</string>
     <string name="open_to_web">Åbn websider fra tweets</string>
     <string name="open_to_web_summary">Hvis et tweet indeholder et link til en webside, vil det åbne websiden i stedet for at vise tweetet</string>
+    <string name="open_webpage">Åbn link</string>
 </resources>

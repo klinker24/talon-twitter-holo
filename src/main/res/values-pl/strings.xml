@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
@@ -445,6 +460,9 @@
     <string name="verified">Zweryfikowano</string>
     <string name="use_tweetmarker">Aktywuj TweetMarker</string>
     <string name="tweetmarker_summary">Ciągle w fazie eksperymentalnej. Możesz doświadczyć pewnych problemów podczas korzystania z tej funkcji.</string>
+    <string name="do_not_use">Nie używaj</string>
+    <string name="automatic_refresh">Automatyczny TweetMarker</string>
+    <string name="manual_refresh">Ręczny TweetMarker</string>
     <string name="finding_tweetmarker">Wyszukiwanie TweetMarkera</string>
     <string name="loading">Wczytywanie</string>
     <string name="loading_tweets">Wczytywanie Tweetów...</string>
@@ -602,7 +620,23 @@ Ten obrazek będzie dostępny do wyświetlenia na Twoim profilu TwitPic.</string
     <string name="both_accounts">Oba konta</string>
     <string name="attach_gif">Animowany GIF</string>
     <string name="roboto_l">Roboto z Androida "L"</string>
+    <string name="second_account">Drugie konto</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
+    <string name="open_profile">Otwórz profil</string>
+    <string name="search_user">Szukaj użytkownika</string>
+    <string name="mute_user">Wycisz użytkownika</string>
+    <string name="mute_retweets">Wycisz retweety</string>
+    <string name="share_profile">Udostępnij profil</string>
+    <string name="copy_link">Kopiuj link</string>
+    <string name="share_link">Udostępnij link</string>
+    <string name="search_hashtag">Szukaj hashtaga</string>
+    <string name="mute_hashtag">Wycisz hashtag</string>
+    <string name="copy_hashtag">Kopiuj hashtag</string>
+    <string name="search_cashtag">Szukaj cashtaga</string>
+    <string name="copy_cashtag">Kopiuj cashtag</string>
+    <string name="copied">Skopiowany tekst</string>
     <string name="open_to_web">Otwieranie w przeglądarce</string>
     <string name="open_to_web_summary">Jeżeli tweet zawiera link, dotknięcie go przeniesie od razu pod wskazany adres.</string>
+    <string name="open_webpage">Otwórz link</string>
 </resources>

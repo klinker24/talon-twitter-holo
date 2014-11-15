@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon voor Twitter</string>
@@ -36,7 +51,7 @@
     <!-- Muting -->
     <string name="mute">Dempen</string>
     <string name="unmute">Niet meer dempen</string>
-    <string name="muted_users">Gedempte gebruikers</string>
+    <string name="muted_users">Geblokkeerde Gebruikers</string>
     <string name="no_users">Geen gebruikers</string>
     <!-- Main Activity -->
     <string name="links">Links</string>
@@ -605,6 +620,7 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="second_account">2e Account</string>
     <string name="second_account_login_info">Het kan zijn dat het volgende scherm je niet meteen laat inloggen met je nieuwe account, omdat Twitter bepaalde delen van je inloggegevens in hun systemen opslaat. Als de inlogpagina wordt overgeslagen en je direct naar de autorisatie pagina gaat, druk dan gewoon op de \'Sign Out\' knop in de rechterbovenhoek van de website zodat je kunt inloggen met je tweede account.</string>
     <string name="fetch_tweetmarker">Fetch TweetMarker</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">Open profiel</string>
     <string name="copy_handle">Kopieer gebruikersnaam</string>
@@ -612,7 +628,6 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="mute_user">Demp gebruiker</string>
     <string name="mute_retweets">Demp retweets</string>
     <string name="share_profile">Deel profiel</string>
-    <string name="open_webpage">Open link</string>
     <string name="copy_link">Kopieer link</string>
     <string name="share_link">Deel link</string>
     <string name="search_hashtag">Zoek hashtag</string>
@@ -623,4 +638,5 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="copied">Tekst gekopieërd</string>
     <string name="open_to_web">Open naar webpagina</string>
     <string name="open_to_web_summary">Wanneer een tweet een web url bevat, zal direct die url geopend worden i.p.v. de tweet zelf.</string>
+    <string name="open_webpage">Open link</string>
 </resources>
