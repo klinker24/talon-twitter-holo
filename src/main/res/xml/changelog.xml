@@ -16,7 +16,7 @@
 
 <changelog>
 
-    <version name="3.4.1">
+    <version name="3.4.2">
         <text>Open to internal or external browser when long clicking a link</text>
         <text>img.ly support</text>
         <text>Fix for interaction clicks</text>
