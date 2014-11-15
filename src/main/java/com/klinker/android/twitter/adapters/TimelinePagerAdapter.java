@@ -117,7 +117,11 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int i) {
-        return names.get(i);
+        if (names.size() > i) {
+            return names.get(i);
+        } else {
+            return "";
+        }
     }
 
     @Override

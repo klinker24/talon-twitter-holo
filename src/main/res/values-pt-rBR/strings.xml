@@ -622,7 +622,14 @@
     <string name="second_account">2ª Conta</string>
     <string name="second_account_login_info">Desde que o Twitter grava algumas das suas informações de login no seu sistema, a próxima tela pode não permitir você fazer o login com uma nova informação de conta imediatamente. Se ele pular este login e for diretamente para a página de autorização, basta clicar no botão \"Sair\" no canto superior direito do site para poder fazer login em sua segunda conta.</string>
     <string name="fetch_tweetmarker">Carregar TweetMarker</string>
+    <string name="rate_limit_reached">Limite Atingido</string>
+    <string name="info">Detalhes</string>
+    <string name="help_and_feedback">Ajuda/Comentários</string>
+    <string name="contact">Contato</string>
+    <string name="follow">Seguir</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Página %s</string>
+    <string name="set_as_default">Definir como Padrão</string>
     <!-- Long click methods -->
     <string name="open_profile">Abrir Perfil</string>
     <string name="copy_handle">Copiar @Nome</string>
@@ -638,6 +645,7 @@
     <string name="search_cashtag">Buscar Cashtag</string>
     <string name="copy_cashtag">Copiar Cashtag</string>
     <string name="copied">Texto Copiado</string>
+    <string name="favorite_user_text">Favoritar Usuário</string>
     <string name="open_to_web">Tweets com links</string>
     <string name="open_to_web_summary">Se o tweet contém um link, marcar essa opção fará com que ao abrir o tweet, o navegador seja mostrado primeiro ao invés do em si.</string>
     <string name="open_webpage">Abrir Link</string>

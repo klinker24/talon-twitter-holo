@@ -622,6 +622,9 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="second_account">Sekundær konto</string>
     <string name="second_account_login_info">Eftersom Twitter ikke videregiver noget af din log ind information fra deres system, vil du fra den næste skærm muligvis ikke umiddelbart kunne logge ind med din  nyoprettet profil. Hvis det sker og du sendes direkte til deres  side for bekræftelse af din identitet, tap på \"Log af\" i toppen øverst til højre på hjemmesiden, for at lade app\'en logge dig ind med din sekundære konto</string>
     <string name="fetch_tweetmarker">Fastgør TweetMarker</string>
+    <string name="rate_limit_reached">Grænse for bedømmelse nået</string>
+    <string name="info">Info</string>
+    <string name="help_and_feedback">Hjælp/feedback</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
