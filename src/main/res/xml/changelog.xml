@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="3.5.0">
+        <text>Improved the accuracy of timestamp to seconds</text>
+    </version>
+
     <version name="3.4.2">
         <text>Open to internal or external browser when long clicking a link</text>
         <text>img.ly support</text>
