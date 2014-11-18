@@ -30,7 +30,6 @@ Please keep that in mind when viewing this roadmap. It is simply a rough estimat
 either, or ETA's, so please do not ask for them
 
     Version 3.4 (finally make more extra pages)
-        - allow the user to set up to 3 or 4... undecided on this as of now.
         - More fragments to choose from
             - search fragment (with search box and saved search) on main timelines
             - second account mentions page on timeline

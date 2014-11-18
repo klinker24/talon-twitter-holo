@@ -103,22 +103,22 @@ public class Utils {
 
         final long diff = now - time;
         if (diff < MINUTE_MILLIS) {
-            return 0 + "m";//context.getResources().getString(R.string.just_now);
+            return diff / SECOND_MILLIS + "s";
         } else if (diff < 2 * MINUTE_MILLIS) {
-            return 1 + "m";//context.getResources().getString(R.string.a_min_ago);
+            return 1 + "m";
         } else if (diff < 50 * MINUTE_MILLIS) {
-            return diff / MINUTE_MILLIS + "m";//(context.getResources().getString(R.string.minutes_ago)).replace("%s", diff / MINUTE_MILLIS + "");
+            return diff / MINUTE_MILLIS + "m";
         } else if (diff < 90 * MINUTE_MILLIS) {
-            return 1 + "h";//context.getResources().getString(R.string.an_hour_ago);
+            return 1 + "h";
         } else if (diff < 24 * HOUR_MILLIS) {
             if (diff / HOUR_MILLIS == 1)
-                return 1 + "h";//context.getResources().getString(R.string.an_hour_ago);
+                return 1 + "h";
             else
-                return diff / HOUR_MILLIS + "h";//(context.getResources().getString(R.string.hours_ago)).replace("%s", diff / HOUR_MILLIS + "");
+                return diff / HOUR_MILLIS + "h";
         } else if (diff < 48 * HOUR_MILLIS) {
-            return 1 + "d";//context.getResources().getString(R.string.yesterday);
+            return 1 + "d";
         } else {
-            return diff / DAY_MILLIS + "d";//(context.getResources().getString(R.string.days_ago)).replace("%s", diff / DAY_MILLIS + "");
+            return diff / DAY_MILLIS + "d";
         }
     }
 
