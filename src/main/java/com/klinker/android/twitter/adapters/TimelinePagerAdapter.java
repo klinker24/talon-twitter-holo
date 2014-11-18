@@ -32,6 +32,7 @@ import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.L
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.ListFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.PicFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.SecondAccMentionsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +97,11 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                 case AppSettings.PAGE_TYPE_MENTIONS:
                     frags.add(new MentionsFragment());
                     names.add(context.getResources().getString(R.string.mentions));
+                    mentionIndex = i;
+                    break;
+                case AppSettings.PAGE_TYPE_SECOND_MENTIONS:
+                    frags.add(new SecondAccMentionsFragment());
+                    names.add("@" + AppSettings.getInstance(context).secondScreenName);
                     mentionIndex = i;
                     break;
                 case AppSettings.PAGE_TYPE_DMS:

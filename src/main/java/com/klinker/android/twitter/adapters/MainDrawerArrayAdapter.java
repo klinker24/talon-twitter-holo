@@ -108,6 +108,9 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 case AppSettings.PAGE_TYPE_DMS:
                     text.add(context.getResources().getString(R.string.direct_messages));
                     break;
+                case AppSettings.PAGE_TYPE_SECOND_MENTIONS:
+                    text.add(AppSettings.getInstance(context).secondScreenName);
+                    break;
                 default:
                     text.add(getName(pageNames.get(i), pageTypes.get(i)));
                     break;
@@ -162,7 +165,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.mentions))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.mentions)) || text.get(position).contains(AppSettings.getInstance(context).secondScreenName)) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.mentionItem});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();

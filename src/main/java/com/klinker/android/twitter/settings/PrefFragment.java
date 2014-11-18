@@ -210,6 +210,9 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                         case AppSettings.PAGE_TYPE_DMS:
                             text.add(context.getResources().getString(R.string.direct_messages));
                             break;
+                        case AppSettings.PAGE_TYPE_SECOND_MENTIONS:
+                            text.add("@" + AppSettings.getInstance(context).secondScreenName);
+                            break;
                         default:
                             text.add(getName(pageNames.get(i), pageTypes.get(i)));
                             break;

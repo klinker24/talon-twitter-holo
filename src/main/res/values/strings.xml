@@ -667,6 +667,7 @@
     <string name="main_pages_and_drawer">Main Pages and Drawer</string>
     <string name="drawer_elements">Visible Drawer Items</string>
     <string name="drawer_elements_summary">Show or hide the items in the apps main navigation drawer.</string>
+    <string name="second_acc_mentions">Second Account Mentions</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

@@ -1,18 +1,4 @@
-/*
- * Copyright 2014 Luke Klinker
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 
 package com.klinker.android.twitter.ui.main_fragments.other_fragments;
 
@@ -57,6 +43,8 @@ public class MentionsFragment extends MainFragment {
             getCursorAdapter(false);
         }
     };
+
+
 
     @Override
     public void setUpListScroll() {
@@ -197,7 +185,7 @@ public class MentionsFragment extends MainFragment {
                     context.startService(new Intent(context, SecondMentionsRefreshService.class));
                 }
 
-                return MentionsDataSource.getInstance(context).getCursor(sharedPrefs.getInt("current_account", 1));
+                return MentionsDataSource.getInstance(context).getCursor(currentAccount);
             }
 
             @Override
@@ -273,7 +261,7 @@ public class MentionsFragment extends MainFragment {
     @Override
     public void onStop() {
         try {
-            MentionsDataSource.getInstance(context).markAllRead(sharedPrefs.getInt("current_account", 1));
+            MentionsDataSource.getInstance(context).markAllRead(currentAccount);
         } catch (Exception e) {
 
         }
@@ -293,7 +281,7 @@ public class MentionsFragment extends MainFragment {
             public void run() {
                 final Cursor cursor;
                 try {
-                    cursor = MentionsDataSource.getInstance(context).getCursor(sharedPrefs.getInt("current_account", 1));
+                    cursor = MentionsDataSource.getInstance(context).getCursor(currentAccount);
                 } catch (Exception e) {
                     MentionsDataSource.dataSource = null;
                     getCursorAdapter(true);

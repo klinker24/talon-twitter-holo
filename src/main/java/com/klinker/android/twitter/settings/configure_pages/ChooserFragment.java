@@ -79,6 +79,7 @@ public class ChooserFragment extends Fragment {
         list.add(context.getString(R.string.favorite_users));
         list.add(context.getString(R.string.link_page));
         list.add(context.getString(R.string.picture_page));
+        list.add(context.getString(R.string.second_acc_mentions));
 
         View layout = inflater.inflate(R.layout.configuration_page, null);
 
@@ -111,6 +112,9 @@ public class ChooserFragment extends Fragment {
                         break;
                     case 7:
                         setType(AppSettings.PAGE_TYPE_PICS);
+                        break;
+                    case 8:
+                        setType(AppSettings.PAGE_TYPE_SECOND_MENTIONS);
                         break;
                     default:
                         setType(AppSettings.PAGE_TYPE_NONE);
