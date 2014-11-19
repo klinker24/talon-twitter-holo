@@ -28,6 +28,7 @@ import java.util.Date;
 import java.util.List;
 
 import twitter4j.Paging;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
 
@@ -117,6 +118,10 @@ public class MentionsFragment extends MainFragment {
         });
     }
 
+    public Twitter getTwitter() {
+        return Utils.getTwitter(context, DrawerActivity.settings);
+    }
+
     @Override
     public void onRefreshStarted() {
         new AsyncTask<Void, Void, Cursor>() {
@@ -132,7 +137,7 @@ public class MentionsFragment extends MainFragment {
             @Override
             protected Cursor doInBackground(Void... params) {
                 try {
-                    twitter = Utils.getTwitter(context, DrawerActivity.settings);
+                    twitter = getTwitter();
 
                     long[] lastId = MentionsDataSource.getInstance(context).getLastIds(currentAccount);
 

@@ -16,6 +16,9 @@
 
 package com.klinker.android.twitter.ui.main_fragments.other_fragments;
 
+import com.klinker.android.twitter.utils.Utils;
+import twitter4j.Twitter;
+
 public class SecondAccMentionsFragment extends MentionsFragment {
 
     @Override
@@ -25,5 +28,10 @@ public class SecondAccMentionsFragment extends MentionsFragment {
         } else {
             return 1;
         }
+    }
+
+    @Override
+    public Twitter getTwitter() {
+        return Utils.getSecondTwitter(context);
     }
 }
