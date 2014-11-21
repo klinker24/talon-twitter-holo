@@ -135,12 +135,6 @@ public class ChooserFragment extends Fragment {
 
 
         check = (CheckBox) layout.findViewById(R.id.default_page);
-        check.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
         final LinearLayout checkLayout = (LinearLayout) layout.findViewById(R.id.default_page_layout);
         checkLayout.setOnClickListener(new View.OnClickListener() {
             @Override
