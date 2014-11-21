@@ -16,10 +16,21 @@
 
 package com.klinker.android.twitter.ui.main_fragments.other_fragments;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.klinker.android.twitter.utils.Utils;
 import twitter4j.Twitter;
 
 public class SecondAccMentionsFragment extends MentionsFragment {
+
+    public BroadcastReceiver refreshSecondMentions = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            getCursorAdapter(false);
+        }
+    };
 
     @Override
     public int getCurrentAccount() {
@@ -33,5 +44,21 @@ public class SecondAccMentionsFragment extends MentionsFragment {
     @Override
     public Twitter getTwitter() {
         return Utils.getSecondTwitter(context);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.klinker.android.twitter.REFRESH_SECOND_MENTIONS");
+        context.registerReceiver(refreshSecondMentions, filter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        context.unregisterReceiver(refreshSecondMentions);
     }
 }
