@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.13.3'
+        classpath 'com.android.tools.build:gradle:0.14.2'
         classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
     }
 }
@@ -62,7 +62,9 @@ android {
 
         buildTypes {
             release {
-                runProguard false
+                minifyEnabled true
+                shrinkResources true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
                 signingConfig signingConfigs.release
             }
         }
@@ -113,10 +115,6 @@ dependencies {
 
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     compile 'org.twitter4j:twitter4j-stream:4.0.2'
-
-    compile 'com.android.support:support-v13:20.0.0'
-    compile 'com.google.android.gms:play-services:5.0.+'
-    compile 'com.google.android.support:wearable:1.0.0'
 
     compile 'org.apache.httpcomponents:httpmime:4.3.5'
     compile 'org.apache.httpcomponents:httpcore:4.3.2'

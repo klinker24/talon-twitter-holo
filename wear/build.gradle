@@ -19,7 +19,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.13.3'
+        classpath 'com.android.tools.build:gradle:0.14.2'
     }
 }
 apply plugin: 'com.android.application'
@@ -53,8 +53,9 @@ android {
 
         buildTypes {
             release {
-                runProguard false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                minifyEnabled true
+                shrinkResources true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
                 signingConfig signingConfigs.release
             }
         }
@@ -67,7 +68,4 @@ android {
 
 dependencies {
     compile (project(":shared_assets"))
-    compile 'com.android.support:support-v13:+'
-    compile 'com.google.android.support:wearable:+'
-    compile 'com.google.android.gms:play-services-wearable:+'
 }
