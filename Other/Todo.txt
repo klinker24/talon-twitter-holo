@@ -28,6 +28,8 @@ either, or ETA's, so please do not ask for them
         - More fragments to choose from
             - search fragment (with search box and saved search) on main timelines
             - second account mentions page on timeline
+                - Update the list when new tweets are synced from the service (broadcast)
+                - Use the second account when fav/retweeting/replying to tweets from this page
             - second account timeline page
             - favorite tweets fragment
             - Activity fragment

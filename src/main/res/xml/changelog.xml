@@ -17,7 +17,11 @@
 <changelog>
 
     <version name="3.5.0">
+        <text>Added a swipable page for your second account's mentions</text>
         <text>Improved the accuracy of timestamp to seconds</text>
+        <text>Reduced the application size</text>
+        <text>Slight update to the icon</text>
+        <text>UI fixes when selecting swipable pages</text>
     </version>
 
     <version name="3.4.2">
