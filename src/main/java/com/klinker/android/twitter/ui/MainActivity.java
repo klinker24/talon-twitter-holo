@@ -436,7 +436,12 @@ public class MainActivity extends DrawerActivity {
         sharedPrefs.edit().putInt("pull_unread", 0).commit();
 
         // will only run when debugging
-        NotificationUtils.sendTestNotification(this);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                NotificationUtils.sendTestNotification(MainActivity.this);
+            }
+        }, 1000);
     }
 
     public Intent getRestartIntent() {
