@@ -1279,6 +1279,7 @@ public class NotificationUtils {
                 try {
                     mBuilder.setSound(Uri.parse(settings.ringtone));
                 } catch (Exception e) {
+                    e.printStackTrace();
                     mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
                 }
             }
