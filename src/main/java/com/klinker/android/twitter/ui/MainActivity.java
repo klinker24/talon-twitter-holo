@@ -435,17 +435,8 @@ public class MainActivity extends DrawerActivity {
         // clear the pull unread
         sharedPrefs.edit().putInt("pull_unread", 0).commit();
 
-        /*new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (Exception e) {
-
-                }
-                NotificationUtils.refreshNotification(context);
-            }
-        }).start();*/
+        // will only run when debugging
+        NotificationUtils.sendTestNotification(this);
     }
 
     public Intent getRestartIntent() {

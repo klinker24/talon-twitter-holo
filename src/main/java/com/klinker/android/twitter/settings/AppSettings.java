@@ -279,6 +279,7 @@ public class AppSettings {
         }
 
         ringtone = defaultPrefs.getString("ringtone", RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString());
+        Log.v("talon_ringtone", ringtone);
 
         if (!pushNotifications) {
             liveStreaming = false;
