@@ -625,7 +625,19 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="rate_limit_reached">Grænse for bedømmelse nået</string>
     <string name="info">Info</string>
     <string name="help_and_feedback">Hjælp/feedback</string>
+    <string name="faq_first">Hejsa. Jeg er glad for du vil hjælpe mig med at forbedre Talon!\n\n
+ Du er velkommen til at sende mig et tweet med din feedback  eller med eventuelle spørgsmål du må have. Inden du gør det, tjek lige FAQ først.\n\n
+ Talon har en ret omfattende support om emner og forslag, integreret i applikationen. Kik først dér, så behøver du måske ikke at skulle vente på et svar fra mig. (\nSelvom jeg nok skal gøre mit bedste for at svare tilbage, så hurtigt jeg kan når jeg er alene om det..)\n\n
+ Jeg håber du er tilfreds med mit arbejde!</string>
+    <string name="contact">Kontakt</string>
+    <string name="follow">Følg</string>
+    <string name="menu_number_of_pages">Antal ekstra sider</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Side %s</string>
+    <string name="set_as_default">Brug som standard</string>
+    <string name="main_pages_and_drawer">Start sider og oversigt</string>
+    <string name="drawer_elements">Synlige emner i oversigt</string>
+    <string name="drawer_elements_summary">Vis eller skjul emner i applikationens navigations oversigt</string>
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
     <string name="copy_handle">Kopiér indhold</string>
@@ -633,6 +645,8 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="mute_user">Mute bruger</string>
     <string name="mute_retweets">Mute Retweets</string>
     <string name="share_profile">Del profil</string>
+    <string name="open_to_external_browser">Åbn i ekstern browser</string>
+    <string name="open_to_internal_browser">Åbn i intern browser</string>
     <string name="copy_link">Kopiér link</string>
     <string name="share_link">Del link</string>
     <string name="search_hashtag">Søg hashtag</string>
@@ -641,6 +655,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="search_cashtag">Søg cashtag</string>
     <string name="copy_cashtag">Kopiér cashtag</string>
     <string name="copied">Kopieret tekst</string>
+    <string name="favorite_user_text">Favorit bruger</string>
     <string name="open_to_web">Åbn websider fra tweets</string>
     <string name="open_to_web_summary">Hvis et tweet indeholder et link til en webside, vil det åbne websiden i stedet for at vise tweetet</string>
     <string name="open_webpage">Åbn link</string>

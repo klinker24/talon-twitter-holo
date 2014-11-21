@@ -86,7 +86,7 @@
     <string name="old_interactions">Összes esemény</string>
     <!-- Notifications -->
     <string name="tweet">Tweet</string>
-    <string name="tweets">Tweetek</string>
+    <string name="tweets">Tweet</string>
     <string name="mention">Említés</string>
     <string name="message">Üzenet</string>
     <string name="messages">Üzenet</string>
@@ -154,7 +154,7 @@
     <string name="discard">Elvetés</string>
     <string name="send">Küldés</string>
     <!-- Other -->
-    <string name="placeholder">Placeholder</string>
+    <string name="placeholder">Helykitöltő</string>
     <string name="reply">Válasz...</string>
     <string name="error">Hiba</string>
     <string name="error_loading_page">Hiba az oldal betöltésekor</string>
@@ -621,7 +621,22 @@
     <string name="second_account">Második fiók</string>
     <string name="second_account_login_info">Mivel a Twitter a saját rendszerén belül tárolja a bejelentkezési információkat, ezért a következő képernyőn nem biztos, hogy azonnal engedélyezi az új fiókkal való bejelentkezést. Ha átlépi a bejelentkezést és közvetlenül a hitelesítő oldalra irányítja, akkor egyszerűen nyomjon a \"Kijelentkezés\" gombra a jobb felső sarokban, hogy engedélyezhesse az alkalmazásnak a második fiókkal való bejelentkezést.</string>
     <string name="fetch_tweetmarker">TweetMarker lekérdezése</string>
+    <string name="rate_limit_reached">Értékhatár elérve</string>
+    <string name="info">Info</string>
+    <string name="help_and_feedback">Segítség/Visszajelzés</string>
+    <string name="faq_first">Örülünk, hogy segíteni szeretne a Talon fejlesztésében!\n\n
+Nyugodtan küldjön emailt vagy egy tweetet a kérdéseivel, visszajelzéseivel, de mielőtt így tesz elolvasta már a GYIK részt?\n\n
+A Talon egész kiterjedt listával rendelkezik támogató témákból és kérésekből, mely közvetlenül az alkalmazásban is megtalálható. Nézze meg ezt mielőtt azon aggódik, hogy mikor kap választ tőlünk! (Ettől függetlenül megpróbálunk válaszolni, amint csak lehetséges..)\n\n
+Reméljük élvezni fogja a munkánkat!</string>
+    <string name="contact">Kapcsolat</string>
+    <string name="follow">Követés</string>
+    <string name="menu_number_of_pages">Extra oldalak száma</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">%s oldal</string>
+    <string name="set_as_default">Beállítás alapértelmezettnek</string>
+    <string name="main_pages_and_drawer">Főoldal és oldalsáv</string>
+    <string name="drawer_elements">Oldalsávon látható elemek</string>
+    <string name="drawer_elements_summary">Az alkalmazás főoldalán látható oldalsávon lévő elemek megjelenítése vagy elrejtése.</string>
     <!-- Long click methods -->
     <string name="open_profile">Profil megnyitása</string>
     <string name="copy_handle">Becenév másolása</string>
@@ -629,6 +644,8 @@
     <string name="mute_user">Felhasználó némítása</string>
     <string name="mute_retweets">Retweetek némítása</string>
     <string name="share_profile">Profil megosztása</string>
+    <string name="open_to_external_browser">Megnyitás külső böngészőben</string>
+    <string name="open_to_internal_browser">Megnyitás belső böngészőben</string>
     <string name="copy_link">Link másolása</string>
     <string name="share_link">Link megosztása</string>
     <string name="search_hashtag">Hashtag keresése</string>
@@ -637,6 +654,7 @@
     <string name="search_cashtag">Cashtag keresése</string>
     <string name="copy_cashtag">Cashtag másolása</string>
     <string name="copied">Másolt szöveg</string>
+    <string name="favorite_user_text">Kedvenc felhasználó</string>
     <string name="open_to_web">Weboldal megnyitása</string>
     <string name="open_to_web_summary">Ha a tweet URL-t tartalmaz, akkor a tweet helyett közvetlenül az URL-t nyitja meg.</string>
     <string name="open_webpage">Link megnyitása</string>

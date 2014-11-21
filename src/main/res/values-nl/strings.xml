@@ -620,7 +620,22 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="second_account">2e Account</string>
     <string name="second_account_login_info">Het kan zijn dat het volgende scherm je niet meteen laat inloggen met je nieuwe account, omdat Twitter bepaalde delen van je inloggegevens in hun systemen opslaat. Als de inlogpagina wordt overgeslagen en je direct naar de autorisatie pagina gaat, druk dan gewoon op de \'Sign Out\' knop in de rechterbovenhoek van de website zodat je kunt inloggen met je tweede account.</string>
     <string name="fetch_tweetmarker">Fetch TweetMarker</string>
+    <string name="rate_limit_reached">Rate limiet bereikt</string>
+    <string name="info">Info</string>
+    <string name="help_and_feedback">Help/Feedback</string>
+    <string name="faq_first">Hoi, fijn dat je mij wilt helpen met het verbeteren van Talon!\n\n
+Voel je vrij om een email of tweet te sturen met je feedback of vragen die je misschien hebt. Maar voordat je dat doet, heb je de FAQ sectie al bekeken?\n\n
+Talon heeft een behoorlijk uitgebreide lijst met ondersteunings onderwerpen en verzoeken ingebouwd in de app. Bekijk deze eerst voordat je je druk gaat maken tijdens het wachten op een reactie van mij! (Ookal probeer ik je zo snel als een eenmansbedrijf kan een antwoord te sturen..)\n\n
+Hopelijk geniet je van mijn werk!</string>
+    <string name="contact">Contact</string>
+    <string name="follow">Volg</string>
+    <string name="menu_number_of_pages">Aantal extra pagina\'s</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Pagina %s</string>
+    <string name="set_as_default">Als standaard instellen</string>
+    <string name="main_pages_and_drawer">Hoofdpagina\'s en drawer</string>
+    <string name="drawer_elements">Zichtbare drawer items</string>
+    <string name="drawer_elements_summary">Geef de items in de app\'s hoofd navigatie drawer weer of verberg ze.</string>
     <!-- Long click methods -->
     <string name="open_profile">Open profiel</string>
     <string name="copy_handle">Kopieer gebruikersnaam</string>
@@ -628,6 +643,8 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="mute_user">Demp gebruiker</string>
     <string name="mute_retweets">Demp retweets</string>
     <string name="share_profile">Deel profiel</string>
+    <string name="open_to_external_browser">Open naar externe browser</string>
+    <string name="open_to_internal_browser">Open naar interne browser</string>
     <string name="copy_link">Kopieer link</string>
     <string name="share_link">Deel link</string>
     <string name="search_hashtag">Zoek hashtag</string>
@@ -636,6 +653,7 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="search_cashtag">Zoek cashtag</string>
     <string name="copy_cashtag">Kopieer cashtag</string>
     <string name="copied">Tekst gekopieërd</string>
+    <string name="favorite_user_text">Favoriete gebruiker</string>
     <string name="open_to_web">Open naar webpagina</string>
     <string name="open_to_web_summary">Wanneer een tweet een web url bevat, zal direct die url geopend worden i.p.v. de tweet zelf.</string>
     <string name="open_webpage">Open link</string>

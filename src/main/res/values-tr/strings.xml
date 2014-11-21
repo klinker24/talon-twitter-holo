@@ -17,11 +17,11 @@
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Twitter için Talon</string>
-    <string name="extension_description">Okunmamış tweet sayısını görüntüler, bildirimleri alır, direkt mesajlarınıza doğrudan ulaşır.</string>
+    <string name="extension_description">"Güncellendiğinde okunmamış tweet, bahsedenler ve direkt mesaj sayısını gösterir. "</string>
     <!-- Action Bar -->
     <string name="menu_refresh">Ana Sayfayı Yenile</string>
     <string name="menu_compose">Yeni Tweet</string>
-    <string name="menu_logout">Çıkış Yap</string>
+    <string name="menu_logout">Oturumu kapat</string>
     <string name="menu_settings">Ayarlar</string>
     <string name="menu_follow">Takip Et</string>
     <string name="menu_unfollow">Takibi Bırak</string>
@@ -71,7 +71,7 @@
     <string name="new_tweet">yeni tweet</string>
     <string name="new_tweets">yeni tweetler</string>
     <string name="no_new_tweets">Yeni tweet yok</string>
-    <string name="new_mention">Yeni Konuşulan</string>
+    <string name="new_mention">"Senden bahseden var. "</string>
     <string name="new_mentions">Yeni Bildirimler</string>
     <string name="no_new_mentions">Yeni bildirim yok</string>
     <string name="new_direct_message">direkt yeni mesaj</string>
@@ -639,6 +639,6 @@ Talon yerine TwitPic kullanarak resim yükleme.</string>
     <string name="copy_cashtag">Cashtag Kopyala</string>
     <string name="copied">Kopyalanmış Metin</string>
     <string name="open_to_web">Web Sayfasında Aç</string>
-    <string name="open_to_web_summary">Tweet bir web bağlantısı içeriyorsa, o bağlantı yerine tweet\'in kendisi doğrudan açılacaktır.</string>
+    <string name="open_to_web_summary">"Tweet bir URL içeriyorsa, tweet yerine direk URL açılır. "</string>
     <string name="open_webpage">Linki Aç</string>
 </resources>

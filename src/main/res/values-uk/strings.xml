@@ -414,7 +414,7 @@
     <string name="rt_style_quotes">Надавати перевагу цитатам у вигляді \"RT\"</string>
     <string name="rt_style_quotes_summary">При цитуванні використовується RT замість лапок.\n\nЦитування знаходиться в додатковому меню твіту.</string>
     <string name="absolute_date">Дата в альтернативному стилі</string>
-    <string name="clear_searches">Очистити істрію пошуку</string>
+    <string name="clear_searches">Очистити історію пошуку</string>
     <string name="compose_with_search">Написати твіт</string>
     <string name="use_toast">Показувати Toast \"До першого\"</string>
     <string name="ignore_retweets">Приховувати ретвіти</string>

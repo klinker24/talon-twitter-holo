@@ -138,7 +138,7 @@
     <!-- Compose New Activity -->
     <string name="compose_activity">ツイートする</string>
     <string name="compose_tweet_hint">ここに入力…</string>
-    <string name="send_to">ユーザーの名前を入力してください</string>
+    <string name="send_to">ユーザーの名前を入力…</string>
     <string name="direct_message_sent">メッセージを送信しました</string>
     <string name="type_user">ユーザーを入力</string>
     <string name="add_user">ユーザーを追加</string>
@@ -622,7 +622,22 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="second_account">二つ目のアカウント</string>
     <string name="second_account_login_info">Twitterはログイン情報の一部を残したままにするため、次の画面で別のアカウントにログインできる状態ではないことがあります。ログインページが表示されない場合は、右上にある「ログアウト」をタップしてください。</string>
     <string name="fetch_tweetmarker">TweetMarkerの取得</string>
+    <string name="rate_limit_reached">レート制限に達しました</string>
+    <string name="info">情報</string>
+    <string name="help_and_feedback">ヘルプ/フィードバック</string>
+    <string name="faq_first">"Talonの機能改善に協力してくれてありがとう!\n\n
+フィードバックや質問をメールやツイートで送る前に、FAQセクションを見ましたか?\n\n
+Talonにはたくさんのサポートトピックやリクエストがあります。私からの返事を待たなくても済むよう、まずはそれを見てください! (できるだけ早く返事を返そうとしていますが、一人でやっているので…)\n\n
+ "</string>
+    <string name="contact">問い合わせ</string>
+    <string name="follow">フォロー</string>
+    <string name="menu_number_of_pages">追加ページの数</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">ページ %s</string>
+    <string name="set_as_default">デフォルトにする</string>
+    <string name="main_pages_and_drawer">メインページとドロワー</string>
+    <string name="drawer_elements">表示するドロワーアイテム</string>
+    <string name="drawer_elements_summary">メインナビドロワーのアイテムの表示/非表示を切り替えます。</string>
     <!-- Long click methods -->
     <string name="open_profile">プロフィールを開く</string>
     <string name="copy_handle">名前のコピー</string>
@@ -630,6 +645,8 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="mute_user">ユーザーをミュート</string>
     <string name="mute_retweets">リツイートをミュート</string>
     <string name="share_profile">プロフィールの共有</string>
+    <string name="open_to_external_browser">外部ブラウザで開く</string>
+    <string name="open_to_internal_browser">内部ブラウザで開く</string>
     <string name="copy_link">リンクのコピー</string>
     <string name="share_link">リンクの共有</string>
     <string name="search_hashtag">ハッシュタグの検索</string>
@@ -638,6 +655,7 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="search_cashtag">キャッシュタグの検索</string>
     <string name="copy_cashtag">キャッシュタグのコピー</string>
     <string name="copied">コピーしました</string>
+    <string name="favorite_user_text">お気に入りユーザー</string>
     <string name="open_to_web">ツイートのURLを直接開く</string>
     <string name="open_to_web_summary">ツイートにURLが含まれている場合に、ツイート自体ではなくそのURLを直接開くようにします。</string>
     <string name="open_webpage">リンクを開く</string>
