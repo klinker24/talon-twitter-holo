@@ -103,6 +103,8 @@ public abstract class Compose extends Activity implements
         GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener {
 
+    private static final boolean DEBUG = false;
+
     public LocationClient mLocationClient;
     public AppSettings settings;
     public Context context;
@@ -594,6 +596,23 @@ public abstract class Compose extends Activity implements
     }
 
     public boolean addLocation = false;
+
+    public void displayErrorNotification(final Exception e) {
+
+        if (!DEBUG) {
+            return;
+        }
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.ic_stat_icon)
+                        .setContentTitle(getResources().getString(R.string.tweet_failed))
+                        .setContentText(e.getMessage());
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(221, mBuilder.build());
+    }
 
     public void makeFailedNotification(String text) {
         NotificationCompat.Builder mBuilder =
@@ -1204,9 +1223,15 @@ public abstract class Compose extends Activity implements
                     }
                 }
 
-            } catch (Exception e) {
-                Log.v("talon_sending_tweet", "error sending the tweet, message: " + e.getMessage());
+            } catch (final Exception e) {
                 e.printStackTrace();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        displayErrorNotification(e);
+                    }
+                });
 
                 if (e.getMessage() != null && e.getMessage().contains("the uploaded media is too large.")) {
                     tryingAgain = true;
