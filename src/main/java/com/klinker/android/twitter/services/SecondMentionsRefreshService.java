@@ -88,7 +88,7 @@ public class SecondMentionsRefreshService extends IntentService {
                 if (settings.notifications && settings.mentionsNot) {
                     NotificationUtils.notifySecondMentions(context, currentAccount);
                 }
-                
+
                 sendBroadcast(new Intent("com.klinker.android.twitter.REFRESH_SECOND_MENTIONS"));
             }
 
