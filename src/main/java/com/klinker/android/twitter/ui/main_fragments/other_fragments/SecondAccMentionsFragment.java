@@ -20,6 +20,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.util.Log;
+import android.view.View;
+import com.klinker.android.twitter.adapters.TimeLineCursorAdapter;
+import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
 import com.klinker.android.twitter.utils.Utils;
 import twitter4j.Twitter;
 
@@ -60,5 +65,64 @@ public class SecondAccMentionsFragment extends MentionsFragment {
         super.onPause();
 
         context.unregisterReceiver(refreshSecondMentions);
+    }
+
+    @Override
+    public void getCursorAdapter(boolean showSpinner) {
+        if (showSpinner) {
+            try {
+                spinner.setVisibility(View.VISIBLE);
+                listView.setVisibility(View.GONE);
+            } catch (Exception e) { }
+        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final Cursor cursor;
+                try {
+                    cursor = MentionsDataSource.getInstance(context).getCursor(currentAccount);
+                } catch (Exception e) {
+                    MentionsDataSource.dataSource = null;
+                    getCursorAdapter(true);
+                    return;
+                }
+
+                try {
+                    Log.v("talon_databases", "mentions cursor size: " + cursor.getCount());
+                } catch (Exception e) {
+                    MentionsDataSource.dataSource = null;
+                    getCursorAdapter(true);
+                    return;
+                }
+
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Cursor c = null;
+                        if (cursorAdapter != null) {
+                            c = cursorAdapter.getCursor();
+                        }
+
+                        cursorAdapter = new TimeLineCursorAdapter(context, cursor, false);
+
+                        try {
+                            spinner.setVisibility(View.GONE);
+                            listView.setVisibility(View.VISIBLE);
+                        } catch (Exception e) { }
+
+                        attachCursor();
+
+                        if (c != null) {
+                            try {
+                                c.close();
+                            } catch (Exception e) {
+
+                            }
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 }

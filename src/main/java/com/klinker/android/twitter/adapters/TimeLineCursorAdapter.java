@@ -105,6 +105,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     public Context context;
     public final LayoutInflater inflater;
     private boolean isDM = false;
+    private boolean secondAcc = false;
     private SharedPreferences sharedPrefs;
     private int cancelButton;
     private int border;
@@ -174,61 +175,21 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         this.inflater = LayoutInflater.from(context);
         this.isDM = isDM;
 
-        settings = AppSettings.getInstance(context);
+        init();
+    }
 
-        sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+    public TimeLineCursorAdapter(Context context, boolean secAccount, Cursor cursor) {
+        super(context, cursor, 0);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.cancelButton});
-        cancelButton = a.getResourceId(0, 0);
-        a.recycle();
+        this.isHomeTimeline = false;
 
-        talonLayout = settings.layout;
+        this.cursor = cursor;
+        this.context = context;
+        this.inflater = LayoutInflater.from(context);
+        this.isDM = false;
+        this.secondAcc = secAccount;
 
-        if (settings.addonTheme) {
-            try {
-                res = context.getPackageManager().getResourcesForApplication(settings.addonThemePackage);
-                addonLayout = res.getLayout(res.getIdentifier("tweet", "layout", settings.addonThemePackage));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        switch (talonLayout) {
-            case AppSettings.LAYOUT_TALON:
-                layout = R.layout.tweet;
-                break;
-            case AppSettings.LAYOUT_HANGOUT:
-                layout = R.layout.tweet_hangout;
-                break;
-            case AppSettings.LAYOUT_FULL_SCREEN:
-                layout = R.layout.tweet_full_screen;
-                break;
-        }
-
-        TypedArray b;
-        if (settings.roundContactImages) {
-            b = context.getTheme().obtainStyledAttributes(new int[]{R.attr.circleBorder});
-        } else {
-            b = context.getTheme().obtainStyledAttributes(new int[]{R.attr.squareBorder});
-        }
-        border = b.getResourceId(0, 0);
-        b.recycle();
-
-        mCache = getCache();
-
-        dateFormatter = android.text.format.DateFormat.getDateFormat(context);
-        timeFormatter = android.text.format.DateFormat.getTimeFormat(context);
-        if (settings.militaryTime) {
-            timeFormatter = new SimpleDateFormat("kk:mm");
-        }
-
-        transparent = new ColorDrawable(android.R.color.transparent);
-
-        mHandlers = new Handler[10];
-        for (int i = 0; i < 10; i++) {
-            mHandlers[i] = new Handler();
-        }
+        init();
     }
 
     public TimeLineCursorAdapter(Context context, Cursor cursor, boolean isDM) {
@@ -241,6 +202,10 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         this.inflater = LayoutInflater.from(context);
         this.isDM = isDM;
         
+        init();
+    }
+
+    private void init() {
         settings = AppSettings.getInstance(context);
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
