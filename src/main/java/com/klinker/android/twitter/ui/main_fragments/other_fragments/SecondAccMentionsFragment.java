@@ -104,7 +104,7 @@ public class SecondAccMentionsFragment extends MentionsFragment {
                             c = cursorAdapter.getCursor();
                         }
 
-                        cursorAdapter = new TimeLineCursorAdapter(context, cursor, false);
+                        cursorAdapter = new TimeLineCursorAdapter(context, true, cursor);
 
                         try {
                             spinner.setVisibility(View.GONE);

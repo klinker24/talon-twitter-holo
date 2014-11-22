@@ -362,6 +362,15 @@
 
         </activity>
 
+        <activity android:name=".ui.compose.ComposeSecAccActivity"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation|screenSize"
+                  android:launchMode="singleTop"
+                  android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+                  android:theme="@style/Theme.TalonDark.Popup" >
+
+        </activity>
+
         <activity android:name=".ui.compose.NotificationCompose"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
