@@ -1312,7 +1312,12 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             holder.quoteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(context, ComposeActivity.class);
+                    Intent intent;
+                    if (!secondAcc) {
+                        intent = new Intent(context, ComposeActivity.class);
+                    } else {
+                        intent = new Intent(context, ComposeSecAccActivity.class);
+                    }
                     intent.setType("text/plain");
                     String text = holder.tweet.getText().toString();
 
