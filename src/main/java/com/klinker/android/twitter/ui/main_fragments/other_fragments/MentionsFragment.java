@@ -203,7 +203,7 @@ public class MentionsFragment extends MainFragment {
 
                 }
 
-                cursorAdapter = new TimeLineCursorAdapter(context, cursor, false);
+                cursorAdapter = setAdapter(cursor);
                 attachCursor();
 
                 try {
@@ -238,6 +238,10 @@ public class MentionsFragment extends MainFragment {
                 }
             }
         }.execute();
+    }
+
+    public TimeLineCursorAdapter setAdapter(Cursor c) {
+        return new TimeLineCursorAdapter(context, c, false);
     }
 
     @Override

@@ -125,4 +125,8 @@ public class SecondAccMentionsFragment extends MentionsFragment {
             }
         }).start();
     }
+
+    public TimeLineCursorAdapter setAdapter(Cursor c) {
+        return new TimeLineCursorAdapter(context, true, c);
+    }
 }
