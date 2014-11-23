@@ -59,6 +59,7 @@ public class SendTweet extends Service {
     public boolean pwiccer = false;
     public long tweetId = 0l;
     public int remainingChars = 0;
+    public boolean secondAcc;
 
     public boolean finished = false;
 
@@ -86,6 +87,7 @@ public class SendTweet extends Service {
         remainingChars = intent.getIntExtra("char_remaining", 0);
         pwiccer = intent.getBooleanExtra("pwiccer", false);
         attachedUri = intent.getStringExtra("attached_uri");
+        secondAcc = intent.getBooleanExtra("second_account", false);
 
         if (attachedUri == null) {
             attachedUri = "";
@@ -125,9 +127,17 @@ public class SendTweet extends Service {
         return START_STICKY;
     }
 
+    public Twitter getTwitter() {
+        if (secondAcc) {
+            return Utils.getSecondTwitter(this);
+        } else {
+            return Utils.getTwitter(this, AppSettings.getInstance(this));
+        }
+    }
+
     public boolean sendTweet(AppSettings settings, Context context) {
         try {
-            Twitter twitter =  Utils.getTwitter(context, settings);
+            Twitter twitter =  getTwitter();
 
             if (remainingChars < 0 && !pwiccer) {
                 // twitlonger goes here

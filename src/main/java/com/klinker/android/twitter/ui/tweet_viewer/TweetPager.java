@@ -86,6 +86,7 @@ public class TweetPager extends YouTubeBaseActivity {
     public String linkString;
     public boolean isMyTweet = false;
     public boolean isMyRetweet = true;
+    public boolean secondAcc = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -158,7 +159,7 @@ public class TweetPager extends YouTubeBaseActivity {
         pager = (ViewPager) findViewById(R.id.pager);
         mSectionsPagerAdapter = new TweetPagerAdapter(getFragmentManager(), context,
                 name, screenName, tweet, time, retweeter, webpage, proPic, tweetId,
-                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet);
+                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet, secondAcc);
         pager.setAdapter(mSectionsPagerAdapter);
         pager.setOffscreenPageLimit(5);
 
@@ -325,6 +326,7 @@ public class TweetPager extends YouTubeBaseActivity {
         tweetId = from.getLongExtra("tweetid", 0);
         picture = from.getBooleanExtra("picture", false);
         proPic = from.getStringExtra("proPic");
+        secondAcc = from.getBooleanExtra("second_account", false);
 
         try {
             users = from.getStringExtra("users").split("  ");

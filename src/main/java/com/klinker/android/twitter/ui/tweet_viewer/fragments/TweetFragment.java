@@ -72,6 +72,7 @@ import com.klinker.android.twitter.manipulations.widgets.HoloEditText;
 import com.klinker.android.twitter.services.SendTweet;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.compose.ComposeActivity;
+import com.klinker.android.twitter.ui.compose.ComposeSecAccActivity;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewRetweeters;
@@ -130,6 +131,7 @@ public class TweetFragment extends Fragment {
     private String[] hashtags;
     private String[] otherLinks;
     private boolean isMyTweet;
+    private boolean secondAcc;
 
     private ListPopupWindow userAutocomplete;
     private ListPopupWindow hashtagAutocomplete;
@@ -190,6 +192,7 @@ public class TweetFragment extends Fragment {
         hashtags = b.getStringArray("hashtags");
         isMyTweet = b.getBoolean("is_my_tweet");
         otherLinks = b.getStringArray("links");
+        secondAcc = b.getBoolean("second_account");
     }
 
     public TweetFragment() {
@@ -490,7 +493,13 @@ public class TweetFragment extends Fragment {
                         text = " RT @" + screenName + ": " + text;
                     }
 
-                    Intent intent = new Intent(context, ComposeActivity.class);
+                    Intent intent;
+                    if (!secondAcc) {
+                        intent = new Intent(context, ComposeActivity.class);
+                    } else {
+                        intent = new Intent(context, ComposeSecAccActivity.class);
+                    }
+
                     intent.putExtra("user", text);
                     intent.putExtra("id", tweetId);
 
@@ -750,20 +759,28 @@ public class TweetFragment extends Fragment {
         String text = tweet;
         String extraNames = "";
 
+        String screenNameToUse;
+
+        if (secondAcc) {
+            screenNameToUse = settings.secondScreenName;
+        } else {
+            screenNameToUse = settings.myScreenName;
+        }
+
         if (text.contains("@")) {
             for (String s : users) {
-                if (!s.equals(settings.myScreenName) && !extraNames.contains(s)  && !s.equals(screenName)) {
+                if (!s.equals(screenNameToUse) && !extraNames.contains(s)  && !s.equals(screenName)) {
                     extraNames += "@" + s + " ";
                 }
             }
         }
 
-        if (retweeter != null && !retweeter.equals("") && !retweeter.equals(settings.myScreenName) && !extraNames.contains(retweeter)) {
+        if (retweeter != null && !retweeter.equals("") && !retweeter.equals(screenNameToUse) && !extraNames.contains(retweeter)) {
             extraNames += "@" + retweeter + " ";
         }
 
         String sendString = "";
-        if (!screenName.equals(settings.myScreenName)) {
+        if (!screenName.equals(screenNameToUse)) {
             if (reply != null) {
                 reply.setText("@" + screenName + " " + extraNames);
             }
@@ -790,10 +807,12 @@ public class TweetFragment extends Fragment {
         if (reply != null) {
             reply.setSelection(reply.getText().length());
         }
+
         if (!settings.sendToComposeWindow) {
             replyButton.setEnabled(false);
             replyButton.setAlpha(.4f);
         }
+
         replyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -842,10 +861,17 @@ public class TweetFragment extends Fragment {
                         Toast.makeText(context, getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Intent compose = new Intent(context, ComposeActivity.class);
+                    Intent compose;
+                    if (!secondAcc) {
+                        compose = new Intent(context, ComposeActivity.class);
+                    } else {
+                        compose = new Intent(context, ComposeSecAccActivity.class);
+                    }
+
                     if (fSendString.length() > 0) {
                         compose.putExtra("user", fSendString.substring(0, fSendString.length() - 1)); // for some reason it puts a extra space here
                     }
+
                     compose.putExtra("id", tweetId);
                     compose.putExtra("reply_to_text", "@" + screenName + ": " + tweet);
 
@@ -1066,6 +1092,14 @@ public class TweetFragment extends Fragment {
         builder.create().show();
     }
 
+    public Twitter getTwitter() {
+        if (secondAcc) {
+            return Utils.getSecondTwitter(context);
+        } else {
+            return Utils.getTwitter(context, settings);
+        }
+    }
+
     private boolean isFavorited = false;
     private boolean isRetweet = false;
 
@@ -1074,7 +1108,7 @@ public class TweetFragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     twitter4j.Status status = twitter.showStatus(tweetId);
                     if (status.isRetweet()) {
                         twitter4j.Status retweeted = status.getRetweetedStatus();
@@ -1147,7 +1181,7 @@ public class TweetFragment extends Fragment {
 
         protected Boolean doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
+                Twitter twitter =  getTwitter();
                 ResponseList<twitter4j.Status> retweets = twitter.getRetweets(tweetId);
                 for (twitter4j.Status retweet : retweets) {
                     if(retweet.getUser().getId() == settings.myId)
@@ -1192,7 +1226,7 @@ public class TweetFragment extends Fragment {
                 long realTime = 0;
                 boolean retweetedByMe = false;
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
 
                     TwitterMultipleImageHelper helper = new TwitterMultipleImageHelper();
                     status = twitter.showStatus(tweetId);
@@ -1382,7 +1416,7 @@ public class TweetFragment extends Fragment {
             public void run() {
                 boolean retweetedByMe;
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     twitter4j.Status status = twitter.showStatus(tweetId);
 
                     retweetedByMe = status.isRetweetedByMe();
@@ -1442,7 +1476,7 @@ public class TweetFragment extends Fragment {
             public void run() {
 
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     if (isFavorited) {
                         twitter.destroyFavorite(tweetId);
                     } else {
@@ -1474,7 +1508,7 @@ public class TweetFragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     twitter.retweetStatus(tweetId);
 
                     ((Activity)context).runOnUiThread(new Runnable() {
@@ -1508,6 +1542,7 @@ public class TweetFragment extends Fragment {
         intent.putExtra("char_remaining", remainingChars);
         intent.putExtra("pwiccer", pwiccer);
         intent.putExtra("attached_uri", attachedUri);
+        intent.putExtra("second_account", secondAcc);
 
         context.startService(intent);
 

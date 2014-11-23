@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
@@ -245,7 +246,13 @@ public class MentionsFragment extends MainFragment {
 
         if (sharedPrefs.getBoolean("refresh_me_mentions", false)) {
             getCursorAdapter(false);
-            sharedPrefs.edit().putBoolean("refresh_me_mentions", false).commit();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sharedPrefs.edit().putBoolean("refresh_me_mentions", false).commit();
+                }
+            },1000);
         }
 
         IntentFilter filter = new IntentFilter();

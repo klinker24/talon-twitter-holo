@@ -1003,9 +1003,17 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             String text = holder.tweet.getText().toString();
             String extraNames = "";
 
+            String screenNameToUse;
+
+            if (secondAcc) {
+                screenNameToUse = settings.secondScreenName;
+            } else {
+                screenNameToUse = settings.myScreenName;
+            }
+
             if (text.contains("@")) {
                 for (String s : users.split("  ")) {
-                    if (!s.equals(settings.myScreenName) && !extraNames.contains(s) && !s.equals(screenname)) {
+                    if (!s.equals(screenNameToUse) && !extraNames.contains(s) && !s.equals(screenname)) {
                         extraNames += "@" + s + " ";
                     }
                 }
@@ -1019,7 +1027,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
             }
 
-            if (!screenname.equals(settings.myScreenName)) {
+            if (!screenname.equals(screenNameToUse)) {
                 holder.reply.setText("@" + screenname + " " + extraNames);
             } else {
                 holder.reply.setText(extraNames);
