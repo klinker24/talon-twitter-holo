@@ -36,23 +36,41 @@ public class SwitchAccountsRedirect extends Activity {
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
+        int page = -1;
         int currentAccount = sharedPrefs.getInt("current_account", 1);
 
-        if (currentAccount == 1) {
-            sharedPrefs.edit().putInt("current_account", 2).commit();
-            currentAccount = 2;
-        } else {
-            sharedPrefs.edit().putInt("current_account", 1).commit();
-            currentAccount = 1;
-        }
-
-        int page = 0;
+        // first lets see if they have the second mentions page
+        // if they do, then we will direct them to that instead of switching accounts
         for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
             String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
             int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
 
-            if (type == AppSettings.PAGE_TYPE_MENTIONS) {
+            if (type == AppSettings.PAGE_TYPE_SECOND_MENTIONS) {
                 page = i;
+            }
+        }
+
+        if (page == -1) {
+            // they do not use the second mentions page, so we will switch accounts
+            if (currentAccount == 1) {
+                sharedPrefs.edit().putInt("current_account", 2).commit();
+                currentAccount = 2;
+            } else {
+                sharedPrefs.edit().putInt("current_account", 1).commit();
+                currentAccount = 1;
+            }
+
+            for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+                String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+                int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
+
+                if (type == AppSettings.PAGE_TYPE_MENTIONS) {
+                    page = i;
+                }
+            }
+
+            if (page == -1) {
+                page = 0;
             }
         }
 
