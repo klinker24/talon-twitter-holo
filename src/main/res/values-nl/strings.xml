@@ -17,11 +17,11 @@
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon voor Twitter</string>
-    <string name="extension_description">Geeft het aantal ongelezen tweets, vermeldingen en directe berichten weer wanneer ze zijn geüpdatet.</string>
+    <string name="extension_description">Geeft het aantal ongelezen tweets, vermeldingen en directe berichten weer wanneer ze zijn geüpdate.</string>
     <!-- Action Bar -->
     <string name="menu_refresh">Vernieuw timeline</string>
-    <string name="menu_compose">Nieuwe tweet</string>
-    <string name="menu_logout">Log uit</string>
+    <string name="menu_compose">Nieuwe Tweet</string>
+    <string name="menu_logout">Uitloggen</string>
     <string name="menu_settings">"Instellingen "</string>
     <string name="menu_follow">Volg gebruiker</string>
     <string name="menu_unfollow">Ontvolg gebruiker</string>
@@ -31,14 +31,14 @@
     <string name="menu_unblock">Deblokkeer gebruiker</string>
     <string name="menu_add_to_list">Voeg toe aan lijst</string>
     <string name="menu_change_picture">Verander profielfoto</string>
-    <string name="menu_change_bio">Verander profiel Info</string>
+    <string name="menu_change_bio">Verander Profiel Informatie</string>
     <string name="menu_change_banner">Verander profiel banner</string>
     <string name="menu_direct_message">Nieuw privébericht</string>
     <string name="menu_save_image">Sla afbeelding op</string>
     <string name="menu_favorite">Voeg gebruiker toe aan favorieten</string>
     <string name="menu_unfavorite">Verwijder gebruiker uit favorieten</string>
     <string name="menu_create_list">Maak nieuwe lijst</string>
-    <string name="menu_spam">Markeer als spam</string>
+    <string name="menu_spam">Markeer als ongewenst</string>
     <!-- Times -->
     <!-- When translating: put the %s where the number should go in the string. -->
     <string name="just_now">zojuist</string>
