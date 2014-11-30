@@ -17,19 +17,16 @@
 
 package com.klinker.android.twitter.manipulations.widgets;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PixelFormat;
-import android.graphics.Rect;
+import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.support.v4.view.*;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.*;
 import android.view.accessibility.AccessibilityEvent;
@@ -1593,5 +1590,11 @@ public class NotificationDrawerLayout extends ViewGroup {
 
             dest.addAction(src.getActions());
         }
+    }
+
+    public void setDrawerRightEdgeSize(Activity activity, float displayWidthPercentage) {
+        Point displaySize = new Point();
+        activity.getWindowManager().getDefaultDisplay().getSize(displaySize);
+        mRightDragger.setEdgeSize((int) (displaySize.x * displayWidthPercentage));
     }
 }

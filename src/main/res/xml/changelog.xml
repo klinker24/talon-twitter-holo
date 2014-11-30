@@ -18,6 +18,7 @@
 
     <version name="3.5.2">
         <text>Bug fixes for the in app browser</text>
+        <text>Larger touch zone for interaction drawer</text>
     </version>
 
     <version name="3.5.1">
