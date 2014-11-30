@@ -60,13 +60,13 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
     private String[] otherLinks;
     private boolean isMyTweet;
     private boolean isMyRetweet;
-
+    private boolean secondAcc;
     private boolean mobilizedBrowser = false;
 
     public TweetPagerAdapter(FragmentManager fm, Context context,
          String name, String screenName, String tweet, long time, String retweeter, String webpage,
          String proPic, long tweetId, boolean picture, String[] users, String[] hashtags, String[] links,
-         boolean isMyTweet, boolean isMyRetweet) {
+         boolean isMyTweet, boolean isMyRetweet, boolean secondAcc) {
 
         super(fm);
         this.context = context;
@@ -87,6 +87,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         this.isMyRetweet = isMyRetweet;
         this.isMyTweet = isMyTweet;
         this.otherLinks = links;
+        this.secondAcc = secondAcc;
 
         webpages = new ArrayList<String>();
 
@@ -290,6 +291,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         b.putStringArray("hashtags", hashtags);
         b.putBoolean("is_my_tweet", isMyTweet);
         b.putStringArray("links", otherLinks);
+        b.putBoolean("second_account", secondAcc);
 
         return b;
     }

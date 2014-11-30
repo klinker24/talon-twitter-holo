@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
@@ -185,8 +186,7 @@ public class MentionsFragment extends MainFragment {
                     am.cancel(pendingIntent);
 
                 if (DrawerActivity.settings.syncSecondMentions) {
-                    // refresh the second account
-                    context.startService(new Intent(context, SecondMentionsRefreshService.class));
+                    syncSecondMentions();
                 }
 
                 return MentionsDataSource.getInstance(context).getCursor(currentAccount);
@@ -202,7 +202,7 @@ public class MentionsFragment extends MainFragment {
 
                 }
 
-                cursorAdapter = new TimeLineCursorAdapter(context, cursor, false);
+                cursorAdapter = setAdapter(cursor);
                 attachCursor();
 
                 try {
@@ -239,13 +239,28 @@ public class MentionsFragment extends MainFragment {
         }.execute();
     }
 
+    public void syncSecondMentions() {
+        // refresh the second account
+        context.startService(new Intent(context, SecondMentionsRefreshService.class));
+    }
+
+    public TimeLineCursorAdapter setAdapter(Cursor c) {
+        return new TimeLineCursorAdapter(context, c, false);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
 
         if (sharedPrefs.getBoolean("refresh_me_mentions", false)) {
             getCursorAdapter(false);
-            sharedPrefs.edit().putBoolean("refresh_me_mentions", false).commit();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sharedPrefs.edit().putBoolean("refresh_me_mentions", false).commit();
+                }
+            },1000);
         }
 
         IntentFilter filter = new IntentFilter();

@@ -125,4 +125,13 @@ public class SecondAccMentionsFragment extends MentionsFragment {
             }
         }).start();
     }
+
+    public TimeLineCursorAdapter setAdapter(Cursor c) {
+        return new TimeLineCursorAdapter(context, true, c);
+    }
+
+    @Override
+    public void syncSecondMentions() {
+        // we won't do anything here
+    }
 }

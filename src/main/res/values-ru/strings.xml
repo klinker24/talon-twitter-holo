@@ -337,7 +337,7 @@
                     - Длинное нажатие открывает твит</string>
     <string name="extra_pages">Дополнительные вкладки</string>
     <string name="extra_pages_summary">Добавить вкладки ссылок и изображений слева от основной ленты.</string>
-    <string name="live_streaming">Стриминг</string>
+    <string name="live_streaming">Живое обновление</string>
     <string name="memory_management">Настройки использования памяти</string>
     <string name="delete_cache">Очистить кэш</string>
     <string name="cache_dialog">Очистить кэш?</string>
@@ -618,7 +618,7 @@
     <string name="pick_date">Выбрать дату</string>
     <string name="both_accounts">Оба аккаунта</string>
     <string name="attach_gif">GIF-анимация</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Второй аккаунт</string>
     <string name="second_account_login_info">Поскольку Твиттер хранит некоторую информацию о входе, на следующем экране он может не позволить вам сразу войти во второй аккаунт. Если ввод логина и пароля пропускается, просто нажмите \"Выйти\" в правом верхнем углу, чтобы войти вторым аккаунтом. Это не повлияет на первый.</string>
     <string name="fetch_tweetmarker">Загрузить TweetMarker</string>

@@ -130,7 +130,7 @@
     <string name="syncing_direct_messages">Sincronizzando i messaggi diretti...</string>
     <string name="syncing_user">Sincronizzando gli amici...</string>
     <string name="done_syncing">Finito con la sincronizzazione</string>
-    <string name="login_error">Qualcosa non è andato a buon fine... Si prega di riprovare!</string>
+    <string name="login_error">Qualcosa non è andato a buon fine... Si prega di riprovare!\n\nLa data e l\'ora del tuo dispositivo potrebbero essere impostate su non automatiche. Questo è un requisito necessario delle API di Twitter.</string>
     <string name="no_network">Non sei connesso ad internet</string>
     <string name="no_thanks">Non ora</string>
     <string name="follow_me">Segui!</string>
@@ -615,7 +615,7 @@ Talon invece caricherà le immagini usando TwitPic.</string>
     <string name="pick_date">Seleziona Data</string>
     <string name="both_accounts">Entrami gli Account</string>
     <string name="attach_gif">GIF Animata</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_to_web">Apri tweet nella pagina Web</string>

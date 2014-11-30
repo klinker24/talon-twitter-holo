@@ -85,6 +85,8 @@ public class SecondMentionsRefreshService extends IntentService {
             numberNew = MentionsDataSource.getInstance(context).insertTweets(statuses, currentAccount);
 
             if (numberNew > 0) {
+                sharedPrefs.edit().putBoolean("refresh_me_mentions", true).commit();
+
                 if (settings.notifications && settings.mentionsNot) {
                     NotificationUtils.notifySecondMentions(context, currentAccount);
                 }
