@@ -8,7 +8,6 @@
     - easier manipulation of lists on users profiles (view all the lists they are apart of and add/remove them from them)
 
 - Bugs:
-    - browser doesn't always close when backing out of it (maybe add to a count or something to keep track of how many pages have been added)
     - switch mentions to save the position instead of current unread method
     - rotating device will sometimes jump to the top of timeline (better rotation on timeline!)
     - direct messages get lost if you receive one before sending and after pulling to refresh
