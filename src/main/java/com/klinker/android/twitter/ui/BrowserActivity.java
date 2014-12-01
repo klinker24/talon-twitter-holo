@@ -169,7 +169,7 @@ public class BrowserActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (browser.canGoBack() && !browser.getUrl().equals(url)) {
+        if (browser != null && browser.canGoBack() && !browser.getUrl().equals(url)) {
             browser.goBack();
         } else {
             super.onBackPressed();
