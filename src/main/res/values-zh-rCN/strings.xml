@@ -67,7 +67,7 @@
     <string name="world_trends">世界趋势</string>
     <string name="search">搜索</string>
     <string name="lists">列表</string>
-    <string name="search_hint">\@username 或 直接进行搜索...</string>
+    <string name="search_hint">搜索...</string>
     <string name="new_tweet">条新推等待更新</string>
     <string name="new_tweets">条新推等待更新</string>
     <string name="no_new_tweets">没有新的推文</string>
@@ -137,8 +137,8 @@
     <string name="follow_me_description">关注 @TalonAndroid 和 @lukeklinker 获得最新的功能和支持信息！</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">新的推文</string>
-    <string name="compose_tweet_hint">在这里输入推文……</string>
-    <string name="send_to">输入用户名</string>
+    <string name="compose_tweet_hint">输入推文…</string>
+    <string name="send_to">输入用户名...</string>
     <string name="direct_message_sent">已发送私信</string>
     <string name="type_user">输入用户</string>
     <string name="add_user">添加用户</string>
@@ -164,7 +164,7 @@
     <string name="save_image">图像已保存</string>
     <string name="tweet_success">推文已发送</string>
     <string name="error_sending_tweet">推文发送失败</string>
-    <string name="tweet_to_long">推文超过了长度限制！</string>
+    <string name="tweet_to_long">推文过长！</string>
     <string name="ok">OK</string>
     <string name="no">No</string>
     <string name="changelog">更新历史</string>
