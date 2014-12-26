@@ -29,7 +29,6 @@ import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -42,7 +41,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -60,7 +58,6 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.data.sq_lite.DMDataSource;
 import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
-import com.klinker.android.twitter.manipulations.ExpansionAnimation;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.BrowserActivity;
@@ -68,7 +65,7 @@ import com.klinker.android.twitter.ui.compose.ComposeActivity;
 import com.klinker.android.twitter.ui.compose.ComposeSecAccActivity;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
 import com.klinker.android.twitter.utils.EmojiUtils;
 import com.klinker.android.twitter.utils.SDK11;
@@ -82,7 +79,6 @@ import com.klinker.android.twitter.utils.text.TouchableMovementMethod;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
@@ -769,7 +765,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                             if (holder.picUrl.contains(" ")) {
                                 context.startActivity(new Intent(context, ViewPictures.class).putExtra("pictures", holder.picUrl));
                             } else {
-                                context.startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", holder.picUrl));
+                                context.startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", holder.picUrl));
                             }
                         }
                     });

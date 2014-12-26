@@ -82,9 +82,13 @@
                   android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".manipulations.PhotoViewerDialog"
+        <activity android:name=".manipulations.photo_viewer.PhotoViewerActivity"
                     android:configChanges="orientation|screenSize"
                     android:theme="@style/Theme.PhotoViewerDark" />
+
+        <activity android:name=".manipulations.photo_viewer.PhotoPagerActivity"
+                  android:configChanges="orientation|screenSize"
+                  android:theme="@style/Theme.PhotoViewerDark" />
 
         <activity android:name=".manipulations.LauncherPhotoViewerDialog"
             android:configChanges="orientation|screenSize"

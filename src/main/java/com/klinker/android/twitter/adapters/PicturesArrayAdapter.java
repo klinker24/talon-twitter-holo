@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
@@ -186,7 +186,7 @@ public class PicturesArrayAdapter extends ArrayAdapter<String> {
         holder.iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewImage = new Intent(context, PhotoViewerDialog.class);
+                Intent viewImage = new Intent(context, PhotoViewerActivity.class);
                 viewImage.putExtra("url", url);
                 context.startActivity(viewImage);
             }

@@ -31,7 +31,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.location.Address;
 import android.location.Geocoder;
-import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -77,7 +76,7 @@ import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewRetweeters;
 import com.klinker.android.twitter.manipulations.EmojiKeyboard;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.manipulations.QustomDialogBuilder;
 import com.klinker.android.twitter.utils.EmojiUtils;
 import com.klinker.android.twitter.utils.ImageUtils;
@@ -564,7 +563,7 @@ public class TweetFragment extends Fragment {
             profilePic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    context.startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", webpage));
+                    context.startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", webpage));
                 }
             });
         } else {
@@ -581,7 +580,7 @@ public class TweetFragment extends Fragment {
             mAttacher.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
                 @Override
                 public void onViewTap(View view, float x, float y) {
-                    context.startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", webpage));
+                    context.startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", webpage));
                 }
             });
 

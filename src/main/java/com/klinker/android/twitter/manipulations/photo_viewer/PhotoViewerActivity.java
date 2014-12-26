@@ -1,4 +1,4 @@
-package com.klinker.android.twitter.manipulations;
+package com.klinker.android.twitter.manipulations.photo_viewer;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -8,15 +8,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,22 +21,17 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.widgets.ActionBarDrawerToggle;
 import com.klinker.android.twitter.manipulations.widgets.HoloEditText;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
@@ -47,18 +39,14 @@ import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.utils.IOUtils;
 
 import java.io.*;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
-import java.net.Proxy;
 import java.net.URL;
 import java.util.Random;
 
-import uk.co.senab.bitmapcache.BitmapLruCache;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class PhotoViewerDialog extends Activity {
+public class PhotoViewerActivity extends Activity {
 
     public Context context;
     public HoloEditText text;
@@ -66,7 +54,6 @@ public class PhotoViewerDialog extends Activity {
     public String url;
     public NetworkedCacheableImageView picture;
     public HoloTextView download;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,10 +73,12 @@ public class PhotoViewerDialog extends Activity {
             return;
         }
 
-        // get higher quality twitpic and imgur pictures
-
+        // get higher quality imgur pictures
         if (url.contains("imgur")) {
             url = url.replace("t.jpg", ".jpg");
+        }
+        if (url.contains("insta")) {
+            url = url.substring(0, url.length() - 1) + "l";
         }
 
         boolean fromCache = getIntent().getBooleanExtra("from_cache", true);
@@ -109,15 +98,6 @@ public class PhotoViewerDialog extends Activity {
             spinner.setVisibility(View.GONE);
         }
 
-        if (url == null) {
-            finish();
-            return;
-        }
-
-        if (url.contains("insta")) {
-            url = url.substring(0, url.length() - 1) + "l";
-        }
-
         picture = (NetworkedCacheableImageView) findViewById(R.id.picture);
         PhotoViewAttacher mAttacher = new PhotoViewAttacher(picture);
 
@@ -126,26 +106,6 @@ public class PhotoViewerDialog extends Activity {
             public void onImageLoaded(CacheableBitmapDrawable result) {
                 LinearLayout spinner = (LinearLayout) findViewById(R.id.list_progress);
                 spinner.setVisibility(View.GONE);
-                /*if (isRunning) {
-                    overridePendingTransition(0, 0);
-                    finish();
-                    Intent restart;
-                    if (fromLauncher) {
-                        restart = new Intent(context, LauncherPhotoViewerDialog.class);
-                    } else {
-                        restart = new Intent(context, PhotoViewerDialog.class);
-                    }
-                    if (url.contains("twitpic")) {
-                        Log.v("talon_picture", picture.getTag().toString());
-                        restart.putExtra("url", picture.getTag().toString());
-                    } else {
-                        restart.putExtra("url", url);
-                    }
-                    restart.putExtra("from_cache", true);
-                    restart.putExtra("restart", false);
-                    overridePendingTransition(0, 0);
-                    startActivity(restart);
-                }*/
             }
         }, 0, fromCache); // no transform
 
@@ -156,85 +116,6 @@ public class PhotoViewerDialog extends Activity {
             }
         });
 
-        download = (HoloTextView) findViewById(R.id.download);
-        download.setVisibility(View.GONE);
-        download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Looper.prepare();
-
-                        try {
-                            NotificationCompat.Builder mBuilder =
-                                    new NotificationCompat.Builder(context)
-                                            .setSmallIcon(R.drawable.ic_stat_icon)
-                                            .setTicker(getResources().getString(R.string.downloading) + "...")
-                                            .setContentTitle(getResources().getString(R.string.app_name))
-                                            .setContentText(getResources().getString(R.string.saving_picture) + "...")
-                                            .setProgress(100, 100, true)
-                                            .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_save));
-
-                            NotificationManager mNotificationManager =
-                                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                            mNotificationManager.notify(6, mBuilder.build());
-
-                            URL mUrl = new URL(url);
-
-                            HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
-                            InputStream is = new BufferedInputStream(conn.getInputStream());
-
-                            BitmapFactory.Options options = new BitmapFactory.Options();
-                            options.inJustDecodeBounds = false;
-
-                            Bitmap bitmap = decodeSampledBitmapFromResourceMemOpt(is, 600, 600);
-
-                            Random generator = new Random();
-                            int n = 1000000;
-                            n = generator.nextInt(n);
-                            String fname = "Image-" + n;
-
-                            Uri uri = IOUtils.saveImage(bitmap, fname, context);
-                            Intent intent = new Intent();
-                            intent.setAction(Intent.ACTION_VIEW);
-                            intent.setDataAndType(uri, "image/*");
-
-                            PendingIntent pending = PendingIntent.getActivity(context, 91, intent, 0);
-
-                            mBuilder =
-                                    new NotificationCompat.Builder(context)
-                                            .setContentIntent(pending)
-                                            .setSmallIcon(R.drawable.ic_stat_icon)
-                                            .setTicker(getResources().getString(R.string.saved_picture) + "...")
-                                            .setContentTitle(getResources().getString(R.string.app_name))
-                                            .setContentText(getResources().getString(R.string.saved_picture) + "!")
-                                            .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_save));
-
-                            mNotificationManager.notify(6, mBuilder.build());
-                        } catch (Exception e) {
-                            NotificationCompat.Builder mBuilder =
-                                    new NotificationCompat.Builder(context)
-                                            .setSmallIcon(R.drawable.ic_stat_icon)
-                                            .setTicker(getResources().getString(R.string.error) + "...")
-                                            .setContentTitle(getResources().getString(R.string.app_name))
-                                            .setContentText(getResources().getString(R.string.error) + "...")
-                                            .setProgress(100, 100, true)
-                                            .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_save));
-
-                            NotificationManager mNotificationManager =
-                                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                            mNotificationManager.notify(6, mBuilder.build());
-                        }
-                    }
-                }).start();
-
-                finish();
-            }
-        });
-
-
-
         ActionBar ab = getActionBar();
         if (ab != null) {
             ColorDrawable transparent = new ColorDrawable(getResources().getColor(android.R.color.transparent));
@@ -244,6 +125,78 @@ public class PhotoViewerDialog extends Activity {
             ab.setTitle("");
             ab.setIcon(transparent);
         }
+    }
+
+    public void downloadImage() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+
+                try {
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(context)
+                                    .setSmallIcon(R.drawable.ic_stat_icon)
+                                    .setTicker(getResources().getString(R.string.downloading) + "...")
+                                    .setContentTitle(getResources().getString(R.string.app_name))
+                                    .setContentText(getResources().getString(R.string.saving_picture) + "...")
+                                    .setProgress(100, 100, true)
+                                    .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_save));
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(6, mBuilder.build());
+
+                    URL mUrl = new URL(url);
+
+                    HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+                    InputStream is = new BufferedInputStream(conn.getInputStream());
+
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = false;
+
+                    Bitmap bitmap = decodeSampledBitmapFromResourceMemOpt(is, 600, 600);
+
+                    Random generator = new Random();
+                    int n = 1000000;
+                    n = generator.nextInt(n);
+                    String fname = "Image-" + n;
+
+                    Uri uri = IOUtils.saveImage(bitmap, fname, context);
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.setDataAndType(uri, "image/*");
+
+                    PendingIntent pending = PendingIntent.getActivity(context, 91, intent, 0);
+
+                    mBuilder =
+                            new NotificationCompat.Builder(context)
+                                    .setContentIntent(pending)
+                                    .setSmallIcon(R.drawable.ic_stat_icon)
+                                    .setTicker(getResources().getString(R.string.saved_picture) + "...")
+                                    .setContentTitle(getResources().getString(R.string.app_name))
+                                    .setContentText(getResources().getString(R.string.saved_picture) + "!")
+                                    .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_save));
+
+                    mNotificationManager.notify(6, mBuilder.build());
+                } catch (Exception e) {
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(context)
+                                    .setSmallIcon(R.drawable.ic_stat_icon)
+                                    .setTicker(getResources().getString(R.string.error) + "...")
+                                    .setContentTitle(getResources().getString(R.string.app_name))
+                                    .setContentText(getResources().getString(R.string.error) + "...")
+                                    .setProgress(100, 100, true)
+                                    .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_save));
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(6, mBuilder.build());
+                }
+            }
+        }).start();
+
+        finish();
     }
 
     @Override
@@ -259,7 +212,7 @@ public class PhotoViewerDialog extends Activity {
 
         switch (item.getItemId()) {
             case R.id.menu_save_image:
-                download.performClick();
+                downloadImage();
                 return true;
 
             case R.id.menu_share_image:
@@ -400,7 +353,8 @@ public class PhotoViewerDialog extends Activity {
 
         overridePendingTransition(0, 0);
         finish();
-        final Intent restart = new Intent(context, PhotoViewerDialog.class);
+
+        final Intent restart = new Intent(context, PhotoViewerActivity.class);
         restart.putExtra("url", url);
         restart.putExtra("config_changed", true);
         restart.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

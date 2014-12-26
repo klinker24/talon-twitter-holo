@@ -16,7 +16,6 @@
 
 package com.klinker.android.twitter.ui.profile_viewer.fragments;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -24,13 +23,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.text.util.Linkify;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +44,7 @@ import com.klinker.android.twitter.adapters.PeopleArrayAdapter;
 import com.klinker.android.twitter.adapters.TimelineArrayAdapter;
 import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.utils.ImageUtils;
 import com.klinker.android.twitter.utils.Utils;
 import com.klinker.android.twitter.utils.text.TextUtils;
@@ -319,7 +314,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(spinner.getVisibility() == View.GONE && thisUser != null) {
-                    startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", thisUser.getProfileBannerURL()));
+                    startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", thisUser.getProfileBannerURL()));
                 } else {
                     // it isn't ready to be opened just yet
                 }
@@ -331,7 +326,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 if (spinner.getVisibility() == View.GONE) {
                     try {
-                        startActivity(new Intent(context, PhotoViewerDialog.class)
+                        startActivity(new Intent(context, PhotoViewerActivity.class)
                                 .putExtra("url", thisUser.getOriginalProfileImageURL())
                                 .putExtra("from_cache", false));
                     } catch (Exception e) {

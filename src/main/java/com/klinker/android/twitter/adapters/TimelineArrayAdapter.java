@@ -56,7 +56,7 @@ import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.compose.ComposeActivity;
 import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
 import com.klinker.android.twitter.utils.*;
 import com.klinker.android.twitter.utils.text.TextUtils;
@@ -687,7 +687,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                             if (holder.picUrl.contains(" ")) {
                                 context.startActivity(new Intent(context, ViewPictures.class).putExtra("pictures", holder.picUrl));
                             } else {
-                                context.startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", holder.picUrl));
+                                context.startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", holder.picUrl));
                             }
                         }
                     });

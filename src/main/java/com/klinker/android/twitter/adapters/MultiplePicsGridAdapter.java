@@ -18,27 +18,29 @@ package com.klinker.android.twitter.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoPagerActivity;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
-import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
-import com.klinker.android.twitter.utils.TweetLinkUtils;
-import com.klinker.android.twitter.utils.Utils;
 import twitter4j.Status;
-import twitter4j.User;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 
 import java.util.ArrayList;
 
 public class MultiplePicsGridAdapter extends PicturesGridAdapter {
 
+    String pics = "";
+
     public MultiplePicsGridAdapter(Context context, ArrayList<String> text, ArrayList<Status> statuses, int gridWidth) {
         super(context, text, statuses, gridWidth);
+
+        for (String s : text) {
+            pics += s + " ";
+        }
     }
 
     @Override
@@ -69,8 +71,9 @@ public class MultiplePicsGridAdapter extends PicturesGridAdapter {
         holder.iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewImage = new Intent(context, PhotoViewerDialog.class);
-                viewImage.putExtra("url", text.get(position));
+                Intent viewImage = new Intent(context, PhotoPagerActivity.class);
+                viewImage.putExtra("url", pics);
+                viewImage.putExtra("start_page", position);
                 context.startActivity(viewImage);
             }
         });
