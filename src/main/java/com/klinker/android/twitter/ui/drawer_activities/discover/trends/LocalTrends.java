@@ -33,8 +33,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.TrendsArrayAdapter;
 import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
@@ -53,10 +53,10 @@ import twitter4j.Twitter;
 
 
 public class LocalTrends extends Fragment implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener {
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
 
-    private LocationClient mLocationClient;
+    private GoogleApiClient mGoogleApiClient;
     private boolean connected = false;
 
     private Context context;
@@ -97,38 +97,40 @@ public class LocalTrends extends Fragment implements
             }
         }
 
-        mLocationClient = new LocationClient(context, this, this);
+        buildGoogleApiClient();
 
         getTrends();
 
         return layout;
     }
 
-    @Override
-    public void onConnected(Bundle bundle) {
-        connected = true;
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+
+        mGoogleApiClient.connect();
     }
 
+    Location mLastLocation;
+
     @Override
-    public void onDisconnected() {
-        connected = false;
+    public void onConnected(Bundle bundle) {
+        Log.v("location", "connected");
+        connected = true;
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+    }
+    @Override
+    public void onConnectionSuspended(int i) {
+
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Toast.makeText(context, getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mLocationClient.connect();
-    }
-
-    @Override
-    public void onStop() {
-        mLocationClient.disconnect();
-        super.onStop();
     }
 
     public void getTrends() {
@@ -155,7 +157,7 @@ public class LocalTrends extends Fragment implements
                     if (sharedPrefs.getBoolean("manually_config_location", false)) {
                         trends = twitter.getPlaceTrends(sharedPrefs.getInt("woeid", 2379574)); // chicago to default
                     } else {
-                        Location location = mLocationClient.getLastLocation();
+                        Location location = mLastLocation;
 
                         ResponseList<twitter4j.Location> locations = twitter.getClosestTrends(new GeoLocation(location.getLatitude(),location.getLongitude()));
                         trends = twitter.getPlaceTrends(locations.get(0).getWoeid());

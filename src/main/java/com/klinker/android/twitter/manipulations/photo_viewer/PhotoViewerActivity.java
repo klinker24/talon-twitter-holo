@@ -62,8 +62,10 @@ public class PhotoViewerActivity extends Activity {
 
         try {
             getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
-        } catch (Exception e) {
+        } catch (Exception e) { }
 
+        if (Build.VERSION.SDK_INT > 18) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
         url = getIntent().getStringExtra("url");

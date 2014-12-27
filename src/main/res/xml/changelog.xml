@@ -16,6 +16,12 @@
 
 <changelog>
 
+    <version name="3.6.0">
+        <text>Swipe between multiple pictures</text>
+        <text>Improve location services</text>
+        <text>Bug fixes</text>
+    </version>
+
 	<version name="3.5.3">
 		<text>Force close</text>
 	</version>

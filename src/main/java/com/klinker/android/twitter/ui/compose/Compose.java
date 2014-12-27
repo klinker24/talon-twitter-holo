@@ -66,8 +66,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
@@ -100,12 +100,12 @@ import twitter4j.*;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 public abstract class Compose extends Activity implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener {
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
 
     private static final boolean DEBUG = false;
 
-    public LocationClient mLocationClient;
+    public GoogleApiClient mGoogleApiClient;
     public AppSettings settings;
     public Context context;
     public SharedPreferences sharedPrefs;
@@ -173,6 +173,16 @@ public abstract class Compose extends Activity implements
         }
     };
 
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+
+        mGoogleApiClient.connect();
+    }
+
     @Override
     public void finish() {
         super.finish();
@@ -212,8 +222,7 @@ public abstract class Compose extends Activity implements
 
         currentAccount = sharedPrefs.getInt("current_account", 1);
 
-        mLocationClient = new LocationClient(context, this, this);
-        mLocationClient.connect();
+        buildGoogleApiClient();
 
         Utils.setUpPopupTheme(context, settings);
         setUpWindow();
@@ -699,15 +708,18 @@ public abstract class Compose extends Activity implements
 
     }
 
+    Location mLastLocation;
+
     @Override
     public void onConnected(Bundle bundle) {
         Log.v("location", "connected");
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
     }
 
     @Override
-    public void onDisconnected() {
-        //Toast.makeText(context, getResources().getString(R.string.location_disconnected), Toast.LENGTH_SHORT).show();
-        Log.v("location", "disconnected");
+    public void onConnectionSuspended(int i) {
+
     }
 
     @Override
@@ -718,7 +730,7 @@ public abstract class Compose extends Activity implements
 
     @Override
     public void onStop() {
-        mLocationClient.disconnect();
+        mGoogleApiClient.disconnect();
         super.onStop();
     }
 
@@ -1018,7 +1030,7 @@ public abstract class Compose extends Activity implements
 
                         if (addLocation) {
                             if (waitForLocation()) {
-                                Location location = mLocationClient.getLastLocation();
+                                Location location = mLastLocation;
                                 GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
                                 helper.setLocation(geolocation);
                             }
@@ -1040,7 +1052,7 @@ public abstract class Compose extends Activity implements
                             waitForLocation();
 
                             if (waitForLocation()) {
-                                Location location = mLocationClient.getLastLocation();
+                                Location location = mLastLocation;
                                 GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
                                 helper.setLocation(geolocation);
                             }
@@ -1063,7 +1075,7 @@ public abstract class Compose extends Activity implements
                         // Update status
                         if(addLocation) {
                             if (waitForLocation()) {
-                                Location location = mLocationClient.getLastLocation();
+                                Location location = mLastLocation;
                                 GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
                                 media.setLocation(geolocation);
                             }
@@ -1118,7 +1130,7 @@ public abstract class Compose extends Activity implements
                                 TwitPicHelper helper = new TwitPicHelper(twitter, text, files[0], context);
                                 if (addLocation) {
                                     if (waitForLocation()) {
-                                        Location location = mLocationClient.getLastLocation();
+                                        Location location = mLastLocation;
                                         GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
                                         media.setLocation(geolocation);
                                     }
@@ -1136,7 +1148,7 @@ public abstract class Compose extends Activity implements
                                 TwitPicHelper helper = new TwitPicHelper(twitter2, text, files[0], context);
                                 if (addLocation) {
                                     if (waitForLocation()) {
-                                        Location location = mLocationClient.getLastLocation();
+                                        Location location = mLastLocation;
                                         GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
                                         media.setLocation(geolocation);
                                     }
@@ -1171,7 +1183,7 @@ public abstract class Compose extends Activity implements
 
                             if (addLocation) {
                                 if (waitForLocation()) {
-                                    Location location = mLocationClient.getLastLocation();
+                                    Location location = mLastLocation;
                                     GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
                                     media.setLocation(geolocation);
                                 }
@@ -1245,20 +1257,20 @@ public abstract class Compose extends Activity implements
         }
 
         private boolean waitForLocation() {
-            if (!mLocationClient.isConnected()) {
+            if (mLastLocation == null) {
                 for (int i = 0; i < 5; i++) {
                     try {
                         Thread.sleep(1500);
                     } catch (Exception e) {
 
                     }
-                    if (mLocationClient.isConnected()) {
+                    if (mLastLocation != null) {
                         break;
                     }
                 }
             }
 
-            return mLocationClient.isConnected();
+            return mLastLocation != null;
         }
 
         boolean outofmem = false;

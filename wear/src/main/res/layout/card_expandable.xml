@@ -26,7 +26,7 @@
 
     <TextView
             android:id="@+id/title"
-            style="@style/CardTitle"
+            android:textColor="@color/secondary_text_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
@@ -37,7 +37,7 @@
 
     <TextView
             android:id="@+id/text"
-            style="@style/CardText"
+            android:lineSpacingMultiplier=".92"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"

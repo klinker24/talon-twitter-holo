@@ -68,4 +68,5 @@ android {
 
 dependencies {
     compile (project(":shared_assets"))
+    compile 'com.google.android.support:wearable:1.0.0'
 }

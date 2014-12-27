@@ -1,19 +1,19 @@
 package com.klinker.android.twitter.manipulations.photo_viewer;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.Window;
+import android.view.*;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.PhotoPagerAdapter;
 import org.jsoup.helper.StringUtil;
@@ -32,6 +32,10 @@ public class PhotoPagerActivity extends Activity {
         try {
             getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         } catch (Exception e) { }
+
+        if (Build.VERSION.SDK_INT > 18) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
         url = getIntent().getStringExtra("url");
         int startPage = getIntent().getIntExtra("start_page", 0);
@@ -60,6 +64,16 @@ public class PhotoPagerActivity extends Activity {
 
         pager.setAdapter(adapter);
         pager.setCurrentItem(startPage);
+
+        ActionBar ab = getActionBar();
+        if (ab != null) {
+            ColorDrawable transparent = new ColorDrawable(getResources().getColor(android.R.color.transparent));
+            ab.setBackgroundDrawable(transparent);
+            ab.setDisplayHomeAsUpEnabled(false);
+            ab.setDisplayShowHomeEnabled(false);
+            ab.setTitle("");
+            ab.setIcon(transparent);
+        }
     }
 
     @Override
