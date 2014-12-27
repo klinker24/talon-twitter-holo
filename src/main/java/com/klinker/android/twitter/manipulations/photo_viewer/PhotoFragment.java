@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -46,6 +47,7 @@ public class PhotoFragment extends Fragment {
     }
 
     String url;
+    NetworkedCacheableImageView picture;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class PhotoFragment extends Fragment {
 
         final View root = inflater.inflate(R.layout.photo_dialog_layout, container, false);
 
-        NetworkedCacheableImageView picture = (NetworkedCacheableImageView) root.findViewById(R.id.picture);
+        picture = (NetworkedCacheableImageView) root.findViewById(R.id.picture);
         PhotoViewAttacher mAttacher = new PhotoViewAttacher(picture);
 
         picture.loadImage(url, false, new NetworkedCacheableImageView.OnImageLoadedListener() {
@@ -145,12 +147,26 @@ public class PhotoFragment extends Fragment {
                 }
             }
         }).start();
-
-        getActivity().finish();
     }
 
     public void shareImage() {
+        if (picture == null) {
+            return;
+        }
 
+        Bitmap bitmap = ((BitmapDrawable)picture.getDrawable()).getBitmap();
+
+        // create the intent
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        sharingIntent.setType("image/*");
+
+        // add the bitmap uri to the intent
+        Uri uri = getImageUri(getActivity(), bitmap);
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+
+        // start the chooser
+        startActivity(Intent.createChooser(sharingIntent, getString(R.string.menu_share) + ": "));
     }
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
