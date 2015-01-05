@@ -205,21 +205,6 @@
     </question>
 
     <question
-        name="Extra Pages"
-        description="Why only two? I need more!">
-
-        <text>
-            Unfortunately, every feature has it's consequences as well. I think the idea of user defined extra pages is awesome (access them from advanced settings by the way), but they also can potentially hog a ton of resources and slow things down...
-
-            Think about it, the more you have open and ready to view, as a single swipe away, the more resource intensive that activity will be. Talon is no exception.
-
-            I pride myself on the fact that Talon is one of the fastest and smoothest apps around. By allowing an unlimited number of extra pages or even increasing it to 5 would be a huge draw on the performance.
-
-            I chose two as a balance between functionality and performance, this is a decision I will be sticking with for the time being.
-        </text>
-    </question>
-
-    <question
         name="Multiple Pictures"
         description="Sometimes they do not show, why?">
 
@@ -255,28 +240,24 @@
 
             Just remember though, we do get a ton of requests and chances are someone has requested the same thing as you already :) sooo, here is a list of requests/features that I would like to get done. Unfortunately I cannot provide a timetable on them at this point, not even an estimate:
 
-            1.) More extra pages (like saved searches, search, and favorite tweets)
-            2.) 1x1 widget to compose tweets
-            3.) Tweetmarker in lists
-            4.) Easier manipulation of lists and what lists a user is in from their profiles
-            5.) Mute users for a time period
-            6.) Instagram video support
-            7.) Conversation indicator on tweets
-            8.) QSlide for LG devices
-            9.) User's lists on their profiles
-            10.) Twitter Cards
-            11.) Show info on a linked tweet (ie: one tweet contains a link to another)
-            12.) Notifications for saved searches
-            13.) Expand the widget for multiple account support and mention support
+            1.) 1x1 widget to compose tweets
+            2.) Tweetmarker in lists
+            3.) Easier manipulation of lists and what lists a user is in from their profiles
+            4.) Mute users for a time period
+            5.) Instagram video support
+            6.) Conversation indicator on tweets
+            7.) User's lists on their profiles
+            8.) Show info on a linked tweet (ie: one tweet contains a link to another)
+            9.) Notifications for saved searches
+            10.) Expand the widget for multiple account support and mention support
 
 
             Things requested that won't happen at this point:
 
             1.) Samsung multi-window support (it breaks some features and isn't something you can have an option for in settings)
-            2.) More extra pages (read the faq above)
-            3.) Viewing GIF support (check the faq above about GIFs)
-            4.) Integration with FaceBook or other social networks (this app will remain only a Twitter client)
-            5.) Vine support (they do not have a developer API to plug into at the moment)
+            2.) Viewing GIF support (check the faq above about GIFs)
+            3.) Integration with FaceBook or other social networks (this app will remain only a Twitter client)
+            4.) Vine support (they do not have a developer API to plug into at the moment)
         </text>
 
     </question>
