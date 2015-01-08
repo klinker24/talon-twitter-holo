@@ -91,6 +91,10 @@ public class PicturesGridAdapter extends BaseAdapter {
         final String hashtags = html[3];
         final String users = html[4];
 
+        if (url.contains(" ")) {
+            url = url.split(" ")[0];
+        }
+
         holder.url = url;
 
         holder.iv.loadImage(url, false, new NetworkedCacheableImageView.OnImageLoadedListener() {
@@ -103,7 +107,6 @@ public class PicturesGridAdapter extends BaseAdapter {
         holder.iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 setPics();
 
                 Intent viewImage = new Intent(context, PhotoPagerActivity.class);
@@ -170,6 +173,8 @@ public class PicturesGridAdapter extends BaseAdapter {
     }
 
     public void setPics() {
+        pics = "";
+        
         for (Status s : statuses) {
             String[] html = TweetLinkUtils.getLinksInStatus(s);
             String pic = html[1];
