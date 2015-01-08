@@ -18,6 +18,8 @@
 
     <version name="3.7.0">
         <text>View Twitter GIFs</text>
+        <text>Swipe between a users pictures from their profile</text>
+        <text>Improve image quality from some sources</text>
     </version>
 
     <version name="3.6.0">
