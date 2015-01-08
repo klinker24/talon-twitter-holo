@@ -248,6 +248,10 @@ public class HomeDataSource {
                     source = android.text.Html.fromHtml(status.getSource()).toString();
                 }
 
+                if (media.contains("/tweet_video/")) {
+                    media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+                }
+
                 values.put(HomeSQLiteHelper.COLUMN_ACCOUNT, currentAccount);
                 values.put(HomeSQLiteHelper.COLUMN_TEXT, text);
                 values.put(HomeSQLiteHelper.COLUMN_TWEET_ID, mId);
@@ -262,6 +266,8 @@ public class HomeDataSource {
                 values.put(HomeSQLiteHelper.COLUMN_USERS, users);
                 values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
                 values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
+                values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
+
             } else {
                 values = null;
             }
