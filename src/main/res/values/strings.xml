@@ -227,6 +227,7 @@
     <string name="conversation">Conversation</string>
     <string name="webpage">Web Page</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Animated GIF</string>
     <string name="menu_quote">Quote Tweet</string>
     <string name="deleted_tweet">Tweet deleted</string>
     <string name="error_deleting">Error deleting tweet</string>
@@ -669,6 +670,7 @@
     <string name="drawer_elements_summary">Show or hide the items in the apps main navigation drawer.</string>
     <string name="second_acc_mentions">Second Account Mentions</string>
     <string name="using_second_account">Using %s account!</string> <!-- the username will replace %s -->
+    <string name="error_gif">Error finding GIF</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

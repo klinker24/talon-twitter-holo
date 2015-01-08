@@ -153,6 +153,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         public String screenName;
         public String picUrl;
         public String retweeterName;
+        public String gifUrl;
 
         public boolean preventNextClick = false;
 
@@ -401,6 +402,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         final String otherUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_URL));
         final String users = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_USERS));
         final String hashtags = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_HASHTAGS));
+        holder.gifUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_ANIMATED_GIF));
 
         String retweeter;
         try {
@@ -408,10 +410,6 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         } catch (Exception e) {
             retweeter = "";
         }
-
-        /*if (isDM) {
-            tweetTexts = tweetTexts.replace(picUrl, "");
-        }*/
 
         final String tweetText = tweetTexts;
 
@@ -443,6 +441,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         viewTweet.putExtra("proPic", profilePic);
                         viewTweet.putExtra("users", users);
                         viewTweet.putExtra("hashtags", hashtags);
+                        viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                         if (isHomeTimeline) {
                             sharedPrefs.edit()
@@ -521,6 +520,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         viewTweet.putExtra("proPic", profilePic);
                         viewTweet.putExtra("users", users);
                         viewTweet.putExtra("hashtags", hashtags);
+                        viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                         if (isHomeTimeline) {
                             sharedPrefs.edit()
@@ -731,6 +731,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                             viewTweet.putExtra("users", users);
                             viewTweet.putExtra("hashtags", hashtags);
                             viewTweet.putExtra("clicked_youtube", true);
+                            viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                             if (isHomeTimeline) {
                                 sharedPrefs.edit()

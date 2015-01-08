@@ -40,7 +40,7 @@ public class ListSQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_HASHTAGS = "hashtags";
     public static final String COLUMN_USERS = "users";
     public static final String COLUMN_LIST_ID = "list_id";
-    public static final String COLUMN_EXTRA_ONE = "extra_one";
+    public static final String COLUMN_ANIMATED_GIF = "extra_one";
     public static final String COLUMN_EXTRA_TWO = "extra_two";
     public static final String COLUMN_EXTRA_THREE = "extra_three";
 
@@ -65,7 +65,7 @@ public class ListSQLiteHelper extends SQLiteOpenHelper {
             + " text hashtags, " + COLUMN_USERS
             + " text users, " + COLUMN_RETWEETER
             + " text original name, " + COLUMN_LIST_ID
-            + " integer list id, " + COLUMN_EXTRA_ONE
+            + " integer list id, " + COLUMN_ANIMATED_GIF
             + " text extra one, " + COLUMN_EXTRA_TWO
             + " text extra two, " + COLUMN_EXTRA_THREE
             + " text extra three);";

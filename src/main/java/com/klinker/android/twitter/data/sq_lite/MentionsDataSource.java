@@ -111,6 +111,10 @@ public class MentionsDataSource {
         String hashtags = html[3];
         String users = html[4];
 
+        if (media.contains("/tweet_video/")) {
+            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+        }
+
         values.put(MentionsSQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(MentionsSQLiteHelper.COLUMN_TEXT, text);
         values.put(MentionsSQLiteHelper.COLUMN_TWEET_ID, id);
@@ -125,6 +129,7 @@ public class MentionsDataSource {
         values.put(MentionsSQLiteHelper.COLUMN_PIC_URL, media);
         values.put(MentionsSQLiteHelper.COLUMN_USERS, users);
         values.put(MentionsSQLiteHelper.COLUMN_HASHTAGS, hashtags);
+        values.put(MentionsSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
 
         try {
             database.insert(MentionsSQLiteHelper.TABLE_MENTIONS, null, values);
@@ -147,6 +152,10 @@ public class MentionsDataSource {
         String hashtags = html[3];
         String users = html[4];
 
+        if (media.contains("/tweet_video/")) {
+            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+        }
+
         values.put(MentionsSQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(MentionsSQLiteHelper.COLUMN_TEXT, text);
         values.put(MentionsSQLiteHelper.COLUMN_TWEET_ID, id);
@@ -160,6 +169,7 @@ public class MentionsDataSource {
         values.put(MentionsSQLiteHelper.COLUMN_URL, otherUrl);
         values.put(MentionsSQLiteHelper.COLUMN_USERS, users);
         values.put(MentionsSQLiteHelper.COLUMN_HASHTAGS, hashtags);
+        values.put(MentionsSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
 
         try {
             database.insert(MentionsSQLiteHelper.TABLE_MENTIONS, null, values);

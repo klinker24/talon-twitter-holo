@@ -525,4 +525,23 @@ public class TweetLinkUtils {
         }
         return text;
     }
+
+    public static String getGIFUrl(Status s, String otherUrls) {
+
+        // this will be used after twitter begins to support them
+        for (MediaEntity e : s.getExtendedMediaEntities()) {
+            if (e.getType().equals("animated_gif")) {
+                return e.getMediaURL();
+            }
+        }
+
+        // this is how the urls are currently stored
+        String gifUrl = "twitter.com/" + s.getUser().getScreenName() + "/status/" + s.getId() + "/photo/1";
+        if (otherUrls.contains(gifUrl)) {
+            return gifUrl;
+        }
+
+        // otherwise, lets just go with a blank string
+        return "";
+    }
 }

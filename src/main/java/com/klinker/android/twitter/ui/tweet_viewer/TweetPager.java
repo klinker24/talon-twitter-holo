@@ -78,6 +78,7 @@ public class TweetPager extends YouTubeBaseActivity {
     public String retweeter;
     public String webpage;
     public String proPic;
+    public String animatedGif;
     public boolean picture;
     public long tweetId;
     public String[] users;
@@ -121,7 +122,7 @@ public class TweetPager extends YouTubeBaseActivity {
         boolean fromWidget = getIntent().getBooleanExtra("from_widget", false);
         final boolean youtube;
         if (webpage != null && linkString != null) {
-            youtube = webpage.contains("youtu") || linkString.contains("youtu");
+            youtube = webpage.contains("youtu") || linkString.contains("youtu") || linkString.contains("/photo/1");
         } else {
             youtube = true;
         }
@@ -159,7 +160,7 @@ public class TweetPager extends YouTubeBaseActivity {
         pager = (ViewPager) findViewById(R.id.pager);
         mSectionsPagerAdapter = new TweetPagerAdapter(getFragmentManager(), context,
                 name, screenName, tweet, time, retweeter, webpage, proPic, tweetId,
-                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet, secondAcc);
+                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet, secondAcc, animatedGif);
         pager.setAdapter(mSectionsPagerAdapter);
         pager.setOffscreenPageLimit(5);
 
@@ -327,6 +328,7 @@ public class TweetPager extends YouTubeBaseActivity {
         picture = from.getBooleanExtra("picture", false);
         proPic = from.getStringExtra("proPic");
         secondAcc = from.getBooleanExtra("second_account", false);
+        animatedGif = from.getStringExtra("animated_gif");
 
         try {
             users = from.getStringExtra("users").split("  ");

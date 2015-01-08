@@ -24,13 +24,11 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v13.app.FragmentPagerAdapter;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.tweet_viewer.fragments.ConversationFragment;
-import com.klinker.android.twitter.ui.tweet_viewer.fragments.TweetFragment;
-import com.klinker.android.twitter.ui.tweet_viewer.fragments.TweetYouTubeFragment;
-import com.klinker.android.twitter.ui.tweet_viewer.fragments.MobilizedFragment;
-import com.klinker.android.twitter.ui.tweet_viewer.fragments.WebFragment;
+import com.klinker.android.twitter.ui.tweet_viewer.fragments.*;
 import com.klinker.android.twitter.utils.Utils;
 
 import java.util.ArrayList;
@@ -43,6 +41,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
     private int pageCount;
     private boolean youtube = false;
     private boolean hasWebpage = false;
+    private boolean gif = false;
     private String video = "";
     private ArrayList<String> webpages;
 
@@ -53,6 +52,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
     private String retweeter;
     private String webpage;
     private String proPic;
+    private String gifUrl;
     private boolean picture;
     private long tweetId;
     private String[] users;
@@ -66,7 +66,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
     public TweetPagerAdapter(FragmentManager fm, Context context,
          String name, String screenName, String tweet, long time, String retweeter, String webpage,
          String proPic, long tweetId, boolean picture, String[] users, String[] hashtags, String[] links,
-         boolean isMyTweet, boolean isMyRetweet, boolean secondAcc) {
+         boolean isMyTweet, boolean isMyRetweet, boolean secondAcc, String animatedGif) {
 
         super(fm);
         this.context = context;
@@ -95,6 +95,15 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
             links = new String[0];
         }
 
+        Log.v("talon_gif", "gif url: " + animatedGif);
+        if (!TextUtils.isEmpty(animatedGif)) {
+            gif = true;
+            gifUrl = animatedGif;
+        } else {
+            gifUrl = "no gif here";
+            gif = false;
+        }
+
         SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
@@ -104,10 +113,8 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     video = s;
                     youtube = true;
                     break;
-                } else {
-                    if (!s.contains("pic.twitt")) {
-                        webpages.add(s);
-                    }
+                } else if (!s.contains("pic.twitt") && !s.contains(gifUrl)) {
+                    webpages.add(s);
                 }
             }
 
@@ -121,12 +128,24 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
             this.hasWebpage = false;
         }
 
-        pageCount = 2; // tweet, conversations, and Discussion will always be there
+        if (hasWebpage && webpages.size() == 1) {
+            if (webpages.get(0).contains(tweetId + "/photo/1")) {
+                hasWebpage = false;
+                gif = true;
+                gifUrl = webpages.get(0);
+            }
 
-        if (this.hasWebpage) {
+        }
+
+        pageCount = 2; // tweet and Discussion will always be there
+
+        if (hasWebpage) {
             pageCount++;
         }
-        if(youtube) {
+        if (youtube) {
+            pageCount++;
+        }
+        if (gif) {
             pageCount++;
         }
 
@@ -163,6 +182,21 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     conversation.setArguments(getConvoBundle());
                     return conversation;
             }
+        } else if (pageCount == 3 && gif) {
+            switch (i) {
+                case 0:
+                    GIFVideoFragment gif = new GIFVideoFragment();
+                    gif.setArguments(getGIFBundle());
+                    return gif;
+                case 1:
+                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment.setArguments(getTweetBundle());
+                    return tweetFragment;
+                case 2:
+                    ConversationFragment conversation = new ConversationFragment();
+                    conversation.setArguments(getConvoBundle());
+                    return conversation;
+            }
         } else if (pageCount == 3) { // no youtube, just a webpage
             switch (i) {
                 case 0:
@@ -178,7 +212,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     conversation.setArguments(getConvoBundle());
                     return conversation;
             }
-        } else { // every page is shown
+        } else if (pageCount == 4 && youtube) {
             switch (i) {
                 case 0:
                     TweetYouTubeFragment youTube = new TweetYouTubeFragment();
@@ -193,6 +227,48 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 3:
+                    ConversationFragment conversation = new ConversationFragment();
+                    conversation.setArguments(getConvoBundle());
+                    return conversation;
+            }
+        } else if (pageCount == 4 && gif) {
+            switch (i) {
+                case 0:
+                    GIFVideoFragment gif = new GIFVideoFragment();
+                    gif.setArguments(getGIFBundle());
+                    return gif;
+                case 1:
+                    Fragment web = mobilizedBrowser ? new MobilizedFragment() : new WebFragment();
+                    web.setArguments(getMobilizedBundle());
+                    return web;
+                case 2:
+                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment.setArguments(getTweetBundle());
+                    return tweetFragment;
+                case 3:
+                    ConversationFragment conversation = new ConversationFragment();
+                    conversation.setArguments(getConvoBundle());
+                    return conversation;
+            }
+        } else { // all pages
+            switch (i) {
+                case 0:
+                    TweetYouTubeFragment youTube = new TweetYouTubeFragment();
+                    youTube.setArguments(getYouTubeBundle());
+                    return youTube;
+                case 1:
+                    Fragment web = mobilizedBrowser ? new MobilizedFragment() : new WebFragment();
+                    web.setArguments(getMobilizedBundle());
+                    return web;
+                case 2:
+                    GIFVideoFragment gif = new GIFVideoFragment();
+                    gif.setArguments(getGIFBundle());
+                    return gif;
+                case 3:
+                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment.setArguments(getTweetBundle());
+                    return tweetFragment;
+                case 4:
                     ConversationFragment conversation = new ConversationFragment();
                     conversation.setArguments(getConvoBundle());
                     return conversation;
@@ -215,6 +291,10 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         return youtube;
     }
 
+    public boolean getHasGif() {
+        return gif;
+    }
+
     @Override
     public CharSequence getPageTitle(int i) {
         if (pageCount == 2) {
@@ -233,6 +313,15 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                 case 2:
                     return context.getResources().getString(R.string.conversation);
             }
+        } else if (pageCount == 3 && gif) {
+            switch (i) {
+                case 0:
+                    return context.getResources().getString(R.string.gif);
+                case 1:
+                    return context.getResources().getString(R.string.tweet);
+                case 2:
+                    return context.getResources().getString(R.string.conversation);
+            }
         } else if (pageCount == 3) { // no youtube, just a hasWebpage
             switch (i) {
                 case 0:
@@ -242,15 +331,39 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                 case 2:
                     return context.getResources().getString(R.string.conversation);
             }
-        } else { // every page is shown
+        } else if (pageCount == 4 && youtube) { // every page is shown
             switch (i) {
-                case 1:
-                    return context.getResources().getString(R.string.webpage);
                 case 0:
                     return context.getResources().getString(R.string.tweet_youtube);
+                case 1:
+                    return context.getResources().getString(R.string.webpage);
                 case 2:
                     return context.getResources().getString(R.string.tweet);
                 case 3:
+                    return context.getResources().getString(R.string.conversation);
+            }
+        } else if (pageCount == 4 && gif) { // every page is shown
+            switch (i) {
+                case 0:
+                    return context.getResources().getString(R.string.gif);
+                case 1:
+                    return context.getResources().getString(R.string.webpage);
+                case 2:
+                    return context.getResources().getString(R.string.tweet);
+                case 3:
+                    return context.getResources().getString(R.string.conversation);
+            }
+        } else {
+            switch (i) {
+                case 0:
+                    return context.getResources().getString(R.string.tweet_youtube);
+                case 1:
+                    return context.getResources().getString(R.string.webpage);
+                case 2:
+                    return context.getResources().getString(R.string.gif);
+                case 3:
+                    return context.getResources().getString(R.string.tweet);
+                case 4:
                     return context.getResources().getString(R.string.conversation);
             }
         }
@@ -266,6 +379,12 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
     public Bundle getYouTubeBundle() {
         Bundle b = new Bundle();
         b.putString("url", video);
+        return b;
+    }
+
+    public Bundle getGIFBundle() {
+        Bundle b = new Bundle();
+        b.putString("url", gifUrl);
         return b;
     }
 

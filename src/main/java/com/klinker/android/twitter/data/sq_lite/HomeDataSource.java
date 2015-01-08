@@ -32,6 +32,7 @@ import com.klinker.android.twitter.utils.TweetLinkUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import twitter4j.MediaEntity;
 import twitter4j.Status;
 
 public class HomeDataSource {
@@ -70,7 +71,7 @@ public class HomeDataSource {
             HomeSQLiteHelper.COLUMN_TEXT, HomeSQLiteHelper.COLUMN_NAME, HomeSQLiteHelper.COLUMN_PRO_PIC,
             HomeSQLiteHelper.COLUMN_SCREEN_NAME, HomeSQLiteHelper.COLUMN_TIME, HomeSQLiteHelper.COLUMN_PIC_URL,
             HomeSQLiteHelper.COLUMN_RETWEETER, HomeSQLiteHelper.COLUMN_URL, HomeSQLiteHelper.COLUMN_USERS, HomeSQLiteHelper.COLUMN_HASHTAGS,
-            HomeSQLiteHelper.COLUMN_CURRENT_POS
+            HomeSQLiteHelper.COLUMN_CURRENT_POS, HomeSQLiteHelper.COLUMN_ANIMATED_GIF
     };
 
     public HomeDataSource(Context context) {
@@ -133,6 +134,10 @@ public class HomeDataSource {
             source = android.text.Html.fromHtml(status.getSource()).toString();
         }
 
+        if (media.contains("/tweet_video/")) {
+            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+        }
+
         values.put(HomeSQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(HomeSQLiteHelper.COLUMN_TEXT, text);
         values.put(HomeSQLiteHelper.COLUMN_TWEET_ID, id);
@@ -147,6 +152,7 @@ public class HomeDataSource {
         values.put(HomeSQLiteHelper.COLUMN_USERS, users);
         values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
+        values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
 
         try {
             database.insert(HomeSQLiteHelper.TABLE_HOME, null, values);
@@ -181,6 +187,10 @@ public class HomeDataSource {
             source = android.text.Html.fromHtml(status.getSource()).toString();
         }
 
+        if (media.contains("/tweet_video/")) {
+            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+        }
+
         values.put(HomeSQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(HomeSQLiteHelper.COLUMN_TEXT, text);
         values.put(HomeSQLiteHelper.COLUMN_TWEET_ID, id);
@@ -195,6 +205,7 @@ public class HomeDataSource {
         values.put(HomeSQLiteHelper.COLUMN_USERS, users);
         values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
+        values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
 
         try {
             database.insert(HomeSQLiteHelper.TABLE_HOME, null, values);

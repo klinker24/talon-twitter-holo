@@ -133,6 +133,10 @@ public class ListDataSource {
         String hashtags = html[3];
         String users = html[4];
 
+        if (media.contains("/tweet_video/")) {
+            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+        }
+
         values.put(ListSQLiteHelper.COLUMN_TEXT, text);
         values.put(ListSQLiteHelper.COLUMN_TWEET_ID, id);
         values.put(ListSQLiteHelper.COLUMN_NAME, status.getUser().getName());
@@ -145,6 +149,8 @@ public class ListDataSource {
         values.put(ListSQLiteHelper.COLUMN_USERS, users);
         values.put(ListSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(ListSQLiteHelper.COLUMN_LIST_ID, listId);
+        values.put(ListSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
+
 
         try {
             database.insert(ListSQLiteHelper.TABLE_HOME, null, values);
@@ -178,6 +184,10 @@ public class ListDataSource {
             String hashtags = html[3];
             String users = html[4];
 
+            if (media.contains("/tweet_video/")) {
+                media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+            }
+
             values.put(ListSQLiteHelper.COLUMN_TEXT, text);
             values.put(ListSQLiteHelper.COLUMN_TWEET_ID, id);
             values.put(ListSQLiteHelper.COLUMN_NAME, status.getUser().getName());
@@ -190,6 +200,7 @@ public class ListDataSource {
             values.put(ListSQLiteHelper.COLUMN_USERS, users);
             values.put(ListSQLiteHelper.COLUMN_HASHTAGS, hashtags);
             values.put(ListSQLiteHelper.COLUMN_LIST_ID, listId);
+            values.put(ListSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
 
             valueses[i] = values;
         }

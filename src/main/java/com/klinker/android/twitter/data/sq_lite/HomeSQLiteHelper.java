@@ -40,7 +40,7 @@ public class HomeSQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_RETWEETER = "retweeter";
     public static final String COLUMN_HASHTAGS = "hashtags";
     public static final String COLUMN_USERS = "users";
-    public static final String COLUMN_EXTRA_ONE = "extra_one";
+    public static final String COLUMN_ANIMATED_GIF = "extra_one";
     public static final String COLUMN_CURRENT_POS = "extra_two";
     public static final String COLUMN_CLIENT_SOURCE = "extra_three";
 
@@ -65,7 +65,7 @@ public class HomeSQLiteHelper extends SQLiteOpenHelper {
             + " text pic url, " + COLUMN_HASHTAGS
             + " text hashtags, " + COLUMN_USERS
             + " text users, " + COLUMN_RETWEETER
-            + " text original name, " + COLUMN_EXTRA_ONE
+            + " text original name, " + COLUMN_ANIMATED_GIF
             + " text extra one, " + COLUMN_CURRENT_POS
             + " text extra two, " + COLUMN_CLIENT_SOURCE
             + " text extra three);";

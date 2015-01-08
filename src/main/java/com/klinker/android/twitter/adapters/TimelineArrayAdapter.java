@@ -145,6 +145,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         public String screenName;
         public String picUrl;
         public String retweeterName;
+        public String gifUrl;
 
         public boolean preventNextClick = false;
     }
@@ -432,6 +433,8 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         final String hashtags = html[3];
         final String users = html[4];
 
+        holder.gifUrl = TweetLinkUtils.getGIFUrl(status, otherUrl);
+
         if(!settings.reverseClickActions) {
             final String fRetweeter = retweeter;
             holder.background.setOnLongClickListener(new View.OnLongClickListener() {
@@ -461,6 +464,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     viewTweet.putExtra("proPic", profilePic);
                     viewTweet.putExtra("users", users);
                     viewTweet.putExtra("hashtags", hashtags);
+                    viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                     context.startActivity(viewTweet);
 
@@ -517,6 +521,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     viewTweet.putExtra("proPic", profilePic);
                     viewTweet.putExtra("users", users);
                     viewTweet.putExtra("hashtags", hashtags);
+                    viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                     context.startActivity(viewTweet);
                 }
@@ -663,6 +668,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                             viewTweet.putExtra("users", users);
                             viewTweet.putExtra("hashtags", hashtags);
                             viewTweet.putExtra("clicked_youtube", true);
+                            viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                             context.startActivity(viewTweet);
                         }
@@ -751,7 +757,6 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                         @Override
                         public void onClick(View view) {
                             if (!TouchableMovementMethod.touched) {
-                                Log.v("talon_clickable", "clicked in the cursor adapter");
                                 // we need to manually set the background for click feedback because the spannable
                                 // absorbs the click on the background
                                 if (!holder.preventNextClick) {
