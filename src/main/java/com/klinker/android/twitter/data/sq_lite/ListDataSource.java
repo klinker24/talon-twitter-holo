@@ -78,7 +78,9 @@ public class ListDataSource {
             ListSQLiteHelper.COLUMN_RETWEETER,
             ListSQLiteHelper.COLUMN_URL,
             ListSQLiteHelper.COLUMN_USERS,
-            ListSQLiteHelper.COLUMN_HASHTAGS };
+            ListSQLiteHelper.COLUMN_HASHTAGS,
+            ListSQLiteHelper.COLUMN_ANIMATED_GIF
+    };
 
     public ListDataSource(Context context) {
         dbHelper = new ListSQLiteHelper(context);
