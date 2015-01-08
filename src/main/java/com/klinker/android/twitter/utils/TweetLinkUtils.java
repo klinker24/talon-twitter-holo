@@ -132,7 +132,7 @@ public class TweetLinkUtils {
                     tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
                 }
                 if (str.contains("instag") && !str.contains("blog.insta")) {
-                    imageUrl = exp + "media/?size=m";
+                    imageUrl = exp + "media/?size=l";
                     otherUrl += exp + "  ";
                 } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user"))) {
                     // first get the youtube video code
@@ -161,7 +161,7 @@ public class TweetLinkUtils {
                     try {
                         imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, end) + "/hqdefault.jpg";
                     } catch (Exception e) {
-                        imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, exp.length() - 1) + "/mqefault.jpg";
+                        imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, exp.length() - 1) + "/hqdefault.jpg";
                     }
                     otherUrl += exp + "  ";
                 } else if (str.contains("twitpic")) {
@@ -170,12 +170,12 @@ public class TweetLinkUtils {
                     otherUrl += exp + "  ";
                 } else if (str.contains("i.imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 5;
-                    imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "m.jpg";
+                    imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "l.jpg";
                     imageUrl = imageUrl.replace("gallery/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 6;
-                    imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "m.jpg";
+                    imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "l.jpg";
                     imageUrl = imageUrl.replace("gallery/", "").replace("a/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("pbs.twimg.com")) {
@@ -354,7 +354,7 @@ public class TweetLinkUtils {
                     otherUrl += exp + "  ";
                 } else if (str.contains("imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 6;
-                    imageUrl = "http://i.imgur.com/" + exp.substring(start) + "m.jpg" ;
+                    imageUrl = "http://i.imgur.com/" + exp.substring(start) + "l.jpg" ;
                     imageUrl = imageUrl.replace("gallery/", "").replace("a/", ""); 
                     otherUrl += exp + "  ";
                 } else if (str.contains("pbs.twimg.com")) {
