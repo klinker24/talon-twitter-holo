@@ -32,8 +32,6 @@ public class PicturesGridAdapter extends BaseAdapter {
         this.text = text;
         this.statuses = statuses;
         this.gridWidth = gridWidth;
-
-        setPics();
     }
 
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -174,7 +172,7 @@ public class PicturesGridAdapter extends BaseAdapter {
 
     public void setPics() {
         pics = "";
-        
+
         for (Status s : statuses) {
             String[] html = TweetLinkUtils.getLinksInStatus(s);
             String pic = html[1];

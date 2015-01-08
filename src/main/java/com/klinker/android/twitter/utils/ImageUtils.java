@@ -1046,8 +1046,8 @@ public class ImageUtils {
                     canvas = new Canvas(image);
                     canvas.drawBitmap(bitmaps[0], 0, 0, null);
                     canvas.drawBitmap(bitmaps[1], GROUP_RES / 2, 0, null);
-                    canvas.drawBitmap(bitmaps[2], GROUP_RES / 2, GROUP_RES / 2, null);
-                    canvas.drawBitmap(bitmaps[3], 0, GROUP_RES / 2, null);
+                    canvas.drawBitmap(bitmaps[2], 0, GROUP_RES / 2, null);
+                    canvas.drawBitmap(bitmaps[3], GROUP_RES / 2, GROUP_RES / 2, null);
 
                     linePaint = new Paint();
                     linePaint.setStrokeWidth(1f);
