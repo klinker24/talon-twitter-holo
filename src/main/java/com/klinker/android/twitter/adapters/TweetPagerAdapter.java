@@ -96,7 +96,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         }
 
         Log.v("talon_gif", "gif url: " + animatedGif);
-        if (!TextUtils.isEmpty(animatedGif)) {
+        if (animatedGif != null && !TextUtils.isEmpty(animatedGif) && (animatedGif.contains(".mp4") || animatedGif.contains("/photo/1"))) {
             gif = true;
             gifUrl = animatedGif;
         } else {
