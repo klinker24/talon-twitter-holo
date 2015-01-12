@@ -250,11 +250,19 @@ public class SearchedTrendsActivity extends Activity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             searchQuery = intent.getStringExtra(SearchManager.QUERY);
             String query = searchQuery;
-            doSearch(query);
+
+            if (query.contains("\"")) {
+                doSearch(query);
+            }
 
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-            suggestions.saveRecentQuery(searchQuery, null);
+
+            if (searchQuery.contains("#")) {
+                suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+            } else {
+                suggestions.saveRecentQuery(searchQuery, null);
+            }
 
             if (searchQuery.contains("#")) {
                 // we want to add it to the userAutoComplete

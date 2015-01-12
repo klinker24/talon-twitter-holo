@@ -177,7 +177,12 @@ public class SearchPager extends Activity {
 
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-            suggestions.saveRecentQuery(searchQuery, null);
+
+            if (searchQuery.contains("#")) {
+                suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+            } else {
+                suggestions.saveRecentQuery(searchQuery, null);
+            }
         } else if (Intent.ACTION_VIEW.equals(intent.getAction())) {
             Uri uri = intent.getData();
             String uriString = uri.toString();
@@ -210,8 +215,12 @@ public class SearchPager extends Activity {
                         searchQuery = search;
                         SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                                 MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-                        suggestions.saveRecentQuery(searchQuery, null);
-                    } else {
+
+                        if (searchQuery.contains("#")) {
+                            suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+                        } else {
+                            suggestions.saveRecentQuery(searchQuery, null);
+                        }                    } else {
                         searchQuery = "";
                     }
 
@@ -230,7 +239,12 @@ public class SearchPager extends Activity {
 
                         SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                                 MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-                        suggestions.saveRecentQuery(searchQuery, null);
+
+                        if (searchQuery.contains("#")) {
+                            suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+                        } else {
+                            suggestions.saveRecentQuery(searchQuery, null);
+                        }
                     } else {
                         searchQuery = "";
                     }
@@ -252,13 +266,6 @@ public class SearchPager extends Activity {
         actionBar.setDisplayShowHomeEnabled(false);
 
         Log.v("talon_searching", "on new intent, query: " + searchQuery);
-
-        // since this is the single top activity, it won't launch a new one to research,
-        // so we have to do the re search stuff when it receives the new intent
-        /*Intent broadcast = new Intent("com.klinker.android.twitter.NEW_SEARCH");
-        broadcast.putExtra("query", searchQuery);
-        context.sendBroadcast(broadcast);*/
-        //recreate();
     }
 
     @Override
