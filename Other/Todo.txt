@@ -26,7 +26,6 @@ either, or ETA's, so please do not ask for them
             - search fragment (with search box and saved search) on main timelines
             - favorite tweets fragment
             - Activity fragment
-            - Trends fragment
 
 
     Version 3.6 (some random stuff that I want to do)
