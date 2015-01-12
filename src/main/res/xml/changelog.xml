@@ -16,6 +16,14 @@
 
 <changelog>
 
+    <version name="3.7.2">
+        <text>Notification of TweetMarker failure (causing long load times)</text>
+    </version>
+
+    <version name="3.7.1">
+        <text>Bug fixes for GIFs</text>
+    </version>
+
     <version name="3.7.0">
         <text>View Twitter GIFs</text>
         <text>Swipe between a users pictures from their profile</text>
