@@ -609,7 +609,7 @@ public class ProfileFragment extends Fragment {
                         followingIds = null;
                     }
 
-                    PagableResponseList<User> friendsPaging = twitter.getFollowersList(user.getId(), currentFollowers);
+                    PagableResponseList<User> friendsPaging = twitter.getFollowersList(user.getId(), currentFollowers, 100);
 
                     for (int i = 0; i < friendsPaging.size(); i++) {
                         followers.add(friendsPaging.get(i));
@@ -693,7 +693,7 @@ public class ProfileFragment extends Fragment {
 
                     PagableResponseList<User> friendsPaging;
                     try {
-                        friendsPaging = twitter.getFriendsList(user.getId(), currentFollowing);
+                        friendsPaging = twitter.getFriendsList(user.getId(), currentFollowing, 100);
                     } catch (OutOfMemoryError e) {
                         return;
                     }

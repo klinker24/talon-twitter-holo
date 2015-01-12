@@ -1659,7 +1659,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 Twitter twitter = Utils.getTwitter(context, AppSettings.getInstance(context));
 
                 int currentAccount = sharedPrefs.getInt("current_account", 1);
-                PagableResponseList<User> friendsPaging = twitter.getFriendsList(screenName, -1);
+                PagableResponseList<User> friendsPaging = twitter.getFriendsList(screenName, -1, 200);
 
                 for (User friend : friendsPaging) {
                     followers.createUser(friend, currentAccount);
@@ -1668,7 +1668,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 long nextCursor = friendsPaging.getNextCursor();
 
                 while (nextCursor != -1) {
-                    friendsPaging = twitter.getFriendsList(screenName, nextCursor);
+                    friendsPaging = twitter.getFriendsList(screenName, nextCursor, 200);
 
                     for (User friend : friendsPaging) {
                         followers.createUser(friend, currentAccount);
