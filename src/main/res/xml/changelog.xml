@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="3.8.0">
+        <text>Native Vine support</text>
+    </version>
+
     <version name="3.7.2">
         <text>Better user notification for long or failed TweetMarker responses</text>
     </version>

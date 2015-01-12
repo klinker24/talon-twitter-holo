@@ -21,11 +21,9 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v13.app.FragmentPagerAdapter;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.tweet_viewer.fragments.*;
@@ -95,13 +93,23 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
             links = new String[0];
         }
 
-        Log.v("talon_gif", "gif url: " + animatedGif);
-        if (animatedGif != null && !TextUtils.isEmpty(animatedGif) && (animatedGif.contains(".mp4") || animatedGif.contains("/photo/1"))) {
-            gif = true;
-            gifUrl = animatedGif;
-        } else {
-            gifUrl = "no gif here";
-            gif = false;
+        boolean vine = false;
+        for (String s : otherLinks) {
+            if (s.contains("vine.co/v/")) {
+                gifUrl = s;
+                gif = true;
+                vine = true;
+            }
+        }
+
+        if (!vine) {
+            if (animatedGif != null && !TextUtils.isEmpty(animatedGif) && (animatedGif.contains(".mp4") || animatedGif.contains("/photo/1"))) {
+                gif = true;
+                gifUrl = animatedGif;
+            } else {
+                gifUrl = "no gif here";
+                gif = false;
+            }
         }
 
         SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
@@ -130,6 +138,10 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
 
         if (hasWebpage && webpages.size() == 1) {
             if (webpages.get(0).contains(tweetId + "/photo/1")) {
+                hasWebpage = false;
+                gif = true;
+                gifUrl = webpages.get(0);
+            } else if (webpages.get(0).contains("vine.co/v/")) {
                 hasWebpage = false;
                 gif = true;
                 gifUrl = webpages.get(0);
@@ -185,7 +197,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         } else if (pageCount == 3 && gif) {
             switch (i) {
                 case 0:
-                    GIFVideoFragment gif = new GIFVideoFragment();
+                    VideoFragment gif = new VideoFragment();
                     gif.setArguments(getGIFBundle());
                     return gif;
                 case 1:
@@ -234,7 +246,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         } else if (pageCount == 4 && gif) {
             switch (i) {
                 case 0:
-                    GIFVideoFragment gif = new GIFVideoFragment();
+                    VideoFragment gif = new VideoFragment();
                     gif.setArguments(getGIFBundle());
                     return gif;
                 case 1:
@@ -261,7 +273,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     web.setArguments(getMobilizedBundle());
                     return web;
                 case 2:
-                    GIFVideoFragment gif = new GIFVideoFragment();
+                    VideoFragment gif = new VideoFragment();
                     gif.setArguments(getGIFBundle());
                     return gif;
                 case 3:
@@ -295,6 +307,14 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         return gif;
     }
 
+    public boolean hasVine() {
+        if (gifUrl != null) {
+            return gifUrl.contains("vine.co/v/");
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public CharSequence getPageTitle(int i) {
         if (pageCount == 2) {
@@ -316,7 +336,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         } else if (pageCount == 3 && gif) {
             switch (i) {
                 case 0:
-                    return context.getResources().getString(R.string.gif);
+                    return context.getResources().getString(hasVine() ? R.string.vine : R.string.gif);
                 case 1:
                     return context.getResources().getString(R.string.tweet);
                 case 2:
@@ -345,7 +365,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         } else if (pageCount == 4 && gif) { // every page is shown
             switch (i) {
                 case 0:
-                    return context.getResources().getString(R.string.gif);
+                    return context.getResources().getString(hasVine() ? R.string.vine : R.string.gif);
                 case 1:
                     return context.getResources().getString(R.string.webpage);
                 case 2:
@@ -360,7 +380,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                 case 1:
                     return context.getResources().getString(R.string.webpage);
                 case 2:
-                    return context.getResources().getString(R.string.gif);
+                    return context.getResources().getString(hasVine() ? R.string.vine : R.string.gif);
                 case 3:
                     return context.getResources().getString(R.string.tweet);
                 case 4:

@@ -122,7 +122,12 @@ public class TweetPager extends YouTubeBaseActivity {
         boolean fromWidget = getIntent().getBooleanExtra("from_widget", false);
         final boolean youtube;
         if (webpage != null && linkString != null) {
-            youtube = webpage.contains("youtu") || linkString.contains("youtu") || linkString.contains("/photo/1");
+            youtube =
+                    webpage.contains("youtu")
+                    || linkString.contains("youtu")
+                    || linkString.contains("/photo/1")
+                    || linkString.contains(".mp4")
+                    || linkString.contains("vine.co/v/");
         } else {
             youtube = true;
         }

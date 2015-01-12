@@ -1,9 +1,7 @@
 - Features:
     - user lists on their profiles
-    - QSlide for LG
     - gallery of picture on searching
     - tweetmarker in lists
-    - rotation on tweet viewer
     - Night mode for themes
     - easier manipulation of lists on users profiles (view all the lists they are apart of and add/remove them from them)
 
@@ -26,10 +24,6 @@ either, or ETA's, so please do not ask for them
     Version 3.5 (finally make more extra pages)
         - More fragments to choose from
             - search fragment (with search box and saved search) on main timelines
-            - second account mentions page on timeline
-                - Update the list when new tweets are synced from the service (broadcast)
-                - Use the second account when fav/retweeting/replying to tweets from this page
-            - second account timeline page
             - favorite tweets fragment
             - Activity fragment
             - Trends fragment
@@ -37,12 +31,8 @@ either, or ETA's, so please do not ask for them
 
     Version 3.6 (some random stuff that I want to do)
         - conversation indicator on tweets
-        - instagram video support
         - mute users for a time period
-        - swipe through multiple pictures on the image viewer
         - bug with unfollowing public lists
-        - "muffle" tweets instead of simply muting them (Not sure if this is ever something that will actually come. I feel as though it may hit drastically on performance)
-            - Hide them, waiting for expansion
 
 
     Version 3.7 (Widget updates)

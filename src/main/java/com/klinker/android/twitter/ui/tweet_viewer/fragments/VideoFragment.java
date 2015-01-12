@@ -6,7 +6,6 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class GIFVideoFragment extends Fragment {
+public class VideoFragment extends Fragment {
 
     public Context context;
     public String tweetUrl;
@@ -35,7 +34,7 @@ public class GIFVideoFragment extends Fragment {
     public VideoView video;
     public LinearLayout spinner;
 
-    public GIFVideoFragment() {
+    public VideoFragment() {
 
     }
 
@@ -65,11 +64,15 @@ public class GIFVideoFragment extends Fragment {
             @Override
             public void run() {
 
-                if (tweetUrl.contains("/photo/1") && tweetUrl.contains("twitter.com/")) {
+                if (tweetUrl.contains("vine.co")) {
+                    // have to get the html from the page and parse the video from there.
+
+                    videoUrl = getVineLink();
+                } else if (tweetUrl.contains("/photo/1") && tweetUrl.contains("twitter.com/")) {
                     // this is before it was added to the api.
                     // finds the video from the HTML on twitters website.
 
-                    videoUrl = getVideoUrl();
+                    videoUrl = getGifLink();
                 } else {
                     videoUrl = tweetUrl;
                 }
@@ -106,7 +109,7 @@ public class GIFVideoFragment extends Fragment {
         }).start();
     }
 
-    public String getVideoUrl() {
+    public Document getDoc() {
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpGet httpget = new HttpGet((tweetUrl.contains("http") ? "" : "https://") + tweetUrl);
@@ -123,7 +126,15 @@ public class GIFVideoFragment extends Fragment {
 
             is.close();
 
-            Document doc = Jsoup.parse(docHtml);
+            return Jsoup.parse(docHtml);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String getGifLink() {
+        try {
+            Document doc = getDoc();
 
             if(doc != null) {
                 Elements elements = doc.getElementsByAttributeValue("class", "animated-gif");
@@ -134,6 +145,27 @@ public class GIFVideoFragment extends Fragment {
                             return x.attr("video-src");
                         }
                     }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } catch (OutOfMemoryError e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public String getVineLink() {
+        try {
+            Document doc = getDoc();
+
+            if(doc != null) {
+                Elements elements = doc.getElementsByAttributeValue("property", "twitter:player:stream");
+
+                for (Element e : elements) {
+                    return e.attr("content");
                 }
             }
 

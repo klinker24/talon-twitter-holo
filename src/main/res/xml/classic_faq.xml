@@ -77,20 +77,6 @@
     </question>
 
     <question
-            name="Viewing GIFs"
-            description="Twitter made this super cool and awesome feature, but I can't see them!">
-
-        <text>
-            If you read the last FAQ about favorites on your status, unfortunately this is the same deal. Twitter doesn't allow third party apps to view these GIFs.
-
-            Until something changes on their end with it, it isn't going to happen in Talon, sorry about that. Currently you can post animated GIFs though by hitting the attach button on the compose window and selecting "Animated GIF".
-
-            I know that TweetBot for iOS can do it now, but it isn't really the same as the official Twitter app and they just use some resources specific to iOS for that functionality. Not possible for me.
-        </text>
-
-    </question>
-
-    <question
         name="Auto-Complete Users"
         description="Not all of them show up..">
 
@@ -241,23 +227,20 @@
             Just remember though, we do get a ton of requests and chances are someone has requested the same thing as you already :) sooo, here is a list of requests/features that I would like to get done. Unfortunately I cannot provide a timetable on them at this point, not even an estimate:
 
             1.) 1x1 widget to compose tweets
-            2.) Tweetmarker in lists
+            2.) TweetMarker in lists
             3.) Easier manipulation of lists and what lists a user is in from their profiles
             4.) Mute users for a time period
-            5.) Instagram video support
-            6.) Conversation indicator on tweets
-            7.) User's lists on their profiles
-            8.) Show info on a linked tweet (ie: one tweet contains a link to another)
-            9.) Notifications for saved searches
-            10.) Expand the widget for multiple account support and mention support
+            5.) Conversation indicator on tweets
+            6.) User's lists on their profiles
+            7.) Show info on a linked tweet (ie: one tweet contains a link to another)
+            8.) Notifications for saved searches
+            9.) Expand the widget for multiple account support and mention support
 
 
             Things requested that won't happen at this point:
 
             1.) Samsung multi-window support (it breaks some features and isn't something you can have an option for in settings)
-            2.) Viewing GIF support (check the faq above about GIFs)
-            3.) Integration with FaceBook or other social networks (this app will remain only a Twitter client)
-            4.) Vine support (they do not have a developer API to plug into at the moment)
+            2.) Integration with Facebook or other social networks (this app will remain only a Twitter client)
         </text>
 
     </question>

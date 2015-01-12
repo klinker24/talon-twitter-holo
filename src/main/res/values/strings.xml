@@ -228,6 +228,7 @@
     <string name="webpage">Web Page</string>
     <string name="tweet_youtube">YouTube</string>
     <string name="gif">Animated GIF</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Quote Tweet</string>
     <string name="deleted_tweet">Tweet deleted</string>
     <string name="error_deleting">Error deleting tweet</string>
