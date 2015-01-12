@@ -36,6 +36,8 @@ import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -110,6 +112,12 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                     break;
                 case AppSettings.PAGE_TYPE_SECOND_MENTIONS:
                     text.add(AppSettings.getInstance(context).secondScreenName);
+                    break;
+                case AppSettings.PAGE_TYPE_WORLD_TRENDS:
+                    text.add(context.getResources().getString(R.string.world_trends));
+                    break;
+                case AppSettings.PAGE_TYPE_LOCAL_TRENDS:
+                    text.add(context.getString(R.string.local_trends));
                     break;
                 default:
                     text.add(getName(pageNames.get(i), pageTypes.get(i)));
@@ -190,7 +198,9 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.discover))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.discover)) ||
+                    text.get(position).equals(context.getString(R.string.world_trends)) ||
+                    text.get(position).equals(context.getString(R.string.local_trends))) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.links});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();

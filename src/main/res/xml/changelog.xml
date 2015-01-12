@@ -18,6 +18,8 @@
 
     <version name="4.0.0">
         <text>[New] Native Vine support</text>
+        <text>[New] World trends swipe-able page</text>
+        <text>[New] Local trends swipe-able page</text>
         <text>[Improved] Much better auto-complete</text>
     </version>
 

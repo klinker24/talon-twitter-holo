@@ -80,6 +80,8 @@ public class ChooserFragment extends Fragment {
         list.add(context.getString(R.string.link_page));
         list.add(context.getString(R.string.picture_page));
         list.add(context.getString(R.string.second_acc_mentions));
+        list.add(getResources().getString(R.string.world_trends));
+        list.add(getString(R.string.local_trends));
 
         View layout = inflater.inflate(R.layout.configuration_page, null);
 
@@ -115,6 +117,12 @@ public class ChooserFragment extends Fragment {
                         break;
                     case 8:
                         setType(AppSettings.PAGE_TYPE_SECOND_MENTIONS);
+                        break;
+                    case 9:
+                        setType(AppSettings.PAGE_TYPE_WORLD_TRENDS);
+                        break;
+                    case 10:
+                        setType(AppSettings.PAGE_TYPE_LOCAL_TRENDS);
                         break;
                     default:
                         setType(AppSettings.PAGE_TYPE_NONE);
