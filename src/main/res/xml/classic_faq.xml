@@ -77,22 +77,6 @@
     </question>
 
     <question
-        name="Auto-Complete Users"
-        description="Not all of them show up..">
-
-        <text>
-            With Talon, you have the ability to simply type "@", then the name of a user and they will appear so that you can add them to the tweet.
-
-            You might notice that not all of the people you follow are available to mention with this auto-complete though. This is due to Twitter's rate limiting. Talon is only able to find the newest 300 users you follow.
-
-            To add more users to this auto-complete list, simply visit their profile.
-
-            If you want to start fresh with the latest 300 people you follow, use the "Sync Users" option under "Sync Settings".
-        </text>
-
-    </question>
-
-    <question
             name="Logging into a second account"
             description="I got to many people to keep track of here...">
 
