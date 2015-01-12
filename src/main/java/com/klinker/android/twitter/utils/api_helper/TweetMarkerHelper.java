@@ -16,12 +16,16 @@
 
 package com.klinker.android.twitter.utils.api_helper;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
 
 import com.klinker.android.twitter.APIKeys;
+import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.HomeContentProvider;
 import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
@@ -117,7 +121,7 @@ public class TweetMarkerHelper extends APIHelper {
         return false;
     }
 
-    public boolean getLastStatus(String collection, Context context) {
+    public boolean getLastStatus(String collection, final Context context) {
 
         long currentId = sharedPrefs.getLong("current_position_" + currentAccount, 0l);
 
@@ -134,6 +138,41 @@ public class TweetMarkerHelper extends APIHelper {
             Log.v("talon_tweetmarker", "getting id response code: " + response.getStatusLine().getStatusCode() + " for " + screenname);
 
             StatusLine statusLine = response.getStatusLine();
+
+            if (statusLine.getStatusCode() == 500 || statusLine.getStatusCode() == 503) {
+                // common tweetmarker failure codes
+                final StatusLine s = statusLine;
+
+                ((Activity)context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            new AlertDialog.Builder(context)
+                                    .setTitle("TweetMarker Failure")
+                                    .setMessage("Error: " + s.getStatusCode() + "(" + s.getReasonPhrase() + ")" + "\n\n" +
+                                            "TweetMarker has been experiencing some issues on their end lately with some apps. They seem intermittent, random, and are causing incredibly slow load times." +
+                                            "I have been in contact with them, but I would recommend turning off this feature until these issues are resolved.")
+                                    .setPositiveButton("Turn Off TM", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            sharedPrefs.edit().putString("tweetmarker_options", "0").commit();
+                                            AppSettings.invalidate();
+                                        }
+                                    })
+                                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                    .create()
+                                    .show();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+            }
 
             if (statusLine.getStatusCode() == 200) { // request ok
                 BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
