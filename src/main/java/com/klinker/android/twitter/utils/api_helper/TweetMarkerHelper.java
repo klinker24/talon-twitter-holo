@@ -155,7 +155,7 @@ public class TweetMarkerHelper extends APIHelper {
                                         .setTitle("Slow TweetMarker Fetch")
                                         .setMessage("TweetMarker successfully fetched it's position, but seemed to take quite a bit of time. " +
                                                 "They may be experiencing issues at the moment, you may want to try again in a little while! \n\n" +
-                                                "Time: " + (responseTime / 1000))
+                                                "Server Response Time: " + (responseTime / 1000) + " seconds")
                                         .setPositiveButton("Turn Off TM", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
