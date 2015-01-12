@@ -41,6 +41,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Calendar;
 
 import twitter4j.Twitter;
 
@@ -128,6 +129,7 @@ public class TweetMarkerHelper extends APIHelper {
         boolean updated = false;
 
         try {
+            long startTime = Calendar.getInstance().getTimeInMillis();
             HttpGet get = new HttpGet(postURL + "&" + collection);
             get.addHeader("X-Auth-Service-Provider", SERVICE_PROVIDER);
             get.addHeader("X-Verify-Credentials-Authorization", getAuthrityHeader(twitter));
@@ -137,9 +139,52 @@ public class TweetMarkerHelper extends APIHelper {
             HttpResponse response = client.execute(get);
             Log.v("talon_tweetmarker", "getting id response code: " + response.getStatusLine().getStatusCode() + " for " + screenname);
 
+            long endTime = Calendar.getInstance().getTimeInMillis();
+
             StatusLine statusLine = response.getStatusLine();
 
-            if (statusLine.getStatusCode() == 500 || statusLine.getStatusCode() == 503) {
+            final long responseTime = endTime - startTime;
+
+            if (endTime - startTime > 15000) {
+                ((Activity)context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            if (sharedPrefs.getBoolean("show_tweetmarker_length", true)) {
+                                new AlertDialog.Builder(context)
+                                        .setTitle("Slow TweetMarker Fetch")
+                                        .setMessage("TweetMarker successfully fetched it's position, but seemed to take quite a bit of time. " +
+                                                "They may be experiencing issues at the moment, you may want to try again in a little while! \n\n" +
+                                                "Time: " + (responseTime / 1000))
+                                        .setPositiveButton("Turn Off TM", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                sharedPrefs.edit().putString("tweetmarker_options", "0").commit();
+                                                AppSettings.invalidate();
+                                            }
+                                        })
+                                        .setNeutralButton(R.string.dont_show_again, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                sharedPrefs.edit().putBoolean("show_tweetmarker_length", false).commit();
+                                                dialog.dismiss();
+                                            }
+                                        })
+                                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        })
+                                        .create()
+                                        .show();
+                            }
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+            } else if (statusLine.getStatusCode() == 500 || statusLine.getStatusCode() == 503) {
                 // common tweetmarker failure codes
                 final StatusLine s = statusLine;
 
@@ -172,9 +217,9 @@ public class TweetMarkerHelper extends APIHelper {
                         }
                     }
                 });
-            }
 
-            if (statusLine.getStatusCode() == 200) { // request ok
+                updated = false;
+            } else if (statusLine.getStatusCode() == 200) { // request ok
                 BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
                 String line;
