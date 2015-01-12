@@ -145,7 +145,7 @@ public class TweetMarkerHelper extends APIHelper {
 
             final long responseTime = endTime - startTime;
 
-            if (endTime - startTime > 15000) {
+            if (endTime - startTime > 15000 && statusLine.getStatusCode() == 200) {
                 ((Activity)context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -184,7 +184,9 @@ public class TweetMarkerHelper extends APIHelper {
                         }
                     }
                 });
-            } else if (statusLine.getStatusCode() == 500 || statusLine.getStatusCode() == 503) {
+            }
+
+            if (statusLine.getStatusCode() == 500 || statusLine.getStatusCode() == 503) {
                 // common tweetmarker failure codes
                 final StatusLine s = statusLine;
 
