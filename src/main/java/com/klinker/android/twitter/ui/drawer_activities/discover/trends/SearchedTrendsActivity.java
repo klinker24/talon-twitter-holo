@@ -249,13 +249,8 @@ public class SearchedTrendsActivity extends Activity {
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             searchQuery = intent.getStringExtra(SearchManager.QUERY);
-            searchQuery += " -RT";
 
             String query = searchQuery;
-
-            if (query.contains("\"")) {
-                doSearch(query);
-            }
 
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
@@ -276,6 +271,14 @@ public class SearchedTrendsActivity extends Activity {
                     source.createTag(searchQuery.replaceAll("\"", ""));
                 }
             }
+
+            searchQuery += " -RT";
+
+            if (query.contains("\"")) {
+                doSearch(query);
+            }
+
+
         }
     }
 
