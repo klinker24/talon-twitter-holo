@@ -22,6 +22,7 @@
         <text>[New] Local trends swipe-able page</text>
         <text>[Improve] Much better auto-complete</text>
         <text>[Improve] Saving of search queries</text>
+        <text>[Improve] Remove retweets from searches by default</text>
     </version>
 
     <version name="3.7.2">
