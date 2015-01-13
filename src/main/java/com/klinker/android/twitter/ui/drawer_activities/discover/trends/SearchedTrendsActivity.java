@@ -250,8 +250,6 @@ public class SearchedTrendsActivity extends Activity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             searchQuery = intent.getStringExtra(SearchManager.QUERY);
 
-            String query = searchQuery;
-
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
 
@@ -273,6 +271,7 @@ public class SearchedTrendsActivity extends Activity {
             }
 
             searchQuery += " -RT";
+            String query = searchQuery;
 
             if (query.contains("\"")) {
                 doSearch(query);
