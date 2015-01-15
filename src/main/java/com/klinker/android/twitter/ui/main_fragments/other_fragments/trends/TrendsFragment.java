@@ -35,13 +35,17 @@ public abstract class TrendsFragment extends MainFragment {
                 Trends trends = getTrends();
 
                 if (trends == null) {
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            listView.setVisibility(View.GONE);
-                            spinner.setVisibility(View.GONE);
-                        }
-                    });
+                    try {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                listView.setVisibility(View.GONE);
+                                spinner.setVisibility(View.GONE);
+                            }
+                        });
+                    } catch (Exception e) {
+
+                    }
 
                     return;
                 }
@@ -53,23 +57,27 @@ public abstract class TrendsFragment extends MainFragment {
                     currentTrends.add(name);
                 }
 
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if (currentTrends != null) {
-                                listView.setAdapter(new TrendsArrayAdapter(context, currentTrends));
-                                listView.setVisibility(View.VISIBLE);
+                try {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (currentTrends != null) {
+                                    listView.setAdapter(new TrendsArrayAdapter(context, currentTrends));
+                                    listView.setVisibility(View.VISIBLE);
+                                }
+
+                                spinner.setVisibility(View.GONE);
+
+                                refreshLayout.setRefreshing(false);
+                            } catch (Exception e) {
+                                // not attached to activity
                             }
-
-                            spinner.setVisibility(View.GONE);
-
-                            refreshLayout.setRefreshing(false);
-                        } catch (Exception e) {
-                            // not attached to activity
                         }
-                    }
-                });
+                    });
+                } catch (Exception e) {
+                    
+                }
 
                 HashtagDataSource source = HashtagDataSource.getInstance(context);
 
