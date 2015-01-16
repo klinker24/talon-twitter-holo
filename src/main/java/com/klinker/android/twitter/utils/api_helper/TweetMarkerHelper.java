@@ -35,6 +35,7 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
@@ -146,7 +147,7 @@ public class TweetMarkerHelper extends APIHelper {
             final long responseTime = endTime - startTime;
 
             if (endTime - startTime > 15000 && statusLine.getStatusCode() == 200) {
-                ((Activity)context).runOnUiThread(new Runnable() {
+                ((Activity) context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         try {
@@ -190,7 +191,7 @@ public class TweetMarkerHelper extends APIHelper {
                 // common tweetmarker failure codes
                 final StatusLine s = statusLine;
 
-                ((Activity)context).runOnUiThread(new Runnable() {
+                ((Activity) context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         try {
@@ -293,7 +294,37 @@ public class TweetMarkerHelper extends APIHelper {
                     }
                 }
             }
+        } catch (HttpHostConnectException e) {
+            // timeout when connecting to host.
+            ((Activity) context).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        new AlertDialog.Builder(context)
+                                .setTitle("TweetMarker Failure")
+                                .setMessage("Timeout connecting to TweetMarker." + "\n\n" +
+                                        "TweetMarker has been experiencing some issues on their end lately with some apps. They seem intermittent, random, and are causing incredibly slow load times." +
+                                        "I have been in contact with them, but I would recommend turning off this feature until these issues are resolved.")
+                                .setPositiveButton("Turn Off TM", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        sharedPrefs.edit().putString("tweetmarker_options", "0").commit();
+                                        AppSettings.invalidate();
+                                    }
+                                })
+                                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .create()
+                                .show();
+                    } catch (Exception e) {
 
+                    }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         } catch (OutOfMemoryError e) {

@@ -24,6 +24,7 @@
         <text>[Improve] Saving of search queries</text>
         <text>[Improve] Remove retweets from searches by default</text>
         <text>[Fix] Replacing some links</text>
+        <text>[Improve] User awareness for TweetMarker issues</text>
     </version>
 
     <version name="3.7.2">
