@@ -1245,27 +1245,36 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         otherLink[i] = "" + otherLinks[i];
                     }
 
+                    for (String s : otherLink) {
+                        Log.v("talon_links", ":" + s + ":");
+                    }
 
                     boolean changed = false;
+                    int otherIndex = 0;
 
                     if (otherLink.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             String s = split[i];
 
-                            if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
+                            //if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
+                            if (s.contains("...")) { // we know the link is cut off
                                 String f = s.replace("...", "").replace("http", "");
 
-                                for (int x = 0; x < otherLink.length; x++) {
-                                    if (otherLink[x].contains(f)) {
-                                        changed = true;
-                                        // for some reason it wouldn't match the last "/" on a url and it was stopping it from opening
-                                        if (otherLink[x].substring(otherLink[x].length() - 1, otherLink[x].length()).equals("/")) {
-                                            otherLink[x] = otherLink[x].substring(0, otherLink[x].length() - 1);
+                                f = stripTrailingPeriods(f);
+
+                                try {
+                                    if (otherIndex < otherLinks.length) {
+                                        if (otherLink[otherIndex].substring(otherLink[otherIndex].length() - 1, otherLink[otherIndex].length()).equals("/")) {
+                                            otherLink[otherIndex] = otherLink[otherIndex].substring(0, otherLink[otherIndex].length() - 1);
                                         }
-                                        f = otherLink[x];
-                                        otherLink[x] = "";
-                                        break;
+                                        f = otherLink[otherIndex].replace("http://", "").replace("https://", "").replace("www.", "");
+                                        otherLink[otherIndex] = "";
+                                        otherIndex++;
+
+                                        changed = true;
                                     }
+                                } catch (Exception e) {
+
                                 }
 
                                 if (changed) {
@@ -1310,6 +1319,18 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     }
 
                     return full;
+                }
+
+                private String stripTrailingPeriods(String url) {
+                    try {
+                        if (url.substring(url.length() - 1, url.length()).equals(".")) {
+                            return stripTrailingPeriods(url.substring(0, url.length() - 1));
+                        } else {
+                            return url;
+                        }
+                    } catch (Exception e) {
+                        return url;
+                    }
                 }
             });
 

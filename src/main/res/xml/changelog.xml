@@ -23,6 +23,7 @@
         <text>[Improve] Much better auto-complete</text>
         <text>[Improve] Saving of search queries</text>
         <text>[Improve] Remove retweets from searches by default</text>
+        <text>[Fix] Replacing some links</text>
     </version>
 
     <version name="3.7.2">

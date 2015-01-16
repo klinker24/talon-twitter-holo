@@ -1077,7 +1077,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                         otherLink[i] = "" + otherLinks[i];
                     }
 
+                    for (String s : otherLink) {
+                        Log.v("talon_links", ":" + s + ":");
+                    }
+
                     boolean changed = false;
+                    int otherIndex = 0;
 
                     if (otherLink.length > 0) {
                         for (int i = 0; i < split.length; i++) {
@@ -1087,23 +1092,21 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                             if (s.contains("...")) { // we know the link is cut off
                                 String f = s.replace("...", "").replace("http", "");
 
-                                Log.v("talon_links", ":" + s + ":");
+                                f = stripTrailingPeriods(f);
 
-                                for (int x = 0; x < otherLink.length; x++) {
-                                    if (otherLink[x].toLowerCase().contains(f.toLowerCase())) {
-                                        changed = true;
-                                        // for some reason it wouldn't match the last "/" on a url and it was stopping it from opening
-                                        try {
-                                            if (otherLink[x].substring(otherLink[x].length() - 1, otherLink[x].length()).equals("/")) {
-                                                otherLink[x] = otherLink[x].substring(0, otherLink[x].length() - 1);
-                                            }
-                                            f = otherLink[x].replace("http://", "").replace("https://", "").replace("www.", "");
-                                            otherLink[x] = "";
-                                        } catch (Exception e) {
-
+                                try {
+                                    if (otherIndex < otherLinks.length) {
+                                        if (otherLink[otherIndex].substring(otherLink[otherIndex].length() - 1, otherLink[otherIndex].length()).equals("/")) {
+                                            otherLink[otherIndex] = otherLink[otherIndex].substring(0, otherLink[otherIndex].length() - 1);
                                         }
-                                        break;
+                                        f = otherLink[otherIndex].replace("http://", "").replace("https://", "").replace("www.", "");
+                                        otherLink[otherIndex] = "";
+                                        otherIndex++;
+
+                                        changed = true;
                                     }
+                                } catch (Exception e) {
+
                                 }
 
                                 if (changed) {
@@ -1121,7 +1124,6 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     if (!webpage.equals("")) {
                         for (int i = 0; i < split.length; i++) {
                             String s = split[i];
-
                             if (s.contains("...")) {
                                 s = s.replace("...", "");
 
@@ -1149,6 +1151,18 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     }
 
                     return full;
+                }
+
+                private String stripTrailingPeriods(String url) {
+                    try {
+                        if (url.substring(url.length() - 1, url.length()).equals(".")) {
+                            return stripTrailingPeriods(url.substring(0, url.length() - 1));
+                        } else {
+                            return url;
+                        }
+                    } catch (Exception e) {
+                        return url;
+                    }
                 }
             });
 
