@@ -62,7 +62,7 @@ public class TweetMarkerHelper extends APIHelper {
         this.twitter = twitter;
         this.sharedPrefs = sharedPrefs;
 
-        postURL = "http://api.tweetmarker.net/v2/lastread?api_key=" + Uri.encode(TWEETMARKER_API_KEY) +
+        postURL = "https://api.tweetmarker.net/v2/lastread?api_key=" + Uri.encode(TWEETMARKER_API_KEY) +
                 "&username=" + Uri.encode(screenname);
     }
 
