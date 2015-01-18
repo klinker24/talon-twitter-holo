@@ -78,6 +78,9 @@ public class AppSettings {
     public static final int PAGE_TYPE_SECOND_MENTIONS = 8;
     public static final int PAGE_TYPE_WORLD_TRENDS = 9;
     public static final int PAGE_TYPE_LOCAL_TRENDS = 10;
+    public static final int PAGE_TYPE_SAVED_SEARCH = 11;
+    public static final int PAGE_TYPE_ACTIVITY = 12;
+    public static final int PAGE_TYPE_FAVORITE_STATUS = 13;
 
     public static final int LAYOUT_TALON = 0;
     public static final int LAYOUT_HANGOUT = 1;

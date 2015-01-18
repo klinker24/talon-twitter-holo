@@ -175,6 +175,11 @@
             android:label="@string/lists"
             android:theme="@style/Theme.TalonDark"
             />
+S
+        <activity android:name=".settings.configure_pages.SearchChooser"
+            android:label="@string/saved_searches"
+            android:theme="@style/Theme.TalonDark"
+            />
 
         <activity android:name=".ui.search.SearchPager"
             android:label="@string/search"

@@ -82,6 +82,9 @@ public class ChooserFragment extends Fragment {
         list.add(context.getString(R.string.second_acc_mentions));
         list.add(getResources().getString(R.string.world_trends));
         list.add(getString(R.string.local_trends));
+        list.add(getString(R.string.saved_search));
+        list.add(getString(R.string.activity));
+        list.add(getString(R.string.favorite_tweets));
 
         View layout = inflater.inflate(R.layout.configuration_page, null);
 
@@ -124,6 +127,12 @@ public class ChooserFragment extends Fragment {
                     case 10:
                         setType(AppSettings.PAGE_TYPE_LOCAL_TRENDS);
                         break;
+                    case 11:
+                        chooser = new Intent(context, SearchChooser.class);
+                        startActivityForResult(chooser, REQUEST_SAVED_SEARCH);
+                        break;
+                    case 12:
+                    case 13:
                     default:
                         setType(AppSettings.PAGE_TYPE_NONE);
                         break;
@@ -163,20 +172,32 @@ public class ChooserFragment extends Fragment {
     }
 
     public static int REQUEST_LIST = 1;
+    public static int REQUEST_SAVED_SEARCH = 2;
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == REQUEST_LIST) {
-
             if(resultCode == Activity.RESULT_OK) {
                 setId(data.getLongExtra("listId", 0));
                 String listName = data.getStringExtra("listName");
                 setListName(listName);
+                setSearchQuery("");
                 setType(AppSettings.PAGE_TYPE_LIST);
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
+            } else if (resultCode == Activity.RESULT_CANCELED) {
                 setType(AppSettings.PAGE_TYPE_NONE);
+                setListName("");
+                setId(0);
+                setSearchQuery("");
+            }
+        } else if (requestCode == REQUEST_SAVED_SEARCH) {
+            if (resultCode == Activity.RESULT_OK) {
+                setSearchQuery(data.getStringExtra("search_query"));
+                setType(AppSettings.PAGE_TYPE_SAVED_SEARCH);
+                setListName("");
+                setId(0);
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                setType(AppSettings.PAGE_TYPE_NONE);
+                setSearchQuery("");
                 setListName("");
                 setId(0);
             }
@@ -186,6 +207,7 @@ public class ChooserFragment extends Fragment {
     public int type = AppSettings.PAGE_TYPE_NONE;
     public long listId = 0;
     public String listName = "";
+    public String searchQuery = "";
 
     protected void setType(int type) {
         this.type = type;
@@ -195,6 +217,9 @@ public class ChooserFragment extends Fragment {
     }
     protected void setListName(String listName) {
         this.listName = listName;
+    }
+    protected void setSearchQuery(String searchQuery) {
+        this.searchQuery = searchQuery;
     }
 
     @Override

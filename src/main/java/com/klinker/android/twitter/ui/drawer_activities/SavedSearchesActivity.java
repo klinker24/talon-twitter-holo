@@ -140,10 +140,7 @@ public class SavedSearchesActivity extends DrawerActivity {
 
                     final ArrayList<String> searchNames = new ArrayList<String>();
 
-                    Log.v("talon_searches", "got saved searches");
-
                     for (SavedSearch sear : searches) {
-                        Log.v("talon_searches", sear.getName());
                         searchNames.add(sear.getQuery());
                     }
 

@@ -54,6 +54,8 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
     public List<Long> listIds = new ArrayList<Long>(); // 0 is the furthest to the left
     public List<Integer> pageTypes = new ArrayList<Integer>();
     public List<String> pageNames = new ArrayList<String>();
+    public List<String> searchPages = new ArrayList<String>();
+    public List<String> searchNames = new ArrayList<String>();
 
     public Set<String> shownItems;
 
@@ -82,13 +84,13 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
 
         textSize = 15;
 
-
         int currentAccount = sharedPrefs.getInt("current_account", 1);
 
         for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
             String listIdentifier = "account_" + currentAccount + "_list_" + (i + 1) + "_long";
             String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
             String nameIdentifier = "account_" + currentAccount + "_name_" + (i + 1);
+            String searchIdentifier = "account_" + currentAccount + "_search_" + (i + 1);
 
             int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
 
@@ -96,6 +98,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 pageTypes.add(type);
                 listIds.add(sharedPrefs.getLong(listIdentifier, 0l));
                 pageNames.add(sharedPrefs.getString(nameIdentifier, ""));
+                searchNames.add(sharedPrefs.getString(searchIdentifier, ""));
             }
         }
 
@@ -118,6 +121,16 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                     break;
                 case AppSettings.PAGE_TYPE_LOCAL_TRENDS:
                     text.add(context.getString(R.string.local_trends));
+                    break;
+                case AppSettings.PAGE_TYPE_SAVED_SEARCH:
+                    text.add(searchNames.get(i));
+                    searchPages.add(pageNames.get(i));
+                    break;
+                case AppSettings.PAGE_TYPE_ACTIVITY:
+                    text.add(context.getString(R.string.activity));
+                    break;
+                case AppSettings.PAGE_TYPE_FAVORITE_STATUS:
+                    text.add(context.getString(R.string.favorite_tweets));
                     break;
                 default:
                     text.add(getName(pageNames.get(i), pageTypes.get(i)));
@@ -215,7 +228,8 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.saved_searches))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.saved_searches)) ||
+                    pageTypes.get(position) == AppSettings.PAGE_TYPE_SAVED_SEARCH) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.searchIcon});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
@@ -227,6 +241,11 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 holder.icon.setImageResource(resource);
             } else if (text.get(position).equals(context.getResources().getString(R.string.pictures))) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.picturePlaceholder});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else if(text.get(position).equals(context.getString(R.string.activity))) {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.notification_button});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);

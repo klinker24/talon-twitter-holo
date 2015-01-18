@@ -32,6 +32,7 @@ import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.L
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.ListFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.PicFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.SavedSearchFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.SecondAccMentionsFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
@@ -52,6 +53,7 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
     public List<Long> listIds = new ArrayList<Long>(); // 0 is the furthest to the left
     public List<Integer> pageTypes = new ArrayList<Integer>();
     public List<String> pageNames = new ArrayList<String>();
+    public List<String> searches = new ArrayList<String>();
 
     public List<Fragment> frags = new ArrayList<Fragment>();
     public List<String> names = new ArrayList<String>();
@@ -66,7 +68,6 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
 
         int currentAccount = sharedPreferences.getInt("current_account", 1);
 
-        // used when converting to twitter4j 4.0.0
         if (sharedPrefs.getBoolean("convert_long_lists", true)) {
             sharedPreferences.edit().putBoolean("convert_long_lists", false).commit();
             sharedPrefs.edit().putLong("account_1_list_1_long", sharedPrefs.getInt("account_1_list_1", 0)).commit();
@@ -79,6 +80,7 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
             String listIdentifier = "account_" + currentAccount + "_list_" + (i + 1) + "_long";
             String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
             String nameIdentifier = "account_" + currentAccount + "_name_" + (i + 1);
+            String searchIdentifier = "account_" + currentAccount + "_search_" + (i + 1);
 
             int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
 
@@ -87,6 +89,7 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                 pageTypes.add(type);
                 listIds.add(sharedPrefs.getLong(listIdentifier, 0l));
                 pageNames.add(sharedPrefs.getString(nameIdentifier, ""));
+                searches.add(sharedPrefs.getString(searchIdentifier, ""));
             }
         }
 
@@ -118,6 +121,17 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                     frags.add(new LocalTrendsFragment());
                     names.add(context.getString(R.string.local_trends));
                     break;
+                case AppSettings.PAGE_TYPE_SAVED_SEARCH:
+                    Fragment f = new SavedSearchFragment();
+                    Bundle b = new Bundle();
+                    b.putString("saved_search", searches.get(i));
+                    f.setArguments(b);
+
+                    frags.add(f);
+                    names.add(searches.get(i));
+                    break;
+                case AppSettings.PAGE_TYPE_FAVORITE_STATUS:
+                case AppSettings.PAGE_TYPE_ACTIVITY:
                 default:
                     frags.add(getFrag(pageTypes.get(i), listIds.get(i)));
                     names.add(getName(pageNames.get(i), pageTypes.get(i)));

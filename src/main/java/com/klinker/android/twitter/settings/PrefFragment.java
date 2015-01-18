@@ -184,6 +184,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
                 List<Integer> pageTypes = new ArrayList<Integer>();
                 List<String> pageNames = new ArrayList<String>();
+                List<String> searches = new ArrayList<String>();
                 List<String> text = new ArrayList<String>();
 
                 final int currentAccount = sharedPrefs.getInt("current_account", 1);
@@ -191,12 +192,14 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
                     String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
                     String nameIdentifier = "account_" + currentAccount + "_name_" + (i + 1);
+                    String searchIdentifier = "account_" + currentAccount + "_search_" + (i + 1);
 
                     int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
 
                     if (type != AppSettings.PAGE_TYPE_NONE) {
                         pageTypes.add(type);
                         pageNames.add(sharedPrefs.getString(nameIdentifier, ""));
+                        searches.add(sharedPrefs.getString(searchIdentifier, ""));
                     }
                 }
                 for (int i = 0; i < pageTypes.size(); i++) {
@@ -218,6 +221,15 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                             break;
                         case AppSettings.PAGE_TYPE_LOCAL_TRENDS:
                             text.add(getString(R.string.local_trends));
+                            break;
+                        case AppSettings.PAGE_TYPE_SAVED_SEARCH:
+                            text.add(searches.get(i));
+                            break;
+                        case AppSettings.PAGE_TYPE_ACTIVITY:
+                            text.add(getString(R.string.activity));
+                            break;
+                        case AppSettings.PAGE_TYPE_FAVORITE_STATUS:
+                            text.add(getString(R.string.favorite_tweets));
                             break;
                         default:
                             text.add(getName(pageNames.get(i), pageTypes.get(i)));

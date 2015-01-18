@@ -186,11 +186,6 @@ public class SearchedTrendsActivity extends Activity {
         spinner = (LinearLayout) findViewById(R.id.list_progress);
         spinner.setVisibility(View.GONE);
 
-        Intent intent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-
-        }
-
         handleIntent(getIntent());
 
         Utils.setActionBar(context);
@@ -261,7 +256,6 @@ public class SearchedTrendsActivity extends Activity {
 
             if (searchQuery.contains("#")) {
                 // we want to add it to the userAutoComplete
-                Log.v("talon_hashtag", "adding: " + searchQuery.replaceAll("\"", ""));
                 HashtagDataSource source = HashtagDataSource.getInstance(context);
 
                 if (source != null) {
@@ -270,14 +264,12 @@ public class SearchedTrendsActivity extends Activity {
                 }
             }
 
-            searchQuery += " -RT";
+            if (!searchQuery.contains("-RT")) {
+                searchQuery += " -RT";
+            }
             String query = searchQuery;
 
-            if (query.contains("\"")) {
-                doSearch(query);
-            }
-
-
+            doSearch(query);
         }
     }
 
@@ -494,6 +486,7 @@ public class SearchedTrendsActivity extends Activity {
                 try {
                     Twitter twitter = Utils.getTwitter(context, settings);
 
+                    Log.v("talon_search", "search query: " + mQuery);
                     query = new Query();
 
                     if (mQuery.contains(" TOP")) {

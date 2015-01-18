@@ -345,7 +345,7 @@ public class SearchPager extends Activity {
                     public void run() {
                         try {
                             Twitter twitter = Utils.getTwitter(context, AppSettings.getInstance(context));
-                            twitter.createSavedSearch(searchQuery);
+                            twitter.createSavedSearch(searchQuery.replace(" -RT", "").replace(" TOP", ""));
 
                             ((Activity)context).runOnUiThread(new Runnable() {
                                 @Override

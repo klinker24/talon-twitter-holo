@@ -672,6 +672,8 @@
     <string name="second_acc_mentions">Second Account Mentions</string>
     <string name="using_second_account">Using %s account!</string> <!-- the username will replace %s -->
     <string name="error_gif">Error finding GIF</string>
+    <string name="saved_search">Saved Search</string>
+    <string name="activity">Activity</string>
 
 
     <!-- Long click methods -->
