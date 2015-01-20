@@ -436,6 +436,7 @@ public class DirectMessageConversation extends Activity {
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("com.klinker.android.twitter.UPDATE_DM");
+        filter.addAction("com.klinker.android.twitter.NEW_DIRECT_MESSAGE");
         context.registerReceiver(updateConv, filter);
     }
 

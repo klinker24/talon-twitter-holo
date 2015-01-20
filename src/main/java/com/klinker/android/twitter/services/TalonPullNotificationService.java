@@ -711,29 +711,29 @@ public class TalonPullNotificationService extends Service {
                 return;
             }
 
-            //if (!directMessage.getSender().getScreenName().equals(settings.myScreenName)) {
-                Log.v("twitter_stream_push", "onDirectMessage text:"
-                        + directMessage.getText());
+            Log.v("twitter_stream_push", "onDirectMessage text:"
+                    + directMessage.getText());
 
-                AppSettings settings = new AppSettings(mContext);
+            AppSettings settings = new AppSettings(mContext);
 
-                DMDataSource.getInstance(mContext).createDirectMessage(directMessage, sharedPreferences.getInt("current_account", 1));
+            DMDataSource.getInstance(mContext).createDirectMessage(directMessage, sharedPreferences.getInt("current_account", 1));
 
-                int numUnread = sharedPreferences.getInt("dm_unread_" + sharedPreferences.getInt("current_account", 1), 0);
-                numUnread++;
-                sharedPreferences.edit().putInt("dm_unread_" + sharedPreferences.getInt("current_account", 1), numUnread).commit();
-                sharedPreferences.edit().putBoolean("refresh_me_dm", true).commit();
+            int numUnread = sharedPreferences.getInt("dm_unread_" + sharedPreferences.getInt("current_account", 1), 0);
+            numUnread++;
+            sharedPreferences.edit().putInt("dm_unread_" + sharedPreferences.getInt("current_account", 1), numUnread).commit();
+            sharedPreferences.edit().putBoolean("refresh_me_dm", true).commit();
 
 
-                sharedPreferences.edit().putLong("last_direct_message_id_" + sharedPreferences.getInt("current_account", 1), directMessage.getId()).commit();
+            sharedPreferences.edit().putLong("last_direct_message_id_" + sharedPreferences.getInt("current_account", 1), directMessage.getId()).commit();
 
-                if (!directMessage.getSender().getScreenName().equals(settings.myScreenName) &&
-                        settings.notifications &&
-                        settings.dmsNot) {
+            if (!directMessage.getSender().getScreenName().equals(settings.myScreenName) &&
+                    settings.notifications &&
+                    settings.dmsNot) {
 
-                    NotificationUtils.refreshNotification(mContext);
-                }
-            //}
+                NotificationUtils.refreshNotification(mContext);
+            }
+
+            mContext.sendBroadcast(new Intent("com.klinker.android.twitter.NEW_DIRECT_MESSAGE"));
         }
 
         @Override

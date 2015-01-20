@@ -21,13 +21,15 @@
         <text>[New] Saved searches swipe-able page</text>
         <text>[New] World trends swipe-able page</text>
         <text>[New] Local trends swipe-able page</text>
-        <text>[Improve] Much better auto-complete</text>
+        <text>[New] Update direct messages conversation automatically when new messages arrive</text>
+        <text>[Improve] Auto-complete</text>
         <text>[Improve] Saving of search queries</text>
         <text>[Improve] Remove retweets from searches by default</text>
         <text>[Improve] User awareness for TweetMarker issues</text>
         <text>[Improve] Format when saving a search</text>
         <text>[Fix] Replacing some links</text>
         <text>[Fix] Saved searches not displaying results</text>
+        <text>[Fix] Replacing some links</text>
     </version>
 
     <version name="3.7.2">

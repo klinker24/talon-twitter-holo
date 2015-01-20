@@ -120,6 +120,8 @@ public class DirectMessageRefreshService extends IntentService {
                 startService(new Intent(context, SecondDMRefreshService.class));
             }
 
+            sendBroadcast(new Intent("com.klinker.android.twitter.NEW_DIRECT_MESSAGE"));
+
         } catch (TwitterException e) {
             // Error in updating status
             Log.d("Twitter Update Error", e.getMessage());
