@@ -4,6 +4,7 @@
     - tweetmarker in lists
     - Night mode for themes
     - easier manipulation of lists on users profiles (view all the lists they are apart of and add/remove them from them)
+    - New retweets streaming methods (need twitter4j update)
 
 - Bugs:
     - switch mentions to save the position instead of current unread method
@@ -23,7 +24,6 @@ either, or ETA's, so please do not ask for them
 
     Version 3.5 (finally make more extra pages)
         - More fragments to choose from
-            - search fragment (with search box and saved search) on main timelines
             - favorite tweets fragment
             - Activity fragment
 

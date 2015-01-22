@@ -28,9 +28,11 @@
         <text>[Improve] User awareness for TweetMarker issues</text>
         <text>[Improve] Format when saving a search</text>
         <text>[Improve] Internal to external browser transition</text>
+        <text>[Improve] Always show images on direct messages</text>
         <text>[Fix] Replacing some links</text>
         <text>[Fix] Saved searches not displaying results</text>
         <text>[Fix] Replacing some links</text>
+        <text>[Fix] Notification when sending Direct Message</text>
     </version>
 
     <version name="3.7.2">
