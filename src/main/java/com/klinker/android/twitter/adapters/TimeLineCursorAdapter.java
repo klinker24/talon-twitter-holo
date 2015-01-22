@@ -684,7 +684,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
         boolean picture = false;
 
-        if(settings.inlinePics && holder.picUrl != null) {
+        if((settings.inlinePics || isDM) && holder.picUrl != null) {
             if (holder.picUrl.equals("")) {
                 if (holder.image.getVisibility() != View.GONE) {
                     holder.image.setVisibility(View.GONE);
