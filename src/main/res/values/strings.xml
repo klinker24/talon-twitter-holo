@@ -674,6 +674,7 @@
     <string name="error_gif">Error finding GIF</string>
     <string name="saved_search">Saved Search</string>
     <string name="activity">Activity</string>
+    <string name="sending_direct_message">Sending Direct Message</string>
 
 
     <!-- Long click methods -->

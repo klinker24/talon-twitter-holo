@@ -655,10 +655,14 @@ public abstract class Compose extends Activity implements
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_stat_icon)
-                        .setContentTitle(getResources().getString(R.string.sending_tweet))
-                        //.setTicker(getResources().getString(R.string.sending_tweet))
                         .setOngoing(true)
                         .setProgress(100, 0, true);
+
+        if (Compose.this instanceof ComposeDMActivity) {
+            mBuilder.setContentTitle(getResources().getString(R.string.sending_tweet));
+        } else {
+            mBuilder.setContentTitle(getResources().getString(R.string.sending_direct_message));
+        }
 
         Intent resultIntent = new Intent(this, MainActivity.class);
 
