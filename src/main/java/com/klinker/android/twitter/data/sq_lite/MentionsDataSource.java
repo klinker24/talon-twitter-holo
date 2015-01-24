@@ -25,6 +25,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.preference.PreferenceManager;
 
+import android.text.TextUtils;
 import com.klinker.android.twitter.utils.TweetLinkUtils;
 
 import java.util.List;
@@ -63,7 +64,8 @@ public class MentionsDataSource {
     public String[] allColumns = {MentionsSQLiteHelper.COLUMN_ID, MentionsSQLiteHelper.COLUMN_UNREAD, MentionsSQLiteHelper.COLUMN_TWEET_ID, MentionsSQLiteHelper.COLUMN_ACCOUNT, MentionsSQLiteHelper.COLUMN_TYPE,
             MentionsSQLiteHelper.COLUMN_TEXT, MentionsSQLiteHelper.COLUMN_NAME, MentionsSQLiteHelper.COLUMN_PRO_PIC,
             MentionsSQLiteHelper.COLUMN_SCREEN_NAME, MentionsSQLiteHelper.COLUMN_TIME, MentionsSQLiteHelper.COLUMN_PIC_URL,
-            MentionsSQLiteHelper.COLUMN_RETWEETER, MentionsSQLiteHelper.COLUMN_URL, HomeSQLiteHelper.COLUMN_USERS, HomeSQLiteHelper.COLUMN_HASHTAGS, MentionsSQLiteHelper.COLUMN_ANIMATED_GIF };
+            MentionsSQLiteHelper.COLUMN_RETWEETER, MentionsSQLiteHelper.COLUMN_URL, HomeSQLiteHelper.COLUMN_USERS, HomeSQLiteHelper.COLUMN_HASHTAGS, MentionsSQLiteHelper.COLUMN_ANIMATED_GIF,
+            MentionsSQLiteHelper.COLUMN_CONVERSATION};
 
     public MentionsDataSource(Context context) {
         dbHelper = new MentionsSQLiteHelper(context);
@@ -130,6 +132,7 @@ public class MentionsDataSource {
         values.put(MentionsSQLiteHelper.COLUMN_USERS, users);
         values.put(MentionsSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(MentionsSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, TextUtils.isEmpty(status.getInReplyToScreenName()) ? 0 : 1);
 
         try {
             database.insert(MentionsSQLiteHelper.TABLE_MENTIONS, null, values);
@@ -170,6 +173,7 @@ public class MentionsDataSource {
         values.put(MentionsSQLiteHelper.COLUMN_USERS, users);
         values.put(MentionsSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(MentionsSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, TextUtils.isEmpty(status.getInReplyToScreenName()) ? 0 : 1);
 
         try {
             database.insert(MentionsSQLiteHelper.TABLE_MENTIONS, null, values);
@@ -216,6 +220,7 @@ public class MentionsDataSource {
             values.put(MentionsSQLiteHelper.COLUMN_USERS, users);
             values.put(MentionsSQLiteHelper.COLUMN_HASHTAGS, hashtags);
             values.put(MentionsSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
+            values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, TextUtils.isEmpty(status.getInReplyToScreenName()) ? 0 : 1);
 
             valueses[i] = values;
         }

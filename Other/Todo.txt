@@ -29,9 +29,9 @@ either, or ETA's, so please do not ask for them
 
 
     Version 3.6 (some random stuff that I want to do)
-        - conversation indicator on tweets
         - mute users for a time period
         - bug with unfollowing public lists
+        - Muffle user's tweets - max of 3 users, store in shared prefs
 
 
     Version 3.7 (Widget updates)

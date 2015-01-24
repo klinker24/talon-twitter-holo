@@ -24,6 +24,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.klinker.android.twitter.adapters.CursorListLoader;
@@ -71,7 +72,7 @@ public class HomeDataSource {
             HomeSQLiteHelper.COLUMN_TEXT, HomeSQLiteHelper.COLUMN_NAME, HomeSQLiteHelper.COLUMN_PRO_PIC,
             HomeSQLiteHelper.COLUMN_SCREEN_NAME, HomeSQLiteHelper.COLUMN_TIME, HomeSQLiteHelper.COLUMN_PIC_URL,
             HomeSQLiteHelper.COLUMN_RETWEETER, HomeSQLiteHelper.COLUMN_URL, HomeSQLiteHelper.COLUMN_USERS, HomeSQLiteHelper.COLUMN_HASHTAGS,
-            HomeSQLiteHelper.COLUMN_CURRENT_POS, HomeSQLiteHelper.COLUMN_ANIMATED_GIF
+            HomeSQLiteHelper.COLUMN_CURRENT_POS, HomeSQLiteHelper.COLUMN_ANIMATED_GIF, HomeSQLiteHelper.COLUMN_CONVERSATION
     };
 
     public HomeDataSource(Context context) {
@@ -153,6 +154,7 @@ public class HomeDataSource {
         values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
         values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, TextUtils.isEmpty(status.getInReplyToScreenName()) ? 0 : 1);
 
         try {
             database.insert(HomeSQLiteHelper.TABLE_HOME, null, values);
@@ -206,6 +208,7 @@ public class HomeDataSource {
         values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
         values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, TextUtils.isEmpty(status.getInReplyToScreenName()) ? 0 : 1);
 
         try {
             database.insert(HomeSQLiteHelper.TABLE_HOME, null, values);
@@ -267,6 +270,7 @@ public class HomeDataSource {
                 values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
                 values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
                 values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
+                values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, TextUtils.isEmpty(status.getInReplyToScreenName()) ? 0 : 1);
 
             } else {
                 values = null;
