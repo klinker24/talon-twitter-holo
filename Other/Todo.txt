@@ -22,18 +22,22 @@ I think are more important for the development of the app.
 Please keep that in mind when viewing this roadmap. It is simply a rough estimate, and I will not be providing any timetable for it
 either, or ETA's, so please do not ask for them
 
-    Version 3.5 (finally make more extra pages)
+    Version 4.0 (finally make more extra pages)
         - More fragments to choose from
             - favorite tweets fragment
             - Activity fragment
-
-
-    Version 3.6 (some random stuff that I want to do)
+        - Retweet and favorite from multiple accounts
         - mute users for a time period
         - bug with unfollowing public lists
+        - Expansion errors on nexus 7 for plus version of talon
 
 
-    Version 3.7 (Widget updates)
+    Version 4.1 (Widget and backend)
+        - once a day, check if there is a new version available for the classic version by grabbing html from web page
+            format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
+            compare that against the currently installed version.
+            If different, redirect them to the app page on the store.
+
         - expand the widget for mentions and multiple account support
         - 1x1 "tweeting" widget just to compose a tweet
         - timestamp on widget
