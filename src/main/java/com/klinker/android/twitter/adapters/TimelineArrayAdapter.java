@@ -453,7 +453,6 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         final String users = html[4];
 
         final boolean inAConversation = thisStatus.getInReplyToScreenName() != null;
-        Log.v("talon_screen_name", "in convo: " + inAConversation);
 
         holder.gifUrl = TweetLinkUtils.getGIFUrl(status, otherUrl);
 
