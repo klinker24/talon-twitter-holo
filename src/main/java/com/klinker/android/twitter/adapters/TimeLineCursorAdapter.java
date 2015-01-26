@@ -445,10 +445,14 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             retweeter = "";
         }
 
-        if (inAConversation && holder.isAConversation.getVisibility() == View.GONE) {
-            holder.isAConversation.setVisibility(View.VISIBLE);
-        } else if (holder.isAConversation.getVisibility() == View.VISIBLE) {
-            holder.isAConversation.setVisibility(View.GONE);
+        if (inAConversation) {
+            if (holder.isAConversation.getVisibility() != View.VISIBLE) {
+                holder.isAConversation.setVisibility(View.VISIBLE);
+            }
+        } else {
+            if (holder.isAConversation.getVisibility() != View.GONE) {
+                holder.isAConversation.setVisibility(View.GONE);
+            }
         }
 
         final String tweetText = tweetTexts;
