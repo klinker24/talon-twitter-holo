@@ -120,7 +120,7 @@ dependencies {
     compile 'org.apache.httpcomponents:httpcore:4.3.2'
     compile 'org.jsoup:jsoup:1.7.3'
 
-    compile files('lib/YouTubeAndroidPlayerApi.jar')
+    compile files('lib/YouTubeAndroidPlayerApi.jar') // version 1.2.1
     compile(name: 'datetimepicker', ext: 'aar')
     compile(name: 'bitmap-cache', ext: 'aar')
 
