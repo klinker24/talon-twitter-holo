@@ -1120,7 +1120,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                             String s = split[i];
 
                             //if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
-                            if (s.contains("...")) { // we know the link is cut off
+                            if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
                                 String f = s.replace("...", "").replace("http", "");
 
                                 f = stripTrailingPeriods(f);
@@ -1153,24 +1153,19 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     }
 
                     if (!webpage.equals("")) {
-                        for (int i = 0; i < split.length; i++) {
+                        for (int i = split.length - 1; i >= 0; i--) {
                             String s = split[i];
-                            if (s.contains("...")) {
-                                s = s.replace("...", "");
-
-                                if (Patterns.WEB_URL.matcher(s).find() && (s.startsWith("t.co/") || s.contains("twitter.com/"))) { // we know the link is cut off
-                                    String replace = otherLinks[otherLinks.length - 1];
-                                    if (replace.replace(" ", "").equals("")) {
-                                        replace = webpage;
-                                    }
-                                    split[i] = replace;
-                                    changed = true;
+                            if (Patterns.WEB_URL.matcher(s).find()) {
+                                String replace = otherLinks[otherLinks.length - 1];
+                                if (replace.replace(" ", "").equals("")) {
+                                    replace = webpage;
                                 }
+                                split[i] = replace;
+                                changed = true;
+                                break;
                             }
                         }
                     }
-
-
 
                     if(changed) {
                         full = "";
