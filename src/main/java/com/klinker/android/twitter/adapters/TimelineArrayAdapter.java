@@ -139,6 +139,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         public TextView screenTV;
         public ImageButton shareButton;
         public ImageButton quoteButton;
+        public ImageView isAConversation;
 
         public long tweetId;
         public boolean isFavorited;
@@ -320,6 +321,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     } catch (Exception e) {
                         // they don't exist because the theme was made before they were added
                     }
+
+                    try {
+                        holder.isAConversation = (ImageView) v.findViewById(res.getIdentifier("is_a_conversation", "id", settings.addonThemePackage));
+                    } catch (Exception e) {
+
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -347,6 +354,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                 } catch (Exception x) {
                     // theme was made before they were added
                 }
+
+                try {
+                    holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+                } catch (Exception x) {
+
+                }
             }
         } else {
             v = inflater.inflate(layout, viewGroup, false);
@@ -372,6 +385,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                 holder.shareButton = (ImageButton) v.findViewById(R.id.share_button);
             } catch (Exception x) {
                 // theme was made before they were added
+            }
+
+            try {
+                holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+            } catch (Exception x) {
+
             }
         }
 
@@ -433,7 +452,20 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         final String hashtags = html[3];
         final String users = html[4];
 
+        final boolean inAConversation = thisStatus.getInReplyToScreenName() != null;
+        Log.v("talon_screen_name", "in convo: " + inAConversation);
+
         holder.gifUrl = TweetLinkUtils.getGIFUrl(status, otherUrl);
+
+        if (inAConversation) {
+            if (holder.isAConversation.getVisibility() != View.VISIBLE) {
+                holder.isAConversation.setVisibility(View.VISIBLE);
+            }
+        } else {
+            if (holder.isAConversation.getVisibility() != View.GONE) {
+                holder.isAConversation.setVisibility(View.GONE);
+            }
+        }
 
         if(!settings.reverseClickActions) {
             final String fRetweeter = retweeter;

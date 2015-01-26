@@ -124,6 +124,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     public java.text.DateFormat timeFormatter;
 
     public boolean isHomeTimeline;
+    public boolean hasConvo = false;
 
     public static class ViewHolder {
         public TextView name;
@@ -145,6 +146,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         public ImageView playButton;
         public ImageButton quoteButton;
         public ImageButton shareButton;
+        public ImageView isAConversation;
         //public Bitmap tweetPic;
 
         public long tweetId;
@@ -258,6 +260,12 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         for (int i = 0; i < 10; i++) {
             mHandlers[i] = new Handler();
         }
+
+        for (String s : cursor.getColumnNames()) {
+            if (s.equals(HomeSQLiteHelper.COLUMN_CONVERSATION)) {
+                hasConvo = true;
+            }
+        }
     }
 
     @Override
@@ -308,6 +316,12 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         // they don't exist because the theme was made before they were added
                     }
 
+                    try {
+                        holder.isAConversation = (ImageView) v.findViewById(res.getIdentifier("is_a_conversation", "id", settings.addonThemePackage));
+                    } catch (Exception e) {
+
+                    }
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -337,6 +351,12 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     // theme was made before they were added
                 }
 
+                try {
+                    holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+                } catch (Exception x) {
+
+                }
+
             }
         } else {
             v = inflater.inflate(layout, viewGroup, false);
@@ -363,6 +383,13 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                 holder.shareButton = (ImageButton) v.findViewById(R.id.share_button);
             } catch (Exception x) {
                 // theme was made before they were added
+            }
+
+
+            try {
+                holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+            } catch (Exception x) {
+
             }
         }
 
@@ -404,11 +431,24 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         final String hashtags = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_HASHTAGS));
         holder.gifUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_ANIMATED_GIF));
 
+        boolean inAConversation;
+        if (hasConvo) {
+            inAConversation = cursor.getInt(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_CONVERSATION)) == 1;
+        } else {
+            inAConversation = false;
+        }
+
         String retweeter;
         try {
             retweeter = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_RETWEETER));
         } catch (Exception e) {
             retweeter = "";
+        }
+
+        if (inAConversation && holder.isAConversation.getVisibility() == View.GONE) {
+            holder.isAConversation.setVisibility(View.VISIBLE);
+        } else if (holder.isAConversation.getVisibility() == View.VISIBLE) {
+            holder.isAConversation.setVisibility(View.GONE);
         }
 
         final String tweetText = tweetTexts;
