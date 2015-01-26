@@ -154,7 +154,7 @@ public class HomeDataSource {
         values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
         values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
-        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToScreenName() == null ? 0 : 1);
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() != -1 ? 0 : 1);
 
         try {
             database.insert(HomeSQLiteHelper.TABLE_HOME, null, values);
@@ -208,7 +208,7 @@ public class HomeDataSource {
         values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
         values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
         values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
-        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToScreenName() == null ? 0 : 1);
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() != -1 ? 0 : 1);
 
         try {
             database.insert(HomeSQLiteHelper.TABLE_HOME, null, values);
@@ -270,7 +270,7 @@ public class HomeDataSource {
                 values.put(HomeSQLiteHelper.COLUMN_HASHTAGS, hashtags);
                 values.put(HomeSQLiteHelper.COLUMN_CLIENT_SOURCE, source);
                 values.put(HomeSQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, url));
-                values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToScreenName() == null ? 0 : 1);
+                values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() != -1 ? 0 : 1);
 
             } else {
                 values = null;

@@ -452,7 +452,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         final String hashtags = html[3];
         final String users = html[4];
 
-        final boolean inAConversation = thisStatus.getInReplyToScreenName() != null;
+        final boolean inAConversation = thisStatus.getInReplyToStatusId() != -1;
 
         holder.gifUrl = TweetLinkUtils.getGIFUrl(status, otherUrl);
 
