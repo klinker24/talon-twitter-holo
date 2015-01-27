@@ -120,7 +120,7 @@ public class BrowserActivity extends Activity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                finish();
                 return true;
 
             case R.id.menu_open_web:
