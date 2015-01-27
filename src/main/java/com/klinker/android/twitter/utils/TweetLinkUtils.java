@@ -532,6 +532,9 @@ public class TweetLinkUtils {
         for (MediaEntity e : s.getExtendedMediaEntities()) {
             if (e.getType().equals("animated_gif")) {
                 return e.getMediaURL();
+            } else if (e.getType().equals("video")) {
+                // TODO this probably won't work, so we might have to find another way
+                return e.getMediaURL();
             }
         }
 
