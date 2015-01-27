@@ -167,6 +167,7 @@ public class ListsArrayAdapter extends ArrayAdapter<UserList> {
                 Twitter twitter =  Utils.getTwitter(context, settings);
 
                 twitter.destroyUserList(Integer.parseInt(urls[0]));
+                twitter.destroyUserListSubscription(Integer.parseInt(urls[0]));
 
                 return true;
             } catch (Exception e) {
