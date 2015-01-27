@@ -19,11 +19,9 @@ package com.klinker.android.twitter.settings.configure_pages;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.*;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +32,13 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.settings.configure_pages.ListChooser;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
+import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.SavedSearchFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.SecondAccMentionsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +49,11 @@ public class ChooserFragment extends Fragment {
     private static final String DEFAULT_CLICKED = "com.klinker.android.twitter.CLICKED_CHECK";
 
     protected Context context;
+    protected SharedPreferences sharedPrefs;
     protected ActionBar actionBar;
     public CheckBox check;
+
+    public boolean finishedCreate = false;
 
     private boolean thisFragmentClicked = false;
     BroadcastReceiver defaultClicked = new BroadcastReceiver() {
@@ -64,6 +72,9 @@ public class ChooserFragment extends Fragment {
         super.onAttach(activity);
         context = activity;
         actionBar = activity.getActionBar();
+
+        sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
     }
 
     @Override
@@ -71,16 +82,16 @@ public class ChooserFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
         List<String> list = new ArrayList<String>();
-        list.add(context.getString(R.string.do_not_use));
-        list.add(context.getString(R.string.timeline));
-        list.add(context.getString(R.string.mentions));
-        list.add(context.getString(R.string.direct_messages));
-        list.add(context.getString(R.string.list_page));
-        list.add(context.getString(R.string.favorite_users));
-        list.add(context.getString(R.string.link_page));
-        list.add(context.getString(R.string.picture_page));
-        list.add(context.getString(R.string.second_acc_mentions));
-        list.add(getResources().getString(R.string.world_trends));
+        list.add(getString(R.string.do_not_use));
+        list.add(getString(R.string.timeline));
+        list.add(getString(R.string.mentions));
+        list.add(getString(R.string.direct_messages));
+        list.add(getString(R.string.list_page));
+        list.add(getString(R.string.favorite_users));
+        list.add(getString(R.string.link_page));
+        list.add(getString(R.string.picture_page));
+        list.add(getString(R.string.second_acc_mentions));
+        list.add(getString(R.string.world_trends));
         list.add(getString(R.string.local_trends));
         list.add(getString(R.string.saved_search));
         list.add(getString(R.string.activity));
@@ -89,9 +100,96 @@ public class ChooserFragment extends Fragment {
         View layout = inflater.inflate(R.layout.configuration_page, null);
 
         Spinner spinner = (Spinner) layout.findViewById(R.id.selection_spinner);
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+
+        check = (CheckBox) layout.findViewById(R.id.default_page);
+        final LinearLayout checkLayout = (LinearLayout) layout.findViewById(R.id.default_page_layout);
+        checkLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!check.isChecked()) {
+                    check.setChecked(true);
+                    thisFragmentClicked = true;
+                    context.sendBroadcast(new Intent(DEFAULT_CLICKED));
+                }
+            }
+        });
+
+        int position = getArguments().getInt("position", 0);
+        int curr = sharedPrefs.getInt("current_account", 1);
+        if (position == sharedPrefs.getInt("default_timeline_page_" + curr, 0)) {
+            check.setChecked(true);
+        }
+
+        int type = sharedPrefs.getInt("account_" + curr + "_page_" + (position + 1), AppSettings.PAGE_TYPE_NONE);
+
+        if (type != AppSettings.PAGE_TYPE_NONE) {
+            String listIdentifier = "account_" + curr + "_list_" + (position + 1) + "_long";
+            String nameIdentifier = "account_" + curr + "_name_" + (position + 1);
+            String searchIdentifier = "account_" + curr + "_search_" + (position + 1);
+
+            setType(type);
+            setListName(sharedPrefs.getString(nameIdentifier, ""));
+            setSearchQuery(sharedPrefs.getString(searchIdentifier, ""));
+            setId(sharedPrefs.getLong(listIdentifier, 0l));
+        }
+
+        switch (type) {
+            case AppSettings.PAGE_TYPE_HOME:
+                spinner.setSelection(1);
+                break;
+            case AppSettings.PAGE_TYPE_MENTIONS:
+                spinner.setSelection(2);
+                break;
+            case AppSettings.PAGE_TYPE_SECOND_MENTIONS:
+                spinner.setSelection(8);
+                break;
+            case AppSettings.PAGE_TYPE_DMS:
+                spinner.setSelection(3);
+                break;
+            case AppSettings.PAGE_TYPE_WORLD_TRENDS:
+                spinner.setSelection(9);
+                break;
+            case AppSettings.PAGE_TYPE_LOCAL_TRENDS:
+                spinner.setSelection(10);
+                break;
+            case AppSettings.PAGE_TYPE_SAVED_SEARCH:
+                spinner.setSelection(11);
+                break;
+            case AppSettings.PAGE_TYPE_LIST:
+                spinner.setSelection(4);
+                break;
+            case AppSettings.PAGE_TYPE_FAV_USERS:
+                spinner.setSelection(5);
+                break;
+            case AppSettings.PAGE_TYPE_LINKS:
+                spinner.setSelection(6);
+                break;
+            case AppSettings.PAGE_TYPE_PICS:
+                spinner.setSelection(7);
+                break;
+            case AppSettings.PAGE_TYPE_FAVORITE_STATUS:
+                spinner.setSelection(13);
+                break;
+            case AppSettings.PAGE_TYPE_ACTIVITY:
+                spinner.setSelection(12);
+                break;
+            default:
+                spinner.setSelection(0);
+                break;
+        }
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (!finishedCreate) {
+                    return;
+                }
+
                 switch (position) {
                     case 0:
                         setType(AppSettings.PAGE_TYPE_NONE);
@@ -145,28 +243,12 @@ public class ChooserFragment extends Fragment {
             }
         });
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context,
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-
-
-        check = (CheckBox) layout.findViewById(R.id.default_page);
-        final LinearLayout checkLayout = (LinearLayout) layout.findViewById(R.id.default_page_layout);
-        checkLayout.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                if (!check.isChecked()) {
-                    check.setChecked(true);
-                    thisFragmentClicked = true;
-                    context.sendBroadcast(new Intent(DEFAULT_CLICKED));
-                }
+            public void run() {
+                finishedCreate = true;
             }
-        });
-
-        if (getArguments().getInt("position", 0) == 0) {
-            check.setChecked(true);
-        }
+        }, 500);
 
         return layout;
     }
