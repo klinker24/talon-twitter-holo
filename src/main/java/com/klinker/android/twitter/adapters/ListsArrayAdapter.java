@@ -163,17 +163,25 @@ public class ListsArrayAdapter extends ArrayAdapter<UserList> {
     class DeleteList extends AsyncTask<String, Void, Boolean> {
 
         protected Boolean doInBackground(String... urls) {
+            Twitter twitter =  Utils.getTwitter(context, settings);
+
+            boolean destroyedList;
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-
                 twitter.destroyUserList(Integer.parseInt(urls[0]));
-                twitter.destroyUserListSubscription(Integer.parseInt(urls[0]));
-
-                return true;
+                destroyedList = true;
             } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+                destroyedList = false;
             }
+
+            boolean unsubscribed;
+            try {
+                twitter.destroyUserListSubscription(Integer.parseInt(urls[0]));
+                unsubscribed = true;
+            } catch (Exception e) {
+                unsubscribed = false;
+            }
+
+            return destroyedList || unsubscribed;
         }
 
         protected void onPostExecute(Boolean deleted) {
