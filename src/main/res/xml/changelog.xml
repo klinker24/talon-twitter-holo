@@ -42,6 +42,7 @@
         <text>[Fix] Replacing some links</text>
         <text>[Fix] Some ow.ly links appearing as images</text>
         <text>[Fix] Notification when sending Direct Message</text>
+        <text>[Fix] Actually remove TwitPic setting</text>
     </version>
 
     <version name="3.7.2">
