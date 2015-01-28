@@ -62,12 +62,12 @@
             android:defaultValue="true"
             />
 
-        <CheckBoxPreference
+        <!--<CheckBoxPreference
             android:key="twitpic"
             android:title="@string/use_twitpic"
             android:summary="@string/twitpic_summary"
             android:defaultValue="false"
-            />
+            />-->
 
     </PreferenceCategory>
 
