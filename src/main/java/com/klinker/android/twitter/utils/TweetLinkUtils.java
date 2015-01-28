@@ -181,7 +181,7 @@ public class TweetLinkUtils {
                 } else if (str.contains("pbs.twimg.com")) {
                     imageUrl = exp;
                     otherUrl += exp + "  ";
-                } else if (str.contains("ow.ly/i")) {
+                } else if (str.contains("ow.ly/i/")) {
                     imageUrl = "http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg";
                     otherUrl += exp + "  ";
                 } else if (str.contains("p.twipple.jp")) {
@@ -360,7 +360,7 @@ public class TweetLinkUtils {
                 } else if (str.contains("pbs.twimg.com")) {
                     imageUrl = exp;
                     otherUrl += exp + "  ";
-                } else if (str.contains("ow.ly/i")) {
+                } else if (str.contains("ow.ly/i/")) {
                     Log.v("talon_owly", exp);
                     imageUrl = "http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg";
                     otherUrl += exp + "  ";
@@ -492,7 +492,7 @@ public class TweetLinkUtils {
                     images.add(("http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "m.jpg").replace("gallery/", "").replace("a/", ""));
                 } else if (str.contains("pbs.twimg.com")) {
                     images.add(exp);
-                } else if (str.contains("ow.ly/i")) {
+                } else if (str.contains("ow.ly/i/")) {
                     images.add("http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg");
                 } else if (str.contains("p.twipple.jp")) {
                     images.add("http://p.twipple.jp/show/large/" + exp.replace("p.twipple.jp/", "").replace("http://", "").replace("https://", "").replace("www.", ""));
