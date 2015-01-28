@@ -1532,7 +1532,11 @@ public class TweetFragment extends Fragment {
                     }
 
                     if (secTwitter != null) {
-                        secTwitter.createFavorite(tweetId);
+                        try {
+                            secTwitter.createFavorite(tweetId);
+                        } catch (TwitterException e) {
+
+                        }
                     }
 
                     ((Activity)context).runOnUiThread(new Runnable() {
@@ -1580,14 +1584,18 @@ public class TweetFragment extends Fragment {
 
                     if (twitter != null) {
                         try {
-                            twitter.retweetStatus(tweetId);
+                            twitter.retweetStatus(idToRetweet);
                         } catch (TwitterException e) {
 
                         }
                     }
 
                     if (secTwitter != null) {
-                        secTwitter.retweetStatus(tweetId);
+                        try {
+                            secTwitter.retweetStatus(idToRetweet);
+                        } catch (TwitterException e) {
+
+                        }
                     }
 
                     ((Activity)context).runOnUiThread(new Runnable() {
