@@ -1,19 +1,3 @@
-/*
- * Copyright 2014 Luke Klinker
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.klinker.android.twitter.ui.main_fragments.other_fragments;
 
 import android.content.BroadcastReceiver;
@@ -32,31 +16,24 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
-
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.TimeLineCursorAdapter;
-import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
-import com.klinker.android.twitter.data.sq_lite.ListDataSource;
+import com.klinker.android.twitter.data.sq_lite.FavoriteTweetsDataSource;
 import com.klinker.android.twitter.ui.MainActivity;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.ui.main_fragments.MainFragment;
 import com.klinker.android.twitter.utils.Utils;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.User;
 
-public class ListFragment extends MainFragment {
+import java.util.ArrayList;
+import java.util.List;
+
+public class FavoriteTweetsFragment extends MainFragment {
 
     public boolean newTweets = false;
-
-    public ListFragment() {
-        this.listId = 0;
-    }
 
     public BroadcastReceiver resetLists = new BroadcastReceiver() {
         @Override
@@ -66,17 +43,11 @@ public class ListFragment extends MainFragment {
     };
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        listId = getArguments().getLong("list_id", 0l);
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
 
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.klinker.android.twitter.RESET_LISTS");
+        filter.addAction("com.klinker.android.twitter.RESET_FAVORITES");
         context.registerReceiver(resetLists, filter);
     }
 
@@ -159,9 +130,9 @@ public class ListFragment extends MainFragment {
 
             twitter = Utils.getTwitter(context, DrawerActivity.settings);
 
-            long[] lastId = ListDataSource.getInstance(context).getLastIds(listId);
+            long[] lastId = FavoriteTweetsDataSource.getInstance(context).getLastIds(currentAccount);
 
-            final List<twitter4j.Status> statuses = new ArrayList<twitter4j.Status>();
+            final List<Status> statuses = new ArrayList<Status>();
 
             boolean foundStatus = false;
 
@@ -176,7 +147,7 @@ public class ListFragment extends MainFragment {
                 try {
                     if (!foundStatus) {
                         paging.setPage(i + 1);
-                        List<Status> list = twitter.getUserListStatuses(listId, paging);
+                        List<Status> list = twitter.getFavorites(settings.myScreenName, paging);
 
                         statuses.addAll(list);
                     }
@@ -190,14 +161,13 @@ public class ListFragment extends MainFragment {
 
             manualRefresh = false;
 
-            ListDataSource dataSource = ListDataSource.getInstance(context);
-            numberNew = dataSource.insertTweets(statuses, listId);
+            FavoriteTweetsDataSource dataSource = FavoriteTweetsDataSource.getInstance(context);
+            numberNew = dataSource.insertTweets(statuses, currentAccount, lastId);
 
             return numberNew;
 
         } catch (Exception e) {
             // Error in updating status
-            Log.d("Twitter Update Error", e.getMessage());
             e.printStackTrace();
         }
 
@@ -213,7 +183,6 @@ public class ListFragment extends MainFragment {
             @Override
             protected void onPreExecute() {
                 try {
-                    //transformer.setRefreshingText(getResources().getString(R.string.loading) + "...");
                     DrawerActivity.canSwitch = false;
                 } catch (Exception e) {
 
@@ -290,7 +259,6 @@ public class ListFragment extends MainFragment {
 
     @Override
     public void onPause() {
-        markReadForLoad();
         context.unregisterReceiver(resetLists);
         super.onPause();
     }
@@ -298,8 +266,6 @@ public class ListFragment extends MainFragment {
     public long listId;
 
     public void getCursorAdapter(final boolean bSpinner) {
-
-        markReadForLoad();
 
         if (bSpinner) {
             try {
@@ -313,10 +279,10 @@ public class ListFragment extends MainFragment {
             public void run() {
                 final Cursor cursor;
                 try {
-                    cursor = ListDataSource.getInstance(context).getCursor(listId);
+                    cursor = FavoriteTweetsDataSource.getInstance(context).getCursor(currentAccount);
                 } catch (Exception e) {
-                    ListDataSource.dataSource = null;
-                    context.sendBroadcast(new Intent("com.klinker.android.twitter.RESET_LISTS"));
+                    FavoriteTweetsDataSource.dataSource = null;
+                    context.sendBroadcast(new Intent("com.klinker.android.twitter.RESET_FAVORITE"));
                     return;
                 }
 
@@ -327,35 +293,19 @@ public class ListFragment extends MainFragment {
                         Cursor c = null;
                         if (cursorAdapter != null) {
                             c = cursorAdapter.getCursor();
-                            Log.v("talon_cursor", c.getCount() + " tweets in old list");
                         }
 
                         try {
-                            Log.v("talon_list", "number of tweets in list: " + cursor.getCount());
+                            Log.v("talon_list", "number of tweets in favorites: " + cursor.getCount());
                         } catch (Exception e) {
                             e.printStackTrace();
                             // the cursor or database is closed, so we will null out the datasource and restart the get cursor method
-                            ListDataSource.dataSource = null;
-                            context.sendBroadcast(new Intent("com.klinker.android.twitter.RESET_LISTS"));
+                            FavoriteTweetsDataSource.dataSource = null;
+                            context.sendBroadcast(new Intent("com.klinker.android.twitter.RESET_FAVORITE"));
                             return;
                         }
                         cursorAdapter = new TimeLineCursorAdapter(context, cursor, false);
                         listView.setAdapter(cursorAdapter);
-
-                        int position = getPosition(cursor, sharedPrefs.getLong("current_list_" + listId + "_account_" + currentAccount, 0));
-
-                        if (position > 0) {
-                            int size = mActionBarSize + (DrawerActivity.translucent ? DrawerActivity.statusBarHeight : 0);
-                            try {
-                                listView.setSelectionFromTop(position + listView.getHeaderViewsCount() -
-                                                (getResources().getBoolean(R.bool.isTablet) ? 1 : 0) -
-                                                (settings.jumpingWorkaround ? 1 : 0),
-                                        size);
-                            } catch (Exception e) {
-                                // not attached
-                            }
-                            refreshLayout.setRefreshing(false);
-                        }
 
                         try {
                             spinner.setVisibility(View.GONE);
@@ -381,27 +331,6 @@ public class ListFragment extends MainFragment {
             }
         }).start();
     }
-
-    public int getPosition(Cursor cursor, long id) {
-        int pos = 0;
-
-        try {
-            if (cursor.moveToLast()) {
-                do {
-                    if (cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID)) == id) {
-                        break;
-                    } else {
-                        pos++;
-                    }
-                } while (cursor.moveToPrevious());
-            }
-        } catch (Exception e) {
-
-        }
-
-        return pos;
-    }
-
 
     public Handler handler = new Handler();
     public Runnable hideToast = new Runnable() {
@@ -492,27 +421,6 @@ public class ListFragment extends MainFragment {
             toastButton.setText(button);
         } else if (text.equals("0 " + fromTop) || text.equals("1 " + fromTop) || text.equals("2 " + fromTop)) {
             hideToastBar(400);
-        }
-    }
-
-    public void markReadForLoad() {
-
-        try {
-            Cursor cursor = cursorAdapter.getCursor();
-            int current = listView.getFirstVisiblePosition();
-
-            if (cursor.moveToPosition(cursor.getCount() - current)) {
-                final long id = cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID));
-                sharedPrefs.edit().putLong("current_list_" + listId + "_account_" + currentAccount, id).commit();
-            } else {
-                if (cursor.moveToLast()) {
-                    long id = cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID));
-                    sharedPrefs.edit().putLong("current_list_" + listId + "_account_" + currentAccount, id).commit();
-                }
-            }
-        } catch (Exception e) {
-            // cursor adapter is null because the loader was reset for some reason
-            e.printStackTrace();
         }
     }
 

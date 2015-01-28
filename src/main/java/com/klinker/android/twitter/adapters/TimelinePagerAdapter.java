@@ -25,15 +25,11 @@ import android.support.v13.app.FragmentPagerAdapter;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.*;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.FavUsersFragment;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.LinksFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.ListFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
 import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.PicFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.SavedSearchFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.SecondAccMentionsFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
 import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
@@ -131,6 +127,9 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                     names.add(searches.get(i));
                     break;
                 case AppSettings.PAGE_TYPE_FAVORITE_STATUS:
+                    frags.add(new FavoriteTweetsFragment());
+                    names.add(context.getString(R.string.favorite_tweets));
+                    break;
                 case AppSettings.PAGE_TYPE_ACTIVITY:
                 default:
                     frags.add(getFrag(pageTypes.get(i), listIds.get(i)));
