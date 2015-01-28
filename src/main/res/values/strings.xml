@@ -675,6 +675,8 @@
     <string name="saved_search">Saved Search</string>
     <string name="activity">Activity</string>
     <string name="sending_direct_message">Sending Direct Message</string>
+    <string name="fav_rt_multiple_accounts">Cross Account Actions</string>
+    <string name="fav_rt_multiple_accounts_summary">If you have multiple accounts, this will let you select which account to perform the favorite or retweet with.</string>
 
 
     <!-- Long click methods -->

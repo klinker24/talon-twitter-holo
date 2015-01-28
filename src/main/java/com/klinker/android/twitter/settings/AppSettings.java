@@ -138,6 +138,7 @@ public class AppSettings {
     public boolean alwaysMobilize;
     public boolean mobilizeOnData;
     public boolean preCacheImages;
+    public boolean crossAccActions;
 
     // notifications
     public boolean timelineNot;
@@ -173,6 +174,7 @@ public class AppSettings {
     public int mentionsSize;
     public int dmSize;
     public int pageToOpen;
+    public int numberOfAccounts;
 
     public long timelineRefresh;
     public long mentionsRefresh;
@@ -259,6 +261,7 @@ public class AppSettings {
         floatingCompose = sharedPrefs.getBoolean("floating_compose", true);
         openKeyboard = sharedPrefs.getBoolean("open_keyboard", false);
         preCacheImages = sharedPrefs.getBoolean("pre_cache_images", false);
+        crossAccActions = sharedPrefs.getBoolean("fav_rt_multiple_accounts", true);
 
         // set up tweetmarker
         String val = sharedPrefs.getString("tweetmarker_options", "0");
@@ -452,15 +455,14 @@ public class AppSettings {
             translateProfileHeader = true;
         }
 
-        int count = 0;
         if (sharedPrefs.getBoolean("is_logged_in_1", false)) {
-            count++;
+            numberOfAccounts++;
         }
         if (sharedPrefs.getBoolean("is_logged_in_2", false)) {
-            count++;
+            numberOfAccounts++;
         }
 
-        if(count != 2) {
+        if(numberOfAccounts != 2) {
             syncSecondMentions = false;
         }
     }

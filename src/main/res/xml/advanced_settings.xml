@@ -122,6 +122,13 @@
             android:defaultValue="false"
             />
 
+        <CheckBoxPreference
+            android:key="fav_rt_multiple_accounts"
+            android:title="@string/fav_rt_multiple_accounts"
+            android:summary="@string/fav_rt_multiple_accounts_summary"
+            android:defaultValue="true"
+            />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
