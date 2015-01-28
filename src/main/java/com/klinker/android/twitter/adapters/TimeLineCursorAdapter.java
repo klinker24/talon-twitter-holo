@@ -54,10 +54,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jakewharton.disklrucache.Util;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.data.sq_lite.DMDataSource;
 import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
+import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.BrowserActivity;
@@ -1133,14 +1135,51 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         holder.favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FavoriteStatus(holder, holder.tweetId).execute();
+                if (holder.isFavorited || !settings.crossAccActions) {
+                    new FavoriteStatus(holder, holder.tweetId,
+                            !secondAcc ? FavoriteStatus.TYPE_ACC_ONE : FavoriteStatus.TYPE_ACC_TWO).execute();
+                } else {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, final int item) {
+                                new FavoriteStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
         holder.retweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new RetweetStatus(holder, holder.tweetId).execute();
+                if (!settings.crossAccActions) {
+                    new RetweetStatus(holder, holder.tweetId,
+                            !secondAcc ? RetweetStatus.TYPE_ACC_ONE : RetweetStatus.TYPE_ACC_TWO)
+                            .execute();
+                } else {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                                public void onClick(final DialogInterface dialog, final int item) {
+                                    new RetweetStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
@@ -1562,7 +1601,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     }
 
     public Twitter getTwitter() {
-        if (secondAcc) {
+        if (secondAcc && !settings.crossAccActions) {
             return Utils.getSecondTwitter(context);
         } else {
             return Utils.getTwitter(context, settings);
@@ -1736,32 +1775,69 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
     class FavoriteStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public FavoriteStatus(ViewHolder holder, long tweetId) {
+        public FavoriteStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
         }
 
         protected void onPreExecute() {
-            if (!holder.isFavorited) {
-                Toast.makeText(context, context.getResources().getString(R.string.favoriting_status), Toast.LENGTH_SHORT).show();
-            } else {
+            if (holder.isFavorited) {
                 Toast.makeText(context, context.getResources().getString(R.string.removing_favorite), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, context.getResources().getString(R.string.favoriting_status), Toast.LENGTH_SHORT).show();
             }
         }
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  getTwitter();
-                if (holder.isFavorited) {
-                    twitter.destroyFavorite(tweetId);
+                Twitter twitter = null;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    secTwitter = Utils.getSecondTwitter(context);
                 } else {
-                    twitter.createFavorite(tweetId);
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
                 }
+
+                if (holder.isFavorited) {
+                    // we always have to remove that favorite
+                    if (twitter != null) {
+                        twitter.destroyFavorite(tweetId);
+                    } else if (secTwitter != null) {
+                        secTwitter.destroyFavorite(tweetId);
+                    }
+                } else {
+                    if (twitter != null) {
+                        try {
+                            twitter.createFavorite(tweetId);
+                        } catch (TwitterException e) {
+                            // already been favorited by this account
+                        }
+                    }
+
+                    if (secTwitter != null) {
+                        try {
+                            secTwitter.createFavorite(tweetId);
+                        } catch (TwitterException e) {
+                            // already been favorited by this account
+                        }
+                    }
+                }
+
                 return null;
             } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -1774,12 +1850,18 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
     class RetweetStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public RetweetStatus(ViewHolder holder, long tweetId) {
+        public RetweetStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
         }
 
         protected void onPreExecute() {
@@ -1788,8 +1870,29 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  getTwitter();
-                twitter.retweetStatus(tweetId);
+                Twitter twitter = null;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    secTwitter = Utils.getSecondTwitter(context);
+                } else {
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
+                }
+
+                if (twitter != null) {
+                    try {
+                        twitter.retweetStatus(tweetId);
+                    } catch (TwitterException e) {
+
+                    }
+                }
+
+                if (secTwitter != null) {
+                    secTwitter.retweetStatus(tweetId);
+                }
+
                 return null;
             } catch (Exception e) {
                 return null;

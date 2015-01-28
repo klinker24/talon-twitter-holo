@@ -74,11 +74,7 @@ import java.util.Date;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.regex.Pattern;
 
-import twitter4j.MediaEntity;
-import twitter4j.ResponseList;
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.User;
+import twitter4j.*;
 import uk.co.senab.bitmapcache.BitmapLruCache;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 
@@ -969,14 +965,48 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         holder.favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FavoriteStatus(holder, holder.tweetId).execute();
+                if (holder.isFavorited || !settings.crossAccActions) {
+                    new FavoriteStatus(holder, holder.tweetId, FavoriteStatus.TYPE_ACC_ONE).execute();
+                } else if (settings.crossAccActions) {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                                public void onClick(final DialogInterface dialog, final int item) {
+                                    new FavoriteStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
         holder.retweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new RetweetStatus(holder, holder.tweetId).execute();
+                if (!settings.crossAccActions) {
+                    new RetweetStatus(holder, holder.tweetId, FavoriteStatus.TYPE_ACC_ONE).execute();
+                } else {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                                public void onClick(final DialogInterface dialog, final int item) {
+                                    new RetweetStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
@@ -1470,16 +1500,22 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
     class FavoriteStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public FavoriteStatus(ViewHolder holder, long tweetId) {
+        public FavoriteStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
         }
 
         protected void onPreExecute() {
-            if (!holder.isFavorited) {
+            if (!holder.isFavorited || type == TYPE_ACC_TWO || type == TYPE_BOTH_ACC) {
                 Toast.makeText(context, context.getResources().getString(R.string.favoriting_status), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, context.getResources().getString(R.string.removing_favorite), Toast.LENGTH_SHORT).show();
@@ -1488,12 +1524,31 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-                if (holder.isFavorited) {
-                    twitter.destroyFavorite(tweetId);
+                Twitter twitter = null;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    secTwitter = Utils.getSecondTwitter(context);
                 } else {
-                    twitter.createFavorite(tweetId);
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
                 }
+
+                if (holder.isFavorited && twitter != null) {
+                    twitter.destroyFavorite(tweetId);
+                } else if (twitter != null) {
+                    try {
+                        twitter.createFavorite(tweetId);
+                    } catch (TwitterException e) {
+                        // already been favorited by this account
+                    }
+                }
+
+                if (secTwitter != null) {
+                    secTwitter.createFavorite(tweetId);
+                }
+
                 return null;
             } catch (Exception e) {
                 return null;
@@ -1508,18 +1563,47 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
     class RetweetStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public RetweetStatus(ViewHolder holder, long tweetId) {
+        public RetweetStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
+        }
+
+        protected void onPreExecute() {
+            Toast.makeText(context, context.getResources().getString(R.string.retweeting_status), Toast.LENGTH_SHORT).show();
         }
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-                twitter.retweetStatus(tweetId);
+                Twitter twitter;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    twitter = Utils.getSecondTwitter(context);
+                } else {
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
+                }
+
+                try {
+                    twitter.retweetStatus(tweetId);
+                } catch (TwitterException e) {
+                    // already been retweeted by this account
+                }
+
+                if (secTwitter != null) {
+                    secTwitter.retweetStatus(tweetId);
+                }
+
                 return null;
             } catch (Exception e) {
                 return null;
