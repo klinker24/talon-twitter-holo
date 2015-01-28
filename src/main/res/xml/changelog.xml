@@ -18,6 +18,7 @@
 
     <version name="4.0.0">
         <text>[New] Native Vine support</text>
+        <text>[New] Favorite tweets as a swipe-able page</text>
         <text>[New] Saved searches swipe-able page</text>
         <text>[New] World trends swipe-able page</text>
         <text>[New] Local trends swipe-able page</text>
