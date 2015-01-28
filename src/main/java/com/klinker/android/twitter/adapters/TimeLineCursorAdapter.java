@@ -266,6 +266,25 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                 hasConvo = true;
             }
         }
+
+        TWEET_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID);
+        PRO_PIC_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PRO_PIC);
+        TEXT_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TEXT);
+        NAME_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_NAME);
+        SCREEN_NAME_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_SCREEN_NAME);
+        PIC_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PIC_URL);
+        TIME_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TIME);
+        URL_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_URL);
+        USER_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_USERS);
+        HASHTAG_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_HASHTAGS);
+        GIF_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_ANIMATED_GIF);
+        RETWEETER_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_RETWEETER);
+
+        if (hasConvo) {
+            CONVO_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_CONVERSATION);
+        } else {
+            CONVO_COL = -1;
+        }
     }
 
     @Override
@@ -408,6 +427,20 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         return v;
     }
 
+    private int TWEET_COL;
+    private int PRO_PIC_COL;
+    private int TEXT_COL;
+    private int NAME_COL;
+    private int SCREEN_NAME_COL;
+    private int PIC_COL;
+    private int TIME_COL;
+    private int URL_COL;
+    private int USER_COL;
+    private int HASHTAG_COL;
+    private int GIF_COL;
+    private int CONVO_COL;
+    private int RETWEETER_COL;
+
     @Override
     public void bindView(final View view, Context mContext, final Cursor cursor) {
         final ViewHolder holder = (ViewHolder) view.getTag();
@@ -416,31 +449,31 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             removeExpansionNoAnimation(holder);
         }
 
-        final long id = cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID));
+        final long id = cursor.getLong(TWEET_COL);
         holder.tweetId = id;
-        final String profilePic = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PRO_PIC));
+        final String profilePic = cursor.getString(PRO_PIC_COL);
         holder.proPicUrl = profilePic;
-        String tweetTexts = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TEXT));
-        final String name = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_NAME));
-        final String screenname = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_SCREEN_NAME));
-        final String picUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PIC_URL));
+        String tweetTexts = cursor.getString(TEXT_COL);
+        final String name = cursor.getString(NAME_COL);
+        final String screenname = cursor.getString(SCREEN_NAME_COL);
+        final String picUrl = cursor.getString(PIC_COL);
         holder.picUrl = picUrl;
-        final long longTime = cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TIME));
-        final String otherUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_URL));
-        final String users = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_USERS));
-        final String hashtags = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_HASHTAGS));
-        holder.gifUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_ANIMATED_GIF));
+        final long longTime = cursor.getLong(TIME_COL);
+        final String otherUrl = cursor.getString(URL_COL);
+        final String users = cursor.getString(USER_COL);
+        final String hashtags = cursor.getString(HASHTAG_COL);
+        holder.gifUrl = cursor.getString(GIF_COL);
 
         boolean inAConversation;
         if (hasConvo) {
-            inAConversation = cursor.getInt(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_CONVERSATION)) == 1;
+            inAConversation = cursor.getInt(CONVO_COL) == 1;
         } else {
             inAConversation = false;
         }
 
         String retweeter;
         try {
-            retweeter = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_RETWEETER));
+            retweeter = cursor.getString(RETWEETER_COL);
         } catch (Exception e) {
             retweeter = "";
         }

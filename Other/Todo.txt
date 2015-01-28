@@ -1,5 +1,6 @@
 - Features:
     - user lists on their profiles
+    - twitter videos
     - gallery of picture on searching
     - tweetmarker in lists
     - Night mode for themes
