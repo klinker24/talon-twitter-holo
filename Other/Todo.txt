@@ -24,13 +24,15 @@ Please keep that in mind when viewing this roadmap. It is simply a rough estimat
 either, or ETA's, so please do not ask for them
 
     Version 4.0
-        - Activity fragment (New followers, retweeters, number of favorites, mentions)
+        - Activity fragment
+            - Display new followers, retweeters, number of favorites, mentions
             - Create new database (should be based off the mentions with a type and title field added)
-            - clicking mention opens tweet viewer
-            - clicking a "Retweeted by: John X. and 8 Others" opens a retweeters dialog of who. Long click opens the tweet
-            - clicking on "8 people favorited your tweet" opens the tweet
-            - clicking on a new follower opens up their profile
-
+            - Adapter
+                - clicking mention opens tweet viewer
+                - clicking a "Retweeted by: John X. and 8 Others" opens a retweeters dialog of who. Long click opens the tweet
+                - clicking on "8 people favorited your tweet" opens the tweet
+                - clicking on a new follower opens up their profile
+            - Background refresh service with interval settings
         - mute users for a time period
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
