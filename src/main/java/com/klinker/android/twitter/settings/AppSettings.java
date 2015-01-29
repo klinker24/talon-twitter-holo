@@ -147,6 +147,7 @@ public class AppSettings {
     public boolean followersNot;
     public boolean favoritesNot;
     public boolean retweetNot;
+    public boolean activityNot;
     public String ringtone;
 
     // theme stuff
@@ -183,7 +184,6 @@ public class AppSettings {
 
 
     public AppSettings(Context context) {
-        Log.v("talon_settings", "getting talon settings");
 
         sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
@@ -262,6 +262,7 @@ public class AppSettings {
         openKeyboard = sharedPrefs.getBoolean("open_keyboard", false);
         preCacheImages = sharedPrefs.getBoolean("pre_cache_images", false);
         crossAccActions = sharedPrefs.getBoolean("fav_rt_multiple_accounts", true);
+        activityNot = sharedPrefs.getBoolean("activity_notifications", true);
 
         // set up tweetmarker
         String val = sharedPrefs.getString("tweetmarker_options", "0");

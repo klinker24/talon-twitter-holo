@@ -62,8 +62,8 @@
 
         <MultiSelectListPreference
             android:key="interactions_set"
-            android:summary="@string/with_talon_pull"
-            android:title="@string/interactions_notifications"
+            android:title="@string/talon_pull_notifications"
+            android:summary="@string/talon_pull_turned_on"
             android:defaultValue="@array/interaction_notifications_inserted"
             android:entries="@array/interactions_notifications"
             android:entryValues="@array/interaction_notifications_inserted"

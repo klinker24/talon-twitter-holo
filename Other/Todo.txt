@@ -35,10 +35,7 @@ either, or ETA's, so please do not ask for them
                 - clicking on "8 people favorited your tweet" opens the tweet
                 - clicking on a new follower opens up their profile
             - Background refresh service with interval settings
-        - mute users for a time period
-            - need a new database (stores just name and expiration time)
-            - Just write in the names and when they should expire, then start a service when expiration goes off
-            - Make sure the service runs on start too
+            - Trim database every night
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
             compare that against the currently installed version.
@@ -49,4 +46,9 @@ either, or ETA's, so please do not ask for them
         - 1x1 "tweeting" widget just to compose a tweet
         - timestamp on widget
         - Widget with an unread count
+
+        - mute users for a time period
+                    - need a new database (stores just name and expiration time)
+                    - Just write in the names and when they should expire, then start a service when expiration goes off
+                    - Make sure the service runs on start too
 

@@ -677,7 +677,9 @@
     <string name="sending_direct_message">Sending Direct Message</string>
     <string name="fav_rt_multiple_accounts">Cross Account Actions</string>
     <string name="fav_rt_multiple_accounts_summary">If you have multiple accounts, this will let you select which account to perform the favorite or retweet with.</string>
-
+    <string name="talon_pull_notifications">Talon Pull (Instant) Notifications</string>
+    <string name="talon_pull_turned_on">Talon Pull must be turned on from Sync Settings to use this feature.</string>
+    <string name="activity_sync_interval">Activity Refresh Rate</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>
