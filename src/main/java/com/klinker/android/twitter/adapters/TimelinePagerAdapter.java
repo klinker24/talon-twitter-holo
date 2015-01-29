@@ -128,6 +128,9 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                     names.add(context.getString(R.string.favorite_tweets));
                     break;
                 case AppSettings.PAGE_TYPE_ACTIVITY:
+                    frags.add(new ActivityFragment());
+                    names.add(context.getString(R.string.activity));
+                    break;
                 default:
                     frags.add(getFrag(pageTypes.get(i), listIds.get(i)));
                     names.add(getName(pageNames.get(i), pageTypes.get(i)));

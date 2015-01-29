@@ -1,0 +1,224 @@
+package com.klinker.android.twitter.ui.main_fragments.other_fragments;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.Cursor;
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.AbsListView;
+import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.adapters.TimeLineCursorAdapter;
+import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
+import com.klinker.android.twitter.services.ActivityRefreshService;
+import com.klinker.android.twitter.services.MentionsRefreshService;
+import com.klinker.android.twitter.services.SecondMentionsRefreshService;
+import com.klinker.android.twitter.ui.MainActivity;
+import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
+import com.klinker.android.twitter.ui.main_fragments.MainFragment;
+import com.klinker.android.twitter.utils.ActivityUtils;
+import com.klinker.android.twitter.utils.Utils;
+import twitter4j.Paging;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
+import java.util.Date;
+import java.util.List;
+
+public class ActivityFragment extends MainFragment {
+
+    public static final int ACTIVITY_REFRESH_ID = 131;
+
+    public int unread = 0;
+
+    public BroadcastReceiver refreshActivity = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            getCursorAdapter(false);
+        }
+    };
+
+
+
+    @Override
+    public void setUpListScroll() {
+
+    }
+
+    public Twitter getTwitter() {
+        return Utils.getTwitter(context, DrawerActivity.settings);
+    }
+
+    @Override
+    public void onRefreshStarted() {
+        new AsyncTask<Void, Void, Cursor>() {
+
+            private boolean update = false;
+            @Override
+            protected void onPreExecute() {
+                DrawerActivity.canSwitch = false;
+            }
+
+            @Override
+            protected Cursor doInBackground(Void... params) {
+
+                ActivityUtils utils = new ActivityUtils(getActivity());
+
+                update = utils.refreshActivity();
+
+                AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+                long now = new Date().getTime();
+                long alarm = now + DrawerActivity.settings.activityRefresh;
+
+                PendingIntent pendingIntent = PendingIntent.getService(context, ACTIVITY_REFRESH_ID, new Intent(context, ActivityRefreshService.class), 0);
+
+                if (DrawerActivity.settings.activityRefresh != 0)
+                    am.setRepeating(AlarmManager.RTC_WAKEUP, alarm, DrawerActivity.settings.activityRefresh, pendingIntent);
+                else
+                    am.cancel(pendingIntent);
+
+                return MentionsDataSource.getInstance(context).getCursor(currentAccount);
+            }
+
+            @Override
+            protected void onPostExecute(Cursor cursor) {
+
+                Cursor c = null;
+                try {
+                    c = cursorAdapter.getCursor();
+                } catch (Exception e) {
+
+                }
+
+                cursorAdapter = setAdapter(cursor);
+
+                try {
+                    listView.setAdapter(cursorAdapter);
+                } catch (Exception e) {
+
+                }
+
+                try {
+                    if (update) {
+                        CharSequence text = getResources().getString(R.string.new_mentions);
+                        showToastBar(text + "", "", 400, true, toTopListener);
+                    }
+                } catch (Exception e) {
+                    // user closed the app before it was done
+                }
+
+                refreshLayout.setRefreshing(false);
+
+                DrawerActivity.canSwitch = true;
+
+                try {
+                    c.close();
+                } catch (Exception e) {
+
+                }
+            }
+        }.execute();
+    }
+
+    public TimeLineCursorAdapter setAdapter(Cursor c) {
+        return new TimeLineCursorAdapter(context, c, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (sharedPrefs.getBoolean("refresh_me_activity", false)) {
+            getCursorAdapter(false);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sharedPrefs.edit().putBoolean("refresh_me_activity", false).commit();
+                }
+            },1000);
+        }
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.klinker.android.twitter.REFRESH_ACTIVITY");
+        filter.addAction("com.klinker.android.twitter.NEW_ACTIVITY");
+        context.registerReceiver(refreshActivity, filter);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    public void getCursorAdapter(boolean showSpinner) {
+        if (showSpinner) {
+            try {
+                spinner.setVisibility(View.VISIBLE);
+                listView.setVisibility(View.GONE);
+            } catch (Exception e) { }
+        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final Cursor cursor;
+                try {
+                    cursor = MentionsDataSource.getInstance(context).getCursor(currentAccount);
+                } catch (Exception e) {
+                    MentionsDataSource.dataSource = null;
+                    getCursorAdapter(true);
+                    return;
+                }
+
+                try {
+                    Log.v("talon_databases", "mentions cursor size: " + cursor.getCount());
+                } catch (Exception e) {
+                    MentionsDataSource.dataSource = null;
+                    getCursorAdapter(true);
+                    return;
+                }
+
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Cursor c = null;
+                        if (cursorAdapter != null) {
+                            c = cursorAdapter.getCursor();
+                        }
+
+                        cursorAdapter = new TimeLineCursorAdapter(context, cursor, false);
+
+                        try {
+                            spinner.setVisibility(View.GONE);
+                            listView.setVisibility(View.VISIBLE);
+                        } catch (Exception e) { }
+
+                        try {
+                            listView.setAdapter(cursorAdapter);
+                        } catch (Exception e) {
+
+                        }
+
+                        try {
+                            c.close();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
+    @Override
+    public void onPause() {
+        context.unregisterReceiver(refreshActivity);
+        super.onPause();
+    }
+}
