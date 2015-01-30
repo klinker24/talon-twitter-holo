@@ -27,15 +27,6 @@ either, or ETA's, so please do not ask for them
 
     Version 4.0
         - Activity fragment (fragment/adapter, background service, settings)
-            - Display new followers, retweeters, number of favorites, mentions
-            - Create new database (should be based off the mentions with a type and title field added)
-            - Adapter
-                - clicking mention opens tweet viewer
-                - clicking a "Retweeted by: John X. and 8 Others" opens a retweeters dialog of who. Long click opens the tweet
-                - clicking on "8 people favorited your tweet" opens the tweet
-                - clicking on a new follower opens up their profile
-            - Background refresh service with interval settings
-            - Trim database every night (also trim favorite tweets to 200)
             - redirect to mentions should redirect here
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
