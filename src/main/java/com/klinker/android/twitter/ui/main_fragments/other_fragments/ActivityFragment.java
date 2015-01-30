@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.TimeLineCursorAdapter;
-import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
+import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.services.ActivityRefreshService;
 import com.klinker.android.twitter.services.MentionsRefreshService;
 import com.klinker.android.twitter.services.SecondMentionsRefreshService;
@@ -83,7 +83,7 @@ public class ActivityFragment extends MainFragment {
                 else
                     am.cancel(pendingIntent);
 
-                return MentionsDataSource.getInstance(context).getCursor(currentAccount);
+                return ActivityDataSource.getInstance(context).getCursor(currentAccount);
             }
 
             @Override
@@ -169,9 +169,9 @@ public class ActivityFragment extends MainFragment {
             public void run() {
                 final Cursor cursor;
                 try {
-                    cursor = MentionsDataSource.getInstance(context).getCursor(currentAccount);
+                    cursor = ActivityDataSource.getInstance(context).getCursor(currentAccount);
                 } catch (Exception e) {
-                    MentionsDataSource.dataSource = null;
+                    ActivityDataSource.dataSource = null;
                     getCursorAdapter(true);
                     return;
                 }
@@ -179,7 +179,7 @@ public class ActivityFragment extends MainFragment {
                 try {
                     Log.v("talon_databases", "mentions cursor size: " + cursor.getCount());
                 } catch (Exception e) {
-                    MentionsDataSource.dataSource = null;
+                    ActivityDataSource.dataSource = null;
                     getCursorAdapter(true);
                     return;
                 }

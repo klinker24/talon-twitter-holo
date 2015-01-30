@@ -36,6 +36,7 @@ either, or ETA's, so please do not ask for them
                 - clicking on a new follower opens up their profile
             - Background refresh service with interval settings
             - Trim database every night
+            - redirect to mentions should redirect here
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
             compare that against the currently installed version.

@@ -119,7 +119,6 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                     Bundle b = new Bundle();
                     b.putString("saved_search", searches.get(i));
                     f.setArguments(b);
-
                     frags.add(f);
                     names.add(searches.get(i));
                     break;
