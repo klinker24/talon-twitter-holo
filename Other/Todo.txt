@@ -28,6 +28,7 @@ either, or ETA's, so please do not ask for them
     Version 4.0
         - Activity fragment (fragment/adapter, background service, settings)
             - redirect to mentions should redirect here
+            - If there isn't anything in the cursor, display a message!
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
             compare that against the currently installed version.
