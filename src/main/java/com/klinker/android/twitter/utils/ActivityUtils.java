@@ -2,16 +2,16 @@ package com.klinker.android.twitter.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
 import twitter4j.*;
 
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ActivityUtils {
+
+    private static String TAG = "ActivityUtils";
 
     private Context context;
     private AppSettings settings;
@@ -36,6 +36,8 @@ public class ActivityUtils {
         }
 
         this.originalTime = sharedPrefs.getLong("original_activity_refresh_" + currentAccount, 0l);
+
+        Log.v(TAG, "last refresh id: " + lastRefresh);
     }
 
     /**
@@ -111,7 +113,7 @@ public class ActivityUtils {
     public List<Status> getMyTweets(Twitter twitter) {
         try {
             Paging paging = new Paging(1, 20);
-            return twitter.getUserTimeline(settings.myId, paging);
+            return twitter.getUserTimeline(paging);
         } catch (TwitterException e) {
             return null;
         }
@@ -122,9 +124,12 @@ public class ActivityUtils {
 
         try {
             if (lastRefresh != 0l) {
+                Log.v(TAG, "getting all mentions");
+
                 Paging paging = new Paging(1, 50, lastRefresh);
                 List<Status> mentions = twitter.getMentionsTimeline(paging);
 
+                Log.v(TAG, "mentions size: " + mentions.size());
                 if (mentions.size() > 0) {
                     insertMentions(mentions);
                     commitLastRefresh(mentions.get(0).getId());
@@ -155,10 +160,15 @@ public class ActivityUtils {
             int oldFollowerCount = sharedPrefs.getInt("activity_follower_count_" + currentAccount, 0);
             Set<String> latestFollowers = sharedPrefs.getStringSet("activity_latest_followers_" + currentAccount, new HashSet<String>());
 
+            Log.v(TAG, "followers set size: " + latestFollowers.size());
+            Log.v(TAG, "old follower count: " + oldFollowerCount);
+            Log.v(TAG, "current follower count: " + me.getFollowersCount());
+
             if (latestFollowers.size() != 0 &&
                     me.getFollowersCount() > oldFollowerCount) {
                 for (int i = 0; i < followers.size(); i++) {
                     if (!latestFollowers.contains(followers.get(i).getScreenName())) {
+                        Log.v(TAG, "inserting @" + followers.get(i).getScreenName() + " as new follower");
                         insertFollower(followers.get(i));
                         newActivity = true;
                     } else {
@@ -190,7 +200,9 @@ public class ActivityUtils {
     public boolean getRetweets(Twitter twitter, List<Status> statuses) {
         boolean newActivity = false;
 
+        Log.v(TAG, "original time (in retweets): " + originalTime);
         for (Status s : statuses) {
+            Log.v(TAG, "status created at: " + s.getCreatedAt().getTime());
             if (s.getCreatedAt().getTime() > originalTime && tryInsertRetweets(s, twitter)) {
                 newActivity = true;
             }
@@ -202,7 +214,9 @@ public class ActivityUtils {
     public boolean getFavorites(List<Status> statuses) {
         boolean newActivity = false;
 
+        Log.v(TAG, "original time (in favorites): " + originalTime);
         for (Status s : statuses) {
+            Log.v(TAG, "status created at: " + s.getCreatedAt().getTime());
             if (s.getCreatedAt().getTime() > originalTime && tryInsertFavorites(s)) {
                 newActivity = true;
             }

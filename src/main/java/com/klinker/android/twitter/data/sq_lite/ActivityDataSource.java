@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseLockedException;
+import android.util.Log;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.utils.TweetLinkUtils;
 import twitter4j.Status;
@@ -159,6 +160,11 @@ public class ActivityDataSource {
 
     public synchronized boolean insertFavoriteCount(Status status, int account) {
         int favCountInDb = favoriteExists(status.getId(), account);
+
+        Log.v("ActivityUtils", "tweet: " + status.getText());
+        Log.v("ActivityUtils", "favorite count in database: " + favCountInDb);
+        Log.v("ActivityUtils", "favorite count on tweet: " + status.getFavoriteCount());
+
         if (favCountInDb != -1 && favCountInDb < status.getFavoriteCount()) {
             // we want to update the current
             ContentValues values = getFavoriteValues(status, account);
@@ -398,11 +404,11 @@ public class ActivityDataSource {
         Cursor cursor;
         try {
             cursor = database.query(ActivitySQLiteHelper.TABLE_ACTIVITY,
-                    allColumns, where, null, null, null, ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
+                    allColumns, where, null, null, null, ActivitySQLiteHelper.COLUMN_TIME + " ASC");
         } catch (Exception e) {
             open();
             cursor = database.query(ActivitySQLiteHelper.TABLE_ACTIVITY,
-                    allColumns, where, null, null, null, ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
+                    allColumns, where, null, null, null, ActivitySQLiteHelper.COLUMN_TIME + " ASC");
         }
 
         return cursor;
@@ -519,6 +525,29 @@ public class ActivityDataSource {
         } catch (Exception e) {
             open();
             database.execSQL("DELETE FROM " + ActivitySQLiteHelper.TABLE_ACTIVITY + " WHERE _id NOT IN (SELECT MIN(_id) FROM " + ActivitySQLiteHelper.TABLE_ACTIVITY + " GROUP BY " + ActivitySQLiteHelper.COLUMN_TWEET_ID + ") AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account);
+        }
+    }
+
+    public synchronized void deleteItem(long id) {
+        try {
+            database.delete(HomeSQLiteHelper.TABLE_HOME, ActivitySQLiteHelper.COLUMN_ID
+                    + " = " + id, null);
+        } catch (Exception e) {
+            open();
+            database.delete(HomeSQLiteHelper.TABLE_HOME, ActivitySQLiteHelper.COLUMN_ID
+                    + " = " + id, null);
+        }
+    }
+
+
+    public synchronized void deleteAll(int account) {
+        try {
+            database.delete(ActivitySQLiteHelper.TABLE_ACTIVITY,
+                    HomeSQLiteHelper.COLUMN_ACCOUNT + " = " + account, null);
+        } catch (Exception e) {
+            open();
+            database.delete(ActivitySQLiteHelper.TABLE_ACTIVITY,
+                    HomeSQLiteHelper.COLUMN_ACCOUNT + " = " + account, null);
         }
     }
 }

@@ -421,6 +421,13 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 e.remove("new_favorites");
                 e.remove("new_follows");
 
+                int currentAccount = sharedPrefs.getInt("current_account", 1);
+
+                e.remove("last_activity_refresh_" + currentAccount);
+                e.remove("original_activity_refresh_" + currentAccount);
+                e.remove("activity_follower_count_" + currentAccount);
+                e.remove("activity_latest_followers_" + currentAccount);
+
                 e.commit();
 
                 return false;

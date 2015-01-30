@@ -359,6 +359,39 @@ public class IOUtils {
 
             timeline.close();
 
+            ActivityDataSource activity = ActivityDataSource.getInstance(context);
+            activity.deleteDups(settings.currentAccount);
+            timeline = activity.getCursor(account);
+
+            Log.v("trimming", "activity size: " + timeline.getCount());
+            Log.v("trimming", "activity settings size: " + 200);
+            if (timeline.getCount() > 200) {
+
+                if(timeline.moveToPosition(timeline.getCount() - 200)) {
+                    do {
+                        activity.deleteItem(timeline.getLong(timeline.getColumnIndex(ActivitySQLiteHelper.COLUMN_ID)));
+                    } while (timeline.moveToPrevious());
+                }
+            }
+
+            timeline.close();
+            FavoriteTweetsDataSource favtweets = FavoriteTweetsDataSource.getInstance(context);
+            favtweets.deleteDups(settings.currentAccount);
+
+            timeline = favtweets.getCursor(account);
+            Log.v("trimming", "favtweets size: " + timeline.getCount());
+            Log.v("trimming", "favtweets settings size: " + 200);
+            if (timeline.getCount() > 200) {
+
+                if(timeline.moveToPosition(timeline.getCount() - 200)) {
+                    do {
+                        favtweets.deleteTweet(timeline.getLong(timeline.getColumnIndex(FavoriteTweetsSQLiteHelper.COLUMN_TWEET_ID)));
+                    } while (timeline.moveToPrevious());
+                }
+            }
+
+            timeline.close();
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
