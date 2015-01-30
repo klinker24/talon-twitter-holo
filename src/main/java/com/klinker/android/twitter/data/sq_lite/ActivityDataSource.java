@@ -269,7 +269,10 @@ public class ActivityDataSource {
             media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
         }
 
-        values.put(ActivitySQLiteHelper.COLUMN_TITLE, status.getFavoriteCount() + " " + context.getString(R.string.favorites_lower));
+        values.put(ActivitySQLiteHelper.COLUMN_TITLE, status.getFavoriteCount() + " " +
+                (status.getFavoriteCount() == 1 ?
+                        context.getString(R.string.favorite_lower) :
+                        context.getString(R.string.favorites_lower)));
         values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(ActivitySQLiteHelper.COLUMN_TEXT, text);
         values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, id);
@@ -322,7 +325,7 @@ public class ActivityDataSource {
     public ContentValues getNewFollowerValues(User user, int account) {
         ContentValues values = new ContentValues();
 
-        values.put(ActivitySQLiteHelper.COLUMN_TITLE, user.getName() + "(@" + user.getScreenName() + ")");
+        values.put(ActivitySQLiteHelper.COLUMN_TITLE, "@" + user.getScreenName());
         values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(ActivitySQLiteHelper.COLUMN_TEXT, context.getString(R.string.followed_you));
         values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, user.getId());

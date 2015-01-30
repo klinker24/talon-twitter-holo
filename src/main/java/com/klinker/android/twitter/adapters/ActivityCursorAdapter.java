@@ -1,6 +1,7 @@
 package com.klinker.android.twitter.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Handler;
@@ -8,8 +9,13 @@ import android.text.Html;
 import android.text.Spannable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.data.sq_lite.ActivitySQLiteHelper;
+import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
+import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
+import com.klinker.android.twitter.ui.tweet_viewer.ViewRetweeters;
 import com.klinker.android.twitter.utils.EmojiUtils;
 import com.klinker.android.twitter.utils.text.TextUtils;
 import com.klinker.android.twitter.utils.text.TouchableMovementMethod;
@@ -52,20 +58,93 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
         final String hashtags = cursor.getString(HASHTAG_COL);
         holder.gifUrl = cursor.getString(GIF_COL);
 
+        String retweeter;
+        try {
+            retweeter = cursor.getString(RETWEETER_COL);
+        } catch (Exception e) {
+            retweeter = "";
+        }
+
+        if (retweeter == null) {
+            retweeter = "";
+        }
+
         holder.tweet.setMaxLines(2);
         holder.name.setSingleLine(true);
 
         int type = cursor.getInt(TYPE_COL);
         switch (type) {
-            case ActivityDataSource.TYPE_FAVORITES:
-                break;
             case ActivityDataSource.TYPE_NEW_FOLLOWER:
+                holder.background.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent viewProfile = new Intent(context, ProfilePager.class);
+                        viewProfile.putExtra("screenname", screenname);
+
+                        context.startActivity(viewProfile);
+                    }
+                });
                 break;
+            case ActivityDataSource.TYPE_FAVORITES:
             case ActivityDataSource.TYPE_MENTION:
+                final String fRetweeter = retweeter;
+                holder.background.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (holder.preventNextClick) {
+                            holder.preventNextClick = false;
+                            return;
+                        }
+                        String link = "";
+
+                        boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                        if (displayPic) {
+                            link = holder.picUrl;
+                        } else {
+                            link = otherUrl.split("  ")[0];
+                        }
+
+                        Intent viewTweet = new Intent(context, TweetPager.class);
+                        viewTweet.putExtra("name", name);
+                        viewTweet.putExtra("screenname", screenname);
+                        viewTweet.putExtra("time", longTime);
+                        viewTweet.putExtra("tweet", tweetText);
+                        viewTweet.putExtra("retweeter", fRetweeter);
+                        viewTweet.putExtra("webpage", link);
+                        viewTweet.putExtra("picture", displayPic);
+                        viewTweet.putExtra("other_links", otherUrl);
+                        viewTweet.putExtra("tweetid", holder.tweetId);
+                        viewTweet.putExtra("proPic", profilePic);
+                        viewTweet.putExtra("users", users);
+                        viewTweet.putExtra("hashtags", hashtags);
+                        viewTweet.putExtra("animated_gif", holder.gifUrl);
+
+                        context.startActivity(viewTweet);
+                    }
+                });
                 break;
             case ActivityDataSource.TYPE_RETWEETS:
+                holder.background.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent retweeters = new Intent(context, ViewRetweeters.class);
+                        retweeters.putExtra("id", id);
+
+                        context.startActivity(retweeters);
+                    }
+                });
                 break;
         }
+
+        holder.profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewProfile = new Intent(context, ProfilePager.class);
+                viewProfile.putExtra("screenname", screenname);
+
+                context.startActivity(viewProfile);
+            }
+        });
 
         holder.name.setText(title);
         holder.tweet.setText(tweetText);
