@@ -607,6 +607,9 @@ S
         <service android:name=".services.SecondMentionsRefreshService">
         </service>
 
+        <service android:name=".services.ActivityRefreshService">
+        </service>
+
         <service android:name=".services.DirectMessageRefreshService">
         </service>
 

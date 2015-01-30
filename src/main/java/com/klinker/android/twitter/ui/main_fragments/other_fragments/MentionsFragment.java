@@ -265,9 +265,6 @@ public class MentionsFragment extends MainFragment {
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("com.klinker.android.twitter.REFRESH_MENTIONS");
-        context.registerReceiver(refreshMentions, filter);
-
-        filter = new IntentFilter();
         filter.addAction("com.klinker.android.twitter.NEW_MENTION");
         context.registerReceiver(refreshMentions, filter);
     }

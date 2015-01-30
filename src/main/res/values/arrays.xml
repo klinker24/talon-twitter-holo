@@ -177,6 +177,7 @@
         <item>@string/timeline</item>
         <item>@string/mentions</item>
         <item>@string/direct_messages</item>
+        <item>@string/activity</item>
     </string-array>
 
     <string-array name="interactions_notifications">

@@ -1470,6 +1470,14 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 sharedPrefs.edit().putBoolean("direct_message_notifications", false).commit();
                 worldPrefs.edit().putBoolean("direct_message_notifications", false).commit();
             }
+
+            if (set.contains("4")) {
+                sharedPrefs.edit().putBoolean("activity_notifications", true).commit();
+                worldPrefs.edit().putBoolean("activity_notifications", true).commit();
+            } else {
+                sharedPrefs.edit().putBoolean("activity_notifications", false).commit();
+                worldPrefs.edit().putBoolean("activity_notifications", false).commit();
+            }
         } else if (key.equals("interactions_set")) {
             Log.v("notification_set", "interactions being set");
             Set<String> set = sharedPrefs.getStringSet("interactions_set", null);

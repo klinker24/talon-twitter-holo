@@ -229,10 +229,12 @@ public class ChooserFragment extends Fragment {
                         chooser = new Intent(context, SearchChooser.class);
                         startActivityForResult(chooser, REQUEST_SAVED_SEARCH);
                         break;
+                    case 12:
+                        setType(AppSettings.PAGE_TYPE_ACTIVITY);
+                        break;
                     case 13:
                         setType(AppSettings.PAGE_TYPE_FAVORITE_STATUS);
                         break;
-                    case 12:
                     default:
                         setType(AppSettings.PAGE_TYPE_NONE);
                         break;
