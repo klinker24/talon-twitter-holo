@@ -684,6 +684,7 @@
     <string name="favorites_lower">favorites</string>
     <string name="retweeted_your_status">Retweeted your status</string>
     <string name="followed_you">Followed you</string>
+    <string name="new_activity">New Activity!</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

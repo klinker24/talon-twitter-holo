@@ -26,6 +26,8 @@ public class ActivitySQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EXTRA_TWO = "extra_two";
     public static final String COLUMN_EXTRA_THREE = "extra_three";
     public static final String COLUMN_CONVERSATION = "conversation";
+    public static final String COLUMN_FAV_COUNT = "fav_count";
+    public static final String COLUMN_RETWEET_COUNT = "retweet_count";
 
     private static final String DATABASE_NAME = "activity.db";
     private static final int DATABASE_VERSION = 1;
@@ -46,7 +48,9 @@ public class ActivitySQLiteHelper extends SQLiteOpenHelper {
             + " text other url, " + COLUMN_PIC_URL
             + " text pic url, " + COLUMN_HASHTAGS
             + " text hashtags, " + COLUMN_USERS
-            + " text users, " + COLUMN_RETWEETER
+            + " text users, " + COLUMN_FAV_COUNT
+            + " integer favorite count, " + COLUMN_RETWEET_COUNT
+            + " integer retweet count, " + COLUMN_RETWEETER
             + " text original name, " + COLUMN_ANIMATED_GIF
             + " text extra one, " + COLUMN_EXTRA_TWO
             + " text extra two, " + COLUMN_EXTRA_THREE

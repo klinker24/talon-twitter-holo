@@ -106,8 +106,7 @@ public class ActivityFragment extends MainFragment {
 
                 try {
                     if (update) {
-                        CharSequence text = getResources().getString(R.string.new_mentions);
-                        showToastBar(text + "", "", 400, true, toTopListener);
+                        showToastBar(getString(R.string.new_activity), getString(R.string.ok), 400, true, toTopListener);
                     }
                 } catch (Exception e) {
                     // user closed the app before it was done

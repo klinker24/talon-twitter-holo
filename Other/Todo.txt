@@ -35,7 +35,7 @@ either, or ETA's, so please do not ask for them
                 - clicking on "8 people favorited your tweet" opens the tweet
                 - clicking on a new follower opens up their profile
             - Background refresh service with interval settings
-            - Trim database every night
+            - Trim database every night (also trim favorite tweets to 200)
             - redirect to mentions should redirect here
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>
