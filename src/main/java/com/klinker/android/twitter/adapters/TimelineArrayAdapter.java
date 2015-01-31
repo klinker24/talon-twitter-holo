@@ -452,13 +452,15 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
         holder.gifUrl = TweetLinkUtils.getGIFUrl(status, otherUrl);
 
-        if (inAConversation) {
-            if (holder.isAConversation.getVisibility() != View.VISIBLE) {
-                holder.isAConversation.setVisibility(View.VISIBLE);
-            }
-        } else {
-            if (holder.isAConversation.getVisibility() != View.GONE) {
-                holder.isAConversation.setVisibility(View.GONE);
+        if (holder.isAConversation != null) {
+            if (inAConversation) {
+                if (holder.isAConversation.getVisibility() != View.VISIBLE) {
+                    holder.isAConversation.setVisibility(View.VISIBLE);
+                }
+            } else {
+                if (holder.isAConversation.getVisibility() != View.GONE) {
+                    holder.isAConversation.setVisibility(View.GONE);
+                }
             }
         }
 
