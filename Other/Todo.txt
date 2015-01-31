@@ -27,8 +27,6 @@ either, or ETA's, so please do not ask for them
 
     Version 4.0
         - Activity fragment (fragment/adapter, background service, settings)
-            - If there isn't anything in the cursor, display a message!
-            - Make an option for the talon pull drawer
             - notification stuff
         - once a day, check if there is a new version available for the classic version by grabbing html from web page
             format: <div class="content" itemprop="softwareVersion"> 3.7.2  </div>

@@ -688,6 +688,9 @@
     <string name="new_activity">New Activity!</string>
     <string name="use_interaction_drawer">Enable Interaction Drawer</string>
     <string name="use_interaction_drawer_summary">The contents of this drawer is filled by Talon Pull (Streaming).</string>
+    <string name="no_activity_yet">No activity yet!</string>
+    <string name="no_activity_yet_desc"> This section will be filled as you interact more on Twitter.\n\n
+        Mentions, new followers, and retweets/favorites on your statuses will start to show up here.</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

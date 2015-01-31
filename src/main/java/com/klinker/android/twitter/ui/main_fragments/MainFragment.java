@@ -122,7 +122,6 @@ public abstract class MainFragment extends Fragment {
 
     @Override
     public void onPause() {
-
         context.unregisterReceiver(jumpTopReceiver);
 
         super.onPause();
@@ -229,10 +228,14 @@ public abstract class MainFragment extends Fragment {
         toMentions = getResources().getString(R.string.mentions);
     }
 
+    protected void setSpinner(View layout) {
+        spinner = (LinearLayout) layout.findViewById(R.id.spinner);
+    }
+
     public void setViews(View layout) {
 
+        setSpinner(layout);
         listView = (AsyncListView) layout.findViewById(R.id.listView);
-        spinner = (LinearLayout) layout.findViewById(R.id.spinner);
 
         refreshLayout = (FullScreenSwipeRefreshLayout) layout.findViewById(R.id.swipe_refresh_layout);
         refreshLayout.setFullScreen(true);

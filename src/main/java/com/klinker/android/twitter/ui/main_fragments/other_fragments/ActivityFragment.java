@@ -10,7 +10,9 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.ActivityCursorAdapter;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
@@ -36,7 +38,13 @@ public class ActivityFragment extends MainFragment {
         }
     };
 
+    public View getLayout(LayoutInflater inflater) {
+        return inflater.inflate(R.layout.activity_fragment, null);
+    }
 
+    protected void setSpinner(View layout) {
+        spinner = (LinearLayout) layout.findViewById(R.id.no_content);
+    }
 
     @Override
     public void setUpListScroll() {
@@ -151,7 +159,6 @@ public class ActivityFragment extends MainFragment {
     public void getCursorAdapter(boolean showSpinner) {
         if (showSpinner) {
             try {
-                spinner.setVisibility(View.VISIBLE);
                 listView.setVisibility(View.GONE);
             } catch (Exception e) { }
         }
@@ -187,7 +194,6 @@ public class ActivityFragment extends MainFragment {
                         cursorAdapter = new ActivityCursorAdapter(context, cursor);
 
                         try {
-                            spinner.setVisibility(View.GONE);
                             listView.setVisibility(View.VISIBLE);
                         } catch (Exception e) { }
 
@@ -195,6 +201,12 @@ public class ActivityFragment extends MainFragment {
                             listView.setAdapter(cursorAdapter);
                         } catch (Exception e) {
 
+                        }
+
+                        if (cursor.getCount() == 0) {
+                            spinner.setVisibility(View.VISIBLE);
+                        } else {
+                            spinner.setVisibility(View.GONE);
                         }
 
                         try {
