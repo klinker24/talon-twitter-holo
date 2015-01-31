@@ -659,9 +659,9 @@ public abstract class Compose extends Activity implements
                         .setProgress(100, 0, true);
 
         if (Compose.this instanceof ComposeDMActivity) {
-            mBuilder.setContentTitle(getResources().getString(R.string.sending_tweet));
-        } else {
             mBuilder.setContentTitle(getResources().getString(R.string.sending_direct_message));
+        } else {
+            mBuilder.setContentTitle(getResources().getString(R.string.sending_tweet));
         }
 
         Intent resultIntent = new Intent(this, MainActivity.class);
