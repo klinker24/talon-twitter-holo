@@ -139,6 +139,7 @@ public class AppSettings {
     public boolean mobilizeOnData;
     public boolean preCacheImages;
     public boolean crossAccActions;
+    public boolean useInteractionDrawer;
 
     // notifications
     public boolean timelineNot;
@@ -264,6 +265,7 @@ public class AppSettings {
         preCacheImages = sharedPrefs.getBoolean("pre_cache_images", false);
         crossAccActions = sharedPrefs.getBoolean("fav_rt_multiple_accounts", true);
         activityNot = sharedPrefs.getBoolean("activity_notifications", true);
+        useInteractionDrawer = sharedPrefs.getBoolean("interaction_drawer", true);
 
         // set up tweetmarker
         String val = sharedPrefs.getString("tweetmarker_options", "0");
@@ -289,10 +291,10 @@ public class AppSettings {
         }
 
         ringtone = defaultPrefs.getString("ringtone", RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString());
-        Log.v("talon_ringtone", ringtone);
 
         if (!pushNotifications) {
             liveStreaming = false;
+            useInteractionDrawer = false;
         }
 
         if (liveStreaming) {

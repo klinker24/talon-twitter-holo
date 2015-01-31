@@ -48,6 +48,13 @@
             android:dependency="push_notifications"
             />
 
+        <CheckBoxPreference
+            android:key="interaction_drawer"
+            android:title="@string/use_interaction_drawer"
+            android:dependency="push_notifications"
+            android:defaultValue="true"
+            />
+
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -663,7 +663,7 @@ public abstract class DrawerActivity extends Activity {
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
 
-        if(!settings.pushNotifications) {
+        if(!settings.pushNotifications || !settings.useInteractionDrawer) {
             try {
                 mDrawerLayout.setDrawerLockMode(NotificationDrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.END);
             } catch (Exception e) {
@@ -1043,7 +1043,7 @@ public abstract class DrawerActivity extends Activity {
             menu.getItem(DM).setVisible(false);
             menu.getItem(TOFIRST).setVisible(false);
 
-            if (settings.pushNotifications) {
+            if (settings.pushNotifications && settings.useInteractionDrawer) {
                 menu.getItem(NOTIFICATIONS).setVisible(true);
             } else {
                 menu.getItem(NOTIFICATIONS).setVisible(false);
@@ -1056,7 +1056,7 @@ public abstract class DrawerActivity extends Activity {
             menu.getItem(COMPOSE).setVisible(true);
             menu.getItem(DM).setVisible(true);
 
-            if (!settings.pushNotifications) {
+            if (!settings.pushNotifications || !settings.useInteractionDrawer) {
                 menu.getItem(NOTIFICATIONS).setVisible(false);
             } else {
                 if (settings.floatingCompose || getResources().getBoolean(R.bool.isTablet)) {

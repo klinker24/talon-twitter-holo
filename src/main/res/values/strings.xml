@@ -686,6 +686,8 @@
     <string name="retweeted_your_status">Retweeted your status</string>
     <string name="followed_you">Followed you</string>
     <string name="new_activity">New Activity!</string>
+    <string name="use_interaction_drawer">Enable Interaction Drawer</string>
+    <string name="use_interaction_drawer_summary">The contents of this drawer is filled by Talon Pull (Streaming).</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>
