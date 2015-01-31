@@ -69,7 +69,7 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
             retweeter = "";
         }
 
-        holder.tweet.setMaxLines(2);
+        
         holder.name.setSingleLine(true);
 
         int type = cursor.getInt(TYPE_COL);
