@@ -337,9 +337,11 @@ public class ActivityDataSource {
     }
 
     public String buildUserList(List<User> users) {
-        String s = "";
+        String s = "@" + users.get(0).getScreenName();
         for (User u : users) {
-            s+= "@" + u.getScreenName();
+            if (!s.contains(u.getScreenName())) {
+                s += " @" + u.getScreenName();
+            }
         }
         return s;
     }

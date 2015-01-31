@@ -28,7 +28,7 @@ either, or ETA's, so please do not ask for them
     Version 4.0
         - Activity fragment (fragment/adapter, background service, settings)
             - notification stuff
-            
+
 
     Version 4.1 (Widget)
         - expand the widget for mentions and multiple account support
