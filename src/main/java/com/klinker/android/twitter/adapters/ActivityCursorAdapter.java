@@ -1,6 +1,8 @@
 package com.klinker.android.twitter.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
@@ -78,10 +80,16 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
                 holder.background.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent viewProfile = new Intent(context, ProfilePager.class);
-                        viewProfile.putExtra("screenname", screenname);
+                        String[] userArray = users.split(" ");
 
-                        context.startActivity(viewProfile);
+                        if (userArray.length == 1) {
+                            Intent viewProfile = new Intent(context, ProfilePager.class);
+                            viewProfile.putExtra("screenname", userArray[0]);
+
+                            context.startActivity(viewProfile);
+                        } else {
+                            displayUserDialog(userArray);
+                        }
                     }
                 });
                 break;
@@ -222,5 +230,22 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
         if (currHandler == 10) {
             currHandler = 0;
         }
+    }
+
+    public void displayUserDialog(final String[] users) {
+        new AlertDialog.Builder(context)
+                .setItems(users, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String s = users[i];
+
+                        Intent viewProfile = new Intent(context, ProfilePager.class);
+                        viewProfile.putExtra("screenname", s);
+
+                        context.startActivity(viewProfile);
+                    }
+                })
+                .create()
+                .show();
     }
 }

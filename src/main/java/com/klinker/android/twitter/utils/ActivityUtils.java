@@ -36,8 +36,6 @@ public class ActivityUtils {
         }
 
         this.originalTime = sharedPrefs.getLong("original_activity_refresh_" + currentAccount, 0l);
-
-        Log.v(TAG, "last refresh id: " + lastRefresh);
     }
 
     /**
@@ -86,9 +84,9 @@ public class ActivityUtils {
         }
     }
 
-    public void insertFollower(User user) {
+    public void insertFollowers(List<User> users) {
         try {
-            ActivityDataSource.getInstance(context).insertNewFollower(user, currentAccount);
+            ActivityDataSource.getInstance(context).insertNewFollowers(users, currentAccount);
         } catch (Throwable t) {
 
         }
@@ -124,12 +122,9 @@ public class ActivityUtils {
 
         try {
             if (lastRefresh != 0l) {
-                Log.v(TAG, "getting all mentions");
-
                 Paging paging = new Paging(1, 50, lastRefresh);
                 List<Status> mentions = twitter.getMentionsTimeline(paging);
 
-                Log.v(TAG, "mentions size: " + mentions.size());
                 if (mentions.size() > 0) {
                     insertMentions(mentions);
                     commitLastRefresh(mentions.get(0).getId());
@@ -164,18 +159,21 @@ public class ActivityUtils {
             Log.v(TAG, "old follower count: " + oldFollowerCount);
             Log.v(TAG, "current follower count: " + me.getFollowersCount());
 
+            List<User> newFollowers = new ArrayList<User>();
             if (latestFollowers.size() != 0 &&
                     me.getFollowersCount() > oldFollowerCount) {
                 for (int i = 0; i < followers.size(); i++) {
                     if (!latestFollowers.contains(followers.get(i).getScreenName())) {
                         Log.v(TAG, "inserting @" + followers.get(i).getScreenName() + " as new follower");
-                        insertFollower(followers.get(i));
+                        newFollowers.add(followers.get(i));
                         newActivity = true;
                     } else {
                         break;
                     }
                 }
             }
+
+            insertFollowers(newFollowers);
 
             latestFollowers.clear();
             for (int i = 0; i < 20; i++) {
@@ -200,9 +198,7 @@ public class ActivityUtils {
     public boolean getRetweets(Twitter twitter, List<Status> statuses) {
         boolean newActivity = false;
 
-        Log.v(TAG, "original time (in retweets): " + originalTime);
         for (Status s : statuses) {
-            Log.v(TAG, "status created at: " + s.getCreatedAt().getTime());
             if (s.getCreatedAt().getTime() > originalTime && tryInsertRetweets(s, twitter)) {
                 newActivity = true;
             }
@@ -214,9 +210,7 @@ public class ActivityUtils {
     public boolean getFavorites(List<Status> statuses) {
         boolean newActivity = false;
 
-        Log.v(TAG, "original time (in favorites): " + originalTime);
         for (Status s : statuses) {
-            Log.v(TAG, "status created at: " + s.getCreatedAt().getTime());
             if (s.getCreatedAt().getTime() > originalTime && tryInsertFavorites(s)) {
                 newActivity = true;
             }
