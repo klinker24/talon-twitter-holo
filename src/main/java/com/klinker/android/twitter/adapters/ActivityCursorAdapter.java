@@ -84,7 +84,7 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
 
                         if (userArray.length == 1) {
                             Intent viewProfile = new Intent(context, ProfilePager.class);
-                            viewProfile.putExtra("screenname", userArray[0]);
+                            viewProfile.putExtra("screenname", userArray[0].replace("@", "").replace(" ", ""));
 
                             context.startActivity(viewProfile);
                         } else {
@@ -240,7 +240,7 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
                         String s = users[i];
 
                         Intent viewProfile = new Intent(context, ProfilePager.class);
-                        viewProfile.putExtra("screenname", s);
+                        viewProfile.putExtra("screenname", s.replace("@", "").replace(" ", ""));
 
                         context.startActivity(viewProfile);
                     }
