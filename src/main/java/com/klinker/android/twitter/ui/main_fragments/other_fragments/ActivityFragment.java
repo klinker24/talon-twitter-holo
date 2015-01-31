@@ -105,6 +105,12 @@ public class ActivityFragment extends MainFragment {
 
                 }
 
+                if (cursor.getCount() == 0) {
+                    spinner.setVisibility(View.VISIBLE);
+                } else {
+                    spinner.setVisibility(View.GONE);
+                }
+
                 try {
                     if (update) {
                         showToastBar(getString(R.string.new_activity), getString(R.string.ok), 400, true, toTopListener);
