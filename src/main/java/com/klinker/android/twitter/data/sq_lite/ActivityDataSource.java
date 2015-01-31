@@ -90,7 +90,7 @@ public class ActivityDataSource {
     }
 
     public synchronized void insertMention(Status status, int account) {
-        ContentValues values = getValues(status, account, TYPE_MENTION);
+        ContentValues values = getMentionValues(status, account);
 
         try {
             database.insert(ActivitySQLiteHelper.TABLE_ACTIVITY, null, values);
@@ -105,7 +105,7 @@ public class ActivityDataSource {
         ContentValues[] valueses = new ContentValues[statuses.size()];
 
         for (int i = 0; i < statuses.size(); i++) {
-            ContentValues values = getValues(statuses.get(i), account, TYPE_MENTION);
+            ContentValues values = getMentionValues(statuses.get(i), account);
             valueses[i] = values;
         }
 
@@ -213,7 +213,7 @@ public class ActivityDataSource {
         }
     }
 
-    public ContentValues getValues(Status status, int account, int type) {
+    public ContentValues getMentionValues(Status status, int account) {
         ContentValues values = new ContentValues();
         String originalName = "";
         long id = status.getId();
@@ -244,7 +244,7 @@ public class ActivityDataSource {
         values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
         values.put(ActivitySQLiteHelper.COLUMN_USERS, users);
         values.put(ActivitySQLiteHelper.COLUMN_HASHTAGS, hashtags);
-        values.put(ActivitySQLiteHelper.COLUMN_TYPE, type);
+        values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_MENTION);
         values.put(ActivitySQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
         values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() == -1 ? 0 : 1);
         values.put(ActivitySQLiteHelper.COLUMN_FAV_COUNT, status.getFavoriteCount());
