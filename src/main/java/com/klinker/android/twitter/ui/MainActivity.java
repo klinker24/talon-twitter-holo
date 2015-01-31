@@ -54,6 +54,7 @@ import com.klinker.android.twitter.data.sq_lite.ListDataSource;
 import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
 import com.klinker.android.twitter.services.CatchupPull;
 import com.klinker.android.twitter.services.TalonPullNotificationService;
+import com.klinker.android.twitter.services.TrimDataService;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.compose.ComposeActivity;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;

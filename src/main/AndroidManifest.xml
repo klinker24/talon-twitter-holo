@@ -329,6 +329,13 @@ S
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
 
+        <activity android:name=".utils.redirects.RedirectToPlayStore"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.TalonDark.Popup"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
         <activity android:name=".utils.redirects.RedirectToLauncherPopup"
             android:label="@string/app_name"
             android:theme="@style/Theme.TalonDark.Popup"
