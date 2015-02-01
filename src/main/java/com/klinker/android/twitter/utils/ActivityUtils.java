@@ -301,7 +301,7 @@ public class ActivityUtils {
         boolean newActivity = false;
 
         try {
-            List<User> followers = twitter.getFollowersList(AppSettings.getInstance(context).myId, -1, 200);
+            List<User> followers = twitter.getFollowersList(useSecondAccount ? AppSettings.getInstance(context).secondScreenName : AppSettings.getInstance(context).myScreenName, -1, 200);
             User me = twitter.verifyCredentials();
 
             int oldFollowerCount = sharedPrefs.getInt("activity_follower_count_" + currentAccount, 0);
