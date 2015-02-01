@@ -317,19 +317,42 @@ public class ActivityDataSource {
             ContentValues values = new ContentValues();
 
             if (retweets.size() > 0) {
+
+                long id = status.getId();
+
+                String[] html = TweetLinkUtils.getLinksInStatus(status);
+                String text = html[0];
+                String media = html[1];
+                String otherUrl = html[2];
+                String hashtags = html[3];
+                String userString = html[4];
+
+                if (media.contains("/tweet_video/")) {
+                    media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+                }
+
                 values.put(ActivitySQLiteHelper.COLUMN_TITLE, buildUsersTitle(users));
                 values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
                 values.put(ActivitySQLiteHelper.COLUMN_TEXT, users.size() + " " +
                         (users.size() == 1 ?
                                 context.getString(R.string.retweet) :
                                 context.getString(R.string.retweets)) +
-                        ": " + status.getText());
+                        ": " + text);
                 values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, status.getId());
+                values.put(ActivitySQLiteHelper.COLUMN_NAME, status.getUser().getName());
+                values.put(ActivitySQLiteHelper.COLUMN_SCREEN_NAME, status.getUser().getScreenName());
                 values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, buildProPicUrl(users));
                 values.put(ActivitySQLiteHelper.COLUMN_TIME, retweets.get(0).getCreatedAt().getTime());
+                values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
                 values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_RETWEETS);
                 values.put(ActivitySQLiteHelper.COLUMN_FAV_COUNT, status.getFavoriteCount());
                 values.put(ActivitySQLiteHelper.COLUMN_RETWEET_COUNT, status.getRetweetCount());
+                values.put(ActivitySQLiteHelper.COLUMN_URL, otherUrl);
+                values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
+                values.put(ActivitySQLiteHelper.COLUMN_USERS, userString);
+                values.put(ActivitySQLiteHelper.COLUMN_HASHTAGS, hashtags);
+                values.put(ActivitySQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
+                values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() == -1 ? 0 : 1);
             } else {
                 return null;
             }

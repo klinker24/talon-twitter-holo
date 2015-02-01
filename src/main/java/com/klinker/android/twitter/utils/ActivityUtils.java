@@ -63,7 +63,7 @@ public class ActivityUtils {
                 currentAccount = 1;
             }
         }
-        
+
         this.lastRefresh = sharedPrefs.getLong("last_activity_refresh_" + currentAccount, 0l);
 
         if (lastRefresh == 0l) { // first time...
