@@ -131,16 +131,16 @@ public class ActivityDataSource {
                     database.update(
                             ActivitySQLiteHelper.TABLE_ACTIVITY,
                             values,
-                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ?",
-                            new String[]{status.getId() + "", account + ""}
+                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ? AND " + ActivitySQLiteHelper.COLUMN_TYPE + " = ?",
+                            new String[]{status.getId() + "", account + "", TYPE_RETWEETS + ""}
                     );
                 } catch (Exception e) {
                     open();
                     database.update(
                             ActivitySQLiteHelper.TABLE_ACTIVITY,
                             values,
-                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ?",
-                            new String[]{status.getId() + "", account + ""}
+                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ? AND " + ActivitySQLiteHelper.COLUMN_TYPE + " = ?",
+                            new String[]{status.getId() + "", account + "", TYPE_RETWEETS + ""}
                     );
                 }
                 return addBoldToTitle(values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
@@ -180,16 +180,16 @@ public class ActivityDataSource {
                 database.update(
                         ActivitySQLiteHelper.TABLE_ACTIVITY,
                         values,
-                        ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ?",
-                        new String[]{status.getId() + "", account + ""}
+                        ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ? AND " + ActivitySQLiteHelper.COLUMN_TYPE + " = ?",
+                        new String[]{status.getId() + "", account + "", TYPE_FAVORITES + ""}
                 );
             } catch (Exception e) {
                 open();
                 database.update(
                         ActivitySQLiteHelper.TABLE_ACTIVITY,
                         values,
-                        ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ?",
-                        new String[]{status.getId() + "", account + ""}
+                        ActivitySQLiteHelper.COLUMN_TWEET_ID + " = ? AND " + ActivitySQLiteHelper.COLUMN_ACCOUNT + " = ? AND " + ActivitySQLiteHelper.COLUMN_TYPE + " = ?",
+                        new String[]{status.getId() + "", account + "", TYPE_FAVORITES + ""}
                 );
             }
 
@@ -538,11 +538,25 @@ public class ActivityDataSource {
         Cursor cursor;
         try {
             cursor = database.query(ActivitySQLiteHelper.TABLE_ACTIVITY,
-                    allColumns, ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " + ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId, null, null, null, ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
+                    allColumns,
+                    ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TYPE + " = " + TYPE_FAVORITES,
+                    null,
+                    null,
+                    null,
+                    ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
         } catch (Exception e) {
             open();
             cursor = database.query(ActivitySQLiteHelper.TABLE_ACTIVITY,
-                    allColumns, ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " + ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId, null, null, null, ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
+                    allColumns,
+                    ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TYPE + " = " + TYPE_FAVORITES,
+                    null,
+                    null,
+                    null,
+                    ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
         }
 
         if (cursor.moveToFirst()) {
@@ -569,11 +583,25 @@ public class ActivityDataSource {
         Cursor cursor;
         try {
             cursor = database.query(ActivitySQLiteHelper.TABLE_ACTIVITY,
-                    allColumns, ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " + ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId, null, null, null, ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
+                    allColumns,
+                    ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TYPE + " = " + TYPE_RETWEETS,
+                    null,
+                    null,
+                    null,
+                    ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
         } catch (Exception e) {
             open();
             cursor = database.query(ActivitySQLiteHelper.TABLE_ACTIVITY,
-                    allColumns, ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " + ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId, null, null, null, ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
+                    allColumns,
+                    ActivitySQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TWEET_ID + " = " + tweetId + " AND " +
+                            ActivitySQLiteHelper.COLUMN_TYPE + " = " + TYPE_RETWEETS,
+                    null,
+                    null,
+                    null,
+                    ActivitySQLiteHelper.COLUMN_TWEET_ID + " ASC");
         }
 
         if (cursor.moveToFirst()) {
