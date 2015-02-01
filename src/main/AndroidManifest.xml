@@ -358,6 +358,13 @@ S
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
 
+        <activity android:name=".utils.redirects.RedirectToActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.TalonDark"
+                  android:configChanges="orientation|screenSize"
+                  android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
         <activity android:name=".utils.redirects.RedirectToDMs"
             android:label="@string/app_name"
             android:theme="@style/Theme.TalonDark"
@@ -615,6 +622,9 @@ S
         </service>
 
         <service android:name=".services.ActivityRefreshService">
+        </service>
+
+        <service android:name=".services.SecondActivityRefreshService">
         </service>
 
         <service android:name=".services.DirectMessageRefreshService">

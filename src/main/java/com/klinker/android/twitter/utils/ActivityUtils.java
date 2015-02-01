@@ -13,9 +13,13 @@ public class ActivityUtils {
 
     private static String TAG = "ActivityUtils";
 
+    public static final int NOTIFICATON_ID = 434;
+    public static final int SECOND_NOTIFICATION_ID = 435;
+
     private Context context;
     private AppSettings settings;
     private SharedPreferences sharedPrefs;
+    private boolean useSecondAccount = false;
     private int currentAccount;
     private long lastRefresh;
     private long originalTime; // if the tweets came before this time, then we don't want to show them in activity because it would just get blown up.
@@ -24,6 +28,15 @@ public class ActivityUtils {
     private String notificationTitle = "";
 
     public ActivityUtils(Context context) {
+        init(context);
+    }
+
+    public ActivityUtils(Context context, boolean useSecondAccount) {
+        this.useSecondAccount = useSecondAccount;
+        init(context);
+    }
+
+    public void init(Context context) {
         this.context = context;
         this.sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
@@ -36,6 +49,14 @@ public class ActivityUtils {
         }
 
         this.originalTime = sharedPrefs.getLong("original_activity_refresh_" + currentAccount, 0l);
+
+        if (useSecondAccount) {
+            if (currentAccount == 1) {
+                currentAccount = 2;
+            } else {
+                currentAccount = 1;
+            }
+        }
     }
 
     /**
@@ -44,7 +65,13 @@ public class ActivityUtils {
      */
     public boolean refreshActivity() {
         boolean newActivity = false;
-        Twitter twitter = Utils.getTwitter(context, settings);
+        Twitter twitter;
+
+        if (!useSecondAccount) {
+            twitter = Utils.getTwitter(context, settings);
+        } else {
+            twitter = Utils.getSecondTwitter(context);
+        }
 
         if (getMentions(twitter)) {
             newActivity = true;
@@ -69,7 +96,11 @@ public class ActivityUtils {
     }
 
     public void postNotification() {
+        postNotification(NOTIFICATON_ID);
+    }
 
+    public void postNotification(int id) {
+        // if id = second id, then we will want to switchaccountsredirect, otherwise open to the activity timeline
     }
 
     public void commitLastRefresh(long id) {
