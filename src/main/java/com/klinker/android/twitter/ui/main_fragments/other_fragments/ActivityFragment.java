@@ -17,6 +17,7 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.ActivityCursorAdapter;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.services.ActivityRefreshService;
+import com.klinker.android.twitter.services.SecondActivityRefreshService;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.ui.main_fragments.MainFragment;
 import com.klinker.android.twitter.utils.ActivityUtils;
@@ -83,6 +84,10 @@ public class ActivityFragment extends MainFragment {
                     am.setRepeating(AlarmManager.RTC_WAKEUP, alarm, DrawerActivity.settings.activityRefresh, pendingIntent);
                 else
                     am.cancel(pendingIntent);
+
+                if (settings.syncSecondMentions) {
+                    context.startService(new Intent(context, SecondActivityRefreshService.class));
+                }
 
                 return ActivityDataSource.getInstance(context).getCursor(currentAccount);
             }

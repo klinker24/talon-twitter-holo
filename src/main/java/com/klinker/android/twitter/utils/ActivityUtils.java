@@ -1,10 +1,23 @@
 package com.klinker.android.twitter.utils;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.PowerManager;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.text.Html;
 import android.util.Log;
+import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
+import com.klinker.android.twitter.utils.redirects.RedirectToActivity;
+import com.klinker.android.twitter.utils.redirects.SwitchAccountsRedirect;
 import twitter4j.*;
 
 import java.util.*;
@@ -24,7 +37,7 @@ public class ActivityUtils {
     private long lastRefresh;
     private long originalTime; // if the tweets came before this time, then we don't want to show them in activity because it would just get blown up.
 
-    private String notificationText = "";
+    private List<String> notificationItems = new ArrayList<String>();
     private String notificationTitle = "";
 
     public ActivityUtils(Context context) {
@@ -100,7 +113,93 @@ public class ActivityUtils {
     }
 
     public void postNotification(int id) {
-        // if id = second id, then we will want to switchaccountsredirect, otherwise open to the activity timeline
+
+        if (notificationItems.size() == 0) {
+            return;
+        }
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
+        mBuilder.setContentTitle(notificationTitle);
+        mBuilder.setSmallIcon(R.drawable.ic_stat_icon);
+        mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
+                R.drawable.ic_action_notification_dark));
+
+        if (notificationItems.size() > 1) {
+            // inbox style
+            NotificationCompat.InboxStyle inbox = new NotificationCompat.InboxStyle();
+
+            try {
+                inbox.setBigContentTitle(notificationTitle);
+            } catch (Exception e) {
+
+            }
+
+            if (notificationItems.size() <= 5) {
+                for (String s : notificationItems) {
+                    inbox.addLine(s);
+                }
+            } else {
+                for (int i = 0; i < 5; i++) {
+                    inbox.addLine(notificationItems.get(i));
+                }
+
+                int extra = notificationItems.size() - 5;
+                if (extra > 1) {
+                    inbox.setSummaryText("+" + extra + " " + context.getString(R.string.items));
+                } else {
+                    inbox.setSummaryText("+" + extra + " " + context.getString(R.string.item));
+                }
+            }
+
+            mBuilder.setStyle(inbox);
+        } else {
+            // big text style
+            NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+            bigText.bigText(notificationItems.get(0));
+
+            mBuilder.setStyle(bigText);
+        }
+
+        if (useSecondAccount) {
+            mBuilder.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, SwitchAccountsRedirect.class), 0));
+        } else {
+            mBuilder.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, RedirectToActivity.class), 0));
+        }
+
+        if (settings.vibrate) {
+            mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
+        }
+
+        if (settings.sound) {
+            try {
+                mBuilder.setSound(Uri.parse(settings.ringtone));
+            } catch (Exception e) {
+                mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+            }
+        }
+
+        if (settings.led) {
+            mBuilder.setLights(0xFFFFFF, 1000, 1000);
+        }
+
+        if (settings.wakeScreen) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            final PowerManager.WakeLock wakeLock = pm.newWakeLock((PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP), "TAG");
+            wakeLock.acquire(5000);
+        }
+
+
+        // Pebble notification
+        if(sharedPrefs.getBoolean("pebble_notification", false)) {
+            NotificationUtils.sendAlertToPebble(context, notificationTitle, notificationItems.get(0));
+        }
+
+        // Light Flow notification
+        NotificationUtils.sendToLightFlow(context, notificationTitle, notificationItems.get(0));
+
+        NotificationManagerCompat notificationManager =
+                NotificationManagerCompat.from(context);
+        notificationManager.notify(id, mBuilder.build());
     }
 
     public void commitLastRefresh(long id) {

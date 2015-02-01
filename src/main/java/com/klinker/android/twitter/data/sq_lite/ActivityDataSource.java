@@ -376,12 +376,13 @@ public class ActivityDataSource {
     private String buildUsersTitle(List<User> users) {
         String s = "";
 
+        String and = context.getString(R.string.and);
         if (users.size() > 1) {
             s += "@" + users.get(0).getScreenName();
             for (int i = 1; i < users.size() - 1; i++) {
                 s += ", @" + users.get(i).getScreenName();
             }
-            s += " and @" + users.get(users.size() - 1).getScreenName();
+            s += ", " + and + " @" + users.get(users.size() - 1).getScreenName();
         } else {
             // size equals 1
             s = "@" + users.get(0).getScreenName();

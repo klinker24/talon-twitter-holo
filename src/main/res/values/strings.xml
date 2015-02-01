@@ -694,6 +694,9 @@
     <string name="retweet">Retweet</string>
     <string name="new_follower_lower">new follower</string>
     <string name="new_followers_lower">new followers</string>
+    <string name="item">item</string>
+    <string name="items">items</string>
+    <string name="and">and</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>
