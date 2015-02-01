@@ -55,13 +55,6 @@ public class ActivityUtils {
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
         this.settings = AppSettings.getInstance(context);
         this.currentAccount = sharedPrefs.getInt("current_account", 1);
-        this.lastRefresh = sharedPrefs.getLong("last_activity_refresh_" + currentAccount, 0l);
-
-        if (lastRefresh == 0l) { // first time...
-            sharedPrefs.edit().putLong("original_activity_refresh_" + currentAccount, Calendar.getInstance().getTimeInMillis()).commit();
-        }
-
-        this.originalTime = sharedPrefs.getLong("original_activity_refresh_" + currentAccount, 0l);
 
         if (useSecondAccount) {
             if (currentAccount == 1) {
@@ -70,6 +63,14 @@ public class ActivityUtils {
                 currentAccount = 1;
             }
         }
+        
+        this.lastRefresh = sharedPrefs.getLong("last_activity_refresh_" + currentAccount, 0l);
+
+        if (lastRefresh == 0l) { // first time...
+            sharedPrefs.edit().putLong("original_activity_refresh_" + currentAccount, Calendar.getInstance().getTimeInMillis()).commit();
+        }
+
+        this.originalTime = sharedPrefs.getLong("original_activity_refresh_" + currentAccount, 0l);
 
         this.notificationTitle = context.getString(R.string.new_activity);
     }
@@ -160,7 +161,7 @@ public class ActivityUtils {
             NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
             bigText.bigText(Html.fromHtml(notificationItems.get(0)));
             bigText.setBigContentTitle(notificationTitle);
-            
+
             mBuilder.setStyle(bigText);
             mBuilder.setContentText(Html.fromHtml(notificationItems.get(0)));
         }
