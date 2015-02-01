@@ -25,11 +25,6 @@ I think are more important for the development of the app.
 Please keep that in mind when viewing this roadmap. It is simply a rough estimate, and I will not be providing any timetable for it
 either, or ETA's, so please do not ask for them
 
-    Version 4.0
-        - Activity fragment (fragment/adapter, background service, settings)
-            - notification stuff
-
-
     Version 4.1 (Widget)
         - expand the widget for mentions and multiple account support
         - 1x1 "tweeting" widget just to compose a tweet

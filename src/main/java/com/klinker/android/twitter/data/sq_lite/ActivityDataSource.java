@@ -90,7 +90,7 @@ public class ActivityDataSource {
         return dbHelper;
     }
 
-    public synchronized void insertMention(Status status, int account) {
+    public synchronized String insertMention(Status status, int account) {
         ContentValues values = getMentionValues(status, account);
 
         try {
@@ -99,9 +99,11 @@ public class ActivityDataSource {
             open();
             database.insert(ActivitySQLiteHelper.TABLE_ACTIVITY, null, values);
         }
+
+        return "<b>" + values.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT);
     }
 
-    public synchronized int insertMentions(List<Status> statuses, int account) {
+    public synchronized List<String> insertMentions(List<Status> statuses, int account) {
 
         ContentValues[] valueses = new ContentValues[statuses.size()];
 
@@ -110,10 +112,16 @@ public class ActivityDataSource {
             valueses[i] = values;
         }
 
-        return insertMultiple(valueses);
+        insertMultiple(valueses);
+
+        List<String> list = new ArrayList<String>();
+        for (ContentValues v : valueses) {
+            list.add("<b>" + v.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + v.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
+        }
+        return list;
     }
 
-    public synchronized boolean insertRetweeters(Status status, int account, Twitter twitter) {
+    public synchronized String insertRetweeters(Status status, int account, Twitter twitter) {
         int retweetCountInDb = retweetExists(status.getId(), account);
         if (retweetCountInDb != -1 && retweetCountInDb < status.getRetweetCount()) {
             // we want to update the current
@@ -135,11 +143,10 @@ public class ActivityDataSource {
                             new String[]{status.getId() + "", account + ""}
                     );
                 }
+                return addBoldToTitle(values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
             } else {
-                return false;
+                return null;
             }
-
-            return true;
         } else if (status.getRetweetCount() > 0 && retweetCountInDb == -1) {
             ContentValues values = getRetweeterContentValues(status, account, twitter);
             if (values != null) {
@@ -149,22 +156,22 @@ public class ActivityDataSource {
                     open();
                     database.insert(ActivitySQLiteHelper.TABLE_ACTIVITY, null, values);
                 }
+                return addBoldToTitle(values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
             } else {
-                return false;
+                return null;
             }
-
-            return true;
         } else {
-            return false;
+            return null;
         }
     }
 
-    public synchronized boolean insertFavoriteCount(Status status, int account) {
-        int favCountInDb = favoriteExists(status.getId(), account);
+    public String addBoldToTitle(String s) {
+        int index = s.indexOf(":");
+        return "<b>" + s.substring(0, index) + "</b>" + s.substring(index + 1, s.length());
+    }
 
-        Log.v("ActivityUtils", "tweet: " + status.getText());
-        Log.v("ActivityUtils", "favorite count in database: " + favCountInDb);
-        Log.v("ActivityUtils", "favorite count on tweet: " + status.getFavoriteCount());
+    public synchronized String insertFavoriteCount(Status status, int account) {
+        int favCountInDb = favoriteExists(status.getId(), account);
 
         if (favCountInDb != -1 && favCountInDb < status.getFavoriteCount()) {
             // we want to update the current
@@ -186,7 +193,7 @@ public class ActivityDataSource {
                 );
             }
 
-            return true;
+            return "<b>" + values.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT);
         } else if (status.getFavoriteCount() > 0 && favCountInDb == -1) {
             // it isn't in the database yet
             ContentValues values = getFavoriteValues(status, account);
@@ -197,13 +204,13 @@ public class ActivityDataSource {
                 database.insert(ActivitySQLiteHelper.TABLE_ACTIVITY, null, values);
             }
 
-            return true;
+            return "<b>" + values.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT);
         } else {
-            return false;
+            return null;
         }
     }
 
-    public synchronized void insertNewFollowers(List<User> users, int account) {
+    public synchronized String insertNewFollowers(List<User> users, int account) {
         ContentValues values = getNewFollowerValues(users, account);
 
         try {
@@ -212,6 +219,8 @@ public class ActivityDataSource {
             open();
             database.insert(ActivitySQLiteHelper.TABLE_ACTIVITY, null, values);
         }
+
+        return values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT);
     }
 
     public ContentValues getMentionValues(Status status, int account) {
