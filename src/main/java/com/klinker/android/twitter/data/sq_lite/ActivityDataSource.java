@@ -16,6 +16,7 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -298,15 +299,24 @@ public class ActivityDataSource {
 
         try {
             List<Status> retweets = twitter.getRetweets(status.getId());
+            List<User> users = new ArrayList<User>();
+
+            for (Status s : retweets) {
+                users.add(s.getUser());
+            }
 
             ContentValues values = new ContentValues();
 
             if (retweets.size() > 0) {
-                values.put(ActivitySQLiteHelper.COLUMN_TITLE, buildRetweetersTitle(retweets));
+                values.put(ActivitySQLiteHelper.COLUMN_TITLE, buildUsersTitle(users));
                 values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
-                values.put(ActivitySQLiteHelper.COLUMN_TEXT, context.getString(R.string.retweeted_your_status) + "\n" + status.getText());
+                values.put(ActivitySQLiteHelper.COLUMN_TEXT, users.size() + " " +
+                        (users.size() == 1 ?
+                                context.getString(R.string.retweet) :
+                                context.getString(R.string.retweets)) +
+                        ": " + status.getText());
                 values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, status.getId());
-                values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, retweets.get(0).getUser().getOriginalProfileImageURL());
+                values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, buildProPicUrl(users));
                 values.put(ActivitySQLiteHelper.COLUMN_TIME, retweets.get(0).getCreatedAt().getTime());
                 values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_RETWEETS);
                 values.put(ActivitySQLiteHelper.COLUMN_FAV_COUNT, status.getFavoriteCount());
@@ -325,15 +335,32 @@ public class ActivityDataSource {
     public ContentValues getNewFollowerValues(List<User> users, int account) {
         ContentValues values = new ContentValues();
 
-        values.put(ActivitySQLiteHelper.COLUMN_TITLE, buildFollowersTitle(users));
+        values.put(ActivitySQLiteHelper.COLUMN_TITLE, buildUsersTitle(users));
         values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
-        values.put(ActivitySQLiteHelper.COLUMN_TEXT, context.getString(R.string.followed_you));
-        values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, users.get(0).getOriginalProfileImageURL());
+        values.put(ActivitySQLiteHelper.COLUMN_TEXT, users.size() + " " +
+                (users.size() == 1 ?
+                        context.getString(R.string.new_follower_lower) :
+                        context.getString(R.string.new_followers_lower)));
+        values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, buildProPicUrl(users));
         values.put(ActivitySQLiteHelper.COLUMN_TIME, Calendar.getInstance().getTimeInMillis());
         values.put(ActivitySQLiteHelper.COLUMN_USERS, buildUserList(users));
         values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_NEW_FOLLOWER);
 
         return values;
+    }
+
+    public String buildProPicUrl(List<User> users) {
+        String s = users.get(0).getOriginalProfileImageURL();
+        int count = 1;
+        for (int i = 1; i < users.size(); i++) {
+            s += " " + users.get(i).getOriginalProfileImageURL();
+            count++;
+
+            if (count == 4) {
+                return s;
+            }
+        }
+        return s;
     }
 
     public String buildUserList(List<User> users) {
@@ -346,24 +373,7 @@ public class ActivityDataSource {
         return s;
     }
 
-    private String buildRetweetersTitle(List<Status> statuses) {
-        String s = "";
-
-        if (statuses.size() > 1) {
-            s += "@" + statuses.get(0).getUser().getScreenName();
-            for (int i = 1; i < statuses.size() - 1; i++) {
-                s += ", @" + statuses.get(i).getUser().getScreenName();
-            }
-            s += " and @" + statuses.get(statuses.size() - 1).getUser().getScreenName();
-        } else {
-            // size equals 1
-            s = "@" + statuses.get(0).getUser().getScreenName();
-        }
-
-        return s;
-    }
-
-    private String buildFollowersTitle(List<User> users) {
+    private String buildUsersTitle(List<User> users) {
         String s = "";
 
         if (users.size() > 1) {

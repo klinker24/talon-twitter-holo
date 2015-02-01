@@ -691,6 +691,9 @@
     <string name="no_activity_yet">No activity yet!</string>
     <string name="no_activity_yet_desc"> This section will be filled as you interact more on Twitter.\n\n
         Mentions, new followers, and retweets/favorites on your statuses will start to show up here.</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">new follower</string>
+    <string name="new_followers_lower">new followers</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

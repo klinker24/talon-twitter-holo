@@ -2188,6 +2188,10 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         // now that we have all of them, we need to put them together
                         Bitmap combined = ImageUtils.combineBitmaps(context, bitmaps);
 
+                        if (round) {
+                            combined = ImageUtils.getCircle(combined, context);
+                        }
+
                         try {
                             result = mCache.put(url, combined);
                         } catch (Exception e) {
