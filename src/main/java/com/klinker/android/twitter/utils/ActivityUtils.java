@@ -136,11 +136,11 @@ public class ActivityUtils {
 
             if (notificationItems.size() <= 5) {
                 for (String s : notificationItems) {
-                    inbox.addLine(s);
+                    inbox.addLine(Html.fromHtml(s));
                 }
             } else {
                 for (int i = 0; i < 5; i++) {
-                    inbox.addLine(notificationItems.get(i));
+                    inbox.addLine(Html.fromHtml(notificationItems.get(i)));
                 }
 
                 int extra = notificationItems.size() - 5;
@@ -155,7 +155,7 @@ public class ActivityUtils {
         } else {
             // big text style
             NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-            bigText.bigText(notificationItems.get(0));
+            bigText.bigText(Html.fromHtml(notificationItems.get(0)));
 
             mBuilder.setStyle(bigText);
         }
