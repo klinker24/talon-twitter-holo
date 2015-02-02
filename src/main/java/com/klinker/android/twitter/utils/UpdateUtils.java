@@ -140,38 +140,41 @@ public class UpdateUtils {
             }
         }
 
-        if (sharedPrefs.getBoolean("3.4.0_1", true)) {
+        if (sharedPrefs.getBoolean("4.0.0", true)) {
             SharedPreferences.Editor e = sharedPrefs.edit();
-            e.putBoolean("3.4.0_1", false);
+            e.putBoolean("4.0.0", false);
 
             // show them all for now
             Set<String> set = new HashSet<String>();
-            set.add("0"); // timeline
-            set.add("1"); // mentions
-            set.add("2"); // dm's
-            set.add("3"); // discover
-            set.add("4"); // lists
-            set.add("5"); // favorite users
-            set.add("6"); // retweets
-            set.add("7"); // favorite Tweets
-            set.add("8"); // saved searches
+            set.add("0"); // activity
+            set.add("1"); // timeline
+            set.add("2"); // mentions
+            set.add("3"); // dm's
+            set.add("4"); // discover
+            set.add("5"); // lists
+            set.add("6"); // favorite users
+            set.add("7"); // retweets
+            set.add("8"); // favorite Tweets
+            set.add("9"); // saved searches
 
             e.putStringSet("drawer_elements_shown_1", set);
             e.putStringSet("drawer_elements_shown_2", set);
 
             // reset their pages to just home,
             String pageIdentifier = "account_" + 1 + "_page_";
-            e.putInt(pageIdentifier + 1, AppSettings.PAGE_TYPE_HOME);
-            e.putInt(pageIdentifier + 2, AppSettings.PAGE_TYPE_MENTIONS);
-            e.putInt(pageIdentifier + 3, AppSettings.PAGE_TYPE_DMS);
+            e.putInt(pageIdentifier + 1, AppSettings.PAGE_TYPE_ACTIVITY);
+            e.putInt(pageIdentifier + 2, AppSettings.PAGE_TYPE_HOME);
+            e.putInt(pageIdentifier + 3, AppSettings.PAGE_TYPE_MENTIONS);
+            e.putInt(pageIdentifier + 4, AppSettings.PAGE_TYPE_DMS);
 
             pageIdentifier = "account_" + 2 + "_page_";
-            e.putInt(pageIdentifier + 1, AppSettings.PAGE_TYPE_HOME);
-            e.putInt(pageIdentifier + 2, AppSettings.PAGE_TYPE_MENTIONS);
-            e.putInt(pageIdentifier + 3, AppSettings.PAGE_TYPE_DMS);
+            e.putInt(pageIdentifier + 1, AppSettings.PAGE_TYPE_ACTIVITY);
+            e.putInt(pageIdentifier + 2, AppSettings.PAGE_TYPE_HOME);
+            e.putInt(pageIdentifier + 3, AppSettings.PAGE_TYPE_MENTIONS);
+            e.putInt(pageIdentifier + 4, AppSettings.PAGE_TYPE_DMS);
 
-            e.putInt("default_timeline_page_" + 1, 0);
-            e.putInt("default_timeline_page_" + 2, 0);
+            e.putInt("default_timeline_page_" + 1, 1);
+            e.putInt("default_timeline_page_" + 2, 1);
 
             e.commit();
         }
