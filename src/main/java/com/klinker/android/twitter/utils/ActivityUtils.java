@@ -73,7 +73,7 @@ public class ActivityUtils {
 
         this.originalTime = sharedPrefs.getLong("original_activity_refresh_" + currentAccount, 0l);
 
-        this.notificationTitle = context.getString(R.string.new_activity);
+        this.notificationTitle = context.getString(R.string.new_activity) + " - @" + (useSecondAccount ? settings.secondScreenName : settings.myScreenName);
     }
 
     /**
