@@ -681,8 +681,8 @@
     <string name="talon_pull_turned_on">Talon Pull must be turned on from Sync Settings to use this feature.</string>
     <string name="activity_sync_interval">Activity Refresh Rate</string>
     <string name="mentioned_you">mentioned you</string>
-    <string name="favorites_lower">favorites</string>
-    <string name="favorite_lower">favorite</string>
+    <string name="favorites_lower">Favorites</string>
+    <string name="favorite_lower">Favorite</string>
     <string name="retweeted_your_status">Retweeted your status</string>
     <string name="followed_you">Followed you</string>
     <string name="new_activity">New Activity</string>
