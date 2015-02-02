@@ -384,6 +384,11 @@ S
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
+        <activity android:name=".utils.redirects.SwitchAccountsToActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.TalonDark" >
+        </activity>
+
         <activity android:name=".ui.compose.ComposeActivity"
                   android:label="@string/app_name"
                   android:configChanges="orientation|screenSize"
