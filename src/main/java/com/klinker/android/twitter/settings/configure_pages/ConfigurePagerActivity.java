@@ -129,7 +129,7 @@ public class ConfigurePagerActivity extends Activity {
                                 editor.putString("account_" + currentAccount + "_name_" + num, f.listName);
                                 editor.putString("account_" + currentAccount + "_search_" + num, f.searchQuery);
 
-                                if (f.check.isChecked()) {
+                                if (f.check != null && f.check.isChecked()) {
                                     editor.putInt("default_timeline_page_" + currentAccount, i);
                                 }
                             }
