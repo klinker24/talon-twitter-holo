@@ -471,7 +471,7 @@
     <string name="retweeting_status">Status wird retweetet</string>
     <string name="removing_favorite">Favorit wird gelöscht</string>
     <string name="favoriting_status">Status wird favorisiert</string>
-    <string name="jumping_workaround">"Spring"-Problembehandlung</string>
+    <string name="jumping_workaround">\"Spring\"-Problembehandlung</string>
     <string name="jumping_workaround_summary">Funktion aktivieren, wenn die Timeline nach dem Aktualisieren nach unten springt.</string>
     <string name="menu_share_link">Link teilen</string>
     <string name="no_links">Keine Links</string>
@@ -552,7 +552,7 @@
     <string name="show_pos_dashclock">Timeline-Position anzeigen</string>
     <string name="show_pos_dashclock_summary">Die aktuelle Position der Startseiten-Timeline anstatt der Anzahl neuer Tweets anzeigen.</string>
     <string name="talon_large_widget">Talon - Timeline</string>
-    <string name="unread_bar_widget">Talon - "Ungelesen"-Leiste</string>
+    <string name="unread_bar_widget">Talon - \"Ungelesen\"-Leiste</string>
     <string name="show_muted_mentions">Stummgeschaltete Erwähnungen anzeigen</string>
     <string name="force_overflow_summary">Das 3-Punkte-Menü (\"Overflow-Menü\") immer in der Aktionsleiste anzeigen.</string>
     <string name="menu_view_drafts">Entwürfe ansehen</string>
@@ -618,11 +618,12 @@
     <string name="pick_date">Datum auswählen</string>
     <string name="both_accounts">Beide Benutzerkonten</string>
     <string name="attach_gif">Animierte GIF-Datei</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Zweitkonto</string>
     <string name="second_account_login_info">Da Twitter einige deiner Login-Informationen in seinem System behält, können Sie sich vielleicht nicht sofort mit Ihren neuen Benutzerkonto anmelden. Wenn die Login-Seite übersprungen wird und Sie direkt auf der Au­to­ri­sie­rungsseite beginnen, klicken Sie einfach auf die \"Abmelden\"-Schaltfläche in der rechten oberen Ecke der Website, um der App die Anmeldung in Ihrem Zweitkonto zu ermöglichen.</string>
     <string name="fetch_tweetmarker">TweetMarker wird abgerufen…</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
     <string name="open_profile">Profil öffnen</string>
     <string name="copy_handle">Kopiere Nutzernamen</string>

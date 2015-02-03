@@ -461,6 +461,8 @@
     <string name="use_tweetmarker">Habilitar TweetMarker</string>
     <string name="tweetmarker_summary">Un poco experimental. Podrías tener problemas saltando al final.</string>
     <string name="do_not_use">No usar</string>
+    <string name="automatic_refresh">TweetMarker Automático</string>
+    <string name="manual_refresh">TweetMarket Manual</string>
     <string name="finding_tweetmarker">Buscando TweetMarker</string>
     <string name="loading">Cargando</string>
     <string name="loading_tweets">Cargando tweets...</string>
@@ -616,10 +618,33 @@
     <string name="pick_date">Escoge fecha</string>
     <string name="both_accounts">Ambas cuentas</string>
     <string name="attach_gif">GIF animado</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Segunda cuenta</string>
+    <string name="info">Información</string>
+    <string name="help_and_feedback">Ayuda/Comentarios</string>
+    <string name="contact">Contacto</string>
+    <string name="follow">Seguir</string>
+    <string name="menu_number_of_pages">Número de Páginas Extras</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
+    <string name="open_profile">Abrir Perfil</string>
+    <string name="search_user">Buscar Usuario</string>
+    <string name="mute_user">Silenciar Usuario</string>
+    <string name="mute_retweets">Silenciar Retweets</string>
+    <string name="share_profile">Compartir Perfil</string>
+    <string name="open_to_external_browser">Abrir en Navegador Externo</string>
+    <string name="open_to_internal_browser">Abrir en Navegador Interno</string>
+    <string name="copy_link">Copiar Enlace</string>
+    <string name="share_link">Compartir Enlace</string>
+    <string name="search_hashtag">Buscar Hashtag</string>
+    <string name="mute_hashtag">Silenciar Hashtag</string>
+    <string name="copy_hashtag">Copiar Hashtag</string>
+    <string name="search_cashtag">Buscar Cashtag</string>
+    <string name="copy_cashtag">Copiar Cashtag</string>
+    <string name="copied">Texto Copiado</string>
+    <string name="favorite_user_text">Usuario Favorito</string>
     <string name="open_to_web">Abrir enlaces web en el tuit</string>
     <string name="open_to_web_summary">Si el tweet contiene un enlace web, este se abrirá directamente en lugar de abrir el tweet.</string>
+    <string name="open_webpage">Abrir Enlace</string>
 </resources>

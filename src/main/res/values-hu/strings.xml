@@ -100,6 +100,7 @@
     <string name="fav_user_tweets">kedvenc felhasználó új tweetjei</string>
     <string name="sec_acc">Második fiók</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">FIGYELEM: Az opció engedélyezésével Android Lollipopon jelentősen nőhet az akkumulátor fogyasztás.</string>
     <string name="listening">Figyelés</string>
     <string name="listening_for_mentions">Események figyelése</string>
     <string name="refreshing">Frissítés</string>
@@ -214,6 +215,8 @@
     <string name="conversation">Beszélgetés</string>
     <string name="webpage">Weboldal</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Média tweetelése</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Tweet idézése</string>
     <string name="deleted_tweet">Tweet törölve</string>
     <string name="error_deleting">Hiba a tweet törlésekor</string>
@@ -613,11 +616,13 @@
     <string name="no_clients">Nincsenek kliensek</string>
     <string name="muted_clients_summary">Lehetővé teszi, hogy egy adott alkalmazásból származó összes tweet némítva legyen.</string>
     <string name="client_not_found">Nem található kliens!</string>
+    <string name="favorite">Kedvenc</string>
+    <string name="menu_share_image">Kép megosztása</string>
     <string name="pick_time">Idő megadása</string>
     <string name="pick_date">Dátum megadása</string>
     <string name="both_accounts">Mindkét fiók</string>
     <string name="attach_gif">Animált GIF</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Második fiók</string>
     <string name="second_account_login_info">Mivel a Twitter a saját rendszerén belül tárolja a bejelentkezési információkat, ezért a következő képernyőn nem biztos, hogy azonnal engedélyezi az új fiókkal való bejelentkezést. Ha átlépi a bejelentkezést és közvetlenül a hitelesítő oldalra irányítja, akkor egyszerűen nyomjon a \"Kijelentkezés\" gombra a jobb felső sarokban, hogy engedélyezhesse az alkalmazásnak a második fiókkal való bejelentkezést.</string>
     <string name="fetch_tweetmarker">TweetMarker lekérdezése</string>
@@ -637,6 +642,24 @@ Reméljük élvezni fogja a munkánkat!</string>
     <string name="main_pages_and_drawer">Főoldal és oldalsáv</string>
     <string name="drawer_elements">Oldalsávon látható elemek</string>
     <string name="drawer_elements_summary">Az alkalmazás főoldalán látható oldalsávon lévő elemek megjelenítése vagy elrejtése.</string>
+    <string name="second_acc_mentions">Második fiók említések</string>
+    <string name="using_second_account">%s fiók használata!</string>
+    <!-- the username will replace %s -->
+    <string name="error_gif">Hiba a GIF keresésekor</string>
+    <string name="saved_search">Mentett keresés</string>
+    <string name="activity">Aktivitás</string>
+    <string name="sending_direct_message">Közvetlen üzenet küldése</string>
+    <string name="fav_rt_multiple_accounts">Többfiókos műveletek</string>
+    <string name="fav_rt_multiple_accounts_summary">Ha több fiókja van, akkor ezzel választhat, hogy melyik fiókkal akar kedvencekhez adni vagy retweetelni.</string>
+    <string name="talon_pull_notifications">Talon Pull (azonnali) értesítések</string>
+    <string name="talon_pull_turned_on">A funkció használatához a Talon Pull engedélyezve kell legyen a szinkronizálás beállításainál.</string>
+    <string name="activity_sync_interval">Tevékenység frissítési gyakoriság</string>
+    <string name="mentioned_you">megemlített</string>
+    <string name="favorites_lower">kedvencek</string>
+    <string name="favorite_lower">kedvenc</string>
+    <string name="retweeted_your_status">Retweetelte az állapotod</string>
+    <string name="followed_you">Követ</string>
+    <string name="new_activity">Új tevékenység!</string>
     <!-- Long click methods -->
     <string name="open_profile">Profil megnyitása</string>
     <string name="copy_handle">Becenév másolása</string>

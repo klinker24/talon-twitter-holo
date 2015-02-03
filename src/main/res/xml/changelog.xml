@@ -16,6 +16,11 @@
 
 <changelog>
 
+    <version name="4.0.1">
+        <text>Update translations</text>
+        <text>Bug fixes from 4.0.0</text>
+    </version>
+
     <version name="4.0.0">
         <text>[New] Activity/Interactions swipe-able page</text>
         <text>[New] Native Vine support</text>

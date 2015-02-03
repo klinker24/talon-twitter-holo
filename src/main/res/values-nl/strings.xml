@@ -636,6 +636,7 @@ Hopelijk geniet je van mijn werk!</string>
     <string name="main_pages_and_drawer">Hoofdpagina\'s en drawer</string>
     <string name="drawer_elements">Zichtbare drawer items</string>
     <string name="drawer_elements_summary">Geef de items in de app\'s hoofd navigatie drawer weer of verberg ze.</string>
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
     <string name="open_profile">Open profiel</string>
     <string name="copy_handle">Kopieer gebruikersnaam</string>

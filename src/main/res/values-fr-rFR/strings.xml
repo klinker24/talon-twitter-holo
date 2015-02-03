@@ -100,6 +100,7 @@
     <string name="fav_user_tweets">Nouveau tweet d\'un utilisateur favoris</string>
     <string name="sec_acc">Second Compte</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">ATTENTION : Activer cette option peut causer une perte de batterie significative sur Android Lollipop.</string>
     <string name="listening">À l\'écoute</string>
     <string name="listening_for_mentions">A l\'écoute des intéractions</string>
     <string name="refreshing">Rafraîchir</string>
@@ -214,6 +215,7 @@
     <string name="conversation">Conversation</string>
     <string name="webpage">Page Web</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Citer le Tweet</string>
     <string name="deleted_tweet">Tweet supprimé</string>
     <string name="error_deleting">Erreur lors de la suppression du tweet</string>
@@ -460,6 +462,9 @@ Défaut (quand c\'est désactivé) \n
     <string name="verified">Vérifié</string>
     <string name="use_tweetmarker">Activer TweetMarker</string>
     <string name="tweetmarker_summary">Encore un peu expérimental. Vous pouvez avoir des problèmes avec des sauts vers le bas.</string>
+    <string name="do_not_use">Ne pas Utiliser</string>
+    <string name="automatic_refresh">TweetMarker Automatique</string>
+    <string name="manual_refresh">Tweetmarker Manuel</string>
     <string name="finding_tweetmarker">Recherche TweetMarker</string>
     <string name="loading">Chargement</string>
     <string name="loading_tweets">Chargement des Tweets</string>
@@ -482,7 +487,7 @@ Défaut (quand c\'est désactivé) \n
     <string name="page_1">Page 1</string>
     <string name="page_2">Page 2</string>
     <string name="load_tweets">Charger les tweets</string>
-    <string name="download_portal">Télécharger l\'appli "Theme Portal"</string>
+    <string name="download_portal">Télécharger l\'appli \"Theme Portal\"</string>
     <string name="download_portal_summary">Cette application vous permet d\'être au courant des dernières nouvelles et de trouver les meilleurs thèmes pour Talon et EvolveSMS au même endroit !</string>
     <string name="compose_dm_hint">"Tapez votre message privé ici... "</string>
     <string name="pwiccer">Pwiccer</string>
@@ -611,13 +616,56 @@ A la place, Talon permettra le téléchargement des photos via TwitPic.</string>
     <string name="no_clients">Pas de clients</string>
     <string name="muted_clients_summary">Vous permet de couper tous les tweets en provenance d\'une application spécifique.</string>
     <string name="client_not_found">Client non trouvé!</string>
+    <string name="favorite">Favoris</string>
+    <string name="menu_share_image">Partager l\'image</string>
     <string name="pick_time">Choisir l\'heure</string>
     <string name="pick_date">Choisir la date</string>
     <string name="both_accounts">Deux comptes à la fois</string>
     <string name="attach_gif">GIF animé</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
+    <string name="second_account">2ème Compte</string>
+    <string name="info">Info</string>
+    <string name="help_and_feedback">Aide/Réaction</string>
+    <string name="contact">Contact</string>
+    <string name="follow">Suivre</string>
+    <string name="menu_number_of_pages">Nombre de pages supplémentaires</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Page %s</string>
+    <string name="set_as_default">Appliquer par défaut</string>
+    <string name="main_pages_and_drawer">Pages principales et Drawer</string>
+    <string name="drawer_elements">Éléments visibles dans le drawer</string>
+    <string name="second_acc_mentions">Mentions du second compte</string>
+    <!-- the username will replace %s -->
+    <string name="error_gif">Erreur pour trouver le GIF</string>
+    <string name="saved_search">Recherche sauvegardée</string>
+    <string name="activity">Activité</string>
+    <string name="sending_direct_message">Envoi du Message Privé</string>
+    <string name="fav_rt_multiple_accounts_summary">Si vous avez plusieurs comptes, cela vous permettra de sélectionner le compte avec lequel vous souhaitez retweeter ou mettre en favoris.</string>
+    <string name="mentioned_you">vous a mentionné</string>
+    <string name="favorites_lower">favoris</string>
+    <string name="retweeted_your_status">a retweeté votre status</string>
+    <string name="followed_you">Vous suis</string>
+    <string name="new_activity">Nouvelle activité!</string>
+    <string name="use_interaction_drawer">Activer les interactions dans le drawer</string>
+    <string name="no_activity_yet">Pas encore d\'activité!</string>
     <!-- Long click methods -->
+    <string name="open_profile">Ouvrir le profil</string>
+    <string name="search_user">Chercher un utilisateur</string>
+    <string name="mute_user">Mettre en sourdine l\'utilisateur</string>
+    <string name="mute_retweets">Mettre en sourdine les retweets</string>
+    <string name="share_profile">Partager le profil</string>
+    <string name="open_to_external_browser">Ouvrir dans le navigateur externe</string>
+    <string name="open_to_internal_browser">Ouvrir dans le navigateur interne</string>
+    <string name="copy_link">Copier le lien</string>
+    <string name="share_link">Partager un lien</string>
+    <string name="search_hashtag">Chercher un hastag</string>
+    <string name="mute_hashtag">Mettre en sourdine le hastag</string>
+    <string name="copy_hashtag">Copier le hastag</string>
+    <string name="search_cashtag">Chercher un cashtag</string>
+    <string name="copy_cashtag">Copier le cashtag</string>
+    <string name="copied">Texte copié</string>
+    <string name="favorite_user_text">Utilisateur favoris</string>
     <string name="open_to_web">Ouvrir le tweet dans une page web</string>
     <string name="open_to_web_summary">Si un tweet contient un lien, il ouvrira directement ce lien à la place du tweet.</string>
+    <string name="open_webpage">Ouvrir le lien</string>
 </resources>

@@ -100,6 +100,7 @@
     <string name="fav_user_tweets">новые твиты от избранных</string>
     <string name="sec_acc">Второй аккаунт</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">ВНИМАНИЕ: Это может привести к большому расходу батареи в Android Lollipop.</string>
     <string name="listening">Проверка</string>
     <string name="listening_for_mentions">Проверка новых уведомлений</string>
     <string name="refreshing">Обновление</string>
@@ -214,6 +215,7 @@
     <string name="conversation">Диалог</string>
     <string name="webpage">Веб-страница</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Цитировать</string>
     <string name="deleted_tweet">Твит удалён</string>
     <string name="error_deleting">Ошибка удаления</string>
@@ -638,6 +640,7 @@ Talon содержит обширный список вопросов и отв�
     <string name="main_pages_and_drawer">Главные страницы и боковое меню</string>
     <string name="drawer_elements">Видимые пункты бокового меню</string>
     <string name="drawer_elements_summary">Показать или скрыть разделы приложения в боковом меню.</string>
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
     <string name="open_profile">Открыть профиль</string>
     <string name="copy_handle">Копировать имя</string>

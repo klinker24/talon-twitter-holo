@@ -433,7 +433,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="deleting_messages">Sletter beskeder</string>
     <string name="type_message">Skriv besked...</string>
     <string name="fill_gaps">Luk hul i tidslinje</string>
-    <string name="fill_gaps_summary">Lukker "hul" der kan opstå i Tidslinjen grundet dårlig streaming forbindelse, når live-streaming er aktiveret</string>
+    <string name="fill_gaps_summary">Lukker \"hul\" der kan opstå i Tidslinjen grundet dårlig streaming forbindelse, når live-streaming er aktiveret</string>
     <string name="filling_timeline">Lukker hullet i tidslinje</string>
     <string name="follows_you">Følger dig</string>
     <string name="not_following_you">Følger ikke dig</string>
@@ -530,7 +530,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="no_expression">Ingen ord tilføjet</string>
     <string name="regex_disclaimer">Hvis mange ord er muted, kan tiden for opstart og opdatering af applikationen blive forlænget</string>
     <string name="cleaning_cache">Rydder op i cache...</string>
-    <string name="floating_compose">Vis flydende "Skriv tweet" knap</string>
+    <string name="floating_compose">Vis flydende \"Skriv tweet\" knap</string>
     <string name="settings_links">Indstillinger</string>
     <string name="other_links">Andet</string>
     <string name="display_options">Vis indstillinger</string>
@@ -618,7 +618,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="pick_date">Vælg dato</string>
     <string name="both_accounts">Begge konti</string>
     <string name="attach_gif">Animeret GIF</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Sekundær konto</string>
     <string name="second_account_login_info">Eftersom Twitter ikke videregiver noget af din log ind information fra deres system, vil du fra den næste skærm muligvis ikke umiddelbart kunne logge ind med din  nyoprettet profil. Hvis det sker og du sendes direkte til deres  side for bekræftelse af din identitet, tap på \"Log af\" i toppen øverst til højre på hjemmesiden, for at lade app\'en logge dig ind med din sekundære konto</string>
     <string name="fetch_tweetmarker">Fastgør TweetMarker</string>
@@ -638,6 +638,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="main_pages_and_drawer">Start sider og oversigt</string>
     <string name="drawer_elements">Synlige emner i oversigt</string>
     <string name="drawer_elements_summary">Vis eller skjul emner i applikationens navigations oversigt</string>
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
     <string name="copy_handle">Kopiér indhold</string>

@@ -618,7 +618,7 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="pick_date">日付の指定</string>
     <string name="both_accounts">両方のアカウント</string>
     <string name="attach_gif">アニメGIF</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">二つ目のアカウント</string>
     <string name="second_account_login_info">Twitterはログイン情報の一部を残したままにするため、次の画面で別のアカウントにログインできる状態ではないことがあります。ログインページが表示されない場合は、右上にある「ログアウト」をタップしてください。</string>
     <string name="fetch_tweetmarker">TweetMarkerの取得</string>
@@ -638,6 +638,7 @@ Talonにはたくさんのサポートトピックやリクエストがありま
     <string name="main_pages_and_drawer">メインページとドロワー</string>
     <string name="drawer_elements">表示するドロワーアイテム</string>
     <string name="drawer_elements_summary">メインナビドロワーのアイテムの表示/非表示を切り替えます。</string>
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
     <string name="open_profile">プロフィールを開く</string>
     <string name="copy_handle">名前のコピー</string>

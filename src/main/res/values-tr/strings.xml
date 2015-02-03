@@ -130,7 +130,7 @@
     <string name="syncing_direct_messages">Direkt mesajlar senkronize ediliyor...</string>
     <string name="syncing_user">Arkadaşlar senkronize ediliyor...</string>
     <string name="done_syncing">Senkronize tamamlandı.</string>
-    <string name="login_error">Bir şeyler yanlış gitti ... Lütfen yeniden deneyin!\n\nBu, aygıtınızın tarih ve saati "otomatik" olarak ayarlanmadığı için kaynaklanmış olarabilir.</string>
+    <string name="login_error">Bir şeyler yanlış gitti ... Lütfen yeniden deneyin!\n\nBu, aygıtınızın tarih ve saati \"otomatik\" olarak ayarlanmadığı için kaynaklanmış olarabilir.</string>
     <string name="no_network">İnternet bağlantınızı kontrol edin</string>
     <string name="no_thanks">Şimdi değil</string>
     <string name="follow_me">Takip Et!</string>
@@ -618,11 +618,18 @@ Talon yerine TwitPic kullanarak resim yükleme.</string>
     <string name="pick_date">Tarih seç</string>
     <string name="both_accounts">İki hesap</string>
     <string name="attach_gif">Animasyonlu GIF</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">2nci Hesap</string>
     <string name="second_account_login_info">Twitter bazı giriş bilgilerinizi sisteminde tuttuğundan dolayı, sonraki ekran yeni hesabınızla oturum açmanıza hemen izin vermeyebilir. Eğer oturum açmayı atlayıp doğrulama sayfasına giderse, uygulamanın ikinci hesabınıza girmesine izin vermek için sayfanın sağ üstündeki \"Sign Out\" butonuna dokunun.</string>
     <string name="fetch_tweetmarker">TweetMarker\'i getir</string>
+    <string name="info">Bilgi</string>
+    <string name="help_and_feedback">Yardım et/Geridönüş Ver</string>
+    <string name="faq_first">Hey. Talon\'ı geliştirmeme yardım etmene çok sevindik.
+Soruların varsa e mail yollamaktan ya da tweet atmaktan çekinme. Ama bunu yapmadan önce sık sorulan soruları kontrol ettin mi? \n\n
+Talon\'ın uygulama içinde çok geniş bir yardım/destek konuları vardır. Benden cevap beklemeden önce bunlara göz gezdirebilirsin! (Yine de en kısa sürede cevap vermeye çalışırım) \n\n
+Keyfini çıkarın</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
     <string name="open_profile">Profili aç</string>
     <string name="copy_handle">Kullanıcı adını kopyala</string>
