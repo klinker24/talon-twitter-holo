@@ -1,6 +1,5 @@
 - Features:
     - user lists on their profiles
-    - twitter videos
     - gallery of picture on searching
     - tweetmarker in lists
     - Night mode for themes
@@ -13,6 +12,7 @@
     - rotating device will sometimes jump to the top of timeline (better rotation on timeline!)
     - direct messages get lost if you receive one before sending and after pulling to refresh
     - sent direct messages are saved over and over again
+    - progress bar on internal browser (plus)
 
 
 -- Staged for Release (Roadmap) --
@@ -25,7 +25,11 @@ I think are more important for the development of the app.
 Please keep that in mind when viewing this roadmap. It is simply a rough estimate, and I will not be providing any timetable for it
 either, or ETA's, so please do not ask for them
 
-    Version 4.1 (Widget)
+    Version 4.1 (Favoriters on status's)
+        - on classic, convert the view retweets activity to use a view pager
+        - on plus, find out a good place to add a window too.
+
+    Version 4.2 (Widget)
         - expand the widget for mentions and multiple account support
         - 1x1 "tweeting" widget just to compose a tweet
         - timestamp on widget
