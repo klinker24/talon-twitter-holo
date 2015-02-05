@@ -779,7 +779,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     holder.image.setVisibility(View.VISIBLE);
                 }
 
-                if (holder.picUrl.contains("youtube")) {
+                if (holder.picUrl.contains("youtube") || (holder.gifUrl != null && !android.text.TextUtils.isEmpty(holder.gifUrl))) {
                     if (holder.playButton.getVisibility() == View.GONE) {
                         holder.playButton.setVisibility(View.VISIBLE);
                     }
