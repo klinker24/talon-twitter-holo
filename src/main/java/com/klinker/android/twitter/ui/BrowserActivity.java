@@ -125,7 +125,14 @@ public class BrowserActivity extends Activity {
 
             case R.id.menu_open_web:
                 try {
-                    Uri weburi = Uri.parse(browser.getUrl());
+                    Uri weburi;
+
+                    if (browser != null) {
+                        weburi = Uri.parse(browser.getUrl());
+                    } else { // on plain text
+                        weburi = Uri.parse(url);
+                    }
+
                     Intent launchBrowser = new Intent(Intent.ACTION_VIEW, weburi);
                     startActivity(launchBrowser);
                 } catch (Exception e) {
