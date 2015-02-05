@@ -118,21 +118,18 @@ public class TweetPager extends YouTubeBaseActivity {
 
         getFromIntent();
 
+        mSectionsPagerAdapter = new TweetPagerAdapter(getFragmentManager(), context,
+                name, screenName, tweet, time, retweeter, webpage, proPic, tweetId,
+                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet, secondAcc, animatedGif);
+
         // methods for advancing windowed
         boolean settingsVal = settings.advanceWindowed;
         boolean fromWidget = getIntent().getBooleanExtra("from_widget", false);
         final boolean youtube;
-        if (webpage != null && linkString != null) {
-            youtube =
-                    webpage.contains("youtu")
-                    || linkString.contains("youtu")
-                    || linkString.contains("/photo/1")
-                    || linkString.contains(".mp4")
-                    || linkString.contains("vine.co/v/")
-                    || (animatedGif != null && !TextUtils.isEmpty(animatedGif));
-        } else {
-            youtube = true;
-        }
+
+        youtube = mSectionsPagerAdapter.getHasYoutube() ||
+                mSectionsPagerAdapter.getHasGif() ||
+                mSectionsPagerAdapter.hasVine();
 
         if (fromWidget || settingsVal) {
             setUpWindow(youtube);
@@ -161,9 +158,6 @@ public class TweetPager extends YouTubeBaseActivity {
 
         setContentView(R.layout.tweet_pager);
         pager = (ViewPager) findViewById(R.id.pager);
-        mSectionsPagerAdapter = new TweetPagerAdapter(getFragmentManager(), context,
-                name, screenName, tweet, time, retweeter, webpage, proPic, tweetId,
-                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet, secondAcc, animatedGif);
         pager.setAdapter(mSectionsPagerAdapter);
         pager.setOffscreenPageLimit(5);
 

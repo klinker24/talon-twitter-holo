@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.0.3">
+        <text>Animated GIF preview images</text>
+    </version>
+
     <version name="4.0.2">
         <text>Bug fixes</text>
     </version>
