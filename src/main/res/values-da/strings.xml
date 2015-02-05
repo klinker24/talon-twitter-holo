@@ -100,6 +100,7 @@
     <string name="fav_user_tweets">Nyt tweet fra favorit</string>
     <string name="sec_acc">Sekundær konto</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">ADVARSEL: Brug af denne funktion kan forårsage kraftigt dræn af batteriet på enheder med Android Lollipop</string>
     <string name="listening">Overvåger</string>
     <string name="listening_for_mentions">Overvåger interaktioner</string>
     <string name="refreshing">Opdaterer...</string>
@@ -214,6 +215,8 @@
     <string name="conversation">Samtaler</string>
     <string name="webpage">Webside visning</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet medie</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Retweet redigeret</string>
     <string name="deleted_tweet">Tweet slettet</string>
     <string name="error_deleting">Fejl, tweet ikke slettet</string>
@@ -614,6 +617,8 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="no_clients">Ingen apps</string>
     <string name="muted_clients_summary">Gør mute alle tweets fra en specifik applikation, muligt</string>
     <string name="client_not_found">App ikke fundet!</string>
+    <string name="favorite">Favorit</string>
+    <string name="menu_share_image">Del billed</string>
     <string name="pick_time">Vælg tidspunkt</string>
     <string name="pick_date">Vælg dato</string>
     <string name="both_accounts">Begge konti</string>
@@ -638,7 +643,29 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="main_pages_and_drawer">Start sider og oversigt</string>
     <string name="drawer_elements">Synlige emner i oversigt</string>
     <string name="drawer_elements_summary">Vis eller skjul emner i applikationens navigations oversigt</string>
+    <string name="second_acc_mentions">Sekundær konto\'s Meninger</string>
+    <string name="using_second_account">Bruger %s konto!</string>
     <!-- the username will replace %s -->
+    <string name="error_gif">Fejl ved reg. af gif</string>
+    <string name="saved_search">Gemte søgninger</string>
+    <string name="activity">Aktivitet</string>
+    <string name="sending_direct_message">Sender Direkte besked</string>
+    <string name="fav_rt_multiple_accounts">Tvær-konti indstillinger</string>
+    <string name="fav_rt_multiple_accounts_summary">Hvis du har flere konti kan du her bestemme hvilken konto du vælger at retweete og favorisere fra</string>
+    <string name="talon_pull_notifications">Talon Pull (øjeblikkelige) notifikationer</string>
+    <string name="talon_pull_turned_on">Talon Pull skal aktiveres under synk. indstillinger for at bruge denne funktion</string>
+    <string name="activity_sync_interval">Opdateringsinterval for Aktiviteter</string>
+    <string name="mentioned_you">nævnte dig</string>
+    <string name="favorites_lower">favoritter</string>
+    <string name="favorite_lower">favorit</string>
+    <string name="retweeted_your_status">Status retweetet</string>
+    <string name="followed_you">Følger dig</string>
+    <string name="new_activity">Ny Aktivitet!</string>
+    <string name="use_interaction_drawer">Aktivér oversigt for Interaktioner</string>
+    <string name="use_interaction_drawer_summary">Indholdet af denne oversigt er fyldt via Talon Pull (streaming)</string>
+    <string name="no_activity_yet">Ingen Aktivitet</string>
+    <string name="no_activity_yet_desc">Denne sektion vil blive fyldt efterhånden som du kommunikerer mere på Twitter\n\n
+ Meninger, nye følgere og dine retweets/favoriseringer vil blive vist her</string>
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
     <string name="copy_handle">Kopiér indhold</string>
@@ -657,7 +684,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="copy_cashtag">Kopiér cashtag</string>
     <string name="copied">Kopieret tekst</string>
     <string name="favorite_user_text">Favorit bruger</string>
-    <string name="open_to_web">Åbn websider fra tweets</string>
+    <string name="open_to_web">Åbn webside</string>
     <string name="open_to_web_summary">Hvis et tweet indeholder et link til en webside, vil det åbne websiden i stedet for at vise tweetet</string>
     <string name="open_webpage">Åbn link</string>
 </resources>
