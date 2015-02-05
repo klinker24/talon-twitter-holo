@@ -35,6 +35,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.*;
@@ -127,15 +128,12 @@ public class TweetPager extends YouTubeBaseActivity {
                     || linkString.contains("youtu")
                     || linkString.contains("/photo/1")
                     || linkString.contains(".mp4")
-                    || linkString.contains("vine.co/v/");
+                    || linkString.contains("vine.co/v/")
+                    || (animatedGif != null && !TextUtils.isEmpty(animatedGif));
         } else {
             youtube = true;
         }
 
-        // cases: (youtube will ALWAYS be full screen...)
-        // from widget
-        // the user set the preference to advance windowed
-        // has a webview and want to advance windowed
         if (fromWidget || settingsVal) {
             setUpWindow(youtube);
         }

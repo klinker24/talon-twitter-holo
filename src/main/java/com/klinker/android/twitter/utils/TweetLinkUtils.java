@@ -531,7 +531,7 @@ public class TweetLinkUtils {
         // this will be used after twitter begins to support them
         for (MediaEntity e : s.getExtendedMediaEntities()) {
             if (e.getType().equals("animated_gif")) {
-                return e.getMediaURL();
+                return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4");
             } else if (e.getType().equals("video")) {
                 // TODO this probably won't work, so we might have to find another way
                 return e.getMediaURL();
