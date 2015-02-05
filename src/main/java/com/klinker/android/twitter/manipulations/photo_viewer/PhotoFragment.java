@@ -72,7 +72,11 @@ public class PhotoFragment extends Fragment {
         mAttacher.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
             @Override
             public void onViewTap(View view, float x, float y) {
-                getActivity().finish();
+                try {
+                    getActivity().finish();
+                } catch (Exception e) {
+                    // activity is null
+                }
             }
         });
 

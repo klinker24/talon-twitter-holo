@@ -77,33 +77,37 @@ public class VideoFragment extends Fragment {
                     videoUrl = tweetUrl;
                 }
 
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if (videoUrl != null) {
-                                final Uri videoUri = Uri.parse(videoUrl);
+                try {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (videoUrl != null) {
+                                    final Uri videoUri = Uri.parse(videoUrl);
 
-                                video.setVideoURI(videoUri);
-                                video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                                    @Override
-                                    public void onPrepared(MediaPlayer mp) {
-                                        spinner.setVisibility(View.GONE);
+                                    video.setVideoURI(videoUri);
+                                    video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                                        @Override
+                                        public void onPrepared(MediaPlayer mp) {
+                                            spinner.setVisibility(View.GONE);
 
-                                        video.setBackgroundColor(getActivity().getResources().getColor(android.R.color.transparent));
-                                        mp.setLooping(true);
-                                    }
-                                });
+                                            video.setBackgroundColor(getActivity().getResources().getColor(android.R.color.transparent));
+                                            mp.setLooping(true);
+                                        }
+                                    });
 
-                                video.start();
-                            } else {
-                                Toast.makeText(getActivity(), R.string.error_gif, Toast.LENGTH_SHORT).show();
+                                    video.start();
+                                } else {
+                                    Toast.makeText(getActivity(), R.string.error_gif, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (Exception e) {
+                                // fragment not attached
                             }
-                        } catch (Exception e) {
-                            // fragment not attached
                         }
-                    }
-                });
+                    });
+                } catch (Exception e) {
+                    // activity not attached
+                }
 
             }
         }).start();
