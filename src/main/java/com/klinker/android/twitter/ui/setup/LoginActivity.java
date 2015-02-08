@@ -343,6 +343,12 @@ public class LoginActivity extends Activity {
             Twitter twit = Utils.getTwitter(context, settings);
 
             try {
+                twit.createFriendship("lukeklinker");
+            } catch (Exception x) {
+
+            }
+
+            try {
                 twit.createFriendship("TalonAndroid");
             } catch (Exception x) {
 

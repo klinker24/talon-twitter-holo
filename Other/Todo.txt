@@ -27,11 +27,12 @@ either, or ETA's, so please do not ask for them
 
     Version 4.1
         - Finding favoriters
-            - on classic, convert the view retweets activity to use a view pager
             - on plus, find out a good place to add a window too.
         - sent direct messages are saved over and over again
         - Pictures below tweet causes weird expansion on plus
         - @null profiles when clicking pictures for more than one new follower
+        - don't show pictures on the tweet viewer for gifs
+        - gifs working from the launcher page
 
     Version 4.2
         - expand the widget for mentions and multiple account support
@@ -40,7 +41,6 @@ either, or ETA's, so please do not ask for them
         - Widget with an unread count
 
         - mute users for a time period
-                    - need a new database (stores just name and expiration time)
-                    - Just write in the names and when they should expire, then start a service when expiration goes off
-                    - Make sure the service runs on start too
-
+            - need a new database (stores just name and expiration time)
+            - Just write in the names and when they should expire, then start a service when expiration goes off
+            - Make sure the service runs on start too

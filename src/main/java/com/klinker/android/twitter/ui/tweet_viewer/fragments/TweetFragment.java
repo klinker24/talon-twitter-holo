@@ -74,7 +74,7 @@ import com.klinker.android.twitter.ui.compose.ComposeActivity;
 import com.klinker.android.twitter.ui.compose.ComposeSecAccActivity;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
-import com.klinker.android.twitter.ui.tweet_viewer.ViewRetweeters;
+import com.klinker.android.twitter.ui.tweet_viewer.users_popup.ViewUsersPopup;
 import com.klinker.android.twitter.manipulations.EmojiKeyboard;
 import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.manipulations.QustomDialogBuilder;
@@ -470,7 +470,7 @@ public class TweetFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     //open up the activity to see who retweeted it
-                    Intent viewRetweeters = new Intent(context, ViewRetweeters.class);
+                    Intent viewRetweeters = new Intent(context, ViewUsersPopup.class);
                     viewRetweeters.putExtra("id", tweetId);
                     startActivity(viewRetweeters);
                 }

@@ -521,8 +521,8 @@ S
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.ViewRetweeters"
-            android:label="@string/view_retweeters"
+        <activity android:name=".ui.tweet_viewer.users_popup.ViewUsersPopup"
+            android:label="@string/user"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             android:theme="@style/Theme.TalonDark.Popup">

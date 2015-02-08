@@ -9,16 +9,12 @@ import android.os.Build;
 import android.os.Handler;
 import android.text.Html;
 import android.text.Spannable;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.data.sq_lite.ActivitySQLiteHelper;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
-import com.klinker.android.twitter.ui.tweet_viewer.ViewRetweeters;
+import com.klinker.android.twitter.ui.tweet_viewer.users_popup.ViewUsersPopup;
 import com.klinker.android.twitter.utils.EmojiUtils;
 import com.klinker.android.twitter.utils.text.TextUtils;
 import com.klinker.android.twitter.utils.text.TouchableMovementMethod;
@@ -136,7 +132,7 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
                 holder.background.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent retweeters = new Intent(context, ViewRetweeters.class);
+                        Intent retweeters = new Intent(context, ViewUsersPopup.class);
                         retweeters.putExtra("id", id);
 
                         context.startActivity(retweeters);

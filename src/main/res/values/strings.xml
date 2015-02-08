@@ -522,6 +522,7 @@
     <string name="use_shortening_service">Use Shortening Service</string>
     <string name="use_shortening_service_summary">You will be able to select either TwitLonger or Pwiccer (a service that converts your long tweet to an image for posting).</string>
     <string name="view_retweeters">Retweeters</string>
+    <string name="view_favoriters">Favoriters</string>
     <string name="no_tweets">No Tweets</string>
     <string name="only_7_days">Only 7 days available</string>
     <string name="saved_searches">Saved Searches</string>

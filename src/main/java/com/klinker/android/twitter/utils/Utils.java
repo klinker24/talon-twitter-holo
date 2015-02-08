@@ -59,6 +59,19 @@ public class Utils {
         return tf.getInstance();
     }
 
+    public static Twitter getTwitter(Context context) {
+        AppSettings settings = AppSettings.getInstance(context);
+
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+                .setOAuthConsumerKey(AppSettings.TWITTER_CONSUMER_KEY)
+                .setOAuthConsumerSecret(AppSettings.TWITTER_CONSUMER_SECRET)
+                .setOAuthAccessToken(settings.authenticationToken)
+                .setOAuthAccessTokenSecret(settings.authenticationTokenSecret);
+        TwitterFactory tf = new TwitterFactory(cb.build());
+        return tf.getInstance();
+    }
+
     public static TwitterStream getStreamingTwitter(Context context, AppSettings settings) {
         settings = AppSettings.getInstance(context);
 

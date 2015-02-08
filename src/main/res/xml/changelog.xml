@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.1.0">
+        <text>View Favorites on a status</text>
+    </version>
+
     <version name="4.0.3">
         <text>Animated GIF preview images</text>
     </version>
