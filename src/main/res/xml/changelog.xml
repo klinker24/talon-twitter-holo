@@ -18,6 +18,7 @@
 
     <version name="4.1.0">
         <text>View Favorites on a status</text>
+        <text>View who favorited your status from 'Activity' page</text>
     </version>
 
     <version name="4.0.3">

@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.util.Log;
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.utils.FavoriterUtils;
 import com.klinker.android.twitter.utils.TweetLinkUtils;
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -265,43 +266,49 @@ public class ActivityDataSource {
 
     public ContentValues getFavoriteValues(Status status, int account) {
         ContentValues values = new ContentValues();
+        try {
+            long id = status.getId();
 
-        long id = status.getId();
+            List<User> userList = (new FavoriterUtils()).getFavoriters(context, id);
 
-        String[] html = TweetLinkUtils.getLinksInStatus(status);
-        String text = html[0];
-        String media = html[1];
-        String otherUrl = html[2];
-        String hashtags = html[3];
-        String users = html[4];
+            String[] html = TweetLinkUtils.getLinksInStatus(status);
+            String text = html[0];
+            String media = html[1];
+            String otherUrl = html[2];
+            String hashtags = html[3];
+            String users = html[4];
 
-        if (media.contains("/tweet_video/")) {
-            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+            if (media.contains("/tweet_video/")) {
+                media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+            }
+
+            values.put(ActivitySQLiteHelper.COLUMN_TITLE, buildUsersTitle(userList));
+            values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
+            values.put(ActivitySQLiteHelper.COLUMN_TEXT, userList.size() + " " +
+                    (userList.size() == 1 ?
+                            context.getString(R.string.favorite_lower) :
+                            context.getString(R.string.favorites_lower)) +
+                    ": " + text);
+            values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, id);
+            values.put(ActivitySQLiteHelper.COLUMN_NAME, status.getUser().getName());
+            values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC,buildProPicUrl(userList));
+            values.put(ActivitySQLiteHelper.COLUMN_SCREEN_NAME, status.getUser().getScreenName());
+            values.put(ActivitySQLiteHelper.COLUMN_TIME, Calendar.getInstance().getTimeInMillis());
+            values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
+            values.put(ActivitySQLiteHelper.COLUMN_URL, otherUrl);
+            values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
+            values.put(ActivitySQLiteHelper.COLUMN_USERS, users);
+            values.put(ActivitySQLiteHelper.COLUMN_HASHTAGS, hashtags);
+            values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_FAVORITES);
+            values.put(ActivitySQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
+            values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() == -1 ? 0 : 1);
+            values.put(ActivitySQLiteHelper.COLUMN_FAV_COUNT, status.getFavoriteCount());
+            values.put(ActivitySQLiteHelper.COLUMN_RETWEET_COUNT, status.getRetweetCount());
+
+            return values;
+        } catch (Exception e) {
+            return null;
         }
-
-        values.put(ActivitySQLiteHelper.COLUMN_TITLE, status.getFavoriteCount() + " " +
-                (status.getFavoriteCount() == 1 ?
-                        context.getString(R.string.favorite_lower) :
-                        context.getString(R.string.favorites_lower)));
-        values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
-        values.put(ActivitySQLiteHelper.COLUMN_TEXT, text);
-        values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, id);
-        values.put(ActivitySQLiteHelper.COLUMN_NAME, status.getUser().getName());
-        values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, status.getUser().getOriginalProfileImageURL());
-        values.put(ActivitySQLiteHelper.COLUMN_SCREEN_NAME, status.getUser().getScreenName());
-        values.put(ActivitySQLiteHelper.COLUMN_TIME, Calendar.getInstance().getTimeInMillis());
-        values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
-        values.put(ActivitySQLiteHelper.COLUMN_URL, otherUrl);
-        values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
-        values.put(ActivitySQLiteHelper.COLUMN_USERS, users);
-        values.put(ActivitySQLiteHelper.COLUMN_HASHTAGS, hashtags);
-        values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_FAVORITES);
-        values.put(ActivitySQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
-        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() == -1 ? 0 : 1);
-        values.put(ActivitySQLiteHelper.COLUMN_FAV_COUNT, status.getFavoriteCount());
-        values.put(ActivitySQLiteHelper.COLUMN_RETWEET_COUNT, status.getRetweetCount());
-
-        return values;
     }
 
     public ContentValues getRetweeterContentValues(Status status, int account, Twitter twitter) {

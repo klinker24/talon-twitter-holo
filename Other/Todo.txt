@@ -26,7 +26,6 @@ Please keep that in mind when viewing this roadmap. It is simply a rough estimat
 either, or ETA's, so please do not ask for them
 
     Version 4.1
-        - add favoriters to the activity page
         - sent direct messages are saved over and over again
         - Pictures below tweet causes weird expansion on plus
         - @null profiles when clicking pictures for more than one new follower

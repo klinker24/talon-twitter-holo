@@ -90,7 +90,6 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
                     }
                 });
                 break;
-            case ActivityDataSource.TYPE_FAVORITES:
             case ActivityDataSource.TYPE_MENTION:
                 final String fRetweeter = retweeter;
                 holder.background.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +127,7 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
                     }
                 });
                 break;
+            case ActivityDataSource.TYPE_FAVORITES:
             case ActivityDataSource.TYPE_RETWEETS:
                 holder.background.setOnClickListener(new View.OnClickListener() {
                     @Override
