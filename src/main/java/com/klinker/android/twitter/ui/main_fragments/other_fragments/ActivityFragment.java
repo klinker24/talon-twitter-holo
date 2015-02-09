@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
@@ -45,6 +46,16 @@ public class ActivityFragment extends MainFragment {
 
     protected void setSpinner(View layout) {
         spinner = (LinearLayout) layout.findViewById(R.id.no_content);
+        View button = layout.findViewById(R.id.activity_info);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri weburi = Uri.parse("https://plus.google.com/117432358268488452276/posts/gz3FLfDqTkU");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, weburi);
+                launchBrowser.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(launchBrowser);
+            }
+        });
     }
 
     @Override

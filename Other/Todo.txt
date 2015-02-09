@@ -27,7 +27,6 @@ either, or ETA's, so please do not ask for them
 
     Version 4.1
         - Button at the bottom of activity for a description (link to google+)
-        - don't show pictures on the tweet viewer for gifs
         - Pictures below tweet causes weird expansion on plus
         - @null profiles when clicking pictures for more than one new follower
         - sent direct messages are saved over and over again

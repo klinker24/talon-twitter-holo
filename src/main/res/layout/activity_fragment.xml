@@ -46,6 +46,11 @@
                 android:textSize="14dp"
                 android:layout_marginBottom="25dp"/>
 
+        <Button android:id="@+id/activity_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info" />
+
     </LinearLayout>
 
     <com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout
