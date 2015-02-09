@@ -529,7 +529,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
                     String link;
 
-                    boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                    boolean displayPic = !holder.picUrl.equals("") && holder.playButton.getVisibility() != View.VISIBLE;
                     if (displayPic) {
                         link = holder.picUrl;
                     } else {
