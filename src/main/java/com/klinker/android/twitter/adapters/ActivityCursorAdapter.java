@@ -145,7 +145,11 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
             @Override
             public void onClick(View view) {
                 Intent viewProfile = new Intent(context, ProfilePager.class);
-                viewProfile.putExtra("screenname", screenname);
+                if (screenname.contains(" ")) {
+                    holder.background.performClick();
+                } else {
+                    viewProfile.putExtra("screenname", screenname);
+                }
 
                 context.startActivity(viewProfile);
             }
