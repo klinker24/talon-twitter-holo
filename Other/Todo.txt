@@ -26,7 +26,6 @@ Please keep that in mind when viewing this roadmap. It is simply a rough estimat
 either, or ETA's, so please do not ask for them
 
     Version 4.1
-        - Pictures below tweet causes weird expansion on plus
         - sent direct messages are saved over and over again
         - gifs working from the launcher page
 
