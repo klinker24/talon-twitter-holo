@@ -21,6 +21,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+    <com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <org.lucasr.smoothie.AsyncListView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/listView"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollbars="vertical"
+                android:background="@android:color/transparent"
+                android:listSelector="@android:color/transparent"
+                android:visibility="gone"
+                />
+
+    </com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout>
+
+
     <LinearLayout android:id="@+id/no_content"
                   android:orientation="vertical"
                   android:layout_height="fill_parent"
@@ -49,31 +70,10 @@
         <Button android:id="@+id/activity_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="@string/info" />
 
     </LinearLayout>
-
-    <com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout
-            android:id="@+id/swipe_refresh_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <org.lucasr.smoothie.AsyncListView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/listView"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:divider="@null"
-                android:dividerHeight="0dp"
-                android:scrollbars="vertical"
-                android:background="@android:color/transparent"
-                android:listSelector="@android:color/transparent"
-                android:visibility="gone"
-                />
-
-    </com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout>
-
-
 
     <LinearLayout android:id="@+id/toastBar"
                   android:layout_width="match_parent"
