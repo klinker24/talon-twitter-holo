@@ -19,6 +19,10 @@
     <version name="4.1.0">
         <text>View Favorites on a status</text>
         <text>View who favorited your status from 'Activity' page</text>
+        <text>Improve handling of GIFs</text>
+        <text>Info button on the activity page to tell you about it</text>
+        <text>Bug fixes</text>
+        <text>Login changes</text>
     </version>
 
     <version name="4.0.3">
