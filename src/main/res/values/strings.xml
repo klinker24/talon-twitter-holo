@@ -698,6 +698,7 @@
     <string name="item">item</string>
     <string name="items">items</string>
     <string name="and">and</string>
+    <string name="no_favorites">No favorites</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

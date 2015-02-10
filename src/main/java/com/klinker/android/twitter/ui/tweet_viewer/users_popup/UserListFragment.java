@@ -50,6 +50,10 @@ public abstract class UserListFragment extends Fragment {
         context = activity;
     }
 
+    public void changeNoRetweetersText(View layout) {
+        // do nothing here
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, null);
@@ -57,6 +61,8 @@ public abstract class UserListFragment extends Fragment {
         settings = AppSettings.getInstance(context);
 
         View layout = LayoutInflater.from(context).inflate(R.layout.ptr_list_layout, container, false);
+
+        changeNoRetweetersText(layout);
 
         mPullToRefreshLayout = (FullScreenSwipeRefreshLayout) layout.findViewById(R.id.swipe_refresh_layout);
         mPullToRefreshLayout.setOnRefreshListener(new FullScreenSwipeRefreshLayout.OnRefreshListener() {
