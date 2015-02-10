@@ -17,7 +17,6 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.utils.redirects.RedirectToActivity;
-import com.klinker.android.twitter.utils.redirects.SwitchAccountsRedirect;
 import com.klinker.android.twitter.utils.redirects.SwitchAccountsToActivity;
 import twitter4j.*;
 
@@ -248,7 +247,7 @@ public class ActivityUtils {
 
     public boolean tryInsertFavorites(Status status) {
         try {
-            String noti = ActivityDataSource.getInstance(context).insertFavoriteCount(status, currentAccount);
+            String noti = ActivityDataSource.getInstance(context).insertFavoriters(status, currentAccount);
 
             if (noti != null) {
                 notificationItems.add(noti);

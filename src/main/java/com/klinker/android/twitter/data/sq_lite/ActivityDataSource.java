@@ -171,7 +171,7 @@ public class ActivityDataSource {
         return "<b>" + s.substring(0, index) + "</b>" + s.substring(index + 1, s.length());
     }
 
-    public synchronized String insertFavoriteCount(Status status, int account) {
+    public synchronized String insertFavoriters(Status status, int account) {
         int favCountInDb = favoriteExists(status.getId(), account);
 
         if (favCountInDb != -1 && favCountInDb < status.getFavoriteCount()) {
@@ -194,7 +194,7 @@ public class ActivityDataSource {
                 );
             }
 
-            return "<b>" + values.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT);
+            return addBoldToTitle(values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
         } else if (status.getFavoriteCount() > 0 && favCountInDb == -1) {
             // it isn't in the database yet
             ContentValues values = getFavoriteValues(status, account);
@@ -205,7 +205,7 @@ public class ActivityDataSource {
                 database.insert(ActivitySQLiteHelper.TABLE_ACTIVITY, null, values);
             }
 
-            return "<b>" + values.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT);
+            return addBoldToTitle(values.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
         } else {
             return null;
         }
