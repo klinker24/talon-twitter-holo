@@ -27,7 +27,6 @@ either, or ETA's, so please do not ask for them
 
     Version 4.1
         - sent direct messages are saved over and over again
-        - gifs working from the launcher page
 
     Version 4.2
         - expand the widget for mentions and multiple account support
