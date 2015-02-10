@@ -145,7 +145,10 @@ public class ActivityCursorAdapter extends TimeLineCursorAdapter {
             @Override
             public void onClick(View view) {
                 Intent viewProfile = new Intent(context, ProfilePager.class);
-                if (screenname.contains(" ")) {
+                if (screenname == null) {
+                    String[] userArray = users.split(" ");
+                    viewProfile.putExtra("screenname", userArray[0].replace("@", "").replace(" ", ""));
+                } else  if (screenname.contains(" ")) {
                     holder.background.performClick();
                 } else {
                     viewProfile.putExtra("screenname", screenname);
