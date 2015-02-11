@@ -53,6 +53,29 @@
     </question>
 
     <question
+            name="Activity Page"
+            description="Looks cool, but what is it for?">
+
+        <text>
+            What is it?
+            The activity page is used for tracking your interactions on Twitter. It will display information such as new followers, mentions, and favorites/retweets on your tweets.
+
+            How does it work?
+            This page is simple and works very similar to the other pages on your timeline. It is a manual refresh (or background refresh - if you prefer). When it updates, it will display the information it has downloaded.
+
+            What it isn't
+            This is not Talon Pull. It will not provide you with instant notifications for your interactions and it does not replace Talon Pull in that regard. This page has nothing to do with "Streaming" which is the method that Talon Pull uses to catch those interactions.
+
+            Why should you use it?
+            If you use Talon Pull and are happy with how that works, then there is really no reason to use this page. They are alternatives to each other. This, in no way, replaces Talon Pull. The activity page should be used if you are interested in this interaction information but you do not care about getting up-to-the-second notifications.
+
+            There are of course advantages to this page over Talon Pull's "Streaming" method as well. The foremost being battery and data saving.
+
+            So pick the method you want and works best for you. On Lollipop, the battery effects of Talon Pull are unbearable, whereas they aren't nearly as severe on KitKat and below.﻿
+        </text>
+
+    </question>
+    <question
             name="Talon Pull Notification"
             description="I do not like it in the drawer, can I remove it?">
 
@@ -66,12 +89,12 @@
 
     <question
             name="Favorites on a status"
-            description="I can see retweets, but where are the favorites??">
+            description="Why only 25?">
 
         <text>
             Unfortunately, Twitter does not allow third party apps direct access to who favorites a status. Bummer, I know :(
 
-            The only real solution I have, for at least viewing favorites on your own status, is to use "Talon Pull". This will allow you to get real time notifications for when someone favorites your own statuses.
+            The solution I created is simple and works in almost all cases (unless that user has a protected account), the drawback being that it can only find around 25 'favoriters'.
         </text>
 
     </question>
@@ -177,19 +200,6 @@
     </question>
 
     <question
-        name="Multiple Pictures"
-        description="Sometimes they do not show, why?">
-
-        <text>
-            As this is a relatively new feature, it does have some problems on the third party API. The main problems come when you are live streaming. For some reason, Twitter doesn't always send the "extended_entities" (which is what holds the extra pictures) when tweets are downloaded through their Streaming APIs.
-
-            This presents a pretty big problem for us because there is no indication that that tweet does in fact have more than one image. Hopefully Twitter gets this patched up eventually, although it seems to work off and on.
-
-            Until they get this done, note that you can always see multiple images in a tweet though by opening up the tweet viewer, then clicking on the image after the retweet and favorite counts have loaded.
-        </text>
-    </question>
-
-    <question
             name="Debugging/Providing Logs"
             description="Sometimes I have to actually know the backend to debug, not just the problem description">
 
@@ -210,13 +220,12 @@
         <text>
             As a one person team making this app, unfortunately I can't possibly implement every single request from every single user. If you have something that you think is cool though, feel free to shoot me an email: support@klinkerapps.com
 
-            Just remember though, we do get a ton of requests and chances are someone has requested the same thing as you already :) sooo, here is a list of requests/features that I would like to get done. Unfortunately I cannot provide a timetable on them at this point, not even an estimate:
+            Just remember though, I do get a ton of requests and chances are someone has requested the same thing as you already :) sooo, here is a list of requests/features that I would like to get done. Unfortunately I cannot provide a timetable on them at this point, not even an estimate:
 
             1.) 1x1 widget to compose tweets
             2.) Tweetmarker in lists
             3.) Easier manipulation of lists and what lists a user is in from their profiles
             4.) Mute users for a time period
-            5.) Conversation indicator on tweets
             6.) User's lists on their profiles
             7.) Twitter Cards
             8.) Show info on a linked tweet (ie: one tweet contains a link to another)
@@ -228,7 +237,6 @@
 
             1.) Samsung multi-window support (it breaks some features and isn't something you can have an option for in settings)
             2.) Integration with FaceBook or other social networks (this app will remain only a Twitter client)
-            3.) In-line pictures on profiles (They just didn't work with my style of profiles, the cards were way to big, so I went with style on this one)
         </text>
 
     </question>
