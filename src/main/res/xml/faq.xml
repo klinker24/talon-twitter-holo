@@ -100,6 +100,21 @@
     </question>
 
     <question
+            name="Login Issues"
+            description="Talon won't let me in">
+
+        <text>
+            It goes without saying that you need to purchase this application to use it. If you have not, please go to the Play Store and download it from there.
+
+            Twitter Error (112):
+            The Play Store license verification has failed. I will let you work out for yourself what that may mean.
+
+            Time and Date Errors:
+            The most common login problem comes from your time and date not being set to automatic. Ensure that it is set to automatic from system settings, then try restarting your device. This is a requirement of Twitter's API, not my application.﻿        </text>
+
+    </question>
+
+    <question
             name="Logging into a second account"
             description="I got to many people to keep track of here...">
 
