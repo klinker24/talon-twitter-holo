@@ -101,7 +101,7 @@
 
     <question
             name="Login Issues"
-            description="Talon won't let me in">
+            description="Talon won't let me in...">
 
         <text>
             It goes without saying that you need to purchase this application to use it. If you have not, please go to the Play Store and download it from there.
@@ -116,14 +116,12 @@
 
     <question
             name="Logging into a second account"
-            description="I got to many people to keep track of here...">
+            description="I got too many people to keep track of here...">
 
         <text>
             Talon supports up to two accounts. It won't be more than that because of Twitter's token limit.
 
             If you want to add your second account, simply click the down arrow on the right side of the main drawer, then the blank circle to start the login.
-
-            Make sure you pay attention to the dialog that comes up, as it explains how you go about authorizing the second account.
         </text>
 
     </question>
