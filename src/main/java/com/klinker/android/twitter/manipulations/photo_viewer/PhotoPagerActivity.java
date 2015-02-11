@@ -65,7 +65,7 @@ public class PhotoPagerActivity extends Activity {
         pager.setAdapter(adapter);
         pager.setCurrentItem(startPage);
 
-        ActionBar ab = getActionBar();
+        ab = getActionBar();
         if (ab != null) {
             ColorDrawable transparent = new ColorDrawable(getResources().getColor(android.R.color.transparent));
             ab.setBackgroundDrawable(transparent);
@@ -73,6 +73,33 @@ public class PhotoPagerActivity extends Activity {
             ab.setDisplayShowHomeEnabled(false);
             ab.setTitle("");
             ab.setIcon(transparent);
+        }
+
+        setCurrentPageTitle(startPage);
+
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                setCurrentPageTitle(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    ActionBar ab;
+
+    public void setCurrentPageTitle(int page) {
+        if (ab != null) {
+            ab.setTitle(page + " of " + adapter.getCount());
         }
     }
 
