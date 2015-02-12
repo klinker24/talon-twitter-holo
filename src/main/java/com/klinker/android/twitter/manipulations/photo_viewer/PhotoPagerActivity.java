@@ -99,7 +99,7 @@ public class PhotoPagerActivity extends Activity {
 
     public void setCurrentPageTitle(int page) {
         page = page + 1;
-        
+
         if (ab != null) {
             ab.setTitle(page + " of " + adapter.getCount());
         }
