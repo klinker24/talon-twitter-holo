@@ -637,11 +637,11 @@ public class ActivityDataSource {
     public synchronized void deleteItem(long id) {
         try {
             database.delete(HomeSQLiteHelper.TABLE_HOME, ActivitySQLiteHelper.COLUMN_ID
-                    + " = " + id, null);
+                    + " = ?", new String[] { id + "" });
         } catch (Exception e) {
             open();
             database.delete(HomeSQLiteHelper.TABLE_HOME, ActivitySQLiteHelper.COLUMN_ID
-                    + " = " + id, null);
+                    + " = ?", new String[] { id + "" });
         }
     }
 

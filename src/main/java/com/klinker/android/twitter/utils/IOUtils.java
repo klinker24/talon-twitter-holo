@@ -360,21 +360,21 @@ public class IOUtils {
             timeline.close();
 
             ActivityDataSource activity = ActivityDataSource.getInstance(context);
-            activity.deleteDups(settings.currentAccount);
-            timeline = activity.getCursor(account);
+            Cursor actCurs = activity.getCursor(account);
 
-            Log.v("trimming", "activity size: " + timeline.getCount());
+            Log.v("trimming", "activity size: " + actCurs.getCount());
             Log.v("trimming", "activity settings size: " + 200);
-            if (timeline.getCount() > 200) {
-
-                if(timeline.moveToPosition(timeline.getCount() - 200)) {
+            if (actCurs.getCount() > 200) {
+                int toDelete = actCurs.getCount() - 200;
+                if(actCurs.moveToFirst()) {
                     do {
-                        activity.deleteItem(timeline.getLong(timeline.getColumnIndex(ActivitySQLiteHelper.COLUMN_ID)));
-                    } while (timeline.moveToPrevious());
+                        activity.deleteItem(actCurs.getLong(actCurs.getColumnIndex(ActivitySQLiteHelper.COLUMN_ID)));
+                        toDelete--;
+                    } while (timeline.moveToNext() &&  toDelete > 0);
                 }
             }
 
-            timeline.close();
+            actCurs.close();
             FavoriteTweetsDataSource favtweets = FavoriteTweetsDataSource.getInstance(context);
             favtweets.deleteDups(settings.currentAccount);
 
