@@ -90,9 +90,15 @@ public class VideoFragment extends Fragment {
                                         @Override
                                         public void onPrepared(MediaPlayer mp) {
                                             spinner.setVisibility(View.GONE);
-
                                             video.setBackgroundColor(getActivity().getResources().getColor(android.R.color.transparent));
-                                            mp.setLooping(true);
+                                        }
+                                    });
+
+                                    video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                        @Override
+                                        public void onCompletion(MediaPlayer mp) {
+                                            mp.seekTo(0);
+                                            mp.start();
                                         }
                                     });
 
