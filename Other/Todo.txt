@@ -1,5 +1,4 @@
 - Features:
-    - Drawer scrolling on Plus
     - user lists on their profiles
     - gallery of picture on searching
     - tweetmarker in lists
@@ -9,10 +8,8 @@
     - twitter videos (need twitter4j update probably)
     - play gifs in-line
     - progress bar on internal browser (plus)
-    - manifest theme switching (plus)
 
 - Bugs:
-    - fix the transparency of the drawer on discover, lists, and saved searches for plus
     - rotating device will sometimes jump to the top of timeline (better rotation on timeline!)
 
 -- Staged for Release (Roadmap) --
