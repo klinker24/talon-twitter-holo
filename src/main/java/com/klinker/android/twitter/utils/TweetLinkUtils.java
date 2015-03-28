@@ -22,12 +22,7 @@ import com.klinker.android.twitter.settings.AppSettings;
 
 import java.util.ArrayList;
 
-import twitter4j.DirectMessage;
-import twitter4j.HashtagEntity;
-import twitter4j.MediaEntity;
-import twitter4j.Status;
-import twitter4j.URLEntity;
-import twitter4j.UserMentionEntity;
+import twitter4j.*;
 
 public class TweetLinkUtils {
 
@@ -529,12 +524,21 @@ public class TweetLinkUtils {
     public static String getGIFUrl(Status s, String otherUrls) {
 
         // this will be used after twitter begins to support them
-        for (MediaEntity e : s.getExtendedMediaEntities()) {
+        for (ExtendedMediaEntity e : s.getExtendedMediaEntities()) {
+
             if (e.getType().equals("animated_gif")) {
                 return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4");
             } else if (e.getType().equals("video")) {
-                // TODO this probably won't work, so we might have to find another way
-                return e.getMediaURL();
+                if (e.getVideoVariants().length > 0) {
+                    String url = "";
+                    for (ExtendedMediaEntity.Variant v : e.getVideoVariants()) {
+                        if (v.getUrl().contains(".mp4")) {
+                            url = v.getUrl();
+                        }
+                    }
+
+                    return url;
+                }
             }
         }
 

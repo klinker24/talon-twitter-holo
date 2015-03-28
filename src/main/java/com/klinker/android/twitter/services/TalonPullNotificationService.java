@@ -777,6 +777,16 @@ public class TalonPullNotificationService extends Service {
         }
 
         @Override
+        public void onUserSuspension(long suspendedUser) {
+
+        }
+
+        @Override
+        public void onUserDeletion(long deletedUser) {
+
+        }
+
+        @Override
         public void onBlock(User source, User blockedUser) {
 
         }
