@@ -537,6 +537,7 @@ public class TweetLinkUtils {
                         }
                     }
 
+                    Log.v("talon_video_link", url);
                     return url;
                 }
             }
