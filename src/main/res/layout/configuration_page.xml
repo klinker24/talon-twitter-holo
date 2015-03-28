@@ -18,44 +18,33 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal|center_vertical">
 
-    <Button
-        android:id="@+id/dont_use"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="@string/dont_use" />
+    <Spinner
+            android:id="@+id/selection_spinner"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="150dp"/>
 
-    <Button
-        android:id="@+id/use_pics"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="@string/picture_page" />
+    <LinearLayout android:id="@+id/default_page_layout"
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:descendantFocusability="blocksDescendants">
 
-    <Button
-        android:id="@+id/use_links"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="@string/link_page" />
+        <CheckBox android:id="@+id/default_page"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:clickable="false"/>
 
-    <Button
-        android:id="@+id/use_fav_users"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="@string/favorite_users" />
+        <TextView
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/set_as_default"/>
 
-    <Button
-        android:id="@+id/use_list"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="@string/list_page" />
-
-    <com.klinker.android.twitter.manipulations.widgets.HoloTextView
-        android:id="@+id/current"
-        android:paddingTop="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"/>
-
+    </LinearLayout>
 </LinearLayout>

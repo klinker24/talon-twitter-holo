@@ -35,6 +35,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.*;
@@ -78,6 +79,7 @@ public class TweetPager extends YouTubeBaseActivity {
     public String retweeter;
     public String webpage;
     public String proPic;
+    public String animatedGif;
     public boolean picture;
     public long tweetId;
     public String[] users;
@@ -86,6 +88,7 @@ public class TweetPager extends YouTubeBaseActivity {
     public String linkString;
     public boolean isMyTweet = false;
     public boolean isMyRetweet = true;
+    public boolean secondAcc = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,20 +118,19 @@ public class TweetPager extends YouTubeBaseActivity {
 
         getFromIntent();
 
+        mSectionsPagerAdapter = new TweetPagerAdapter(getFragmentManager(), context,
+                name, screenName, tweet, time, retweeter, webpage, proPic, tweetId,
+                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet, secondAcc, animatedGif);
+
         // methods for advancing windowed
         boolean settingsVal = settings.advanceWindowed;
         boolean fromWidget = getIntent().getBooleanExtra("from_widget", false);
         final boolean youtube;
-        if (webpage != null && linkString != null) {
-            youtube = webpage.contains("youtu") || linkString.contains("youtu");
-        } else {
-            youtube = true;
-        }
 
-        // cases: (youtube will ALWAYS be full screen...)
-        // from widget
-        // the user set the preference to advance windowed
-        // has a webview and want to advance windowed
+        youtube = mSectionsPagerAdapter.getHasYoutube() ||
+                mSectionsPagerAdapter.getHasGif() ||
+                mSectionsPagerAdapter.hasVine();
+
         if (fromWidget || settingsVal) {
             setUpWindow(youtube);
         }
@@ -156,9 +158,6 @@ public class TweetPager extends YouTubeBaseActivity {
 
         setContentView(R.layout.tweet_pager);
         pager = (ViewPager) findViewById(R.id.pager);
-        mSectionsPagerAdapter = new TweetPagerAdapter(getFragmentManager(), context,
-                name, screenName, tweet, time, retweeter, webpage, proPic, tweetId,
-                picture, users, hashtags, otherLinks, isMyTweet, isMyRetweet);
         pager.setAdapter(mSectionsPagerAdapter);
         pager.setOffscreenPageLimit(5);
 
@@ -325,6 +324,8 @@ public class TweetPager extends YouTubeBaseActivity {
         tweetId = from.getLongExtra("tweetid", 0);
         picture = from.getBooleanExtra("picture", false);
         proPic = from.getStringExtra("proPic");
+        secondAcc = from.getBooleanExtra("second_account", false);
+        animatedGif = from.getStringExtra("animated_gif");
 
         try {
             users = from.getStringExtra("users").split("  ");
@@ -785,32 +786,31 @@ public class TweetPager extends YouTubeBaseActivity {
         }
 
         boolean changed = false;
+        int otherIndex = 0;
 
         if (otherLink.length > 0) {
             for (int i = 0; i < split.length; i++) {
                 String s = split[i];
 
                 //if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
-                if (s.contains("...")) { // we know the link is cut off
+                if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
                     String f = s.replace("...", "").replace("http", "");
 
                     f = stripTrailingPeriods(f);
 
-                    for (int x = 0; x < otherLink.length; x++) {
-                        if (otherLink[x].toLowerCase().contains(f.toLowerCase())) {
-                            changed = true;
-                            // for some reason it wouldn't match the last "/" on a url and it was stopping it from opening
-                            try {
-                                if (otherLink[x].substring(otherLink[x].length() - 1, otherLink[x].length()).equals("/")) {
-                                    otherLink[x] = otherLink[x].substring(0, otherLink[x].length() - 1);
-                                }
-                                f = otherLink[x].replace("http://", "").replace("https://", "").replace("www.", "");
-                                otherLink[x] = "";
-                            } catch (Exception e) {
-                                // out of bounds exception?
+                    try {
+                        if (otherIndex < otherLinks.length) {
+                            if (otherLink[otherIndex].substring(otherLink[otherIndex].length() - 1, otherLink[otherIndex].length()).equals("/")) {
+                                otherLink[otherIndex] = otherLink[otherIndex].substring(0, otherLink[otherIndex].length() - 1);
                             }
-                            break;
+                            f = otherLink[otherIndex].replace("http://", "").replace("https://", "").replace("www.", "");
+                            otherLink[otherIndex] = "";
+                            otherIndex++;
+
+                            changed = true;
                         }
+                    } catch (Exception e) {
+
                     }
 
                     if (changed) {
@@ -826,24 +826,19 @@ public class TweetPager extends YouTubeBaseActivity {
         }
 
         if (!webpage.equals("")) {
-            for (int i = 0; i < split.length; i++) {
+            for (int i = split.length - 1; i >= 0; i--) {
                 String s = split[i];
-                if (s.contains("...")) {
-                    s = s.replace("...", "");
-
-                    if (Patterns.WEB_URL.matcher(s).find() && (s.startsWith("t.co/") || s.contains("twitter.com/"))) { // we know the link is cut off
-                        String replace = otherLinks[otherLinks.length - 1];
-                        if (replace.replace(" ", "").equals("")) {
-                            replace = webpage;
-                        }
-                        split[i] = replace;
-                        changed = true;
+                if (Patterns.WEB_URL.matcher(s).find()) {
+                    String replace = otherLinks[otherLinks.length - 1];
+                    if (replace.replace(" ", "").equals("")) {
+                        replace = webpage;
                     }
+                    split[i] = replace;
+                    changed = true;
+                    break;
                 }
             }
         }
-
-
 
         if(changed) {
             full = "";

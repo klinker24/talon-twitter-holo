@@ -203,8 +203,11 @@ public class LoginActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView webView, String url)
             {
+                Log.v("talon_login", "url: " + url);
                 if (url != null && url.startsWith("oauth:///talonforandroid")) {
                     handleTwitterCallback(url);
+                } else if (url.equals("https://twitter.com/")) {
+                    webView.loadUrl(requestUrl);
                 } else {
                     webView.loadUrl(url);
                 }
@@ -232,6 +235,26 @@ public class LoginActivity extends Activity {
                 if (btnLoginTwitter.getText().toString().contains(getResources().getString(R.string.login_to_twitter))) {
                     if (Utils.hasInternetConnection(context)) {
                         btnLoginTwitter.setEnabled(false);
+
+                        new AlertDialog.Builder(context)
+                                .setMessage("Twitter may display that Talon cannot authenticate any more users. " +
+                                        "\n\n" +
+                                        "If so, and you have logged into Talon in the past, simply hit the 'Sign In' button in the top right and it will allow you to log in as normal. " +
+                                        "\n\n" +
+                                        "If you have never logged into Talon, then you will have to wait to login. Twitter seems to allow more users access every few hours.")
+                                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .setNegativeButton("More Info", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/117432358268488452276/posts/KG4AcH3YA2U")));
+                                    }
+                                })
+                                .show();
 
                         new RetreiveFeedTask().execute();
                     } else {
@@ -320,6 +343,12 @@ public class LoginActivity extends Activity {
             Twitter twit = Utils.getTwitter(context, settings);
 
             try {
+                twit.createFriendship("lukeklinker");
+            } catch (Exception x) {
+
+            }
+
+            try {
                 twit.createFriendship("TalonAndroid");
             } catch (Exception x) {
 
@@ -329,6 +358,8 @@ public class LoginActivity extends Activity {
         }
 
     }
+
+    private String requestUrl;
 
     class RetreiveFeedTask extends AsyncTask<String, Void, Void> {
 
@@ -352,7 +383,8 @@ public class LoginActivity extends Activity {
             showWebView();
 
             if (requestToken != null) {
-                mWebView.loadUrl(requestToken.getAuthenticationURL());
+                requestUrl = requestToken.getAuthenticationURL();
+                mWebView.loadUrl(requestUrl);
                 mWebView.requestFocus(View.FOCUS_UP|View.FOCUS_RIGHT);
             } else {
                 restartLogin();
@@ -570,7 +602,7 @@ public class LoginActivity extends Activity {
 
                 try {
                     int currentAccount = sharedPrefs.getInt("current_account", 1);
-                    PagableResponseList<User> friendsPaging = twitter.getFriendsList(user.getId(), -1);
+                    PagableResponseList<User> friendsPaging = twitter.getFriendsList(user.getId(), -1, 200);
 
                     for (User friend : friendsPaging) {
                         followers.createUser(friend, currentAccount);
@@ -582,7 +614,7 @@ public class LoginActivity extends Activity {
                             MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
 
                     while (nextCursor != -1) {
-                        friendsPaging = twitter.getFriendsList(user.getId(), nextCursor);
+                        friendsPaging = twitter.getFriendsList(user.getId(), nextCursor, 200);
 
                         for (User friend : friendsPaging) {
                             followers.createUser(friend, currentAccount);

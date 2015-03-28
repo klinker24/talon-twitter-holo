@@ -77,6 +77,7 @@
     <attr name="notification_button" format="reference"/>
     <attr name="notification_button_empty" format="reference"/>
     <attr name="hashtag_button" format="reference"/>
+    <attr name="settings_pages" format="reference"/>
 
     <!-- Backgrounds -->
     <attr name="compose_window_background" format="reference"/>

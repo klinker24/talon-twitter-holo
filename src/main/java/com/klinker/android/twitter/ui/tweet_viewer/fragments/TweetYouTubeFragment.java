@@ -131,7 +131,11 @@ public class TweetYouTubeFragment extends YouTubePlayerFragment implements
 
         realPlayer = youTubePlayer;
 
-        getActivity().sendBroadcast(new Intent("com.klinker.android.twitter.YOUTUBE_READY"));
+        try {
+            getActivity().sendBroadcast(new Intent("com.klinker.android.twitter.YOUTUBE_READY"));
+        } catch (Exception e) {
+            // activity is null
+        }
     }
 
     @Override

@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.MainActivity;
 
@@ -35,30 +36,46 @@ public class SwitchAccountsRedirect extends Activity {
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
+        int page = -1;
         int currentAccount = sharedPrefs.getInt("current_account", 1);
 
-        if (currentAccount == 1) {
-            sharedPrefs.edit().putInt("current_account", 2).commit();
-            currentAccount = 2;
-        } else {
-            sharedPrefs.edit().putInt("current_account", 1).commit();
-            currentAccount = 1;
+        // first lets see if they have the second mentions page
+        // if they do, then we will direct them to that instead of switching accounts
+        for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+            String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+            int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
+
+            if (type == AppSettings.PAGE_TYPE_SECOND_MENTIONS) {
+                page = i;
+            }
         }
 
-        int page1Type = sharedPrefs.getInt("account_" + currentAccount + "_page_1", AppSettings.PAGE_TYPE_NONE);
-        int page2Type = sharedPrefs.getInt("account_" + currentAccount + "_page_2", AppSettings.PAGE_TYPE_NONE);
+        if (page == -1) {
+            // they do not use the second mentions page, so we will switch accounts
+            if (currentAccount == 1) {
+                sharedPrefs.edit().putInt("current_account", 2).commit();
+                currentAccount = 2;
+            } else {
+                sharedPrefs.edit().putInt("current_account", 1).commit();
+                currentAccount = 1;
+            }
 
-        int extraPages = 0;
-        if (page1Type != AppSettings.PAGE_TYPE_NONE) {
-            extraPages++;
-        }
+            for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+                String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+                int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
 
-        if (page2Type != AppSettings.PAGE_TYPE_NONE) {
-            extraPages++;
+                if (type == AppSettings.PAGE_TYPE_MENTIONS) {
+                    page = i;
+                }
+            }
+
+            if (page == -1) {
+                page = 0;
+            }
         }
 
         sharedPrefs.edit().putBoolean("open_a_page", true).commit();
-        sharedPrefs.edit().putInt("open_what_page", extraPages + 1).commit();
+        sharedPrefs.edit().putInt("open_what_page", page).commit();
 
         // close talon pull if it is on. will be restarted when the activity starts
         sendBroadcast(new Intent("com.klinker.android.twitter.STOP_PUSH_SERVICE"));

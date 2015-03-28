@@ -84,8 +84,14 @@ public class SecondMentionsRefreshService extends IntentService {
 
             numberNew = MentionsDataSource.getInstance(context).insertTweets(statuses, currentAccount);
 
-            if (numberNew > 0 && settings.notifications && settings.mentionsNot) {
-                NotificationUtils.notifySecondMentions(context, currentAccount);
+            if (numberNew > 0) {
+                sharedPrefs.edit().putBoolean("refresh_me_mentions", true).commit();
+
+                if (settings.notifications && settings.mentionsNot) {
+                    NotificationUtils.notifySecondMentions(context, currentAccount);
+                }
+
+                sendBroadcast(new Intent("com.klinker.android.twitter.REFRESH_SECOND_MENTIONS"));
             }
 
         } catch (TwitterException e) {

@@ -82,14 +82,29 @@
 
             </LinearLayout>
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
-                android:id="@+id/time"
-                android:layout_height="match_parent"
-                android:layout_width="wrap_content"
-                android:layout_marginRight="6dp"
-                android:gravity="right|bottom"
-                android:paddingBottom="6dp"
-                android:textColor="?dateColor" />
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="6dp"
+                    android:gravity="right|bottom">
+
+                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                        android:id="@+id/time"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="?dateColor" />
+
+                <ImageView
+                        android:id="@+id/is_a_conversation"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="?directMessageItem"
+                        android:scaleType="fitCenter"
+                        android:visibility="gone" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

@@ -49,7 +49,7 @@ public class DiscoverPager extends DrawerActivity {
 
         setUpTheme();
         setContentView(R.layout.trends_activity);
-        setUpDrawer(3, getResources().getString(R.string.trends));
+        setUpDrawer(0, getResources().getString(R.string.trends));
 
         actionBar = getActionBar();
         actionBar.setTitle(getResources().getString(R.string.trends));

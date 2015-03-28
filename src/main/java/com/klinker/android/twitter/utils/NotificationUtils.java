@@ -1224,4 +1224,103 @@ public class NotificationUtils {
 
         context.sendBroadcast(data);
     }
+
+    public static final boolean TEST_NOTIFICATION = false;
+
+    public static void sendTestNotification(Context context) {
+
+        if (!TEST_NOTIFICATION) {
+            return;
+        }
+
+        AppSettings settings = AppSettings.getInstance(context);
+
+        SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+
+            Intent markRead = new Intent(context, MarkReadService.class);
+            PendingIntent readPending = PendingIntent.getService(context, 0, markRead, 0);
+
+            String shortText = "Test Talon";
+            String longText = "Here is a test for Talon's notifications";
+
+            Intent resultIntent = new Intent(context, RedirectToMentions.class);
+
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, 0 );
+
+            NotificationCompat.Builder mBuilder;
+
+            Intent deleteIntent = new Intent(context, NotificationDeleteReceiverOne.class);
+
+            mBuilder = new NotificationCompat.Builder(context)
+                    .setContentTitle(shortText)
+                    .setContentText(longText)
+                    .setSmallIcon(R.drawable.ic_stat_icon)
+                    .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher))
+                    .setContentIntent(resultPendingIntent)
+                    .setAutoCancel(true)
+                    .setTicker(shortText)
+                    .setDeleteIntent(PendingIntent.getBroadcast(context, 0, deleteIntent, 0))
+                    .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+            // Pebble notification
+            if(sharedPrefs.getBoolean("pebble_notification", false)) {
+                sendAlertToPebble(context, shortText, shortText);
+            }
+
+            // Light Flow notification
+            sendToLightFlow(context, shortText, shortText);
+
+            if (settings.vibrate) {
+                mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
+            }
+
+            if (settings.sound) {
+                try {
+                    mBuilder.setSound(Uri.parse(settings.ringtone));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+                }
+            }
+
+            if (settings.led)
+                mBuilder.setLights(0xFFFFFF, 1000, 1000);
+
+            // Get an instance of the NotificationManager service
+            NotificationManagerCompat notificationManager =
+                    NotificationManagerCompat.from(context);
+
+            Intent reply = new Intent(context, NotificationCompose.class);
+            MentionsDataSource data = MentionsDataSource.getInstance(context);
+            PendingIntent replyPending = PendingIntent.getActivity(context, 0, reply, 0);
+
+            RemoteInput remoteInput = new RemoteInput.Builder(EXTRA_VOICE_REPLY)
+                    .setLabel("@" + "lukeklinker" + " ")
+                    .build();
+
+            // Create the notification action
+            NotificationCompat.Action replyAction = new NotificationCompat.Action.Builder(R.drawable.ic_action_reply_dark,
+                    context.getResources().getString(R.string.noti_reply), replyPending)
+                    .addRemoteInput(remoteInput)
+                    .build();
+
+            NotificationCompat.Action.Builder action = new NotificationCompat.Action.Builder(
+                    R.drawable.ic_action_read_dark,
+                    context.getResources().getString(R.string.mark_read), readPending);
+
+            mBuilder.addAction(replyAction);
+            mBuilder.addAction(action.build());
+
+
+            // Build the notification and issues it with notification manager.
+            notificationManager.notify(1, mBuilder.build());
+
+            // if we want to wake the screen on a new message
+            if (settings.wakeScreen) {
+                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                final PowerManager.WakeLock wakeLock = pm.newWakeLock((PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP), "TAG");
+                wakeLock.acquire(5000);
+            }
+    }
 }

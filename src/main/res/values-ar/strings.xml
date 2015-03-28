@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">تالون</string>
     <string name="app_name_full">تالون لـ تويتر</string>
@@ -603,6 +618,7 @@
     <string name="attach_gif">صور GIF المتحركة</string>
     <string name="roboto_l">روبوت أندرويد L</string>
     <string name="second_account">الحساب الثاني</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
     <!-- Long click methods -->
     <string name="open_profile">افتح الملف الشخصي</string>
     <string name="copy_handle">انسخ اسم الحساب</string>
@@ -610,7 +626,6 @@
     <string name="mute_user">كتم المستخدم</string>
     <string name="mute_retweets">كتم إعادة التغريد</string>
     <string name="share_profile">مشاركة الملف الشخصي</string>
-    <string name="open_webpage">افتح الرابط</string>
     <string name="copy_link">انسخ الرابط</string>
     <string name="share_link">شارك الرابط</string>
     <string name="search_hashtag">ابحث عن هاشتاج</string>
@@ -619,4 +634,5 @@
     <string name="search_cashtag">ابحث في الهاشتاج</string>
     <string name="open_to_web">افتح التغريدة إلى صفحة الويب</string>
     <string name="open_to_web_summary">إذا كانت التغريدة تحتوي على رابط ويب، ستفتح رابط الويب مباشرة بدلا من التغريدة نفسها.</string>
+    <string name="open_webpage">افتح الرابط</string>
 </resources>

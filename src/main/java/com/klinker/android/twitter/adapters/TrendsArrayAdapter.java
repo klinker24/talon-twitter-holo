@@ -38,7 +38,7 @@ public class TrendsArrayAdapter extends ArrayAdapter<User> {
 
     protected Context context;
 
-    private ArrayList<String> text;
+    protected ArrayList<String> text;
 
     private LayoutInflater inflater;
     private AppSettings settings;

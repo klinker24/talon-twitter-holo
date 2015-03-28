@@ -80,18 +80,36 @@
                 android:layout_alignParentLeft="true"
                 android:visibility="gone"/>
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
-                android:id="@+id/time"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:gravity="right"
-                android:paddingRight="8dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginStart="5dp"
-                android:maxLines="1"
-                android:textColor="?dateColor"
-                android:layout_toRightOf="@id/name"
-                android:layout_alignBaseline="@id/name" />
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="right|center_vertical"
+                          android:paddingRight="8dp"
+                          android:layout_marginRight="2dp"
+                          android:layout_marginStart="5dp"
+                          android:paddingTop="4dp"
+                          android:layout_toRightOf="@id/name"
+                          android:layout_alignTop="@id/name"
+                          android:orientation="horizontal">
+
+                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                        android:id="@+id/time"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxLines="1"
+                        android:textColor="?dateColor"
+                        android:layout_marginRight="5dp"/>
+
+                <ImageView
+                        android:id="@+id/is_a_conversation"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:scaleType="fitCenter"
+                        android:src="?directMessageItem"
+                        android:visibility="gone"
+                        android:layout_marginRight="5dp"/>
+
+            </LinearLayout>
+
 
             <com.klinker.android.twitter.manipulations.widgets.HoloTextView
                 android:id="@+id/tweet"

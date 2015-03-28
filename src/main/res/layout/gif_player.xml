@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center">
+
+    <VideoView
+            android:id="@+id/gif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="?windowBackground"/>
+
+    <LinearLayout android:id="@+id/spinner"
+                  android:orientation="vertical"
+                  android:layout_height="fill_parent"
+                  android:layout_width="fill_parent"
+                  android:gravity="center" >
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+                android:indeterminateOnly="true"
+                android:background="?windowBackground" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -186,11 +186,6 @@ public class SearchedTrendsActivity extends Activity {
         spinner = (LinearLayout) findViewById(R.id.list_progress);
         spinner.setVisibility(View.GONE);
 
-        Intent intent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-
-        }
-
         handleIntent(getIntent());
 
         Utils.setActionBar(context);
@@ -249,16 +244,18 @@ public class SearchedTrendsActivity extends Activity {
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             searchQuery = intent.getStringExtra(SearchManager.QUERY);
-            String query = searchQuery;
-            doSearch(query);
 
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-            suggestions.saveRecentQuery(searchQuery, null);
+
+            if (searchQuery.contains("#")) {
+                suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+            } else {
+                suggestions.saveRecentQuery(searchQuery, null);
+            }
 
             if (searchQuery.contains("#")) {
                 // we want to add it to the userAutoComplete
-                Log.v("talon_hashtag", "adding: " + searchQuery.replaceAll("\"", ""));
                 HashtagDataSource source = HashtagDataSource.getInstance(context);
 
                 if (source != null) {
@@ -266,6 +263,13 @@ public class SearchedTrendsActivity extends Activity {
                     source.createTag(searchQuery.replaceAll("\"", ""));
                 }
             }
+
+            if (!searchQuery.contains("-RT")) {
+                searchQuery += " -RT";
+            }
+            String query = searchQuery;
+
+            doSearch(query);
         }
     }
 
@@ -291,6 +295,14 @@ public class SearchedTrendsActivity extends Activity {
     }
 
     private static final int SETTINGS_RESULT = 101;
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem i = menu.findItem(R.id.menu_remove_rt);
+        i.setChecked(true);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -474,6 +486,7 @@ public class SearchedTrendsActivity extends Activity {
                 try {
                     Twitter twitter = Utils.getTwitter(context, settings);
 
+                    Log.v("talon_search", "search query: " + mQuery);
                     query = new Query();
 
                     if (mQuery.contains(" TOP")) {

@@ -39,12 +39,13 @@ public class MentionsSQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_RETWEETER = "retweeter";
     public static final String COLUMN_HASHTAGS = "hashtags";
     public static final String COLUMN_USERS = "users";
-    public static final String COLUMN_EXTRA_ONE = "extra_one";
+    public static final String COLUMN_ANIMATED_GIF = "extra_one";
     public static final String COLUMN_EXTRA_TWO = "extra_two";
     public static final String COLUMN_EXTRA_THREE = "extra_three";
+    public static final String COLUMN_CONVERSATION = "conversation";
 
     private static final String DATABASE_NAME = "mentions.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Database creation sql statement
     private static final String DATABASE_CREATE = "create table "
@@ -63,10 +64,13 @@ public class MentionsSQLiteHelper extends SQLiteOpenHelper {
             + " text pic url, " + COLUMN_HASHTAGS
             + " text hashtags, " + COLUMN_USERS
             + " text users, " + COLUMN_RETWEETER
-            + " text original name, " + COLUMN_EXTRA_ONE
+            + " text original name, " + COLUMN_ANIMATED_GIF
             + " text extra one, " + COLUMN_EXTRA_TWO
             + " text extra two, " + COLUMN_EXTRA_THREE
             + " text extra three);";
+
+    private static final String DATABASE_ADD_CONVO_FIELD =
+            "ALTER TABLE " + TABLE_MENTIONS + " ADD COLUMN " + COLUMN_CONVERSATION + " INTEGER DEFAULT 0";
 
     public MentionsSQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -75,15 +79,16 @@ public class MentionsSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);
+        database.execSQL(DATABASE_ADD_CONVO_FIELD);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(MentionsSQLiteHelper.class.getName(),
-                "Upgrading database from version " + oldVersion + " to "
-                        + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MENTIONS);
-        onCreate(db);
+        switch (oldVersion) {
+            case 1:
+                db.execSQL(DATABASE_ADD_CONVO_FIELD);
+                break;
+        }
     }
 
 }

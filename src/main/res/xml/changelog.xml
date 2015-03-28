@@ -16,6 +16,139 @@
 
 <changelog>
 
+    <version name="4.1.3">
+        <text>Fix GIFs not looping on some devices</text>
+    </version>
+
+    <version name="4.1.2">
+        <text>Improvements for viewing multiple pictures</text>
+        <text>FAQ updates</text>
+        <text>Improvements for activity page</text>
+    </version>
+
+    <version name="4.1.1">
+        <text>Bug fixes</text>
+    </version>
+
+    <version name="4.1.0">
+        <text>View Favorites on a status</text>
+        <text>View who favorited your status from 'Activity' page</text>
+        <text>Improve handling of GIFs</text>
+        <text>Info button on the activity page to tell you about it</text>
+        <text>Bug fixes</text>
+        <text>Login changes</text>
+    </version>
+
+    <version name="4.0.3">
+        <text>Animated GIF preview images</text>
+    </version>
+
+    <version name="4.0.2">
+        <text>Bug fixes</text>
+    </version>
+
+    <version name="4.0.1">
+        <text>Update translations</text>
+        <text>Bug fixes from 4.0.0</text>
+    </version>
+
+    <version name="4.0.0">
+        <text>[New] Activity/Interactions swipe-able page</text>
+        <text>[New] Native Vine support</text>
+        <text>[New] Cross account retweets and favorites</text>
+        <text>[New] Hold up to 8 swipe-able pages</text>
+        <text>[New] Favorite tweets as a swipe-able page</text>
+        <text>[New] Saved searches swipe-able page</text>
+        <text>[New] World trends swipe-able page</text>
+        <text>[New] Local trends swipe-able page</text>
+        <text>[New] Option to remove interaction drawer</text>
+        <text>[New] Indicator on tweets part of a conversation</text>
+        <text>[New] Update direct messages conversation automatically when new messages arrive</text>
+        <text>[New] Unfollow public lists</text>
+        <text>[New] Activity refresh notifications</text>
+        <text>[New] Background refresh of activity</text>
+        <text>[New] Sync the activity of the second account in the background</text>
+        <text>[New] Option for activity background sync frequency</text>
+        <text>[Improve] Scrolling performance</text>
+        <text>[Improve] Default pages on timeline</text>
+        <text>[Improve] Auto-complete</text>
+        <text>[Improve] Selection of swipe-able pages</text>
+        <text>[Improve] Saving of search queries</text>
+        <text>[Improve] Remove retweets from searches by default</text>
+        <text>[Improve] User awareness for TweetMarker issues</text>
+        <text>[Improve] Format when saving a search</text>
+        <text>[Improve] Internal to external browser transition</text>
+        <text>[Improve] Always show images on direct messages</text>
+        <text>[Improve] Rate limiting on list timelines</text>
+        <text>[Improve] Updated in-app YouTube player</text>
+        <text>[Fix] Replacing some links</text>
+        <text>[Fix] Saved searches not displaying results</text>
+        <text>[Fix] Up navigation on in app browser</text>
+        <text>[Fix] Replacing some links</text>
+        <text>[Fix] Some ow.ly links appearing as images</text>
+        <text>[Fix] Notification when sending Direct Message</text>
+        <text>[Fix] Actually remove TwitPic setting</text>
+        <text>[Fix] Google Chrome intent filters</text>
+    </version>
+
+    <version name="3.7.2">
+        <text>Better user notification for long or failed TweetMarker responses</text>
+    </version>
+
+    <version name="3.7.1">
+        <text>Bug fixes for GIFs</text>
+    </version>
+
+    <version name="3.7.0">
+        <text>View Twitter GIFs</text>
+        <text>Swipe between a users pictures from their profile</text>
+        <text>Improve image quality from some sources</text>
+        <text>Lots of bug fixes</text>
+    </version>
+
+    <version name="3.6.0">
+        <text>Swipe between multiple pictures</text>
+        <text>Improve location services</text>
+        <text>Bug fixes</text>
+    </version>
+
+	<version name="3.5.3">
+		<text>Force close</text>
+	</version>
+	
+    <version name="3.5.2">
+        <text>Bug fixes for the in app browser</text>
+        <text>Larger touch zone for interaction drawer</text>
+    </version>
+
+    <version name="3.5.1">
+        <text>Updated translations</text>
+    </version>
+
+    <version name="3.5.0">
+        <text>Added a swipable page for your second account's mentions</text>
+        <text>Improved the accuracy of timestamp to seconds</text>
+        <text>Reduced the application size</text>
+        <text>Slight update to the icon</text>
+        <text>UI fixes when selecting swipable pages</text>
+    </version>
+
+    <version name="3.4.2">
+        <text>Open to internal or external browser when long clicking a link</text>
+        <text>img.ly support</text>
+        <text>Fix for interaction clicks</text>
+        <text>Bug/force close fixes</text>
+        <text>Updated translations</text>
+    </version>
+
+    <version name="3.4.0">
+        <text>Completely customize the swipe-able pages on your timeline</text>
+        <text>Hold up to 6 pages on your timeline</text>
+        <text>Edit what elements show up in the main navigation drawer</text>
+        <text>Better picture viewing for tweets with multiple pics and on profiles</text>
+        <text>Login workaround for users with an existing token</text>
+    </version>
+
     <version name="3.3.1">
         <text>Improve picture viewing on profiles and tweets with multiple images</text>
     </version>

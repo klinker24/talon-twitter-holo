@@ -34,13 +34,7 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.*;
 import com.klinker.android.twitter.settings.AppSettings;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
@@ -365,6 +359,39 @@ public class IOUtils {
 
             timeline.close();
 
+            ActivityDataSource activity = ActivityDataSource.getInstance(context);
+            Cursor actCurs = activity.getCursor(account);
+
+            Log.v("trimming", "activity size: " + actCurs.getCount());
+            Log.v("trimming", "activity settings size: " + 200);
+            if (actCurs.getCount() > 200) {
+                int toDelete = actCurs.getCount() - 200;
+                if(actCurs.moveToFirst()) {
+                    do {
+                        activity.deleteItem(actCurs.getLong(actCurs.getColumnIndex(ActivitySQLiteHelper.COLUMN_ID)));
+                        toDelete--;
+                    } while (timeline.moveToNext() &&  toDelete > 0);
+                }
+            }
+
+            actCurs.close();
+            FavoriteTweetsDataSource favtweets = FavoriteTweetsDataSource.getInstance(context);
+            favtweets.deleteDups(settings.currentAccount);
+
+            timeline = favtweets.getCursor(account);
+            Log.v("trimming", "favtweets size: " + timeline.getCount());
+            Log.v("trimming", "favtweets settings size: " + 200);
+            if (timeline.getCount() > 200) {
+
+                if(timeline.moveToPosition(timeline.getCount() - 200)) {
+                    do {
+                        favtweets.deleteTweet(timeline.getLong(timeline.getColumnIndex(FavoriteTweetsSQLiteHelper.COLUMN_TWEET_ID)));
+                    } while (timeline.moveToPrevious());
+                }
+            }
+
+            timeline.close();
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -415,5 +442,11 @@ public class IOUtils {
         }
 
         return ret;
+    }
+
+    public byte[] convertToByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
     }
 }

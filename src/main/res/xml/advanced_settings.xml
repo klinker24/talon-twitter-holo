@@ -62,12 +62,12 @@
             android:defaultValue="true"
             />
 
-        <CheckBoxPreference
+        <!--<CheckBoxPreference
             android:key="twitpic"
             android:title="@string/use_twitpic"
             android:summary="@string/twitpic_summary"
             android:defaultValue="false"
-            />
+            />-->
 
     </PreferenceCategory>
 
@@ -120,6 +120,13 @@
             android:title="@string/jumping_workaround"
             android:summary="@string/jumping_workaround_summary"
             android:defaultValue="false"
+            />
+
+        <CheckBoxPreference
+            android:key="fav_rt_multiple_accounts"
+            android:title="@string/fav_rt_multiple_accounts"
+            android:summary="@string/fav_rt_multiple_accounts_summary"
+            android:defaultValue="true"
             />
 
     </PreferenceCategory>

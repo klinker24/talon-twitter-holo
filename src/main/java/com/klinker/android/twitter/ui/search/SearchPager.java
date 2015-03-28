@@ -177,7 +177,14 @@ public class SearchPager extends Activity {
 
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-            suggestions.saveRecentQuery(searchQuery, null);
+
+            if (searchQuery.contains("#")) {
+                suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+            } else {
+                suggestions.saveRecentQuery(searchQuery, null);
+            }
+
+            searchQuery += " -RT";
         } else if (Intent.ACTION_VIEW.equals(intent.getAction())) {
             Uri uri = intent.getData();
             String uriString = uri.toString();
@@ -196,12 +203,12 @@ public class SearchPager extends Activity {
                 }
                 searchQuery = id + "";
                 onlyStatus = true;
-            } else if (!uriString.contains("q=") && !uriString.contains("screen_name%3D")) { // going to try searching for users i guess
+            } else if (!uriString.contains("q=") && !uriString.contains("screen_name%3D")) {
+                // going to try searching for users i guess
                 String name = uriString.substring(uriString.indexOf(".com/"));
                 name = name.replaceAll("/", "").replaceAll(".com", "");
                 searchQuery = name;
                 onlyProfile = true;
-                Log.v("talon_searching", "only profile");
             } else if (uriString.contains("q=")){
                 try {
                     String search = uri.getQueryParameter("q");
@@ -210,7 +217,14 @@ public class SearchPager extends Activity {
                         searchQuery = search;
                         SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                                 MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-                        suggestions.saveRecentQuery(searchQuery, null);
+
+                        if (searchQuery.contains("#")) {
+                            suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+                        } else {
+                            suggestions.saveRecentQuery(searchQuery, null);
+                        }
+
+                        searchQuery += " -RT";
                     } else {
                         searchQuery = "";
                     }
@@ -230,7 +244,14 @@ public class SearchPager extends Activity {
 
                         SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                                 MySuggestionsProvider.AUTHORITY, MySuggestionsProvider.MODE);
-                        suggestions.saveRecentQuery(searchQuery, null);
+
+                        if (searchQuery.contains("#")) {
+                            suggestions.saveRecentQuery(searchQuery.replaceAll("\"", ""), null);
+                        } else {
+                            suggestions.saveRecentQuery(searchQuery, null);
+                        }
+
+                        searchQuery += " -RT";
                     } else {
                         searchQuery = "";
                     }
@@ -252,13 +273,6 @@ public class SearchPager extends Activity {
         actionBar.setDisplayShowHomeEnabled(false);
 
         Log.v("talon_searching", "on new intent, query: " + searchQuery);
-
-        // since this is the single top activity, it won't launch a new one to research,
-        // so we have to do the re search stuff when it receives the new intent
-        /*Intent broadcast = new Intent("com.klinker.android.twitter.NEW_SEARCH");
-        broadcast.putExtra("query", searchQuery);
-        context.sendBroadcast(broadcast);*/
-        //recreate();
     }
 
     @Override
@@ -300,9 +314,15 @@ public class SearchPager extends Activity {
         return true;
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem i = menu.findItem(R.id.menu_remove_rt);
+        i.setChecked(true);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
     public static final int SETTINGS_RESULT = 101;
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -325,7 +345,7 @@ public class SearchPager extends Activity {
                     public void run() {
                         try {
                             Twitter twitter = Utils.getTwitter(context, AppSettings.getInstance(context));
-                            twitter.createSavedSearch(searchQuery);
+                            twitter.createSavedSearch(searchQuery.replace(" -RT", "").replace(" TOP", ""));
 
                             ((Activity)context).runOnUiThread(new Runnable() {
                                 @Override

@@ -133,10 +133,10 @@ public class SettingsActivity extends Activity {
                 }
                 return true;
             case R.id.menu_get_help:
-                showSettings(7, getString(R.string.get_help_settings));
+                showSettings(8, getString(R.string.get_help_settings));
                 return true;
             case R.id.menu_other_apps:
-                showSettings(8, getString(R.string.other_apps));
+                showSettings(9, getString(R.string.other_apps));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

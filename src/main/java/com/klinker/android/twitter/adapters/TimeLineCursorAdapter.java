@@ -29,7 +29,6 @@ import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -42,7 +41,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -56,18 +54,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jakewharton.disklrucache.Util;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.data.sq_lite.DMDataSource;
 import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
-import com.klinker.android.twitter.manipulations.ExpansionAnimation;
+import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.BrowserActivity;
 import com.klinker.android.twitter.ui.compose.ComposeActivity;
+import com.klinker.android.twitter.ui.compose.ComposeSecAccActivity;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
 import com.klinker.android.twitter.utils.EmojiUtils;
 import com.klinker.android.twitter.utils.SDK11;
@@ -81,7 +81,6 @@ import com.klinker.android.twitter.utils.text.TouchableMovementMethod;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
@@ -105,12 +104,13 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     public Context context;
     public final LayoutInflater inflater;
     private boolean isDM = false;
+    private boolean secondAcc = false;
     private SharedPreferences sharedPrefs;
     private int cancelButton;
     private int border;
 
-    private Handler[] mHandlers;
-    private int currHandler;
+    protected Handler[] mHandlers;
+    protected int currHandler;
 
     public boolean hasKeyboard = false;
 
@@ -118,7 +118,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     private XmlResourceParser addonLayout = null;
     public Resources res;
     private int talonLayout;
-    private BitmapLruCache mCache;
+    protected BitmapLruCache mCache;
 
     private ColorDrawable transparent;
 
@@ -126,6 +126,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     public java.text.DateFormat timeFormatter;
 
     public boolean isHomeTimeline;
+    public boolean hasConvo = false;
 
     public static class ViewHolder {
         public TextView name;
@@ -147,6 +148,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         public ImageView playButton;
         public ImageButton quoteButton;
         public ImageButton shareButton;
+        public ImageView isAConversation;
         //public Bitmap tweetPic;
 
         public long tweetId;
@@ -155,6 +157,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         public String screenName;
         public String picUrl;
         public String retweeterName;
+        public String gifUrl;
 
         public boolean preventNextClick = false;
 
@@ -174,61 +177,21 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         this.inflater = LayoutInflater.from(context);
         this.isDM = isDM;
 
-        settings = AppSettings.getInstance(context);
+        init();
+    }
 
-        sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+    public TimeLineCursorAdapter(Context context, boolean secAccount, Cursor cursor) {
+        super(context, cursor, 0);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.cancelButton});
-        cancelButton = a.getResourceId(0, 0);
-        a.recycle();
+        this.isHomeTimeline = false;
 
-        talonLayout = settings.layout;
+        this.cursor = cursor;
+        this.context = context;
+        this.inflater = LayoutInflater.from(context);
+        this.isDM = false;
+        this.secondAcc = secAccount;
 
-        if (settings.addonTheme) {
-            try {
-                res = context.getPackageManager().getResourcesForApplication(settings.addonThemePackage);
-                addonLayout = res.getLayout(res.getIdentifier("tweet", "layout", settings.addonThemePackage));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        switch (talonLayout) {
-            case AppSettings.LAYOUT_TALON:
-                layout = R.layout.tweet;
-                break;
-            case AppSettings.LAYOUT_HANGOUT:
-                layout = R.layout.tweet_hangout;
-                break;
-            case AppSettings.LAYOUT_FULL_SCREEN:
-                layout = R.layout.tweet_full_screen;
-                break;
-        }
-
-        TypedArray b;
-        if (settings.roundContactImages) {
-            b = context.getTheme().obtainStyledAttributes(new int[]{R.attr.circleBorder});
-        } else {
-            b = context.getTheme().obtainStyledAttributes(new int[]{R.attr.squareBorder});
-        }
-        border = b.getResourceId(0, 0);
-        b.recycle();
-
-        mCache = getCache();
-
-        dateFormatter = android.text.format.DateFormat.getDateFormat(context);
-        timeFormatter = android.text.format.DateFormat.getTimeFormat(context);
-        if (settings.militaryTime) {
-            timeFormatter = new SimpleDateFormat("kk:mm");
-        }
-
-        transparent = new ColorDrawable(android.R.color.transparent);
-
-        mHandlers = new Handler[10];
-        for (int i = 0; i < 10; i++) {
-            mHandlers[i] = new Handler();
-        }
+        init();
     }
 
     public TimeLineCursorAdapter(Context context, Cursor cursor, boolean isDM) {
@@ -241,6 +204,10 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         this.inflater = LayoutInflater.from(context);
         this.isDM = isDM;
         
+        init();
+    }
+
+    protected void init() {
         settings = AppSettings.getInstance(context);
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -295,6 +262,31 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         for (int i = 0; i < 10; i++) {
             mHandlers[i] = new Handler();
         }
+
+        for (String s : cursor.getColumnNames()) {
+            if (s.equals(HomeSQLiteHelper.COLUMN_CONVERSATION)) {
+                hasConvo = true;
+            }
+        }
+
+        TWEET_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID);
+        PRO_PIC_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PRO_PIC);
+        TEXT_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TEXT);
+        NAME_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_NAME);
+        SCREEN_NAME_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_SCREEN_NAME);
+        PIC_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PIC_URL);
+        TIME_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TIME);
+        URL_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_URL);
+        USER_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_USERS);
+        HASHTAG_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_HASHTAGS);
+        GIF_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_ANIMATED_GIF);
+        RETWEETER_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_RETWEETER);
+
+        if (hasConvo) {
+            CONVO_COL = cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_CONVERSATION);
+        } else {
+            CONVO_COL = -1;
+        }
     }
 
     @Override
@@ -345,6 +337,12 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         // they don't exist because the theme was made before they were added
                     }
 
+                    try {
+                        holder.isAConversation = (ImageView) v.findViewById(res.getIdentifier("is_a_conversation", "id", settings.addonThemePackage));
+                    } catch (Exception e) {
+
+                    }
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -374,6 +372,12 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     // theme was made before they were added
                 }
 
+                try {
+                    holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+                } catch (Exception x) {
+
+                }
+
             }
         } else {
             v = inflater.inflate(layout, viewGroup, false);
@@ -401,6 +405,13 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             } catch (Exception x) {
                 // theme was made before they were added
             }
+
+
+            try {
+                holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+            } catch (Exception x) {
+
+            }
         }
 
         // sets up the font sizes
@@ -418,6 +429,20 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         return v;
     }
 
+    protected int TWEET_COL;
+    protected int PRO_PIC_COL;
+    protected int TEXT_COL;
+    protected int NAME_COL;
+    protected int SCREEN_NAME_COL;
+    protected int PIC_COL;
+    protected int TIME_COL;
+    protected int URL_COL;
+    protected int USER_COL;
+    protected int HASHTAG_COL;
+    protected int GIF_COL;
+    protected int CONVO_COL;
+    protected int RETWEETER_COL;
+
     @Override
     public void bindView(final View view, Context mContext, final Cursor cursor) {
         final ViewHolder holder = (ViewHolder) view.getTag();
@@ -426,30 +451,46 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             removeExpansionNoAnimation(holder);
         }
 
-        final long id = cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TWEET_ID));
+        final long id = cursor.getLong(TWEET_COL);
         holder.tweetId = id;
-        final String profilePic = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PRO_PIC));
+        final String profilePic = cursor.getString(PRO_PIC_COL);
         holder.proPicUrl = profilePic;
-        String tweetTexts = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TEXT));
-        final String name = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_NAME));
-        final String screenname = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_SCREEN_NAME));
-        final String picUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_PIC_URL));
+        String tweetTexts = cursor.getString(TEXT_COL);
+        final String name = cursor.getString(NAME_COL);
+        final String screenname = cursor.getString(SCREEN_NAME_COL);
+        final String picUrl = cursor.getString(PIC_COL);
         holder.picUrl = picUrl;
-        final long longTime = cursor.getLong(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_TIME));
-        final String otherUrl = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_URL));
-        final String users = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_USERS));
-        final String hashtags = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_HASHTAGS));
+        final long longTime = cursor.getLong(TIME_COL);
+        final String otherUrl = cursor.getString(URL_COL);
+        final String users = cursor.getString(USER_COL);
+        final String hashtags = cursor.getString(HASHTAG_COL);
+        holder.gifUrl = cursor.getString(GIF_COL);
+
+        boolean inAConversation;
+        if (hasConvo) {
+            inAConversation = cursor.getInt(CONVO_COL) == 1;
+        } else {
+            inAConversation = false;
+        }
 
         String retweeter;
         try {
-            retweeter = cursor.getString(cursor.getColumnIndex(HomeSQLiteHelper.COLUMN_RETWEETER));
+            retweeter = cursor.getString(RETWEETER_COL);
         } catch (Exception e) {
             retweeter = "";
         }
 
-        /*if (isDM) {
-            tweetTexts = tweetTexts.replace(picUrl, "");
-        }*/
+        if (holder.isAConversation != null) {
+            if (inAConversation) {
+                if (holder.isAConversation.getVisibility() != View.VISIBLE) {
+                    holder.isAConversation.setVisibility(View.VISIBLE);
+                }
+            } else {
+                if (holder.isAConversation.getVisibility() != View.GONE) {
+                    holder.isAConversation.setVisibility(View.GONE);
+                }
+            }
+        }
 
         final String tweetText = tweetTexts;
 
@@ -461,7 +502,8 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     public boolean onLongClick(View view) {
                         String link;
 
-                        boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                        boolean hasGif = holder.gifUrl != null && !holder.gifUrl.isEmpty();
+                        boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube") && !(hasGif);
                         if (displayPic) {
                             link = holder.picUrl;
                         } else {
@@ -481,11 +523,18 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         viewTweet.putExtra("proPic", profilePic);
                         viewTweet.putExtra("users", users);
                         viewTweet.putExtra("hashtags", hashtags);
+                        viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                         if (isHomeTimeline) {
                             sharedPrefs.edit()
                                     .putLong("current_position_" + settings.currentAccount, holder.tweetId)
                                     .commit();
+                        }
+
+                        if (secondAcc) {
+                            String text = context.getString(R.string.using_second_account).replace("%s", "@" + settings.secondScreenName);
+                            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                            viewTweet.putExtra("second_account", true);
                         }
 
                         context.startActivity(viewTweet);
@@ -506,6 +555,11 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                             return;
                         }
                         if (holder.expandArea.getVisibility() == View.GONE) {
+                            if (secondAcc) {
+                                String text = context.getString(R.string.using_second_account).replace("%s", "@" + settings.secondScreenName);
+                                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                            }
+
                             addExpansion(holder, screenname, users, otherUrl.split("  "), holder.picUrl, id, hashtags.split("  "));
                         } else {
                             removeExpansionWithAnimation(holder);
@@ -528,7 +582,8 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         }
                         String link = "";
 
-                        boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                        boolean hasGif = holder.gifUrl != null && !holder.gifUrl.isEmpty();
+                        boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube") && !(hasGif);
                         if (displayPic) {
                             link = holder.picUrl;
                         } else {
@@ -548,11 +603,19 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         viewTweet.putExtra("proPic", profilePic);
                         viewTweet.putExtra("users", users);
                         viewTweet.putExtra("hashtags", hashtags);
+                        viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                         if (isHomeTimeline) {
                             sharedPrefs.edit()
                                     .putLong("current_position_" + settings.currentAccount, holder.tweetId)
                                     .commit();
+                        }
+
+                        if (secondAcc) {
+                            String text = context.getString(R.string.using_second_account).replace("%s", "@" + settings.secondScreenName);
+                            Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+
+                            viewTweet.putExtra("second_account", true);
                         }
 
                         context.startActivity(viewTweet);
@@ -568,6 +631,11 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     public boolean onLongClick(View view) {
 
                         if (holder.expandArea.getVisibility() != View.VISIBLE) {
+                            if (secondAcc) {
+                                String text = context.getString(R.string.using_second_account).replace("%s", "@" + settings.secondScreenName);
+                                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                            }
+
                             addExpansion(holder, screenname, users, otherUrl.split("  "), holder.picUrl, id, hashtags.split("  "));
                         } else {
                             removeExpansionWithAnimation(holder);
@@ -699,7 +767,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
         boolean picture = false;
 
-        if(settings.inlinePics && holder.picUrl != null) {
+        if((settings.inlinePics || isDM) && holder.picUrl != null) {
             if (holder.picUrl.equals("")) {
                 if (holder.image.getVisibility() != View.GONE) {
                     holder.image.setVisibility(View.GONE);
@@ -713,7 +781,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     holder.image.setVisibility(View.VISIBLE);
                 }
 
-                if (holder.picUrl.contains("youtube")) {
+                if (holder.picUrl.contains("youtube") || (holder.gifUrl != null && !android.text.TextUtils.isEmpty(holder.gifUrl))) {
                     if (holder.playButton.getVisibility() == View.GONE) {
                         holder.playButton.setVisibility(View.VISIBLE);
                     }
@@ -725,7 +793,8 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         public void onClick(View view) {
                             String link;
 
-                            boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                            boolean hasGif = holder.gifUrl != null && !holder.gifUrl.isEmpty();
+                            boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube") && !(hasGif);
                             if (displayPic) {
                                 link = holder.picUrl;
                             } else {
@@ -746,6 +815,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                             viewTweet.putExtra("users", users);
                             viewTweet.putExtra("hashtags", hashtags);
                             viewTweet.putExtra("clicked_youtube", true);
+                            viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                             if (isHomeTimeline) {
                                 sharedPrefs.edit()
@@ -780,7 +850,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                             if (holder.picUrl.contains(" ")) {
                                 context.startActivity(new Intent(context, ViewPictures.class).putExtra("pictures", holder.picUrl));
                             } else {
-                                context.startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", holder.picUrl));
+                                context.startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", holder.picUrl));
                             }
                         }
                     });
@@ -851,7 +921,6 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         @Override
                         public void onClick(View view) {
                             if (!TouchableMovementMethod.touched) {
-                                Log.v("talon_clickable", "clicked in the cursor adapter");
                                 // we need to manually set the background for click feedback because the spannable
                                 // absorbs the click on the background
                                 if (!holder.preventNextClick) {
@@ -1015,9 +1084,17 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             String text = holder.tweet.getText().toString();
             String extraNames = "";
 
+            String screenNameToUse;
+
+            if (secondAcc) {
+                screenNameToUse = settings.secondScreenName;
+            } else {
+                screenNameToUse = settings.myScreenName;
+            }
+
             if (text.contains("@")) {
                 for (String s : users.split("  ")) {
-                    if (!s.equals(settings.myScreenName) && !extraNames.contains(s) && !s.equals(screenname)) {
+                    if (!s.equals(screenNameToUse) && !extraNames.contains(s) && !s.equals(screenname)) {
                         extraNames += "@" + s + " ";
                     }
                 }
@@ -1031,7 +1108,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
             }
 
-            if (!screenname.equals(settings.myScreenName)) {
+            if (!screenname.equals(screenNameToUse)) {
                 holder.reply.setText("@" + screenname + " " + extraNames);
             } else {
                 holder.reply.setText(extraNames);
@@ -1063,14 +1140,51 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         holder.favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FavoriteStatus(holder, holder.tweetId).execute();
+                if (holder.isFavorited || !settings.crossAccActions) {
+                    new FavoriteStatus(holder, holder.tweetId,
+                            !secondAcc ? FavoriteStatus.TYPE_ACC_ONE : FavoriteStatus.TYPE_ACC_TWO).execute();
+                } else {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, final int item) {
+                                new FavoriteStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
         holder.retweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new RetweetStatus(holder, holder.tweetId).execute();
+                if (!settings.crossAccActions) {
+                    new RetweetStatus(holder, holder.tweetId,
+                            !secondAcc ? RetweetStatus.TYPE_ACC_ONE : RetweetStatus.TYPE_ACC_TWO)
+                            .execute();
+                } else {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                                public void onClick(final DialogInterface dialog, final int item) {
+                                    new RetweetStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
@@ -1112,7 +1226,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
                 protected Boolean doInBackground(String... urls) {
                     try {
-                        Twitter twitter =  Utils.getTwitter(context, settings);
+                        Twitter twitter =  getTwitter();
                         ResponseList<twitter4j.Status> retweets = twitter.getRetweets(tweetId);
                         for (twitter4j.Status retweet : retweets) {
                             if(retweet.getUser().getId() == settings.myId)
@@ -1142,8 +1256,18 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         holder.reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent compose = new Intent(context, ComposeActivity.class);
+                Intent compose;
+
+                if (!secondAcc) {
+                    compose = new Intent(context, ComposeActivity.class);
+                } else {
+                    compose = new Intent(context, ComposeSecAccActivity.class);
+
+                    String text = context.getString(R.string.using_second_account).replace("%s", "@" + settings.secondScreenName);
+                    Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                }
                 String string = holder.reply.getText().toString();
+
                 try{
                     compose.putExtra("user", string.substring(0, string.length() - 1));
                 } catch (Exception e) {
@@ -1242,27 +1366,36 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                         otherLink[i] = "" + otherLinks[i];
                     }
 
+                    for (String s : otherLink) {
+                        Log.v("talon_links", ":" + s + ":");
+                    }
 
                     boolean changed = false;
+                    int otherIndex = 0;
 
                     if (otherLink.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             String s = split[i];
 
+                            //if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
                             if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
                                 String f = s.replace("...", "").replace("http", "");
 
-                                for (int x = 0; x < otherLink.length; x++) {
-                                    if (otherLink[x].contains(f)) {
-                                        changed = true;
-                                        // for some reason it wouldn't match the last "/" on a url and it was stopping it from opening
-                                        if (otherLink[x].substring(otherLink[x].length() - 1, otherLink[x].length()).equals("/")) {
-                                            otherLink[x] = otherLink[x].substring(0, otherLink[x].length() - 1);
+                                f = stripTrailingPeriods(f);
+
+                                try {
+                                    if (otherIndex < otherLinks.length) {
+                                        if (otherLink[otherIndex].substring(otherLink[otherIndex].length() - 1, otherLink[otherIndex].length()).equals("/")) {
+                                            otherLink[otherIndex] = otherLink[otherIndex].substring(0, otherLink[otherIndex].length() - 1);
                                         }
-                                        f = otherLink[x];
-                                        otherLink[x] = "";
-                                        break;
+                                        f = otherLink[otherIndex].replace("http://", "").replace("https://", "").replace("www.", "");
+                                        otherLink[otherIndex] = "";
+                                        otherIndex++;
+
+                                        changed = true;
                                     }
+                                } catch (Exception e) {
+
                                 }
 
                                 if (changed) {
@@ -1278,24 +1411,19 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     }
 
                     if (!webpage.equals("")) {
-                        for (int i = 0; i < split.length; i++) {
+                        for (int i = split.length - 1; i >= 0; i--) {
                             String s = split[i];
-                            if (s.contains("...")) {
-                                s = s.replace("...", "");
-
-                                if (Patterns.WEB_URL.matcher(s).find() && (s.startsWith("t.co/") || s.contains("twitter.com/"))) { // we know the link is cut off
-                                    String replace = otherLinks[otherLinks.length - 1];
-                                    if (replace.replace(" ", "").equals("")) {
-                                        replace = webpage;
-                                    }
-                                    split[i] = replace;
-                                    changed = true;
+                            if (Patterns.WEB_URL.matcher(s).find()) {
+                                String replace = otherLinks[otherLinks.length - 1];
+                                if (replace.replace(" ", "").equals("")) {
+                                    replace = webpage;
                                 }
+                                split[i] = replace;
+                                changed = true;
+                                break;
                             }
                         }
                     }
-
-
 
                     if(changed) {
                         full = "";
@@ -1308,13 +1436,30 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
                     return full;
                 }
+
+                private String stripTrailingPeriods(String url) {
+                    try {
+                        if (url.substring(url.length() - 1, url.length()).equals(".")) {
+                            return stripTrailingPeriods(url.substring(0, url.length() - 1));
+                        } else {
+                            return url;
+                        }
+                    } catch (Exception e) {
+                        return url;
+                    }
+                }
             });
 
 
             holder.quoteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(context, ComposeActivity.class);
+                    Intent intent;
+                    if (!secondAcc) {
+                        intent = new Intent(context, ComposeActivity.class);
+                    } else {
+                        intent = new Intent(context, ComposeSecAccActivity.class);
+                    }
                     intent.setType("text/plain");
                     String text = holder.tweet.getText().toString();
 
@@ -1434,7 +1579,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
     class DeleteTweet extends AsyncTask<String, Void, Boolean> {
 
         protected Boolean doInBackground(String... urls) {
-            Twitter twitter = Utils.getTwitter(context, settings);
+            Twitter twitter = getTwitter();
 
             try {
                 long tweetId = Long.parseLong(urls[0]);
@@ -1460,13 +1605,21 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         }
     }
 
+    public Twitter getTwitter() {
+        if (secondAcc && !settings.crossAccActions) {
+            return Utils.getSecondTwitter(context);
+        } else {
+            return Utils.getTwitter(context, settings);
+        }
+    }
+
     public void getFavoriteCount(final ViewHolder holder, final long tweetId) {
 
         Thread getCount = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     final Status status;
                     if (holder.retweeter.getVisibility() != View.GONE) {
                         status = twitter.showStatus(holder.tweetId).getRetweetedStatus();
@@ -1523,7 +1676,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             @Override
             public void run() {
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     final Status status;
                     if (holder.retweeter.getVisibility() != View.GONE) {
                         status = twitter.showStatus(holder.tweetId).getRetweetedStatus();
@@ -1591,7 +1744,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
             @Override
             public void run() {
                 try {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
                     twitter4j.Status status = twitter.showStatus(holder.tweetId);
                     final boolean retweetedByMe = status.isRetweetedByMe();
                     final String count = "" + status.getRetweetCount();
@@ -1627,32 +1780,69 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
     class FavoriteStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public FavoriteStatus(ViewHolder holder, long tweetId) {
+        public FavoriteStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
         }
 
         protected void onPreExecute() {
-            if (!holder.isFavorited) {
-                Toast.makeText(context, context.getResources().getString(R.string.favoriting_status), Toast.LENGTH_SHORT).show();
-            } else {
+            if (holder.isFavorited) {
                 Toast.makeText(context, context.getResources().getString(R.string.removing_favorite), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, context.getResources().getString(R.string.favoriting_status), Toast.LENGTH_SHORT).show();
             }
         }
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-                if (holder.isFavorited) {
-                    twitter.destroyFavorite(tweetId);
+                Twitter twitter = null;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    secTwitter = Utils.getSecondTwitter(context);
                 } else {
-                    twitter.createFavorite(tweetId);
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
                 }
+
+                if (holder.isFavorited) {
+                    // we always have to remove that favorite
+                    if (twitter != null) {
+                        twitter.destroyFavorite(tweetId);
+                    } else if (secTwitter != null) {
+                        secTwitter.destroyFavorite(tweetId);
+                    }
+                } else {
+                    if (twitter != null) {
+                        try {
+                            twitter.createFavorite(tweetId);
+                        } catch (TwitterException e) {
+                            // already been favorited by this account
+                        }
+                    }
+
+                    if (secTwitter != null) {
+                        try {
+                            secTwitter.createFavorite(tweetId);
+                        } catch (TwitterException e) {
+                            // already been favorited by this account
+                        }
+                    }
+                }
+
                 return null;
             } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -1665,12 +1855,18 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
     class RetweetStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public RetweetStatus(ViewHolder holder, long tweetId) {
+        public RetweetStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
         }
 
         protected void onPreExecute() {
@@ -1679,8 +1875,29 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-                twitter.retweetStatus(tweetId);
+                Twitter twitter = null;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    secTwitter = Utils.getSecondTwitter(context);
+                } else {
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
+                }
+
+                if (twitter != null) {
+                    try {
+                        twitter.retweetStatus(tweetId);
+                    } catch (TwitterException e) {
+
+                    }
+                }
+
+                if (secTwitter != null) {
+                    secTwitter.retweetStatus(tweetId);
+                }
+
                 return null;
             } catch (Exception e) {
                 return null;
@@ -1716,7 +1933,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         protected Boolean doInBackground(String... urls) {
             try {
                 if (!dontgo) {
-                    Twitter twitter =  Utils.getTwitter(context, settings);
+                    Twitter twitter =  getTwitter();
 
                     if (!isDM) {
                         twitter4j.StatusUpdate reply = new twitter4j.StatusUpdate(holder.reply.getText().toString());
@@ -1764,7 +1981,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
+                Twitter twitter =  getTwitter();
                 twitter4j.Status status = twitter.showStatus(tweetId);
 
                 MediaEntity[] entities = status.getMediaEntities();
@@ -1973,6 +2190,10 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
                         // now that we have all of them, we need to put them together
                         Bitmap combined = ImageUtils.combineBitmaps(context, bitmaps);
+
+                        if (round) {
+                            combined = ImageUtils.getCircle(combined, context);
+                        }
 
                         try {
                             result = mCache.put(url, combined);

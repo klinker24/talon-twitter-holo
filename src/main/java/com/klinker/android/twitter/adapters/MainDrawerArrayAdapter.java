@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,17 +29,35 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.manipulations.widgets.NotificationDrawerLayout;
+import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
+import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
+import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
     private final Activity context;
-    private final ArrayList<String> text;
+    private final ArrayList<String> text = new ArrayList<String>();
     public SharedPreferences sharedPrefs;
     public static int current = 0;
     public int textSize;
+
+    public List<Long> listIds = new ArrayList<Long>(); // 0 is the furthest to the left
+    public List<Integer> pageTypes = new ArrayList<Integer>();
+    public List<String> pageNames = new ArrayList<String>();
+    public List<String> searchPages = new ArrayList<String>();
+    public List<String> searchNames = new ArrayList<String>();
+
+    public Set<String> shownItems;
 
     static class ViewHolder {
         public HoloTextView name;
@@ -47,9 +66,6 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
 
     public static String[] getItems(Context context1) {
         String[] items = new String[] {
-                context1.getResources().getString(R.string.timeline),
-                context1.getResources().getString(R.string.mentions),
-                context1.getResources().getString(R.string.direct_messages),
                 context1.getResources().getString(R.string.discover),
                 context1.getResources().getString(R.string.lists),
                 context1.getResources().getString(R.string.favorite_users),
@@ -60,14 +76,80 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         return items;
     }
 
-    public MainDrawerArrayAdapter(Context context, ArrayList<String> text) {
+    public MainDrawerArrayAdapter(Context context) {
         super(context, 0);
         this.context = (Activity) context;
-        this.text = text;
         this.sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
         textSize = 15;
+
+        int currentAccount = sharedPrefs.getInt("current_account", 1);
+
+        for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+            String listIdentifier = "account_" + currentAccount + "_list_" + (i + 1) + "_long";
+            String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+            String nameIdentifier = "account_" + currentAccount + "_name_" + (i + 1);
+            String searchIdentifier = "account_" + currentAccount + "_search_" + (i + 1);
+
+            int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
+
+            if (type != AppSettings.PAGE_TYPE_NONE) {
+                pageTypes.add(type);
+                listIds.add(sharedPrefs.getLong(listIdentifier, 0l));
+                pageNames.add(sharedPrefs.getString(nameIdentifier, ""));
+                searchNames.add(sharedPrefs.getString(searchIdentifier, ""));
+            }
+        }
+
+        for (int i = 0; i < pageTypes.size(); i++) {
+            switch (pageTypes.get(i)) {
+                case AppSettings.PAGE_TYPE_HOME:
+                    text.add(context.getResources().getString(R.string.timeline));
+                    break;
+                case AppSettings.PAGE_TYPE_MENTIONS:
+                    text.add(context.getResources().getString(R.string.mentions));
+                    break;
+                case AppSettings.PAGE_TYPE_DMS:
+                    text.add(context.getResources().getString(R.string.direct_messages));
+                    break;
+                case AppSettings.PAGE_TYPE_SECOND_MENTIONS:
+                    text.add(AppSettings.getInstance(context).secondScreenName);
+                    break;
+                case AppSettings.PAGE_TYPE_WORLD_TRENDS:
+                    text.add(context.getResources().getString(R.string.world_trends));
+                    break;
+                case AppSettings.PAGE_TYPE_LOCAL_TRENDS:
+                    text.add(context.getString(R.string.local_trends));
+                    break;
+                case AppSettings.PAGE_TYPE_SAVED_SEARCH:
+                    text.add(searchNames.get(i));
+                    searchPages.add(pageNames.get(i));
+                    break;
+                case AppSettings.PAGE_TYPE_ACTIVITY:
+                    text.add(context.getString(R.string.activity));
+                    break;
+                case AppSettings.PAGE_TYPE_FAVORITE_STATUS:
+                    text.add(context.getString(R.string.favorite_tweets));
+                    break;
+                default:
+                    text.add(getName(pageNames.get(i), pageTypes.get(i)));
+                    break;
+            }
+        }
+
+        for (String s : getItems(context)) {
+            text.add(s);
+        }
+
+        shownItems = sharedPrefs.getStringSet("drawer_elements_shown_" + currentAccount, new HashSet<String>());
+
+        for (int i = text.size() - 1; i >= 0; i--) {
+            if (!shownItems.contains(i + "")) {
+                text.remove(i);
+            }
+        }
+
     }
 
     @Override
@@ -104,7 +186,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.mentions))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.mentions)) || text.get(position).equals(AppSettings.getInstance(context).secondScreenName)) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.mentionItem});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
@@ -129,7 +211,9 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.discover))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.discover)) ||
+                    text.get(position).equals(context.getString(R.string.world_trends)) ||
+                    text.get(position).equals(context.getString(R.string.local_trends))) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.links});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
@@ -144,8 +228,29 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.saved_searches))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.saved_searches)) ||
+                    pageTypes.get(position) == AppSettings.PAGE_TYPE_SAVED_SEARCH) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.searchIcon});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else if (text.get(position).equals(context.getResources().getString(R.string.links))) {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.links});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else if (text.get(position).equals(context.getResources().getString(R.string.pictures))) {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.picturePlaceholder});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else if(text.get(position).equals(context.getString(R.string.activity))) {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.notification_button});
+                int resource = a.getResourceId(0, 0);
+                a.recycle();
+                holder.icon.setImageResource(resource);
+            } else {
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.listIcon});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
@@ -154,7 +259,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
 
         }
 
-        if (current == position) {
+        if (highlightedCurrent == position) {
             if (!DrawerActivity.settings.addonTheme) {
                 holder.icon.setColorFilter(context.getResources().getColor(R.color.app_color));
                 holder.name.setTextColor(context.getResources().getColor(R.color.app_color));
@@ -171,5 +276,38 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
         }
 
         return rowView;
+    }
+
+    public static int highlightedCurrent;
+    public static void setCurrent(Context context, int i) {
+        current = i;
+        highlightedCurrent = i;
+
+        SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+
+        int currentAccount = sharedPrefs.getInt("current_account", 1);
+
+        Set<String> shownItems = sharedPrefs.getStringSet("drawer_elements_shown_" + currentAccount, new HashSet<String>());
+        for (int index = 0; index <= highlightedCurrent; index++) {
+            if (!shownItems.contains(index + "")) {
+                highlightedCurrent--;
+            }
+        }
+    }
+
+    public String getName(String listName, int type) {
+        switch (type) {
+            case AppSettings.PAGE_TYPE_LIST:
+                return listName;
+            case AppSettings.PAGE_TYPE_LINKS:
+                return context.getResources().getString(R.string.links);
+            case AppSettings.PAGE_TYPE_PICS:
+                return context.getResources().getString(R.string.pictures);
+            case AppSettings.PAGE_TYPE_FAV_USERS:
+                return context.getString(R.string.favorite_users);
+        }
+
+        return null;
     }
 }

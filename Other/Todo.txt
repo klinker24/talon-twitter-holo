@@ -1,23 +1,16 @@
 - Features:
     - user lists on their profiles
-    - QSlide for LG
     - gallery of picture on searching
     - tweetmarker in lists
-    - rotation on tweet viewer
     - Night mode for themes
     - easier manipulation of lists on users profiles (view all the lists they are apart of and add/remove them from them)
-    - better intent filter for the search so it doesn't get everything
-    - 1x1 widget for unread count on timeline
-    - seconds instead of 0m on timeline
-    - Pictures on the right for your send direct messages
+    - New retweets streaming methods (need twitter4j update)
+    - twitter videos (need twitter4j update probably)
+    - play gifs in-line
+    - progress bar on internal browser (plus)
 
 - Bugs:
-    - browser doesn't always close when backing out of it (maybe add to a count or something to keep track of how many pages have been added)
-    - switch mentions to save the position instead of current unread method
     - rotating device will sometimes jump to the top of timeline (better rotation on timeline!)
-    - direct messages get lost if you receive one before sending and after pulling to refresh
-    - html spacing on the tweet viewer
-
 
 -- Staged for Release (Roadmap) --
 
@@ -29,28 +22,16 @@ I think are more important for the development of the app.
 Please keep that in mind when viewing this roadmap. It is simply a rough estimate, and I will not be providing any timetable for it
 either, or ETA's, so please do not ask for them
 
-    Version 3.4 (finally make more extra pages)
-        - allow the user to set up to 3 or 4... undecided on this as of now.
-        - More fragments to choose from
-            - search fragment (with search box and saved search) on main timelines
-            - second account mentions page on timeline
-            - second account timeline page
-            - favorite tweets fragment
-            - Activity fragment
+    Version 4.1
+        - sent direct messages are saved over and over again
 
-
-    Version 3.5 (some random stuff that I want to do)
-        - conversation indicator on tweets
-        - instagram video support
-        - mute users for a time period
-        - swipe through multiple pictures on the image viewer
-        - bug with unfollowing public lists
-        - "muffle" tweets instead of simply muting them
-            - Hide them, waiting for expansion
-
-
-    Version 3.6 (Widget updates)
+    Version 4.2
         - expand the widget for mentions and multiple account support
         - 1x1 "tweeting" widget just to compose a tweet
         - timestamp on widget
+        - Widget with an unread count
 
+        - mute users for a time period
+            - need a new database (stores just name and expiration time)
+            - Just write in the names and when they should expire, then start a service when expiration goes off
+            - Make sure the service runs on start too

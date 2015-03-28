@@ -159,9 +159,7 @@ public class ListFragment extends MainFragment {
 
             twitter = Utils.getTwitter(context, DrawerActivity.settings);
 
-            User user = twitter.verifyCredentials();
             long[] lastId = ListDataSource.getInstance(context).getLastIds(listId);
-
 
             final List<twitter4j.Status> statuses = new ArrayList<twitter4j.Status>();
 
@@ -197,7 +195,7 @@ public class ListFragment extends MainFragment {
 
             return numberNew;
 
-        } catch (TwitterException e) {
+        } catch (Exception e) {
             // Error in updating status
             Log.d("Twitter Update Error", e.getMessage());
             e.printStackTrace();

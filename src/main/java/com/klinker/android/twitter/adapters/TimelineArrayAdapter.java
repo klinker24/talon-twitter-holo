@@ -56,7 +56,7 @@ import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.ui.compose.ComposeActivity;
 import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
-import com.klinker.android.twitter.manipulations.PhotoViewerDialog;
+import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
 import com.klinker.android.twitter.ui.tweet_viewer.ViewPictures;
 import com.klinker.android.twitter.utils.*;
 import com.klinker.android.twitter.utils.text.TextUtils;
@@ -74,11 +74,7 @@ import java.util.Date;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.regex.Pattern;
 
-import twitter4j.MediaEntity;
-import twitter4j.ResponseList;
-import twitter4j.Status;
-import twitter4j.Twitter;
-import twitter4j.User;
+import twitter4j.*;
 import uk.co.senab.bitmapcache.BitmapLruCache;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 
@@ -139,12 +135,14 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         public TextView screenTV;
         public ImageButton shareButton;
         public ImageButton quoteButton;
+        public ImageView isAConversation;
 
         public long tweetId;
         public boolean isFavorited;
         public String screenName;
         public String picUrl;
         public String retweeterName;
+        public String gifUrl;
 
         public boolean preventNextClick = false;
     }
@@ -319,6 +317,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     } catch (Exception e) {
                         // they don't exist because the theme was made before they were added
                     }
+
+                    try {
+                        holder.isAConversation = (ImageView) v.findViewById(res.getIdentifier("is_a_conversation", "id", settings.addonThemePackage));
+                    } catch (Exception e) {
+
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -346,6 +350,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                 } catch (Exception x) {
                     // theme was made before they were added
                 }
+
+                try {
+                    holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+                } catch (Exception x) {
+
+                }
             }
         } else {
             v = inflater.inflate(layout, viewGroup, false);
@@ -371,6 +381,12 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                 holder.shareButton = (ImageButton) v.findViewById(R.id.share_button);
             } catch (Exception x) {
                 // theme was made before they were added
+            }
+
+            try {
+                holder.isAConversation = (ImageView) v.findViewById(R.id.is_a_conversation);
+            } catch (Exception x) {
+
             }
         }
 
@@ -432,6 +448,22 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         final String hashtags = html[3];
         final String users = html[4];
 
+        final boolean inAConversation = thisStatus.getInReplyToStatusId() != -1;
+
+        holder.gifUrl = TweetLinkUtils.getGIFUrl(status, otherUrl);
+
+        if (holder.isAConversation != null) {
+            if (inAConversation) {
+                if (holder.isAConversation.getVisibility() != View.VISIBLE) {
+                    holder.isAConversation.setVisibility(View.VISIBLE);
+                }
+            } else {
+                if (holder.isAConversation.getVisibility() != View.GONE) {
+                    holder.isAConversation.setVisibility(View.GONE);
+                }
+            }
+        }
+
         if(!settings.reverseClickActions) {
             final String fRetweeter = retweeter;
             holder.background.setOnLongClickListener(new View.OnLongClickListener() {
@@ -440,7 +472,8 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
                     String link;
 
-                    boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                    boolean hasGif = holder.gifUrl != null && !holder.gifUrl.isEmpty();
+                    boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube") && !(hasGif);
                     if (displayPic) {
                         link = holder.picUrl;
                     } else {
@@ -461,6 +494,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     viewTweet.putExtra("proPic", profilePic);
                     viewTweet.putExtra("users", users);
                     viewTweet.putExtra("hashtags", hashtags);
+                    viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                     context.startActivity(viewTweet);
 
@@ -496,7 +530,8 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
                     String link;
 
-                    boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                    boolean hasGif = holder.gifUrl != null && !holder.gifUrl.isEmpty();
+                    boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube") && !(hasGif);
                     if (displayPic) {
                         link = holder.picUrl;
                     } else {
@@ -517,6 +552,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     viewTweet.putExtra("proPic", profilePic);
                     viewTweet.putExtra("users", users);
                     viewTweet.putExtra("hashtags", hashtags);
+                    viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                     context.startActivity(viewTweet);
                 }
@@ -629,7 +665,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     holder.playButton.setVisibility(View.GONE);
                 }
             } else {
-                if (holder.picUrl.contains("youtube")) {
+                if (holder.picUrl.contains("youtube") || (holder.gifUrl != null && !android.text.TextUtils.isEmpty(holder.gifUrl))) {
 
                     if (holder.playButton.getVisibility() == View.GONE) {
                         holder.playButton.setVisibility(View.VISIBLE);
@@ -642,7 +678,8 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                         public void onClick(View view) {
                             String link;
 
-                            boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube");
+                            boolean hasGif = holder.gifUrl != null && !holder.gifUrl.isEmpty();
+                            boolean displayPic = !holder.picUrl.equals("") && !holder.picUrl.contains("youtube") && !(hasGif);
                             if (displayPic) {
                                 link = holder.picUrl;
                             } else {
@@ -663,6 +700,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                             viewTweet.putExtra("users", users);
                             viewTweet.putExtra("hashtags", hashtags);
                             viewTweet.putExtra("clicked_youtube", true);
+                            viewTweet.putExtra("animated_gif", holder.gifUrl);
 
                             context.startActivity(viewTweet);
                         }
@@ -687,7 +725,7 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                             if (holder.picUrl.contains(" ")) {
                                 context.startActivity(new Intent(context, ViewPictures.class).putExtra("pictures", holder.picUrl));
                             } else {
-                                context.startActivity(new Intent(context, PhotoViewerDialog.class).putExtra("url", holder.picUrl));
+                                context.startActivity(new Intent(context, PhotoViewerActivity.class).putExtra("url", holder.picUrl));
                             }
                         }
                     });
@@ -751,7 +789,6 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                         @Override
                         public void onClick(View view) {
                             if (!TouchableMovementMethod.touched) {
-                                Log.v("talon_clickable", "clicked in the cursor adapter");
                                 // we need to manually set the background for click feedback because the spannable
                                 // absorbs the click on the background
                                 if (!holder.preventNextClick) {
@@ -933,14 +970,48 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
         holder.favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FavoriteStatus(holder, holder.tweetId).execute();
+                if (holder.isFavorited || !settings.crossAccActions) {
+                    new FavoriteStatus(holder, holder.tweetId, FavoriteStatus.TYPE_ACC_ONE).execute();
+                } else if (settings.crossAccActions) {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                                public void onClick(final DialogInterface dialog, final int item) {
+                                    new FavoriteStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
         holder.retweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new RetweetStatus(holder, holder.tweetId).execute();
+                if (!settings.crossAccActions) {
+                    new RetweetStatus(holder, holder.tweetId, FavoriteStatus.TYPE_ACC_ONE).execute();
+                } else {
+                    // dialog for favoriting
+                    String[] options = new String[3];
+
+                    options[0] = "@" + settings.myScreenName;
+                    options[1] = "@" + settings.secondScreenName;
+                    options[2] = context.getString(R.string.both_accounts);
+
+                    new AlertDialog.Builder(context)
+                            .setItems(options, new DialogInterface.OnClickListener() {
+                                public void onClick(final DialogInterface dialog, final int item) {
+                                    new RetweetStatus(holder, holder.tweetId, item + 1).execute();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
 
@@ -1072,33 +1143,36 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                         otherLink[i] = "" + otherLinks[i];
                     }
 
+                    for (String s : otherLink) {
+                        Log.v("talon_links", ":" + s + ":");
+                    }
+
                     boolean changed = false;
+                    int otherIndex = 0;
 
                     if (otherLink.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             String s = split[i];
 
                             //if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
-                            if (s.contains("...")) { // we know the link is cut off
+                            if (Patterns.WEB_URL.matcher(s).find()) { // we know the link is cut off
                                 String f = s.replace("...", "").replace("http", "");
 
-                                Log.v("talon_links", ":" + s + ":");
+                                f = stripTrailingPeriods(f);
 
-                                for (int x = 0; x < otherLink.length; x++) {
-                                    if (otherLink[x].toLowerCase().contains(f.toLowerCase())) {
-                                        changed = true;
-                                        // for some reason it wouldn't match the last "/" on a url and it was stopping it from opening
-                                        try {
-                                            if (otherLink[x].substring(otherLink[x].length() - 1, otherLink[x].length()).equals("/")) {
-                                                otherLink[x] = otherLink[x].substring(0, otherLink[x].length() - 1);
-                                            }
-                                            f = otherLink[x].replace("http://", "").replace("https://", "").replace("www.", "");
-                                            otherLink[x] = "";
-                                        } catch (Exception e) {
-
+                                try {
+                                    if (otherIndex < otherLinks.length) {
+                                        if (otherLink[otherIndex].substring(otherLink[otherIndex].length() - 1, otherLink[otherIndex].length()).equals("/")) {
+                                            otherLink[otherIndex] = otherLink[otherIndex].substring(0, otherLink[otherIndex].length() - 1);
                                         }
-                                        break;
+                                        f = otherLink[otherIndex].replace("http://", "").replace("https://", "").replace("www.", "");
+                                        otherLink[otherIndex] = "";
+                                        otherIndex++;
+
+                                        changed = true;
                                     }
+                                } catch (Exception e) {
+
                                 }
 
                                 if (changed) {
@@ -1114,25 +1188,19 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     }
 
                     if (!webpage.equals("")) {
-                        for (int i = 0; i < split.length; i++) {
+                        for (int i = split.length - 1; i >= 0; i--) {
                             String s = split[i];
-
-                            if (s.contains("...")) {
-                                s = s.replace("...", "");
-
-                                if (Patterns.WEB_URL.matcher(s).find() && (s.startsWith("t.co/") || s.contains("twitter.com/"))) { // we know the link is cut off
-                                    String replace = otherLinks[otherLinks.length - 1];
-                                    if (replace.replace(" ", "").equals("")) {
-                                        replace = webpage;
-                                    }
-                                    split[i] = replace;
-                                    changed = true;
+                            if (Patterns.WEB_URL.matcher(s).find()) {
+                                String replace = otherLinks[otherLinks.length - 1];
+                                if (replace.replace(" ", "").equals("")) {
+                                    replace = webpage;
                                 }
+                                split[i] = replace;
+                                changed = true;
+                                break;
                             }
                         }
                     }
-
-
 
                     if(changed) {
                         full = "";
@@ -1144,6 +1212,18 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     }
 
                     return full;
+                }
+
+                private String stripTrailingPeriods(String url) {
+                    try {
+                        if (url.substring(url.length() - 1, url.length()).equals(".")) {
+                            return stripTrailingPeriods(url.substring(0, url.length() - 1));
+                        } else {
+                            return url;
+                        }
+                    } catch (Exception e) {
+                        return url;
+                    }
                 }
             });
 
@@ -1425,16 +1505,22 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
     class FavoriteStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public FavoriteStatus(ViewHolder holder, long tweetId) {
+        public FavoriteStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
         }
 
         protected void onPreExecute() {
-            if (!holder.isFavorited) {
+            if (!holder.isFavorited || type == TYPE_ACC_TWO || type == TYPE_BOTH_ACC) {
                 Toast.makeText(context, context.getResources().getString(R.string.favoriting_status), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, context.getResources().getString(R.string.removing_favorite), Toast.LENGTH_SHORT).show();
@@ -1443,12 +1529,31 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-                if (holder.isFavorited) {
-                    twitter.destroyFavorite(tweetId);
+                Twitter twitter = null;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    secTwitter = Utils.getSecondTwitter(context);
                 } else {
-                    twitter.createFavorite(tweetId);
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
                 }
+
+                if (holder.isFavorited && twitter != null) {
+                    twitter.destroyFavorite(tweetId);
+                } else if (twitter != null) {
+                    try {
+                        twitter.createFavorite(tweetId);
+                    } catch (TwitterException e) {
+                        // already been favorited by this account
+                    }
+                }
+
+                if (secTwitter != null) {
+                    secTwitter.createFavorite(tweetId);
+                }
+
                 return null;
             } catch (Exception e) {
                 return null;
@@ -1463,18 +1568,47 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
 
     class RetweetStatus extends AsyncTask<String, Void, String> {
 
+        public static final int TYPE_ACC_ONE = 1;
+        public static final int TYPE_ACC_TWO = 2;
+        public static final int TYPE_BOTH_ACC = 3;
+
         private ViewHolder holder;
         private long tweetId;
+        private int type;
 
-        public RetweetStatus(ViewHolder holder, long tweetId) {
+        public RetweetStatus(ViewHolder holder, long tweetId, int type) {
             this.holder = holder;
             this.tweetId = tweetId;
+            this.type = type;
+        }
+
+        protected void onPreExecute() {
+            Toast.makeText(context, context.getResources().getString(R.string.retweeting_status), Toast.LENGTH_SHORT).show();
         }
 
         protected String doInBackground(String... urls) {
             try {
-                Twitter twitter =  Utils.getTwitter(context, settings);
-                twitter.retweetStatus(tweetId);
+                Twitter twitter;
+                Twitter secTwitter = null;
+                if (type == TYPE_ACC_ONE) {
+                    twitter = Utils.getTwitter(context, settings);
+                } else if (type == TYPE_ACC_TWO) {
+                    twitter = Utils.getSecondTwitter(context);
+                } else {
+                    twitter = Utils.getTwitter(context, settings);
+                    secTwitter = Utils.getSecondTwitter(context);
+                }
+
+                try {
+                    twitter.retweetStatus(tweetId);
+                } catch (TwitterException e) {
+                    // already been retweeted by this account
+                }
+
+                if (secTwitter != null) {
+                    secTwitter.retweetStatus(tweetId);
+                }
+
                 return null;
             } catch (Exception e) {
                 return null;

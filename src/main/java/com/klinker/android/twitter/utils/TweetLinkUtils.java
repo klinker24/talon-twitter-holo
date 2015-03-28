@@ -131,8 +131,8 @@ public class TweetLinkUtils {
                 } catch (Exception e) {
                     tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
                 }
-                if(str.contains("instag") && !str.contains("blog.insta")) {
-                    imageUrl = exp + "media/?size=m";
+                if (str.contains("instag") && !str.contains("blog.insta")) {
+                    imageUrl = exp + "media/?size=l";
                     otherUrl += exp + "  ";
                 } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user"))) {
                     // first get the youtube video code
@@ -161,27 +161,27 @@ public class TweetLinkUtils {
                     try {
                         imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, end) + "/hqdefault.jpg";
                     } catch (Exception e) {
-                        imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, exp.length() - 1) + "/mqefault.jpg";
+                        imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, exp.length() - 1) + "/hqdefault.jpg";
                     }
                     otherUrl += exp + "  ";
                 } else if (str.contains("twitpic")) {
                     int start = exp.indexOf(".com/") + 5;
-                    imageUrl = "http://twitpic.com/show/full/" + exp.substring(start).replace("/","");
+                    imageUrl = "http://twitpic.com/show/full/" + exp.substring(start).replace("/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("i.imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 5;
-                    imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "m.jpg" ;
+                    imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "l.jpg";
                     imageUrl = imageUrl.replace("gallery/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 6;
-                    imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "m.jpg" ;
+                    imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "l.jpg";
                     imageUrl = imageUrl.replace("gallery/", "").replace("a/", "");
                     otherUrl += exp + "  ";
                 } else if (str.contains("pbs.twimg.com")) {
                     imageUrl = exp;
                     otherUrl += exp + "  ";
-                } else if (str.contains("ow.ly/i")) {
+                } else if (str.contains("ow.ly/i/")) {
                     imageUrl = "http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg";
                     otherUrl += exp + "  ";
                 } else if (str.contains("p.twipple.jp")) {
@@ -189,6 +189,9 @@ public class TweetLinkUtils {
                     otherUrl += exp + "  ";
                 } else if (str.contains(".jpg") || str.contains(".png")) {
                     imageUrl = exp;
+                    otherUrl += exp + "  ";
+                } else if (str.contains("img.ly")) {
+                    imageUrl = exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/");
                     otherUrl += exp + "  ";
                 } else {
                     otherUrl += exp + "  ";
@@ -351,18 +354,21 @@ public class TweetLinkUtils {
                     otherUrl += exp + "  ";
                 } else if (str.contains("imgur") && !str.contains("/a/")) {
                     int start = exp.indexOf(".com/") + 6;
-                    imageUrl = "http://i.imgur.com/" + exp.substring(start) + "m.jpg" ;
+                    imageUrl = "http://i.imgur.com/" + exp.substring(start) + "l.jpg" ;
                     imageUrl = imageUrl.replace("gallery/", "").replace("a/", ""); 
                     otherUrl += exp + "  ";
                 } else if (str.contains("pbs.twimg.com")) {
                     imageUrl = exp;
                     otherUrl += exp + "  ";
-                } else if (str.contains("ow.ly/i")) {
+                } else if (str.contains("ow.ly/i/")) {
                     Log.v("talon_owly", exp);
                     imageUrl = "http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg";
                     otherUrl += exp + "  ";
                 } else if (str.contains(".jpg") || str.contains(".png")) {
                     imageUrl = exp;
+                    otherUrl += exp + "  ";
+                } else if (str.contains("img.ly")) {
+                    imageUrl = exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/");
                     otherUrl += exp + "  ";
                 } else {
                     otherUrl += exp + "  ";
@@ -376,11 +382,6 @@ public class TweetLinkUtils {
 
             if (comp.length() > 1 && exp.length() > 1) {
                 tweetTexts = tweetTexts.replace(comp, sMediaDisply[i]);
-                /*try {
-                    tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", "").substring(0, 30) + "...");
-                } catch (Exception e) {
-                    tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
-                }*/
                 imageUrl = status.getMediaEntities()[0].getMediaURL();
                 otherUrl += sMediaDisply[i];
             }
@@ -491,12 +492,14 @@ public class TweetLinkUtils {
                     images.add(("http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "m.jpg").replace("gallery/", "").replace("a/", ""));
                 } else if (str.contains("pbs.twimg.com")) {
                     images.add(exp);
-                } else if (str.contains("ow.ly/i")) {
+                } else if (str.contains("ow.ly/i/")) {
                     images.add("http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg");
                 } else if (str.contains("p.twipple.jp")) {
                     images.add("http://p.twipple.jp/show/large/" + exp.replace("p.twipple.jp/", "").replace("http://", "").replace("https://", "").replace("www.", ""));
                 } else if (str.contains(".jpg") || str.contains(".png")) {
                     images.add(exp);
+                } else if (str.contains("img.ly")) {
+                    images.add(exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/"));
                 }
             }
         }
@@ -521,5 +524,27 @@ public class TweetLinkUtils {
             text = text.replaceAll("</font>", "");
         }
         return text;
+    }
+
+    public static String getGIFUrl(Status s, String otherUrls) {
+
+        // this will be used after twitter begins to support them
+        for (MediaEntity e : s.getExtendedMediaEntities()) {
+            if (e.getType().equals("animated_gif")) {
+                return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4");
+            } else if (e.getType().equals("video")) {
+                // TODO this probably won't work, so we might have to find another way
+                return e.getMediaURL();
+            }
+        }
+
+        // this is how the urls are currently stored
+        String gifUrl = "twitter.com/" + s.getUser().getScreenName() + "/status/" + s.getId() + "/photo/1";
+        if (otherUrls.contains(gifUrl)) {
+            return gifUrl;
+        }
+
+        // otherwise, lets just go with a blank string
+        return "";
     }
 }

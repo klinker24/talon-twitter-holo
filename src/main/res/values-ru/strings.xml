@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
@@ -52,7 +67,7 @@
     <string name="world_trends">Мировые тренды</string>
     <string name="search">Поиск</string>
     <string name="lists">Списки</string>
-    <string name="search_hint">\@никнейм или ключевые слова...</string>
+    <string name="search_hint">Поиск...</string>
     <string name="new_tweet">новый твит</string>
     <string name="new_tweets">новых твитов</string>
     <string name="no_new_tweets">Новых твитов нет</string>
@@ -85,6 +100,7 @@
     <string name="fav_user_tweets">новые твиты от избранных</string>
     <string name="sec_acc">Второй аккаунт</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">ВНИМАНИЕ: Это может привести к большому расходу батареи в Android Lollipop.</string>
     <string name="listening">Проверка</string>
     <string name="listening_for_mentions">Проверка новых уведомлений</string>
     <string name="refreshing">Обновление</string>
@@ -115,7 +131,7 @@
     <string name="syncing_direct_messages">Синхронизация личных сообщений...</string>
     <string name="syncing_user">Синхронизация друзей...</string>
     <string name="done_syncing">Синхронизация завершена.</string>
-    <string name="login_error">Что-то пошло не так! Пожалуйста, повторите попытку.</string>
+    <string name="login_error">Что-то пошло не так! Пожалуйста, повторите попытку.\n\nВозможно, дата и время на вашем устройстве не установлены автоматически. Это требование API Твиттера.</string>
     <string name="no_network">Вы не подключены к интернету</string>
     <string name="no_thanks">Не сейчас</string>
     <string name="follow_me">Да, давайте!</string>
@@ -199,6 +215,7 @@
     <string name="conversation">Диалог</string>
     <string name="webpage">Веб-страница</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Цитировать</string>
     <string name="deleted_tweet">Твит удалён</string>
     <string name="error_deleting">Ошибка удаления</string>
@@ -288,8 +305,8 @@
     <string name="quiet_hours">Не беспокоить</string>
     <string name="max_number_on_refresh">Число загружаемых твитов</string>
     <string name="fav_users_notifications">Избранные пользователи</string>
-    <string name="sync_second_mentions">Синхронизировать второй аккаунт</string>
-    <string name="sync_second_mentions_summary">Автоматически проверять и уведомлять о новых упоминаниях на втором аккаунте вместе с первым.</string>
+    <string name="sync_second_mentions">Синхр. второй аккаунт</string>
+    <string name="sync_second_mentions_summary">Автоматически проверять и уведомлять о новых упоминаниях и сообщениях на втором аккаунте.</string>
     <string name="max_number_summary">Чем больше число, тем медленнее обновление.</string>
     <string name="auto_refresh_category">Настройки автообновления</string>
     <string name="refresh_on_startup">Обновлять при запуске</string>
@@ -322,7 +339,7 @@
                     - Длинное нажатие открывает твит</string>
     <string name="extra_pages">Дополнительные вкладки</string>
     <string name="extra_pages_summary">Добавить вкладки ссылок и изображений слева от основной ленты.</string>
-    <string name="live_streaming">Стриминг</string>
+    <string name="live_streaming">Живое обновление</string>
     <string name="memory_management">Настройки использования памяти</string>
     <string name="delete_cache">Очистить кэш</string>
     <string name="cache_dialog">Очистить кэш?</string>
@@ -443,8 +460,11 @@
     <string name="use_twitpic">Использовать TwitPic</string>
     <string name="twitpic_summary">Использовать TwitPic для загрузки изображений вместо хостинга Твиттера.</string>
     <string name="verified">Подтверждён</string>
-    <string name="use_tweetmarker">Использовать TweetMarker</string>
-    <string name="tweetmarker_summary">Функция не вполне стабильна. Иногда могут возникать проблемы с восстановлением позиции.</string>
+    <string name="use_tweetmarker">TweetMarker</string>
+    <string name="tweetmarker_summary">Используется для синхронизации позиии в ленте между устройствами</string>
+    <string name="do_not_use">Не использовать</string>
+    <string name="automatic_refresh">Автоматический TweetMarker</string>
+    <string name="manual_refresh">Ручной TweetMarker</string>
     <string name="finding_tweetmarker">Синхронизация TweetMarker</string>
     <string name="loading">Загрузка</string>
     <string name="loading_tweets">Загрузка твитов...</string>
@@ -518,14 +538,14 @@
     <string name="display_options">Настройки отображения</string>
     <string name="third_party_services">Сторонние сервисы</string>
     <string name="open_keyboard">Автопоказ клавиатуры</string>
-    <string name="open_keyboard_summary">Автоматически открывать клавиатуру при просмотре твита</string>
+    <string name="open_keyboard_summary">Автоматически открывать клавиатуру при просмотре твита.</string>
     <string name="no_retweets">Нет ретвитов</string>
     <string name="profile">Профиль</string>
     <string name="favorites">Избранное</string>
     <string name="load_pictures">Загрузить</string>
     <string name="pic_search_disclaimer">Выполняет поиск изображений в ленте пользователя. Это может занять некоторое время в зависимости от их давности.</string>
     <string name="widget_theme">Тема виджета</string>
-    <string name="widget_theme_summary">Применяется к виджетам на рабочем столе</string>
+    <string name="widget_theme_summary">Применяется к виджетам на рабочем столе.</string>
     <string name="widget_light">Светлая</string>
     <string name="widget_dark">Тёмная</string>
     <string name="widget_trans_light">Прозрачная светлая</string>
@@ -600,8 +620,46 @@
     <string name="pick_date">Выбрать дату</string>
     <string name="both_accounts">Оба аккаунта</string>
     <string name="attach_gif">GIF-анимация</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="roboto_l">Android \"L\" Roboto</string>
+    <string name="second_account">Второй аккаунт</string>
+    <string name="second_account_login_info">Поскольку Твиттер хранит некоторую информацию о входе, на следующем экране он может не позволить вам сразу войти во второй аккаунт. Если ввод логина и пароля пропускается, просто нажмите \"Выйти\" в правом верхнем углу, чтобы войти вторым аккаунтом. Это не повлияет на первый.</string>
+    <string name="fetch_tweetmarker">Загрузить TweetMarker</string>
+    <string name="rate_limit_reached">Лимит обновлений ленты</string>
+    <string name="info">Инфо</string>
+    <string name="help_and_feedback">Помощь/Отзыв</string>
+    <string name="faq_first">Привет, спасибо, что помогаете мне улучшать Talon!\n\n
+Не стесняйтесь написать мне email или твит с отзывом или любыми возникшими у вас проблемами, но сначала проверьте, нет ли решения вашей проблемы в FAQ?\n\n
+Talon содержит обширный список вопросов и ответов прямо в приложении. Проверьте его, прежде чем писать мне и волноваться, что я вам не отвечаю! (Хотя я стараюсь отвечать так быстро, как может отвечать один человек…)\n\n
+Надеюсь, вам нравится Talon!</string>
+    <string name="contact">Связаться</string>
+    <string name="follow">Читать</string>
+    <string name="menu_number_of_pages">Количество доп. страниц</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Страница %s</string>
+    <string name="set_as_default">Установить основной</string>
+    <string name="main_pages_and_drawer">Главные страницы и боковое меню</string>
+    <string name="drawer_elements">Видимые пункты бокового меню</string>
+    <string name="drawer_elements_summary">Показать или скрыть разделы приложения в боковом меню.</string>
+    <!-- the username will replace %s -->
     <!-- Long click methods -->
+    <string name="open_profile">Открыть профиль</string>
+    <string name="copy_handle">Копировать имя</string>
+    <string name="search_user">Искать пользователя</string>
+    <string name="mute_user">Скрыть польз.</string>
+    <string name="mute_retweets">Скрыть ретвиты</string>
+    <string name="share_profile">Поделиться профилем</string>
+    <string name="open_to_external_browser">Открывать в стороннем браузере</string>
+    <string name="open_to_internal_browser">Открывать во встроенном браузере</string>
+    <string name="copy_link">Копировать ссылку</string>
+    <string name="share_link">Поделиться ссылкой</string>
+    <string name="search_hashtag">Искать по хэштегу</string>
+    <string name="mute_hashtag">Скрыть хэштег</string>
+    <string name="copy_hashtag">Копировать хэштег</string>
+    <string name="search_cashtag">Искать по кэштегу</string>
+    <string name="copy_cashtag">Копировать кэштег</string>
+    <string name="copied">Скопирован текст</string>
+    <string name="favorite_user_text">Избр. пользователь</string>
     <string name="open_to_web">Открывать ссылки в твитах</string>
     <string name="open_to_web_summary">Если твит содержит ссылку, будет открываться страница с ней, а не сам твит.</string>
+    <string name="open_webpage">Открыть ссылку</string>
 </resources>

@@ -47,12 +47,7 @@ import com.klinker.android.twitter.adapters.InteractionsCursorAdapter;
 import com.klinker.android.twitter.adapters.MainDrawerArrayAdapter;
 import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.data.App;
-import com.klinker.android.twitter.data.sq_lite.DMDataSource;
-import com.klinker.android.twitter.data.sq_lite.FavoriteUsersDataSource;
-import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
-import com.klinker.android.twitter.data.sq_lite.InteractionsDataSource;
-import com.klinker.android.twitter.data.sq_lite.ListDataSource;
-import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
+import com.klinker.android.twitter.data.sq_lite.*;
 import com.klinker.android.twitter.listeners.InteractionClickListener;
 import com.klinker.android.twitter.listeners.MainDrawerClickListener;
 import com.klinker.android.twitter.settings.SettingsActivity;
@@ -118,7 +113,19 @@ public abstract class DrawerActivity extends Activity {
     private NetworkedCacheableImageView backgroundPic;
     private NetworkedCacheableImageView profilePic;
 
+    public MainDrawerArrayAdapter adapter;
+
     public void setUpDrawer(int number, final String actName) {
+
+        int currentAccount = sharedPrefs.getInt("current_account", 1);
+        for (int i = 0; i < TimelinePagerAdapter.MAX_EXTRA_PAGES; i++) {
+            String pageIdentifier = "account_" + currentAccount + "_page_" + (i + 1);
+            int type = sharedPrefs.getInt(pageIdentifier, AppSettings.PAGE_TYPE_NONE);
+
+            if (type != AppSettings.PAGE_TYPE_NONE) {
+                number++;
+            }
+        }
 
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
@@ -133,7 +140,8 @@ public abstract class DrawerActivity extends Activity {
 
         actionBar = getActionBar();
 
-        MainDrawerArrayAdapter.current = number;
+        adapter = new MainDrawerArrayAdapter(context);
+        MainDrawerArrayAdapter.setCurrent(context, number);
 
         TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.drawerIcon});
         int resource = a.getResourceId(0, 0);
@@ -189,7 +197,7 @@ public abstract class DrawerActivity extends Activity {
                         logoutVisible = false;
                     }
 
-                    if (MainDrawerArrayAdapter.current > 2) {
+                    if (MainDrawerArrayAdapter.current > adapter.pageTypes.size()) {
                         actionBar.setTitle(actName);
                     } else {
                         int position = mViewPager.getCurrentItem();
@@ -449,7 +457,6 @@ public abstract class DrawerActivity extends Activity {
             // empty path again
         }
 
-        MainDrawerArrayAdapter adapter = new MainDrawerArrayAdapter(context, new ArrayList<String>(Arrays.asList(MainDrawerArrayAdapter.getItems(context))));
         drawerList.setAdapter(adapter);
 
         drawerList.setOnItemClickListener(new MainDrawerClickListener(context, mDrawerLayout, mViewPager));
@@ -656,13 +663,15 @@ public abstract class DrawerActivity extends Activity {
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
 
-        if(!settings.pushNotifications) {
+        if(!settings.pushNotifications || !settings.useInteractionDrawer) {
             try {
                 mDrawerLayout.setDrawerLockMode(NotificationDrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.END);
             } catch (Exception e) {
                 // no drawer?
             }
         } else {
+            mDrawerLayout.setDrawerRightEdgeSize(this, .1f);
+
             try {
                 if (Build.VERSION.SDK_INT < 18 && DrawerActivity.settings.uiExtras) {
                     View viewHeader2 = ((Activity)context).getLayoutInflater().inflate(R.layout.ab_header, null);
@@ -856,6 +865,10 @@ public abstract class DrawerActivity extends Activity {
         e.remove("new_favorites");
         e.remove("new_follows");
         e.remove("current_position_" + currentAccount);
+        e.remove("last_activity_refresh_" + currentAccount);
+        e.remove("original_activity_refresh_" + currentAccount);
+        e.remove("activity_follower_count_" + currentAccount);
+        e.remove("activity_latest_followers_" + currentAccount);
         e.commit();
 
         HomeDataSource homeSources = HomeDataSource.getInstance(context);
@@ -872,6 +885,12 @@ public abstract class DrawerActivity extends Activity {
 
         InteractionsDataSource inters = InteractionsDataSource.getInstance(context);
         inters.deleteAllInteractions(currentAccount);
+
+        ActivityDataSource activity = ActivityDataSource.getInstance(context);
+        activity.deleteAll(currentAccount);
+
+        FavoriteTweetsDataSource favTweets = FavoriteTweetsDataSource.getInstance(context);
+        favTweets.deleteAllTweets(currentAccount);
 
         try {
             long account1List1 = sharedPrefs.getLong("account_" + currentAccount + "_list_1", 0l);
@@ -1024,7 +1043,7 @@ public abstract class DrawerActivity extends Activity {
             menu.getItem(DM).setVisible(false);
             menu.getItem(TOFIRST).setVisible(false);
 
-            if (settings.pushNotifications) {
+            if (settings.pushNotifications && settings.useInteractionDrawer) {
                 menu.getItem(NOTIFICATIONS).setVisible(true);
             } else {
                 menu.getItem(NOTIFICATIONS).setVisible(false);
@@ -1037,7 +1056,7 @@ public abstract class DrawerActivity extends Activity {
             menu.getItem(COMPOSE).setVisible(true);
             menu.getItem(DM).setVisible(true);
 
-            if (!settings.pushNotifications) {
+            if (!settings.pushNotifications || !settings.useInteractionDrawer) {
                 menu.getItem(NOTIFICATIONS).setVisible(false);
             } else {
                 if (settings.floatingCompose || getResources().getBoolean(R.bool.isTablet)) {
@@ -1049,7 +1068,7 @@ public abstract class DrawerActivity extends Activity {
         }
 
         // to first button in overflow instead of the toast
-        if (MainDrawerArrayAdapter.current > 2 || (settings.uiExtras && settings.useToast)) {
+        if (MainDrawerArrayAdapter.current > adapter.pageTypes.size() || (settings.uiExtras && settings.useToast)) {
             menu.getItem(TOFIRST).setVisible(false);
         } else {
             menu.getItem(TOFIRST).setVisible(true);

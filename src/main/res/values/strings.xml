@@ -227,6 +227,8 @@
     <string name="conversation">Conversation</string>
     <string name="webpage">Web Page</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet Media</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Quote Tweet</string>
     <string name="deleted_tweet">Tweet deleted</string>
     <string name="error_deleting">Error deleting tweet</string>
@@ -502,7 +504,7 @@
     <string name="jumping_workaround_summary">Enable this if your timeline jumps down one spot after you refresh your feed.</string>
     <string name="menu_share_link">Share Link</string>
     <string name="no_links">No Links</string>
-    <string name="configure_pages">Configure Extra Pages</string>
+    <string name="configure_pages">Choose Swipe-able Pages</string>
     <string name="picture_page">Picture Timeline</string>
     <string name="link_page">Link Timeline</string>
     <string name="list_page">List Timeline</string>
@@ -520,6 +522,7 @@
     <string name="use_shortening_service">Use Shortening Service</string>
     <string name="use_shortening_service_summary">You will be able to select either TwitLonger or Pwiccer (a service that converts your long tweet to an image for posting).</string>
     <string name="view_retweeters">Retweeters</string>
+    <string name="view_favoriters">Favoriters</string>
     <string name="no_tweets">No Tweets</string>
     <string name="only_7_days">Only 7 days available</string>
     <string name="saved_searches">Saved Searches</string>
@@ -660,6 +663,42 @@
     </string>
     <string name="contact">Contact</string>
     <string name="follow">Follow</string>
+    <string name="menu_number_of_pages">Number of Extra Pages</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Page %s</string>
+    <string name="set_as_default">Set as Default</string>
+    <string name="main_pages_and_drawer">Main Pages and Drawer</string>
+    <string name="drawer_elements">Visible Drawer Items</string>
+    <string name="drawer_elements_summary">Show or hide the items in the apps main navigation drawer.</string>
+    <string name="second_acc_mentions">Second Account Mentions</string>
+    <string name="using_second_account">Using %s account!</string> <!-- the username will replace %s -->
+    <string name="error_gif">Error finding GIF</string>
+    <string name="saved_search">Saved Search</string>
+    <string name="activity">Activity</string>
+    <string name="sending_direct_message">Sending Direct Message</string>
+    <string name="fav_rt_multiple_accounts">Cross Account Actions</string>
+    <string name="fav_rt_multiple_accounts_summary">If you have multiple accounts, this will let you select which account to perform the favorite or retweet with.</string>
+    <string name="talon_pull_notifications">Talon Pull (Instant) Notifications</string>
+    <string name="talon_pull_turned_on">Talon Pull must be turned on from Sync Settings to use this feature.</string>
+    <string name="activity_sync_interval">Activity Refresh Rate</string>
+    <string name="mentioned_you">mentioned you</string>
+    <string name="favorites_lower">Favorites</string>
+    <string name="favorite_lower">Favorite</string>
+    <string name="retweeted_your_status">Retweeted your status</string>
+    <string name="followed_you">Followed you</string>
+    <string name="new_activity">New Activity</string>
+    <string name="use_interaction_drawer">Enable Interaction Drawer</string>
+    <string name="use_interaction_drawer_summary">The contents of this drawer is filled by Talon Pull (Streaming).</string>
+    <string name="no_activity_yet">No activity yet!</string>
+    <string name="no_activity_yet_desc"> This section will be filled as you interact more on Twitter.\n\n
+        Mentions, new followers, and retweets/favorites on your statuses will start to show up here.</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">new follower</string>
+    <string name="new_followers_lower">new followers</string>
+    <string name="item">item</string>
+    <string name="items">items</string>
+    <string name="and">and</string>
+    <string name="no_favorites">No favorites</string>
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>
@@ -668,7 +707,8 @@
     <string name="mute_user">Mute User</string>
     <string name="mute_retweets">Mute Retweets</string>
     <string name="share_profile">Share Profile</string>
-    <string name="open_webpage">Open Link</string>
+    <string name="open_to_external_browser">Open to External Browser</string>
+    <string name="open_to_internal_browser">Open to Internal Browser</string>
     <string name="copy_link">Copy Link</string>
     <string name="share_link">Share Link</string>
     <string name="search_hashtag">Search Hashtag</string>
