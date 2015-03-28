@@ -113,8 +113,8 @@ dependencies {
     compile 'com.google.android.apps.dashclock:dashclock-api:+'
     compile 'com.nineoldandroids:library:2.4.0'
 
-    compile 'org.twitter4j:twitter4j-core:4.0.2'
-    compile 'org.twitter4j:twitter4j-stream:4.0.2'
+    compile 'org.twitter4j:twitter4j-core:4.0.3'
+    compile 'org.twitter4j:twitter4j-stream:4.0.3'
 
     compile 'org.apache.httpcomponents:httpmime:4.3.5'
     compile 'org.apache.httpcomponents:httpcore:4.3.2'
