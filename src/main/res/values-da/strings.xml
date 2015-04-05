@@ -51,7 +51,7 @@
     <!-- Muting -->
     <string name="mute">Muting</string>
     <string name="unmute">Fjern mute</string>
-    <string name="muted_users">Brugere der er muted</string>
+    <string name="muted_users">Muted brugere</string>
     <string name="no_users">Ingen brugere</string>
     <!-- Main Activity -->
     <string name="links">Links</string>

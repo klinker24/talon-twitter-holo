@@ -100,6 +100,7 @@
     <string name="fav_user_tweets">nieuwe tweet favoriete gebruiker</string>
     <string name="sec_acc">Tweede account</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">WAARSCHUWING: Het inschakelen van deze optie kan het accuverbruik op Android Lollipop aanzienlijk verhogen.</string>
     <string name="listening">Luisterend</string>
     <string name="listening_for_mentions">Luisteren voor interacties</string>
     <string name="refreshing">Aan het vernieuwen</string>
@@ -214,6 +215,8 @@
     <string name="conversation">Conversatie</string>
     <string name="webpage">Webpagina</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet Media</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Quote tweet</string>
     <string name="deleted_tweet">Tweet verwijderd</string>
     <string name="error_deleting">Error bij verwijderen tweet</string>
@@ -612,6 +615,8 @@ In plaats daarvan, zal Talon de afbeeldingen uploaden met behulp van TwitPic.</s
     <string name="no_clients">Geen Cliënten</string>
     <string name="muted_clients_summary">Stelt je in staat om alle tweets die van een specifieke applicatie komen te dempen.</string>
     <string name="client_not_found">Cliënt niet gevonden!</string>
+    <string name="favorite">Favoriet</string>
+    <string name="menu_share_image">Afbeelding Delen</string>
     <string name="pick_time">Kies Tijd</string>
     <string name="pick_date">Kies Datum</string>
     <string name="both_accounts">Beide Accounts</string>
@@ -636,7 +641,12 @@ Hopelijk geniet je van mijn werk!</string>
     <string name="main_pages_and_drawer">Hoofdpagina\'s en drawer</string>
     <string name="drawer_elements">Zichtbare drawer items</string>
     <string name="drawer_elements_summary">Geef de items in de app\'s hoofd navigatie drawer weer of verberg ze.</string>
+    <string name="second_acc_mentions">Tweede Account Vermeldingen</string>
+    <string name="using_second_account">Gebruikt %s account!</string>
     <!-- the username will replace %s -->
+    <string name="error_gif">Error bij vinden GIF</string>
+    <string name="saved_search">Opgeslagen Zoekopdracht</string>
+    <string name="activity">Activiteit</string>
     <!-- Long click methods -->
     <string name="open_profile">Open profiel</string>
     <string name="copy_handle">Kopieer gebruikersnaam</string>
