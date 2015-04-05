@@ -15,7 +15,11 @@
   -->
 
 <changelog>
-    
+
+    <version name="4.2.1">
+        <text>Update Translations</text>
+    </version>
+
     <version name="4.2.0">
         <text>Twitter video support</text>
     </version>
