@@ -168,17 +168,7 @@ public class Utils {
     }
 
     public static boolean hasNavBar(Context context) {
-        Display display = ((Activity)context).getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        Point realSize = new Point();
-        display.getSize(size);
-        display.getRealSize(realSize);
-
-        try {
-            return Math.max(size.x, size.y) < Math.max(realSize.x, realSize.y) || (context.getResources().getBoolean(R.bool.isTablet) && context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
-        } catch (Exception e) {
-            return false;
-        }
+        cd
     }
 
     // true if on mobile data

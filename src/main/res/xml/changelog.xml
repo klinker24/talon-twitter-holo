@@ -15,6 +15,9 @@
   -->
 
 <changelog>
+    <version name="4.2.2">
+        <text>Support for Twitter's new "quote" method</text>
+    </version>
 
     <version name="4.2.1">
         <text>Update Translations</text>
