@@ -86,6 +86,10 @@ public class AppSettings {
     public static final int LAYOUT_HANGOUT = 1;
     public static final int LAYOUT_FULL_SCREEN = 2;
 
+    public static final int QUOTE_STYLE_TWITTER = 0;
+    public static final int QUOTE_STYLE_TALON = 1;
+    public static final int QUOTE_STYLE_RT = 2;
+
     public String authenticationToken;
     public String authenticationTokenSecret;
     public String secondAuthToken;
@@ -123,7 +127,6 @@ public class AppSettings {
     public boolean pushNotifications;
     public boolean inAppBrowser;
     public boolean showBoth;
-    public boolean preferRT;
     public boolean absoluteDate;
     public boolean useToast;
     public boolean autoInsertHashtags;
@@ -177,6 +180,7 @@ public class AppSettings {
     public int dmSize;
     public int pageToOpen;
     public int numberOfAccounts;
+    public int quoteStyle;
 
     public long timelineRefresh;
     public long mentionsRefresh;
@@ -252,7 +256,6 @@ public class AppSettings {
         favoritesNot = sharedPrefs.getBoolean("favorite_notifications", true);
         retweetNot = sharedPrefs.getBoolean("retweet_notifications", true);
         followersNot = sharedPrefs.getBoolean("follower_notifications", true);
-        preferRT = sharedPrefs.getBoolean("prefer_rt", false);
         absoluteDate = sharedPrefs.getBoolean("absolute_date", false);
         useToast = sharedPrefs.getBoolean("use_toast", true);
         autoInsertHashtags = sharedPrefs.getBoolean("auto_insert_hashtags", false);
@@ -318,6 +321,7 @@ public class AppSettings {
         mentionsSize = Integer.parseInt(sharedPrefs.getString("mentions_size", "100"));
         dmSize = Integer.parseInt(sharedPrefs.getString("dm_size", "100"));
         pageToOpen = Integer.parseInt(sharedPrefs.getString("viewer_page", "0"));
+        quoteStyle = Integer.parseInt(sharedPrefs.getString("quote_style", "0"));
 
         // Longs
         timelineRefresh = Long.parseLong(sharedPrefs.getString("timeline_sync_interval", "0"));
@@ -534,7 +538,6 @@ public class AppSettings {
         favoritesNot = sharedPrefs.getBoolean("favorite_notifications", true);
         retweetNot = sharedPrefs.getBoolean("retweet_notifications", true);
         followersNot = sharedPrefs.getBoolean("follower_notifications", true);
-        preferRT = sharedPrefs.getBoolean("prefer_rt", false);
         absoluteDate = sharedPrefs.getBoolean("absolute_date", false);
         useToast = sharedPrefs.getBoolean("use_toast", true);
         autoInsertHashtags = sharedPrefs.getBoolean("auto_insert_hashtags", false);
@@ -596,7 +599,7 @@ public class AppSettings {
         mentionsSize = Integer.parseInt(sharedPrefs.getString("mentions_size", "100"));
         dmSize = Integer.parseInt(sharedPrefs.getString("dm_size", "100"));
         pageToOpen = Integer.parseInt(sharedPrefs.getString("viewer_page", "0"));
-
+        quoteStyle = Integer.parseInt(sharedPrefs.getString("quote_style", "0"));
 
         // Longs
         timelineRefresh = Long.parseLong(sharedPrefs.getString("timeline_sync_interval", "0"));

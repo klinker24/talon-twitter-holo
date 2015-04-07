@@ -699,6 +699,11 @@
     <string name="items">items</string>
     <string name="and">and</string>
     <string name="no_favorites">No favorites</string>
+    <string name="quote_style">Quote Style</string>
+    <string name="quote_style_twitter">Twitter Style (Link to tweet)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt"> RT \@lukeklinker &#8230;</string>
+
 
     <!-- Long click methods -->
     <string name="open_profile">Open Profile</string>

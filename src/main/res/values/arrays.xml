@@ -159,6 +159,18 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="quote_style">
+        <item>@string/quote_style_twitter</item>
+        <item>@string/quote_style_talon</item>
+        <item>@string/quote_style_rt</item>
+    </string-array>
+
+    <string-array name="quote_style_inserted">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="alert_types">
         <item>@string/vibrate</item>
         <item>@string/led</item>

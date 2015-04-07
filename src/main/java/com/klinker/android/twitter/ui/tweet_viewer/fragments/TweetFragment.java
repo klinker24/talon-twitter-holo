@@ -483,10 +483,16 @@ public class TweetFragment extends Fragment {
                 public void onClick(View view) {
                     String text = tweet;
 
-                    if (!settings.preferRT) {
-                        text = "\"@" + screenName + ": " + text + "\" ";
-                    } else {
-                        text = " RT @" + screenName + ": " + text;
+                    switch (settings.quoteStyle) {
+                        case AppSettings.QUOTE_STYLE_TWITTER:
+                            text = " " + "https://twitter.com/" + screenName + "/status/" + tweetId;
+                            break;
+                        case AppSettings.QUOTE_STYLE_TALON:
+                            text = "\"@" + screenName + ": " + text + "\" ";
+                            break;
+                        case AppSettings.QUOTE_STYLE_RT:
+                            text = " RT @" + screenName + ": " + text;
+                            break;
                     }
 
                     Intent intent;

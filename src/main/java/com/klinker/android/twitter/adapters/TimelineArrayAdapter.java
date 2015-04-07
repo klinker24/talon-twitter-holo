@@ -1123,10 +1123,16 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     text = TweetLinkUtils.removeColorHtml(text, settings);
                     text = restoreLinks(text);
 
-                    if (!settings.preferRT) {
-                        text = "\"@" + name + ": " + text + "\" ";
-                    } else {
-                        text = " RT @" + name + ": " + text;
+                    switch (settings.quoteStyle) {
+                        case AppSettings.QUOTE_STYLE_TWITTER:
+                            text = " " + "https://twitter.com/" + name + "/status/" + id;
+                            break;
+                        case AppSettings.QUOTE_STYLE_TALON:
+                            text = "\"@" + name + ": " + text + "\" ";
+                            break;
+                        case AppSettings.QUOTE_STYLE_RT:
+                            text = " RT @" + name + ": " + text;
+                            break;
                     }
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
                     intent.putExtra(Intent.EXTRA_TEXT, text);
@@ -1238,10 +1244,16 @@ public class TimelineArrayAdapter extends ArrayAdapter<Status> {
                     text = TweetLinkUtils.removeColorHtml(text, settings);
                     text = restoreLinks(text);
 
-                    if (!settings.preferRT) {
-                        text = "\"@" + name + ": " + text + "\" ";
-                    } else {
-                        text = " RT @" + name + ": " + text;
+                    switch (settings.quoteStyle) {
+                        case AppSettings.QUOTE_STYLE_TWITTER:
+                            text = " " + "https://twitter.com/" + name + "/status/" + id;
+                            break;
+                        case AppSettings.QUOTE_STYLE_TALON:
+                            text = "\"@" + name + ": " + text + "\" ";
+                            break;
+                        case AppSettings.QUOTE_STYLE_RT:
+                            text = " RT @" + name + ": " + text;
+                            break;
                     }
                     intent.putExtra("user", text);
                     intent.putExtra("id", id);

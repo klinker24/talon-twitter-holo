@@ -1053,7 +1053,7 @@ public class TimeLineCursorAdapter extends CursorAdapter {
         holder.favorite.clearColorFilter();
     }
 
-    public void addExpansion(final ViewHolder holder, String screenname, String users, final String[] otherLinks, final String webpage, final long tweetId, String[] hashtags) {
+    public void addExpansion(final ViewHolder holder, final String screenname, String users, final String[] otherLinks, final String webpage, final long tweetId, String[] hashtags) {
         if (isDM) {
             holder.retweet.setVisibility(View.GONE);
             holder.retweetCount.setVisibility(View.GONE);
@@ -1466,11 +1466,18 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                     text = TweetLinkUtils.removeColorHtml(text, settings);
                     text = restoreLinks(text);
 
-                    if (!settings.preferRT) {
-                        text = "\"@" + name + ": " + text + "\" ";
-                    } else {
-                        text = " RT @" + name + ": " + text;
+                    switch (settings.quoteStyle) {
+                        case AppSettings.QUOTE_STYLE_TWITTER:
+                            text = " " + "https://twitter.com/" + screenname + "/status/" + tweetId;
+                            break;
+                        case AppSettings.QUOTE_STYLE_TALON:
+                            text = "\"@" + name + ": " + text + "\" ";
+                            break;
+                        case AppSettings.QUOTE_STYLE_RT:
+                            text = " RT @" + name + ": " + text;
+                            break;
                     }
+
                     intent.putExtra("user", text);
                     intent.putExtra("id", tweetId);
 

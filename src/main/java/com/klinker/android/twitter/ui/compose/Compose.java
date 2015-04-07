@@ -230,11 +230,9 @@ public abstract class Compose extends Activity implements
         setUpActionBar();
         setUpReplyText();
 
-        if (reply.getText().toString().contains(" RT @")) {
+        if (reply.getText().toString().contains(" RT @") || reply.getText().toString().contains("/status/")) {
             reply.setSelection(0);
         }
-
-        //Utils.setActionBar(context, false);
 
         if (getIntent().getBooleanExtra("start_attach", false)) {
             attachButton.performClick();
@@ -254,7 +252,7 @@ public abstract class Compose extends Activity implements
                 String text = reply.getText().toString();
 
                 try {
-                    if (!android.text.TextUtils.isEmpty(text) && !text.startsWith(" RT @")) {
+                    if (!android.text.TextUtils.isEmpty(text) && !(text.startsWith(" RT @") || text.contains("/status/"))) {
                         //text = text.replaceAll("  ", " ");
 
                         reply.setText(text);
