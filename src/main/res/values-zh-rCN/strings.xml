@@ -27,8 +27,8 @@
     <string name="menu_unfollow">取消关注用户</string>
     <string name="menu_tweet">发送推文</string>
     <string name="menu_dm">发送私信</string>
-    <string name="menu_block">屏蔽用户</string>
-    <string name="menu_unblock">取消屏蔽用户</string>
+    <string name="menu_block">屏蔽（拉黑）用户</string>
+    <string name="menu_unblock">取消屏蔽（拉黑）用户</string>
     <string name="menu_add_to_list">添加至列表</string>
     <string name="menu_change_picture">修改用户头像</string>
     <string name="menu_change_bio">修改用户信息</string>
@@ -49,9 +49,9 @@
     <string name="yesterday">昨天</string>
     <string name="days_ago">%s天前</string>
     <!-- Muting -->
-    <string name="mute">过滤</string>
-    <string name="unmute">取消过滤</string>
-    <string name="muted_users">过滤的用户</string>
+    <string name="mute">静音</string>
+    <string name="unmute">取消静音</string>
+    <string name="muted_users">已静音的用户</string>
     <string name="no_users">无用户</string>
     <!-- Main Activity -->
     <string name="links">链接</string>
@@ -104,7 +104,7 @@
     <string name="listening">正在侦听</string>
     <string name="listening_for_mentions">侦听互动信息中</string>
     <string name="refreshing">更新中</string>
-    <string name="refreshing_widget">更新Widget中</string>
+    <string name="refreshing_widget">更新窗口小部件中</string>
     <string name="downloading">下载中</string>
     <string name="new_interaction_upper">新的互动</string>
     <string name="new_interactions_lower">新的互动</string>
@@ -125,7 +125,7 @@
     <string name="initial_sync">现在就同步！</string>
     <string name="first_info">在开始之前，先登陆Twitter吧。</string>
     <string name="second_info">做得很棒！\n\n现在我们需要载入一些初始信息。\n\n根据您的因特网连接，需要一些时间。</string>
-    <string name="third_info">祝你使用Talon用得愉快！\n\n-- Luke Klinker</string>
+    <string name="third_info">祝你享受Talon！\n\n-- Luke Klinker</string>
     <string name="syncing_timeline">同步时间线中……</string>
     <string name="syncing_mentions">同步提及中……</string>
     <string name="syncing_direct_messages">同步私信中……</string>
@@ -182,10 +182,10 @@
     <!-- User Profile Activity -->
     <string name="followers">关注者</string>
     <string name="following">已关注</string>
-    <string name="blocked_user">屏蔽的用户</string>
-    <string name="unblocked_user">取消屏蔽的用户</string>
-    <string name="followed_user">关注的用户</string>
-    <string name="unfollowed_user">取消关注的用户</string>
+    <string name="blocked_user">屏蔽的（拉黑的）用户</string>
+    <string name="unblocked_user">取消屏蔽（拉黑）的用户</string>
+    <string name="followed_user">关注用户</string>
+    <string name="unfollowed_user">取消关注用户</string>
     <string name="no_description">无法获取用户描述。</string>
     <string name="favorite_user">收藏的用户</string>
     <string name="unfavorite_user">取消收藏的用户</string>
@@ -246,8 +246,8 @@
     <string name="choose_list">选择列表</string>
     <string name="added_to_list">添加至列表</string>
     <!-- Tutorial Activity -->
-    <string name="part_1_tablet">\n 通过点击\n侧边菜单上的项目\n来访问\n各个功能项\n！</string>
-    <string name="part_1_phone">\n 从左侧边\n向右滑动\n来打开\n侧边菜单！</string>
+    <string name="part_1_tablet">\n 通过点击\n抽屉式导航上的项目\n来访问\n各个功能项\n！</string>
+    <string name="part_1_phone">\n 从左侧边\n向右滑动\n来打开\n抽屉式导航！</string>
     <string name="part_2">\n 从屏幕中央\n向任意一个方向\n滑动\n来访问\n其他的时间线！</string>
     <string name="part_3">就是这样！\n\n请点击\n屏幕任意位置\n开始！</string>
     <!-- Settings Menu -->
@@ -264,7 +264,7 @@
     <string name="themeing_complete">应用主题</string>
     <string name="themeing_complete_summary">Talon 即将关闭。 \n\n
  如果需要重启后新的设置起效，还需要在最近打开的应用列表中侧滑关闭Talon。\n\n
- 如果你的用户头像并没有如期显示（如：方形或圆形），请您先移除再重新添加Widget.</string>
+ 如果你的用户头像并没有如期显示（如：方形或圆形），请您先移除再重新添加窗口小部件.</string>
     <string name="layout_summary">修改此处将清空应用的缓存。</string>
     <string name="text_size">文本大小</string>
     <string name="night_mode">夜间模式</string>
@@ -416,19 +416,19 @@
     <string name="rt_style_quotes_summary">使用以前的“RT @username: ...”来引用推文\n\n</string>
     <string name="absolute_date">使用绝对时间格式</string>
     <string name="clear_searches">清除搜索</string>
-    <string name="compose_with_search">Compose Tweet with Search</string>
+    <string name="compose_with_search">发一条关于此搜索结果的推文</string>
     <string name="use_toast">启用 “跳至顶端” 的弹出项</string>
     <string name="ignore_retweets">忽略所有的转推</string>
     <string name="ignore_retweets_summary">在时间线上不显示所有的转推推文</string>
     <string name="view">查看</string>
-    <string name="muted_hashtags">已过滤的Hashtag</string>
-    <string name="muted_hashtags_summary">点击Hashtag来取消过滤</string>
+    <string name="muted_hashtags">已静音的Hashtag</string>
+    <string name="muted_hashtags_summary">点击Hashtag来取消静音</string>
     <string name="no_hashtags">没有Hashtag</string>
-    <string name="mute_hashtags">过滤该hashtag</string>
-    <string name="muted">已过滤</string>
+    <string name="mute_hashtags">静音该hashtag</string>
+    <string name="muted">已静音</string>
     <string name="auto_insert_hashtags">自动插入Hashtags</string>
     <string name="to_replies">在回复中自动插入原推中的Hashtags</string>
-    <string name="clean_now">立刻清空数据库</string>
+    <string name="clean_now">立刻清理数据库</string>
     <string name="clean_now_summary">优化并移除数据库中的重复数据。</string>
     <string name="delete_conversation">删除对话？</string>
     <string name="deleting_messages">删除信息</string>
@@ -483,8 +483,8 @@
     <string name="current">当前</string>
     <string name="here_is_home">这里是你的Home时间线！</string>
     <string name="dont_use">不使用该页面</string>
-    <string name="page_1">页面1</string>
-    <string name="page_2">页面2</string>
+    <string name="page_1">页面 1</string>
+    <string name="page_2">页面 2</string>
     <string name="load_tweets">加载推文</string>
     <string name="download_portal">下载主题商店应用</string>
     <string name="download_portal_summary">这是集合了Talon和EvolveSMS的各种最新主题和最新消息的商店应用！</string>
@@ -523,13 +523,13 @@
     <string name="manually_config_location">手动设置地区</string>
     <string name="country_region">国家/地区</string>
     <string name="city">城市</string>
-    <string name="menu_apply_picture_filter">应用图片滤镜</string>
+    <string name="menu_apply_picture_filter">只保留含图片的搜索结果</string>
     <string name="menu_remove_rt">删除转推</string>
-    <string name="input_expression">过滤表达式……</string>
-    <string name="mute_expression">过滤用表达式</string>
-    <string name="view_muted_expressions">删除过滤表达式</string>
+    <string name="input_expression">静音表达式……</string>
+    <string name="mute_expression">静音用表达式</string>
+    <string name="view_muted_expressions">删除静音表达式</string>
     <string name="no_expression">无表达式</string>
-    <string name="regex_disclaimer">过滤表达式太多可能会影响启动和刷新的时间。</string>
+    <string name="regex_disclaimer">静音表达式太多可能会影响启动和刷新的时间。</string>
     <string name="cleaning_cache">正在优化缓存……</string>
     <string name="floating_compose">浮动撰写按钮</string>
     <string name="settings_links">设置链接</string>
@@ -543,7 +543,7 @@
     <string name="favorites">收藏</string>
     <string name="load_pictures">加载图片</string>
     <string name="pic_search_disclaimer">搜索用户TL中的图片。图片数量将会影响加载时间。</string>
-    <string name="widget_theme">Widget主题</string>
+    <string name="widget_theme">窗口小部件的主题</string>
     <string name="widget_theme_summary">应用到手机主屏幕的窗口小部件上。</string>
     <string name="widget_light">明亮主题</string>
     <string name="widget_dark">暗主题</string>
@@ -552,8 +552,9 @@
     <string name="ui_settings">用户界面设置</string>
     <string name="show_muted_mentions">显示静音用户的互动</string>
     <string name="menu_view_drafts">查看草稿</string>
+    <string name="menu_schedule_tweet">定时计划发送一条推文</string>
     <string name="menu_save_draft">保存草稿</string>
-    <string name="saved_draft">保存的草稿</string>
+    <string name="saved_draft">已保存草稿</string>
     <string name="delete_draft">删除草稿</string>
     <string name="no_tweet">没有推文！</string>
     <string name="menu_attach_picture">附加图片</string>
@@ -568,40 +569,69 @@
  Talon会把图片上传到TwitPic。</string>
     <string name="loading_webpage">载入网页...</string>
     <string name="plain_text_browser">纯文本浏览器</string>
+    <string name="plain_text_summary">移除图像并对页面重新排版，显示一个纯文本的页面。</string>
     <string name="plain_text_on_data">仅在数据流量网络下启用纯文本浏览器</string>
     <string name="plain_text_on_data_summary">仅当使用数据流量网络时启用纯文本浏览器，WIFI下不启用。</string>
     <string name="layout_full_screen">全屏</string>
-    <string name="pre_cache_images">预缓存图片。</string>
+    <string name="pre_cache_images">预缓存图像</string>
     <string name="pre_cache_settings">预缓存设置</string>
     <string name="pre_cache_only_wifi">只在WiFi下</string>
     <string name="browser_settings">浏览器设置</string>
     <string name="memory_manage">存储管理</string>
     <string name="protected_account">用户的推特已被保护！</string>
+    <string name="mute_rt">静音该用户的转推</string>
+    <string name="unmute_rt">取消静音该用户的所有转推</string>
+    <string name="muted_rts">已静音的转推用户</string>
+    <string name="twitter">推特</string>
+    <string name="user">用户</string>
     <string name="menu_translate">翻译推文</string>
+    <string name="add_new_tweet">添加新的推文</string>
+    <string name="scheduled_tweets">已计划发送的推文</string>
+    <string name="done_label">完成</string>
+    <string name="no_drafts">未发现草稿</string>
+    <string name="menu_show_top_tweets">查看热门推文搜索结果</string>
+    <string name="muted_clients">已静音的客户端</string>
+    <string name="mute_client">静音客户端</string>
+    <string name="muted_clients_summary">可以让你把所有来自这个应用的推特都静音掉。</string>
+    <string name="menu_share_image">分享图片</string>
+    <string name="attach_gif">GIF动画</string>
     <string name="rate_limit_reached">达到刷新上限</string>
     <string name="info">说明</string>
     <string name="help_and_feedback">帮助/反馈</string>
     <string name="faq_first">您好，非常高兴您愿意帮助我改进Talon!\n\n
-如果有任何疑问或反馈，请随时给我发邮件或者发推文。不过在此之前，您是否已经阅读了FAQ?（即使我已经尽量以一个人类的最快速度进行回复）\n\n
-Talon已经有了一个相当广泛的功能要求列表，在焦虑的等待我的回复之前，不妨先看一下FAQ。\n\n
+如果有任何疑问或反馈，请随时给我发邮件或者发推文。不过在此之前，您是否已经阅读了FAQ?（虽然我已经尽可能快的回复了）\n\n
+FAQ里已经列出了关于很多用户们希望talon能实现的功能的说明，在焦虑的等待我的回复之前，不妨先看一下FAQ。\n\n
 希望您能满意我的作品！</string>
     <string name="contact">联系</string>
     <string name="follow">关注</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">页面 %s</string>
+    <string name="set_as_default">设为默认</string>
     <string name="main_pages_and_drawer">主页面和抽屉</string>
     <string name="drawer_elements">可见的抽屉项目</string>
-    <string name="drawer_elements_summary">显示或隐藏应用的主侧边菜单里可见的项目</string>
+    <string name="drawer_elements_summary">显示或隐藏应用的主抽屉里可见的项目</string>
+    <string name="second_acc_mentions">第二个账户的提醒</string>
     <!-- the username will replace %s -->
     <string name="saved_search">保存的搜索</string>
     <string name="activity">活动</string>
+    <string name="fav_rt_multiple_accounts">跨账号操作</string>
+    <string name="fav_rt_multiple_accounts_summary">如果你登陆了多个账号，启用这项功能后可以先选择想要进行操作的账号再转推或收藏。</string>
     <string name="talon_pull_notifications">Talon Pull（即时）通知</string>
     <string name="talon_pull_turned_on">必须打开Talon Pull才可使用此项功能。</string>
     <string name="activity_sync_interval">活动更新频率</string>
     <string name="new_activity">新的活动！</string>
+    <string name="use_interaction_drawer">启用交互式抽屉</string>
     <string name="no_activity_yet">现在还没有活动！</string>
-    <string name="no_activity_yet_desc">这个页面将随着你互动的增加而被填满。\n\n
+    <string name="no_activity_yet_desc">这个页面将随着你互动次数的增加而被填满。\n\n
  你的提及，新的关注者，新的被转推/被收藏都会出现在这里。</string>
     <!-- Long click methods -->
+    <string name="mute_user">静音用户</string>
+    <string name="mute_retweets">静音转推</string>
+    <string name="open_to_external_browser">在外部浏览器打开</string>
+    <string name="open_to_internal_browser">在内部浏览器打开</string>
+    <string name="copy_link">复制链接</string>
+    <string name="share_link">分享链接</string>
+    <string name="mute_hashtag">静音hashtag</string>
     <string name="open_to_web">打开推文中的网页预览</string>
     <string name="open_to_web_summary">如果推文中含有网页链接，将会直接打开网页预览而不是推文内容。</string>
     <string name="open_webpage">打开链接</string>

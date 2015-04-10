@@ -639,7 +639,7 @@
     <string name="search_cashtag">Cashtag suchen</string>
     <string name="copy_cashtag">Cashtag kopieren</string>
     <string name="copied">Kopierter Text</string>
-    <string name="open_to_web">Webseite in Tweet öffnen</string>
+    <string name="open_to_web">Webseitenlink in Tweet öffnen</string>
     <string name="open_to_web_summary">Falls ein Tweet eine Webseiten-URL beinhaltet, wird direkt diese URL anstatt des Tweets geöffnet.</string>
     <string name="open_webpage">Link öffnen</string>
 </resources>
