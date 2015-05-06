@@ -24,8 +24,7 @@ android {
         versionName project.VERSION_NAME
     }
 
-    File keystore = new File("../keystore")
-    if (keystore.exists()) {
+    if (file("../keystore").exists()) {
         signingConfigs {
             release {
                 storeFile file("../keystore")
