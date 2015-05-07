@@ -37,6 +37,7 @@
 
     <TextView
             android:id="@+id/text"
+            android:textColor="@android:color/black"
             android:lineSpacingMultiplier=".92"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
