@@ -15,7 +15,7 @@
         <meta-data android:name="com.google.android.gms.version"
                    android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".wear.activity.WearActivity"
+        <activity android:name=".activity.WearActivity"
                   android:label="@string/wear_app_name"
                   android:allowEmbedded="true"
                   android:taskAffinity=""
@@ -26,13 +26,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".wear.activity.SettingsActivity"
+        <activity android:name=".activity.SettingsActivity"
                   android:theme="@android:style/Theme.DeviceDefault.Light"/>
 
-        <activity android:name=".wear.activity.TextSizeActivity"
+        <activity android:name=".activity.TextSizeActivity"
                   android:theme="@android:style/Theme.DeviceDefault.Light"/>
 
-        <service android:name=".wear.service.NotificationListenerService">
+        <service android:name=".service.NotificationListenerService">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>
