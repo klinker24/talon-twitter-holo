@@ -15,6 +15,11 @@
   -->
 
 <changelog>
+
+    <version name="4.3.0">
+        <text>Re-added support for Android Wear devices</text>
+    </version>
+    
     <version name="4.2.2">
         <text>Support for Twitter's new "quote" method</text>
     </version>
