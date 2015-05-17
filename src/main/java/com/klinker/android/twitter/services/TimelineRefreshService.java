@@ -167,8 +167,8 @@ public class TimelineRefreshService extends IntentService {
             if (!intent.getBooleanExtra("on_start_refresh", false)) {
                 sharedPrefs.edit().putBoolean("refresh_me", true).commit();
 
-                if (settings.notifications && settings.timelineNot && inserted > 0 && !intent.getBooleanExtra("from_launcher", false)) {
-                    NotificationUtils.refreshNotification(context);
+                if (settings.notifications && (settings.timelineNot || settings.favoriteUserNotifications) && inserted > 0 && !intent.getBooleanExtra("from_launcher", false)) {
+                    NotificationUtils.refreshNotification(context, !settings.timelineNot);
                 }
 
                 if (settings.preCacheImages) {

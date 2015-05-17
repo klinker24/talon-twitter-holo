@@ -80,6 +80,7 @@ public class NotificationUtils {
     public static void refreshNotification(Context context) {
         refreshNotification(context, false);
     }
+
     public static void refreshNotification(Context context, boolean noTimeline) {
         AppSettings settings = AppSettings.getInstance(context);
 
@@ -91,6 +92,7 @@ public class NotificationUtils {
         int[] unreadCounts = getUnreads(context);
 
         int timeline = unreadCounts[0];
+        int realTimelineCount = timeline;
 
         // if they don't want that type of notification, simply set it to zero
         if (!settings.timelineNot || (settings.pushNotifications && settings.liveStreaming) || noTimeline) {
@@ -271,7 +273,7 @@ public class NotificationUtils {
             }
 
             // if there are unread tweets on the timeline, check them for favorite users
-            if (settings.favoriteUserNotifications && timeline > 0) {
+            if (settings.favoriteUserNotifications && realTimelineCount > 0) {
                 favUsersNotification(currentAccount, context);
             }
         }
