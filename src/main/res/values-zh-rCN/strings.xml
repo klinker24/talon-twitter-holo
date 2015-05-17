@@ -166,7 +166,7 @@
     <string name="tweet_success">推文已发送</string>
     <string name="error_sending_tweet">推文发送失败</string>
     <string name="tweet_to_long">推文过长！</string>
-    <string name="ok">OK</string>
+    <string name="ok">确认</string>
     <string name="no">No</string>
     <string name="changelog">更新历史</string>
     <string name="created_by">创建者：</string>
@@ -182,10 +182,10 @@
     <!-- User Profile Activity -->
     <string name="followers">关注者</string>
     <string name="following">已关注</string>
-    <string name="blocked_user">屏蔽的（拉黑的）用户</string>
-    <string name="unblocked_user">取消屏蔽（拉黑）的用户</string>
-    <string name="followed_user">关注用户</string>
-    <string name="unfollowed_user">取消关注用户</string>
+    <string name="blocked_user">已屏蔽（拉黑）用户</string>
+    <string name="unblocked_user">已取消屏蔽（拉黑）的用户</string>
+    <string name="followed_user">已关注用户</string>
+    <string name="unfollowed_user">已取消关注用户</string>
     <string name="no_description">无法获取用户描述。</string>
     <string name="favorite_user">收藏的用户</string>
     <string name="unfavorite_user">取消收藏的用户</string>
@@ -472,11 +472,11 @@
     <string name="retweeting_status">正在转推</string>
     <string name="removing_favorite">移除收藏</string>
     <string name="favoriting_status">正在收藏</string>
-    <string name="jumping_workaround">修正TL跳跃</string>
-    <string name="jumping_workaround_summary">如果在刷新TL的时候发现TL往下跳跃一格可启动此项修复。</string>
+    <string name="jumping_workaround">修正时间线跳跃</string>
+    <string name="jumping_workaround_summary">如果在刷新时间线的时候发现时间线往下跳跃一格可启动此项修复。</string>
     <string name="menu_share_link">分享链接</string>
     <string name="no_links">无链接</string>
-    <string name="configure_pages">配置可滑动页面</string>
+    <string name="configure_pages">配置标签页</string>
     <string name="picture_page">图片推流</string>
     <string name="link_page">链接推流</string>
     <string name="list_page">列表</string>
@@ -552,7 +552,7 @@
     <string name="ui_settings">用户界面设置</string>
     <string name="show_muted_mentions">显示静音用户的互动</string>
     <string name="menu_view_drafts">查看草稿</string>
-    <string name="menu_schedule_tweet">定时计划发送一条推文</string>
+    <string name="menu_schedule_tweet">定时发送一条推文</string>
     <string name="menu_save_draft">保存草稿</string>
     <string name="saved_draft">已保存草稿</string>
     <string name="delete_draft">删除草稿</string>
@@ -588,8 +588,14 @@
     <string name="add_new_tweet">添加新的推文</string>
     <string name="scheduled_tweets">已计划发送的推文</string>
     <string name="done_label">完成</string>
+    <string name="tweet_queued">推文已放入待发送队列中！</string>
+    <string name="only_queue_no_pic">队列中只能保留无图的推文！</string>
+    <string name="menu_view_queued">查看队列中的推文</string>
+    <string name="keep_queued_tweet">保留队列中的推文？</string>
     <string name="no_drafts">未发现草稿</string>
+    <string name="no_queued">没有队列中的推文</string>
     <string name="menu_show_top_tweets">查看热门推文搜索结果</string>
+    <string name="delete_all">删除所有草稿</string>
     <string name="muted_clients">已静音的客户端</string>
     <string name="mute_client">静音客户端</string>
     <string name="muted_clients_summary">可以让你把所有来自这个应用的推特都静音掉。</string>
@@ -599,7 +605,7 @@
     <string name="info">说明</string>
     <string name="help_and_feedback">帮助/反馈</string>
     <string name="faq_first">您好，非常高兴您愿意帮助我改进Talon!\n\n
-如果有任何疑问或反馈，请随时给我发邮件或者发推文。不过在此之前，您是否已经阅读了FAQ?（虽然我已经尽可能快的回复了）\n\n
+如果有任何疑问或反馈，请随时给我发邮件或者发推文。不过在此之前，您是否已经阅读了FAQ?（尽管我已经在尽快回复了）\n\n
 FAQ里已经列出了关于很多用户们希望talon能实现的功能的说明，在焦虑的等待我的回复之前，不妨先看一下FAQ。\n\n
 希望您能满意我的作品！</string>
     <string name="contact">联系</string>
