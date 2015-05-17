@@ -209,7 +209,7 @@ public class TweetLinkUtils {
                         replacement = sMediaDisplay[i].replace("http://", "").replace("https://", "").replace("www.", "");
                         replacement = replacement.substring(0, replacement.indexOf(".com") + 6) + "...";
                     }
-                    
+
                     tweetTexts = tweetTexts.replace(comp, replacement);
                 } catch (Exception e) {
                     tweetTexts = tweetTexts.replace(comp, sMediaDisplay[i].replace("http://", "").replace("https://", "").replace("www.", ""));

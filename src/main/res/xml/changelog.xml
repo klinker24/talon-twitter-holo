@@ -16,6 +16,11 @@
 
 <changelog>
 
+    <version name="4.3.1">
+        <text>Bug fixes</text>
+        <text>Translation updates</text>
+    </version>
+
     <version name="4.3.0">
         <text>Re-added support for Android Wear devices</text>
     </version>
