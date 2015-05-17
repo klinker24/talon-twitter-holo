@@ -122,7 +122,17 @@ public class TweetLinkUtils {
                 String str = exp.toLowerCase();
 
                 try {
-                    tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", "").substring(0, 30) + "...");
+                    String replacement = exp.replace("http://", "").replace("https://", "").replace("www.", "");
+
+                    boolean hasCom = replacement.contains(".com");
+                    replacement = replacement.substring(0, 30) + "...";
+
+                    if (hasCom && !replacement.contains(".com")) { // the link was too long...
+                        replacement = exp.replace("http://", "").replace("https://", "").replace("www.", "");
+                        replacement = replacement.substring(0, replacement.indexOf(".com") + 6) + "...";
+                    }
+
+                    tweetTexts = tweetTexts.replace(comp, replacement);
                 } catch (Exception e) {
                     tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
                 }
