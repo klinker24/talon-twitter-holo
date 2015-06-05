@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.3.2">
+        <text>Don't open Meerkat and Periscope links to the internal browser</text>
+    </version>
+    
     <version name="4.3.1">
         <text>Bug fixes</text>
         <text>Improvements</text>
