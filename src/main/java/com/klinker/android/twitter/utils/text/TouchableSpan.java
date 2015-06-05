@@ -120,7 +120,7 @@ public class TouchableSpan extends ClickableSpan {
         Log.v("talon_link", full);
         if (Patterns.WEB_URL.matcher(mValue).find()) {
             // open the in-app browser or the regular browser
-            if (mValue.contains("play.google.com") || mValue.contains("youtu") || mValue.contains("twitter.com")) {
+            if (mValue.contains("play.google.com") || mValue.contains("youtu") || mValue.contains("twitter.com") || mValue.contains("periscope") || mValue.contains("mkr.tv")) {
                 // open to the play store
                 String data = full.replace("http://", "").replace("https://", "").replace("\"", "");
                 Intent intent = new Intent(Intent.ACTION_VIEW).setData(
