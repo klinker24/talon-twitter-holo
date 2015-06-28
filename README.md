@@ -1,4 +1,4 @@
-# Talon for Twitter (Classic) #
+# Talon for Twitter (Classic) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Talon%20for%20Twitter-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/1067)
 
 ![Main Drawer](https://raw.githubusercontent.com/klinker24/Talon-for-Twitter/master/Other/Promo%20Stuff/Graphics/Classic/Final%20Promos/Feature%20graphic.png)
 
