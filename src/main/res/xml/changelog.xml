@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.3.3">
+        <text>Links that finish a line of text could be clicked from the empty space on that line, which was bad.</text>
+    </version>
+
     <version name="4.3.2">
         <text>Don't open Meerkat and Periscope links to the internal browser</text>
     </version>

@@ -104,14 +104,19 @@ public class TouchableMovementMethod extends LinkMovementMethod {
         Layout layout = widget.getLayout();
         int line = layout.getLineForVertical(y);
         int off = layout.getOffsetForHorizontal(line, x);
+        int end = layout.getLineEnd(line);
 
-        TouchableSpan[] link = spannable.getSpans(off, off, TouchableSpan.class);
+        // offset seems like it can be one off in some cases
+        // Could be what was causing issue 7 in the first place:
+        // https://github.com/klinker24/Android-TextView-LinkBuilder/issues/7
+        if (off != end && off != end - 1) {
+            TouchableSpan[] link = spannable.getSpans(off, off, TouchableSpan.class);
 
-        TouchableSpan touchedSpan = null;
-        if (link.length > 0) {
-            touchedSpan = link[0];
+            if (link.length > 0)
+                return link[0];
         }
-        return touchedSpan;
+
+        return null;
     }
 
     private static TouchableMovementMethod sInstance;
