@@ -94,6 +94,8 @@ public class TalonPullNotificationService extends Service {
 
     public boolean thisInstanceOn = true;
 
+    public boolean showNotification;
+
     public ArrayList<Long> ids;
 
     @Override
@@ -114,6 +116,7 @@ public class TalonPullNotificationService extends Service {
         sharedPreferences = getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
+        showNotification = sharedPreferences.getBoolean("show_pull_notification", true);
         pullUnread = sharedPreferences.getInt("pull_unread", 0);
 
         Intent notificationIntent = new Intent(this, MainActivity.class);
@@ -234,7 +237,8 @@ public class TalonPullNotificationService extends Service {
 
                     idsLoaded = true;
 
-                    startForeground(FOREGROUND_SERVICE_ID, mBuilder.build());
+                    if (showNotification)
+                        startForeground(FOREGROUND_SERVICE_ID, mBuilder.build());
 
                     mContext.sendBroadcast(new Intent("com.klinker.android.twitter.START_PUSH"));
                 } catch (Exception e) {
@@ -393,7 +397,8 @@ public class TalonPullNotificationService extends Service {
 
             mBuilder.setContentText(getResources().getString(R.string.new_tweets_upper) + ": " + pullUnread);
 
-            startForeground(FOREGROUND_SERVICE_ID, mBuilder.build());
+            if (showNotification)
+                startForeground(FOREGROUND_SERVICE_ID, mBuilder.build());
         }
     };
 
@@ -406,7 +411,8 @@ public class TalonPullNotificationService extends Service {
 
             mBuilder.setContentText(getResources().getString(R.string.new_tweets_upper) + ": " + pullUnread);
 
-            startForeground(FOREGROUND_SERVICE_ID, mBuilder.build());
+            if (showNotification)
+                startForeground(FOREGROUND_SERVICE_ID, mBuilder.build());
         }
     };
 

@@ -703,6 +703,8 @@
     <string name="quote_style_twitter">Twitter Style (Link to tweet)</string>
     <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
     <string name="quote_style_rt"> RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Show Persistent Notification</string>
+    <string name="show_pull_notification_summary">If you disable this notification, the Android system could shut down the stream at any time. Use extreme caution.</string>
 
 
     <!-- Long click methods -->

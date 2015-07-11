@@ -41,6 +41,14 @@
             android:dependency="push_notifications"
             />
 
+        <CheckBoxPreference
+            android:key="show_pull_notification"
+            android:title="@string/show_pull_notification"
+            android:summary="@string/show_pull_notification_summary"
+            android:defaultValue="true"
+            android:dependency="push_notifications"
+            />
+
         <Preference
             android:key="fill_gaps"
             android:title="@string/fill_gaps"

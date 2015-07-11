@@ -16,6 +16,9 @@
 
 <changelog>
 
+    <version name="4.3.4">
+        <text>Option to disable Talon Pull notification. Read disclaimer on setting. Use extreme caution.</text>
+    </version>
     <version name="4.3.3">
         <text>Links that finish a line of text could be clicked from the empty space on that line, which was bad.</text>
     </version>
