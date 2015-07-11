@@ -1154,7 +1154,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 context.sendBroadcast(new Intent("com.klinker.android.twitter.STOP_PUSH_SERVICE"));
-                return false;
+                return true;
             }
         });
 
