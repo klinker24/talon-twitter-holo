@@ -1149,6 +1149,15 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
             }
         });
 
+        final Preference noti = findPreference("show_pull_notification");
+        noti.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                context.sendBroadcast(new Intent("com.klinker.android.twitter.STOP_PUSH_SERVICE"));
+                return false;
+            }
+        });
+
         final Preference pull = findPreference("push_notifications");
         pull.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
