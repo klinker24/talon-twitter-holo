@@ -116,6 +116,7 @@
     <string name="new_interactions">New Interactions</string>
     <string name="retweeted">retweeted your status</string>
     <string name="favorited">favorited your status</string>
+    <string name="quoted">quoted your status</string>
     <string name="followed">followed you</string>
     <string name="new_retweets">retweets</string>
     <string name="new_favorites">favorites</string>

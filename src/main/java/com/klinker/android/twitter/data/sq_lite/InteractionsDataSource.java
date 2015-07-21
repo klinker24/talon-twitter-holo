@@ -67,6 +67,7 @@ public class InteractionsDataSource {
     public static final int TYPE_FAVORITE = 2;
     public static final int TYPE_MENTION = 3;
     public static final int TYPE_FAV_USER = 4;
+    public static final int TYPE_QUOTED_TWEET = 5;
 
     public InteractionsDataSource(Context context) {
         dbHelper = new InteractionsSQLiteHelper(context);

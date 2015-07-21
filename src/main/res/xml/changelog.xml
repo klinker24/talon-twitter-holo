@@ -18,6 +18,7 @@
 
     <version name="4.3.4">
         <text>Option to disable Talon Pull notification. Read disclaimer on setting. Use extreme caution.</text>
+        <text>Notification of quoted tweets when using talon pull</text>
     </version>
     <version name="4.3.3">
         <text>Links that finish a line of text could be clicked from the empty space on that line, which was bad.</text>

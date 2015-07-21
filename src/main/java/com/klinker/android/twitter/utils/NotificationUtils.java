@@ -1090,6 +1090,7 @@ public class NotificationUtils {
         int newFollowers = sharedPrefs.getInt("new_followers", 0);
         int newRetweets = sharedPrefs.getInt("new_retweets", 0);
         int newFavorites = sharedPrefs.getInt("new_favorites", 0);
+        int newQuotes = sharedPrefs.getInt("new_quotes", 0);
 
         // set title
         if (newFavorites + newRetweets + newFollowers > 1) {
@@ -1119,6 +1120,9 @@ public class NotificationUtils {
             types++;
         }
         if (newRetweets > 0) {
+            types++;
+        }
+        if (newQuotes > 0) {
             types++;
         }
 

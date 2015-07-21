@@ -666,6 +666,41 @@ public class TalonPullNotificationService extends Service {
         }
 
         @Override
+        public void onQuotedTweet(User source, User target, Status status) {
+            if (!thisInstanceOn) {
+                return;
+            }
+
+            if(!source.getScreenName().equals(settings.myScreenName) && target.getScreenName().equals(settings.myScreenName)) {
+                AppSettings settings = new AppSettings(mContext);
+
+                Log.v("twitter_stream_push", "onQuote source:@"
+                        + source.getScreenName() + " target:@"
+                        + target.getScreenName() + " @"
+                        + status.getUser().getScreenName() + " - "
+                        + status.getText());
+
+                InteractionsDataSource.getInstance(mContext).updateInteraction(mContext,
+                        source,
+                        status,
+                        sharedPreferences.getInt("current_account", 1),
+                        InteractionsDataSource.TYPE_QUOTED_TWEET);
+
+                sharedPreferences.edit().putBoolean("new_notification", true).commit();
+
+                if (true /* todo settings.favoritesNot */) {
+                    int newQuotes = sharedPreferences.getInt("new_quotes", 0);
+                    newQuotes++;
+                    sharedPreferences.edit().putInt("new_quotes", newQuotes).commit();
+
+                    if(settings.notifications) {
+                        NotificationUtils.newInteractions(source, mContext, sharedPreferences, " " + getResources().getString(R.string.quoted));
+                    }
+                }
+            }
+        }
+
+        @Override
         public void onUnfavorite(User source, User target, Status unfavoritedStatus) {
 
         }
@@ -799,6 +834,16 @@ public class TalonPullNotificationService extends Service {
 
         @Override
         public void onUnblock(User source, User unblockedUser) {
+
+        }
+
+        @Override
+        public void onRetweetedRetweet(User user, User user1, Status status) {
+
+        }
+
+        @Override
+        public void onFavoritedRetweet(User user, User user1, Status status) {
 
         }
 
