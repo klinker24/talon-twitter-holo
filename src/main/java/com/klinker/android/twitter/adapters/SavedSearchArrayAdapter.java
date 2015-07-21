@@ -75,7 +75,7 @@ public class SavedSearchArrayAdapter extends TrendsArrayAdapter {
                                     @Override
                                     public void run() {
 
-                                        int id = -1;
+                                        long id = -1;
                                         Twitter twitter = Utils.getTwitter(context, AppSettings.getInstance(context));
 
                                         try {
