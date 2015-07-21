@@ -688,7 +688,7 @@ public class TalonPullNotificationService extends Service {
 
                 sharedPreferences.edit().putBoolean("new_notification", true).commit();
 
-                if (true /* todo settings.favoritesNot */) {
+                if (settings.mentionsNot) {
                     int newQuotes = sharedPreferences.getInt("new_quotes", 0);
                     newQuotes++;
                     sharedPreferences.edit().putInt("new_quotes", newQuotes).commit();
