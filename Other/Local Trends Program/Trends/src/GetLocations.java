@@ -179,8 +179,8 @@ public class GetLocations {
     public static String getJsonResponse() {
         String json = "";
         try {
-            String oauth_token = "604990177-TC8qkLBwjplYcfZy7E2GYGsDTx196BRjiq0r2Tl6";
-            String oauth_token_secret = "ScT5prB4dgOlOVGEJA5lccyPM52iC5HkdBORBi6gjDzxc";
+            String oauth_token = "";
+            String oauth_token_secret = "";
 
             // generate authorization header
             String get_or_post = "GET";
@@ -196,14 +196,14 @@ public class GetLocations {
             String oauth_timestamp = (new Long(ts/1000)).toString(); // then divide by 1000 to get seconds
 
             // the parameter string must be in alphabetical order, "text" parameter added at end
-            String parameter_string = "oauth_consumer_key=" + "V9yijGrKf79jlYi0l3ekpA" + "&oauth_nonce=" + oauth_nonce + "&oauth_signature_method=" + oauth_signature_method +
+            String parameter_string = "oauth_consumer_key=" + "" + "&oauth_nonce=" + oauth_nonce + "&oauth_signature_method=" + oauth_signature_method +
                     "&oauth_timestamp=" + oauth_timestamp + "&oauth_token=" + encode(oauth_token) + "&oauth_version=1.0";
 
             String twitter_endpoint = "https://api.twitter.com/1.1/trends/available.json";
             String twitter_endpoint_host = "api.twitter.com";
             String twitter_endpoint_path = "/1.1/trends/available.json";
             String signature_base_string = get_or_post + "&"+ encode(twitter_endpoint) + "&" + encode(parameter_string);
-            String oauth_signature = computeSignature(signature_base_string, "IHHoYqukYC951gsP8gkhr1RUSBJYYwhGO0P3uuCDkA" + "&" + encode(oauth_token_secret));
+            String oauth_signature = computeSignature(signature_base_string, "" + "&" + encode(oauth_token_secret));
 
             String authorization_header_string = "OAuth oauth_consumer_key=\"" + "V9yijGrKf79jlYi0l3ekpA" + "\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"" + oauth_timestamp +
                     "\",oauth_nonce=\"" + oauth_nonce + "\",oauth_version=\"1.0\",oauth_signature=\"" + encode(oauth_signature) + "\",oauth_token=\"" + encode(oauth_token) + "\"";
