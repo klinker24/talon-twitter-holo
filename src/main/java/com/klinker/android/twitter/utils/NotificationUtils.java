@@ -1139,7 +1139,7 @@ public class NotificationUtils {
         }
 
         // set shorter text
-        int total = newFavorites + newFollowers + newRetweets;
+        int total = newFavorites + newFollowers + newRetweets + newQuotes;
         if (total > 1) {
             smallText = total + " " + context.getResources().getString(R.string.new_interactions_lower);
         } else {

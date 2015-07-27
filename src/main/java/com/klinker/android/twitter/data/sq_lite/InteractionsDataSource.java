@@ -186,6 +186,10 @@ public class InteractionsDataSource {
             case TYPE_FOLLOWER:
                 title = "<b>@" + source.getScreenName() + "</b> " + context.getResources().getString(R.string.followed);
                 break;
+            case TYPE_QUOTED_TWEET:
+                title = "<b>@" + source.getScreenName() + "</b> " + context.getResources().getString(R.string.quoted);
+                text = status.getText();
+                break;
         }
 
         values.put(InteractionsSQLiteHelper.COLUMN_ACCOUNT, account);
