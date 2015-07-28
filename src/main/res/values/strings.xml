@@ -120,6 +120,7 @@
     <string name="followed">followed you</string>
     <string name="new_retweets">retweets</string>
     <string name="new_favorites">favorites</string>
+    <string name="new_quotes">quotes</string>
     <string name="new_tweets_upper">New Tweets</string>
 
     <!-- Login Screen -->

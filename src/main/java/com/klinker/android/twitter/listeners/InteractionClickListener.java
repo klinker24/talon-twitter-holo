@@ -134,8 +134,10 @@ public class InteractionClickListener implements AdapterView.OnItemClickListener
             }
         } else if (mTitle.contains(context.getResources().getString(R.string.retweeted)) ||
                 mTitle.contains(context.getResources().getString(R.string.favorited)) ||
+                mTitle.contains(context.getResources().getString(R.string.quoted)) ||
                 mTitle.contains(context.getResources().getString(R.string.new_favorites)) ||
-                mTitle.contains(context.getResources().getString(R.string.new_retweets))) { // it is a retweet or favorite
+                mTitle.contains(context.getResources().getString(R.string.new_retweets)) ||
+                mTitle.contains(context.getResources().getString(R.string.new_quotes))) { // it is a retweet or favorite
 
             try {
                 drawer.closeDrawer(Gravity.END);

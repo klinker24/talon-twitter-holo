@@ -229,8 +229,10 @@ public class InteractionsDataSource {
 
                 if (type == TYPE_RETWEET) { // retweet
                     title = x.length + " " + context.getResources().getString(R.string.new_retweets);
-                } else { // favorite
+                } else if (type == TYPE_FAVORITE) { // favorite
                     title = x.length + " " + context.getResources().getString(R.string.new_favorites);
+                } else {
+                    title = x.length + " " + context.getResources().getString(R.string.new_quotes);
                 }
 
                 ContentValues cv = new ContentValues();
