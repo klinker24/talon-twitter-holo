@@ -67,7 +67,7 @@
     <string name="retweets">Retweets</string>
     <string name="favorite_tweets">Favorite Tweets</string>
     <string name="favorite_users">Favorite Users</string>
-    <string name="favorite_users_tweets">Fav Users\' Tweets</string>
+    <string name="favorite_users_tweets">Favorite User Tweets</string>
     <string name="trends">Trending</string>
     <string name="local_trends">Local Trends</string>
     <string name="world_trends">World Trends</string>
