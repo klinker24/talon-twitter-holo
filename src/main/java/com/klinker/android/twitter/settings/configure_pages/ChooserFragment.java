@@ -87,7 +87,7 @@ public class ChooserFragment extends Fragment {
         list.add(getString(R.string.mentions));
         list.add(getString(R.string.direct_messages));
         list.add(getString(R.string.list_page));
-        list.add(getString(R.string.favorite_users));
+        list.add(getString(R.string.favorite_users_tweets));
         list.add(getString(R.string.link_page));
         list.add(getString(R.string.picture_page));
         list.add(getString(R.string.second_acc_mentions));

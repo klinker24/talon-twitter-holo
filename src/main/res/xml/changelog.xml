@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.3.5">
+        <text>Bug fixes</text>
+    </version>
+
     <version name="4.3.4">
         <text>Option to disable Talon Pull notification. Read disclaimer on setting. Use extreme caution.</text>
         <text>Notification of quoted tweets when using talon pull</text>

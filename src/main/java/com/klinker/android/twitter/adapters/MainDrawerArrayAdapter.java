@@ -206,7 +206,8 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
-            } else if (text.get(position).equals(context.getResources().getString(R.string.favorite_users))) {
+            } else if (text.get(position).equals(context.getResources().getString(R.string.favorite_users)) ||
+                    text.get(position).equals(context.getString(R.string.favorite_users_tweets))) {
                 TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.favUser});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
@@ -305,7 +306,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
             case AppSettings.PAGE_TYPE_PICS:
                 return context.getResources().getString(R.string.pictures);
             case AppSettings.PAGE_TYPE_FAV_USERS:
-                return context.getString(R.string.favorite_users);
+                return context.getString(R.string.favorite_users_tweets);
         }
 
         return null;
