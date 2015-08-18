@@ -67,6 +67,8 @@ public class ComposeDMActivity extends Compose {
 
         setUpSimilar();
 
+        charRemaining.setVisibility(View.GONE);
+
         contactEntry = (EditText) findViewById(R.id.contact_entry);
         contactEntry.setVisibility(View.VISIBLE);
 
@@ -261,7 +263,6 @@ public class ComposeDMActivity extends Compose {
     }
 
     public boolean doneClick() {
-
         if (emojiKeyboard.isShowing()) {
             emojiKeyboard.setVisibility(false);
 
@@ -274,25 +275,25 @@ public class ComposeDMActivity extends Compose {
         EditText editText = (EditText) findViewById(R.id.tweet_content);
         String status = editText.getText().toString();
 
-        if(!contactEntry.getText().toString().contains(" ")) {
-            // Check for blank text
-            if (status.trim().length() > 0 && status.length() <= 140) {
-                // update status
-                sendStatus(status);
-                return true;
-            } else {
-                if (editText.getText().length() <= 140) {
-                    // EditText is empty
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.error_sending_tweet), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.tweet_to_long), Toast.LENGTH_SHORT).show();
-                }
-                return false;
-            }
-        } else {
-            Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.one_recepient), Toast.LENGTH_SHORT).show();
+        if(oneUser(contactEntry.getText().toString())) {
+            sendStatus(status);
+            return true;
+        }  else {
+            Toast.makeText(this, R.string.one_recepient, Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    private boolean oneUser(String s) {
+        // check whether or not there is only one occurance of "@"
+        int counter = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '@') {
+                counter++;
+            }
+        }
+
+        return counter == 1;
     }
 
     private void sendStatus(String status) {

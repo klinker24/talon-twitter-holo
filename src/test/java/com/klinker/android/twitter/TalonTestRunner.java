@@ -18,11 +18,12 @@
 package com.klinker.android.twitter;
 
 import org.junit.runners.model.InitializationError;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 
 import java.util.Properties;
 
-public class TalonTestRunner extends RobolectricTestRunner {
+public class TalonTestRunner extends RobolectricGradleTestRunner {
 
     public TalonTestRunner(Class<?> testClass) throws InitializationError {
         super(testClass);
