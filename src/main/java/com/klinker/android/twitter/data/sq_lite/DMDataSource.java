@@ -157,11 +157,11 @@ public class DMDataSource {
         Cursor cursor;
         try {
             cursor = database.query(true, DMSQLiteHelper.TABLE_DM,
-                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account, null, null, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " ASC", null);
+                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account, null, DMSQLiteHelper.COLUMN_TWEET_ID, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " ASC", null);
         } catch (Exception e) {
             open();
             cursor = database.query(true, DMSQLiteHelper.TABLE_DM,
-                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account, null, null, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " ASC", null);
+                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account, null, DMSQLiteHelper.COLUMN_TWEET_ID, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " ASC", null);
         }
         
         return cursor;
@@ -172,11 +172,11 @@ public class DMDataSource {
         Cursor cursor;
         try {
             cursor = database.query(true, DMSQLiteHelper.TABLE_DM,
-                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND (" + DMSQLiteHelper.COLUMN_SCREEN_NAME + " = ? OR " + DMSQLiteHelper.COLUMN_RETWEETER + " = ?)", new String[] {name, name}, null, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " DESC", null);
+                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND (" + DMSQLiteHelper.COLUMN_SCREEN_NAME + " = ? OR " + DMSQLiteHelper.COLUMN_RETWEETER + " = ?)", new String[] {name, name}, DMSQLiteHelper.COLUMN_TWEET_ID, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " DESC", null);
         } catch (Exception e) {
             open();
             cursor = database.query(true, DMSQLiteHelper.TABLE_DM,
-                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND (" + DMSQLiteHelper.COLUMN_SCREEN_NAME + " = ? OR " + DMSQLiteHelper.COLUMN_RETWEETER + " = ?)", new String[] {name, name}, null, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " DESC", null);
+                    allColumns, DMSQLiteHelper.COLUMN_ACCOUNT + " = " + account + " AND (" + DMSQLiteHelper.COLUMN_SCREEN_NAME + " = ? OR " + DMSQLiteHelper.COLUMN_RETWEETER + " = ?)", new String[] {name, name}, DMSQLiteHelper.COLUMN_TWEET_ID, null, HomeSQLiteHelper.COLUMN_TWEET_ID + " DESC", null);
         }
 
         return cursor;
