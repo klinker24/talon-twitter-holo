@@ -16,6 +16,12 @@
 
 <changelog>
 
+    <version name="4.3.6">
+        <text>Direct Messages no longer have a character limit</text>
+        <text>Some bug fixes for direct messages</text>
+        <text>Update application dependencies</text>
+    </version>
+
     <version name="4.3.5">
         <text>Some text improvements</text>
         <text>Various Bug fixes</text>
