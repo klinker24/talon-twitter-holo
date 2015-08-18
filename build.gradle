@@ -88,13 +88,13 @@ dependencies {
 
     wearApp project(':wear')
 
-    testCompile 'org.hamcrest:hamcrest-integration:1.1',
+    androidTestCompile 'org.hamcrest:hamcrest-integration:1.1',
             'org.hamcrest:hamcrest-core:1.1',
             'org.hamcrest:hamcrest-library:1.1'
-    testCompile 'junit:junit:4.11'
-    testCompile 'org.robolectric:robolectric:3.0'
-    testCompile 'com.squareup:fest-android:1.0.8'
-    testCompile 'org.mockito:mockito-all:1.9.5'
+    androidTestCompile 'junit:junit:4.11'
+    androidTestCompile 'org.robolectric:robolectric:3.0'
+    androidTestCompile 'com.squareup:fest-android:1.0.8'
+    androidTestCompile 'org.mockito:mockito-all:1.9.5'
 
     provided 'org.projectlombok:lombok:1.14.8'
 

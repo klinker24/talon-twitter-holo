@@ -302,6 +302,14 @@ public abstract class Compose extends Activity implements
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (Compose.this instanceof ComposeDMActivity) {
+                            boolean close = doneClick();
+                            if (close) {
+                                onBackPressed();
+                            }
+
+                            return;
+                        }
                         if (Integer.parseInt(charRemaining.getText().toString()) < 0 && settings.twitlonger) {
                             new AlertDialog.Builder(context)
                                     .setTitle(context.getResources().getString(R.string.tweet_to_long))
