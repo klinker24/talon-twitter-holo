@@ -21,28 +21,44 @@ import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.view.Gravity;
 import com.klinker.android.twitter.activity.WearTransactionActivity;
+import com.klinker.android.twitter.fragment.ComposeButtonFragment;
 import com.klinker.android.twitter.fragment.ExpandableCardFragment;
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.fragment.FavoriteButtonFragment;
+import com.klinker.android.twitter.fragment.RetweetButtonFragment;
 import com.klinker.android.twitter.fragment.SettingsButtonFragment;
 import com.klinker.android.twitter.transaction.KeyProperties;
 
-public class ArticleGridPagerAdapter extends FragmentGridPagerAdapter {
+public class TweetGridPagerAdapter extends FragmentGridPagerAdapter {
 
     private static final String TAG = "ArticleGridPagerAdapter";
 
     private WearTransactionActivity context;
 
-    public ArticleGridPagerAdapter(WearTransactionActivity context) {
+    public TweetGridPagerAdapter(WearTransactionActivity context) {
         super(context.getFragmentManager());
         this.context = context;
     }
 
     @Override
     public Fragment getFragment(int row, int col) {
-        if (col == 1) {
+        if ((getRowCount() != 2 && row == getRowCount() - 1) || row == 0) {
             return SettingsButtonFragment.create();
+        }
+
+        if ((getRowCount() != 2 && row == getRowCount() - 2) || row == 1) {
+            return ComposeButtonFragment.create();
+        }
+
+        // since we have the compose and settings at the top
+        row = row - 2;
+
+        if (col == 1) {
+            return FavoriteButtonFragment.create(Long.parseLong(context.getIds().get(row)));
+        } else if (col == 2) {
+            return RetweetButtonFragment.create(Long.parseLong(context.getIds().get(row)));
         } else {
-            if (context.getTitles() == null || context.getTitles().size() == 0) {
+            if (context.getNames() == null || context.getNames().size() == 0) {
                 return CardFragment.create(context.getString(R.string.no_articles), "");
             } else {
                 String bodyText = context.getBodies().get(row).replace(KeyProperties.LINE_BREAK, "\n\n");
@@ -51,7 +67,8 @@ public class ArticleGridPagerAdapter extends FragmentGridPagerAdapter {
                 }
 
                 ExpandableCardFragment card = ExpandableCardFragment.create(
-                        context.getTitles().get(row),
+                        context.getNames().get(row),
+                        context.getScreennames().get(row),
                         bodyText,
                         Long.parseLong(context.getIds().get(row))
                 );
@@ -66,16 +83,23 @@ public class ArticleGridPagerAdapter extends FragmentGridPagerAdapter {
 
     @Override
     public int getRowCount() {
-        if (context.getTitles() != null && context.getTitles().size() != 0) {
-            return context.getTitles().size();
+        if (context.getNames() != null && context.getNames().size() != 0) {
+            return context.getNames().size() + 4;
         } else {
-            return 1;
+            return 2;
         }
     }
 
     @Override
     public int getColumnCount(int row) {
-        return 2;
+        if (row != getRowCount() - 1 &&
+                row != getRowCount() - 2 &&
+                row != 0 &&
+                row != 1) {
+            return 3;
+        } else {
+            return 1;
+        }
     }
 
 }

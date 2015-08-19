@@ -24,9 +24,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.wearable.view.CardFragment;
+import android.support.wearable.view.CircledImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.activity.TextSizeActivity;
@@ -37,10 +39,11 @@ import java.io.File;
 
 public class ExpandableCardFragment extends CardFragment {
 
-    private static final String ARG_TITLE = "CardFragment_title";
-    private static final String ARG_TEXT = "CardFragment_text";
-    private static final String ARG_AUTHOR = "CardFragment_author";
-    private static final String ARG_ID = "CardFragment_id";
+    private static final String ARG_USER_NAME = "user_name";
+    private static final String ARG_SCREENNAME = "screenname";
+    private static final String ARG_TWEET = "tweet_text";
+    private static final String ARG_PRO_PIC_URL = "pro_pic_url";
+    private static final String ARG_ID = "tweet_id";
     private static final int MAX_IMAGE_ATTEMPTS = 10;
 
     private float currentExpansionFactor = 1.2f;
@@ -48,24 +51,28 @@ public class ExpandableCardFragment extends CardFragment {
 
     private TextView text;
 
-    public static ExpandableCardFragment create(CharSequence title, CharSequence text, long articleId) {
+    public static ExpandableCardFragment create(CharSequence name, CharSequence screenname, CharSequence tweetText, long tweetId) {
         ExpandableCardFragment fragment = new ExpandableCardFragment();
         Bundle args = new Bundle();
-        if (title != null) {
-            args.putCharSequence(ARG_TITLE, title);
+        if (name != null) {
+            args.putCharSequence(ARG_USER_NAME, name);
         }
 
-        if (text != null) {
-            String t = text.toString();
+        if (screenname != null) {
+            args.putCharSequence(ARG_SCREENNAME, screenname);
+        }
+
+        if (tweetText != null) {
+            String t = tweetText.toString();
             String[] info = t.split(KeyProperties.DIVIDER);
             if (info.length > 1) {
-                args.putCharSequence(ARG_TEXT, info[1]);
+                args.putCharSequence(ARG_TWEET, info[1]);
             }
-            args.putString(ARG_AUTHOR, info[0]);
+            args.putString(ARG_PRO_PIC_URL, info[0]);
         }
 
-        if (articleId != -1) {
-            args.putLong(ARG_ID, articleId);
+        if (tweetId != -1) {
+            args.putLong(ARG_ID, tweetId);
         }
 
         fragment.setArguments(args);
@@ -77,19 +84,24 @@ public class ExpandableCardFragment extends CardFragment {
         handler = new Handler();
 
         View view = inflater.inflate(R.layout.card_expandable, container, false);
-        final TextView title = (TextView) view.findViewById(R.id.title);
+        final TextView name = (TextView) view.findViewById(R.id.name);
+        final TextView screenname = (TextView) view.findViewById(R.id.screenname);
+        final CircledImageView profilePic = (CircledImageView) view.findViewById(R.id.profile_picture);
         text = (TextView) view.findViewById(R.id.text);
+
         Bundle args = this.getArguments();
 
         if (args != null) {
-            if (args.containsKey(ARG_TITLE) && title != null) {
-                title.setText(args.getCharSequence(ARG_TITLE));
+            if (args.containsKey(ARG_USER_NAME) && name != null) {
+                name.setText(args.getCharSequence(ARG_USER_NAME));
             }
 
-            if (args.containsKey(ARG_TEXT)) {
-                if (text != null) {
-                    text.setText(args.getCharSequence(ARG_TEXT));
-                }
+            if (args.containsKey(ARG_SCREENNAME) && screenname != null) {
+                screenname.setText("@" + args.getCharSequence(ARG_SCREENNAME));
+            }
+
+            if (args.containsKey(ARG_TWEET) && text != null) {
+                text.setText(args.getCharSequence(ARG_TWEET));
             }
         }
 
@@ -105,8 +117,12 @@ public class ExpandableCardFragment extends CardFragment {
         Thread loader = new Thread(new Runnable() {
             @Override
             public void run() {
-                File image = new File(getActivity().getCacheDir(), getArguments().getString(ARG_AUTHOR));
-                checkExisting(image, title, 0);
+                if (getActivity() == null) {
+                    return;
+                }
+
+                File image = new File(getActivity().getCacheDir(), getArguments().getString(ARG_PRO_PIC_URL));
+                checkExisting(image, profilePic, 0);
             }
         });
         loader.setPriority(Thread.MIN_PRIORITY);
@@ -123,7 +139,7 @@ public class ExpandableCardFragment extends CardFragment {
         text.setTextSize(Integer.parseInt(sharedPrefs.getString(getString(R.string.pref_text_size_key), TextSizeActivity.DEFAULT_TEXT_SIZE + "")));
     }
 
-    public void checkExisting(File f, final TextView title, int attempts) {
+    public void checkExisting(File f, final CircledImageView profilePic, int attempts) {
         if (f.exists()) {
             try {
                 Bitmap image = BitmapFactory.decodeFile(f.getPath());
@@ -131,7 +147,7 @@ public class ExpandableCardFragment extends CardFragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        title.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+                       profilePic.setImageDrawable(drawable);
                     }
                 });
             } catch (Exception e) {
@@ -144,7 +160,7 @@ public class ExpandableCardFragment extends CardFragment {
             }
         } else {
             if (attempts == 0) {
-                ((WearTransactionActivity) getActivity()).sendImageRequest(getArguments().getString(ARG_AUTHOR));
+                ((WearTransactionActivity) getActivity()).sendImageRequest(getArguments().getString(ARG_PRO_PIC_URL));
             }
 
             try {
@@ -153,7 +169,7 @@ public class ExpandableCardFragment extends CardFragment {
             }
 
             if (attempts < MAX_IMAGE_ATTEMPTS) {
-                checkExisting(f, title, attempts + 1);
+                checkExisting(f, profilePic, attempts + 1);
             }
         }
     }

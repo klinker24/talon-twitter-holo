@@ -16,26 +16,30 @@
 
 package com.klinker.android.twitter.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.speech.RecognizerIntent;
 import android.support.wearable.view.GridViewPager;
 import android.view.View;
 import android.widget.TextView;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.adapter.ArticleGridPagerAdapter;
+import com.klinker.android.twitter.adapter.TweetGridPagerAdapter;
 import com.klinker.android.twitter.transaction.KeyProperties;
 import com.klinker.android.twitter.view.CircularProgressBar;
+
+import java.util.List;
 
 public class WearActivity extends WearTransactionActivity {
 
     private static final String TAG = "WearActivity";
 
     private GridViewPager viewPager;
-    private ArticleGridPagerAdapter adapter;
+    private TweetGridPagerAdapter adapter;
     private CircularProgressBar progressBar;
     private TextView emptyView;
 
@@ -48,7 +52,7 @@ public class WearActivity extends WearTransactionActivity {
 
         setContentView(R.layout.activity_wear);
         viewPager = (GridViewPager) findViewById(R.id.article_pager);
-        adapter = new ArticleGridPagerAdapter(this);
+        adapter = new TweetGridPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
         progressBar = (CircularProgressBar) findViewById(R.id.progress_bar);
@@ -67,7 +71,9 @@ public class WearActivity extends WearTransactionActivity {
 
             @Override
             public void onPageSelected(int row, int col) {
-                sendReadStatus(getIds().get(row));
+                try {
+                    sendReadStatus(getIds().get(row - 2));
+                } catch (Exception e) { }
             }
 
             @Override
@@ -78,19 +84,23 @@ public class WearActivity extends WearTransactionActivity {
 
     @Override
     public void updateDisplay() {
-        if (getTitles().size() > 0) {
+        if (getNames().size() > 0) {
             progressBar.setVisibility(View.GONE);
             viewPager.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
-            adapter = new ArticleGridPagerAdapter(this);
+            adapter = new TweetGridPagerAdapter(this);
             viewPager.setAdapter(adapter);
 
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    viewPager.setCurrentItem(adapter.getRowCount() - 1,0, adapter.getRowCount() > 20 ? false : true);
+                    try {
+                        viewPager.setCurrentItem(adapter.getRowCount() - 3,0, adapter.getRowCount() > 20 ? false : true);
+                    } catch (Exception e) {
+                        viewPager.setCurrentItem(adapter.getRowCount() - 1,0, adapter.getRowCount() > 20 ? false : true);
+                    }
                 }
-            }, 300);
+            }, 500);
         } else {
             progressBar.setVisibility(View.GONE);
             viewPager.setVisibility(View.GONE);
@@ -100,6 +110,29 @@ public class WearActivity extends WearTransactionActivity {
             biker.setColorFilter(accentColor, PorterDuff.Mode.MULTIPLY);
             emptyView.setCompoundDrawablesWithIntrinsicBounds(null, biker, null, null);
         }
+    }
+
+    private static final int SPEECH_REQUEST_CODE = 101;
+
+    public void startSpeechRequest() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+
+        startActivityForResult(intent, SPEECH_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
+            List<String> results = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+            String spokenText = results.get(0);
+
+            sendComposeRequest(spokenText);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

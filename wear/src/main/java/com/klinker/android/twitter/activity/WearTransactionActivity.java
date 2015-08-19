@@ -44,7 +44,8 @@ public abstract class WearTransactionActivity extends Activity implements
     private GoogleApiClient mGoogleApiClient;
     private SharedPreferences sharedPreferences;
 
-    private ArrayList<String> titles;
+    private ArrayList<String> names;
+    private ArrayList<String> screennames;
     private ArrayList<String> bodies;
     private ArrayList<String> ids;
 
@@ -68,8 +69,9 @@ public abstract class WearTransactionActivity extends Activity implements
         if (messageEvent.getPath().equals(KeyProperties.PATH)) {
             final DataMap map = DataMap.fromByteArray(messageEvent.getData());
 
-            if (map.containsKey(KeyProperties.KEY_TITLE)) {
-                titles = map.getStringArrayList(KeyProperties.KEY_TITLE);
+            if (map.containsKey(KeyProperties.KEY_USER_NAME)) {
+                names = map.getStringArrayList(KeyProperties.KEY_USER_NAME);
+                screennames = map.getStringArrayList(KeyProperties.KEY_USER_SCREENNAME);
                 bodies = map.getStringArrayList(KeyProperties.KEY_TWEET);
                 ids = map.getStringArrayList(KeyProperties.KEY_ID);
                 sharedPreferences.edit()
@@ -77,7 +79,7 @@ public abstract class WearTransactionActivity extends Activity implements
                         .putInt(KeyProperties.KEY_ACCENT_COLOR, map.getInt(KeyProperties.KEY_ACCENT_COLOR))
                         .commit();
 
-                Log.v(TAG, "found " + titles.size() + " tweets");
+                Log.v(TAG, "found " + names.size() + " tweets");
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -174,6 +176,66 @@ public abstract class WearTransactionActivity extends Activity implements
         }).start();
     }
 
+    public void sendFavoriteRequest(final long tweetId) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.v(TAG, "sending favorite request for " + tweetId);
+                String message = KeyProperties.REQUEST_FAVORITE + KeyProperties.DIVIDER + tweetId;
+                for (String node : getNodes()) {
+                    PendingResult<MessageApi.SendMessageResult> result = Wearable.MessageApi.sendMessage(
+                            mGoogleApiClient, node, KeyProperties.PATH, message.getBytes());
+                    result.setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
+                        @Override
+                        public void onResult(MessageApi.SendMessageResult sendMessageResult) {
+                            Log.v(TAG, "sent message " + sendMessageResult.toString());
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+    public void sendRetweetRequest(final long tweetId) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.v(TAG, "sending retweet request for " + tweetId);
+                String message = KeyProperties.REQUEST_RETWEET + KeyProperties.DIVIDER + tweetId;
+                for (String node : getNodes()) {
+                    PendingResult<MessageApi.SendMessageResult> result = Wearable.MessageApi.sendMessage(
+                            mGoogleApiClient, node, KeyProperties.PATH, message.getBytes());
+                    result.setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
+                        @Override
+                        public void onResult(MessageApi.SendMessageResult sendMessageResult) {
+                            Log.v(TAG, "sent message " + sendMessageResult.toString());
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+    public void sendComposeRequest(final String tweet) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.v(TAG, "sending tweet: " + tweet);
+                String message = KeyProperties.REQUEST_COMPOSE + KeyProperties.DIVIDER + tweet;
+                for (String node : getNodes()) {
+                    PendingResult<MessageApi.SendMessageResult> result = Wearable.MessageApi.sendMessage(
+                            mGoogleApiClient, node, KeyProperties.PATH, message.getBytes());
+                    result.setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
+                        @Override
+                        public void onResult(MessageApi.SendMessageResult sendMessageResult) {
+                            Log.v(TAG, "sent message " + sendMessageResult.toString());
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -204,8 +266,8 @@ public abstract class WearTransactionActivity extends Activity implements
         Log.e(TAG, "connection to API client failed: " + connectionResult);
     }
 
-    public ArrayList<String> getTitles() {
-        return this.titles;
+    public ArrayList<String> getNames() {
+        return this.names;
     }
 
     public ArrayList<String> getBodies() {
@@ -214,6 +276,10 @@ public abstract class WearTransactionActivity extends Activity implements
 
     public ArrayList<String> getIds() {
         return this.ids;
+    }
+
+    public ArrayList<String> getScreennames() {
+        return this.screennames;
     }
 
     public abstract void updateDisplay();

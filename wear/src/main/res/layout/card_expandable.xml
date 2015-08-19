@@ -17,6 +17,7 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:paddingLeft="4dp"
               android:paddingRight="4dp"
               android:paddingTop="16dp"
@@ -24,16 +25,51 @@
               android:layout_height="match_parent"
               android:orientation="vertical" >
 
-    <TextView
-            android:id="@+id/title"
-            android:textColor="@color/secondary_text_light"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.wearable.view.CircledImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            app:circle_color="@android:color/white"
+            app:circle_radius="20dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="3"
-            android:textSize="17sp"/>
+            android:layout_gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/name"
+                android:textColor="@color/secondary_text_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/screenname"
+                android:layout_marginTop="-8dp"
+                android:textColor="@color/secondary_text_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textSize="17sp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <TextView
             android:id="@+id/text"
@@ -41,7 +77,9 @@
             android:lineSpacingMultiplier=".92"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:textSize="15sp"
+            android:paddingTop="10dp"
             android:paddingBottom="15dp"/>
 
 </LinearLayout>

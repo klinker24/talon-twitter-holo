@@ -19,7 +19,7 @@
 
     <color name="wl_blue">#2878ff</color>
     <color name="wl_gray">#c1c1c1</color>
-    <color name="secondary_text_light">#A2A2A2</color>
+    <color name="secondary_text_light">#555</color>
 
 
 </resources>

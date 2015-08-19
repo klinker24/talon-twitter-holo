@@ -21,17 +21,25 @@ public class KeyProperties {
 
     public static final String PATH = "/talon_tweets";
     public static final String PATH_NOTIFICATION = "/talon_notification";
+
     public static final String GET_DATA_MESSAGE = "get_data_for_wearable";
     public static final String MARK_READ_MESSAGE = "mark_position";
     public static final String REQUEST_IMAGE = "request_image";
-    public static final String KEY_TITLE = "title";
+    public static final String REQUEST_FAVORITE = "request_favorite";
+    public static final String REQUEST_RETWEET = "request_retweet";
+    public static final String REQUEST_COMPOSE = "request_compose";
+
+    public static final String KEY_USER_NAME = "name";
+    public static final String KEY_USER_SCREENNAME = "screenname";
     public static final String KEY_TWEET = "tweet";
-    public static final String KEY_DATE = "date";
     public static final String KEY_ID = "id";
-    public static final String KEY_PRIMARY_COLOR = "primary_color";
-    public static final String KEY_ACCENT_COLOR = "accent_color";
     public static final String KEY_IMAGE_NAME = "image_name";
     public static final String KEY_IMAGE_DATA = "image_data";
+
+    public static final String KEY_DATE = "date";
+    public static final String KEY_PRIMARY_COLOR = "primary_color";
+    public static final String KEY_ACCENT_COLOR = "accent_color";
+
     public static final String LINE_BREAK = "__INSERT_BREAK_HERE__";
     public static final String DIVIDER = "__~~~~__";
 

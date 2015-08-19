@@ -17,6 +17,8 @@
 <changelog>
 
     <version name="4.4.0">
+        <text>Revamp of Android Wear app</text>
+        <text>Support for favoriting and retweeting statuses from Android Wear</text>
         <text>Direct Messages no longer have a character limit</text>
         <text>Don't stream blocked users through Talon Pull</text>
         <text>Bug fixes for direct messages</text>
