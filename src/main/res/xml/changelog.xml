@@ -16,9 +16,10 @@
 
 <changelog>
 
-    <version name="4.3.6">
+    <version name="4.4.0">
         <text>Direct Messages no longer have a character limit</text>
-        <text>Some bug fixes for direct messages</text>
+        <text>Don't stream blocked users through Talon Pull</text>
+        <text>Bug fixes for direct messages</text>
         <text>Update application dependencies</text>
     </version>
 
