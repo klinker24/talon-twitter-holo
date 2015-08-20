@@ -651,6 +651,7 @@
     <string name="pick_date">Pick Date</string>
     <string name="both_accounts">Both Accounts</string>
     <string name="attach_gif">Animated GIF</string>
+    <string name="attach_video">Video</string>
     <string name="roboto_l">Android "L" Roboto</string>
     <string name="second_account">2nd Account</string>
     <string name="second_account_login_info">Since Twitter holds some of your login information in it\'s system, the next screen may not allow you to login with your new account info immediately. If it skips this login and goes directly to the authorization page, simply hit the \"Sign Out\" button in the top right corner of the website to allow the app to log you into your second account.</string>

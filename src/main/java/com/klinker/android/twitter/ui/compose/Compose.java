@@ -36,12 +36,14 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.media.ExifInterface;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.provider.MediaStore;
 import android.support.v4.app.NotificationCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -747,10 +749,14 @@ public abstract class Compose extends Activity implements
     public static final int SELECT_PHOTO = 100;
     public static final int CAPTURE_IMAGE = 101;
     public static final int SELECT_GIF = 102;
+    public static final int SELECT_VIDEO = 103;
     public static final int PWICCER = 420;
 
     public boolean pwiccer = false;
 
+    public String attachmentType = "";
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent imageReturnedIntent) {
         Log.v("talon_image_attach", "got the result, code: " + requestCode);
@@ -867,12 +873,41 @@ public abstract class Compose extends Activity implements
 
                         String filePath = IOUtils.getPath(selectedImage, context);
 
-                        Log.v("talon_compose_pic", "path to image on sd card: " + filePath);
+                        Log.v("talon_compose_pic", "path to gif on sd card: " + filePath);
 
                         attachImage[0].setImageURI(selectedImage);
                         attachImage[0].setVisibility(View.VISIBLE);
                         attachedUri[0] = selectedImage.toString();
                         imagesAttached = 1;
+
+                        attachmentType = "animated_gif";
+
+                        attachButton.setEnabled(false);
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                        Toast.makeText(context, getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                countHandler.post(getCount);
+                break;
+            case SELECT_VIDEO:
+                if(resultCode == RESULT_OK){
+                    try {
+                        Uri selectedImage = imageReturnedIntent.getData();
+
+                        String filePath = IOUtils.getPath(selectedImage, context);
+
+                        Bitmap thumbnail = ThumbnailUtils.createVideoThumbnail(filePath,
+                                MediaStore.Images.Thumbnails.MINI_KIND);
+
+                        Log.v("talon_compose_pic", "path to video on sd card: " + filePath);
+
+                        attachImage[0].setImageBitmap(thumbnail);
+                        attachImage[0].setVisibility(View.VISIBLE);
+                        attachedUri[0] = selectedImage.toString();
+                        imagesAttached = 1;
+
+                        attachmentType = "video";
 
                         attachButton.setEnabled(false);
                     } catch (Throwable e) {
@@ -1187,8 +1222,8 @@ public abstract class Compose extends Activity implements
                                 }
                             } else {
                                 // animated gif
-                                Log.v("talon_compose", "attaching animated gif");
-                                media.setMedia("animated_gif", getContentResolver().openInputStream(Uri.parse(attachedUri[0])));
+                                Log.v("talon_compose", "attaching: " + attachmentType);
+                                media.setMedia(attachmentType, getContentResolver().openInputStream(Uri.parse(attachedUri[0])));
                             }
 
                             if (addLocation) {

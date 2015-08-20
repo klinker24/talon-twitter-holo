@@ -143,6 +143,7 @@
         <item>@string/take_picture</item>
         <item>@string/from_file</item>
         <item>@string/attach_gif</item>
+        <item>@string/attach_video</item>
     </string-array>
 
     <string-array name="font_type">

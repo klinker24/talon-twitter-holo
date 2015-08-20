@@ -534,11 +534,20 @@ public class ComposeActivity extends Compose {
                     photoPickerIntent.setType("image/*");
                     startActivityForResult(Intent.createChooser(photoPickerIntent,
                                 "Select Picture"), SELECT_PHOTO);
-                } else {
+                } else if (item == 2) {
+                    Toast.makeText(ComposeActivity.this, "GIFs must be less than 3 MB", Toast.LENGTH_SHORT).show();
+
                     Intent gifIntent = new Intent();
                     gifIntent.setType("image/gif");
                     gifIntent.setAction(Intent.ACTION_PICK);
                     startActivityForResult(gifIntent, SELECT_GIF);
+                } else if (item == 3) {
+                    Toast.makeText(ComposeActivity.this, "Videos must be less than 30 seconds", Toast.LENGTH_SHORT).show();
+
+                    Intent videoIntent = new Intent();
+                    videoIntent.setType("video/mp4");
+                    videoIntent.setAction(Intent.ACTION_PICK);
+                    startActivityForResult(videoIntent, SELECT_VIDEO);
                 }
             }
         });
