@@ -11,7 +11,7 @@
     <android.support.wearable.view.CircledImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/compose_button"
+        android:id="@+id/reply_button"
         android:src="@drawable/ic_wear_reply"
         app:circle_color="@android:color/white"
         app:circle_radius="50dp"/>
