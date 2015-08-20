@@ -55,6 +55,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import twitter4j.StatusUpdate;
 import uk.co.senab.bitmapcache.BitmapLruCache;
 
 public class TweetWearableService extends WearableListenerService {
@@ -229,6 +230,23 @@ public class TweetWearableService extends WearableListenerService {
                 public void run() {
                     try {
                         Utils.getTwitter(TweetWearableService.this, AppSettings.getInstance(TweetWearableService.this)).retweetStatus(tweetId);
+                    } catch (Exception e) {
+                    }
+                }
+            }).start();
+        } else if (message.startsWith(KeyProperties.REQUEST_REPLY)) {
+            final String tweet = message.split(KeyProperties.DIVIDER)[1];
+            final long replyToId = Long.parseLong(message.split(KeyProperties.DIVIDER)[2]);
+
+            final StatusUpdate status = new StatusUpdate(tweet);
+            status.setInReplyToStatusId(replyToId);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Utils.getTwitter(TweetWearableService.this, AppSettings.getInstance(TweetWearableService.this))
+                                .updateStatus(status);
                     } catch (Exception e) { }
                 }
             }).start();

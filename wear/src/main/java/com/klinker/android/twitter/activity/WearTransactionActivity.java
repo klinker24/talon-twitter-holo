@@ -244,6 +244,30 @@ public abstract class WearTransactionActivity extends Activity implements
         }).start();
     }
 
+    public void sendReplyRequest(final long tweetId, final String screenname, final String text) {
+        Toast.makeText(this, "Sent Reply", Toast.LENGTH_SHORT).show();
+
+        final String tweet = "@" + screenname + " " + text;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.v(TAG, "sending reply: " + tweet);
+                String message = KeyProperties.REQUEST_REPLY + KeyProperties.DIVIDER + tweet + KeyProperties.DIVIDER + tweetId;
+                for (String node : getNodes()) {
+                    PendingResult<MessageApi.SendMessageResult> result = Wearable.MessageApi.sendMessage(
+                            mGoogleApiClient, node, KeyProperties.PATH, message.getBytes());
+                    result.setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
+                        @Override
+                        public void onResult(MessageApi.SendMessageResult sendMessageResult) {
+                            Log.v(TAG, "sent message " + sendMessageResult.toString());
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

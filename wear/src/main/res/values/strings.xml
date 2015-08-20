@@ -22,6 +22,7 @@
     <string name="favorite">Favorite</string>
     <string name="retweet">Retweet</string>
     <string name="compose">Compose Tweet</string>
+    <string name="reply">Reply</string>
 
     <string name="pref_text_size">Text Size</string>
     <string name="pref_text_size_key">text_size</string>

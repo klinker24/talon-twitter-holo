@@ -18,8 +18,6 @@ package com.klinker.android.twitter.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -99,25 +97,45 @@ public class WearActivity extends WearTransactionActivity {
         }, 500);
     }
 
-    private static final int SPEECH_REQUEST_CODE = 101;
+    private static final int COMPOSE_REQUEST_CODE = 101;
+    private static final int REPLY_REQUEST_CODE = 102;
 
-    public void startSpeechRequest() {
+    public void startComposeRequest() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
 
-        startActivityForResult(intent, SPEECH_REQUEST_CODE);
+        startActivityForResult(intent, COMPOSE_REQUEST_CODE);
+    }
+
+    private String replyingToScreenname = "";
+    private long replyingToTweetId = 0l;
+    public void startReplyRequest(String screenname, long tweetId) {
+        this.replyingToScreenname = screenname;
+        this.replyingToTweetId = tweetId;
+
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+
+        startActivityForResult(intent, REPLY_REQUEST_CODE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
-        if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == COMPOSE_REQUEST_CODE && resultCode == RESULT_OK) {
             List<String> results = data.getStringArrayListExtra(
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
 
             sendComposeRequest(spokenText);
+        } else if (requestCode == REPLY_REQUEST_CODE && resultCode == RESULT_OK) {
+            List<String> results = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+            String spokenText = results.get(0);
+
+            sendReplyRequest(replyingToTweetId, replyingToScreenname, spokenText);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

@@ -28,6 +28,7 @@ public class KeyProperties {
     public static final String REQUEST_FAVORITE = "request_favorite";
     public static final String REQUEST_RETWEET = "request_retweet";
     public static final String REQUEST_COMPOSE = "request_compose";
+    public static final String REQUEST_REPLY = "request_reply";
 
     public static final String KEY_USER_NAME = "name";
     public static final String KEY_USER_SCREENNAME = "screenname";
