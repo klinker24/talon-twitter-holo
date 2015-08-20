@@ -93,6 +93,8 @@ public class WearActivity extends WearTransactionActivity {
             public void run() {
                 if (adapter.getRowCount() > 2)
                     viewPager.setCurrentItem(adapter.getRowCount() - 3,0, adapter.getRowCount() > 20 ? false : true);
+                else
+                    viewPager.setCurrentItem(adapter.getRowCount() - 2,0, true);
             }
         }, 500);
     }

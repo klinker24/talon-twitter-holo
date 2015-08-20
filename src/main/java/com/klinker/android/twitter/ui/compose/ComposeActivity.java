@@ -542,7 +542,7 @@ public class ComposeActivity extends Compose {
                     gifIntent.setAction(Intent.ACTION_PICK);
                     startActivityForResult(gifIntent, SELECT_GIF);
                 } else if (item == 3) {
-                    Toast.makeText(ComposeActivity.this, "Videos must be less than 30 seconds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ComposeActivity.this, "Videos must be less than 15 MB", Toast.LENGTH_SHORT).show();
 
                     Intent videoIntent = new Intent();
                     videoIntent.setType("video/mp4");
