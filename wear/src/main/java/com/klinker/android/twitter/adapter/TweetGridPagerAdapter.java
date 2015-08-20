@@ -42,11 +42,11 @@ public class TweetGridPagerAdapter extends FragmentGridPagerAdapter {
 
     @Override
     public Fragment getFragment(int row, int col) {
-        if ((getRowCount() != 2 && row == getRowCount() - 1) || row == 0) {
+        if ((getRowCount() != 3 && row == getRowCount() - 1) || row == 0) {
             return SettingsButtonFragment.create();
         }
 
-        if ((getRowCount() != 2 && row == getRowCount() - 2) || row == 1) {
+        if ((getRowCount() != 3 && row == getRowCount() - 2) || row == 1) {
             return ComposeButtonFragment.create();
         }
 
@@ -86,7 +86,7 @@ public class TweetGridPagerAdapter extends FragmentGridPagerAdapter {
         if (context.getNames() != null && context.getNames().size() != 0) {
             return context.getNames().size() + 4;
         } else {
-            return 2;
+            return 3;
         }
     }
 

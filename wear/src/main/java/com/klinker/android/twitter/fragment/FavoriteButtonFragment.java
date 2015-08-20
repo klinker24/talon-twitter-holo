@@ -38,7 +38,6 @@ public class FavoriteButtonFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((WearActivity)getActivity()).sendFavoriteRequest(getArguments().getLong(ARG_TWEET_ID));
-                Toast.makeText(getActivity(), "Favorited Status", Toast.LENGTH_SHORT).show();
             }
         });
 

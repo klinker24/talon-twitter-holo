@@ -24,6 +24,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -177,6 +179,8 @@ public abstract class WearTransactionActivity extends Activity implements
     }
 
     public void sendFavoriteRequest(final long tweetId) {
+        Toast.makeText(this, "Favorited Status", Toast.LENGTH_SHORT).show();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -197,6 +201,8 @@ public abstract class WearTransactionActivity extends Activity implements
     }
 
     public void sendRetweetRequest(final long tweetId) {
+        Toast.makeText(this, "Retweeted Status", Toast.LENGTH_SHORT).show();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -217,6 +223,8 @@ public abstract class WearTransactionActivity extends Activity implements
     }
 
     public void sendComposeRequest(final String tweet) {
+        Toast.makeText(this, "Sent New Tweet", Toast.LENGTH_SHORT).show();
+
         new Thread(new Runnable() {
             @Override
             public void run() {

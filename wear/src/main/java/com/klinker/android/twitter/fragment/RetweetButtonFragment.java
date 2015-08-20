@@ -38,7 +38,6 @@ public class RetweetButtonFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((WearActivity)getActivity()).sendRetweetRequest(getArguments().getLong(ARG_TWEET_ID));
-                Toast.makeText(getActivity(), "Retweeted Status", Toast.LENGTH_SHORT).show();
             }
         });
 

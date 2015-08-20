@@ -84,32 +84,19 @@ public class WearActivity extends WearTransactionActivity {
 
     @Override
     public void updateDisplay() {
-        if (getNames().size() > 0) {
-            progressBar.setVisibility(View.GONE);
-            viewPager.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
-            adapter = new TweetGridPagerAdapter(this);
-            viewPager.setAdapter(adapter);
+        progressBar.setVisibility(View.GONE);
+        viewPager.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
+        adapter = new TweetGridPagerAdapter(this);
+        viewPager.setAdapter(adapter);
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        viewPager.setCurrentItem(adapter.getRowCount() - 3,0, adapter.getRowCount() > 20 ? false : true);
-                    } catch (Exception e) {
-                        viewPager.setCurrentItem(adapter.getRowCount() - 1,0, adapter.getRowCount() > 20 ? false : true);
-                    }
-                }
-            }, 500);
-        } else {
-            progressBar.setVisibility(View.GONE);
-            viewPager.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-
-            Drawable biker = getResources().getDrawable(R.drawable.ic_biker);
-            biker.setColorFilter(accentColor, PorterDuff.Mode.MULTIPLY);
-            emptyView.setCompoundDrawablesWithIntrinsicBounds(null, biker, null, null);
-        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (adapter.getRowCount() > 2)
+                    viewPager.setCurrentItem(adapter.getRowCount() - 3,0, adapter.getRowCount() > 20 ? false : true);
+            }
+        }, 500);
     }
 
     private static final int SPEECH_REQUEST_CODE = 101;
