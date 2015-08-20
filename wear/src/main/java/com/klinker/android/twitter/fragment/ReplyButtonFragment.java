@@ -31,7 +31,7 @@ public class ReplyButtonFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_favorite_button, parent, false);
+        View view = inflater.inflate(R.layout.fragment_reply_button, parent, false);
         CircledImageView button = (CircledImageView) view.findViewById(R.id.favorite_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
