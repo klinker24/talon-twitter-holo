@@ -44,6 +44,7 @@ public class ReadInteractionsService extends IntentService {
         sharedPrefs.edit().putInt("new_retweets", 0).commit();
         sharedPrefs.edit().putInt("new_favorites", 0).commit();
         sharedPrefs.edit().putInt("new_follows", 0).commit();
+        sharedPrefs.edit().putInt("new_quotes", 0).commit();
         sharedPrefs.edit().putString("old_interaction_text", "").commit();
     }
 
