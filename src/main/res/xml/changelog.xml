@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.4.1">
+        <text>Added Chrome Custom Tab support</text>
+    </version>
+
     <version name="4.4.0">
         <text>Revamp of Android Wear app layout</text>
         <text>Support for favoriting and retweeting statuses from Android Wear</text>
