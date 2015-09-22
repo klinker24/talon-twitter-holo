@@ -16,6 +16,9 @@
 
 <changelog>
 
+    <version name="4.4.2">
+        <text>Chrome custom tabs no longer need Google Chrome as your default browser</text>
+    </version>
     <version name="4.4.1">
         <text>Added Chrome Custom Tab support</text>
     </version>
