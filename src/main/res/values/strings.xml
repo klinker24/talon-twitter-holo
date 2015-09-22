@@ -180,6 +180,7 @@
     <string name="tweet_to_long">Tweet too long!</string>
     <string name="ok">OK</string>
     <string name="no">No</string>
+    <string name="yes">Yes</string>
     <string name="changelog">What\'s New</string>
     <string name="created_by">Created by</string>
     <string name="no_location">Couldn\'t find location</string>
