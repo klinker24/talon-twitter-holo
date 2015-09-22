@@ -39,7 +39,7 @@ public class WebIntentBuilder {
     private static final String PLAY_STORE = "play.google.com";
     private static final String YOUTUBE = "youtu";
     private static final String TWITTER = "twitter.com";
-    private static final String PERISCOPE = "periscope";
+    private static final String PERISCOPE = "periscope.tv";
     private static final String MEERKAT = "mkr.tv";
 
     private static final String[] ALWAYS_EXTERNAL = new String[] {
