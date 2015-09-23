@@ -144,13 +144,13 @@ public class WebIntentBuilder {
                 if (sharedPreferences.getBoolean("shown_disclaimer_for_custom_tabs_4", false)) {
                     fallbackToInternal(sharedPreferences);
                 } else {
-                    sharedPreferences.edit().putBoolean("shown_disclaimer_for_custom_tabs_4", true).commit();
                     new AlertDialog.Builder(context)
                             .setTitle(R.string.custom_tab_title)
                             .setMessage(R.string.custom_tab_message)
                             .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    sharedPreferences.edit().putBoolean("shown_disclaimer_for_custom_tabs_4", true).commit();
                                     sharedPreferences.edit().putBoolean("is_chrome_default", true).commit();
                                     fallbackToInternal(sharedPreferences);
                                 }
@@ -158,6 +158,7 @@ public class WebIntentBuilder {
                             .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    sharedPreferences.edit().putBoolean("shown_disclaimer_for_custom_tabs_4", true).commit();
                                     sharedPreferences.edit().putBoolean("is_chrome_default", false).commit();
                                     fallbackToInternal(sharedPreferences);
                                 }
