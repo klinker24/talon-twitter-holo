@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <string name="extension_description">Показвай броя на непрочетените туийтове, споменавания и директни съобщения, в момента в който се актуализират.</string>
+    <!-- Action Bar -->
+    <string name="menu_compose">Нов Туийт</string>
+    <string name="menu_logout">Изход</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_follow">Последвай</string>
+    <string name="menu_unfollow">Спри следенето</string>
+    <string name="menu_tweet">Изпрати Туийт</string>
+    <string name="menu_dm">Изпрати Директно Съобщение</string>
+    <string name="menu_block">Блокирай Потребителя</string>
+    <string name="menu_unblock">Деблокирай Потребителя</string>
+    <string name="menu_add_to_list">Добави към Списък</string>
+    <string name="menu_change_picture">Промени Профилната Снимка</string>
+    <string name="menu_change_bio">Промени Профилната Информация</string>
+    <string name="menu_change_banner">Промени Профилния Банер</string>
+    <string name="menu_direct_message">Ново Директно Съобщение</string>
+    <string name="menu_save_image">Запази Изображението</string>
+    <string name="menu_favorite">Добави към Любими</string>
+    <string name="menu_unfavorite">Премахни от Любими</string>
+    <string name="menu_create_list">Създай Нов Списък</string>
+    <string name="menu_spam">Маркирай като Спам</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="just_now">току-що</string>
+    <string name="a_min_ago">преди минута</string>
+    <string name="minutes_ago">преди %s минути</string>
+    <string name="an_hour_ago">преди час</string>
+    <string name="hours_ago">преди %s часа</string>
+    <string name="yesterday">вчера</string>
+    <string name="days_ago">преди %s дни</string>
+    <!-- Muting -->
+    <string name="no_users">Няма Потребители</string>
+    <!-- Main Activity -->
+    <string name="pictures">Снимки</string>
+    <string name="timeline">Начало</string>
+    <string name="mentions">Споменавания</string>
+    <string name="direct_messages">Директни Съобщения</string>
+    <string name="retweets">Ретуийтове</string>
+    <string name="favorite_tweets">Любими Туийтове</string>
+    <string name="favorite_users">Любими Потребители</string>
+    <string name="search">Търси</string>
+    <string name="lists">Списъци</string>
+    <string name="search_hint">Търсене...</string>
+    <string name="new_tweet">нов туийт</string>
+    <string name="new_tweets">нови туийтове</string>
+    <string name="no_new_tweets">Няма нови туийтове</string>
+    <string name="new_mention">ново споменаване</string>
+    <string name="new_mentions">нови споменавания</string>
+    <string name="no_new_mentions">Няма нови споменавания</string>
+    <string name="new_direct_message">ново директно съобщение</string>
+    <string name="new_direct_messages">нови директни съобщения</string>
+    <string name="no_new_direct_messages">Няма нови директни съобщения</string>
+    <string name="tap_to_setup">Натисни за настройка</string>
+    <string name="new_account">Нов Профил</string>
+    <!-- Notifications -->
+    <string name="tweet">Туийт</string>
+    <string name="tweets">Туийтове</string>
+    <string name="message">Съобщение</string>
+    <string name="messages">Съобщения</string>
+    <string name="new_message">ново съобщение</string>
+    <string name="new_messages">нови съобщения</string>
+    <string name="mentioned_by">Споменат сте от</string>
+    <string name="message_from">Съобщение от</string>
+    <string name="mark_read">Прочети</string>
+    <string name="noti_reply">Отговори</string>
+    <string name="fav_user_tweets">нови туийтове от любим потребител</string>
+    <string name="sec_acc">Втори Профил</string>
+    <string name="retweeted">ретуийтна твоя статус</string>
+    <string name="favorited">добави към любими твоя статус</string>
+    <string name="followed">те последва</string>
+    <string name="new_retweets">ретуийта</string>
+    <string name="new_tweets_upper">Нови Туийта</string>
+    <!-- Login Screen -->
+    <string name="login_to_twitter">Влез в Twitter</string>
+    <string name="first_welcome">Добре дошли в Talon!</string>
+    <string name="second_welcome">Синхронизиране на данните</string>
+    <string name="third_welcome">Това е!</string>
+    <string name="back_to_timeline">Заведи ме към моята лента!</string>
+    <string name="initial_sync">Синхронизирай сега!</string>
+    <string name="first_info">Преди да започнем, нека ти помогнем да си влезеш в профила.</string>
+    <string name="second_info">Супер!\n\nСега ще получим малко първоначални данни.\n\nВ зависимост от вашата интернет връзка, това може да отнеме известно време.</string>
+    <string name="third_info">Надяваме се Talon да ти хареса!\n\n-- Luke Klinker</string>
+    <string name="syncing_timeline">Синхронизиране на лентата...</string>
+    <string name="syncing_mentions">Синхронизиране на споменаванията...</string>
+    <string name="syncing_direct_messages">Синхронизиране на директните съобщения...</string>
+    <string name="syncing_user">Синхронизиране на приятелите...</string>
+    <string name="done_syncing">Синхронизирането е приключено.</string>
+    <string name="no_network">Не сте свързани към интернет</string>
+    <string name="no_thanks">Не сега</string>
+    <string name="follow_me">Последвай!</string>
+    <string name="follow_me_description">Последвай @TalonAndroid и @lukeklinker за поддръжка и всички новости около приложението.</string>
+    <!-- Compose New Activity -->
+    <string name="compose_activity">Нов Туийт</string>
+    <string name="compose_tweet_hint">Напиши някакъв туийт...</string>
+    <string name="send_to">Напиши името на потребителя</string>
+    <string name="direct_message_sent">Директното Съобщение е изпратено</string>
+    <string name="location_connected">Прикачено е местоположение</string>
+    <string name="location_disconnected">Местоположението е загубено</string>
+    <string name="apply">Прилагане?</string>
+    <string name="tweet_failed">Грешка при изпращането на туийта</string>
+    <string name="tap_to_retry">Натисни за повторен опит</string>
+    <string name="one_recepient">Можеш да изпращаш Директни Съобщения само към един потребител едновременно!</string>
+    <!-- Actionbar Done-Discard -->
+    <string name="discard">Отхвърли</string>
+    <string name="send">Изпрати</string>
+    <!-- Other -->
+    <string name="placeholder">Заместител</string>
+    <string name="reply">Отговори...</string>
+    <string name="error">Грешка</string>
+    <string name="error_loading_page">Грешка при зареждането на страницата</string>
+    <string name="delete">Изтрий</string>
+    <string name="cancel">Отмени</string>
+    <string name="delete_direct_message">Изтриване на Съобщението?</string>
+    <string name="save_image">Изображението е Запазено</string>
+    <string name="tweet_success">Туийта бе Успешен</string>
+    <string name="error_sending_tweet">Грешка при изпращането на Туийта</string>
+    <string name="tweet_to_long">Туийта е прекалено дълъг!</string>
+    <string name="ok">Добре</string>
+    <string name="no">Не</string>
+    <string name="changelog">Какво Ново</string>
+    <string name="from_file">Прикачи Изображение</string>
+    <string name="via">чрез</string>
+    <string name="version">Версия</string>
+    <string name="from">От</string>
+    <string name="save">Запази</string>
+    <string name="stop">Спри</string>
+    <!-- User Profile Activity -->
+    <string name="followers">Последователи</string>
+    <string name="optional_name">Име (По избор)</string>
+    <string name="optional_url">URL адрес (По избор)</string>
+    <string name="optional_location">Местоположение (По избор)</string>
+    <string name="optional_description">Описание (По избор)</string>
+    <string name="name_char_length">Име: Лимит от 20 знака</string>
+    <string name="url_char_length">URL адрес: Лимит от 100 знака</string>
+    <string name="location_char_length">Местоположение: Лимит от 30 знака</string>
+    <string name="description_char_length">Описание: Лимит от 160 знака</string>
+    <!-- Retweets Activity -->
+    <string name="retweets_lower">ретуийта</string>
+    <string name="retweeter">ретуийтнато от @</string>
+    <!-- Tweet Activity -->
+    <string name="menu_copy_text">Копирай Текста на Туийта</string>
+    <string name="menu_share">Сподели Туийта</string>
+    <string name="menu_delete_tweet">Изтрий Туийта</string>
+    <string name="conversation">Разговор</string>
+    <string name="webpage">Уеб Страница</string>
+    <string name="tweet_youtube">YouTube</string>
+    <string name="vine">Vine</string>
+    <string name="deleted_tweet">Туийта бе изтрит</string>
+    <string name="error_deleting">Грешка при изтриването на туийта</string>
+    <string name="sending">Изпращане</string>
+    <string name="youtube_error">Грешка при пускането на видеото</string>
+    <string name="no_conversation">Няма предишни Туийтове</string>
+    <string name="saving_picture">Запазване на Снимката</string>
+    <string name="saved_picture">Снимката бе запазена успешно</string>
+    <string name="retweet_success">Ретуийта бе успешен</string>
+    <!-- User Lists -->
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <!-- added after release -->
+    <string name="dont_show_again">Не показвай отново</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <!-- the username will replace %s -->
+    <!-- Long click methods -->
+</resources>

@@ -570,7 +570,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
  Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="dont_show_again">Vis ikke igen</string>
     <string name="error_attaching_image">Fejl ved vedhæftning af billede</string>
-    <string name="sending_tweet">Sender tweet...</string>
+    <string name="sending_tweet">Sender tweet</string>
     <string name="attached_images">Vedhæftet</string>
     <string name="twitpic_disclaimer_multi_summary">Twitter´s API´s understøtter ikke vedhæftning af mere end ét billede pr. tweet\n\n
  Talon vil uploade billedet til TwitPic i stedet</string>
