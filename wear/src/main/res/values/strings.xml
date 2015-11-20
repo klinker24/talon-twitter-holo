@@ -19,7 +19,7 @@
     <string name="no_articles">No Unread Tweets!</string>
     <string name="view_articles">View Tweets</string>
     <string name="settings">Settings</string>
-    <string name="favorite">Favorite</string>
+    <string name="favorite">Like</string>
     <string name="retweet">Retweet</string>
     <string name="compose">Compose Tweet</string>
     <string name="reply">Reply</string>

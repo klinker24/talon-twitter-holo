@@ -1130,7 +1130,7 @@ public class NotificationUtils {
             icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_stat_icon);
         } else {
             if (newFavorites > 0) {
-                icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_important_dark);
+                icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_heart_dark);
             } else if (newRetweets > 0) {
                 icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_action_repeat_dark);
             } else {

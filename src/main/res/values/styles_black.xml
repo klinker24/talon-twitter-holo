@@ -69,8 +69,8 @@
         <item name="acceptButton">@drawable/ic_action_accept_dark</item>
         <item name="showMoreButton">@drawable/ic_action_expand_dark</item>
         <item name="retweetButton">@drawable/ic_action_repeat_dark</item>
-        <item name="favoritedButton">@drawable/ic_action_important_dark</item>
-        <item name="notFavoritedButton">@drawable/ic_action_not_important_dark</item>
+        <item name="favoritedButton">@drawable/ic_heart_dark</item>
+        <item name="notFavoritedButton">@drawable/ic_heart_dark</item>
         <item name="circleBorder">@drawable/circle_border_dark</item>
         <item name="squareBorder">@drawable/square_border_dark</item>
         <item name="timelineItem">@drawable/timeline_dark</item>

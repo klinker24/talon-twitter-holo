@@ -16,6 +16,11 @@
 
 <changelog>
 
+    <version name="4.4.3">
+        <text>Favorites are now likes and stars moved to hearts</text>
+        <text>Update Translations</text>
+    </version>
+
     <version name="4.4.2">
         <text>Chrome custom tabs no longer need Google Chrome as your default browser</text>
     </version>
