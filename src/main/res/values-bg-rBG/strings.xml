@@ -15,6 +15,7 @@
   limitations under the License.
   -->
 <resources>
+    <string name="app_name_full">Talon for Twitter</string>
     <string name="extension_description">Показвай броя на непрочетените туийтове, споменавания и директни съобщения, в момента в който се актуализират.</string>
     <!-- Action Bar -->
     <string name="menu_compose">Нов Туийт</string>
@@ -46,6 +47,9 @@
     <string name="yesterday">вчера</string>
     <string name="days_ago">преди %s дни</string>
     <!-- Muting -->
+    <string name="mute">Заглуши</string>
+    <string name="unmute">Спри заглушаването</string>
+    <string name="muted_users">Заглушени Потребители</string>
     <string name="no_users">Няма Потребители</string>
     <!-- Main Activity -->
     <string name="pictures">Снимки</string>
@@ -53,7 +57,7 @@
     <string name="mentions">Споменавания</string>
     <string name="direct_messages">Директни Съобщения</string>
     <string name="retweets">Ретуийтове</string>
-    <string name="favorite_tweets">Любими Туийтове</string>
+    <string name="favorite_tweets">Харесани Туийтове</string>
     <string name="favorite_users">Любими Потребители</string>
     <string name="search">Търси</string>
     <string name="lists">Списъци</string>
@@ -69,6 +73,7 @@
     <string name="no_new_direct_messages">Няма нови директни съобщения</string>
     <string name="tap_to_setup">Натисни за настройка</string>
     <string name="new_account">Нов Профил</string>
+    <string name="all_read">Всичко е прочетено!</string>
     <!-- Notifications -->
     <string name="tweet">Туийт</string>
     <string name="tweets">Туийтове</string>
@@ -82,19 +87,22 @@
     <string name="noti_reply">Отговори</string>
     <string name="fav_user_tweets">нови туийтове от любим потребител</string>
     <string name="sec_acc">Втори Профил</string>
+    <string name="downloading">Сваляне</string>
     <string name="retweeted">ретуийтна твоя статус</string>
-    <string name="favorited">добави към любими твоя статус</string>
+    <string name="favorited">хареса вашия статус</string>
+    <string name="quoted">цитира вашия статус</string>
     <string name="followed">те последва</string>
     <string name="new_retweets">ретуийта</string>
+    <string name="new_quotes">цитати</string>
     <string name="new_tweets_upper">Нови Туийта</string>
     <!-- Login Screen -->
     <string name="login_to_twitter">Влез в Twitter</string>
     <string name="first_welcome">Добре дошли в Talon!</string>
     <string name="second_welcome">Синхронизиране на данните</string>
-    <string name="third_welcome">Това е!</string>
+    <string name="third_welcome">Това е - наслаждавайте се!</string>
     <string name="back_to_timeline">Заведи ме към моята лента!</string>
     <string name="initial_sync">Синхронизирай сега!</string>
-    <string name="first_info">Преди да започнем, нека ти помогнем да си влезеш в профила.</string>
+    <string name="first_info">Преди да започнем, нека ти помогнем да влезеш и синхронизираш Twitter профила си.</string>
     <string name="second_info">Супер!\n\nСега ще получим малко първоначални данни.\n\nВ зависимост от вашата интернет връзка, това може да отнеме известно време.</string>
     <string name="third_info">Надяваме се Talon да ти хареса!\n\n-- Luke Klinker</string>
     <string name="syncing_timeline">Синхронизиране на лентата...</string>
@@ -134,6 +142,7 @@
     <string name="tweet_to_long">Туийта е прекалено дълъг!</string>
     <string name="ok">Добре</string>
     <string name="no">Не</string>
+    <string name="yes">Да</string>
     <string name="changelog">Какво Ново</string>
     <string name="from_file">Прикачи Изображение</string>
     <string name="via">чрез</string>
@@ -176,8 +185,23 @@
     <!-- Emoji Keyboard -->
     <!-- Array value for translation -->
     <!-- added after release -->
+    <string name="view_favoriters">Харесвания</string>
     <string name="dont_show_again">Не показвай отново</string>
+    <string name="attach_video">Видео</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <!-- the username will replace %s -->
+    <string name="retweet">Ретуийтни</string>
+    <string name="new_follower_lower">нов последовател</string>
+    <string name="new_followers_lower">нови последователи</string>
+    <string name="item">предмет</string>
+    <string name="items">предмети</string>
+    <string name="and">и</string>
+    <string name="no_favorites">Няма харесвания</string>
+    <string name="quote_style">Стил на Цитатите</string>
+    <string name="quote_style_twitter">Twitter Стил (линк към туийта)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="learn_more">Научете Повече</string>
     <!-- Long click methods -->
+    <string name="open_webpage">Отворете Връзката</string>
 </resources>

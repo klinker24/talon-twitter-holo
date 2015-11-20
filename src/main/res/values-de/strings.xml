@@ -62,6 +62,7 @@
     <string name="retweets">Retweets</string>
     <string name="favorite_tweets">Favorisierte Tweets</string>
     <string name="favorite_users">Favorisierte Nutzer</string>
+    <string name="favorite_users_tweets">Favorisiere Tweets des Nutzers</string>
     <string name="trends">Trends</string>
     <string name="local_trends">Lokale Trends</string>
     <string name="world_trends">Weltweite Trends</string>
@@ -110,9 +111,11 @@
     <string name="new_interactions">Neue Interaktionen</string>
     <string name="retweeted">retweetete deinen Tweet</string>
     <string name="favorited">favorisierte deinen Tweet</string>
+    <string name="quoted">hat Deinen Tweet zitiert</string>
     <string name="followed">folgt dir</string>
     <string name="new_retweets">Retweets</string>
     <string name="new_favorites">Favoriten</string>
+    <string name="new_quotes">Zitate</string>
     <string name="new_tweets_upper">Neue Tweets</string>
     <!-- Login Screen -->
     <string name="setup_talon">Talon einrichten</string>
@@ -167,6 +170,7 @@
     <string name="tweet_to_long">Tweet ist zu lang!</string>
     <string name="ok">OK</string>
     <string name="no">Nein</string>
+    <string name="yes">Ja</string>
     <string name="changelog">Neuerungen</string>
     <string name="created_by">Erstellt von</string>
     <string name="no_location">Standort konnte nicht ermittelt werden</string>
@@ -214,6 +218,8 @@
     <string name="conversation">Unterhaltung</string>
     <string name="webpage">Webseite</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet-Medien</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Tweet zitieren</string>
     <string name="deleted_tweet">Tweet gelöscht</string>
     <string name="error_deleting">Löschen des Tweets fehlgeschlagen</string>
@@ -283,7 +289,6 @@
     <string name="timestamp">24-Stunden-Format</string>
     <string name="enable_emojis">Emojis aktivieren</string>
     <string name="to_market">Zum Play Store</string>
-    <string name="get_android">Android-Emojis</string>
     <string name="get_ios">iOS-Emojis</string>
     <string name="emoji_dialog_summary">Um Emojis in dieser App zu aktivieren, musst du das \"Sliding Emoji Keyboard\"- oder \"Sliding Emoji Keyboard - iOS\"-Paket aus dem Play Store installieren.\n\n
                Du kannst zwischen beiden Emojis-Arten wechseln, indem du das nicht verwendete Paket deinstallierst (und das andere im Gegenzug herunterlädtst). Sind beide Pakete installiert, wird Talon die Android-Emojis verwenden.\n\n
@@ -493,6 +498,7 @@
     <string name="use_shortening_service">Kürzungsdienst verwenden</string>
     <string name="use_shortening_service_summary">Es steht entweder TwitLonger oder Pwiccer (ein Dienst, der zu lange Tweets in ein Bild umwandelt, das anschließend geteilt werden kann) zur Auswahl.</string>
     <string name="view_retweeters">Retweeter</string>
+    <string name="view_favoriters">Favs</string>
     <string name="no_tweets">Keine Tweets</string>
     <string name="only_7_days">Nur 7 Tage verfügbar</string>
     <string name="saved_searches">Gespeicherter Suchverlauf</string>
@@ -614,16 +620,47 @@
     <string name="no_clients">Keine Clients</string>
     <string name="muted_clients_summary">Erlaubt das Stummschalten von Tweets, die mit einer bestimmten Anwendung verfasst wurden.</string>
     <string name="client_not_found">Client nicht gefunden!</string>
+    <string name="favorite">Fav</string>
+    <string name="menu_share_image">Bild teilen</string>
     <string name="pick_time">Zeit auswählen</string>
     <string name="pick_date">Datum auswählen</string>
     <string name="both_accounts">Beide Benutzerkonten</string>
     <string name="attach_gif">Animierte GIF-Datei</string>
+    <string name="attach_video">Video</string>
     <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Zweitkonto</string>
     <string name="second_account_login_info">Da Twitter einige deiner Login-Informationen in seinem System behält, können Sie sich vielleicht nicht sofort mit Ihren neuen Benutzerkonto anmelden. Wenn die Login-Seite übersprungen wird und Sie direkt auf der Au­to­ri­sie­rungsseite beginnen, klicken Sie einfach auf die \"Abmelden\"-Schaltfläche in der rechten oberen Ecke der Website, um der App die Anmeldung in Ihrem Zweitkonto zu ermöglichen.</string>
     <string name="fetch_tweetmarker">TweetMarker wird abgerufen…</string>
+    <string name="rate_limit_reached">API-Limit erreicht</string>
+    <string name="info">Info</string>
+    <string name="help_and_feedback">Hilfe/Feedback</string>
+    <string name="follow">Folgen</string>
+    <string name="menu_number_of_pages">Anzahl von Extraspalten</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="set_as_default">Als Standard setzen</string>
     <!-- the username will replace %s -->
+    <string name="activity">Aktivität</string>
+    <string name="sending_direct_message">Sende Direktnachricht</string>
+    <string name="mentioned_you">hat Dich erwähnt</string>
+    <string name="favorites_lower">Favs</string>
+    <string name="favorite_lower">Fav</string>
+    <string name="retweeted_your_status">hat Deinen Tweet geretweetet</string>
+    <string name="followed_you">ist Dir gefolgt</string>
+    <string name="new_activity">Neue Aktivität</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">Neuer Follower</string>
+    <string name="new_followers_lower">Neue Follower</string>
+    <string name="item">Eintrag</string>
+    <string name="items">Einträge</string>
+    <string name="and">und</string>
+    <string name="no_favorites">Keine Favs</string>
+    <string name="quote_style">Zitat-Stil</string>
+    <string name="quote_style_twitter">Twitter-Stil (Link zum Tweet)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Zeige angeheftete Benachrichtigung</string>
+    <string name="show_pull_notification_summary">Wenn Du diese Benachrichtigung deaktivierst, kann das Android-System den Stream zu jeder Zeit beenden. Mit extremer Vorsicht einsetzen.</string>
+    <string name="learn_more">Lerne mehr</string>
     <!-- Long click methods -->
     <string name="open_profile">Profil öffnen</string>
     <string name="copy_handle">Kopiere Nutzernamen</string>
@@ -631,6 +668,8 @@
     <string name="mute_user">Nutzer stummschalten</string>
     <string name="mute_retweets">Retweets stummschalten</string>
     <string name="share_profile">Profil teilen</string>
+    <string name="open_to_external_browser">Im externen Browser öffnen</string>
+    <string name="open_to_internal_browser">Im internen Browser öffnen</string>
     <string name="copy_link">Link kopieren</string>
     <string name="share_link">Link teilen</string>
     <string name="search_hashtag">Hashtag suchen</string>
@@ -639,7 +678,9 @@
     <string name="search_cashtag">Cashtag suchen</string>
     <string name="copy_cashtag">Cashtag kopieren</string>
     <string name="copied">Kopierter Text</string>
+    <string name="favorite_user_text">Favorisiere den Nutzer</string>
     <string name="open_to_web">Webseitenlink in Tweet öffnen</string>
     <string name="open_to_web_summary">Falls ein Tweet eine Webseiten-URL beinhaltet, wird direkt diese URL anstatt des Tweets geöffnet.</string>
     <string name="open_webpage">Link öffnen</string>
+    <string name="get_android">Android-Emojis</string>
 </resources>

@@ -41,7 +41,7 @@
     <string name="menu_spam">Rapportér som spam</string>
     <!-- Times -->
     <!-- When translating: put the %s where the number should go in the string. -->
-    <string name="just_now">Lige nu</string>
+    <string name="just_now">lige nu</string>
     <string name="a_min_ago">1 minut siden</string>
     <string name="minutes_ago">%s minutter siden</string>
     <string name="an_hour_ago">1 time siden</string>
@@ -60,8 +60,9 @@
     <string name="mentions">Meninger</string>
     <string name="direct_messages">Direkte beskeder</string>
     <string name="retweets">Retweets</string>
-    <string name="favorite_tweets">Favorit tweets</string>
+    <string name="favorite_tweets">Liked tweets</string>
     <string name="favorite_users">Favorit profiler</string>
+    <string name="favorite_users_tweets">Favorit tweets</string>
     <string name="trends">Trends</string>
     <string name="local_trends">Lokale trends</string>
     <string name="world_trends">Globale trends</string>
@@ -70,7 +71,7 @@
     <string name="search_hint">Søg...</string>
     <string name="new_tweet">Nyt tweet</string>
     <string name="new_tweets">Nye tweets</string>
-    <string name="no_new_tweets">Ingen nye tweets</string>
+    <string name="no_new_tweets">Nye tweets</string>
     <string name="new_mention">ny mening</string>
     <string name="new_mentions">nye meninger</string>
     <string name="no_new_mentions">Ingen nye meninger</string>
@@ -81,7 +82,7 @@
     <string name="new_account">Ny konto</string>
     <string name="from_top">fra top</string>
     <string name="jump_to_top">Til top</string>
-    <string name="all_read">Læst alle</string>
+    <string name="all_read">Ingen</string>
     <string name="view_new">Hent?</string>
     <string name="old_interactions">Alle interaktioner</string>
     <!-- Notifications -->
@@ -110,10 +111,12 @@
     <string name="new_interactions_lower">nye interaktioner</string>
     <string name="new_interactions">Nye interaktioner</string>
     <string name="retweeted">retweetet dit tweet</string>
-    <string name="favorited">valgte dit tweet som favorit</string>
+    <string name="favorited">liked dit tweet</string>
+    <string name="quoted">Citérede tweet</string>
     <string name="followed">følger dig</string>
     <string name="new_retweets">retweets</string>
-    <string name="new_favorites">Favoritter</string>
+    <string name="new_favorites">likes</string>
+    <string name="new_quotes">Citater</string>
     <string name="new_tweets_upper">Nye tweets</string>
     <!-- Login Screen -->
     <string name="setup_talon">Konfigurér Talon</string>
@@ -123,9 +126,9 @@
     <string name="third_welcome">Færdig!</string>
     <string name="back_to_timeline">Vis mig min tidslinje!</string>
     <string name="initial_sync">Synkronisér nu!</string>
-    <string name="first_info">Log ind for at starte</string>
-    <string name="second_info">Super!\n\nFlere data skal hentes.\n\nDet kan tage lidt tid, afhængig af din internet hastighed</string>
-    <string name="third_info">Jeg håber du får glæde af Talon!\n\n-- Luke Klinker</string>
+    <string name="first_info">Log ind for at starte og bliv synkroniseret med twitter</string>
+    <string name="second_info">Super!\n\nFlere data skal hentes\n\nDet kan tage lidt tid, afhængig af din internet hastighed</string>
+    <string name="third_info">Jeg håber du får glæde af Talon!\n\n- Luke Klinker</string>
     <string name="syncing_timeline">Synkroniserer tidslinjen...</string>
     <string name="syncing_mentions">Synkroniserer meninger...</string>
     <string name="syncing_direct_messages">Synkroniserer direkte beskeder...</string>
@@ -135,7 +138,7 @@
     <string name="no_network">Der er ingen forbindelse til internettet</string>
     <string name="no_thanks">Ikke nu</string>
     <string name="follow_me">Følg</string>
-    <string name="follow_me_description">Følg @TalonAndroid og @lukeklinker for at få besked om de nyeste funktioner og support!</string>
+    <string name="follow_me_description">Tjek feltet af for automatisk at følge, eller tap tilbage for at afvise</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">Nyt tweet</string>
     <string name="compose_tweet_hint">Skriv tweet...</string>
@@ -168,6 +171,7 @@
     <string name="tweet_to_long">For langt tweet</string>
     <string name="ok">Ok</string>
     <string name="no">Nej</string>
+    <string name="yes">Ja</string>
     <string name="changelog">Hvad er nyt?</string>
     <string name="created_by">Udviklet af</string>
     <string name="no_location">Kan ikke finde lokation</string>
@@ -227,7 +231,7 @@
     <string name="saving_picture">Gemmer billede...</string>
     <string name="saved_picture">Billede gemt</string>
     <string name="retweet_success">Retweetet</string>
-    <string name="favorite_success">Favorit</string>
+    <string name="favorite_success">Succes</string>
     <string name="success">Succes</string>
     <!-- User Lists -->
     <string name="view_users">Vis profiler</string>
@@ -254,7 +258,7 @@
     <!-- Settings Menu -->
     <string name="theme_settings">Tema indstillinger</string>
     <string name="theme_options">Tema indstillinger</string>
-    <string name="font_options">Tekst indstillinger</string>
+    <string name="font_options">Skærm indstillinger</string>
     <string name="other_options">Andre indstillinger</string>
     <string name="theme">Tema</string>
     <string name="addon_themes">Add-on temaer</string>
@@ -284,10 +288,9 @@ Hvis dit profil billede ikke vises som det skal, enten i en cirkel eller firkant
     <string name="use_screen_name">Vis Twitter kaldenavn</string>
     <string name="use_screen_name_summary">Vis brugers Twitter kaldenavn i stedet for eget navn i tidslinjen</string>
     <string name="timestamp">24 timers tidsvisning</string>
-    <string name="enable_emojis">Aktivér Emojis</string>
+    <string name="enable_emojis">Brug IOS emojis</string>
     <string name="to_market">Til Play Store</string>
-    <string name="get_android">Hent Android Emojis</string>
-    <string name="get_ios">Hent IOS Emojis</string>
+    <string name="get_ios">Download tilføjelse</string>
     <string name="emoji_dialog_summary">For at aktivére emojis i denne app, skal du have \"Sliding Emoji Keyboard\" eller \"Sliding Emoji Keyboard - iOS\" pakken installeret fra Play Store\n\n
  Du kan skifte mellem de to typer emojis ved at afinstallere den ene og installerer den anden.Hvis begge pakker er installeret, vil Talon automatisk vælge pakken med Android Emojis\n\n
 BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveperioden er udløbet! Pakken vil bruges både som en tilføjelse, såvel som en uafhængig tastatur applikation</string>
@@ -303,7 +306,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="led">Blink med LED</string>
     <string name="wake_screen">Tænd skærm</string>
     <string name="sound">Notifikations lyd</string>
-    <string name="quiet_hours">Forstyr ikke</string>
+    <string name="quiet_hours">Forstyr ikke mode</string>
     <string name="max_number_on_refresh">Max. antal tweets som opdateres</string>
     <string name="fav_users_notifications">Notifikation for ny favorit</string>
     <string name="sync_second_mentions">Synkroniser sekundær konto</string>
@@ -322,11 +325,11 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="sync_failed">Synkroniseringsfejl</string>
     <string name="push_notification_options">"Indstillinger for Push notifikationer"</string>
     <string name="push_notifications">Talon Pull</string>
-    <string name="push_notifications_summary">Aktiverer overvågning for nye interaktioner såsom direkte beskeder, meninger, favoritter, retweets og nye følgere</string>
-    <string name="push_notification_warning">Tap her for at læse mere om indstillingen</string>
+    <string name="push_notifications_summary">Aktiverer overvågning for nye interaktioner såsom direkte beskeder, meninger, likes, retweets og nye følgere</string>
+    <string name="push_notification_warning">Tap her for at læse mere om Talon Pull</string>
     <string name="notification_settings">Notifikationsindstillinger</string>
     <string name="pebble_notifications">Pebble notifikationer</string>
-    <string name="pebble_notifications_summary">Bruges sammen med Pebble Smart Watch</string>
+    <string name="pebble_notifications_summary">Bruges sammen med Pebble Smart Watch. Deaktiveres hvis du får 2 notifikationer på dit ur</string>
     <string name="advanced_settings">Avancerede indstillinger</string>
     <string name="app_feel_category">Indstillinger af app oplevelsen</string>
     <string name="advance_windowed">Avanceret visning</string>
@@ -404,13 +407,13 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="manual">Manuelt</string>
     <string name="layout_hangouts">Hangouts</string>
     <!-- added after release -->
-    <string name="use_inapp_browser">Brug in-app browser ved tap på links</string>
+    <string name="use_inapp_browser">Brug in-app browser</string>
     <string name="use_browser_on_tweet">Brug browser ved tweet</string>
     <string name="dismiss_all">Annuller alle</string>
     <string name="handle_and_name">Vis kaldenavn og navn</string>
     <string name="notification_types">Notifikations typer</string>
     <string name="with_talon_pull">Tilgåes via \"Talon Pull\"</string>
-    <string name="favorited_tweet">Favorit af dine tweets</string>
+    <string name="favorited_tweet">Likes for dine tweets</string>
     <string name="new_followers">Nye følgere</string>
     <string name="discussion">Kommentarer</string>
     <string name="no_replies">Ingen kommentarer</string>
@@ -449,7 +452,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="timeline_notifications">Tidslinje, Meninger, DM\'s</string>
     <string name="interactions_notifications">Interaktion notifikationer</string>
     <string name="timelines_settings">Tidslinje indstillinger</string>
-    <string name="tweet_look_options">Tweet indstillinger</string>
+    <string name="tweet_look_options">Tidslinje indstillinger</string>
     <string name="limiting_options">Begrænsnings indstillinger</string>
     <string name="browser_options">Browser indstillinger</string>
     <string name="custom_ringtone">Vælg notifikations lyd</string>
@@ -472,7 +475,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="pull_to_refresh">Stryg ned for at opdatere...</string>
     <string name="removing_retweet">Fjerner retweet status</string>
     <string name="retweeting_status">Sender tweet...</string>
-    <string name="removing_favorite">Fjerner favorit status</string>
+    <string name="removing_favorite">Fjerner like status</string>
     <string name="favoriting_status">Favorit</string>
     <string name="jumping_workaround">Fix for hop i tidslinjen</string>
     <string name="jumping_workaround_summary">Bruges hvis din tidslinje hopper et tweet ned ved opdatering</string>
@@ -496,6 +499,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="use_shortening_service">Brug service til at forkorte tweet</string>
     <string name="use_shortening_service_summary">Du kan vælge at bruge enten Pwiccer eller TwitLonger. (Pwiccer er en service der konverterer dit lange tweet om til et billede, for at det kan sendes)</string>
     <string name="view_retweeters">Retweet\'ers</string>
+    <string name="view_favoriters">Likes</string>
     <string name="no_tweets">Ingen tweets</string>
     <string name="only_7_days">Kun 7 dage er tilgængelige</string>
     <string name="saved_searches">Gemte søgninger</string>
@@ -542,10 +546,10 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="open_keyboard_summary">Viser automatisk tastaturet for svar, ved visning af tweets</string>
     <string name="no_retweets">Ingen retweets</string>
     <string name="profile">Profil</string>
-    <string name="favorites">Favoritter</string>
+    <string name="favorites">Likes</string>
     <string name="load_pictures">Vis billeder</string>
     <string name="pic_search_disclaimer">Gennemsøger tidslinjen for billeder. Det kan tage lidt tid afhængig af antallet</string>
-    <string name="widget_theme">Widget tema</string>
+    <string name="widget_theme">Widget tema for startskærm</string>
     <string name="widget_theme_summary">Tilføjet til widget på start skærmen</string>
     <string name="widget_light">Lyst tema</string>
     <string name="widget_dark">Mørkt tema</string>
@@ -617,13 +621,14 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="no_clients">Ingen apps</string>
     <string name="muted_clients_summary">Gør mute alle tweets fra en specifik applikation, muligt</string>
     <string name="client_not_found">Klient ikke fundet!</string>
-    <string name="favorite">Favorit</string>
+    <string name="favorite">Like</string>
     <string name="menu_share_image">Del billed</string>
     <string name="pick_time">Vælg tidspunkt</string>
     <string name="pick_date">Vælg dato</string>
     <string name="both_accounts">Begge konti</string>
     <string name="attach_gif">Animeret GIF</string>
-    <string name="roboto_l">Android \"L\" Roboto</string>
+    <string name="attach_video">Video</string>
+    <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">Sekundær konto</string>
     <string name="second_account_login_info">Eftersom Twitter ikke videregiver noget af din log ind information fra deres system, vil du fra den næste skærm muligvis ikke kunne logge ind med din nyoprettet profil. Hvis det sker og du sendes direkte til deres side for bekræftelse af din identitet, tap på \"Log af\" i toppen øverst til højre på hjemmesiden, for at lade app\'en logge dig ind med din sekundære konto</string>
     <string name="fetch_tweetmarker">Fastgør TweetMarker</string>
@@ -646,7 +651,7 @@ Talon har en ret omfattende support om emner og forslag, integreret i applikatio
     <string name="second_acc_mentions">Sekundær konto\'s meninger</string>
     <string name="using_second_account">Bruger %s konto!</string>
     <!-- the username will replace %s -->
-    <string name="error_gif">Fejl ved reg. af gif</string>
+    <string name="error_gif">Fejl ved reg. af medie</string>
     <string name="saved_search">Gemte søgninger</string>
     <string name="activity">Aktivitet</string>
     <string name="sending_direct_message">Sender direkte besked</string>
@@ -656,16 +661,32 @@ Talon har en ret omfattende support om emner og forslag, integreret i applikatio
     <string name="talon_pull_turned_on">Talon Pull skal aktiveres under synk. indstillinger for at bruge denne funktion</string>
     <string name="activity_sync_interval">Opdateringsinterval for aktiviteter</string>
     <string name="mentioned_you">nævnte dig</string>
-    <string name="favorites_lower">favoritter</string>
-    <string name="favorite_lower">favorit</string>
+    <string name="favorites_lower">Likes</string>
+    <string name="favorite_lower">Like</string>
     <string name="retweeted_your_status">Status retweetet</string>
     <string name="followed_you">Følger dig</string>
-    <string name="new_activity">Ny aktivitet!</string>
+    <string name="new_activity">Ny aktivitet</string>
     <string name="use_interaction_drawer">Aktivér oversigt for interaktioner</string>
     <string name="use_interaction_drawer_summary">Indholdet af denne oversigt er genereret via Talon Pull (streaming)</string>
     <string name="no_activity_yet">Ingen aktivitet</string>
     <string name="no_activity_yet_desc">Der vil blive vist indhold i denne sektion efterhånden som du kommunikerer mere på Twitter\n\n
- Meninger, nye følgere og dine retweets/favoriseringer vises her</string>
+ Meninger, nye følgere og dine retweets/favoriseringer vil vises her</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">ny følger</string>
+    <string name="new_followers_lower">nye følgere</string>
+    <string name="item">emne</string>
+    <string name="items">emner</string>
+    <string name="and">og</string>
+    <string name="no_favorites">Ingen likes</string>
+    <string name="quote_style">Citat stil</string>
+    <string name="quote_style_twitter">Twitter stil (Link til tweet)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Vis notifikation konstant</string>
+    <string name="show_pull_notification_summary">Hvis du deaktiverer notifikationen kan styresystemet lukke din tråd til enhver tid. Bruges med ekstrem forsigtighed</string>
+    <string name="custom_tab_title">Chrome standard faner</string>
+    <string name="custom_tab_message">Dit system tillader ikke Talon at starte Chrome standard faner automatisk. Sæt Chrome som din standard browser for at tillade det, ellers vil Talon fortsætte med at bruge dens egen interne browser.\n\nVælg venligst \"Ja\" eller \"Nej\" om Chrome skal være din standard browser</string>
+    <string name="learn_more">Lær mere</string>
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
     <string name="copy_handle">Kopiér indhold</string>
@@ -687,4 +708,5 @@ Talon har en ret omfattende support om emner og forslag, integreret i applikatio
     <string name="open_to_web">Åbn webside</string>
     <string name="open_to_web_summary">Indeholder et tweet et link til en webside, åbnes websiden i stedet for at vise tweetet</string>
     <string name="open_webpage">Åbn link</string>
+    <string name="get_android">Hent Android Emojis</string>
 </resources>

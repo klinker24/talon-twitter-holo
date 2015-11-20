@@ -167,7 +167,8 @@
     <string name="error_sending_tweet">推文发送失败</string>
     <string name="tweet_to_long">推文过长！</string>
     <string name="ok">确认</string>
-    <string name="no">No</string>
+    <string name="no">取消</string>
+    <string name="yes">确认</string>
     <string name="changelog">更新历史</string>
     <string name="created_by">创建者：</string>
     <string name="no_location">找不到地理信息</string>
@@ -183,7 +184,7 @@
     <string name="followers">关注者</string>
     <string name="following">已关注</string>
     <string name="blocked_user">已屏蔽（拉黑）用户</string>
-    <string name="unblocked_user">已取消屏蔽（拉黑）的用户</string>
+    <string name="unblocked_user">已取消屏蔽（拉黑）用户</string>
     <string name="followed_user">已关注用户</string>
     <string name="unfollowed_user">已取消关注用户</string>
     <string name="no_description">无法获取用户描述。</string>
@@ -285,14 +286,13 @@
     <string name="timestamp">24小时时刻显示</string>
     <string name="enable_emojis">开启绘文字</string>
     <string name="to_market">跳转至Play Store</string>
-    <string name="get_android">获取Android绘文字</string>
     <string name="get_ios">获取iOS绘文字</string>
     <string name="emoji_dialog_summary">在本应用中使用绘文字，需要预先从Play Store安装“Sliding Emoji Keyboard”或者\"Sliding Emoji Keyboard - iOS\"。\n\n
  您可以通过卸载旧的绘文字安装包并重新安装另一个绘文字安装包来切换成不同的绘文字类型。如果您同时安装了两个安装包，则默认使用Android的绘文字。\n\n
  注意：因为本应用是通过插件形式调用绘文字应用，所以就算绘文字应用过了试用期限，也依然可以在本应用中使用绘文字！</string>
-    <string name="theme_light">明亮的主题</string>
-    <string name="theme_dark">灰暗的主题</string>
-    <string name="theme_black">黑暗主题</string>
+    <string name="theme_light">浅色主题</string>
+    <string name="theme_dark">深色主题</string>
+    <string name="theme_black">黑色主题</string>
     <string name="sync_settings">同步设置</string>
     <string name="sync_mobile_data">使用手机数据流量</string>
     <string name="sync_mobile_data_summary">数据流量及Wifi环境下皆可自动更新时间线</string>
@@ -368,7 +368,7 @@
     <string name="restore_settings_summary">应用主题的改变将清除所有的缓存</string>
     <string name="get_help_settings">获得帮助</string>
     <string name="rerun_tutorial">启动初始教程</string>
-    <string name="faq">FAQ帮助</string>
+    <string name="faq">常见问题</string>
     <string name="features_explained">功能介绍</string>
     <string name="youtube">Youtube视频介绍</string>
     <string name="google_plus">Google+社群</string>
@@ -403,7 +403,7 @@
     <string name="manual">手动</string>
     <string name="layout_hangouts">环聊</string>
     <!-- added after release -->
-    <string name="use_inapp_browser">使用应用内浏览器</string>
+    <string name="use_inapp_browser">使用内置浏览器</string>
     <string name="dismiss_all">清除所有</string>
     <string name="handle_and_name">显示昵称和用户名</string>
     <string name="notification_types">通知类型</string>
@@ -545,11 +545,14 @@
     <string name="pic_search_disclaimer">搜索用户TL中的图片。图片数量将会影响加载时间。</string>
     <string name="widget_theme">窗口小部件的主题</string>
     <string name="widget_theme_summary">应用到手机主屏幕的窗口小部件上。</string>
-    <string name="widget_light">明亮主题</string>
-    <string name="widget_dark">暗主题</string>
-    <string name="widget_trans_light">透明明亮主题</string>
+    <string name="widget_light">浅色主题</string>
+    <string name="widget_dark">深色主题</string>
+    <string name="widget_trans_light">透明浅色主题</string>
     <string name="widget_trans_black">透明黑色主题</string>
     <string name="ui_settings">用户界面设置</string>
+    <string name="show_pos_dashclock">显示时间线位置</string>
+    <string name="talon_large_widget">Talon - 主时间线</string>
+    <string name="unread_bar_widget">Talon - 未读推文通知</string>
     <string name="show_muted_mentions">显示静音用户的互动</string>
     <string name="menu_view_drafts">查看草稿</string>
     <string name="menu_schedule_tweet">定时发送一条推文</string>
@@ -592,6 +595,8 @@
     <string name="only_queue_no_pic">队列中只能保留无图的推文！</string>
     <string name="menu_view_queued">查看队列中的推文</string>
     <string name="keep_queued_tweet">保留队列中的推文？</string>
+    <string name="date_picker">选择日期</string>
+    <string name="time_picker">选择时间</string>
     <string name="no_drafts">未发现草稿</string>
     <string name="no_queued">没有队列中的推文</string>
     <string name="menu_show_top_tweets">查看热门推文搜索结果</string>
@@ -599,8 +604,12 @@
     <string name="muted_clients">已静音的客户端</string>
     <string name="mute_client">静音客户端</string>
     <string name="muted_clients_summary">可以让你把所有来自这个应用的推特都静音掉。</string>
+    <string name="favorite">收藏</string>
     <string name="menu_share_image">分享图片</string>
+    <string name="pick_time">选择时间</string>
+    <string name="pick_date">选择日期</string>
     <string name="attach_gif">GIF动画</string>
+    <string name="attach_video">视频</string>
     <string name="rate_limit_reached">达到刷新上限</string>
     <string name="info">说明</string>
     <string name="help_and_feedback">帮助/反馈</string>
@@ -630,15 +639,30 @@ FAQ里已经列出了关于很多用户们希望talon能实现的功能的说明
     <string name="no_activity_yet">现在还没有活动！</string>
     <string name="no_activity_yet_desc">这个页面将随着你互动次数的增加而被填满。\n\n
  你的提及，新的关注者，新的被转推/被收藏都会出现在这里。</string>
+    <string name="retweet">转推</string>
+    <string name="new_follower_lower">新关注者</string>
+    <string name="new_followers_lower">新关注者</string>
+    <string name="quote_style">引用样式</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">持续显示通知</string>
+    <string name="custom_tab_title">Chrome 自定义标签</string>
+    <string name="learn_more">了解更多</string>
     <!-- Long click methods -->
+    <string name="open_profile">打开用户资料</string>
+    <string name="copy_handle">复制用户名</string>
+    <string name="search_user">搜索用户</string>
     <string name="mute_user">静音用户</string>
     <string name="mute_retweets">静音转推</string>
+    <string name="share_profile">分享用户</string>
     <string name="open_to_external_browser">在外部浏览器打开</string>
     <string name="open_to_internal_browser">在内部浏览器打开</string>
     <string name="copy_link">复制链接</string>
     <string name="share_link">分享链接</string>
     <string name="mute_hashtag">静音hashtag</string>
+    <string name="favorite_user_text">收藏用户</string>
     <string name="open_to_web">打开推文中的网页预览</string>
     <string name="open_to_web_summary">如果推文中含有网页链接，将会直接打开网页预览而不是推文内容。</string>
     <string name="open_webpage">打开链接</string>
+    <string name="get_android">获取Android绘文字</string>
 </resources>

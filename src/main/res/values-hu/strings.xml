@@ -62,6 +62,7 @@
     <string name="retweets">Retweetek</string>
     <string name="favorite_tweets">Kedvenc Tweetek</string>
     <string name="favorite_users">Kedvenc felhasználók</string>
+    <string name="favorite_users_tweets">Kedvenc felhasználói tweetek</string>
     <string name="trends">Trendek</string>
     <string name="local_trends">Helyi trendek</string>
     <string name="world_trends">Trendek a világban</string>
@@ -111,9 +112,11 @@
     <string name="new_interactions">Új esemény</string>
     <string name="retweeted">retweetelte az állapotát</string>
     <string name="favorited">kedvencekhez adta az állapotát</string>
+    <string name="quoted">idézte az állapotod</string>
     <string name="followed">követi</string>
     <string name="new_retweets">retweet</string>
     <string name="new_favorites">kedvenc</string>
+    <string name="new_quotes">idézések</string>
     <string name="new_tweets_upper">Új Tweetek</string>
     <!-- Login Screen -->
     <string name="setup_talon">Talon beállítása</string>
@@ -168,6 +171,7 @@
     <string name="tweet_to_long">Túl hosszú tweet!</string>
     <string name="ok">OK</string>
     <string name="no">Nem</string>
+    <string name="yes">Igen</string>
     <string name="changelog">Újdonságok</string>
     <string name="created_by">"Készítette: "</string>
     <string name="no_location">A hely nem elérhető</string>
@@ -285,7 +289,6 @@
     <string name="timestamp">24 órás időbélyegző</string>
     <string name="enable_emojis">Hangulatjel engedélyezése</string>
     <string name="to_market">A Play Áruházba</string>
-    <string name="get_android">Android Emojik beszerzése</string>
     <string name="get_ios">iOS Emojik beszerzése</string>
     <string name="emoji_dialog_summary">Az emojik alkamazáson belüli engedélyezéséhez, először telepíteni kell a Play Áruházból a \"Sliding Emoji Keyboard\" vagy a \"Sliding Emoji Keyboard - iOS\" csomagot.\n\n
                 A két emoji típus között úgy válthat, hogy eltávolítja az egyiket és telepíti a másikat. Ha mindkét csomag telepítve van, akkor a Talon az alapértelmezett Android emojikat fogja használni.\n\n
@@ -495,6 +498,7 @@
     <string name="use_shortening_service">Rövidítés szolgáltatás használata</string>
     <string name="use_shortening_service_summary">Választhatja a TwitLonger-t vagy a Pwiccer-t (szolgáltatás, amely posztolható képpé konvertálja a túl hosszú tweetet)</string>
     <string name="view_retweeters">Retweetelők</string>
+    <string name="view_favoriters">Kedvelések</string>
     <string name="no_tweets">Nincsenek Tweetek</string>
     <string name="only_7_days">Csak 7 nap érhető el</string>
     <string name="saved_searches">Mentett keresések</string>
@@ -622,6 +626,7 @@
     <string name="pick_date">Dátum megadása</string>
     <string name="both_accounts">Mindkét fiók</string>
     <string name="attach_gif">Animált GIF</string>
+    <string name="attach_video">Videó</string>
     <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Második fiók</string>
     <string name="second_account_login_info">Mivel a Twitter a saját rendszerén belül tárolja a bejelentkezési információkat, ezért a következő képernyőn nem biztos, hogy azonnal engedélyezi az új fiókkal való bejelentkezést. Ha átlépi a bejelentkezést és közvetlenül a hitelesítő oldalra irányítja, akkor egyszerűen nyomjon a \"Kijelentkezés\" gombra a jobb felső sarokban, hogy engedélyezhesse az alkalmazásnak a második fiókkal való bejelentkezést.</string>
@@ -660,6 +665,27 @@ Reméljük élvezni fogja a munkánkat!</string>
     <string name="retweeted_your_status">Retweetelte az állapotod</string>
     <string name="followed_you">Követ</string>
     <string name="new_activity">Új tevékenység!</string>
+    <string name="use_interaction_drawer">Esemény sáv engedélyezése</string>
+    <string name="use_interaction_drawer_summary">Ennek a sávnak a tartalmát a Talon Pull (közvetítés) tölti fel.</string>
+    <string name="no_activity_yet">Még nincs tevékenység!</string>
+    <string name="no_activity_yet_desc">Ez a rész akkor lesz feltöltve, ha több esemény történik veled a Twitteren.\n\n
+Említések, új követők, retweetek/állapot kedvelések itt fognak megjelenni.</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">új követő</string>
+    <string name="new_followers_lower">új követő</string>
+    <string name="item">elem</string>
+    <string name="items">elem</string>
+    <string name="and">és</string>
+    <string name="no_favorites">Nincs kedvelés</string>
+    <string name="quote_style">Idézés stílusa</string>
+    <string name="quote_style_twitter">Twitter stílus (tweet hivatkozás)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Állandó értesítés mutatása</string>
+    <string name="show_pull_notification_summary">Ha letiltja ezt az értesítést, akkor az Android bármikor bezárhatja a közvetítést. Használja kiemelt figyelemmel.</string>
+    <string name="custom_tab_title">Chrome egyéni lapok</string>
+    <string name="custom_tab_message">A rendszer nem engedi a Chrome egyéni lapk automatikus indítását. A funkció használatához a Chrome-nak kell lenni az alapértelmezett böngészőnek, különben a Talon továbbra is a saját belső böngészőjét fogja használni.\n\nKérjük válassza az \"Igen\"-t, ha a Chrome legyen az alapértelmezett böngésző, vagy a \"Nem\"-t, ha nem akarja alapértelmezettként használni.</string>
+    <string name="learn_more">Tudjon meg többet</string>
     <!-- Long click methods -->
     <string name="open_profile">Profil megnyitása</string>
     <string name="copy_handle">Becenév másolása</string>
@@ -681,4 +707,5 @@ Reméljük élvezni fogja a munkánkat!</string>
     <string name="open_to_web">Weboldal megnyitása</string>
     <string name="open_to_web_summary">Ha a tweet URL-t tartalmaz, akkor a tweet helyett közvetlenül az URL-t nyitja meg.</string>
     <string name="open_webpage">Link megnyitása</string>
+    <string name="get_android">Android Emojik beszerzése</string>
 </resources>
