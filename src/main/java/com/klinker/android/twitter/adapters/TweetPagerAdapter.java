@@ -117,7 +117,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
 
         if (links.length > 0 && !links[0].equals("")) {
             for (String s : links) {
-                if (s.contains("youtu")) {
+                if (s.contains("youtube.") || s.contains("youtu.be")) {
                     video = s;
                     youtube = true;
                     break;
