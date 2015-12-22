@@ -2,15 +2,21 @@ package com.klinker.android.twitter.ui.tweet_viewer.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.utils.IOUtils;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -33,6 +39,8 @@ public class VideoFragment extends Fragment {
 
     public VideoView video;
     public LinearLayout spinner;
+
+    private View download;
 
     public VideoFragment() {
 
@@ -59,6 +67,15 @@ public class VideoFragment extends Fragment {
             mediaController.setAnchorView(video);
             video.setMediaController(mediaController);
         }
+
+        download = layout.findViewById(R.id.download_button);
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                downloadVideo();
+            }
+        });
+        download.setEnabled(false);
 
         getGif();
 
@@ -109,6 +126,8 @@ public class VideoFragment extends Fragment {
                                     });
 
                                     video.start();
+
+                                    download.setEnabled(true);
                                 } else {
                                     Toast.makeText(getActivity(), R.string.error_gif, Toast.LENGTH_SHORT).show();
                                 }
@@ -192,5 +211,57 @@ public class VideoFragment extends Fragment {
         }
 
         return null;
+    }
+
+    private void downloadVideo() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(context)
+                                    .setSmallIcon(R.drawable.ic_stat_icon)
+                                    .setTicker(context.getResources().getString(R.string.downloading) + "...")
+                                    .setContentTitle(context.getResources().getString(R.string.app_name))
+                                    .setContentText("Saving video...")
+                                    .setProgress(100, 100, true)
+                                    .setOngoing(true);
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(6, mBuilder.build());
+
+                    Uri uri = IOUtils.saveVideo(videoUrl);
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.setDataAndType(uri, "video/*");
+
+                    PendingIntent pending = PendingIntent.getActivity(context, 91, intent, 0);
+
+                    mBuilder =
+                            new NotificationCompat.Builder(context)
+                                    .setContentIntent(pending)
+                                    .setSmallIcon(R.drawable.ic_stat_icon)
+                                    .setContentTitle(context.getResources().getString(R.string.app_name))
+                                    .setContentText("Saved video!");
+
+                    mNotificationManager.notify(6, mBuilder.build());
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(context)
+                                    .setSmallIcon(R.drawable.ic_stat_icon)
+                                    .setTicker(context.getResources().getString(R.string.error) + "...")
+                                    .setContentTitle(context.getResources().getString(R.string.app_name))
+                                    .setContentText(context.getResources().getString(R.string.error) + "...")
+                                    .setProgress(0, 100, true);
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(6, mBuilder.build());
+                }
+            }
+        }).start();
     }
 }

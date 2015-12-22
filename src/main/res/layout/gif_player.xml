@@ -3,7 +3,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:layout_gravity="center">
+              android:layout_gravity="center"
+              android:gravity="center">
 
     <VideoView
             android:id="@+id/gif"
@@ -11,6 +12,14 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="?windowBackground"/>
+
+    <Button
+        android:layout_marginTop="16dp"
+        android:id="@+id/download_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_below="@+id/gif"/>
 
     <LinearLayout android:id="@+id/spinner"
                   android:orientation="vertical"

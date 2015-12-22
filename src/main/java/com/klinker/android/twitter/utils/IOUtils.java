@@ -35,6 +35,9 @@ import com.klinker.android.twitter.data.sq_lite.*;
 import com.klinker.android.twitter.settings.AppSettings;
 
 import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
@@ -65,6 +68,38 @@ public class IOUtils {
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
         context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         Toast.makeText(context, context.getResources().getString(R.string.save_image), Toast.LENGTH_SHORT).show();
+
+        return Uri.fromFile(file);
+    }
+
+    public static final Uri saveVideo(String videoUrl) throws Exception {
+
+        File myDir = new File(Environment.getExternalStorageDirectory() + "/Talon");
+        myDir.mkdirs();
+
+        final File file = new File(Environment.getExternalStorageDirectory(), "Talon/Video-" + (new Date()).getTime() + ".mp4");
+        if (!file.createNewFile()) {
+            throw new RuntimeException("Cannot download video - error creating file");
+        }
+
+        URL url = new URL(videoUrl);
+        URLConnection connection = url.openConnection();
+        connection.setReadTimeout(5000);
+        connection.setConnectTimeout(30000);
+
+        InputStream is = connection.getInputStream();
+        BufferedInputStream inStream = new BufferedInputStream(is, 1024 * 5);
+        FileOutputStream outStream = new FileOutputStream(file);
+
+        byte[] buffer = new byte[1024 * 5];
+        int len;
+        while ((len = inStream.read(buffer)) != -1) {
+            outStream.write(buffer, 0, len);
+        }
+
+        outStream.flush();
+        outStream.close();
+        inStream.close();
 
         return Uri.fromFile(file);
     }
