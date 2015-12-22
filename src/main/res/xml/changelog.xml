@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.5.0">
+        <text>Download Videos</text>
+    </version>
+
     <version name="4.4.3">
         <text>Favorites are now likes and stars moved to hearts</text>
         <text>Update Translations</text>
