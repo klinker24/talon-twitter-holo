@@ -323,7 +323,7 @@ Ces données sont utilisées lors de la recherche d\'utilisateurs lors de la com
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">Cela va démarrer un service d\'écoute qui affichera une notification à chaque nouvelle interaction (mentions, dm\'s, favoris, retweets, ou nouveaux followers).</string>
     <string name="push_notification_warning">Pour en savoir plus sur cette option, cliquez ici.</string>
-    <string name="notification_settings">Réglages des notifcations</string>
+    <string name="notification_settings">Réglages des notifications</string>
     <string name="pebble_notifications">Notifications Pebble</string>
     <string name="pebble_notifications_summary">Fonctionne avec la montre Pebble.</string>
     <string name="advanced_settings">Réglages avancés</string>
