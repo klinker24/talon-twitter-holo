@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
@@ -177,6 +178,35 @@ public class UpdateUtils {
             e.putInt("default_timeline_page_" + 2, 1);
 
             e.commit();
+        }
+
+        if (!sharedPrefs.getBoolean("displayed_upgrade_message", false) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            sharedPrefs.edit().putBoolean("displayed_upgrade_message", true).commit();
+
+            new AlertDialog.Builder(context)
+                    .setTitle("Love Talon?")
+                    .setMessage("Consider upgrading to the Material Design version of the app! All the latest design elements, in the same Twitter app you have come to enjoy every day.\n\n" +
+                            "This 'classic' version of the app will continue to receive all the new features that are possible, just without the visual updates.")
+                    .setPositiveButton("Upgrade", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            new WebIntentBuilder(context)
+                                    .setShouldForceExternal(true)
+                                    .setUrl("https://play.google.com/store/apps/details?id=com.klinker.android.twitter_l")
+                                    .build().start();
+                        }
+                    })
+                    .setNegativeButton("Learn More", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            new WebIntentBuilder(context)
+                                    .setShouldForceExternal(true)
+                                    .setUrl("https://plus.google.com/+LukeKlinker/posts/KG4AcH3YA2U")
+                                    .build().start();
+                        }
+                    })
+                    .create()
+                    .show();
         }
     }
 }
