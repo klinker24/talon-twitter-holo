@@ -35,6 +35,8 @@ import java.net.URL;
 import java.util.Random;
 
 public class PhotoFragment extends Fragment {
+    
+    private Activity activity;
 
     public static PhotoFragment getInstance(String s) {
         Bundle b = new Bundle();
@@ -52,6 +54,8 @@ public class PhotoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        
+        activity = getActivity();
 
         Bundle args = getArguments();
         url = args.getString("url");
@@ -73,7 +77,7 @@ public class PhotoFragment extends Fragment {
             @Override
             public void onViewTap(View view, float x, float y) {
                 try {
-                    getActivity().finish();
+                    activity.finish();
                 } catch (Exception e) {
                     // activity is null
                 }
@@ -91,16 +95,16 @@ public class PhotoFragment extends Fragment {
 
                 try {
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(getActivity())
+                            new NotificationCompat.Builder(activity)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(getResources().getString(R.string.downloading) + "...")
                                     .setContentTitle(getResources().getString(R.string.app_name))
                                     .setContentText(getResources().getString(R.string.saving_picture) + "...")
                                     .setProgress(100, 100, true)
-                                    .setLargeIcon(BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.ic_action_save));
+                                    .setLargeIcon(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_action_save));
 
                     NotificationManager mNotificationManager =
-                            (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                            (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
                     mNotificationManager.notify(6, mBuilder.build());
 
                     URL mUrl = new URL(url);
@@ -118,35 +122,35 @@ public class PhotoFragment extends Fragment {
                     n = generator.nextInt(n);
                     String fname = "Image-" + n;
 
-                    Uri uri = IOUtils.saveImage(bitmap, fname, getActivity());
+                    Uri uri = IOUtils.saveImage(bitmap, fname, activity);
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_VIEW);
                     intent.setDataAndType(uri, "image/*");
 
-                    PendingIntent pending = PendingIntent.getActivity(getActivity(), 91, intent, 0);
+                    PendingIntent pending = PendingIntent.getActivity(activity, 91, intent, 0);
 
                     mBuilder =
-                            new NotificationCompat.Builder(getActivity())
+                            new NotificationCompat.Builder(activity)
                                     .setContentIntent(pending)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(getResources().getString(R.string.saved_picture) + "...")
                                     .setContentTitle(getResources().getString(R.string.app_name))
                                     .setContentText(getResources().getString(R.string.saved_picture) + "!")
-                                    .setLargeIcon(BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.ic_action_save));
+                                    .setLargeIcon(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_action_save));
 
                     mNotificationManager.notify(6, mBuilder.build());
                 } catch (Exception e) {
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(getActivity())
+                            new NotificationCompat.Builder(activity)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(getResources().getString(R.string.error) + "...")
                                     .setContentTitle(getResources().getString(R.string.app_name))
                                     .setContentText(getResources().getString(R.string.error) + "...")
                                     .setProgress(100, 100, true)
-                                    .setLargeIcon(BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.ic_action_save));
+                                    .setLargeIcon(BitmapFactory.decodeResource(activity.getResources(), R.drawable.ic_action_save));
 
                     NotificationManager mNotificationManager =
-                            (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                            (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
                     mNotificationManager.notify(6, mBuilder.build());
                 }
             }
@@ -166,7 +170,7 @@ public class PhotoFragment extends Fragment {
         sharingIntent.setType("image/*");
 
         // add the bitmap uri to the intent
-        Uri uri = getImageUri(getActivity(), bitmap);
+        Uri uri = getImageUri(activity, bitmap);
         sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
 
         // start the chooser
@@ -184,7 +188,7 @@ public class PhotoFragment extends Fragment {
         try {
             return Uri.parse(path);
         } catch (Exception e) {
-            Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, R.string.error, Toast.LENGTH_SHORT).show();
             return null;
         }
     }
