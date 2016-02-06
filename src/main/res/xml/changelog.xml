@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.5.2">
+        <text>Force close fixes</text>
+    </version>
+
     <version name="4.5.0">
         <text>Download Videos</text>
     </version>
