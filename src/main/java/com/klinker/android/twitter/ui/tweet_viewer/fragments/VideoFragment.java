@@ -97,7 +97,7 @@ public class VideoFragment extends Fragment {
 
                     videoUrl = getGifLink();
                 } else {
-                    videoUrl = tweetUrl;
+                    videoUrl = tweetUrl.replace(".png", ".mp4").replace(".jpg",".mp4").replace(".jpeg", ".mp4");
                 }
 
                 try {

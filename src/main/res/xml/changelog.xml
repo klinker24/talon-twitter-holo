@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.5.3">
+        <text>Fix GIFs not playing</text>
+    </version>
+
     <version name="4.5.2">
         <text>Force close fixes</text>
     </version>

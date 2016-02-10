@@ -547,7 +547,7 @@ public class TweetLinkUtils {
         for (ExtendedMediaEntity e : s.getExtendedMediaEntities()) {
 
             if (e.getType().equals("animated_gif")) {
-                return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4");
+                return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4").replace(".jpg",".mp4").replace(".jpeg", ".mp4");
             } else if (e.getType().equals("video")) {
                 if (e.getVideoVariants().length > 0) {
                     String url = "";
