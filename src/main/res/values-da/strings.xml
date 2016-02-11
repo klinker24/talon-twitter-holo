@@ -35,8 +35,8 @@
     <string name="menu_change_banner">Rediger profilbanner</string>
     <string name="menu_direct_message">Ny direkte besked</string>
     <string name="menu_save_image">Gem billede</string>
-    <string name="menu_favorite">Favorit</string>
-    <string name="menu_unfavorite">Fjern favorit</string>
+    <string name="menu_favorite">Favorit bruger</string>
+    <string name="menu_unfavorite">Fjern favorit bruger</string>
     <string name="menu_create_list">Opret ny liste</string>
     <string name="menu_spam">Rapportér som spam</string>
     <!-- Times -->
@@ -74,10 +74,10 @@
     <string name="no_new_tweets">Nye tweets</string>
     <string name="new_mention">ny mening</string>
     <string name="new_mentions">nye meninger</string>
-    <string name="no_new_mentions">Ingen nye meninger</string>
+    <string name="no_new_mentions">Nye meninger</string>
     <string name="new_direct_message">Ny direkte besked</string>
     <string name="new_direct_messages">Nye direkte beskeder</string>
-    <string name="no_new_direct_messages">Ingen nye direkte beskeder</string>
+    <string name="no_new_direct_messages">Nye direkte beskeder</string>
     <string name="tap_to_setup">Tap for at indstille</string>
     <string name="new_account">Ny konto</string>
     <string name="from_top">fra top</string>
@@ -126,8 +126,8 @@
     <string name="third_welcome">Færdig!</string>
     <string name="back_to_timeline">Vis mig min tidslinje!</string>
     <string name="initial_sync">Synkronisér nu!</string>
-    <string name="first_info">Log ind for at starte og bliv synkroniseret med twitter</string>
-    <string name="second_info">Super!\n\nFlere data skal hentes\n\nDet kan tage lidt tid, afhængig af din internet hastighed</string>
+    <string name="first_info">Log ind og synkroniser med twitter</string>
+    <string name="second_info">Super!\n\nFlere data hentes\n\n- det kan tage lidt tid, afhængig af din internet hastighed</string>
     <string name="third_info">Jeg håber du får glæde af Talon!\n\n- Luke Klinker</string>
     <string name="syncing_timeline">Synkroniserer tidslinjen...</string>
     <string name="syncing_mentions">Synkroniserer meninger...</string>
@@ -138,7 +138,7 @@
     <string name="no_network">Der er ingen forbindelse til internettet</string>
     <string name="no_thanks">Ikke nu</string>
     <string name="follow_me">Følg</string>
-    <string name="follow_me_description">Tjek feltet af for automatisk at følge, eller tap tilbage for at afvise</string>
+    <string name="follow_me_description">Tjek feltet af for automatisk at følge, tap tilbage for at afvise</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">Nyt tweet</string>
     <string name="compose_tweet_hint">Skriv tweet...</string>
@@ -252,8 +252,8 @@
     <string name="added_to_list">Tilføjet til liste</string>
     <!-- Tutorial Activity -->
     <string name="part_1_tablet">Tilgå indstillinger\nved tap på enheder\ni\nnavigations\nlisten!</string>
-    <string name="part_1_phone">\nÅbn\nnavigationsoversigten\nved at swipe fra venstre\nkant mod højre!</string>
-    <string name="part_2">\nSkift mellem\nlister ved\nswipe\nfra midten\neller ind fra venstre side af skærmen</string>
+    <string name="part_1_phone">\nÅbn\nnav.oversigt ved\nswipe fra venstre\nkant mod højre!</string>
+    <string name="part_2">\nSkift mell.\nlister ved swipe\npå midten eller fra \nvenstre side\naf skærmen</string>
     <string name="part_3">Færdig!\n\nTap på\nskærmen for\nat starte!</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Tema indstillinger</string>
@@ -424,7 +424,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="compose_with_search">Skriv tweet via søge funktion</string>
     <string name="use_toast">Vis aktiv \"Til top\" linje</string>
     <string name="ignore_retweets">Ignorér retweets</string>
-    <string name="ignore_retweets_summary">Skjuler retweets når du scroller igennem tidslinjen</string>
+    <string name="ignore_retweets_summary">Skjul retweets når du scroller igennem tidslinjen</string>
     <string name="view">Vis</string>
     <string name="muted_hashtags">Muted hash tags</string>
     <string name="muted_hashtags_summary">Tap på hash tag\'et for at fjerne mute</string>
@@ -476,7 +476,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="removing_retweet">Fjerner retweet status</string>
     <string name="retweeting_status">Sender tweet...</string>
     <string name="removing_favorite">Fjerner like status</string>
-    <string name="favoriting_status">Favorit</string>
+    <string name="favoriting_status">Like</string>
     <string name="jumping_workaround">Fix for hop i tidslinjen</string>
     <string name="jumping_workaround_summary">Bruges hvis din tidslinje hopper et tweet ned ved opdatering</string>
     <string name="menu_share_link">Del link</string>
@@ -571,7 +571,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="menu_attach_picture">Vedhæft billede</string>
     <string name="twitpic_disclaimer">TwitPic ansvarsfraskrivelse</string>
     <string name="twitpic_disclaimer_summary">Twitter\'s API tillader ikke vedhæftning af billeder til en direkte besked. Derfor vil Talon uploade billedet til TwitPic og dele linket til billedet med modtageren\n\n
- Billedet vil være tilgængeligt på din TwitPic profil</string>
+Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="dont_show_again">Vis ikke igen</string>
     <string name="error_attaching_image">Fejl ved vedhæftning af billede</string>
     <string name="sending_tweet">Sender tweet</string>
@@ -636,9 +636,9 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="info">Info</string>
     <string name="help_and_feedback">Hjælp/feedback</string>
     <string name="faq_first">Hej. Jeg er glad for du vil hjælpe mig med at forbedre Talon!\n\n
- Du er velkommen til at sende mig et tweet med din feedback eller med eventuelle spørgsmål du må have. Inden du gør det, se dog lige FAQ først.\n\n
+Du er velkommen til at sende mig et tweet med din feedback eller med eventuelle spørgsmål du må have. Inden du gør det, se dog lige FAQ først.\n\n
 Talon har en ret omfattende support om emner og forslag, integreret i applikationen. Kik først dér, så behøver du måske ikke at skulle vente på et svar fra mig. \nJeg skal gøre mit bedste for at svare tilbage, så hurtigt jeg kan!\n\n
- Jeg håber du er tilfreds med Talon!</string>
+Jeg håber du er tilfreds med Talon!</string>
     <string name="contact">Kontakt</string>
     <string name="follow">Følg</string>
     <string name="menu_number_of_pages">Antal ekstra sider</string>
@@ -656,7 +656,7 @@ Talon har en ret omfattende support om emner og forslag, integreret i applikatio
     <string name="activity">Aktivitet</string>
     <string name="sending_direct_message">Sender direkte besked</string>
     <string name="fav_rt_multiple_accounts">Konti indstillinger</string>
-    <string name="fav_rt_multiple_accounts_summary">Hvis du har flere konti, kan du her vælge hvilken konto du ønsker at retweete og favorisere fra</string>
+    <string name="fav_rt_multiple_accounts_summary">Hvis du har flere konti, kan du her vælge hvilken konto du ønsker at retweete og like fra</string>
     <string name="talon_pull_notifications">Talon Pull (øjeblikkelige) notifikationer</string>
     <string name="talon_pull_turned_on">Talon Pull skal aktiveres under synk. indstillinger for at bruge denne funktion</string>
     <string name="activity_sync_interval">Opdateringsinterval for aktiviteter</string>
@@ -670,7 +670,7 @@ Talon har en ret omfattende support om emner og forslag, integreret i applikatio
     <string name="use_interaction_drawer_summary">Indholdet af denne oversigt er genereret via Talon Pull (streaming)</string>
     <string name="no_activity_yet">Ingen aktivitet</string>
     <string name="no_activity_yet_desc">Der vil blive vist indhold i denne sektion efterhånden som du kommunikerer mere på Twitter\n\n
- Meninger, nye følgere og dine retweets/favoriseringer vil vises her</string>
+Nye meninger, følgere, retweets og likes vil blive vist her</string>
     <string name="retweet">Retweet</string>
     <string name="new_follower_lower">ny følger</string>
     <string name="new_followers_lower">nye følgere</string>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <string name="app_name">Talon</string>
+    <string name="app_name_full">Talon per Twitter</string>
+    <string name="extension_description">Mostra el número de tweets sense llegir, mencions i missatges directes conforme s\'actualitzen.</string>
+    <!-- Action Bar -->
+    <string name="menu_refresh">Actualitza la pàgina principal</string>
+    <string name="menu_compose">Nou Tweet</string>
+    <string name="menu_logout">Desconnectar-se</string>
+    <string name="menu_settings">Configuració</string>
+    <string name="menu_follow">Fer-se seguidor de l\'usuari</string>
+    <string name="menu_unfollow">No seguir l\'usuari</string>
+    <string name="menu_tweet">Enviar Tweet</string>
+    <string name="menu_dm">Enviar missatge directe</string>
+    <string name="menu_block">Bloquejar l\'usuari</string>
+    <string name="menu_unblock">Desbloquejar l\'usuari</string>
+    <string name="menu_add_to_list">Afegir a una llista</string>
+    <string name="menu_change_picture">Canviar imatge de perfil</string>
+    <string name="menu_change_bio">Canviar l\'informació del perfil</string>
+    <string name="menu_change_banner">Canviar la foto de portada</string>
+    <string name="menu_direct_message">Nou missatge directe</string>
+    <string name="menu_save_image">Guardar imatge</string>
+    <string name="menu_favorite">Marcar l\'usuari com a favorit</string>
+    <string name="menu_unfavorite">Treure d\'usuaris favorits</string>
+    <string name="menu_create_list">Crear una nova llista</string>
+    <string name="menu_spam">Marca com Spam</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="just_now">ara mateix</string>
+    <string name="a_min_ago">fa un minut</string>
+    <string name="minutes_ago">fa %s minuts</string>
+    <string name="an_hour_ago">fa una hora</string>
+    <string name="hours_ago">fa %s hores</string>
+    <string name="yesterday">ahir</string>
+    <string name="days_ago">fa %s dies</string>
+    <!-- Muting -->
+    <string name="mute">Silenciar</string>
+    <string name="unmute">Treure el silenci</string>
+    <string name="muted_users">Usuaris silenciats</string>
+    <string name="no_users">Sense usuaris</string>
+    <!-- Main Activity -->
+    <string name="links">Enllaços</string>
+    <string name="pictures">Imatges</string>
+    <string name="timeline">Principal</string>
+    <string name="mentions">Mencions</string>
+    <string name="direct_messages">Missatges directes</string>
+    <string name="retweets">Retweets</string>
+    <string name="favorite_tweets">Tweets que m\'agraden</string>
+    <string name="favorite_users">Usuaris favorits</string>
+    <string name="favorite_users_tweets">Tweets favorits de l\'usuari</string>
+    <string name="trends">Destacats</string>
+    <string name="local_trends">Destacats locals</string>
+    <string name="world_trends">Destacats globals</string>
+    <string name="search">Buscar</string>
+    <string name="lists">Llistes</string>
+    <string name="search_hint">Buscar...</string>
+    <string name="new_tweet">nou tweet</string>
+    <string name="new_tweets">nous tweets</string>
+    <string name="no_new_tweets">No hi ha nous tweets</string>
+    <string name="new_mention">nova menció</string>
+    <string name="new_mentions">noves mencions</string>
+    <string name="no_new_mentions">No hi ha mencions noves</string>
+    <string name="new_direct_message">nou missatge</string>
+    <string name="new_direct_messages">nous missatges</string>
+    <string name="no_new_direct_messages">No hi ha missatges nous</string>
+    <string name="tap_to_setup">Prem per configurar</string>
+    <string name="new_account">Nou compte</string>
+    <string name="from_top">des de dalt</string>
+    <string name="jump_to_top">Al primer</string>
+    <string name="all_read">Tot llegit!</string>
+    <string name="view_new">Carregar?</string>
+    <string name="old_interactions">Totes les interaccions</string>
+    <!-- Notifications -->
+    <string name="tweet">Tweet</string>
+    <string name="tweets">Tweets</string>
+    <string name="mention">Menció</string>
+    <string name="message">Missatge</string>
+    <string name="messages">Missatges</string>
+    <string name="new_message">nou missatge</string>
+    <string name="new_messages">nous missatges</string>
+    <string name="mentioned_by">Mencionat per</string>
+    <string name="message_from">Missatge de</string>
+    <string name="mark_read">Llegit</string>
+    <string name="noti_reply">Respondre</string>
+    <string name="popup">Finestra emergent</string>
+    <string name="fav_user_tweets">nous tweets d\'un usuari favorit</string>
+    <string name="sec_acc">Segon compte</string>
+    <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">"PRECAUCIÓ: Activar aquesta opció pot causar una descàrrega significativa de la bateria a Android Lollipop. "</string>
+    <string name="listening">Escoltant</string>
+    <string name="listening_for_mentions">Escoltant interaccions</string>
+    <string name="refreshing">Actualitzant</string>
+    <string name="refreshing_widget">Actualitzant guiny</string>
+    <string name="downloading">Descarregant</string>
+    <string name="new_interaction_upper">Nova interacció</string>
+    <string name="new_interactions_lower">noves interaccions</string>
+    <string name="new_interactions">Noves Interaccions</string>
+    <string name="retweeted">Ha retweetat el teu estat</string>
+    <string name="favorited">ha fet \"M\'agrada\" al teu estat</string>
+    <string name="quoted">ha citat el teu estat</string>
+    <string name="followed">t\'està seguint</string>
+    <string name="new_retweets">retweets</string>
+    <string name="new_favorites">ha fet \"M\'agrada\"</string>
+    <string name="new_quotes">cites</string>
+    <string name="new_tweets_upper">Nous Tweets</string>
+    <!-- Login Screen -->
+    <string name="setup_talon">Configurar Talon</string>
+    <string name="login_to_twitter">Entrar a Twitter</string>
+    <string name="first_welcome">Benvingut a Talon!</string>
+    <string name="second_welcome">Sincronitzant dades</string>
+    <string name="third_welcome">"Tot llest, a disfrutar! "</string>
+    <string name="back_to_timeline">Porta\'m a la portada!</string>
+    <string name="initial_sync">Sincronitza ara!</string>
+    <string name="first_info">"Abans de començar, haurem d\'entrar i sincronitzar amb Twitter. "</string>
+    <string name="second_info">Genial! Estem parlant amb Twitter per tal de sincronitzar el teu compte.</string>
+    <string name="third_info">Esperem que gaudeixis de Talon</string>
+    <string name="syncing_timeline">Sincronitzant pàgina principal...</string>
+    <string name="syncing_mentions">Sincronitzant mencions...</string>
+    <string name="syncing_direct_messages">Sincronitzant missatges directes...</string>
+    <string name="syncing_user">Sincronitzant amics...</string>
+    <string name="done_syncing">Sincronització finalitzada.</string>
+    <string name="login_error">"Hi ha quelcom que ha anat malament... Torna a intentar, si us plau. \n\nPodria ser que la data i hora del teu dispositiu no estigui configurada com \"automàtic\". Aquest és un requisit de la API de Twitter. "</string>
+    <string name="no_network">No estàs connectat a Internet</string>
+    <string name="no_thanks">Ara no</string>
+    <string name="follow_me">Seguir!</string>
+    <string name="follow_me_description">"Marca la casella per seguir automàticament els usuaris de suport, o premi enrere per ometre aquest pas. "</string>
+    <!-- Compose New Activity -->
+    <string name="compose_activity">Nou Tweet</string>
+    <string name="compose_tweet_hint">Escriu el Tweet...</string>
+    <string name="send_to">Escriu el nom de l\'usuari...</string>
+    <string name="direct_message_sent">S\'ha enviat el missatge</string>
+    <string name="type_user">Escriu l\'usuari</string>
+    <string name="add_user">Afegir usuari</string>
+    <string name="location_connected">Ubicació inserida</string>
+    <string name="location_disconnected">S\'ha perdut l\'ubicació</string>
+    <string name="finding_location">Buscant ubicacions</string>
+    <string name="draft_found">S\'ha trobat esborrany</string>
+    <string name="apply">Aplicar?</string>
+    <string name="tweet_failed">Error a l\'enviar Tweet</string>
+    <string name="tap_to_retry">Prem per tornar a provar</string>
+    <string name="one_recepient">Només pots enviar missatges directes a un usuari alhora!</string>
+    <!-- Actionbar Done-Discard -->
+    <string name="discard">Desfer</string>
+    <string name="send">Enviar</string>
+    <!-- Other -->
+    <string name="placeholder">Entrada</string>
+    <string name="reply">Contestar...</string>
+    <string name="error">Error</string>
+    <string name="error_loading_page">Error al carregar lloc web</string>
+    <string name="delete">Esborrar</string>
+    <string name="cancel">Cancel·lar</string>
+    <string name="delete_direct_message">Esborrar el missatge?</string>
+    <string name="save_image">Imatge guardada</string>
+    <string name="tweet_success">Tweet exitòs</string>
+    <string name="error_sending_tweet">Error a l\'enviar Tweet</string>
+    <string name="tweet_to_long">"El Tweet és massa llarg! "</string>
+    <string name="ok">Sí</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="changelog">Novetats</string>
+    <string name="created_by">Creat per</string>
+    <string name="no_location">No s\'ha trobat la localització</string>
+    <string name="take_picture">Fer una foto</string>
+    <string name="from_file">Adjuntar imatge</string>
+    <string name="via">mitjançant</string>
+    <string name="version">Versió</string>
+    <string name="from">De</string>
+    <string name="save">Guardar</string>
+    <string name="stop">Aturar</string>
+    <string name="tweeted">tweetejat</string>
+    <!-- User Profile Activity -->
+    <string name="followers">Seguidors</string>
+    <string name="following">Seguint</string>
+    <string name="blocked_user">Usuari bloquejat</string>
+    <string name="unblocked_user">Usuari desbloquejat</string>
+    <string name="followed_user">Segueixes aquest usuari</string>
+    <string name="unfollowed_user">Deixes de seguir aquest usuari</string>
+    <string name="no_description">Usuari sense descripció.</string>
+    <string name="favorite_user">Usuari marcat com a favorit</string>
+    <string name="unfavorite_user">Usuari esborrat de favorits</string>
+    <string name="updating_pro_pic">Actualitzant imatge de perfil</string>
+    <string name="updating_banner_pic">Actualitzant imatge de portada</string>
+    <string name="uploaded">S\'ha pujat l\'arxiu</string>
+    <string name="change_profile_info">Canviar l\'informació del perfil</string>
+    <string name="update">Actualitzar</string>
+    <string name="optional_name">Nom (opcional)</string>
+    <string name="optional_url">Enllaç (opcional)</string>
+    <string name="optional_location">Localització (opcional)</string>
+    <string name="optional_description">Descripció (opcional)</string>
+    <string name="updated_profile">Perfil actualitzat</string>
+    <string name="name_char_length">Nom: limitat a 20 caracters</string>
+    <string name="url_char_length">Enllaç: limitat a 100 caracters</string>
+    <string name="location_char_length">Localització: limitat a 30 caracters</string>
+    <string name="description_char_length">Descripció: limitat a 160 caracters</string>
+    <!-- Retweets Activity -->
+    <string name="retweets_lower">retweets</string>
+    <string name="retweet_lower">retweet</string>
+    <string name="retweeter">retweet per @</string>
+    <!-- Tweet Activity -->
+    <string name="menu_open_web">Obrir enllaç web</string>
+    <string name="menu_copy_text">Copiar Tweet</string>
+    <string name="menu_share">Compartir Tweet</string>
+    <string name="menu_delete_tweet">Esborrar Tweet</string>
+    <string name="conversation">Conversa</string>
+    <string name="webpage">Lloc web</string>
+    <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet Multimèdia</string>
+    <string name="vine">Vine</string>
+    <string name="menu_quote">Citar Tweet</string>
+    <string name="deleted_tweet">Tweet esborrat</string>
+    <string name="error_deleting">Error esborrant Tweet</string>
+    <string name="sending">Enviant</string>
+    <string name="open_what">Què obrir</string>
+    <string name="youtube_error">Error al reproduir vídeo</string>
+    <string name="no_conversation">No hi ha Tweets anteriors</string>
+    <string name="saving_picture">Guardant imatge</string>
+    <string name="saved_picture">La imatge ha estat guardada correctament</string>
+    <string name="retweet_success">Retweetat correctament</string>
+    <string name="favorite_success">T\'agrada això</string>
+    <string name="success">Fet!</string>
+    <!-- User Lists -->
+    <string name="view_users">Veure usuaris</string>
+    <string name="delete_list">Esborrar llista</string>
+    <string name="remove_user">Eliminar l\'usuari</string>
+    <string name="remove">Esborrar</string>
+    <string name="from_list">de la llista</string>
+    <string name="removed_user">Usuari esborrat</string>
+    <string name="create_new_list">Crea una nova llista</string>
+    <string name="list_name">Cognom...</string>
+    <string name="list_description">Descripció opcional de la llista...</string>
+    <string name="deleted_list">Llista esborrada</string>
+    <string name="back_to_refresh">Torna enrere per actualitzar llistes</string>
+    <string name="sPrivate">Privat</string>
+    <string name="sPublic">Públic</string>
+    <string name="finding_lists">Trobant llistes...</string>
+    <string name="choose_list">Escull la llista</string>
+    <string name="added_to_list">Afegit a la llista</string>
+    <!-- Tutorial Activity -->
+    <string name="part_1_tablet">\nAccedir a les funcionalitats\nprement els elements\nal\npanell\nde navegació!</string>
+    <string name="part_1_phone">\nObre el panell\nde navegació \nd\'esquerra \na dreta! \n</string>
+    <string name="part_2">"\nCanvia de\npàgines\ndesplaçant-te \ndes del mig de\nla pantalla! "</string>
+    <string name="part_3">Aixó és tot!\n\nPrem per iniciar!</string>
+    <!-- Settings Menu -->
+    <string name="theme_settings">Configuració de l\'estil</string>
+    <string name="theme_options">Opcions de l\'estil</string>
+    <string name="font_options">Mostrar opcions</string>
+    <string name="other_options">Altres opcions</string>
+    <string name="theme">Estil</string>
+    <string name="addon_themes">Estils complementaris</string>
+    <string name="addon_note">Prem aquí per cercar nous estils.\n\nNOTES:\n- Això deshabilitarà l\'ús del teclat emoji integrat al respondre a un Tweet.\n- Si us plau, no reportis nous errors a menys que els confirmi sense utilitzar un estil personalitzat.</string>
+    <string name="use_addon_themes">Utilitzar estil Add-On</string>
+    <string name="make_a_theme">Crear un estil</string>
+    <string name="layout">Disseny de la pàgina principal</string>
+    <string name="themeing_complete">Estil aplicat</string>
+    <string name="themeing_complete_summary">Talon es tancarà.\n\n
+Hauràs d\'esborrar Talon de la llista d\'aplicacions recents per que els canvis s\'apliquin a la pàgina principal.\n\n
+Si les fotos de perfil no surten com s\'esperava (ej. en cercles o quadrats), hauràs d\'esborrar i tornar a afegir el giny.</string>
+    <string name="layout_summary">Canviar aquesta opció netejarà la memoria cau de l\'aplicació</string>
+    <string name="text_size">Mida del text</string>
+    <string name="night_mode">Mode nit</string>
+    <string name="night_mode_night">Seleccioni el inici de la nit</string>
+    <string name="night_mode_day">Seleccioni el inici del dia</string>
+    <string name="night_mode_theme">Seleccioni l\'estil per al mode nit</string>
+    <string name="device_font">Utilitzar la tipografia del dispositiu</string>
+    <string name="device_font_summary">\"Roboto regular\" a la majoria de dispositius. Talon utilitza \"Roboto Light\" de forma predeterminada.</string>
+    <string name="ui_extras">Extres de la interfície</string>
+    <string name="ui_extras_summary">Inclou\n
+- Amagar la barra d\'acció\n
+- Barra flotant interactiva\n
+- Barres de sistema de notificacions transparents (només a Android 4.4)\n\n
+Habilitar aquesta opció afectarà al rendiment del desplaçament.</string>
+    <string name="inline_pics">Mostrar imatges incrustades</string>
+    <string name="use_screen_name">Mostrar el nom de Twitter</string>
+    <string name="use_screen_name_summary">Mostrar a les línies de temps el nom d\'usuari enlloc del nom real.</string>
+    <string name="timestamp">Utilitzar format de 24 hores</string>
+    <string name="enable_emojis">Utilitzar emoticones de iOS</string>
+    <string name="to_market">Anar-hi a la botiga d\'aplicacions</string>
+    <string name="get_ios">Descarregar complement</string>
+    <string name="emoji_dialog_summary">Per a activar les icones de iOS, has de tenir instal·lada l\'app \"Sliding Emili Keyboard\" des de la \"Play Store\". \n\n
+Nota: les icones continuaran funcionant encara que hagi finalitzat el període de prova! Dita aplicació funciona com a complement i com a app independent.</string>
+    <string name="theme_light">Estil clar</string>
+    <string name="theme_dark">Estil fosc</string>
+    <string name="theme_black">Estil negre</string>
+    <string name="sync_settings">Configurar sincronització</string>
+    <string name="sync_mobile_data">Sincronitzar amb dades mòbils</string>
+    <string name="sync_mobile_data_summary">Actualitzar automàticament amb connexió de dades i WiFi</string>
+    <string name="auto_sync_notifications">Opcions de notificació</string>
+    <string name="notifications">Notificacions</string>
+    <string name="vibrate">Vibrar</string>
+    <string name="led">Flash de LED</string>
+    <string name="wake_screen">Encendre la pantalla</string>
+    <string name="sound">So de notificació</string>
+    <string name="quiet_hours">Mode \"No molestar\"</string>
+    <string name="max_number_on_refresh">Tweets màxims a l\'actualitzar</string>
+    <string name="fav_users_notifications">Notificacions d\'usuaris favorits</string>
+    <string name="sync_second_mentions">Sincronitzar el compte secundari</string>
+    <string name="max_number_summary">Un número alt implica una càrrega més lenta</string>
+    <string name="auto_refresh_category">Opcions d\'actualització automàtica</string>
+    <string name="refresh_on_startup">Carregar a l\'inici</string>
+    <string name="mentions_sync_interval">Frequència d\'actualització de mencions</string>
+    <string name="dm_sync_interval">Frequència d\'actualització de missatges</string>
+    <string name="sync_friends">Sincronitzar dades d\'amics</string>
+    <string name="sync_friends_summary2">Resincronitzar dades d\'amics per utilitzar-les escrivint tweets.</string>
+    <string name="sync_friends_summary">Sincronitzar llista d\'amics manualment.\n\nAixò es va realitzar al inici, també s\'actualitza la llista quan es prem a \"seguir algú\" desde Talon, però amb aquesta opció obtindràs els més recents de la llista de \"seguint\".\n\n
+Aquestes dades son utilitzades al buscar usuaris mentre escrius un tweet.</string>
+    <string name="sync_success">Sincronització correcta</string>
+    <string name="sync_failed">Sincronització fallida</string>
+    <string name="push_notification_options">"Opcions per a \"notificacions push\""</string>
+    <string name="push_notifications">Talon Pull</string>
+    <string name="notification_settings">Configuració de notificacions</string>
+    <string name="pebble_notifications">Notificacions per a Pebble</string>
+    <string name="advanced_settings">Configuració avançada</string>
+    <string name="app_feel_category">Experiència amb l\'aplicació</string>
+    <string name="advance_windowed">Finestres avançades</string>
+    <string name="advance_windowed_summary">Obrir perfils i tweets a una finestra emergent sobre la línia de temps</string>
+    <string name="full_screen_browsers">Navegadors a pantalla comperta</string>
+    <string name="full_screen_browsers_summary">Obrir tweets que continguin un lloc web en pantalla complerta.</string>
+    <string name="reverse_click_actions">Invertir accions</string>
+    <string name="reverse_click_actions_summary">Invertir accions al premer un tweet.\n\n
+Predeterminat (al desactivar):\n
+- Prèmer llarg per obrir el tweet\n
+- Prèmer curt per expandir el tweet</string>
+    <string name="extra_pages">Utilitzar-hi pàgines extra</string>
+    <string name="extra_pages_summary">Afegir-ne pàgines d\'enllaços o imatges a l\'esquerre de la línia de temps.</string>
+    <string name="live_streaming">Actualització \"en viu\"</string>
+    <string name="memory_management">Opcions de gestió de la memòria</string>
+    <string name="delete_cache">Esborrar memòria cau</string>
+    <string name="cache_dialog">Esborrar memòria cau?</string>
+    <string name="not_cache">Això no aplica a la memòria cau de l\'aplicació.</string>
+    <string name="current_cache_size">Mida actual de la memòria cau</string>
+    <string name="cache_dialog_summary">Aquesta acció no es pot desfer.</string>
+    <string name="timeline_size_summary">Número màxim de tweets guardats.</string>
+    <string name="mentions_size">Mida de les mencions</string>
+    <string name="mentions_size_summary">Número màxim de mencions guardades.</string>
+    <string name="dm_size">Mida dels missatges directes</string>
+    <string name="dm_size_summary">Número màxim de missatges guardats.</string>
+    <string name="auto_trim">Auto-ajustar les bases de dades</string>
+    <string name="trim_now">Ajustar les bases de dades</string>
+    <string name="trim_dialog">Ajustar les bases de dades ara?</string>
+    <string name="trimming">Ajustant...</string>
+    <string name="trim_success">Ajustat!</string>
+    <string name="trim_fail">Error al ajustar</string>
+    <string name="backup_category">Opcions de còpia de seguretat i restauració</string>
+    <string name="backup_settings">Crear còpia de seguretat de la configuració</string>
+    <string name="backup_settings_dialog">Crear nova còpia de seguretat?</string>
+    <string name="backup_settings_dialog_summary">Això substituirà les còpies anteriors.</string>
+    <string name="backup_success">Copia realitzada correctament</string>
+    <string name="restore_success">Restauració realitzada correctament</string>
+    <string name="restore_settings">Restaurar configuració</string>
+    <string name="restore_settings_summary">Es netejarà la memòria cau per aplicar-ne quaisevol canvi d\'estil</string>
+    <string name="get_help_settings">Obtindre ajuda</string>
+    <string name="rerun_tutorial">Veure tutorial inicial</string>
+    <string name="faq">Preguntes i respostes (en anglès)</string>
+    <string name="features_explained">Explicació de característiques (en anglès)</string>
+    <string name="youtube">Vídeo de Youtube</string>
+    <string name="google_plus">Comunitat de Google+</string>
+    <string name="xda_thread">Conversació en XDA (en anglès)</string>
+    <string name="email_me">Envía\'m un e-mail</string>
+    <string name="tweet_me">Envía\'m un tweet</string>
+    <string name="follow_talon">Seguir a Talon en Twitter</string>
+    <string name="credits">Crèdits</string>
+    <string name="disclaimer">Avís legal</string>
+    <string name="other_apps">Altres aplicacions</string>
+    <string name="whats_new">Novetats</string>
+    <string name="rate_it">Qualificar Talon</string>
+    <string name="talon_settings">Configuració de Talon</string>
+    <string name="feature_requests">Sol·licitar noves funcions</string>
+    <!-- Emoji Keyboard -->
+    <string name="recent">Recents</string>
+    <string name="people">Persones</string>
+    <string name="things">Objectes</string>
+    <string name="nature">Naturalesa</string>
+    <string name="places">Llocs</string>
+    <string name="symbols">Símbols</string>
+    <!-- Array value for translation -->
+    <string name="five_mins">5 minuts</string>
+    <string name="ten_mins">10 minuts</string>
+    <string name="twenty_mins">20 minuts</string>
+    <string name="thirty_mins">30 minuts</string>
+    <string name="fourty_five_mins">45 minuts</string>
+    <string name="one_hour">1 hora</string>
+    <string name="two_hours">2 hores</string>
+    <string name="three_hours">3 hores</string>
+    <string name="four_hours">4 hores</string>
+    <string name="manual">Manual</string>
+    <string name="layout_hangouts">Hangouts</string>
+    <!-- added after release -->
+    <string name="use_browser_on_tweet">Pàgina del navegador al Tweet</string>
+    <string name="dismiss_all">Descartar-ho tot</string>
+    <string name="notification_types">Tipus de notificacions</string>
+    <string name="new_followers">Nous seguidors</string>
+    <string name="discussion">Discusió</string>
+    <string name="no_replies">No hi ha respostes</string>
+    <string name="rt_style_quotes">Preferir estil \"RT\" per citar</string>
+    <string name="rt_style_quotes_summary">Utilitzar l\'estil \"RT @usuari: ...\" per citar en lloc del mètode de Talon.\n\nDisponibles des-de la Barra d\'Accions o el menú de cada tweet.</string>
+    <string name="clear_searches">Netejar cerques</string>
+    <string name="compose_with_search">Escriure tweet incloent la cerca</string>
+    <string name="use_toast">Mostrar botó \"anar a inici\"</string>
+    <string name="ignore_retweets">Ignorar retweets</string>
+    <string name="view">Veure</string>
+    <string name="muted_hashtags">Hashtags en silenci</string>
+    <string name="muted_hashtags_summary">Premi el hashtag per tornar a mostrar-lo</string>
+    <string name="no_hashtags">No hi ha hashtags</string>
+    <string name="mute_hashtags">Silenciar hashtags</string>
+    <string name="muted">Silenciat</string>
+    <string name="auto_insert_hashtags">Auto-inserir hashtags</string>
+    <string name="to_replies">Inserir a la resposta qualsevol hashtag del tweet.</string>
+    <string name="clean_now">Netejar bases de dades ara</string>
+    <string name="clean_now_summary">Incloure \"ajustar la base de dades\" i \"eliminar duplicats\"</string>
+    <string name="delete_conversation">Esborrar conversa?</string>
+    <string name="deleting_messages">Esborrant missatges</string>
+    <string name="type_message">Escriure missatge...</string>
+    <string name="fill_gaps_summary">Emplena els buits que succeeixen quan la actualització \"en viu\" està habilitada pero falla per problemes de connexió</string>
+    <string name="filling_timeline">Emplenant buits a la cronología</string>
+    <string name="follows_you">Et segueix</string>
+    <string name="not_following_you">No et segueix</string>
+    <string name="device">Tipografía del dispositiu</string>
+    <string name="roboto_light">Roboto Light (Predeterminada)</string>
+    <string name="roboto_condensed">Roboto Condensed</string>
+    <string name="our_website">Lloc Web</string>
+    <string name="alert_types">Mètodes d\'alertes</string>
+    <string name="timeline_notifications">Notificacions de la línia de temps</string>
+    <string name="timelines_settings">Configuració de la línia de temps</string>
+    <string name="limiting_options">Opcions de límit</string>
+    <string name="browser_options">Opcions del navegador</string>
+    <string name="custom_ringtone">To personalitzat</string>
+    <string name="use_twitlonger">Habilitar TwitLonger</string>
+    <string name="twitlonger">TwitLonger</string>
+    <string name="post_with_twitlonger">El tweet supera els 140 caracters.\n\nT\'agradaria publicar-lo mitjançant TwitLonger?</string>
+    <string name="remove_retweet">Esborrar retweet</string>
+    <string name="edit">Editar</string>
+    <string name="use_twitpic">Utilitzar TwitPic</string>
+    <string name="twitpic_summary">Utilitza TwitPic per adjuntar imatges en lloc del servei de imatges de Twitter.</string>
+    <string name="verified">Verificat</string>
+    <string name="do_not_use">No utilitzar</string>
+    <string name="automatic_refresh">TweetMarker automàtic</string>
+    <string name="manual_refresh">TweetMarker manual</string>
+    <string name="finding_tweetmarker">Cercant TweetMarker</string>
+    <string name="loading">Carregant</string>
+    <string name="loading_tweets">Carregant tweets...</string>
+    <string name="pull_to_refresh">Estirar per actualitzar</string>
+    <string name="removing_retweet">Esborrant retweet</string>
+    <string name="retweeting_status">Retweetant estat</string>
+    <string name="jumping_workaround">Solució per evitar els salts</string>
+    <string name="jumping_workaround_summary">Habilita aquesta opció si la teva cronología salta a sota després de carregar.</string>
+    <string name="menu_share_link">Compartir enllaç</string>
+    <string name="no_links">No hi ha enllaços</string>
+    <string name="picture_page">Cronología d\'imatges</string>
+    <string name="link_page">Cronología d\'enllaços</string>
+    <string name="list_page">Cronología de llistes</string>
+    <string name="current">Actual</string>
+    <string name="here_is_home">Aquesta es la teva cronología principal!</string>
+    <string name="dont_use">No utilitzar aquesta pàgina</string>
+    <string name="page_1">Pàgina 1</string>
+    <string name="page_2">Pàgina 2</string>
+    <string name="load_tweets">Carregar tweets</string>
+    <string name="download_portal">Descarregar la app d\'estils Portal</string>
+    <string name="download_portal_summary">Aquesta es \"Portal\" de Klinker Apps per estar al dia de les darreres notícies, així com trobar els millors estils per Talon i EvolveSMS a un sol lloc!</string>
+    <string name="pwiccer">Pwiccer</string>
+    <string name="view_favoriters">M\'agrada</string>
+    <string name="attach_video">Vídeo</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <!-- the username will replace %s -->
+    <string name="retweet">Retweeteja</string>
+    <string name="new_follower_lower">nou seguidor</string>
+    <string name="new_followers_lower">nous seguidors</string>
+    <string name="item">item</string>
+    <string name="items">items</string>
+    <string name="and">i</string>
+    <string name="no_favorites">Cap \"M\'agrada\"</string>
+    <string name="quote_style">Estil de cita</string>
+    <string name="quote_style_twitter">Estil de Twitter (enllaç al tweet)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \"\@lukeklinker &#8230;\"</string>
+    <string name="show_pull_notification">Mostra la notificació persistent</string>
+    <string name="show_pull_notification_summary">"Si desactives aquesta notificació, el sistema Android podria tallar la comunicació en qualsevol moment. Tingues molta cura. "</string>
+    <string name="custom_tab_title">Pestanyes personalitzades de Chrome</string>
+    <string name="custom_tab_message">"El teu sistema no permet a Talon l\'inici automàtic de les pestanyes personalitzades de Chrome. Per utilitzar aquesta funcionalitat, hauràs de configurar Chrome com el navegador predeterminat, si no, Talon continuarà utilitzant el navegador integrat. \n\nSi us plau, selecciona \"Sí\" si Chrome serà el navegador predeterminat o \"No\" si no l\'utilitzaràs com predeterminat. "</string>
+    <string name="learn_more">En vull saber més</string>
+    <!-- Long click methods -->
+    <string name="open_to_web">Obrir enllaços web al Tweet</string>
+    <string name="open_to_web_summary">Si el tweet contiene un enlace web, este se abrirá directamente en lugar de abrir el tweet.</string>
+    <string name="open_webpage">Obrir enllaç</string>
+    <string name="get_android">Descarregar emoticones d\'Android</string>
+</resources>

@@ -62,6 +62,7 @@
     <string name="retweets">Ретвиты</string>
     <string name="favorite_tweets">Избранное</string>
     <string name="favorite_users">Избр. пользователи</string>
+    <string name="favorite_users_tweets">Понравившиеся твиты пользователей</string>
     <string name="trends">Тренды</string>
     <string name="local_trends">Местные тренды</string>
     <string name="world_trends">Мировые тренды</string>
@@ -111,9 +112,11 @@
     <string name="new_interactions">Новые отклики</string>
     <string name="retweeted">ретвитнул ваш твит</string>
     <string name="favorited">добавил ваш твит в избранное</string>
+    <string name="quoted">процитировал(а) ваш статус</string>
     <string name="followed">теперь читает вас</string>
     <string name="new_retweets">ретвиты</string>
     <string name="new_favorites">в избранном</string>
+    <string name="new_quotes">цитаты</string>
     <string name="new_tweets_upper">Новых твитов</string>
     <!-- Login Screen -->
     <string name="setup_talon">Настроить Talon</string>
@@ -168,6 +171,7 @@
     <string name="tweet_to_long">Слишком длинный твит!</string>
     <string name="ok">ОК</string>
     <string name="no">Нет</string>
+    <string name="yes">Да</string>
     <string name="changelog">Что нового</string>
     <string name="created_by">Создано</string>
     <string name="no_location">Не удалось найти вас</string>
@@ -286,7 +290,6 @@
     <string name="timestamp">24-часовая метка времени</string>
     <string name="enable_emojis">Включить Emoji</string>
     <string name="to_market">В Play Маркет</string>
-    <string name="get_android">Android</string>
     <string name="get_ios">iOS</string>
     <string name="emoji_dialog_summary">Чтобы использовать Emoji в этом приложении, вам нужно загрузить бесплатную клавиатуру \"Sliding Emoji Keyboard\" или \"Sliding Emoji Keyboard - iOS\" из Play Маркета. Если вы установите оба приложения, то будет использоваться первое (стиль Android). Удалите одно из них, чтобы задействовать другое.\n\n
                 ПРИМЕЧАНИЕ: Emoji будут продолжать работать в Talon даже после истечения срока действия пробной версии этих приложений. \n\n
@@ -496,6 +499,7 @@
     <string name="use_shortening_service">Использовать сервис сокращения твитов</string>
     <string name="use_shortening_service_summary">Вы сможете выбрать между TwitLonger (позволяет прочитать часть твита, которая не вместилась, на внешнем сайте) и Pwiccer (превращает текст в картинку).</string>
     <string name="view_retweeters">Ретвитнули</string>
+    <string name="view_favoriters">Лайки</string>
     <string name="no_tweets">Твитов нет</string>
     <string name="only_7_days">Доступны только последние 7 дней</string>
     <string name="saved_searches">Сохр. поиски</string>
@@ -623,6 +627,7 @@
     <string name="pick_date">Выбрать дату</string>
     <string name="both_accounts">Оба аккаунта</string>
     <string name="attach_gif">GIF-анимация</string>
+    <string name="attach_video">Видео</string>
     <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">Второй аккаунт</string>
     <string name="second_account_login_info">Поскольку Твиттер хранит некоторую информацию о входе, на следующем экране он может не позволить вам сразу войти во второй аккаунт. Если ввод логина и пароля пропускается, просто нажмите \"Выйти\" в правом верхнем углу, чтобы войти вторым аккаунтом. Это не повлияет на первый.</string>
@@ -666,6 +671,22 @@ Talon содержит обширный список вопросов и отв�
     <string name="no_activity_yet">Пока нет активности!</string>
     <string name="no_activity_yet_desc">Эта секция будет наполняться на основе ваших действий в Twitter.\n\n
 Упоминания, новые читатели и ретвиты/добавления в избранное ваших статусов начнут отображаться здесь.</string>
+    <string name="retweet">Ретвит</string>
+    <string name="new_follower_lower">новый читатель</string>
+    <string name="new_followers_lower">новые читатели</string>
+    <string name="item">элемент</string>
+    <string name="items">элементы</string>
+    <string name="and">и</string>
+    <string name="no_favorites">Нет лайков</string>
+    <string name="quote_style">Стиль цитаты</string>
+    <string name="quote_style_twitter">Стиль Twitter (ссылка на твит)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Показывать постоянное уведомление</string>
+    <string name="show_pull_notification_summary">Если вы отключите это уведомление, система Android может прекратить живое обновление в любой момент. Используйте с большой осторожностью.</string>
+    <string name="custom_tab_title">Chrome Custom Tabs</string>
+    <string name="custom_tab_message">Ваша система не позволяет Talon автоматически открывать Chrome Custom Tabs. Чтобы использовать эту функцию, вам потребуется установить Chrome вашим системным браузером по умолчанию, в противном случае, Talon продолжит использовать собственный встроенный браузер.\n\nПожалуйста, выберите \"Да\", если Chrome будет вашим браузером по умолчанию или \"Нет\", если вы не будете использовать его умолчанию.</string>
+    <string name="learn_more">Узнать больше</string>
     <!-- Long click methods -->
     <string name="open_profile">Открыть профиль</string>
     <string name="copy_handle">Копировать имя</string>
@@ -687,4 +708,5 @@ Talon содержит обширный список вопросов и отв�
     <string name="open_to_web">Открывать ссылки в твитах</string>
     <string name="open_to_web_summary">Если твит содержит ссылку, будет открываться страница с ней, а не сам твит.</string>
     <string name="open_webpage">Открыть ссылку</string>
+    <string name="get_android">Android</string>
 </resources>

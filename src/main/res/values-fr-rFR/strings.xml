@@ -285,7 +285,6 @@ Activer ces paramètres peut affecter les performances du défilement.\n</string
     <string name="timestamp">Format 24H</string>
     <string name="enable_emojis">Activer les Emojis</string>
     <string name="to_market">Aller sur Play Store</string>
-    <string name="get_android">Obtenir les Emojis Android</string>
     <string name="get_ios">Obtenir les Emojis iOS</string>
     <string name="emoji_dialog_summary">Pour appliquer les emojis dans cette application, vous devez avoir les applications \"Sliding Emoji Keyboard\" ou \"Sliding Emoji Keyboard - iOS\" installé depuis le PlayStore.\n\n
 Vous pouvez basculer entre les deux types de emojis en désinstallant l\'un et en installant l\'autre. Si les deux paquets sont installés, Talon utilisera par défaut les emojis Android.\n\n
@@ -668,4 +667,5 @@ A la place, Talon permettra le téléchargement des photos via TwitPic.</string>
     <string name="open_to_web">Ouvrir le tweet dans une page web</string>
     <string name="open_to_web_summary">Si un tweet contient un lien, il ouvrira directement ce lien à la place du tweet.</string>
     <string name="open_webpage">Ouvrir le lien</string>
+    <string name="get_android">Obtenir les Emojis Android</string>
 </resources>

@@ -56,7 +56,7 @@
     <!-- Main Activity -->
     <string name="links">リンク</string>
     <string name="pictures">画像</string>
-    <string name="timeline">タイムライン</string>
+    <string name="timeline">ホーム</string>
     <string name="mentions">＠ツイート</string>
     <string name="direct_messages">メッセージ</string>
     <string name="retweets">リツイート</string>
@@ -100,6 +100,7 @@
     <string name="fav_user_tweets">件の未読お気に入りユーザーのツイート</string>
     <string name="sec_acc">2つ目のアカウント</string>
     <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">警告：このオプションを有効化すると、Android Lollipopでの急激なバッテリーの消耗を引き起こします。</string>
     <string name="listening">受信中</string>
     <string name="listening_for_mentions">みんなの反応を聴いています</string>
     <string name="refreshing">更新中</string>
@@ -113,16 +114,17 @@
     <string name="followed">さんがフォローしました</string>
     <string name="new_retweets">件のリツイート</string>
     <string name="new_favorites">件のお気に入り</string>
+    <string name="new_quotes">引用</string>
     <string name="new_tweets_upper">未読ツイート</string>
     <!-- Login Screen -->
     <string name="setup_talon">Talonをセットアップ</string>
     <string name="login_to_twitter">Twitterにログイン</string>
-    <string name="first_welcome">Talonへようこそ!</string>
+    <string name="first_welcome">Talonへようこそ！</string>
     <string name="second_welcome">データ同期中</string>
-    <string name="third_welcome">これでおしまい!</string>
+    <string name="third_welcome">これでおしまい - 楽しみましょう！</string>
     <string name="back_to_timeline">タイムラインへ!</string>
-    <string name="initial_sync">今すぐ同期!</string>
-    <string name="first_info">まずログインしましょう。</string>
+    <string name="initial_sync">今すぐ同期！</string>
+    <string name="first_info">始める前に、Twitterにログインして同期しましょう。</string>
     <string name="second_info">OK!\n\nデータの取得を始めます。\n\nインターネット接続の状況により時間がかかる場合があります。</string>
     <string name="third_info">Talonを楽しんでね!\n\n-- Luke Klinkerより</string>
     <string name="syncing_timeline">タイムラインを同期中...</string>
@@ -167,6 +169,7 @@
     <string name="tweet_to_long">ツイートが長すぎます!</string>
     <string name="ok">OK</string>
     <string name="no">いいえ</string>
+    <string name="yes">はい</string>
     <string name="changelog">更新履歴</string>
     <string name="created_by">作成者:</string>
     <string name="no_location">位置情報が見つかりません</string>
@@ -214,6 +217,7 @@
     <string name="conversation">会話</string>
     <string name="webpage">ウェブページ</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">ツイートを引用</string>
     <string name="deleted_tweet">削除しました</string>
     <string name="error_deleting">ツイート削除中にエラー発生</string>
@@ -251,7 +255,7 @@
     <!-- Settings Menu -->
     <string name="theme_settings">テーマ設定</string>
     <string name="theme_options">テーマオプション</string>
-    <string name="font_options">フォントオプション</string>
+    <string name="font_options">表示オプション</string>
     <string name="other_options">その他のオプション</string>
     <string name="theme">テーマ</string>
     <string name="addon_themes">アドオンテーマ</string>
@@ -281,9 +285,8 @@
     <string name="use_screen_name">ユーザー名を表示</string>
     <string name="use_screen_name_summary">タイムラインに名前ではなくユーザー名(＠～)を表示します。</string>
     <string name="timestamp">24時間表示</string>
-    <string name="enable_emojis">絵文字を有効化</string>
+    <string name="enable_emojis">iOSの絵文字を使用</string>
     <string name="to_market">Playストアへ</string>
-    <string name="get_android">Android絵文字を入手</string>
     <string name="get_ios">iOS絵文字を入手</string>
     <string name="emoji_dialog_summary">このアプリで絵文字を有効にするには\"Sliding Emoji Keyboard\"か\"Sliding Emoji Keyboard - iOS\"をインストールしてください。\n\n
                 アンインストールしてもう一方をインストールすることで切り替えられます。両方インストールされているとAndroid絵文字を使用します。\n\n
@@ -308,7 +311,7 @@
     <string name="max_number_summary">多くすると更新が遅くなります。</string>
     <string name="auto_refresh_category">自動更新オプション</string>
     <string name="refresh_on_startup">起動時に更新</string>
-    <string name="timeline_sync_interval">タイムライン更新間隔</string>
+    <string name="timeline_sync_interval">ホームタイムライン更新間隔</string>
     <string name="mentions_sync_interval">＠ツイート更新間隔</string>
     <string name="dm_sync_interval">メッセージ更新間隔</string>
     <string name="sync_friends">フォロー中データの同期</string>
@@ -319,8 +322,8 @@
     <string name="sync_failed">同期失敗</string>
     <string name="push_notification_options">"プッシュ通知オプション"</string>
     <string name="push_notifications">Talon Pull</string>
-    <string name="push_notifications_summary">みんなの反応(＠ツイート、メッセージ、お気に入り、リツイート、フォロワー)を通知するリスナーを有効にします。</string>
-    <string name="push_notification_warning">詳しくはこの設定をタップしてください。</string>
+    <string name="push_notifications_summary">みんなの反応(＠ツイート、メッセージ、いいね、リツイート、フォロワー)を通知するリスナーを有効にします。</string>
+    <string name="push_notification_warning">Talon Pullについて詳しく知るためには、この設定をタップしてください。</string>
     <string name="notification_settings">通知設定</string>
     <string name="pebble_notifications">Pebble通知</string>
     <string name="pebble_notifications_summary">Pebbleスマートウォッチで使用します。</string>
@@ -344,7 +347,7 @@
     <string name="not_cache">アプリのキャッシュには影響しません。</string>
     <string name="current_cache_size">現在のキャッシュサイズ</string>
     <string name="cache_dialog_summary">元に戻すことは出来ません。</string>
-    <string name="timeline_size">タイムラインサイズ</string>
+    <string name="timeline_size">ホームサイズ</string>
     <string name="timeline_size_summary">データベースに保存するツイートの最大数を設定します。</string>
     <string name="mentions_size">＠ツイートサイズ</string>
     <string name="mentions_size_summary">データベースに保存する＠ツイートの最大数を設定します。</string>
@@ -401,7 +404,7 @@
     <string name="manual">手動</string>
     <string name="layout_hangouts">ハングアウト</string>
     <!-- added after release -->
-    <string name="use_inapp_browser">内蔵ブラウザをタイムラインで使用</string>
+    <string name="use_inapp_browser">内蔵ブラウザを使用</string>
     <string name="use_browser_on_tweet">ツイートのブラウザページ</string>
     <string name="dismiss_all">全て無視</string>
     <string name="handle_and_name">ユーザー名と名前を表示</string>
@@ -446,7 +449,7 @@
     <string name="timeline_notifications">タイムラインの通知</string>
     <string name="interactions_notifications">みんなの反応の通知</string>
     <string name="timelines_settings">タイムライン設定</string>
-    <string name="tweet_look_options">ツイート表示オプション</string>
+    <string name="tweet_look_options">タイムラインオプション</string>
     <string name="limiting_options">制限オプション</string>
     <string name="browser_options">ブラウザオプション</string>
     <string name="custom_ringtone">カスタム通知音</string>
@@ -458,7 +461,7 @@
     <string name="use_twitpic">TwitPicを使用</string>
     <string name="twitpic_summary">ツイートに画像を追加する際TwitterのサービスではなくTwitPicを使うようにします。</string>
     <string name="verified">認証済み</string>
-    <string name="use_tweetmarker">TweetMarkerを有効化</string>
+    <string name="use_tweetmarker">TweetMarker</string>
     <string name="tweetmarker_summary">実験的です。一番下に移動するときに問題が起きる場合があります。</string>
     <string name="do_not_use">使用しない</string>
     <string name="automatic_refresh">自動TweetMarker</string>
@@ -470,12 +473,12 @@
     <string name="removing_retweet">リツイートを取り消し中</string>
     <string name="retweeting_status">リツイート中</string>
     <string name="removing_favorite">お気に入りを解除中</string>
-    <string name="favoriting_status">お気に入りに登録</string>
+    <string name="favoriting_status">いいね</string>
     <string name="jumping_workaround">タイムライン移動バグ修正</string>
     <string name="jumping_workaround_summary">更新した後にタイムラインが下に移動してしまう場合これを有効にしてください。</string>
     <string name="menu_share_link">リンクの共有</string>
     <string name="no_links">リンクなし</string>
-    <string name="configure_pages">追加ページの編集</string>
+    <string name="configure_pages">スワイプページの編集</string>
     <string name="picture_page">画像タイムライン</string>
     <string name="link_page">リンクタイムライン</string>
     <string name="list_page">リストタイムライン</string>
@@ -493,6 +496,7 @@
     <string name="use_shortening_service">短縮サービスを使う</string>
     <string name="use_shortening_service_summary">TwitLongerかPwiccer(長いツイートを画像に変換するサービス)を選べるようになります。</string>
     <string name="view_retweeters">リツイートした人</string>
+    <string name="view_favoriters">いいね</string>
     <string name="no_tweets">ツイートなし</string>
     <string name="only_7_days">7日間限定です</string>
     <string name="saved_searches">保存した検索</string>
@@ -509,7 +513,7 @@
     <string name="version_two">バージョン2.0.0</string>
     <string name="cleaning_databases">データベースの掃除中…</string>
     <string name="setup_version_two">最近Talonは大規模な更新があり、動作を最適化するために起動する前に古いデータの掃除をしないといけません! \n\n保存しているツイート数によっては時間がかかります。</string>
-    <string name="setting_up_timeline">タイムラインを設定中…</string>
+    <string name="setting_up_timeline">ホームタイムラインを設定中…</string>
     <string name="setting_up_mentions">つながりを設定中…</string>
     <string name="setting_up_dms">メッセージを設定中…</string>
     <string name="setting_up_lists">リストを設定中…</string>
@@ -542,7 +546,7 @@
     <string name="favorites">お気に入り</string>
     <string name="load_pictures">画像の読み込み</string>
     <string name="pic_search_disclaimer">ユーザーのタイムラインから画像を検索します。画像の数によっては時間がかかります。</string>
-    <string name="widget_theme">ウィジェットのテーマ</string>
+    <string name="widget_theme">ホーム画面ウィジェットのテーマ</string>
     <string name="widget_theme_summary">ホーム画面のウィジェットに適用されます。</string>
     <string name="widget_light">ライトテーマ</string>
     <string name="widget_dark">ダークテーマ</string>
@@ -551,7 +555,7 @@
     <string name="ui_settings">UI設定</string>
     <string name="show_pos_dashclock">タイムライン位置の表示</string>
     <string name="show_pos_dashclock_summary">ホームタイムラインで、未読ツイート数ではなく現在の位置を表示します。</string>
-    <string name="talon_large_widget">Talon - タイムライン</string>
+    <string name="talon_large_widget">Talon -ホーム タイムライン</string>
     <string name="unread_bar_widget">Talon - 未読バー</string>
     <string name="show_muted_mentions">ミュートした通知を表示</string>
     <string name="force_overflow_summary">アクションバーに常にメニューボタン(縦の…)を表示します。 ハードキーにメニューキーがある端末で使います。</string>
@@ -614,11 +618,14 @@ TalonはTwitPicに画像をアップロードします。</string>
     <string name="no_clients">クライアントなし</string>
     <string name="muted_clients_summary">特定のクライアントから送信されたツイートをミュートします。</string>
     <string name="client_not_found">クライアントが見つかりません!</string>
+    <string name="favorite">いいね</string>
+    <string name="menu_share_image">画像を共有</string>
     <string name="pick_time">時間の指定</string>
     <string name="pick_date">日付の指定</string>
     <string name="both_accounts">両方のアカウント</string>
     <string name="attach_gif">アニメGIF</string>
-    <string name="roboto_l">Android \"L\" Roboto</string>
+    <string name="attach_video">動画</string>
+    <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">二つ目のアカウント</string>
     <string name="second_account_login_info">Twitterはログイン情報の一部を残したままにするため、次の画面で別のアカウントにログインできる状態ではないことがあります。ログインページが表示されない場合は、右上にある「ログアウト」をタップしてください。</string>
     <string name="fetch_tweetmarker">TweetMarkerの取得</string>
@@ -638,7 +645,23 @@ Talonにはたくさんのサポートトピックやリクエストがありま
     <string name="main_pages_and_drawer">メインページとドロワー</string>
     <string name="drawer_elements">表示するドロワーアイテム</string>
     <string name="drawer_elements_summary">メインナビドロワーのアイテムの表示/非表示を切り替えます。</string>
+    <string name="using_second_account">%sのアカウントを使用しています！</string>
     <!-- the username will replace %s -->
+    <string name="activity">アクティビティ</string>
+    <string name="sending_direct_message">ダイレクトメッセージを送信</string>
+    <string name="favorites_lower">いいね</string>
+    <string name="favorite_lower">いいね</string>
+    <string name="followed_you">あなたをフォローしています</string>
+    <string name="no_activity_yet">まだアクティビティはありません！</string>
+    <string name="retweet">リツイート</string>
+    <string name="new_follower_lower">新しいフォロワー</string>
+    <string name="new_followers_lower">新しいフォロワー</string>
+    <string name="item">アイテム</string>
+    <string name="items">アイテム</string>
+    <string name="quote_style">引用スタイル</string>
+    <string name="custom_tab_title">Chrome カスタム タブ</string>
+    <string name="custom_tab_message">この端末では、Chrome カスタム タブの自動開始が許可されていません。この機能を使用するためには、端末のデフォルトブラウザをChromeに変更することが必要です。一方で、オリジナルの内蔵ブラウザを使用し続けることも可能です。Chromeをデフォルトブラウザとして設定したい場合は「はい」を、そうでない場合は「いいえ」を選択してください。</string>
+    <string name="learn_more">さらに詳しく</string>
     <!-- Long click methods -->
     <string name="open_profile">プロフィールを開く</string>
     <string name="copy_handle">名前のコピー</string>
@@ -657,7 +680,8 @@ Talonにはたくさんのサポートトピックやリクエストがありま
     <string name="copy_cashtag">キャッシュタグのコピー</string>
     <string name="copied">コピーしました</string>
     <string name="favorite_user_text">お気に入りユーザー</string>
-    <string name="open_to_web">ツイートのURLを直接開く</string>
+    <string name="open_to_web">Webページを開く</string>
     <string name="open_to_web_summary">ツイートにURLが含まれている場合に、ツイート自体ではなくそのURLを直接開くようにします。</string>
     <string name="open_webpage">リンクを開く</string>
+    <string name="get_android">Android絵文字を入手</string>
 </resources>
