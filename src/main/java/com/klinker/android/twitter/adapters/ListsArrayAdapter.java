@@ -175,7 +175,7 @@ public class ListsArrayAdapter extends ArrayAdapter<UserList> {
 
             boolean unsubscribed;
             try {
-                twitter.destroyUserListSubscription(Integer.parseInt(urls[0]));
+                twitter.destroyUserListSubscription(Long.parseLong(urls[0]));
                 unsubscribed = true;
             } catch (Exception e) {
                 unsubscribed = false;
