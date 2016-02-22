@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.5.4">
+        <text>Fix some list issues</text>
+    </version>
+
     <version name="4.5.3">
         <text>Fix GIFs not playing</text>
     </version>

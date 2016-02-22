@@ -59,7 +59,7 @@ public class ViewUsers extends Activity {
 
     private boolean canRefresh = true;
 
-    private int listId;
+    private long listId;
     private String listName;
 
     private long currCursor = -1;
@@ -127,7 +127,7 @@ public class ViewUsers extends Activity {
             }
         });
 
-        listId = getIntent().getIntExtra("list_id", 0);
+        listId = getIntent().getLongExtra("list_id", 0);
 
         new GetUsers().execute();
 

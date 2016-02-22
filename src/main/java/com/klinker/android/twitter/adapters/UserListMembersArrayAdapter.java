@@ -37,9 +37,9 @@ import twitter4j.User;
 
 public class UserListMembersArrayAdapter extends PeopleArrayAdapter {
 
-    private int listId;
+    private long listId;
 
-    public UserListMembersArrayAdapter(Context context, ArrayList<User> users, int listId) {
+    public UserListMembersArrayAdapter(Context context, ArrayList<User> users, long listId) {
         super(context, users);
         this.listId = listId;
     }
