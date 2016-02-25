@@ -80,6 +80,26 @@ public class ActivityUtils {
      * @return boolean if there was something new
      */
     public boolean refreshActivity() {
+
+        // activity sometimes get stuck and burns though data... I have not been able to find out why.
+        // So, lets kill the process if it takes longer than 45 seconds
+        Thread killer = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(45000);
+                    Log.v("talon_activity", "activity refresh killed. What is the issue here...?");
+
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                } catch (InterruptedException e) {
+                    Log.v("talon_activity", "activity killer interrupted. This is good.");
+                }
+
+            }
+        });
+
+        killer.start();
+
         boolean newActivity = false;
         Twitter twitter;
 
@@ -108,6 +128,8 @@ public class ActivityUtils {
             }
         }
 
+        killer.interrupt();
+        
         return newActivity;
     }
 
