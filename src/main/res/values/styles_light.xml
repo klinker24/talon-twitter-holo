@@ -113,7 +113,7 @@
         <item name="memManagement">@drawable/ic_action_sd_storage_light</item>
 
         <item name="actionbar">@drawable/ab_solid_light_holo</item>
-        <item name="searchIcon">@drawable/ic_action_search_light</item>
+        <item name="search_icon">@drawable/ic_action_search_light</item>
         <item name="circle_overflow">@drawable/ic_action_circle_overflow_light</item>
 
         <item name="compose_window_background">@drawable/compose_background_light</item>

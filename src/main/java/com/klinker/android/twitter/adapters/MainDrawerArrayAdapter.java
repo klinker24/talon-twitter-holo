@@ -20,8 +20,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,15 +27,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.widgets.NotificationDrawerLayout;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -220,7 +212,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 a.recycle();
                 holder.icon.setImageResource(resource);
             } else if (text.get(position).equals(context.getResources().getString(R.string.search))) {
-                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.searchIcon});
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.search_icon});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);
@@ -231,7 +223,7 @@ public class MainDrawerArrayAdapter extends ArrayAdapter<String> {
                 holder.icon.setImageResource(resource);
             } else if (text.get(position).equals(context.getResources().getString(R.string.saved_searches)) ||
                     pageTypes.get(position) == AppSettings.PAGE_TYPE_SAVED_SEARCH) {
-                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.searchIcon});
+                TypedArray a = context.getTheme().obtainStyledAttributes(new int[]{R.attr.search_icon});
                 int resource = a.getResourceId(0, 0);
                 a.recycle();
                 holder.icon.setImageResource(resource);

@@ -28,7 +28,7 @@
         android:orderInCategory="2"
         android:title="@string/search"
         android:showAsAction="always"
-        android:icon="?searchIcon"
+        android:icon="?attr/search_icon"
         android:actionViewClass="android.widget.SearchView" />
 
     <item android:id="@+id/menu_compose"

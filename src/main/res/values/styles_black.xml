@@ -112,7 +112,7 @@
         <item name="memManagement">@drawable/ic_action_sd_storage_dark</item>
 
         <item name="actionbar">@drawable/ab_solid_black</item>
-        <item name="searchIcon">@drawable/ic_action_search_dark</item>
+        <item name="search_icon">@drawable/ic_action_search_dark</item>
         <item name="circle_overflow">@drawable/ic_action_circle_overflow_dark</item>
 
         <item name="compose_window_background">@drawable/compose_background_black</item>

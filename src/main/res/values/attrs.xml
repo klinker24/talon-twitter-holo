@@ -102,7 +102,7 @@
     <!-- Actionbar Icons -->
     <attr name="actionbar" format="reference"/>
     <attr name="done" format="reference"/>
-    <attr name="searchIcon" format="reference"/>
+    <attr name="search_icon" format="reference"/>
     <attr name="newMessage" format="reference"/>
     <attr name="circle_overflow" format="reference"/>
 

@@ -22,7 +22,7 @@
         android:orderInCategory="1"
         android:title="@string/search"
         android:showAsAction="always"
-        android:icon="?searchIcon"
+        android:icon="?attr/search_icon"
         android:actionViewClass="android.widget.SearchView" />
 
     <item android:title="@string/compose_with_search"
