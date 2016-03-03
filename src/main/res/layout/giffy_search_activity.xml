@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:search_version="toolbar"
-        app:search_style="toolbar"
+        app:search_style="toolbar_classic"
+        app:search_voice="false"
         app:search_hint="Keywords" />
 
 </FrameLayout>
