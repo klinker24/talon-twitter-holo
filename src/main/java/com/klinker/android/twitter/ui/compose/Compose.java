@@ -115,6 +115,7 @@ public abstract class Compose extends Activity implements
     public EditText contactEntry;
     public EditText reply;
     public ImageView[] attachImage = new ImageView[4];
+    public ImageButton gifButton;
     public ImageButton attachButton;
     public ImageButton emojiButton;
     public EmojiKeyboard emojiKeyboard;
@@ -372,6 +373,7 @@ public abstract class Compose extends Activity implements
         attachImage[2] = (ImageView) findViewById(R.id.picture3);
         attachImage[3] = (ImageView) findViewById(R.id.picture4);
         attachButton = (ImageButton) findViewById(R.id.attach);
+        gifButton = (ImageButton) findViewById(R.id.gif);
         emojiButton = (ImageButton) findViewById(R.id.emoji);
         emojiKeyboard = (EmojiKeyboard) findViewById(R.id.emojiKeyboard);
         reply = (EditText) findViewById(R.id.tweet_content);
@@ -750,6 +752,7 @@ public abstract class Compose extends Activity implements
     public static final int CAPTURE_IMAGE = 101;
     public static final int SELECT_GIF = 102;
     public static final int SELECT_VIDEO = 103;
+    public static final int FIND_GIF = 104;
     public static final int PWICCER = 420;
 
     public boolean pwiccer = false;
@@ -761,6 +764,9 @@ public abstract class Compose extends Activity implements
                                     Intent imageReturnedIntent) {
         Log.v("talon_image_attach", "got the result, code: " + requestCode);
         switch(requestCode) {
+            case FIND_GIF:
+                Log.v("talon_gif", "find gif result");
+                break;
             case SELECT_PHOTO:
                 if(resultCode == RESULT_OK){
                     try {

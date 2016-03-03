@@ -42,6 +42,7 @@ import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
 import com.klinker.android.twitter.manipulations.widgets.HoloEditText;
 import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
 import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
+import com.klinker.android.twitter.ui.GiffySearch;
 import com.klinker.android.twitter.ui.scheduled_tweets.ViewScheduledTweets;
 import com.klinker.android.twitter.utils.Utils;
 
@@ -253,6 +254,12 @@ public class ComposeActivity extends Compose {
             }
         });
 
+        gifButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findGif();
+            }
+        });
         ImageButton at = (ImageButton) findViewById(R.id.at_button);
         at.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -508,6 +515,11 @@ public class ComposeActivity extends Compose {
                 }
             });
         }
+    }
+
+    public void findGif() {
+        Intent gif = new Intent(context, GiffySearch.class);
+        startActivityForResult(gif, FIND_GIF);
     }
 
     public void attachImage() {

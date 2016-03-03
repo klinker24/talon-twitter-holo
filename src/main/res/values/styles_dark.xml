@@ -95,6 +95,7 @@
         <item name="notification_button_empty">@drawable/ic_action_notification_none_dark</item>
         <item name="hashtag_button">@drawable/ic_action_hashtag_dark</item>
         <item name="settings_pages">@drawable/ic_settings_pages_dark</item>
+        <item name="gif_button">@drawable/ic_gif_dark</item>
 
         <item name="themeSettings">@drawable/drawer_theme_dark</item>
         <item name="notificationSettings">@drawable/drawer_notifications_dark</item>

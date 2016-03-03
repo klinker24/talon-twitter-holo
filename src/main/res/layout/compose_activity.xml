@@ -196,6 +196,16 @@
                     android:layout_height="wrap_content">
 
                 <ImageButton
+                    android:id="@+id/gif"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="Find GIF"
+                    android:background="@drawable/pressed_toast"
+                    android:src="?gif_button"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+
+                <ImageButton
                         android:id="@+id/attach"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
