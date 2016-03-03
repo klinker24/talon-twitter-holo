@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.klinker.android.twitter.R;
+
 public class GiffySearch extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -14,6 +16,8 @@ public class GiffySearch extends Activity {
         } catch (Exception e) {
 
         }
+
+        setContentView(R.layout.giffy_search_activity);
 
     }
 }
