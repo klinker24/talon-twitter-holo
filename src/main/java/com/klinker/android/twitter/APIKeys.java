@@ -56,4 +56,5 @@ public class APIKeys {
     public static final String TWEETMARKER_API_KEY = "";
     public static final String TWITLONGER_API_KEY = "";
     public static final String TWITPIC_API_KEY = "";
+    public static final String GIFFY_API_KEY = "dc6zaTOxFJmzC"; // this is just the generic beta key. Nothing for Talon.
 }
