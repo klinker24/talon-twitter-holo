@@ -708,4 +708,7 @@
     <string name="open_to_web_summary">If a tweet contains a web url, it will open directly to that url instead of the tweet itself.</string>
     <string name="open_webpage">Open Link</string>
     <string name="get_android">Get Android Emojis</string>
+    <string name="play_gif">Play</string>
+    <string name="add_to_tweet_gif">Add to Tweet</string>
+    <string name="find_a_gif">Find a GIF</string>
 </resources>
