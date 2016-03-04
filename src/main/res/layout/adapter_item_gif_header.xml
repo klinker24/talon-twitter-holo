@@ -3,13 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <ImageView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:textSize="16sp"
-        android:text="Results Powered by Giffy"
-        android:fontFamily="sans-serif-light" />
+        android:scaleType="center"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/giffy"
+        android:foregroundGravity="center"/>
 
 </LinearLayout>
