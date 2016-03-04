@@ -23,40 +23,45 @@
         app:muted="true" />
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="@drawable/gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom">
 
-        <TextView
-            android:id="@+id/play_button"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@drawable/gradient"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PLAY"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:background="@drawable/pressed_toast"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="12dp"
-            android:paddingTop="12dp"/>
+            android:gravity="bottom">
 
-        <TextView
-            android:id="@+id/select_button"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="SELECT"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:background="@drawable/pressed_toast"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="12dp"
-            android:paddingTop="12dp"/>
+            <TextView
+                android:id="@+id/play_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="PLAY"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:background="@drawable/pressed_toast"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"/>
 
+            <TextView
+                android:id="@+id/select_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="SELECT"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:background="@drawable/pressed_toast"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"/>
+
+        </LinearLayout>
     </LinearLayout>
-
 </FrameLayout>
