@@ -625,7 +625,7 @@
     <string name="pick_time">Pick Time</string>
     <string name="pick_date">Pick Date</string>
     <string name="both_accounts">Both Accounts</string>
-    <string name="attach_gif">Animated GIF</string>
+    <string name="attach_gif">Animated GIF from Device</string>
     <string name="attach_video">Video</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">2nd Account</string>
