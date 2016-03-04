@@ -57,10 +57,12 @@ public class GiffyHelper {
                 for (int i = 0; i < data.length(); i++) {
                     JSONObject gif = data.getJSONObject(i);
                     JSONObject images = gif.getJSONObject("images");
+                    JSONObject originalStill = images.getJSONObject("original_still");
                     JSONObject originalSize = images.getJSONObject("original");
                     gifList.add(
-                            new Gif(originalSize.getString("url"),
-                                originalSize.getString("mp4"))
+                            new Gif(originalStill.getString("url"),
+                                    originalSize.getString("url"),
+                                    originalSize.getString("mp4"))
                     );
                 }
 
@@ -90,10 +92,12 @@ public class GiffyHelper {
     }
 
     public static class Gif {
+        public String previewImage;
         public String gifUrl;
         public String mp4Url;
 
-        public Gif(String gifUrl, String mp4Url) {
+        public Gif(String previewImage, String gifUrl, String mp4Url) {
+            this.previewImage = URLDecoder.decode(previewImage);
             this.gifUrl = URLDecoder.decode(gifUrl);
             this.mp4Url = URLDecoder.decode(mp4Url);
         }

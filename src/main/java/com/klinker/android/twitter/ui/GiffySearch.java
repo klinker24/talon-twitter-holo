@@ -3,6 +3,8 @@ package com.klinker.android.twitter.ui;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.adapters.GifSearchAdapter;
 import com.klinker.android.twitter.utils.api_helper.GiffyHelper;
 import com.lapism.arrow.ArrowDrawable;
 import com.lapism.searchview.view.SearchView;
@@ -22,7 +25,10 @@ public class GiffySearch extends Activity {
     private ImageView backArrow;
     private EditText searchText;
 
+    private RecyclerView recycler;
     private View progressSpinner;
+
+    private GifSearchAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class GiffySearch extends Activity {
 
         setContentView(R.layout.giffy_search_activity);
 
+        recycler = (RecyclerView) findViewById(R.id.recycler_view);
         progressSpinner = findViewById(R.id.list_progress);
         backArrow = (ImageView) findViewById(R.id.imageView_arrow_back);
         toolbar = (SearchView) findViewById(R.id.searchView);
@@ -67,6 +74,14 @@ public class GiffySearch extends Activity {
             }
         });
 
+        recycler.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                adapter.releaseVideo();
+            }
+        });
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -86,10 +101,29 @@ public class GiffySearch extends Activity {
             public void onResponse(List<GiffyHelper.Gif> gifs) {
                 progressSpinner.setVisibility(View.GONE);
 
-                for (GiffyHelper.Gif gif : gifs) {
-                    Log.v("giffy_result", "mp4: " + gif.mp4Url + ", gif: " + gif.gifUrl);
+                if (adapter != null) {
+                    adapter.releaseVideo();
                 }
+
+                adapter = new GifSearchAdapter(GiffySearch.this, gifs, new GifSearchAdapter.Callback() {
+                    @Override
+                    public void onClick(int item) {
+
+                    }
+                });
+
+                recycler.setLayoutManager(new LinearLayoutManager(GiffySearch.this));
+                recycler.setAdapter(adapter);
             }
         });
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (adapter != null) {
+            adapter.releaseVideo();
+        }
     }
 }

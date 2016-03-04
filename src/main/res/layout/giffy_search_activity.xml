@@ -12,7 +12,8 @@
         app:search_version="toolbar"
         app:search_style="toolbar_classic"
         app:search_voice="false"
-        app:search_hint="Keywords" />
+        app:search_hint="Keywords"
+        android:elevation="5dp"/>
 
     <LinearLayout android:id="@+id/list_progress"
         android:orientation="vertical"
@@ -27,5 +28,13 @@
             style="@android:style/Widget.Holo.Light.ProgressBar.Large"
             android:indeterminateOnly="true" />
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:layout_marginTop="?android:actionBarSize"
+        android:saveEnabled="false" />
 
 </FrameLayout>
