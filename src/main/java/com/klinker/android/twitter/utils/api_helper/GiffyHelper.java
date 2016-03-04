@@ -20,6 +20,12 @@ import java.util.Scanner;
 
 public class GiffyHelper {
 
+    private static final String[] SIZE_OPTIONS = new String[] {
+            "original", "downsized_medium", "fixed_height", "fixed_width", "fixed_height_small",
+            "fixed_width_small", "downsized", "fixed_height_downsampled", "fixed_width_downsampled"
+    };
+    private static final long TWITTER_SIZE_LIMIT = 300000;
+
     public interface Callback {
         void onResponse(List<Gif> gifs);
     }
@@ -59,9 +65,23 @@ public class GiffyHelper {
                     JSONObject images = gif.getJSONObject("images");
                     JSONObject originalStill = images.getJSONObject("original_still");
                     JSONObject originalSize = images.getJSONObject("original");
+                    JSONObject downsized = null;
+
+                    // get the highest quality that twitter can post (3 mb)
+                    for (String size : SIZE_OPTIONS) {
+                        downsized = images.getJSONObject(size);
+                        if (Long.parseLong(downsized.getString("size")) < TWITTER_SIZE_LIMIT) {
+                            break;
+                        }
+                    }
+
+                    if (downsized == null) {
+                        originalSize = images.getJSONObject("original");
+                    }
+
                     gifList.add(
                             new Gif(originalStill.getString("url"),
-                                    originalSize.getString("url"),
+                                    downsized.getString("url"),
                                     originalSize.getString("mp4"))
                     );
                 }

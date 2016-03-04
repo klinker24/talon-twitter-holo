@@ -104,6 +104,38 @@ public class IOUtils {
         return Uri.fromFile(file);
     }
 
+    public static final Uri saveGiffy(String videoUrl) throws Exception {
+
+        File myDir = new File(Environment.getExternalStorageDirectory() + "/Talon");
+        myDir.mkdirs();
+
+        final File file = new File(Environment.getExternalStorageDirectory(), "Talon/giffy.gif");
+        if (!file.createNewFile()) {
+            // file already exists
+        }
+
+        URL url = new URL(videoUrl);
+        URLConnection connection = url.openConnection();
+        connection.setReadTimeout(5000);
+        connection.setConnectTimeout(30000);
+
+        InputStream is = connection.getInputStream();
+        BufferedInputStream inStream = new BufferedInputStream(is, 1024 * 5);
+        FileOutputStream outStream = new FileOutputStream(file);
+
+        byte[] buffer = new byte[1024 * 5];
+        int len;
+        while ((len = inStream.read(buffer)) != -1) {
+            outStream.write(buffer, 0, len);
+        }
+
+        outStream.flush();
+        outStream.close();
+        inStream.close();
+
+        return Uri.fromFile(file);
+    }
+
     public static String getPath(Uri uri, Context context) {
         String[] filePathColumn = {MediaStore.Images.Media.DATA};
         String filePath = null;
