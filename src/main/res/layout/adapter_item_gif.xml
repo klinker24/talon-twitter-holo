@@ -39,7 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="P@string/play_gif"
+                android:text="@string/play_gif"
                 android:textAllCaps="true"
                 android:gravity="center"
                 android:textColor="@android:color/white"
