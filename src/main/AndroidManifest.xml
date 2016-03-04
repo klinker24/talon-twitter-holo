@@ -78,7 +78,7 @@
         <activity android:name=".ui.GiffySearch"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:launchMode="singleInstance"
             android:theme="@style/Theme.TalonLight" />
 

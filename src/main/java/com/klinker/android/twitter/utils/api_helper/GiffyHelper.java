@@ -34,6 +34,21 @@ public class GiffyHelper {
         new SearchGiffy(query, callback).execute();
     }
 
+    public static void trends(Callback callback) {
+        new GiffyTrends(callback).execute();
+    }
+
+    private static class GiffyTrends extends SearchGiffy {
+
+        public GiffyTrends(Callback callback) {
+            super(null, callback);
+        }
+
+        @Override
+        protected String buildSearchUrl(String query) throws UnsupportedEncodingException {
+            return "http://api.giphy.com/v1/gifs/trending?api_key=" + APIKeys.GIFFY_API_KEY;
+        }
+    }
     private static class SearchGiffy extends AsyncTask<Void, Void, List<Gif>> {
 
         private String query;
@@ -100,7 +115,7 @@ public class GiffyHelper {
             }
         }
 
-        private String buildSearchUrl(String query) throws UnsupportedEncodingException {
+        protected String buildSearchUrl(String query) throws UnsupportedEncodingException {
             return "http://api.giphy.com/v1/gifs/search?" +
                     "q=" + URLEncoder.encode(query, "UTF-8") + "&" +
                     "api_key=" + APIKeys.GIFFY_API_KEY;

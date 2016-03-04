@@ -105,10 +105,19 @@ public class GiffySearch extends Activity {
             @Override
             public void run() {
                 drawable.animate(ArrowDrawable.STATE_ARROW);
-                searchText.requestFocus();
+                loadTrending();
             }
-        }, 500);
+        }, 750);
+    }
 
+    private void loadTrending() {
+        progressSpinner.setVisibility(View.VISIBLE);
+        GiffyHelper.trends(new GiffyHelper.Callback() {
+            @Override
+            public void onResponse(List<GiffyHelper.Gif> gifs) {
+                setAdapter(gifs);
+            }
+        });
     }
 
     private void executeQuery(String query) {
@@ -117,23 +126,27 @@ public class GiffySearch extends Activity {
         GiffyHelper.search(query, new GiffyHelper.Callback() {
             @Override
             public void onResponse(List<GiffyHelper.Gif> gifs) {
-                progressSpinner.setVisibility(View.GONE);
-
-                if (adapter != null) {
-                    adapter.releaseVideo();
-                }
-
-                adapter = new GifSearchAdapter(gifs, new GifSearchAdapter.Callback() {
-                    @Override
-                    public void onClick(GiffyHelper.Gif item) {
-                        new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
-                    }
-                });
-
-                recycler.setLayoutManager(new LinearLayoutManager(GiffySearch.this));
-                recycler.setAdapter(adapter);
+                setAdapter(gifs);
             }
         });
+    }
+
+    private void setAdapter(List<GiffyHelper.Gif> gifs) {
+        progressSpinner.setVisibility(View.GONE);
+
+        if (adapter != null) {
+            adapter.releaseVideo();
+        }
+
+        adapter = new GifSearchAdapter(gifs, new GifSearchAdapter.Callback() {
+            @Override
+            public void onClick(GiffyHelper.Gif item) {
+                new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
+            }
+        });
+
+        recycler.setLayoutManager(new LinearLayoutManager(GiffySearch.this));
+        recycler.setAdapter(adapter);
     }
 
     @Override
