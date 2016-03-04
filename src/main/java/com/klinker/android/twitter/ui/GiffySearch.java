@@ -1,6 +1,7 @@
 package com.klinker.android.twitter.ui;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -148,10 +149,20 @@ public class GiffySearch extends Activity {
 
         Activity activity;
         String video;
+        ProgressDialog dialog;
 
         public DownloadVideo(Activity activity, String videoLink) {
             this.activity = activity;
             this.video = videoLink;
+        }
+
+        @Override
+        public void onPreExecute() {
+            dialog = new ProgressDialog(activity);
+            dialog.setIndeterminate(true);
+            dialog.setCancelable(false);
+            dialog.setMessage(activity.getString(R.string.downloading) + "...");
+            dialog.show();
         }
 
         @Override
@@ -169,6 +180,10 @@ public class GiffySearch extends Activity {
             if (downloadedTo != null) {
                 activity.setResult(Activity.RESULT_OK, new Intent().setData(downloadedTo));
                 activity.finish();
+
+                try {
+                    dialog.dismiss();
+                } catch (Exception e) { }
             } else {
                 Toast.makeText(activity, "Error downloading GIf", Toast.LENGTH_SHORT).show();
             }
