@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.6.0">
+        <text>Search Giffy for GIFs when composing tweets</text>
+    </version>
+    
     <version name="4.5.4">
         <text>Fix some list issues</text>
         <text>Bug fixes</text>
