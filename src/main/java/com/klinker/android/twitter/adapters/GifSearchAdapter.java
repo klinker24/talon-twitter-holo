@@ -25,7 +25,7 @@ import uk.co.senab.bitmapcache.BitmapLruCache;
 public class GifSearchAdapter extends SectionedRecyclerViewAdapter<GifSearchAdapter.ViewHolder> {
 
     public interface Callback {
-        void onClick(int item);
+        void onClick(GiffyHelper.Gif item);
     }
 
     protected List<GiffyHelper.Gif> gifs;
@@ -34,7 +34,7 @@ public class GifSearchAdapter extends SectionedRecyclerViewAdapter<GifSearchAdap
 
     private BitmapLruCache cache;
 
-    public GifSearchAdapter(Context context, List<GiffyHelper.Gif> gifs, Callback callback) {
+    public GifSearchAdapter(List<GiffyHelper.Gif> gifs, Callback callback) {
         this.gifs = gifs;
         this.callback = callback;
     }
@@ -72,14 +72,24 @@ public class GifSearchAdapter extends SectionedRecyclerViewAdapter<GifSearchAdap
 
         ImageUtils.loadImage(context, holder.previewImage, gifs.get(relativePosition).previewImage, cache);
 
-        holder.previewImage.setOnClickListener(new View.OnClickListener() {
+        holder.play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (holder.video != currentlyPlaying) {
+                    releaseVideo();
+
+                    holder.video.setVisibility(View.VISIBLE);
+                    holder.video.start(gifs.get(relativePosition).mp4Url);
+                    currentlyPlaying = holder.video;
+                }
+            }
+        });
+
+        holder.select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 releaseVideo();
-
-                holder.video.setVisibility(View.VISIBLE);
-                holder.video.start(gifs.get(relativePosition).mp4Url);
-                currentlyPlaying = holder.video;
+                callback.onClick(gifs.get(relativePosition));
             }
         });
     }
@@ -104,11 +114,15 @@ public class GifSearchAdapter extends SectionedRecyclerViewAdapter<GifSearchAdap
 
         public ImageView previewImage;
         public SimpleVideoView video;
+        public TextView play;
+        public TextView select;
 
         public ViewHolder(View itemView) {
             super(itemView);
             previewImage = (ImageView) itemView.findViewById(R.id.image);
             video = (SimpleVideoView) itemView.findViewById(R.id.video);
+            play = (TextView) itemView.findViewById(R.id.play_button);
+            select = (TextView) itemView.findViewById(R.id.select_button);
         }
     }
 }

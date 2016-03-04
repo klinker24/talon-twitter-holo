@@ -1,6 +1,9 @@
 package com.klinker.android.twitter.ui;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,14 +13,28 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.klinker.android.twitter.APIKeys;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.GifSearchAdapter;
+import com.klinker.android.twitter.utils.IOUtils;
 import com.klinker.android.twitter.utils.api_helper.GiffyHelper;
 import com.lapism.arrow.ArrowDrawable;
 import com.lapism.searchview.view.SearchView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GiffySearch extends Activity {
 
@@ -105,10 +122,10 @@ public class GiffySearch extends Activity {
                     adapter.releaseVideo();
                 }
 
-                adapter = new GifSearchAdapter(GiffySearch.this, gifs, new GifSearchAdapter.Callback() {
+                adapter = new GifSearchAdapter(gifs, new GifSearchAdapter.Callback() {
                     @Override
-                    public void onClick(int item) {
-
+                    public void onClick(GiffyHelper.Gif item) {
+                        new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
                     }
                 });
 
@@ -125,5 +142,36 @@ public class GiffySearch extends Activity {
         if (adapter != null) {
             adapter.releaseVideo();
         }
+    }
+
+    private static class DownloadVideo extends AsyncTask<Void, Void, Uri> {
+
+        Activity activity;
+        String video;
+
+        public DownloadVideo(Activity activity, String videoLink) {
+            this.activity = activity;
+            this.video = videoLink;
+        }
+
+        @Override
+        protected Uri doInBackground(Void... arg0) {
+            try {
+                return IOUtils.saveVideo(video);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Uri downloadedTo) {
+            if (downloadedTo != null) {
+                activity.setResult(Activity.RESULT_OK, new Intent().setData(downloadedTo));
+                activity.finish();
+            } else {
+                Toast.makeText(activity, "Error downloading GIf", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 }

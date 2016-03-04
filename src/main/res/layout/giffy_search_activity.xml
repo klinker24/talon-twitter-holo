@@ -12,7 +12,7 @@
         app:search_version="toolbar"
         app:search_style="toolbar_classic"
         app:search_voice="false"
-        app:search_hint="Keywords"
+        app:search_hint="Find a GIF"
         android:elevation="5dp"/>
 
     <LinearLayout android:id="@+id/list_progress"
