@@ -136,7 +136,7 @@
                             android:layout_width="150dp"
                             android:padding="4dp"
                             android:minHeight="150dp" android:minWidth="150dp"
-                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:scaleType="centerCrop" android:adjustViewBounds="false"
                             android:maxWidth="150dp" android:maxHeight="150dp"
                             android:visibility="gone"/>
 
@@ -146,7 +146,7 @@
                             android:layout_width="150dp"
                             android:padding="4dp"
                             android:minHeight="150dp" android:minWidth="150dp"
-                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:scaleType="centerCrop" android:adjustViewBounds="false"
                             android:maxWidth="150dp" android:maxHeight="150dp"
                             android:visibility="gone"/>
 
@@ -156,7 +156,7 @@
                             android:layout_width="150dp"
                             android:padding="4dp"
                             android:minHeight="150dp" android:minWidth="150dp"
-                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:scaleType="centerCrop" android:adjustViewBounds="false"
                             android:maxWidth="150dp" android:maxHeight="150dp"
                             android:visibility="gone"/>
 
@@ -166,7 +166,7 @@
                             android:layout_width="150dp"
                             android:padding="4dp"
                             android:minHeight="150dp" android:minWidth="150dp"
-                            android:scaleType="fitXY" android:adjustViewBounds="false"
+                            android:scaleType="centerCrop" android:adjustViewBounds="false"
                             android:maxWidth="150dp" android:maxHeight="150dp"
                             android:visibility="gone"/>
 

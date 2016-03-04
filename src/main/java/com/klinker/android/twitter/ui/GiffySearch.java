@@ -100,7 +100,6 @@ public class GiffySearch extends Activity {
             }
         });
 
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -198,7 +197,7 @@ public class GiffySearch extends Activity {
                     dialog.dismiss();
                 } catch (Exception e) { }
             } else {
-                Toast.makeText(activity, "Error downloading GIf", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Error downloading GIF", Toast.LENGTH_SHORT).show();
             }
         }
 
