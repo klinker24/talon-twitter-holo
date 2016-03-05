@@ -2,11 +2,15 @@ package com.klinker.android.twitter.ui;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -139,8 +143,30 @@ public class GiffySearch extends Activity {
 
         adapter = new GifSearchAdapter(gifs, new GifSearchAdapter.Callback() {
             @Override
-            public void onClick(GiffyHelper.Gif item) {
-                new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
+            public void onClick(final GiffyHelper.Gif item) {
+                final SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(GiffySearch.this);
+
+                if (sharedPrefs.getBoolean("seen_giffy_disclaimer", false)) {
+                    new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
+                } else {
+                    new AlertDialog.Builder(GiffySearch.this)
+                            .setTitle(R.string.three_mb_limit)
+                            .setMessage(R.string.three_mb_message)
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.dont_show_again, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    sharedPrefs.edit().putBoolean("seen_giffy_disclaimer", true).commit();
+                                    new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
+                                }
+                            })
+                            .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
+                                }
+                            }).create().show();
+                }
             }
         });
 
