@@ -712,5 +712,5 @@
     <string name="add_to_tweet_gif">Add to Tweet</string>
     <string name="find_a_gif">Find a GIF</string>
     <string name="three_mb_limit">3MB Size Limit</string>
-    <string name="three_mb_message">Twitter only allows GIFs to be posted that are less than 3MB. Talon will grab the highest quality GIF version from Giffy that fits within these constraints.\n\nThe results you see all have a version that fits within this limit, I have not displayed GIFs whose quality is downsampled to fit within the 3MB limit.</string>
+    <string name="three_mb_message">Twitter only allows GIFs to be posted that are less than 3MB. Talon will grab the highest quality GIF version from Giphy that fits within these constraints.\n\nThe results you see all have a version that fits within this limit, I have not displayed GIFs whose quality is downsampled to fit within the 3MB limit.</string>
 </resources>

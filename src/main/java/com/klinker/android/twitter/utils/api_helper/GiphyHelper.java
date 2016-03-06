@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class GiffyHelper {
+public class GiphyHelper {
 
     private static final String[] SIZE_OPTIONS = new String[] {
             "original", "downsized_medium", "fixed_height", "fixed_width", "fixed_height_small",

@@ -75,7 +75,7 @@
 
         </activity>
 
-        <activity android:name=".ui.GiffySearch"
+        <activity android:name=".ui.GiphySearch"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
