@@ -96,9 +96,7 @@ public class GiffyHelper {
                         gifList.add(
                                 new Gif(originalStill.getString("url"),
                                         downsized.getString("url"),
-                                        downsized.getString("mp4") != null ? // use the downsized preview if it is available
-                                                downsized.getString("mp4") :
-                                                originalSize.getString("mp4")) // otherwise, still preview with the original version
+                                        originalSize.getString("mp4"))
                         );
                     }
                 }
@@ -120,6 +118,7 @@ public class GiffyHelper {
         protected String buildSearchUrl(String query) throws UnsupportedEncodingException {
             return "http://api.giphy.com/v1/gifs/search?" +
                     "q=" + URLEncoder.encode(query, "UTF-8") + "&" +
+                    "limit=60&" +
                     "api_key=" + APIKeys.GIFFY_API_KEY;
         }
 
