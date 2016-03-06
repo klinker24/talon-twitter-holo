@@ -46,7 +46,7 @@ public class GiphyHelper {
 
         @Override
         protected String buildSearchUrl(String query) throws UnsupportedEncodingException {
-            return "http://api.giphy.com/v1/gifs/trending?api_key=" + APIKeys.GIFFY_API_KEY;
+            return "http://api.giphy.com/v1/gifs/trending?api_key=" + APIKeys.GIPHY_API_KEY;
         }
     }
     private static class SearchGiffy extends AsyncTask<Void, Void, List<Gif>> {
@@ -119,7 +119,7 @@ public class GiphyHelper {
             return "http://api.giphy.com/v1/gifs/search?" +
                     "q=" + URLEncoder.encode(query, "UTF-8") + "&" +
                     "limit=60&" +
-                    "api_key=" + APIKeys.GIFFY_API_KEY;
+                    "api_key=" + APIKeys.GIPHY_API_KEY;
         }
 
         private String getResponseText(InputStream inStream) {
