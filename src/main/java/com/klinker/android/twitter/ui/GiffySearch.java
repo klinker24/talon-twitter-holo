@@ -130,6 +130,27 @@ public class GiffySearch extends Activity {
             @Override
             public void onResponse(List<GiffyHelper.Gif> gifs) {
                 setAdapter(gifs);
+
+                // inform the user that there is a 3mb limit and talon is displaying those
+                final SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(GiffySearch.this);
+                if (!sharedPrefs.getBoolean("seen_giffy_disclaimer", false)) {
+                    new AlertDialog.Builder(GiffySearch.this)
+                            .setTitle(R.string.three_mb_limit)
+                            .setMessage(R.string.three_mb_message)
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.dont_show_again, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    sharedPrefs.edit().putBoolean("seen_giffy_disclaimer", true).commit();
+                                }
+                            })
+                            .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            }).create().show();
+                }
             }
         });
     }
@@ -144,29 +165,7 @@ public class GiffySearch extends Activity {
         adapter = new GifSearchAdapter(gifs, new GifSearchAdapter.Callback() {
             @Override
             public void onClick(final GiffyHelper.Gif item) {
-                final SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(GiffySearch.this);
-
-                if (sharedPrefs.getBoolean("seen_giffy_disclaimer", false)) {
-                    new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
-                } else {
-                    new AlertDialog.Builder(GiffySearch.this)
-                            .setTitle(R.string.three_mb_limit)
-                            .setMessage(R.string.three_mb_message)
-                            .setCancelable(false)
-                            .setPositiveButton(R.string.dont_show_again, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    sharedPrefs.edit().putBoolean("seen_giffy_disclaimer", true).commit();
-                                    new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
-                                }
-                            })
-                            .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
-                                }
-                            }).create().show();
-                }
+                new DownloadVideo(GiffySearch.this, item.gifUrl).execute();
             }
         });
 

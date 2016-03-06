@@ -22,7 +22,7 @@ public class GiffyHelper {
 
     private static final String[] SIZE_OPTIONS = new String[] {
             "original", "downsized_medium", "fixed_height", "fixed_width", "fixed_height_small",
-            "fixed_width_small", "downsized", "fixed_height_downsampled", "fixed_width_downsampled"
+            "fixed_width_small", "downsized"
     };
     private static final long TWITTER_SIZE_LIMIT = 300000;
 
@@ -87,18 +87,20 @@ public class GiffyHelper {
                         downsized = images.getJSONObject(size);
                         if (Long.parseLong(downsized.getString("size")) < TWITTER_SIZE_LIMIT) {
                             break;
+                        } else {
+                            downsized = null;
                         }
                     }
 
-                    if (downsized == null) {
-                        originalSize = images.getJSONObject("original");
+                    if (downsized != null) {
+                        gifList.add(
+                                new Gif(originalStill.getString("url"),
+                                        downsized.getString("url"),
+                                        downsized.getString("mp4") != null ? // use the downsized preview if it is available
+                                                downsized.getString("mp4") :
+                                                originalSize.getString("mp4")) // otherwise, still preview with the original version
+                        );
                     }
-
-                    gifList.add(
-                            new Gif(originalStill.getString("url"),
-                                    downsized.getString("url"),
-                                    originalSize.getString("mp4"))
-                    );
                 }
 
             } catch (Exception e) {
