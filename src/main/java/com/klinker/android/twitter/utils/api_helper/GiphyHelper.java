@@ -118,7 +118,7 @@ public class GiphyHelper {
         protected String buildSearchUrl(String query) throws UnsupportedEncodingException {
             return "http://api.giphy.com/v1/gifs/search?" +
                     "q=" + URLEncoder.encode(query, "UTF-8") + "&" +
-                    "limit=60&" +
+                    "limit=80&" +
                     "api_key=" + APIKeys.GIPHY_API_KEY;
         }
 
