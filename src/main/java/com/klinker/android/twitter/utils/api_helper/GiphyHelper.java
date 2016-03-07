@@ -22,7 +22,7 @@ public class GiphyHelper {
 
     private static final String[] SIZE_OPTIONS = new String[] {
             "original", "downsized_medium", "fixed_height", "fixed_width", "fixed_height_small",
-            "fixed_width_small", "downsized"
+            /*"fixed_width_small",*/ "downsized_large", "downsized_medium", "downsized"
     };
     private static final long TWITTER_SIZE_LIMIT = 300000;
 
