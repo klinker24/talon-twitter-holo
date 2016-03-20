@@ -60,7 +60,7 @@
     <string name="mentions">Упоминания</string>
     <string name="direct_messages">Сообщения</string>
     <string name="retweets">Ретвиты</string>
-    <string name="favorite_tweets">Избранное</string>
+    <string name="favorite_tweets">Избранные твиты</string>
     <string name="favorite_users">Избр. пользователи</string>
     <string name="favorite_users_tweets">Понравившиеся твиты пользователей</string>
     <string name="trends">Тренды</string>
@@ -111,11 +111,11 @@
     <string name="new_interactions_lower">новых отклика</string>
     <string name="new_interactions">Новые отклики</string>
     <string name="retweeted">ретвитнул ваш твит</string>
-    <string name="favorited">добавил ваш твит в избранное</string>
+    <string name="favorited">добавил в избранное ваш твит</string>
     <string name="quoted">процитировал(а) ваш статус</string>
     <string name="followed">теперь читает вас</string>
     <string name="new_retweets">ретвиты</string>
-    <string name="new_favorites">в избранном</string>
+    <string name="new_favorites">добавил в избранное</string>
     <string name="new_quotes">цитаты</string>
     <string name="new_tweets_upper">Новых твитов</string>
     <!-- Login Screen -->
@@ -123,12 +123,12 @@
     <string name="login_to_twitter">Войти в Твиттер</string>
     <string name="first_welcome">Добро пожаловать в Talon!</string>
     <string name="second_welcome">Синхронизация данных</string>
-    <string name="third_welcome">Готово!</string>
+    <string name="third_welcome">На этом все - наслаждайтесь!</string>
     <string name="back_to_timeline">Покажите мне ленту!</string>
     <string name="initial_sync">Синхронизировать!</string>
-    <string name="first_info">Для начала давайте войдём в Твиттер.</string>
-    <string name="second_info">Отлично!\n\nСейчас нам нужно собрать кое-какие данные.\n\nЭто займёт некоторое время, в зависимости от скорости вашего интернет-соединения.</string>
-    <string name="third_info">Надеюсь, вам понравится Talon!\n\n-- Люк Клинкер</string>
+    <string name="first_info">Перед тем, как мы начнем, давайте авторизуем вас и сихронизируем с Twitter.</string>
+    <string name="second_info">Отлично! Мы сейчас обмениваемся данными с Twitter, чтобы синхронизировать ваш аккаунт.</string>
+    <string name="third_info">Надеюсь, вам понравится Talon!</string>
     <string name="syncing_timeline">Синхронизация ленты...</string>
     <string name="syncing_mentions">Синхронизация упоминаний...</string>
     <string name="syncing_direct_messages">Синхронизация личных сообщений...</string>
@@ -138,11 +138,11 @@
     <string name="no_network">Вы не подключены к интернету</string>
     <string name="no_thanks">Не сейчас</string>
     <string name="follow_me">Да, давайте!</string>
-    <string name="follow_me_description">Читайте @TalonAndroid и @lukeklinker, чтобы узнать о новых функциях и получить поддержку!</string>
+    <string name="follow_me_description">Используйте кнопку с галочкой, чтобы автоматически подписаться на каналы поддержки, или нажмите кнопку \'Назад\', чтобы пропустить это.</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">Новый твит</string>
-    <string name="compose_tweet_hint">Напишите твит...</string>
-    <string name="send_to">Введите @никнейм</string>
+    <string name="compose_tweet_hint">Наберите твит...</string>
+    <string name="send_to">Введите имя пользователя...</string>
     <string name="direct_message_sent">Сообщение отправлено</string>
     <string name="type_user">Выберите пользователя</string>
     <string name="add_user">Добавить</string>
@@ -251,14 +251,14 @@
     <string name="choose_list">Выберите список</string>
     <string name="added_to_list">Добавлен в список</string>
     <!-- Tutorial Activity -->
-    <string name="part_1_tablet">Перемещайтесь\nпо приложению\nс помощью\nбокового\nменю!</string>
+    <string name="part_1_tablet">Получайте доступ\nк функциям\nс помощью\nбокового\nменю!</string>
     <string name="part_1_phone">Открывайте\nбоковое меню\nсвайпом\nслева!</string>
-    <string name="part_2">Переключайте\nвкладки\nсвайпом\nв любую сторону\nс середины экрана!</string>
+    <string name="part_2">Переключайтесь\nмежду лентами\nсвайпом в любую\nсторону с середины\nэкрана!</string>
     <string name="part_3">Это всё!\n\nДотроньтесь,\nчтобы\nначать!</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Темы</string>
     <string name="theme_options">Опции тем</string>
-    <string name="font_options">Настройки шрифта</string>
+    <string name="font_options">Настройки отображения</string>
     <string name="other_options">Прочие настройки</string>
     <string name="theme">Тема</string>
     <string name="addon_themes">Дополнительные темы</string>
@@ -288,17 +288,16 @@
     <string name="use_screen_name">Показывать @никнейм</string>
     <string name="use_screen_name_summary">Вместо имени пользователя вверху твитов и сообщений будет отображаться @никнейм.</string>
     <string name="timestamp">24-часовая метка времени</string>
-    <string name="enable_emojis">Включить Emoji</string>
+    <string name="enable_emojis">Использовать iOS Emoji</string>
     <string name="to_market">В Play Маркет</string>
-    <string name="get_ios">iOS</string>
-    <string name="emoji_dialog_summary">Чтобы использовать Emoji в этом приложении, вам нужно загрузить бесплатную клавиатуру \"Sliding Emoji Keyboard\" или \"Sliding Emoji Keyboard - iOS\" из Play Маркета. Если вы установите оба приложения, то будет использоваться первое (стиль Android). Удалите одно из них, чтобы задействовать другое.\n\n
-                ПРИМЕЧАНИЕ: Emoji будут продолжать работать в Talon даже после истечения срока действия пробной версии этих приложений. \n\n
-                Выберите предпочитаемый стиль, нажав на одну из кнопок.</string>
+    <string name="get_ios">Загрузить плагин</string>
+    <string name="emoji_dialog_summary">Чтобы включить iOS Emoji в этом приложении, вы должны установить наше бесплатное приложение \"Sliding Emoji Keyboard - iOS\" из Play Store.\n\n
+Примечание: Emoji продолжат работать в этом приложении, даже если пробный период истечет! Этот набор используется как плагин, так же как и отдельная клавиатура.</string>
     <string name="theme_light">Светлая тема</string>
     <string name="theme_dark">Тёмная тема</string>
     <string name="theme_black">Чёрная тема</string>
     <string name="sync_settings">Синхронизация</string>
-    <string name="sync_mobile_data">Мобильное подключение</string>
+    <string name="sync_mobile_data">Синхронизировать через мобильное подключение</string>
     <string name="sync_mobile_data_summary">Автоматически обновлять ленту через мобильную сеть и Wi-Fi.</string>
     <string name="auto_sync_notifications">Настройки уведомлений при автообновлении</string>
     <string name="notifications">Уведомления</string>
@@ -306,7 +305,7 @@
     <string name="led">LED-индикатор</string>
     <string name="wake_screen">Включать экран</string>
     <string name="sound">Звук</string>
-    <string name="quiet_hours">Не беспокоить</string>
+    <string name="quiet_hours">Режим \"Не беспокоить\"</string>
     <string name="max_number_on_refresh">Число загружаемых твитов</string>
     <string name="fav_users_notifications">Избранные пользователи</string>
     <string name="sync_second_mentions">Синхр. второй аккаунт</string>
@@ -325,11 +324,11 @@
     <string name="sync_failed">Синхронизация не удалась</string>
     <string name="push_notification_options">"Настройки Push-уведомлений"</string>
     <string name="push_notifications">Talon Pull</string>
-    <string name="push_notifications_summary">Эта опция позволит мгновенно получать уведомления о новых упоминаниях, сообщениях, ретвитах, читателях и т.д.</string>
-    <string name="push_notification_warning">Нажмите сюда, чтобы узнать больше.</string>
+    <string name="push_notifications_summary">Это запустит сервис отслеживания, который будет отправлять уведомления, как только вы будете получать новые отклики (упоминания, сообщения, добавления в избранное, ретвиты или уведомления о новых подписчиках).</string>
+    <string name="push_notification_warning">Чтобы прочитать подробнее о Talon Pull, нажмите сюда.</string>
     <string name="notification_settings">Уведомления</string>
     <string name="pebble_notifications">Уведомления Pebble</string>
-    <string name="pebble_notifications_summary">Используется со смарт-часами Pebble.</string>
+    <string name="pebble_notifications_summary">Используется со смарт-часами Pebble. Отключите это, если вы получаете два уведомления на ваших часах.</string>
     <string name="advanced_settings">Дополнительно</string>
     <string name="app_feel_category">Взаимодействие</string>
     <string name="advance_windowed">Использовать окна</string>
@@ -417,14 +416,14 @@
     <string name="new_followers">Новые читатели</string>
     <string name="discussion">Ответы</string>
     <string name="no_replies">Новых ответов нет</string>
-    <string name="rt_style_quotes">Цитировать с RT</string>
+    <string name="rt_style_quotes">Предпочитать стиль цитирования с \"RT\"</string>
     <string name="rt_style_quotes_summary">При цитировании используется RT вместо кавычек.\n\nЦитирование находится в дополнительном меню твита.</string>
-    <string name="absolute_date">Альтернативный стиль дат</string>
+    <string name="absolute_date">Использовать абсолютные даты</string>
     <string name="clear_searches">Очистить историю поиска</string>
     <string name="compose_with_search">Написать твит</string>
     <string name="use_toast">Показывать Toast \"К первому\"</string>
     <string name="ignore_retweets">Скрывать ретвиты</string>
-    <string name="ignore_retweets_summary">Не показывать ретвиты при чтении лент</string>
+    <string name="ignore_retweets_summary">Не показывать ретвиты при прокрутке ваших основных лент.</string>
     <string name="view">Показать</string>
     <string name="muted_hashtags">Скрытые хэштеги</string>
     <string name="muted_hashtags_summary">Нажмите на хэштег, чтобы показывать его снова.</string>
@@ -438,7 +437,7 @@
     <string name="delete_conversation">Удалить диалоги?</string>
     <string name="deleting_messages">Удаление сообщений</string>
     <string name="type_message">Напишите сообщение...</string>
-    <string name="fill_gaps">Загрузить пропущенные твиты</string>
+    <string name="fill_gaps">Заполнить разрывы в ленте твитов</string>
     <string name="fill_gaps_summary">Загружает разрывы в ленте, произошедшие из-за плохого соединения при включенном Talon Pull.</string>
     <string name="filling_timeline">Загрузка пропущенных твитов</string>
     <string name="follows_you">Читает вас</string>
@@ -446,13 +445,13 @@
     <string name="device">Стандартный шрифт</string>
     <string name="roboto_light">Roboto Light</string>
     <string name="roboto_condensed">Roboto Condensed</string>
-    <string name="font_type">Шрифт</string>
+    <string name="font_type">Тип шрифта</string>
     <string name="our_website">Вебсайт</string>
-    <string name="alert_types">Типы оповещений</string>
+    <string name="alert_types">Способы оповещений</string>
     <string name="timeline_notifications">Основные уведомления</string>
     <string name="interactions_notifications">Уведомления откликов</string>
     <string name="timelines_settings">Ленты</string>
-    <string name="tweet_look_options">Содержимое твитов</string>
+    <string name="tweet_look_options">Настройки ленты</string>
     <string name="limiting_options">Настройки фильтрации</string>
     <string name="browser_options">Настройки браузера</string>
     <string name="custom_ringtone">Собственный сигнал</string>
@@ -475,13 +474,13 @@
     <string name="pull_to_refresh">Потяните, чтобы обновить</string>
     <string name="removing_retweet">Отмена ретвита...</string>
     <string name="retweeting_status">Ретвит...</string>
-    <string name="removing_favorite">Удаление из избранных...</string>
+    <string name="removing_favorite">Удаление из избранного...</string>
     <string name="favoriting_status">Добавление в избранное...</string>
     <string name="jumping_workaround">Фикс скачков ленты</string>
     <string name="jumping_workaround_summary">Включите, если лента перескакивает вниз после обновления ленты.</string>
     <string name="menu_share_link">Поделиться ссылкой</string>
     <string name="no_links">Нет ссылок</string>
-    <string name="configure_pages">Настроить доп. страницы</string>
+    <string name="configure_pages">Выбрать прокручиваемые страницы</string>
     <string name="picture_page">Лента изображений</string>
     <string name="link_page">Лента ссылок</string>
     <string name="list_page">Лента со списком</string>
@@ -705,7 +704,7 @@ Talon содержит обширный список вопросов и отв�
     <string name="copy_cashtag">Копировать кэштег</string>
     <string name="copied">Скопирован текст</string>
     <string name="favorite_user_text">Избр. пользователь</string>
-    <string name="open_to_web">Открывать ссылки в твитах</string>
+    <string name="open_to_web">Открыть в веб-странице</string>
     <string name="open_to_web_summary">Если твит содержит ссылку, будет открываться страница с ней, а не сам твит.</string>
     <string name="open_webpage">Открыть ссылку</string>
     <string name="get_android">Android</string>
