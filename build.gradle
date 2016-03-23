@@ -97,6 +97,7 @@ dependencies {
 
     provided 'org.projectlombok:lombok:1.14.8'
 
+    compile "com.android.support:customtabs:23.2.1"
     compile "com.android.support:appcompat-v7:23.1.1"
 
     compile 'com.lapism:searchview:2.2'
