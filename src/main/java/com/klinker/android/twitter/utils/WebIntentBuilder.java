@@ -121,7 +121,7 @@ public class WebIntentBuilder {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.putExtra(Intent.EXTRA_TEXT, webpage);
             shareIntent.setType("text/plain");
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, Intent.createChooser(shareIntent, "Share to:"), 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, shareIntent, 0);
 
             uiBuilder = new SimpleCustomChromeTabsHelper.CustomTabsUiBuilder();
             uiBuilder.setToolbarColor(color);
