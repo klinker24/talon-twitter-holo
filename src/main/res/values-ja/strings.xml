@@ -17,51 +17,52 @@
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
-    <string name="extension_description">更新された時に未読ツイート、＠ツイートやメッセージの数を表示します。</string>
+    <string name="extension_description">未読ツイートや @ ツイート、メッセージの数を更新時に表示</string>
     <!-- Action Bar -->
     <string name="menu_refresh">タイムラインの更新</string>
-    <string name="menu_compose">ツイートする</string>
+    <string name="menu_compose">新規ツイート</string>
     <string name="menu_logout">ログアウト</string>
     <string name="menu_settings">設定</string>
     <string name="menu_follow">フォローする</string>
-    <string name="menu_unfollow">フォロー解除する</string>
-    <string name="menu_tweet">送信する</string>
-    <string name="menu_dm">メッセージを送信する</string>
+    <string name="menu_unfollow">アンフォローする</string>
+    <string name="menu_tweet">ツイートを送信</string>
+    <string name="menu_dm">メッセージを送信</string>
     <string name="menu_block">ブロックする</string>
     <string name="menu_unblock">ブロックを解除する</string>
     <string name="menu_add_to_list">リストに追加する</string>
     <string name="menu_change_picture">プロフィール画像を変更</string>
-    <string name="menu_change_bio">プロフィールを変更</string>
-    <string name="menu_change_banner">ヘッダーを変更</string>
-    <string name="menu_direct_message">メッセージを作成</string>
+    <string name="menu_change_bio">プロフィール情報を変更</string>
+    <string name="menu_change_banner">ヘッダー画像を変更</string>
+    <string name="menu_direct_message">新規ダイレクトメッセージ</string>
     <string name="menu_save_image">画像を保存</string>
     <string name="menu_favorite">お気に入りユーザー</string>
-    <string name="menu_unfavorite">お気に入り解除する</string>
+    <string name="menu_unfavorite">お気に入り解除</string>
     <string name="menu_create_list">新しいリストを作成</string>
     <string name="menu_spam">スパムとして報告</string>
     <!-- Times -->
     <!-- When translating: put the %s where the number should go in the string. -->
     <string name="just_now">たった今</string>
-    <string name="a_min_ago">1分前</string>
-    <string name="minutes_ago">%s分前</string>
+    <string name="a_min_ago">1 分前</string>
+    <string name="minutes_ago">%s 分前</string>
     <string name="an_hour_ago">1時間前</string>
-    <string name="hours_ago">%s時間前</string>
+    <string name="hours_ago">%s 時間前</string>
     <string name="yesterday">昨日</string>
-    <string name="days_ago">%s日前</string>
+    <string name="days_ago">%s 日前</string>
     <!-- Muting -->
-    <string name="mute">ミュートする</string>
-    <string name="unmute">ミュート解除する</string>
-    <string name="muted_users">ミュートしたユーザー</string>
+    <string name="mute">ミュート</string>
+    <string name="unmute">ミュート解除</string>
+    <string name="muted_users">ミュートされたユーザー</string>
     <string name="no_users">ユーザーなし</string>
     <!-- Main Activity -->
     <string name="links">リンク</string>
     <string name="pictures">画像</string>
     <string name="timeline">ホーム</string>
-    <string name="mentions">＠ツイート</string>
-    <string name="direct_messages">メッセージ</string>
+    <string name="mentions">@ ツイート</string>
+    <string name="direct_messages">ダイレクトメッセージ</string>
     <string name="retweets">リツイート</string>
-    <string name="favorite_tweets">お気に入りツイート</string>
+    <string name="favorite_tweets">いいねされたツイート</string>
     <string name="favorite_users">お気に入りユーザー</string>
+    <string name="favorite_users_tweets">お気に入りユーザーツイート</string>
     <string name="trends">トレンド</string>
     <string name="local_trends">地域のトレンド</string>
     <string name="world_trends">世界のトレンド</string>
@@ -110,10 +111,10 @@
     <string name="new_interactions_lower">件の未読のみんなの反応</string>
     <string name="new_interactions">未読のみんなの反応</string>
     <string name="retweeted">さんがリツイートしました</string>
-    <string name="favorited">さんがお気に入りしました</string>
+    <string name="favorited">さんがいいね</string>
     <string name="followed">さんがフォローしました</string>
     <string name="new_retweets">件のリツイート</string>
-    <string name="new_favorites">件のお気に入り</string>
+    <string name="new_favorites">件のいいね</string>
     <string name="new_quotes">引用</string>
     <string name="new_tweets_upper">未読ツイート</string>
     <!-- Login Screen -->
@@ -125,8 +126,8 @@
     <string name="back_to_timeline">タイムラインへ!</string>
     <string name="initial_sync">今すぐ同期！</string>
     <string name="first_info">始める前に、Twitterにログインして同期しましょう。</string>
-    <string name="second_info">OK!\n\nデータの取得を始めます。\n\nインターネット接続の状況により時間がかかる場合があります。</string>
-    <string name="third_info">Talonを楽しんでね!\n\n-- Luke Klinkerより</string>
+    <string name="second_info">すばらしい！現在、アカウントに接続するためTwitterと通信しています。</string>
+    <string name="third_info">Talonをお楽しみください！</string>
     <string name="syncing_timeline">タイムラインを同期中...</string>
     <string name="syncing_mentions">＠ツイートを同期中...</string>
     <string name="syncing_direct_messages">メッセージを同期中...</string>
@@ -166,7 +167,7 @@
     <string name="save_image">画像を保存しました</string>
     <string name="tweet_success">ツイートしました</string>
     <string name="error_sending_tweet">ツイートの送信に失敗しました</string>
-    <string name="tweet_to_long">ツイートが長すぎます!</string>
+    <string name="tweet_to_long">ツイートが長すぎます！</string>
     <string name="ok">OK</string>
     <string name="no">いいえ</string>
     <string name="yes">はい</string>
@@ -217,6 +218,7 @@
     <string name="conversation">会話</string>
     <string name="webpage">ウェブページ</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">画像や動画をツイート</string>
     <string name="vine">Vine</string>
     <string name="menu_quote">ツイートを引用</string>
     <string name="deleted_tweet">削除しました</string>
@@ -287,7 +289,7 @@
     <string name="timestamp">24時間表示</string>
     <string name="enable_emojis">iOSの絵文字を使用</string>
     <string name="to_market">Playストアへ</string>
-    <string name="get_ios">iOS絵文字を入手</string>
+    <string name="get_ios">プラグインをダウンロード</string>
     <string name="emoji_dialog_summary">このアプリで絵文字を有効にするには\"Sliding Emoji Keyboard\"か\"Sliding Emoji Keyboard - iOS\"をインストールしてください。\n\n
                 アンインストールしてもう一方をインストールすることで切り替えられます。両方インストールされているとAndroid絵文字を使用します。\n\n
                 注意: 絵文字は体験期間が終了しても使えます! キーボードとしては使えませんがプラグインとして使うことは出来ます。</string>
@@ -303,7 +305,7 @@
     <string name="led">LED点滅</string>
     <string name="wake_screen">画面点灯</string>
     <string name="sound">通知音</string>
-    <string name="quiet_hours">通知しない時間帯</string>
+    <string name="quiet_hours">サイレントモード</string>
     <string name="max_number_on_refresh">更新時に読み込むツイート数</string>
     <string name="fav_users_notifications">お気に入りユーザー通知</string>
     <string name="sync_second_mentions">二つ目のアカウントを同期</string>
@@ -410,7 +412,7 @@
     <string name="handle_and_name">ユーザー名と名前を表示</string>
     <string name="notification_types">通知のタイプ</string>
     <string name="with_talon_pull">\"Talon Pull\"でアクセスできます。</string>
-    <string name="favorited_tweet">お気に入り</string>
+    <string name="favorited_tweet">いいね</string>
     <string name="new_followers">新しいフォロワー</string>
     <string name="discussion">返信</string>
     <string name="no_replies">返信なし</string>
@@ -472,7 +474,7 @@
     <string name="pull_to_refresh">引っ張って更新</string>
     <string name="removing_retweet">リツイートを取り消し中</string>
     <string name="retweeting_status">リツイート中</string>
-    <string name="removing_favorite">お気に入りを解除中</string>
+    <string name="removing_favorite">いいねを解除中</string>
     <string name="favoriting_status">いいね</string>
     <string name="jumping_workaround">タイムライン移動バグ修正</string>
     <string name="jumping_workaround_summary">更新した後にタイムラインが下に移動してしまう場合これを有効にしてください。</string>
@@ -490,7 +492,7 @@
     <string name="load_tweets">ツイートの読み込み</string>
     <string name="download_portal">Portalアプリのダウンロード</string>
     <string name="download_portal_summary">Klinker Appsの\"Portal\"アプリです。TalonとEvolveSMS向けのテーマや最新情報などをお届けします。</string>
-    <string name="compose_dm_hint">メッセージを入力…</string>
+    <string name="compose_dm_hint">メッセージを入力...</string>
     <string name="pwiccer">Pwiccer</string>
     <string name="select_shortening_service">短縮サービスを選ぶかツイートを短くしてください。</string>
     <string name="use_shortening_service">短縮サービスを使う</string>
@@ -543,7 +545,7 @@
     <string name="open_keyboard_summary">ツイートを表示したとき自動的にキーボードを開きます。</string>
     <string name="no_retweets">リツイートなし</string>
     <string name="profile">プロフィール</string>
-    <string name="favorites">お気に入り</string>
+    <string name="favorites">いいね</string>
     <string name="load_pictures">画像の読み込み</string>
     <string name="pic_search_disclaimer">ユーザーのタイムラインから画像を検索します。画像の数によっては時間がかかります。</string>
     <string name="widget_theme">ホーム画面ウィジェットのテーマ</string>
@@ -649,18 +651,23 @@ Talonにはたくさんのサポートトピックやリクエストがありま
     <!-- the username will replace %s -->
     <string name="activity">アクティビティ</string>
     <string name="sending_direct_message">ダイレクトメッセージを送信</string>
+    <string name="mentioned_you">返信がありました</string>
     <string name="favorites_lower">いいね</string>
     <string name="favorite_lower">いいね</string>
     <string name="followed_you">あなたをフォローしています</string>
+    <string name="new_activity">新しいアクティビティ</string>
     <string name="no_activity_yet">まだアクティビティはありません！</string>
     <string name="retweet">リツイート</string>
-    <string name="new_follower_lower">新しいフォロワー</string>
-    <string name="new_followers_lower">新しいフォロワー</string>
+    <string name="new_follower_lower">人の新しいフォロワー</string>
+    <string name="new_followers_lower">人の新しいフォロワー</string>
     <string name="item">アイテム</string>
     <string name="items">アイテム</string>
-    <string name="quote_style">引用スタイル</string>
-    <string name="custom_tab_title">Chrome カスタム タブ</string>
-    <string name="custom_tab_message">この端末では、Chrome カスタム タブの自動開始が許可されていません。この機能を使用するためには、端末のデフォルトブラウザをChromeに変更することが必要です。一方で、オリジナルの内蔵ブラウザを使用し続けることも可能です。Chromeをデフォルトブラウザとして設定したい場合は「はい」を、そうでない場合は「いいえ」を選択してください。</string>
+    <string name="no_favorites">いいねはありません</string>
+    <string name="quote_style">引用形式</string>
+    <string name="show_pull_notification">永続的な通知を表示</string>
+    <string name="show_pull_notification_summary">この通知を無効にすると、Android システムがストリームをいつでも切断する可能性がでてきます。使用には十分な検討をしてください</string>
+    <string name="custom_tab_title">Chrome カスタムタブ</string>
+    <string name="custom_tab_message">あなたのシステムでは、Chrome カスタムタブの自動起動が許可されていません。この機能を使用するためには、既定のブラウザを Chrome に設定することが必要です。しかしそうでなくても、Talon ではオリジナルのアプリ内ブラウザを続けて使うことも可能です\n\nChrome を既定のブラウザとする場合は \"はい\" を、既定として使用しない場合は \"いいえ\" を選択してください</string>
     <string name="learn_more">さらに詳しく</string>
     <!-- Long click methods -->
     <string name="open_profile">プロフィールを開く</string>
@@ -680,8 +687,8 @@ Talonにはたくさんのサポートトピックやリクエストがありま
     <string name="copy_cashtag">キャッシュタグのコピー</string>
     <string name="copied">コピーしました</string>
     <string name="favorite_user_text">お気に入りユーザー</string>
-    <string name="open_to_web">Webページを開く</string>
-    <string name="open_to_web_summary">ツイートにURLが含まれている場合に、ツイート自体ではなくそのURLを直接開くようにします。</string>
+    <string name="open_to_web">ウェブページを開く</string>
+    <string name="open_to_web_summary">ツイートに URL が含まれている場合に、ツイート自体ではなくその URL を直接開くようになります</string>
     <string name="open_webpage">リンクを開く</string>
     <string name="get_android">Android絵文字を入手</string>
 </resources>

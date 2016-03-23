@@ -56,16 +56,17 @@
     <!-- Main Activity -->
     <string name="links">"روابط "</string>
     <string name="pictures">صور</string>
-    <string name="timeline">"الخط الزمني "</string>
+    <string name="timeline">الصفحة الرئيسية</string>
     <string name="mentions">الإشارات</string>
     <string name="direct_messages">الرسائل الخاصة</string>
     <string name="retweets">إعادات التغريد</string>
-    <string name="favorite_tweets">التغريدات المفضلة</string>
+    <string name="favorite_tweets">الإعجابات</string>
     <string name="favorite_users">"المستخدمين المفضلين "</string>
+    <string name="favorite_users_tweets">تغريدات المستخدم المفضل</string>
     <string name="trends">المتداول</string>
     <string name="local_trends">المتداول المحلي</string>
     <string name="world_trends">المتداول العالمي</string>
-    <string name="search">"بحث "</string>
+    <string name="search">بحث</string>
     <string name="lists">"قوائم "</string>
     <string name="search_hint">بحث..</string>
     <string name="new_tweet">"تغريدة جديدة "</string>
@@ -100,6 +101,7 @@
     <string name="fav_user_tweets">"التغريدات الجديدة لمستخدم مفضل "</string>
     <string name="sec_acc">"حساب ثاني "</string>
     <string name="talon_pull">"سحب تالون "</string>
+    <string name="talon_pull_summary">تحذير: تمكين هذا الخيار يمكن أن يسبب استنزاف كبير للبطارية على أندرويد لولي بوب.</string>
     <string name="listening">استماع</string>
     <string name="listening_for_mentions">"الأستماع إلى التنبيهات "</string>
     <string name="refreshing">"تحديث "</string>
@@ -109,22 +111,24 @@
     <string name="new_interactions_lower">"تنبيهات جديدة "</string>
     <string name="new_interactions">"تنبيهات جديدة "</string>
     <string name="retweeted">أعاد تغريد حالتك</string>
-    <string name="favorited">قام بتفضيل حالتك</string>
+    <string name="favorited">أعجب بحالتك</string>
+    <string name="quoted">أقتبس حالتك</string>
     <string name="followed">قام بمتابعتك</string>
     <string name="new_retweets">"إعادة التغريدات "</string>
-    <string name="new_favorites">"المفضلات "</string>
+    <string name="new_favorites">الإعجابات</string>
+    <string name="new_quotes">يقتبس</string>
     <string name="new_tweets_upper">"تغريدات جديدة "</string>
     <!-- Login Screen -->
     <string name="setup_talon">إعداد تالون</string>
     <string name="login_to_twitter">"الدخول إلى تويتر "</string>
     <string name="first_welcome">"مرحبا بك في تالون! "</string>
     <string name="second_welcome">مزامنة البيانات</string>
-    <string name="third_welcome">"هذا كل شيء! "</string>
+    <string name="third_welcome">هذا كل شيء - استمتع!</string>
     <string name="back_to_timeline">"خذني إلى خطي الزمني! "</string>
     <string name="initial_sync">قم بالمزامنة الآن!</string>
-    <string name="first_info">قبل أن نبدأ، دعنا نقوم بتسجيل دخول.</string>
-    <string name="second_info">"عظيم! \nالآن سنقوم بالحصول على المعلومات الأولية. \nقد يستغرق ذلك بعض الوقت بناء على جودة الأتصال. "</string>
-    <string name="third_info">"آمل أن تستمتع ب تالون! \n-- لوك كلينكر "</string>
+    <string name="first_info">قبل أن نبدأ، دعنا نقوم بتسجيل الدخول والمزامنة مع تويتر.</string>
+    <string name="second_info">عظيم! نحن نقوم الآن بمزامنة حسابك.</string>
+    <string name="third_info">آمل أن تستمتع بتالون!</string>
     <string name="syncing_timeline">"مزامنة الخط الزمني... "</string>
     <string name="syncing_mentions">مزامنة الإشارات...</string>
     <string name="syncing_direct_messages">"مزامنة الرسائل الخاصة... "</string>
@@ -134,7 +138,7 @@
     <string name="no_network">"أنت غير متصل بالشبكة "</string>
     <string name="no_thanks">"ليس الآن "</string>
     <string name="follow_me">تابع!</string>
-    <string name="follow_me_description">تابع @TalonAndroid و @lukeklinker من أجل كل الخصائص الجديدة والدعم!</string>
+    <string name="follow_me_description">استخدم زر الخيارات لمتابعة حسابات الدعم ، أو اضغط زر الرجوع لتخطي هذا</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">"تغريدة جديدة "</string>
     <string name="compose_tweet_hint">اكتب تغريدة...</string>
@@ -167,6 +171,7 @@
     <string name="tweet_to_long">التغريدة طويلة جدا!</string>
     <string name="ok">"حسنا "</string>
     <string name="no">كلا</string>
+    <string name="yes">نعم</string>
     <string name="changelog">ماهو الجديد</string>
     <string name="created_by">أنشئ بواسطة</string>
     <string name="no_location">لم أستطع العثور على موقعك</string>
@@ -214,6 +219,8 @@
     <string name="conversation">"المحادثة "</string>
     <string name="webpage">صفحة الويب</string>
     <string name="tweet_youtube">يوتيوب</string>
+    <string name="gif">تغريدة وسائط</string>
+    <string name="vine">ڤاين</string>
     <string name="menu_quote">أقتباس تغريدة</string>
     <string name="deleted_tweet">"تم مسح التغريدة "</string>
     <string name="error_deleting">"خلل في مسح التغريدة "</string>
@@ -224,7 +231,7 @@
     <string name="saving_picture">يتم حفظ الصورة</string>
     <string name="saved_picture">تم حفظ الصورة</string>
     <string name="retweet_success">تم إعادة التغريد</string>
-    <string name="favorite_success">تم التفضيل</string>
+    <string name="favorite_success">تم الإعجاب</string>
     <string name="success">تم</string>
     <!-- User Lists -->
     <string name="view_users">"عرض المستخدمين "</string>
@@ -244,14 +251,14 @@
     <string name="choose_list">أختيار قائمة</string>
     <string name="added_to_list">أضف إلى قائمة</string>
     <!-- Tutorial Activity -->
-    <string name="part_1_tablet">تعيين الخصائص \nعبر أختيار العناصر \nفي ال \nالملاحة \nدرج!</string>
-    <string name="part_1_phone">أسحب لفتح ال\nدرج الملاحة\nلليسار \nاسحب الشريحة</string>
-    <string name="part_2">بين الصفحات \nالخط الزمني مع\nأسحب إما\nمن وسط\nالشاشة!</string>
+    <string name="part_1_tablet">وصول المميزات\nعبر أختيار العناصر\nفي ال\nالملاحة\nدرج!</string>
+    <string name="part_1_phone">أسحب لفتح ال\nدرج الملاحة\nلليسار\nاسحب الشريحة</string>
+    <string name="part_2">بين الصفحات\nالخطوط الزمنية مع\nأسحب إما\nمن وسط\nمن الشاشة!</string>
     <string name="part_3">"هذا كل شيء! \n\nأنقر\nالشاشة لكي\nتبدأ! "</string>
     <!-- Settings Menu -->
     <string name="theme_settings">"أعدادات الخلفية "</string>
     <string name="theme_options">"خيارات الخلفية "</string>
-    <string name="font_options">"خيارات الخط "</string>
+    <string name="font_options">خيارات العرض</string>
     <string name="other_options">"خيارات أخرى "</string>
     <string name="theme">خلفية</string>
     <string name="addon_themes">إضافة على الخلفيات</string>
@@ -281,18 +288,16 @@
     <string name="use_screen_name">"عرض مقبض تويتر "</string>
     <string name="use_screen_name_summary">عرض مقبض تويتر للمستخدم بدلا من الأسم في الخط الزمني.</string>
     <string name="timestamp">"24 ساعة الطابع الزمني "</string>
-    <string name="enable_emojis">تفعيل رموز الإيموجي</string>
+    <string name="enable_emojis">استخدم رموز إيموجي iOS</string>
     <string name="to_market">إلى بلاي ستور</string>
-    <string name="get_android">خذ رموز الإيموجي للأندرويد</string>
-    <string name="get_ios">خذ رموز الإيموجي ل iOS</string>
-    <string name="emoji_dialog_summary">لكي تفعل رموز الإيموجي في البرنامج. يجب أن تثبت برنامج \"Sliding Emoji Keyboard\" أو \"Sliding Emoji Keyboard - iOS\" من بلاي ستور.\n\n
-تستطيع التبديل بين نوعي رموز الإيموجي عن طريق إزالة أحدهما وتثبت الآخر. إذا كان كليهما مثبتين، ف تالون سيفترض أستخدام رموز الإيموجي للأندرويد.\n\n
+    <string name="get_ios">تحميل المكونات</string>
+    <string name="emoji_dialog_summary">لكي تفعل رموز الإيموجي في البرنامج. يجب أن تثبت برنامج \"Sliding Emoji Keyboard - iOS\" من بلاي ستور.\n\n
 ملاحظة: رموز الإيموجي ستتمر بالعمل داخل البرنامج حتى بعد أنتهاء الفترة التجريبية! الرموز ستسخدم كإضافة كما ستستخدم كلوحة مفاتيح منفصلة.</string>
     <string name="theme_light">"خلفية فاتحة "</string>
     <string name="theme_dark">"خلفية غامقة "</string>
     <string name="theme_black">"خلفية سوداء "</string>
     <string name="sync_settings">إعدادات المزامنة</string>
-    <string name="sync_mobile_data">استخدم بيانات الإتصال</string>
+    <string name="sync_mobile_data">تزامن أطثر على بيانات الهاتف</string>
     <string name="sync_mobile_data_summary">"تحديث تلقائي للخط الزمني عبر شبكة الجوال والواي فاي "</string>
     <string name="auto_sync_notifications">"خيارات تنبيهات التحديث التلقائي "</string>
     <string name="notifications">"التنبيهات "</string>
@@ -300,7 +305,7 @@
     <string name="led">"ضوء الفلاش "</string>
     <string name="wake_screen">"أيقظ الشاشة "</string>
     <string name="sound">"نعمة التنبيهات "</string>
-    <string name="quiet_hours">"عدم الإزعاج "</string>
+    <string name="quiet_hours">وضع عدم الإزعاج</string>
     <string name="max_number_on_refresh">العدد الأقصى للتغريدات في التحديث</string>
     <string name="fav_users_notifications">"تنبيهات المستخدم المفضل "</string>
     <string name="sync_second_mentions">مزامنة الحساب الثاني</string>
@@ -308,7 +313,7 @@
     <string name="max_number_summary">الحد الأقصى معناه تحديث أبطأ</string>
     <string name="auto_refresh_category">خيارات التحديث التلقائي</string>
     <string name="refresh_on_startup">تحديث عند بدء التشغيل</string>
-    <string name="timeline_sync_interval">معدل تحديث الخط الزمني</string>
+    <string name="timeline_sync_interval">معدل تحديث الخط الزمني الرئيسي</string>
     <string name="mentions_sync_interval">معدل تحديث الإشارات</string>
     <string name="dm_sync_interval">معدل تحيث الرسائل الخاصة</string>
     <string name="sync_friends">مزامنة بيانات الأصدقاء</string>
@@ -319,11 +324,11 @@
     <string name="sync_failed">فشلت المزامنة</string>
     <string name="push_notification_options">"خيارات \"تدفق التنبيهات\""</string>
     <string name="push_notifications">سحب تالون</string>
-    <string name="push_notifications_summary">سيتم تفعيل الأستماع إلى التنبيهات المتدفقة في حال أستلام أي تفاعل (إشارات، رسائل خاصة، تفضيلات، إعادة تغريد، أو متابع جديد).</string>
-    <string name="push_notification_warning">لتقرأ أكثر بخصوص هذا الخيار، انقر فوق هذا التفضيل.</string>
+    <string name="push_notifications_summary">سيتم تفعيل الأستماع إلى التنبيهات المتدفقة في حال أستلام تفاعلات جديدة (إشارات، رسائل خاصة، إعجابات، إعادة تغريد، أو متابع جديد).</string>
+    <string name="push_notification_warning">لقراءة المزيد عن سحب تالون ، انقر فوق هذا التفضيل.</string>
     <string name="notification_settings">إعدادات التنبيهات</string>
     <string name="pebble_notifications">تنبيهات بيبل</string>
-    <string name="pebble_notifications_summary">أستخدم مع ساعة بيبل الذكية</string>
+    <string name="pebble_notifications_summary">أستخدم مع ساعة بيبل الذكية ، عطل هذا إذا كنت تحصل على إخطارين على ساعتك</string>
     <string name="advanced_settings">الخيارات المتقدمة</string>
     <string name="app_feel_category">خيارات البرنامج الحسية</string>
     <string name="advance_windowed">نافذة منبثقة</string>
@@ -344,7 +349,7 @@
     <string name="not_cache">لا ينطبق هذا على ذاكرة التخزين المؤقت للتطبيق.</string>
     <string name="current_cache_size">حجم الملفات المؤقتة الحالي</string>
     <string name="cache_dialog_summary">لا يمكن التراجع عن هذا الإجراء.</string>
-    <string name="timeline_size">حجم الخط الزمني</string>
+    <string name="timeline_size">حجم الصفحة الرئيسية</string>
     <string name="timeline_size_summary">العدد الأقصى للتغريدات المخزنة في قاعدة البيانات.</string>
     <string name="mentions_size">حجم الإشارات</string>
     <string name="mentions_size_summary">العدد الأقصى للإشارات المخزنة في قاعدة البيانات.</string>
@@ -407,7 +412,7 @@
     <string name="handle_and_name">عرض اسم المستخدم واسم العرض</string>
     <string name="notification_types">أنواع التنبيهات</string>
     <string name="with_talon_pull">تم الوصول من خلال \"سحب تالون\".</string>
-    <string name="favorited_tweet">المفضلة من تغريداتك</string>
+    <string name="favorited_tweet">الإعجابات من تغريداتك</string>
     <string name="new_followers">متابعون جدد</string>
     <string name="discussion">نقاش</string>
     <string name="no_replies">لاتوجد ردود</string>
@@ -446,7 +451,7 @@
     <string name="timeline_notifications">تنبيهات الخط الزمني</string>
     <string name="interactions_notifications">تنبيهات التفاعلات</string>
     <string name="timelines_settings">أعدادات الخط الزمني</string>
-    <string name="tweet_look_options">خيارات مظهر التغريدة</string>
+    <string name="tweet_look_options">خيارات الخط الزمني</string>
     <string name="limiting_options">خيارات محدودة</string>
     <string name="browser_options">خيارات المتصفح</string>
     <string name="custom_ringtone">النغمة المخصصة</string>
@@ -458,22 +463,24 @@
     <string name="use_twitpic">أستخدم تويت بيك</string>
     <string name="twitpic_summary">أستخدم تويت بيك لإضافة الصور إلى التغريدات بدلا من خدمة رفع الصور الخاصة ب تويتر.</string>
     <string name="verified">موثق</string>
-    <string name="use_tweetmarker">تفعيل تويت ماركر</string>
-    <string name="tweetmarker_summary">لايزال في الطور التجريبي.  قد يكون لديك مشاكل معها تؤدي إلى القفز إلى أسفل.</string>
+    <string name="use_tweetmarker">تويت ماركر</string>
+    <string name="tweetmarker_summary">يستخدم لمزامنة موقعك بين الأجهزة</string>
     <string name="do_not_use">لا تستخدم</string>
+    <string name="automatic_refresh">تويت ماركر تلقائي</string>
+    <string name="manual_refresh">تويت ماركر يدوي</string>
     <string name="finding_tweetmarker">العثور على تويت ماركر</string>
     <string name="loading">تحميل</string>
     <string name="loading_tweets">تحميل التغريدات...</string>
     <string name="pull_to_refresh">أسحب للتحديث</string>
     <string name="removing_retweet">إزالة إعادة التغريد</string>
     <string name="retweeting_status">إعادة تغريد الحالة</string>
-    <string name="removing_favorite">إزالة التفضيل</string>
-    <string name="favoriting_status">تفضيل الحالة</string>
+    <string name="removing_favorite">إزالة الإعجاب</string>
+    <string name="favoriting_status">الإعجاب بالحالة</string>
     <string name="jumping_workaround">الحل البديل للقفز</string>
     <string name="jumping_workaround_summary">تفعيل هذا إذا الخط الزمني الخاص بك يقفز أسفل نقطة واحدة بعد تحديث خلاصتك.</string>
     <string name="menu_share_link">شارك رابط</string>
     <string name="no_links">لاتوجد روابط</string>
-    <string name="configure_pages">تكوين صفحات إضافية</string>
+    <string name="configure_pages">اختار للتمرير السريع بين الصفحات</string>
     <string name="picture_page">صور الخط الزمني</string>
     <string name="link_page">روابط الخط الزمني</string>
     <string name="list_page">قائمة الخط الزمني</string>
@@ -491,6 +498,7 @@
     <string name="use_shortening_service">استخدم خدمة اختصار الروابط</string>
     <string name="use_shortening_service_summary">ستكون قادر على اختيار TwitLonger أو Pwiccer (خدمة لتحويل تغريدتك الطويلة لصورة قابلة للنشر)</string>
     <string name="view_retweeters">المغردين</string>
+    <string name="view_favoriters">الإعجابات</string>
     <string name="no_tweets">لا توجد تغريدات</string>
     <string name="only_7_days">متاح لمدة سبعة أيام فقط</string>
     <string name="saved_searches">الأبحاث المحفوظة</string>
@@ -507,7 +515,7 @@
     <string name="version_two">اصدار 2.0.0</string>
     <string name="cleaning_databases">جاري تنظيف قواعد البيانات...</string>
     <string name="setup_version_two">تالون حصل على العديد من التغييرات, وللتأكد من اعطائك أفضل تجربة, يجب علينا اجراء بعض التنظيفات قبل الدخول للتطبيق!\n\nربما يستغرق هذا الأمر بعض الوقت وهذا يعتمد على عدد التغريدات التي قمت بحفظها!</string>
-    <string name="setting_up_timeline">جاري تهيئة الخط الزمني...</string>
+    <string name="setting_up_timeline">جاري تهيئة الخط الزمني الرئيسي ...</string>
     <string name="setting_up_mentions">جاري تهيئة الإشارات...</string>
     <string name="setting_up_dms">جاري تهيئة الرسائل الخاصة...</string>
     <string name="setting_up_lists">جاري تهيئة القوائم...</string>
@@ -537,10 +545,10 @@
     <string name="open_keyboard_summary">فتح لوحة المفاتيح تلقائياً للرد على التغريدة عند عرضها</string>
     <string name="no_retweets">لا توجد تغريدات مُعاد تغريدها</string>
     <string name="profile">الملف الشخصي</string>
-    <string name="favorites">المُفضلة</string>
+    <string name="favorites">الإعجابات</string>
     <string name="load_pictures">تحميل الصور</string>
     <string name="pic_search_disclaimer">البحث عن الصور في الخط الزمني للمستخدم سيأخذ وقتاً طويلاً اعتماداً على الصور الموجودة عليه.</string>
-    <string name="widget_theme">شكل التطبيقات المصغرة</string>
+    <string name="widget_theme">شكل التطبيقات المصغرة للشاشة الرئيسية</string>
     <string name="widget_theme_summary">تم تطبيقها على التطبيقات المصغرة للصفحة الرئيسية.</string>
     <string name="widget_light">شكل فاتح</string>
     <string name="widget_dark">شكل غامق</string>
@@ -549,7 +557,7 @@
     <string name="ui_settings">إعدادات الواجهة</string>
     <string name="show_pos_dashclock">عرض الموضع الحالي في الخط الزمني</string>
     <string name="show_pos_dashclock_summary">عرض الموضع الحالي في الخط الزمني الرئيسي بدلاً من عدد التغريدات الجديدة.</string>
-    <string name="talon_large_widget">تالون - الخط الزمني</string>
+    <string name="talon_large_widget">تالون - الخط الزمني الرئيسي</string>
     <string name="unread_bar_widget">تالون - شريط الغير مقروءة</string>
     <string name="show_muted_mentions">عرض الإشارات المكتومة</string>
     <string name="force_overflow_summary">دائماً أظهر النقاط الثلاثة \"لعرض القائمة\" في الشريط العلوي؛ تستخدم للأجهزة التي لديها زر قائمة ملموس.</string>
@@ -612,13 +620,61 @@
     <string name="no_clients">لا يوجد تطبيقات</string>
     <string name="muted_clients_summary">تسمح لك بكتم جميع التغريدات الصادرة من تطبيق معين.</string>
     <string name="client_not_found">لم يتم العثور على التطبيق!</string>
+    <string name="favorite">إعجاب</string>
+    <string name="menu_share_image">مشاركة الصورة</string>
     <string name="pick_time">اختيار الوقت</string>
     <string name="pick_date">اختيار التاريخ</string>
     <string name="both_accounts">كلا الحسابين</string>
     <string name="attach_gif">صور GIF المتحركة</string>
-    <string name="roboto_l">روبوت أندرويد L</string>
+    <string name="attach_video">فيديو</string>
+    <string name="roboto_l">روبوت أندرويد لولي بوب</string>
     <string name="second_account">الحساب الثاني</string>
+    <string name="fetch_tweetmarker">جلب تويت ماركر</string>
+    <string name="rate_limit_reached">بلغ حد المعدل</string>
+    <string name="info">معلومات</string>
+    <string name="help_and_feedback">مساعدة/ردود فعل</string>
+    <string name="contact">اتصال</string>
+    <string name="follow">تابع</string>
+    <string name="menu_number_of_pages">عدد الصفحات الإضافية</string>
     <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">الصفحة %s</string>
+    <string name="set_as_default">افتراضي</string>
+    <string name="main_pages_and_drawer">الصفحات الرئيسية ودرج</string>
+    <string name="drawer_elements">درج عناصر مرئية</string>
+    <string name="drawer_elements_summary">إظهار أو إخفاء العناصر في درج تصفح التطبيقات الرئيسية.</string>
+    <string name="second_acc_mentions">إشارات الحساب الثاني</string>
+    <string name="using_second_account">عن طريق حساب %s !</string>
+    <!-- the username will replace %s -->
+    <string name="error_gif">خطأ في العثور على الوسائط</string>
+    <string name="saved_search">حفظ البحث</string>
+    <string name="activity">النشاطات</string>
+    <string name="sending_direct_message">إرسال رسالة مباشرة</string>
+    <string name="talon_pull_notifications">سحب تالون (فوري) الإشعارات</string>
+    <string name="talon_pull_turned_on">يجب تشغيل سحب تالون من إعدادات المزامنة لاستخدام هذه الميزة.</string>
+    <string name="activity_sync_interval">معدل تحديث النشاطات</string>
+    <string name="mentioned_you">ذكرك</string>
+    <string name="favorites_lower">الإعجابات</string>
+    <string name="favorite_lower">إعجاب</string>
+    <string name="retweeted_your_status">إعادة تغريد حالتك</string>
+    <string name="followed_you">يتابعك</string>
+    <string name="new_activity">نشاط جديد</string>
+    <string name="use_interaction_drawer">تمكين درج التفاعل</string>
+    <string name="use_interaction_drawer_summary">يتم تعبئة محتويات هذا الدرج من سحب تالون (مباشرة).</string>
+    <string name="no_activity_yet">لا يوجد أي نشاط بعد!</string>
+    <string name="retweet">إعادة تغريد</string>
+    <string name="new_follower_lower">متابع جديد</string>
+    <string name="new_followers_lower">متابعين جدد</string>
+    <string name="item">عنصر</string>
+    <string name="items">العناصر</string>
+    <string name="and">و</string>
+    <string name="no_favorites">لا يوجد إعجابات</string>
+    <string name="quote_style">نمط الإقتباس</string>
+    <string name="quote_style_twitter">نمط تويتر (رابط إلى تويتر)</string>
+    <string name="quote_style_talon">\"@lukeklinker ...\"</string>
+    <string name="quote_style_rt">RT @lukeklinker ...</string>
+    <string name="show_pull_notification">عرض الإخطار المستمر</string>
+    <string name="custom_tab_title">علامات تبويب كروم المخصصة</string>
+    <string name="learn_more">أعرف أكثر</string>
     <!-- Long click methods -->
     <string name="open_profile">افتح الملف الشخصي</string>
     <string name="copy_handle">انسخ اسم الحساب</string>
@@ -626,13 +682,18 @@
     <string name="mute_user">كتم المستخدم</string>
     <string name="mute_retweets">كتم إعادة التغريد</string>
     <string name="share_profile">مشاركة الملف الشخصي</string>
+    <string name="open_to_external_browser">فتح في متصفح خارجي</string>
+    <string name="open_to_internal_browser">فتح في المتصفح الداخلي</string>
     <string name="copy_link">انسخ الرابط</string>
     <string name="share_link">شارك الرابط</string>
     <string name="search_hashtag">ابحث عن هاشتاج</string>
     <string name="mute_hashtag">كتم الهاشتاج</string>
     <string name="copy_hashtag">انسخ الهاشتاج</string>
     <string name="search_cashtag">ابحث في الهاشتاج</string>
+    <string name="copied">النص المنسوخ</string>
+    <string name="favorite_user_text">المستخدم المفضل</string>
     <string name="open_to_web">افتح التغريدة إلى صفحة الويب</string>
     <string name="open_to_web_summary">إذا كانت التغريدة تحتوي على رابط ويب، ستفتح رابط الويب مباشرة بدلا من التغريدة نفسها.</string>
     <string name="open_webpage">افتح الرابط</string>
+    <string name="get_android">خذ رموز الإيموجي للأندرويد</string>
 </resources>
