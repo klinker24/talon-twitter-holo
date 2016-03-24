@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.customtabs.CustomTabsIntent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -62,8 +63,8 @@ public class WebIntentBuilder {
     private String webpage;
     private boolean forceExternal;
 
+    private CustomTabsIntent customTabIntent;
     private SimpleCustomChromeTabsHelper customTabHelper;
-    private SimpleCustomChromeTabsHelper.CustomTabsUiBuilder uiBuilder;
 
     public WebIntentBuilder(Context context) {
         this.context = context;
@@ -123,9 +124,9 @@ public class WebIntentBuilder {
             shareIntent.setType("text/plain");
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, shareIntent, 0);
 
-            uiBuilder = new SimpleCustomChromeTabsHelper.CustomTabsUiBuilder();
-            uiBuilder.setToolbarColor(color);
-            uiBuilder.setActionButton(((BitmapDrawable)context.getResources().getDrawable(bitmapRes)).getBitmap(), "Share link", pendingIntent);
+            customTabIntent = new CustomTabsIntent.Builder(null)
+                    .setActionButton(((BitmapDrawable)context.getResources().getDrawable(bitmapRes)).getBitmap(), "Share link", pendingIntent)
+                    .setToolbarColor(color).build();
         } else {
             // fallback to in app browser
             intent = new Intent(context, PlainTextBrowserActivity.class);
@@ -138,7 +139,7 @@ public class WebIntentBuilder {
 
     public void start() {
         if (customTabHelper != null) {
-            customTabHelper.openUrl(webpage, uiBuilder);
+            customTabHelper.openUrl(webpage, customTabIntent);
         } else {
             context.startActivity(intent);
         }

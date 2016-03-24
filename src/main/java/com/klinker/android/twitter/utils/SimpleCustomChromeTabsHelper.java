@@ -107,21 +107,20 @@ public class SimpleCustomChromeTabsHelper {
     }
 
 
-    public void openUrl(String url, CustomTabsUiBuilder builder) {
+    public void openUrl(String url, CustomTabsIntent intent) {
         if (sPackageNameToUse == null && getPackageNameToUse(mContext) == null){
             signalFallback();
             return;
         }
-        builder.build(mContext, mCustomTabSession).launchUrl(mContext, Uri.parse(url));
+        intent.launchUrl(mContext, Uri.parse(url));
     }
 
     public void openUrlForResult(String url, int requestCode){
         CustomTabsIntent customTabsIntent = buildCustomTabIntent(mCustomTabSession);
         openUrlForResult(customTabsIntent, url,requestCode);
     }
-    public void openUrlForResult(String url, int requestCode, CustomTabsUiBuilder builder){
-        CustomTabsIntent customTabsIntent = builder.build(mContext, mCustomTabSession);
-        openUrlForResult(customTabsIntent, url,requestCode);
+    public void openUrlForResult(String url, int requestCode, CustomTabsIntent intent){
+        openUrlForResult(intent, url,requestCode);
     }
     private void openUrlForResult(CustomTabsIntent customTabsIntent, String url, int requestCode){
         customTabsIntent.intent.setData(Uri.parse(url));
@@ -148,111 +147,6 @@ public class SimpleCustomChromeTabsHelper {
         context.getTheme ().resolveAttribute (R.attr.colorPrimary, value, true);
         return value.data;
     }
-
-
-    public static class CustomTabsUiBuilder {
-
-        private HashMap<String, PendingIntent> mMenuItemMap;
-        private int mToolbarColor;
-        private Bitmap mCloseButton;
-
-
-        private Bitmap mActionButtonIcon;
-        private String mActioButtonDescription;
-        private PendingIntent mActionButtonPendingIntent;
-
-
-        private int mStartEnterAnimationResId;
-        private int mStartExitAnimationResid;
-
-        private int mExitEnterAnimationResId;
-        private int mExitExitAnimationResid;
-
-
-        private boolean mShowTitle = false;
-
-
-        private boolean hasStartAnimationOptions = false;
-        private boolean hasExitAnimationOptions = false;
-        private Bitmap mExitIcon;
-
-
-        public CustomTabsUiBuilder setToolbarColor(@ColorInt int color) {
-            mToolbarColor = color;
-            return this;
-        }
-
-        public CustomTabsUiBuilder setCloseButtonIcon(@NonNull Bitmap icon) {
-            mCloseButton = icon;
-            return this;
-        }
-
-        public CustomTabsUiBuilder setShowTitle(boolean showTitle) {
-            mShowTitle = showTitle;
-            return this;
-        }
-
-        public CustomTabsUiBuilder addMenuItem(@NonNull String label, @NonNull PendingIntent pendingIntent) {
-            if (mMenuItemMap == null) {
-                mMenuItemMap = new HashMap<>();
-            }
-            mMenuItemMap.put(label, pendingIntent);
-            return this;
-        }
-
-        public CustomTabsUiBuilder setActionButton(@NonNull Bitmap icon, @NonNull String description, @NonNull PendingIntent pendingIntent) {
-            mActionButtonIcon = icon;
-            mActioButtonDescription = description;
-            mActionButtonPendingIntent = pendingIntent;
-            return this;
-        }
-
-        public CustomTabsUiBuilder setStartAnimations(@AnimRes int enterResId, @AnimRes int exitResId) {
-            mStartEnterAnimationResId = enterResId;
-            mStartExitAnimationResid = exitResId;
-            hasStartAnimationOptions = true;
-            return this;
-        }
-
-        public CustomTabsUiBuilder setExitAnimations(@AnimRes int enterResId, @AnimRes int exitResId) {
-            mExitEnterAnimationResId = enterResId;
-            mExitExitAnimationResid = exitResId;
-            hasExitAnimationOptions = true;
-            return this;
-        }
-
-
-        private CustomTabsIntent build(Context context, CustomTabsSession customTabSession) {
-            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder(customTabSession);
-            builder.setShowTitle(mShowTitle);
-            if (mToolbarColor > -1) {
-                builder.setToolbarColor(mToolbarColor);
-            }
-            if (hasExitAnimationOptions) {
-                builder.setExitAnimations(context, mExitEnterAnimationResId, mExitExitAnimationResid);
-            }
-            if (hasStartAnimationOptions) {
-                builder.setStartAnimations(context, mStartEnterAnimationResId, mStartExitAnimationResid);
-            }
-            if (mActionButtonIcon != null) {
-                builder.setActionButton(mActionButtonIcon, mActioButtonDescription, mActionButtonPendingIntent);
-            }
-            if (mCloseButton != null) {
-                builder.setCloseButtonIcon(mCloseButton);
-            }
-            if (mMenuItemMap != null && !mMenuItemMap.isEmpty()) {
-                Iterator<String> iterator = mMenuItemMap.keySet().iterator();
-                for (; iterator.hasNext(); ) {
-                    String menuItemDescription = iterator.next();
-                    PendingIntent menuPendingiIntent = mMenuItemMap.get(menuItemDescription);
-                    builder.addMenuItem(menuItemDescription, menuPendingiIntent);
-                }
-            }
-            return builder.build();
-        }
-
-    }
-
 
     public static String getPackageNameToUse(Context context) {
         if (sPackageNameToUse != null) return sPackageNameToUse;
