@@ -273,8 +273,8 @@
     <string name="layout_summary">Changing this will clear the app\'s cache.</string>
     <string name="text_size">Text Size</string>
     <string name="night_mode">Night Mode</string>
-    <string name="night_mode_night">Select Nighttime Start</string>
-    <string name="night_mode_day">Select Daytime Start</string>
+    <string name="night_mode_night">Select Start Time</string>
+    <string name="night_mode_day">Select End Time</string>
     <string name="night_mode_theme">Select Theme for Night Mode</string>
     <string name="device_font">Use Device Font</string>
     <string name="device_font_summary">Regular \"Roboto\" on most devices. Talon\'s default font is \"Roboto Light\".</string>
