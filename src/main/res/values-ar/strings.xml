@@ -64,8 +64,8 @@
     <string name="favorite_users">"المستخدمين المفضلين "</string>
     <string name="favorite_users_tweets">تغريدات المستخدم المفضل</string>
     <string name="trends">المتداول</string>
-    <string name="local_trends">المتداول المحلي</string>
-    <string name="world_trends">المتداول العالمي</string>
+    <string name="local_trends">المتداول محلياً</string>
+    <string name="world_trends">المتداول عالمياً</string>
     <string name="search">بحث</string>
     <string name="lists">"قوائم "</string>
     <string name="search_hint">بحث..</string>
@@ -297,7 +297,7 @@
     <string name="theme_dark">"خلفية غامقة "</string>
     <string name="theme_black">"خلفية سوداء "</string>
     <string name="sync_settings">إعدادات المزامنة</string>
-    <string name="sync_mobile_data">تزامن أطثر على بيانات الهاتف</string>
+    <string name="sync_mobile_data">تزامن أكثر على بيانات الهاتف</string>
     <string name="sync_mobile_data_summary">"تحديث تلقائي للخط الزمني عبر شبكة الجوال والواي فاي "</string>
     <string name="auto_sync_notifications">"خيارات تنبيهات التحديث التلقائي "</string>
     <string name="notifications">"التنبيهات "</string>
@@ -315,7 +315,7 @@
     <string name="refresh_on_startup">تحديث عند بدء التشغيل</string>
     <string name="timeline_sync_interval">معدل تحديث الخط الزمني الرئيسي</string>
     <string name="mentions_sync_interval">معدل تحديث الإشارات</string>
-    <string name="dm_sync_interval">معدل تحيث الرسائل الخاصة</string>
+    <string name="dm_sync_interval">معدل تحديث الرسائل الخاصة</string>
     <string name="sync_friends">مزامنة بيانات الأصدقاء</string>
     <string name="sync_friends_summary2">إعادة مزامنة بيانات الآصدقاء عند إرسال التغريدات.</string>
     <string name="sync_friends_summary">مزامنة قوائم الأصدقاء يدويا.\n\nوقد تم ذلك في تسجيل الدخول بالنسبة لك، ويتم إضافتها تلقائيا عند اتباع شخص من تالون، ولكن هذا الخيار سحب كل من الأحدث \"متابعة\".\n\n
@@ -524,7 +524,7 @@
     <string name="discover">اكتشف</string>
     <string name="suggested_users">مستخدمون مقترحون</string>
     <string name="nearby_tweets">تغريدات متقاربة</string>
-    <string name="local_trend_options">خيارات الاتجاهات المحلية</string>
+    <string name="local_trend_options">خيارات المتداول محلياً</string>
     <string name="manually_config_location">تهيئة الموقع يدوياً</string>
     <string name="country_region">الدولة/المنطقة</string>
     <string name="city">المدينة</string>
@@ -629,10 +629,15 @@
     <string name="attach_video">فيديو</string>
     <string name="roboto_l">روبوت أندرويد لولي بوب</string>
     <string name="second_account">الحساب الثاني</string>
+    <string name="second_account_login_info">بما أن تويتر يحمل بعض معلومات تسجيل الدخول في نظامها ، الشاشة التالية قد لا تسمح لك الدخول مع حسابك الجديد على الفور . إذا كان يتخطى هذا الدخول ويذهب مباشرة إلى صفحة إذن ، بمجرد الضغط على زر \" تسجيل الخروج \" في الزاوية اليمنى العليا من الموقع سيسمح للتطبيق تسجيل دخولك إلى حساب الثاني .</string>
     <string name="fetch_tweetmarker">جلب تويت ماركر</string>
     <string name="rate_limit_reached">بلغ حد المعدل</string>
     <string name="info">معلومات</string>
     <string name="help_and_feedback">مساعدة/ردود فعل</string>
+    <string name="faq_first">مرحبا، سعيد لأنك تريد مساعدتي في تحسين تالون !\n\n
+لا تتردد في كتابة إيميل  أو إرسال تغريدة لي من ردود الفعل الخاص بك أو أي أسئلة قد تكون لديكم ، ولكن قبل أن تفعل ذلك، هل دققت في قسم الأسئلة الشائعة؟\n\n
+تالون لديه قائمة واسعة جدا من موضوعات الدعم و طلبات إقامت الحق في التطبيق. تحقق منها قبل القلق حول انتظار رد مني ! ( على الرغم من أنني في محاولة للحصول على بالرد عليك في أسرع وقت كما يمكن ل عملية رجل واحد ..)\n\n
+نأمل لكم الاستمتاع بعملي!</string>
     <string name="contact">اتصال</string>
     <string name="follow">تابع</string>
     <string name="menu_number_of_pages">عدد الصفحات الإضافية</string>
@@ -649,6 +654,8 @@
     <string name="saved_search">حفظ البحث</string>
     <string name="activity">النشاطات</string>
     <string name="sending_direct_message">إرسال رسالة مباشرة</string>
+    <string name="fav_rt_multiple_accounts">إجراءات الحساب عبر</string>
+    <string name="fav_rt_multiple_accounts_summary">إذا كان لديك حسابات متعددة، هذا سوف يتيح لك تحديد أي حساب لأداء الإعجاب  أو إعادة التغريد مع .</string>
     <string name="talon_pull_notifications">سحب تالون (فوري) الإشعارات</string>
     <string name="talon_pull_turned_on">يجب تشغيل سحب تالون من إعدادات المزامنة لاستخدام هذه الميزة.</string>
     <string name="activity_sync_interval">معدل تحديث النشاطات</string>
@@ -661,6 +668,9 @@
     <string name="use_interaction_drawer">تمكين درج التفاعل</string>
     <string name="use_interaction_drawer_summary">يتم تعبئة محتويات هذا الدرج من سحب تالون (مباشرة).</string>
     <string name="no_activity_yet">لا يوجد أي نشاط بعد!</string>
+    <string name="no_activity_yet_desc">وسيتم ملء هذا القسم وأنت تتفاعل أكثر على تويتر .\n\n
+
+إشارات ، متابعين جدد و إعادة تغريد/إعجاب على حالاتك ستبدأ بالظهور هنا</string>
     <string name="retweet">إعادة تغريد</string>
     <string name="new_follower_lower">متابع جديد</string>
     <string name="new_followers_lower">متابعين جدد</string>
@@ -673,7 +683,9 @@
     <string name="quote_style_talon">\"@lukeklinker ...\"</string>
     <string name="quote_style_rt">RT @lukeklinker ...</string>
     <string name="show_pull_notification">عرض الإخطار المستمر</string>
+    <string name="show_pull_notification_summary">إذا تم تعطيل هذا الإشعار، يمكن لنظام الأندرويد إيقاف التدفق في أي وقت. استخدام بحذر الشديد .</string>
     <string name="custom_tab_title">علامات تبويب كروم المخصصة</string>
+    <string name="custom_tab_message">النظام الخاص بك لا يسمح لتالون بدأ علامات تبويب كروم المخصصة تلقائيا. لاستخدام هذه الميزة، سوف تكون هناك حاجة لوضع كروم المتصفح الافتراضي للنظام الخاص بك، وإلا، تالون سيستمر في استخدام المتصفح الأصلي للتطبيق .\n\nيرجى اختيار \"نعم\" إذا الكروم سيكون المتصفح الافتراضي أو \"لا\" إذا كنت لن تستخدمه كمتصفح  الافتراضي .</string>
     <string name="learn_more">أعرف أكثر</string>
     <!-- Long click methods -->
     <string name="open_profile">افتح الملف الشخصي</string>
@@ -690,6 +702,7 @@
     <string name="mute_hashtag">كتم الهاشتاج</string>
     <string name="copy_hashtag">انسخ الهاشتاج</string>
     <string name="search_cashtag">ابحث في الهاشتاج</string>
+    <string name="copy_cashtag">نسخ الهاشتاج</string>
     <string name="copied">النص المنسوخ</string>
     <string name="favorite_user_text">المستخدم المفضل</string>
     <string name="open_to_web">افتح التغريدة إلى صفحة الويب</string>

@@ -43,9 +43,9 @@
     <!-- When translating: put the %s where the number should go in the string. -->
     <string name="just_now">刚刚</string>
     <string name="a_min_ago">一分钟前</string>
-    <string name="minutes_ago">%s分钟前</string>
+    <string name="minutes_ago">%s 分钟前</string>
     <string name="an_hour_ago">一小时前</string>
-    <string name="hours_ago">%s小时前</string>
+    <string name="hours_ago">%s 小时前</string>
     <string name="yesterday">昨天</string>
     <string name="days_ago">%s天前</string>
     <!-- Muting -->
@@ -69,8 +69,8 @@
     <string name="search">搜索</string>
     <string name="lists">列表</string>
     <string name="search_hint">搜索...</string>
-    <string name="new_tweet">条新推等待更新</string>
-    <string name="new_tweets">条新推等待更新</string>
+    <string name="new_tweet">条新推文</string>
+    <string name="new_tweets">条新推文</string>
     <string name="no_new_tweets">没有新的推文</string>
     <string name="new_mention">条新提及</string>
     <string name="new_mentions">条新提及</string>
@@ -134,7 +134,7 @@
     <string name="syncing_direct_messages">同步私信中...</string>
     <string name="syncing_user">正在同步关注信息...</string>
     <string name="done_syncing">同步完成。</string>
-    <string name="login_error">好像出现了一些错误…请重试！\n\n这可能是由于你的设备上没有设置过自动确定日期和时间。这点是 Twitter 第三方 API 内作出的要求。</string>
+    <string name="login_error">好像出现了一些错误…请重试！\n\n这可能是由于你的设备上没有设置自动确定日期和时间。这点是 Twitter 在第三方 API 内作出的要求。</string>
     <string name="no_network">因特网连接失败</string>
     <string name="no_thanks">暂时还不</string>
     <string name="follow_me">关注！</string>
@@ -254,7 +254,7 @@
     <string name="part_1_tablet">\n通过点击\n导航抽屉上的项目\n来访问\n各个功能项\n！</string>
     <string name="part_1_phone">\n从左侧边缘\n向右滑动\n来打开\n导航抽屉！</string>
     <string name="part_2">\n从屏幕中央\n向任意一个方向\n滑动\n来访问\n各个时间线！</string>
-    <string name="part_3">就这些了！\n\n请点击\n屏幕任意位置\n开始！</string>
+    <string name="part_3">就是这些了！\n\n请点击\n屏幕任意位置\n开始！</string>
     <!-- Settings Menu -->
     <string name="theme_settings">主题设置</string>
     <string name="theme_options">主题选项</string>
@@ -273,9 +273,9 @@
     <string name="layout_summary">修改此项将清除应用的缓存。</string>
     <string name="text_size">文本大小</string>
     <string name="night_mode">夜间模式</string>
-    <string name="night_mode_night">选择夜间模式开启时间</string>
-    <string name="night_mode_day">选择夜间模式关闭时间</string>
-    <string name="night_mode_theme">选择夜间模式主题</string>
+    <string name="night_mode_night">选择夜间开始时间</string>
+    <string name="night_mode_day">选择夜间结束时间</string>
+    <string name="night_mode_theme">选择夜间模式时的主题</string>
     <string name="device_font">使用设备字体</string>
     <string name="device_font_summary">多数设备默认使用 \"Roboto\" 字体。Talon 的默认字体为 \"Roboto Light\"。</string>
     <string name="ui_extras">UI 附加项</string>
@@ -287,12 +287,11 @@
     <string name="inline_pics">显示内嵌的图片</string>
     <string name="use_screen_name">显示用户昵称</string>
     <string name="use_screen_name_summary">在时间线上显示用户的昵称而非用户名</string>
-    <string name="timestamp">24小时时间格式</string>
+    <string name="timestamp">使用 24 小时格式</string>
     <string name="enable_emojis">使用 iOS 表情符号</string>
     <string name="to_market">跳转至Play Store</string>
     <string name="get_ios">下载插件</string>
-    <string name="emoji_dialog_summary">要在本应用中使用表情符号，需先从 Play Store 上安装 我们的免费应用 \"Sliding Emoji Keyboard - iOS\"。\n\n
-注意：即使免费试用期已过您仍然可以继续在当前应用内使用其中的表情符号！因为它不仅是一个单独的键盘应用同时也属于一个应用插件。</string>
+    <string name="emoji_dialog_summary">要在本应用中使用表情符号，需先从 Play Store 上安装 我们的免费应用 \"Sliding Emoji Keyboard - iOS\"。\n\n注意：即使免费的试用期已过您仍然可以选择继续在该应用内使用其中的表情符号！因为它不仅是一款单独的键盘应用同时也属于一个应用插件。</string>
     <string name="theme_light">浅色主题</string>
     <string name="theme_dark">深色主题</string>
     <string name="theme_black">黑色主题</string>
@@ -318,21 +317,20 @@
     <string name="dm_sync_interval">私信刷新频率</string>
     <string name="sync_friends">同步关注信息</string>
     <string name="sync_friends_summary2">撰写新推文时重新同步关注信息</string>
-    <string name="sync_friends_summary">手动同步关注信息\n\n同步在登录帐号后就已经完成过了。当您在 Talon 内新关注用户时他将被自动添加到关注信息中，但这个设置将会强制拉取更新您当前所有的关注信息\n\n
-这些关注信息主要用于撰写新推文时补全提及用户的用户名</string>
+    <string name="sync_friends_summary">手动同步关注信息。\n\n同步在登录帐号后就已经完成过了。当您在 Talon 内新关注用户时他们将被自动添加到关注信息中，但这个设置将会强制拉取更新您当前所有的关注信息。\n\n这些关注信息主要被用于撰写新推文时的用户搜索。</string>
     <string name="sync_success">同步成功</string>
     <string name="sync_failed">同步失败</string>
     <string name="push_notification_options">"推送通知选项"</string>
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">该选项将会启用一个侦听进程并在有新的互动时发出通知提醒（包含提及，私信，喜欢，转推以及新的关注者）。</string>
-    <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，点击这里</string>
+    <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，请点击这里</string>
     <string name="notification_settings">通知设置</string>
     <string name="pebble_notifications">Pebble 通知</string>
     <string name="pebble_notifications_summary">用来设置 Pebble 智能手表。如果在您的手表上收到了重复的通知请关闭这个选项。</string>
     <string name="advanced_settings">高级设置</string>
     <string name="app_feel_category">应用外观选项</string>
     <string name="advance_windowed">高级窗口模式</string>
-    <string name="advance_windowed_summary">在悬浮于时间线上层的窗口里打开个人资料和推文页面</string>
+    <string name="advance_windowed_summary">在位于时间线上层的窗口内打开个人资料和推文页面</string>
     <string name="full_screen_browsers">全屏浏览器</string>
     <string name="full_screen_browsers_summary">在全屏模式下打开含有网页的推文</string>
     <string name="reverse_click_actions">变更点击行为</string>
@@ -394,15 +392,15 @@
     <string name="places">胜地</string>
     <string name="symbols">符号</string>
     <!-- Array value for translation -->
-    <string name="five_mins">5分钟</string>
-    <string name="ten_mins">10分钟</string>
-    <string name="twenty_mins">20分钟</string>
+    <string name="five_mins">5 分钟</string>
+    <string name="ten_mins">10 分钟</string>
+    <string name="twenty_mins">20 分钟</string>
     <string name="thirty_mins">30 分钟</string>
-    <string name="fourty_five_mins">45分钟</string>
-    <string name="one_hour">1小时</string>
-    <string name="two_hours">2小时</string>
+    <string name="fourty_five_mins">45 分钟</string>
+    <string name="one_hour">1 小时</string>
+    <string name="two_hours">2 小时</string>
     <string name="three_hours">3 小时</string>
-    <string name="four_hours">4小时</string>
+    <string name="four_hours">4 小时</string>
     <string name="manual">手动</string>
     <string name="layout_hangouts">环聊</string>
     <!-- added after release -->
@@ -447,7 +445,7 @@
     <string name="roboto_condensed">Roboto Condensed</string>
     <string name="font_type">文字类型</string>
     <string name="our_website">官方主页</string>
-    <string name="alert_types">预警方法</string>
+    <string name="alert_types">通知方式</string>
     <string name="timeline_notifications">时间线通知</string>
     <string name="interactions_notifications">互动通知</string>
     <string name="timelines_settings">时间线设置</string>
@@ -501,7 +499,7 @@
     <string name="view_favoriters">喜欢</string>
     <string name="no_tweets">没有推文</string>
     <string name="only_7_days">只保留7天</string>
-    <string name="saved_searches">已保存的搜索</string>
+    <string name="saved_searches">保存的搜索</string>
     <string name="error_check_network">加载个人资料失败。请检查您的网络连接</string>
     <string name="error_loading_timeline">无法加载时间线！请检查您的数据连接</string>
     <string name="currently_in_beta">这目前仅是Beta阶段。</string>
@@ -520,7 +518,7 @@
     <string name="setting_up_dms">正在设置私信……</string>
     <string name="setting_up_lists">正在设置列表……</string>
     <string name="version_two_setup_done">Talon 2.0设置完成，祝您使用愉快！</string>
-    <string name="no_content">无显示项目！</string>
+    <string name="no_content">无内容可显示！</string>
     <string name="discover">发现</string>
     <string name="suggested_users">建议的用户</string>
     <string name="nearby_tweets">附近的推文</string>
@@ -634,7 +632,7 @@ Talon 将选择把图像上传至 TwitPic。</string>
     <string name="rate_limit_reached">已达到刷新上限</string>
     <string name="info">说明</string>
     <string name="help_and_feedback">帮助/反馈</string>
-    <string name="faq_first">您好，非常高兴您愿意协助我改进 Talon !\n\n
+    <string name="faq_first">您好，非常高兴您愿意协助我改进 Talon！\n\n
 如果有任何疑问或反馈，请随时给我发送电子邮件或推文。不过在此之前，您是否已经阅读过了 \"常见问题\" 部分呢？\n\n
 Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑的等待我回复之前，不妨先去查看一下吧。（尽管我已在尽自己所能的去尽快回复您的消息...）\n\n
 希望您能满意我的作品！</string>
@@ -665,8 +663,8 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="retweeted_your_status">转推了你的推文</string>
     <string name="followed_you">已关注你</string>
     <string name="new_activity">新的活动！</string>
-    <string name="use_interaction_drawer">启用互动抽屉项</string>
-    <string name="use_interaction_drawer_summary">该抽屉项中的显示内容是由 Talon Pull 获取的（信息流）。</string>
+    <string name="use_interaction_drawer">启用互动抽屉</string>
+    <string name="use_interaction_drawer_summary">该抽屉中显示的内容是由 Talon Pull 获取的（信息流）。</string>
     <string name="no_activity_yet">当前尚无活动！</string>
     <string name="no_activity_yet_desc">该区域内的信息将随着您互动次数的增多而增加。\n\n
 有关您的提及，新的关注者，转推/喜欢状态都将出现在这里。</string>
@@ -684,7 +682,7 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="show_pull_notification">显示可持续通知</string>
     <string name="show_pull_notification_summary">如果禁用该通知，安卓系统可能会随时关闭掉信息流的传输。请谨慎使用</string>
     <string name="custom_tab_title">Chrome 自定义标签页</string>
-    <string name="custom_tab_message">您的系统不允许 Talon 自动启用 Chrome 自定义标签页。想要使用这项功能，您需要将 Chrome 设置成系统的默认浏览器，否则 Talon 将继续使用其内置的浏览器。\n\n如果 Chrome 是您系统的默认浏览器请点击选择 \"确认\"，如不想将其设为默认浏览器请点“取消”。</string>
+    <string name="custom_tab_message">您的系统不允许 Talon 自动开启 Chrome 自定义标签页。想要使用这项功能，您需要将 Chrome 设置成系统的默认浏览器，否则 Talon 将继续使用其内置的浏览器。\n\n如果 Chrome 是您系统的默认浏览器请点击选择 \"确认\"，如不想将其设为默认浏览器请点“取消”。</string>
     <string name="learn_more">了解更多</string>
     <!-- Long click methods -->
     <string name="open_profile">打开用户资料</string>
