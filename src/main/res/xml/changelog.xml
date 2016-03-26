@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.6.2">
+        <text>Custom tab implementation</text>
+    </version>
+
     <version name="4.6.0">
         <text>Search Giphy for GIFs when composing tweets</text>
     </version>
