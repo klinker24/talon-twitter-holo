@@ -20,7 +20,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.klinker.android.twitter">
 
-    <uses-sdk tools:overrideLibrary="android.support.wearable"/>
+    <uses-sdk tools:overrideLibrary="android.support.customtabs"/>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
