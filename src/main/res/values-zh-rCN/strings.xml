@@ -669,10 +669,10 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="no_activity_yet_desc">该区域内的信息将随着您互动次数的增多而增加。\n\n
 有关您的提及，新的关注者，转推/喜欢状态都将出现在这里。</string>
     <string name="retweet">转推</string>
-    <string name="new_follower_lower">新关注者</string>
-    <string name="new_followers_lower">新关注者</string>
-    <string name="item">条目</string>
-    <string name="items">条目</string>
+    <string name="new_follower_lower">名新关注者</string>
+    <string name="new_followers_lower">名新关注者</string>
+    <string name="item">条项目</string>
+    <string name="items">条项目</string>
     <string name="and">和</string>
     <string name="no_favorites">无喜欢的推文</string>
     <string name="quote_style">引用样式</string>
