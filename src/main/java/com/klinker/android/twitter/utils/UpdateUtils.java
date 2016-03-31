@@ -38,6 +38,8 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
+import twitter4j.User;
+
 
 public class UpdateUtils {
 
@@ -128,7 +130,7 @@ public class UpdateUtils {
     }
 
     public static void checkUpdate(final Context context) {
-        SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+        final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
         if (sharedPrefs.getBoolean("3.1.5", true)) {
@@ -207,6 +209,21 @@ public class UpdateUtils {
                     })
                     .create()
                     .show();
+        }
+
+        if (sharedPrefs.getBoolean("need_translation_update", true)) {
+            sharedPrefs.edit().putBoolean("need_translation_update", false).commit();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        User user = Utils.getTwitter(context).verifyCredentials();
+                        sharedPrefs.edit().putString("translate_url", Utils.getTranslateURL(user.getLang())).commit();
+                    } catch (Exception e) {
+
+                    }
+                }
+            }).start();
         }
     }
 }

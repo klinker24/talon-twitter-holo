@@ -487,7 +487,6 @@ public class LoginActivity extends Activity {
                     sharedPrefs.edit().putString("twitter_screen_name_1", user.getScreenName()).commit();
                     sharedPrefs.edit().putString("translate_url", Utils.getTranslateURL(user.getLang())).commit();
                     sharedPrefs.edit().putString("twitter_background_url_1", user.getProfileBannerURL()).commit();
-                    sharedPrefs.edit().putString("twitter_background_url_1", user.getProfileBannerURL()).commit();
                     sharedPrefs.edit().putString("profile_pic_url_1", user.getBiggerProfileImageURL()).commit();
                     sharedPrefs.edit().putLong("twitter_id_1", user.getId()).commit();
                 } else {
