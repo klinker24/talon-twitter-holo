@@ -101,6 +101,7 @@ public class AppSettings {
     public String myProfilePicUrl;
     public String secondProfilePicUrl;
     public String favoriteUserNames;
+    public String translateURL;
 
     public boolean isTwitterLoggedIn;
     public boolean reverseClickActions;
@@ -507,6 +508,7 @@ public class AppSettings {
             favoriteUserNames = sharedPrefs.getString("favorite_user_names_2", "");
             myId = sharedPrefs.getLong("twitter_id_2", 0);
         }
+        translateURL = sharedPrefs.getString("translate_url", "");
 
         // Booleans
         isTwitterLoggedIn = sharedPrefs.getBoolean("is_logged_in_1", false) || sharedPrefs.getBoolean("is_logged_in_2", false);
