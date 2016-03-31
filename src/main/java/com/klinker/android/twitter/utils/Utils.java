@@ -166,6 +166,12 @@ public class Utils {
         }
         return result;
     }
+    
+    public static String getTranslateURL(final String lang) {
+        return "https://translate.google.com/m/translate#auto|" +
+        			 lang + 
+        			 "|";
+    }
 
     public static boolean hasNavBar(Context context) {
         Display display = ((Activity)context).getWindowManager().getDefaultDisplay();
