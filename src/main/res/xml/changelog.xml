@@ -16,6 +16,12 @@
 
 <changelog>
 
+    <version name="4.6.2">
+        <text>Translate tweets to the language set on Twitter</text>
+        <text>Bug fixes</text>
+        <text>Update translations</text>
+    </version>
+
     <version name="4.6.0">
         <text>Search Giphy for GIFs when composing tweets</text>
     </version>
