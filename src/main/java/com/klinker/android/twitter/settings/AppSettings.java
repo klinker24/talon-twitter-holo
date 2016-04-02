@@ -223,6 +223,7 @@ public class AppSettings {
             favoriteUserNames = sharedPrefs.getString("favorite_user_names_2", "");
             myId = sharedPrefs.getLong("twitter_id_2", 0);
         }
+        translateURL = sharedPrefs.getString("translate_url", "");
 
         SharedPreferences defaultPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
