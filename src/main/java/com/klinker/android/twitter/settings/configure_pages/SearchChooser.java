@@ -2,10 +2,12 @@ package com.klinker.android.twitter.settings.configure_pages;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.LoaderManager;
+import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,7 +28,8 @@ import twitter4j.ResponseList;
 import twitter4j.SavedSearch;
 import twitter4j.Twitter;
 
-public class SearchChooser extends Activity {
+public class SearchChooser extends Activity implements
+                                                LoaderManager.LoaderCallbacks<ResponseList<SavedSearch>> {
 
     private Context context;
     private AppSettings settings;
@@ -61,12 +64,48 @@ public class SearchChooser extends Activity {
             }
         });
 
-        new GetLists().execute();
+        getLoaderManager().initLoader(0, null, this);
     }
 
-    class GetLists extends AsyncTask<String, Void, ResponseList<SavedSearch>> {
+    @Override
+    public Loader<ResponseList<SavedSearch>> onCreateLoader(int id, Bundle args) {
+        return new GetLists(this);
+    }
 
-        protected ResponseList<SavedSearch> doInBackground(String... urls) {
+    @Override
+    public void onLoadFinished(Loader<ResponseList<SavedSearch>> loader, ResponseList<SavedSearch> searches) {
+        if (searches != null) {
+
+            final ArrayList<String> searchNames = new ArrayList<String>();
+
+            for (SavedSearch sear : searches) {
+                searchNames.add(sear.getQuery());
+            }
+
+            adapter = new SearchChooserArrayAdapter(context, searchNames);
+            listView.setAdapter(adapter);
+            listView.setVisibility(View.VISIBLE);
+        }
+
+        LinearLayout spinner = (LinearLayout) findViewById(R.id.list_progress);
+        spinner.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<ResponseList<SavedSearch>> loader) {
+    }
+
+    class GetLists extends AsyncTaskLoader<ResponseList<SavedSearch>> {
+        GetLists(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
+        public ResponseList<SavedSearch> loadInBackground() {
             try {
                 Twitter twitter =  Utils.getTwitter(context, settings);
 
@@ -83,25 +122,6 @@ public class SearchChooser extends Activity {
             } catch (Exception e) {
                 return null;
             }
-        }
-
-        protected void onPostExecute(ResponseList<SavedSearch> searches) {
-
-            if (searches != null) {
-
-                final ArrayList<String> searchNames = new ArrayList<String>();
-
-                for (SavedSearch sear : searches) {
-                    searchNames.add(sear.getQuery());
-                }
-
-                adapter = new SearchChooserArrayAdapter(context, searchNames);
-                listView.setAdapter(adapter);
-                listView.setVisibility(View.VISIBLE);
-            }
-
-            LinearLayout spinner = (LinearLayout) findViewById(R.id.list_progress);
-            spinner.setVisibility(View.GONE);
         }
     }
 
