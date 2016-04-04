@@ -396,6 +396,7 @@
     <!-- Array value for translation -->
     <string name="five_mins">5 minutes</string>
     <string name="ten_mins">10 minutes</string>
+    <string name="fifteen_mins">15 minutes</string>
     <string name="twenty_mins">20 minutes</string>
     <string name="thirty_mins">30 minutes</string>
     <string name="fourty_five_mins">45 minutes</string>
@@ -403,6 +404,9 @@
     <string name="two_hours">2 hours</string>
     <string name="three_hours">3 hours</string>
     <string name="four_hours">4 hours</string>
+    <string name="six_hours">6 hours</string>
+    <string name="twelve_hours">12 hours</string>
+    <string name="once_day">Once a day</string>
     <string name="manual">Manual</string>
     <string name="layout_hangouts">Hangouts</string>
     <!-- added after release -->

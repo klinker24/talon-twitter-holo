@@ -76,30 +76,30 @@
         <item>32</item>
         <item>34</item>
     </string-array>
-
+    
     <string-array name="sync_interval">
         <item>@string/five_mins</item>
-        <item>@string/ten_mins</item>
-        <item>@string/twenty_mins</item>
+        <item>@string/fifteen_mins</item>
         <item>@string/thirty_mins</item>
-        <item>@string/fourty_five_mins</item>
         <item>@string/one_hour</item>
         <item>@string/two_hours</item>
-        <item>@string/three_hours</item>
         <item>@string/four_hours</item>
+        <item>@string/six_hours</item>
+        <item>@string/twelve_hours</item>
+        <item>@string/once_day</item>
         <item>@string/manual</item>
     </string-array>
-
+    
     <string-array name="sync_interval_inserted">
         <item>300000</item>
-        <item>600000</item>
-        <item>1200000</item>
+        <item>900000</item>
         <item>1800000</item>
-        <item>2700000</item>
         <item>3600000</item>
         <item>7200000</item>
-        <item>10800000</item>
         <item>14400000</item>
+        <item>21600000</item>
+        <item>43200000</item>
+        <item>86400000</item>
         <item>0</item>
     </string-array>
 
