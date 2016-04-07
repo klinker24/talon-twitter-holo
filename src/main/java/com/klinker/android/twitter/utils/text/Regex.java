@@ -281,7 +281,7 @@ public class Regex {
                     "immobilien|industries|info|ink|institute|insure|int|international|investments|jetzt|jobs|joburg|juegos|kaufen|" +
                     "kim|kitchen|kiwi|koeln|kred|land|lawyer|lease|lgbt|life|lighting|limited|limo|link|loans|london|lotto|luxe|" +
                     "luxury|maison|management|mango|market|marketing|media|meet|menu|miami|mil|mini|mobi|moda|moe|monash|mortgage|" +
-                    "moscow|motorcycles|museum|nagoya|name|navy|net|neustar|nhk|ninja|nyc|okinawa|onl|org|organic|ovh|paris|" +
+                    "moscow|motorcycles|museum|nagoya|name|navy|net|neustar|news|nhk|ninja|nyc|okinawa|onl|org|organic|ovh|paris|" +
                     "partners|parts|photo|photography|photos|physio|pics|pictures|pink|place|plumbing|post|press|pro|productions|" +
                     "properties|pub|qpon|quebec|recipes|red|rehab|reise|reisen|ren|rentals|repair|report|republican|rest|reviews|" +
                     "rich|rio|rocks|rodeo|ruhr|ryukyu|saarland|schmidt|schule|scot|services|sexy|shiksha|shoes|singles|social|" +
