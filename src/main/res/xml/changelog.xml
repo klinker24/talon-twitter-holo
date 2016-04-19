@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.7.0">
+        <text>Rotate, crop, and zoom images before they are posted</text>
+    </version>
+
     <version name="4.6.2">
         <text>Translate tweets to the language set on Twitter</text>
         <text>Bug fixes</text>

@@ -110,6 +110,7 @@ dependencies {
     compile 'com.klinkerapps:launcher-apis:1.1.0@aar'
     compile 'com.google.android.apps.dashclock:dashclock-api:+'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.yalantis:ucrop:1.4.1'
 
     compile 'org.twitter4j:twitter4j-core:4.0.4'
     compile 'org.twitter4j:twitter4j-stream:4.0.4'
