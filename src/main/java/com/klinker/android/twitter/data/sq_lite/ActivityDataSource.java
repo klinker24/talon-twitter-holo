@@ -122,6 +122,24 @@ public class ActivityDataSource {
         return list;
     }
 
+    public synchronized List<String> insertQuotes(List<Status> statuses, int account) {
+
+        ContentValues[] valueses = new ContentValues[statuses.size()];
+
+        for (int i = 0; i < statuses.size(); i++) {
+            ContentValues values = getQuoteValues(statuses.get(i), account);
+            valueses[i] = values;
+        }
+
+        insertMultiple(valueses);
+
+        List<String> list = new ArrayList<String>();
+        for (ContentValues v : valueses) {
+            list.add("<b>" + v.getAsString(ActivitySQLiteHelper.COLUMN_TITLE) + ":</b> " + v.getAsString(ActivitySQLiteHelper.COLUMN_TEXT));
+        }
+        return list;
+    }
+
     public synchronized String insertRetweeters(Status status, int account, Twitter twitter) {
         int retweetCountInDb = retweetExists(status.getId(), account);
         if (retweetCountInDb != -1 && retweetCountInDb < status.getRetweetCount()) {
@@ -242,6 +260,46 @@ public class ActivityDataSource {
         }
 
         values.put(ActivitySQLiteHelper.COLUMN_TITLE, "@" + status.getUser().getScreenName() + " " + context.getString(R.string.mentioned_you));
+        values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
+        values.put(ActivitySQLiteHelper.COLUMN_TEXT, text);
+        values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, id);
+        values.put(ActivitySQLiteHelper.COLUMN_NAME, status.getUser().getName());
+        values.put(ActivitySQLiteHelper.COLUMN_PRO_PIC, status.getUser().getOriginalProfileImageURL());
+        values.put(ActivitySQLiteHelper.COLUMN_SCREEN_NAME, status.getUser().getScreenName());
+        values.put(ActivitySQLiteHelper.COLUMN_TIME, time);
+        values.put(ActivitySQLiteHelper.COLUMN_RETWEETER, originalName);
+        values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
+        values.put(ActivitySQLiteHelper.COLUMN_URL, otherUrl);
+        values.put(ActivitySQLiteHelper.COLUMN_PIC_URL, media);
+        values.put(ActivitySQLiteHelper.COLUMN_USERS, users);
+        values.put(ActivitySQLiteHelper.COLUMN_HASHTAGS, hashtags);
+        values.put(ActivitySQLiteHelper.COLUMN_TYPE, TYPE_MENTION);
+        values.put(ActivitySQLiteHelper.COLUMN_ANIMATED_GIF, TweetLinkUtils.getGIFUrl(status, otherUrl));
+        values.put(HomeSQLiteHelper.COLUMN_CONVERSATION, status.getInReplyToStatusId() == -1 ? 0 : 1);
+        values.put(ActivitySQLiteHelper.COLUMN_FAV_COUNT, status.getFavoriteCount());
+        values.put(ActivitySQLiteHelper.COLUMN_RETWEET_COUNT, status.getRetweetCount());
+
+        return values;
+    }
+
+    public ContentValues getQuoteValues(Status status, int account) {
+        ContentValues values = new ContentValues();
+        String originalName = "";
+        long id = status.getId();
+        long time = status.getCreatedAt().getTime();
+
+        String[] html = TweetLinkUtils.getLinksInStatus(status);
+        String text = html[0];
+        String media = html[1];
+        String otherUrl = html[2];
+        String hashtags = html[3];
+        String users = html[4];
+
+        if (media.contains("/tweet_video/")) {
+            media = media.replace("tweet_video", "tweet_video_thumb").replace(".mp4", ".png");
+        }
+
+        values.put(ActivitySQLiteHelper.COLUMN_TITLE, "@" + status.getUser().getScreenName() + " " + context.getString(R.string.quoted_you));
         values.put(ActivitySQLiteHelper.COLUMN_ACCOUNT, account);
         values.put(ActivitySQLiteHelper.COLUMN_TEXT, text);
         values.put(ActivitySQLiteHelper.COLUMN_TWEET_ID, id);
