@@ -15,4 +15,18 @@ public class QuoteUtil {
 
         return statuses;
     }
+
+    public static List<Status> stripNoQuotesForActivity(List<Status> statuses, String screenname) {
+        screenname = screenname.replace("@", "");
+
+        for (int i = 0; i < statuses.size(); i++) {
+            if (statuses.get(i).getQuotedStatus() == null ||
+                    !statuses.get(i).getQuotedStatus().getUser().getScreenName().equals(screenname)) {
+                statuses.remove(i);
+                i--;
+            }
+        }
+
+        return statuses;
+    }
 }

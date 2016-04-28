@@ -341,9 +341,11 @@ public class ActivityUtils {
 
     public boolean getQuotes(Twitter twitter) {
         boolean newActivity = false;
+        String screenname = useSecondAccount ?
+                settings.secondScreenName : settings.myScreenName;
 
         try {
-            Query query = new Query(settings.myScreenName + "/status/");
+            Query query = new Query(screenname + "/status/");
 
             if (lastQuoteRefresh == 0L) { // just get last 5 if it is the first time.
                 query.setCount(5);
@@ -353,7 +355,7 @@ public class ActivityUtils {
             }
 
             List<Status> quotes = twitter.search().search(query).getTweets();
-            quotes = QuoteUtil.stripNoQuotes(quotes);
+            quotes = QuoteUtil.stripNoQuotesForActivity(quotes, screenname);
 
             if (quotes.size() > 0) {
                 insertQuotes(quotes);
