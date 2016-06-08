@@ -57,8 +57,8 @@
     <string name="links">リンク</string>
     <string name="pictures">画像</string>
     <string name="timeline">ホーム</string>
-    <string name="mentions">メンション</string>
-    <string name="direct_messages">メッセージ</string>
+    <string name="mentions">\@ ツイート</string>
+    <string name="direct_messages">ダイレクトメッセージ</string>
     <string name="retweets">リツイート</string>
     <string name="favorite_tweets">いいねしたツイート</string>
     <string name="favorite_users">お気に入りユーザー</string>

@@ -367,7 +367,7 @@
     <string name="backup_settings_dialog_summary">هذا يقوم بإلغاء كافة النسخ الأحتياطية السابقة.</string>
     <string name="backup_success">تم النسخ الأحتياطي</string>
     <string name="restore_success">تمت الاستعادة</string>
-    <string name="restore_settings">خيارات الاستعادة</string>
+    <string name="restore_settings">اضغط للاستعادة</string>
     <string name="restore_settings_summary">سيقوم بسمح الملفات المؤقتة لتطبيق تغييرالخلفية.</string>
     <string name="get_help_settings">خذ المساعدة</string>
     <string name="rerun_tutorial">بدء تشغيل البرنامج التعليمي</string>
