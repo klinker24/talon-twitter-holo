@@ -16,6 +16,11 @@
 
 <changelog>
 
+    <version name="4.8.1">
+        <text>Apply the image editor to profile picture and banner picture uploads</text>
+        <text>Update translations</text>
+    </version>
+    
     <version name="4.8.0">
         <text>Include other people's quotes, of your tweets, in the activity page</text>
     </version>
