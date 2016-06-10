@@ -593,7 +593,7 @@
     <string name="viewer_page">Tweet Viewer</string>
     <string name="viewer_page_summary">Default page to open to when viewing a tweet.</string>
     <string name="browser_settings">Browser Settings</string>
-    <string name="memory_manage">Memory Management</string>
+    <string name="memory_manage">App Memory</string>
     <string name="protected_account">User has a protected account!</string>
     <string name="mute_rt">Mute Retweets</string>
     <string name="unmute_rt">Un-mute Retweets</string>
