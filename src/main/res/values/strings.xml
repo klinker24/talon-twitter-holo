@@ -296,7 +296,7 @@
     <string name="theme_light">Light Theme</string>
     <string name="theme_dark">Dark Theme</string>
     <string name="theme_black">Black Theme</string>
-    <string name="sync_settings">Background Refreshes</string>
+    <string name="sync_settings">Background Syncing</string>
     <string name="sync_mobile_data">Sync Over Mobile Data</string>
     <string name="sync_mobile_data_summary">Auto-refresh timelines over both mobile data and WiFi.</string>
     <string name="auto_sync_notifications">Auto-Refresh Notification Options</string>
