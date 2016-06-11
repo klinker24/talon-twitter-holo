@@ -326,7 +326,7 @@
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">This will start a listener to post notifications as you receive new interactions (mentions, dm\'s, likes, retweets, or new followers).</string>
     <string name="push_notification_warning">To read more about Talon Pull, click this preference.</string>
-    <string name="notification_settings">Notification</string>
+    <string name="notification_settings">Notifications</string>
     <string name="pebble_notifications">Pebble Notifications</string>
     <string name="pebble_notifications_summary">Used for the Pebble smart watch. Disable this if you are getting two notifications on your watch.</string>
     <string name="advanced_settings">Advanced Settings</string>
