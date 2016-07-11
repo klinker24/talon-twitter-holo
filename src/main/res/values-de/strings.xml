@@ -60,12 +60,12 @@
     <string name="mentions">Erwähnungen</string>
     <string name="direct_messages">Direktnachrichten</string>
     <string name="retweets">Retweets</string>
-    <string name="favorite_tweets">Favorisierte Tweets</string>
+    <string name="favorite_tweets">Gefavte Tweets</string>
     <string name="favorite_users">Favorisierte Nutzer</string>
     <string name="favorite_users_tweets">Favorisiere Tweets des Nutzers</string>
     <string name="trends">Trends</string>
-    <string name="local_trends">Lokale Trends</string>
-    <string name="world_trends">Weltweite Trends</string>
+    <string name="local_trends">Lokal</string>
+    <string name="world_trends">Weltweit</string>
     <string name="search">Suche</string>
     <string name="lists">Listen</string>
     <string name="search_hint">Suchen…</string>
@@ -110,11 +110,11 @@
     <string name="new_interactions_lower">neue Interaktionen</string>
     <string name="new_interactions">Neue Interaktionen</string>
     <string name="retweeted">retweetete deinen Tweet</string>
-    <string name="favorited">favorisierte deinen Tweet</string>
+    <string name="favorited">favte Deinen Tweet</string>
     <string name="quoted">hat Deinen Tweet zitiert</string>
     <string name="followed">folgt dir</string>
     <string name="new_retweets">Retweets</string>
-    <string name="new_favorites">Favoriten</string>
+    <string name="new_favorites">Favs</string>
     <string name="new_quotes">Zitate</string>
     <string name="new_tweets_upper">Neue Tweets</string>
     <!-- Login Screen -->
@@ -125,9 +125,13 @@
     <string name="third_welcome">Das war\'s schon!</string>
     <string name="back_to_timeline">Bring mich zu meiner Timeline!</string>
     <string name="initial_sync">Jetzt synchronisieren!</string>
-    <string name="first_info">Bevor wir anfangen können, musst du dich erst anmelden.</string>
-    <string name="second_info">Großartig!\n\nWir werden nun die App mit deinen Daten einrichten.\n\nDieser Vorgang könnte etwas länger dauern, je nachdem, wie du mit dem Internet verbunden bist.</string>
-    <string name="third_info">Hoffentlich gefällt dir Talon!\n\n-- Luke Klinker</string>
+    <string name="first_info">Bevor wir anfangen können, musst Du Dich erst anmelden.</string>
+    <string name="second_info">Großartig!
+
+Wir werden nun die App mit Deinen Daten einrichten.
+
+Dieser Vorgang könnte etwas länger dauern, je nachdem, wie Du mit dem Internet verbunden bist.</string>
+    <string name="third_info">Hoffentlich gefällt Dir Talon!</string>
     <string name="syncing_timeline">Timeline wird synchronisiert...</string>
     <string name="syncing_mentions">Erwähnungen werden synchronisiert...</string>
     <string name="syncing_direct_messages">Direktnachrichten werden synchronisiert...</string>
@@ -137,7 +141,7 @@
     <string name="no_network">Du bist nicht mit dem Internet verbunden</string>
     <string name="no_thanks">Später</string>
     <string name="follow_me">Folgen!</string>
-    <string name="follow_me_description">Folge @TalonAndroid und @lukeklinker um über die neuesten Funktionen informiert zu bleiben und Support zu erhalten!</string>
+    <string name="follow_me_description">Anhaken um den Support-Accounts automatisch zu folgen. Den Zurück-Button drücken um zu überspringen.</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">Neuer Tweet</string>
     <string name="compose_tweet_hint">Tweet verfassen...</string>
@@ -230,7 +234,7 @@
     <string name="saving_picture">Bild wird gesichert</string>
     <string name="saved_picture">Bild gespeichert</string>
     <string name="retweet_success">Retweet erfolgreich</string>
-    <string name="favorite_success">Favorisieren erfolgreich</string>
+    <string name="favorite_success">Fav erfolgreich</string>
     <string name="success">Erfolgreich</string>
     <!-- User Lists -->
     <string name="view_users">Nutzer ansehen</string>
@@ -257,13 +261,13 @@
     <!-- Settings Menu -->
     <string name="theme_settings">Theme</string>
     <string name="theme_options">Theme</string>
-    <string name="font_options">Schriftbild</string>
+    <string name="font_options">Anzeigeoptionen</string>
     <string name="other_options">Weitere Optionen</string>
     <string name="theme">Theme</string>
     <string name="addon_themes">Add-On-Themes</string>
     <string name="addon_note">Hier klicken, um neue Themes zu entdecken.\n\nHINWEIS:\n- Dadurch wird die integrierte Emoji-Tastatur beim Antworten auf einen Tweet deaktiviert.\n- Bitte melde keine Bugs ohne sicherzustellen, dass diese auch OHNE ein Custom-Theme reproduzierbar sind.</string>
     <string name="use_addon_themes">Add-On-Theme verwenden</string>
-    <string name="make_a_theme">Theme erstellen</string>
+    <string name="make_a_theme">Thema erstellen</string>
     <string name="layout">Layout</string>
     <string name="themeing_complete">Theme angewandt</string>
     <string name="themeing_complete_summary">\"Talon\" wird nun beendet.\n\n
@@ -272,8 +276,8 @@
     <string name="layout_summary">Bei Änderung wird der Cache der App gelöscht.</string>
     <string name="text_size">Textgröße</string>
     <string name="night_mode">Nachtmodus</string>
-    <string name="night_mode_night">Nachtbeginn festlegen</string>
-    <string name="night_mode_day">Tagesbeginn festlegen</string>
+    <string name="night_mode_night">Startzeitpunkt festlegen</string>
+    <string name="night_mode_day">Endzeitpunkt festlegen</string>
     <string name="night_mode_theme">Nachtmodus-Theme festlegen</string>
     <string name="device_font">Geräteschriftart verwenden</string>
     <string name="device_font_summary">Reguläres \"Roboto\" auf den meisten Geräten. Talons Standard-Schriftart ist \"Roboto Light\".</string>
@@ -287,16 +291,16 @@
     <string name="use_screen_name">Twitter-Nutzername anzeigen</string>
     <string name="use_screen_name_summary">Twitter-Benutzernamen anstelle des Namens in der Timeline anzeigen.</string>
     <string name="timestamp">24-Stunden-Format</string>
-    <string name="enable_emojis">Emojis aktivieren</string>
+    <string name="enable_emojis">iOS-Emojis aktivieren</string>
     <string name="to_market">Zum Play Store</string>
-    <string name="get_ios">iOS-Emojis</string>
+    <string name="get_ios">Plug-in herunterladen</string>
     <string name="emoji_dialog_summary">Um Emojis in dieser App zu aktivieren, musst du das \"Sliding Emoji Keyboard\"- oder \"Sliding Emoji Keyboard - iOS\"-Paket aus dem Play Store installieren.\n\n
                Du kannst zwischen beiden Emojis-Arten wechseln, indem du das nicht verwendete Paket deinstallierst (und das andere im Gegenzug herunterlädtst). Sind beide Pakete installiert, wird Talon die Android-Emojis verwenden.\n\n
                HINWEIS: Emojis werden auch nach Ablauf der Testversion weiterhin in dieser App funktionieren!! Das Paket wird als Plugin sowie als Stand-Alone-Tastatur verwendet.</string>
     <string name="theme_light">Helles Theme</string>
     <string name="theme_dark">Dunkles Theme</string>
     <string name="theme_black">Schwarzes Theme</string>
-    <string name="sync_settings">Synchronisation</string>
+    <string name="sync_settings">Hintergrundsynchronisation</string>
     <string name="sync_mobile_data">Mobilfunknetz verwenden</string>
     <string name="sync_mobile_data_summary">Timelines über WLAN und Mobilfunknetz automatisch aktualisieren.</string>
     <string name="auto_sync_notifications">Benachrichtigungen autom. Aktualisierung</string>
@@ -305,7 +309,7 @@
     <string name="led">Benachrichtigungs-LED</string>
     <string name="wake_screen">Bildschirm aufwecken</string>
     <string name="sound">Benachrichtigungston</string>
-    <string name="quiet_hours">Nicht stören</string>
+    <string name="quiet_hours">\"Nicht stören\"-Modus</string>
     <string name="max_number_on_refresh">Maximal zu aktualisierende Tweets</string>
     <string name="fav_users_notifications">Favoriten-Benachrichtigungen</string>
     <string name="sync_second_mentions">Zweitkonto-Erwähnungen synchronisieren</string>
@@ -412,7 +416,7 @@
     <string name="handle_and_name">Benutzername und Anzeigename anzeigen</string>
     <string name="notification_types">Benachrichtigungen</string>
     <string name="with_talon_pull">Erfolgt über \"Talon Pull\"</string>
-    <string name="favorited_tweet">Favorisierte Tweets</string>
+    <string name="favorited_tweet">Favs Deiner Tweets</string>
     <string name="new_followers">Neue Follower</string>
     <string name="discussion">Unterhaltung</string>
     <string name="no_replies">Keine Antworten</string>
@@ -474,8 +478,8 @@
     <string name="pull_to_refresh">Zum Aktualisieren nach unten wischen</string>
     <string name="removing_retweet">Retweet wird entfernt</string>
     <string name="retweeting_status">Status wird retweetet</string>
-    <string name="removing_favorite">Favorit wird gelöscht</string>
-    <string name="favoriting_status">Status wird favorisiert</string>
+    <string name="removing_favorite">Fav wird gelöscht</string>
+    <string name="favoriting_status">Status wird gefavt</string>
     <string name="jumping_workaround">\"Spring\"-Problembehandlung</string>
     <string name="jumping_workaround_summary">Funktion aktivieren, wenn die Timeline nach dem Aktualisieren nach unten springt.</string>
     <string name="menu_share_link">Link teilen</string>
@@ -545,7 +549,7 @@
     <string name="open_keyboard_summary">Tastatur zum Antworten in der Tweet-Ansicht automatisch öffnen.</string>
     <string name="no_retweets">Keine Retweets</string>
     <string name="profile">Profil</string>
-    <string name="favorites">Favoriten</string>
+    <string name="favorites">Favs</string>
     <string name="load_pictures">Bilder laden</string>
     <string name="pic_search_disclaimer">Durchsucht die Timeline nach Bildern. Je nachdem wie viele Bilder vorhanden sind, kann dieser Vorgang etwas dauern.</string>
     <string name="widget_theme">Widget-Theme</string>
@@ -557,7 +561,7 @@
     <string name="ui_settings">Benutzeroberfläche</string>
     <string name="show_pos_dashclock">Timeline-Position anzeigen</string>
     <string name="show_pos_dashclock_summary">Die aktuelle Position der Startseiten-Timeline anstatt der Anzahl neuer Tweets anzeigen.</string>
-    <string name="talon_large_widget">Talon - Timeline</string>
+    <string name="talon_large_widget">Talon - Haupt-Timeline</string>
     <string name="unread_bar_widget">Talon - \"Ungelesen\"-Leiste</string>
     <string name="show_muted_mentions">Stummgeschaltete Erwähnungen anzeigen</string>
     <string name="force_overflow_summary">Das 3-Punkte-Menü (\"Overflow-Menü\") immer in der Aktionsleiste anzeigen.</string>
@@ -627,7 +631,7 @@
     <string name="both_accounts">Beide Benutzerkonten</string>
     <string name="attach_gif">Animierte GIF-Datei</string>
     <string name="attach_video">Video</string>
-    <string name="roboto_l">Android \"L\" Roboto</string>
+    <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">Zweitkonto</string>
     <string name="second_account_login_info">Da Twitter einige deiner Login-Informationen in seinem System behält, können Sie sich vielleicht nicht sofort mit Ihren neuen Benutzerkonto anmelden. Wenn die Login-Seite übersprungen wird und Sie direkt auf der Au­to­ri­sie­rungsseite beginnen, klicken Sie einfach auf die \"Abmelden\"-Schaltfläche in der rechten oberen Ecke der Website, um der App die Anmeldung in Ihrem Zweitkonto zu ermöglichen.</string>
     <string name="fetch_tweetmarker">TweetMarker wird abgerufen…</string>

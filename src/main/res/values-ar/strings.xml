@@ -64,8 +64,8 @@
     <string name="favorite_users">"المستخدمين المفضلين "</string>
     <string name="favorite_users_tweets">تغريدات المستخدم المفضل</string>
     <string name="trends">المتداول</string>
-    <string name="local_trends">المتداول محلياً</string>
-    <string name="world_trends">المتداول عالمياً</string>
+    <string name="local_trends">محلي</string>
+    <string name="world_trends">عالمي</string>
     <string name="search">بحث</string>
     <string name="lists">"قوائم "</string>
     <string name="search_hint">بحث..</string>
@@ -255,6 +255,8 @@
     <string name="part_1_phone">أسحب لفتح ال\nدرج الملاحة\nلليسار\nاسحب الشريحة</string>
     <string name="part_2">بين الصفحات\nالخطوط الزمنية مع\nأسحب إما\nمن وسط\nمن الشاشة!</string>
     <string name="part_3">"هذا كل شيء! \n\nأنقر\nالشاشة لكي\nتبدأ! "</string>
+    <string name="part_4">" اضغط على شريط\nالتطبيق لعرض\nالموضع الحالي\nفي الخط الزمني."</string>
+    <string name="part_5">" اضغط مطولاً\nعلى شريط التطبيق\nللقفز إلى أعلى\nالخط الزمني."</string>
     <!-- Settings Menu -->
     <string name="theme_settings">"أعدادات الخلفية "</string>
     <string name="theme_options">"خيارات الخلفية "</string>
@@ -273,8 +275,8 @@
     <string name="layout_summary">"هذا التغيير سيقوم بمسح جميع الملفات المؤقتة للبرنامج "</string>
     <string name="text_size">"حجم الخط "</string>
     <string name="night_mode">"الوضع الليلي "</string>
-    <string name="night_mode_night">أختار بداية وقت الليل</string>
-    <string name="night_mode_day">"أختار بداية وقت النهار "</string>
+    <string name="night_mode_night">اختار بداية الوقت</string>
+    <string name="night_mode_day">اختار نهاية الوقت</string>
     <string name="night_mode_theme">"أختار الخلفية للوضع الليلي "</string>
     <string name="device_font">"أستخدم خط الجهاز "</string>
     <string name="device_font_summary">"خط \'روبوتو\' المعتاد على أغلب الأجهزة. الخط الأفتراضي في تالون \"روبوتو فاتح\". "</string>
@@ -296,7 +298,7 @@
     <string name="theme_light">"خلفية فاتحة "</string>
     <string name="theme_dark">"خلفية غامقة "</string>
     <string name="theme_black">"خلفية سوداء "</string>
-    <string name="sync_settings">إعدادات المزامنة</string>
+    <string name="sync_settings">المزامنة الخلفية</string>
     <string name="sync_mobile_data">تزامن أكثر على بيانات الهاتف</string>
     <string name="sync_mobile_data_summary">"تحديث تلقائي للخط الزمني عبر شبكة الجوال والواي فاي "</string>
     <string name="auto_sync_notifications">"خيارات تنبيهات التحديث التلقائي "</string>
@@ -326,7 +328,7 @@
     <string name="push_notifications">سحب تالون</string>
     <string name="push_notifications_summary">سيتم تفعيل الأستماع إلى التنبيهات المتدفقة في حال أستلام تفاعلات جديدة (إشارات، رسائل خاصة، إعجابات، إعادة تغريد، أو متابع جديد).</string>
     <string name="push_notification_warning">لقراءة المزيد عن سحب تالون ، انقر فوق هذا التفضيل.</string>
-    <string name="notification_settings">إعدادات التنبيهات</string>
+    <string name="notification_settings">التنبيهات</string>
     <string name="pebble_notifications">تنبيهات بيبل</string>
     <string name="pebble_notifications_summary">أستخدم مع ساعة بيبل الذكية ، عطل هذا إذا كنت تحصل على إخطارين على ساعتك</string>
     <string name="advanced_settings">الخيارات المتقدمة</string>
@@ -593,7 +595,7 @@
     <string name="viewer_page">مستعرض التغريدة</string>
     <string name="viewer_page_summary">الصفحة الافتراضية المراد فتحها حال عرض تغريدة.</string>
     <string name="browser_settings">إعدادات المتصفح</string>
-    <string name="memory_manage">إدارة الذاكرة</string>
+    <string name="memory_manage">ذاكرة التطبيق</string>
     <string name="protected_account">تغريدات المستخدم محمية!</string>
     <string name="mute_rt">كتم إعادات التغريد</string>
     <string name="unmute_rt">إزالة كتم إعادات التغريد</string>
@@ -625,7 +627,7 @@
     <string name="pick_time">اختيار الوقت</string>
     <string name="pick_date">اختيار التاريخ</string>
     <string name="both_accounts">كلا الحسابين</string>
-    <string name="attach_gif">صور GIF المتحركة</string>
+    <string name="attach_gif">صور GIF المتحركة من الجهاز</string>
     <string name="attach_video">فيديو</string>
     <string name="roboto_l">روبوت أندرويد لولي بوب</string>
     <string name="second_account">الحساب الثاني</string>
@@ -644,7 +646,7 @@
     <!-- %s will be replaced with a number for the currently selected page -->
     <string name="page">الصفحة %s</string>
     <string name="set_as_default">افتراضي</string>
-    <string name="main_pages_and_drawer">الصفحات الرئيسية ودرج</string>
+    <string name="main_pages_and_drawer">الصفحات القابل للتمرير السريع و درج التطبيق</string>
     <string name="drawer_elements">درج عناصر مرئية</string>
     <string name="drawer_elements_summary">إظهار أو إخفاء العناصر في درج تصفح التطبيقات الرئيسية.</string>
     <string name="second_acc_mentions">إشارات الحساب الثاني</string>
@@ -657,7 +659,7 @@
     <string name="fav_rt_multiple_accounts">إجراءات الحساب عبر</string>
     <string name="fav_rt_multiple_accounts_summary">إذا كان لديك حسابات متعددة، هذا سوف يتيح لك تحديد أي حساب لأداء الإعجاب  أو إعادة التغريد مع .</string>
     <string name="talon_pull_notifications">سحب تالون (فوري) الإشعارات</string>
-    <string name="talon_pull_turned_on">يجب تشغيل سحب تالون من إعدادات المزامنة لاستخدام هذه الميزة.</string>
+    <string name="talon_pull_turned_on">يجب تشغيل سحب تالون من خيارات التحديث في الخلفية لاستخدام هذه الميزة.</string>
     <string name="activity_sync_interval">معدل تحديث النشاطات</string>
     <string name="mentioned_you">ذكرك</string>
     <string name="favorites_lower">الإعجابات</string>
@@ -709,4 +711,10 @@
     <string name="open_to_web_summary">إذا كانت التغريدة تحتوي على رابط ويب، ستفتح رابط الويب مباشرة بدلا من التغريدة نفسها.</string>
     <string name="open_webpage">افتح الرابط</string>
     <string name="get_android">خذ رموز الإيموجي للأندرويد</string>
+    <string name="play_gif">تشغيل</string>
+    <string name="add_to_tweet_gif">إضافة إلى التغريدة</string>
+    <string name="find_a_gif">العثور على الصور المتحركة GIF</string>
+    <string name="three_mb_limit">5 ميغابايت الحد الأقصى للحجم</string>
+    <string name="three_mb_message">تويتر يسمح فقط بنشر الصورة المتحركة GIF التي هي أقل من 5MB. تالون سوف  يجلب أعلى جودة لنسخة GIF من Giphy الذي يناسب ضمن هذه القيود.\n\nالنتائج التي تراها كلها لديها الإصدار الذي يتناسب ضمن هذا الحد ،أنا لم اظهر صور GIF التي بجودة مماثلة  لتناسب في حدود 5MB الجودة.</string>
+    <string name="quoted_you">نقلت لك</string>
 </resources>

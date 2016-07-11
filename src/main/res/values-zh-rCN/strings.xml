@@ -64,8 +64,8 @@
     <string name="favorite_users">收藏的用户</string>
     <string name="favorite_users_tweets">收藏用户的推文</string>
     <string name="trends">趋势</string>
-    <string name="local_trends">本地趋势</string>
-    <string name="world_trends">世界趋势</string>
+    <string name="local_trends">本地</string>
+    <string name="world_trends">世界</string>
     <string name="search">搜索</string>
     <string name="lists">列表</string>
     <string name="search_hint">搜索...</string>
@@ -146,7 +146,7 @@
     <string name="direct_message_sent">私信已发送</string>
     <string name="type_user">输入用户</string>
     <string name="add_user">添加用户</string>
-    <string name="location_connected">已附加地理位置</string>
+    <string name="location_connected">已添加地理位置</string>
     <string name="location_disconnected">地理位置获取失败</string>
     <string name="finding_location">正在查找地理位置……</string>
     <string name="draft_found">发现草稿</string>
@@ -176,7 +176,7 @@
     <string name="created_by">创建者：</string>
     <string name="no_location">找不到地理信息</string>
     <string name="take_picture">拍摄图像</string>
-    <string name="from_file">附加图像</string>
+    <string name="from_file">添加图像</string>
     <string name="via">通过</string>
     <string name="version">版本</string>
     <string name="from">从</string>
@@ -255,15 +255,17 @@
     <string name="part_1_phone">\n从左侧边缘\n向右滑动\n来打开\n导航抽屉！</string>
     <string name="part_2">\n从屏幕中央\n向任意一个方向\n滑动\n来访问\n各个时间线！</string>
     <string name="part_3">就是这些了！\n\n请点击\n屏幕任意位置\n开始！</string>
+    <string name="part_4">\n点击\n应用栏\n来显示\n时间线位置</string>
+    <string name="part_5">\n长按\n应用栏\n来跳转至\n时间线顶端</string>
     <!-- Settings Menu -->
     <string name="theme_settings">主题设置</string>
     <string name="theme_options">主题选项</string>
     <string name="font_options">显示选项</string>
-    <string name="other_options">其他选项</string>
+    <string name="other_options">其他设置</string>
     <string name="theme">主题</string>
-    <string name="addon_themes">其他的主题</string>
+    <string name="addon_themes">附加主题</string>
     <string name="addon_note">点击这里查看新的主题\n\n注意事项：\n-这将会禁用在回复推文时所使用的内置表情符号键盘\n-请在先确定自己并没有使用第三方主题的情况下进行错误报告。</string>
-    <string name="use_addon_themes">使用第三方主题</string>
+    <string name="use_addon_themes">使用附加主题</string>
     <string name="make_a_theme">制作主题</string>
     <string name="layout">布局</string>
     <string name="themeing_complete">应用主题</string>
@@ -273,9 +275,9 @@
     <string name="layout_summary">修改此项将清除应用的缓存。</string>
     <string name="text_size">文本大小</string>
     <string name="night_mode">夜间模式</string>
-    <string name="night_mode_night">选择夜间开始时间</string>
-    <string name="night_mode_day">选择夜间结束时间</string>
-    <string name="night_mode_theme">选择夜间模式时的主题</string>
+    <string name="night_mode_night">选择起始时间</string>
+    <string name="night_mode_day">选择结束时间</string>
+    <string name="night_mode_theme">选择夜间模式主题</string>
     <string name="device_font">使用设备字体</string>
     <string name="device_font_summary">多数设备默认使用 \"Roboto\" 字体。Talon 的默认字体为 \"Roboto Light\"。</string>
     <string name="ui_extras">UI 附加项</string>
@@ -295,7 +297,7 @@
     <string name="theme_light">浅色主题</string>
     <string name="theme_dark">深色主题</string>
     <string name="theme_black">黑色主题</string>
-    <string name="sync_settings">同步设置</string>
+    <string name="sync_settings">后台同步</string>
     <string name="sync_mobile_data">通过移动数据同步</string>
     <string name="sync_mobile_data_summary">在移动数据和 Wifi 下自动刷新时间线</string>
     <string name="auto_sync_notifications">自动刷新通知选项</string>
@@ -324,35 +326,35 @@
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">该选项将会启用一个侦听进程并在有新的互动时发出通知提醒（包含提及，私信，喜欢，转推以及新的关注者）。</string>
     <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，请点击这里</string>
-    <string name="notification_settings">通知设置</string>
+    <string name="notification_settings">通知</string>
     <string name="pebble_notifications">Pebble 通知</string>
-    <string name="pebble_notifications_summary">用来设置 Pebble 智能手表。如果在您的手表上收到了重复的通知请关闭这个选项。</string>
+    <string name="pebble_notifications_summary">用来设置 Pebble 智能手表。如果在您的手表上收到了重复的通知请关闭该选项。</string>
     <string name="advanced_settings">高级设置</string>
     <string name="app_feel_category">应用外观选项</string>
     <string name="advance_windowed">高级窗口模式</string>
     <string name="advance_windowed_summary">在位于时间线上层的窗口内打开个人资料和推文页面</string>
     <string name="full_screen_browsers">全屏浏览器</string>
     <string name="full_screen_browsers_summary">在全屏模式下打开含有网页的推文</string>
-    <string name="reverse_click_actions">变更点击行为</string>
-    <string name="reverse_click_actions_summary">调换点击推文时的行为。\n\n
-默认状态（当禁用选项时）：\n
-- 长按来打开推文\n
-- 短按来展开推文</string>
+    <string name="reverse_click_actions">调换点击动作</string>
+    <string name="reverse_click_actions_summary">调换点击推文时的动作。\n\n
+默认状态（禁用调换动作时）：\n
+- 长按时打开推文\n
+- 短按时展开推文</string>
     <string name="extra_pages">追加扩展栏目</string>
     <string name="extra_pages_summary">在时间线左侧添加链接和图片页</string>
     <string name="live_streaming">开启实时流</string>
     <string name="memory_management">存储管理选项</string>
     <string name="delete_cache">清除当前缓存</string>
-    <string name="cache_dialog">清楚缓存？</string>
+    <string name="cache_dialog">清除缓存？</string>
     <string name="not_cache">这将不会影响到应用缓存</string>
     <string name="current_cache_size">当前缓存大小</string>
-    <string name="cache_dialog_summary">该操作将无法被撤销。</string>
+    <string name="cache_dialog_summary">该操作将无法撤销。</string>
     <string name="timeline_size">主页推文容量</string>
-    <string name="timeline_size_summary">数据库里保存推文的最大数量</string>
+    <string name="timeline_size_summary">数据库中保存推文的最大数量</string>
     <string name="mentions_size">提及容量</string>
-    <string name="mentions_size_summary">数据库里保存提及的最大数量</string>
+    <string name="mentions_size_summary">数据库中保存提及的最大数量</string>
     <string name="dm_size">私信容量</string>
-    <string name="dm_size_summary">数据库里保存私信的最大数量</string>
+    <string name="dm_size_summary">数据库中保存私信的最大数量</string>
     <string name="auto_trim">自动优化数据库</string>
     <string name="trim_now">优化当前数据库</string>
     <string name="trim_dialog">立即优化数据库？</string>
@@ -362,11 +364,11 @@
     <string name="backup_category">备份和还原</string>
     <string name="backup_settings">备份设置</string>
     <string name="backup_settings_dialog">创建新的备份？</string>
-    <string name="backup_settings_dialog_summary">这将选择覆盖所有先前的备份</string>
+    <string name="backup_settings_dialog_summary">这将覆盖所有先前的备份</string>
     <string name="backup_success">备份成功</string>
     <string name="restore_success">还原成功</string>
     <string name="restore_settings">还原设置</string>
-    <string name="restore_settings_summary">将清除缓存以执行主题的变化。</string>
+    <string name="restore_settings_summary">将清除缓存以应用主题的变化。</string>
     <string name="get_help_settings">获取帮助</string>
     <string name="rerun_tutorial">显示初始教学页</string>
     <string name="faq">常见问题</string>
@@ -443,7 +445,7 @@
     <string name="device">设备字体</string>
     <string name="roboto_light">Roboto Light (默认)</string>
     <string name="roboto_condensed">Roboto Condensed</string>
-    <string name="font_type">文字类型</string>
+    <string name="font_type">字体类型</string>
     <string name="our_website">官方主页</string>
     <string name="alert_types">通知方式</string>
     <string name="timeline_notifications">时间线通知</string>
@@ -459,7 +461,7 @@
     <string name="remove_retweet">移除转推</string>
     <string name="edit">编辑</string>
     <string name="use_twitpic">使用TwitPic</string>
-    <string name="twitpic_summary">使用 Twitpic 来为推文附加图像而非 Twitter 官方的图片上传服务。</string>
+    <string name="twitpic_summary">使用 Twitpic 来为推文添加图像而非 Twitter 官方的图片上传服务。</string>
     <string name="verified">已验证</string>
     <string name="use_tweetmarker">TweetMarker</string>
     <string name="tweetmarker_summary">在多部设备间同步您的阅读位置</string>
@@ -531,7 +533,7 @@
     <string name="input_expression">要静音的表达式...</string>
     <string name="mute_expression">静音表达式</string>
     <string name="view_muted_expressions">移除静音表达式</string>
-    <string name="no_expression">无表达式！</string>
+    <string name="no_expression">无表达式</string>
     <string name="regex_disclaimer">静音过多的表达式可能将影响到应用启动和刷新操作的时间。</string>
     <string name="cleaning_cache">正在清理缓存…</string>
     <string name="floating_compose">浮动撰写按钮</string>
@@ -562,18 +564,18 @@
     <string name="menu_view_drafts">查看草稿</string>
     <string name="menu_schedule_tweet">定时发送推文</string>
     <string name="menu_save_draft">保存草稿</string>
-    <string name="saved_draft">已保存的草稿</string>
+    <string name="saved_draft">已保存草稿</string>
     <string name="delete_draft">删除草稿</string>
     <string name="no_tweet">没有推文！</string>
-    <string name="menu_attach_picture">附加图片</string>
+    <string name="menu_attach_picture">添加图片</string>
     <string name="twitpic_disclaimer">TwitPic免责声明</string>
-    <string name="twitpic_disclaimer_summary">Twitter 的 API 不允许在私信里直接附加图像。因为这一点，Talon 将会把图像上传到 TwitPic 然后将指向图像的链接地址发送给私信的收件人。\n\n
+    <string name="twitpic_disclaimer_summary">Twitter 的 API 不允许用户在私信内直接添加图像。因此 Talon 会先将图像上传至 TwitPic 然后把指向图像的链接地址发送给私信的收件人。\n\n
 发送出的图像可在您的 TwitPic 资料中查看到。</string>
     <string name="dont_show_again">不再显示</string>
-    <string name="error_attaching_image">附加图像时发生错误！</string>
+    <string name="error_attaching_image">添加图像时发生错误！</string>
     <string name="sending_tweet">正在发送推文...</string>
-    <string name="attached_images">已附加</string>
-    <string name="twitpic_disclaimer_multi_summary">Twitter 的官方 API 不支持在一条推文内附加多张图像。\n\n
+    <string name="attached_images">已添加</string>
+    <string name="twitpic_disclaimer_multi_summary">Twitter 的 API 不支持在一条推文内添加多张图像。\n\n
 Talon 将选择把图像上传至 TwitPic。</string>
     <string name="loading_webpage">载入网页...</string>
     <string name="plain_text_browser">纯文本浏览器</string>
@@ -588,7 +590,7 @@ Talon 将选择把图像上传至 TwitPic。</string>
     <string name="tweet_page">推文页</string>
     <string name="web_page">网页</string>
     <string name="conversation_page">对话页</string>
-    <string name="viewer_page">推文查看器</string>
+    <string name="viewer_page">推文浏览器</string>
     <string name="viewer_page_summary">当查看推文时要打开的默认页。</string>
     <string name="browser_settings">浏览器设置</string>
     <string name="memory_manage">存储管理</string>
@@ -622,8 +624,8 @@ Talon 将选择把图像上传至 TwitPic。</string>
     <string name="menu_share_image">分享图像</string>
     <string name="pick_time">选择时间</string>
     <string name="pick_date">选择日期</string>
-    <string name="both_accounts">两个帐户</string>
-    <string name="attach_gif">GIF 动画</string>
+    <string name="both_accounts">每个帐号</string>
+    <string name="attach_gif">添加 GIF 动画</string>
     <string name="attach_video">视频</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">第二帐号</string>
@@ -642,11 +644,11 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <!-- %s will be replaced with a number for the currently selected page -->
     <string name="page">页面 %s</string>
     <string name="set_as_default">设为默认</string>
-    <string name="main_pages_and_drawer">页面和抽屉</string>
+    <string name="main_pages_and_drawer">可滑动标签页和应用抽屉</string>
     <string name="drawer_elements">可见的抽屉项目</string>
     <string name="drawer_elements_summary">选择在应用导航抽屉内显示或隐藏的项目</string>
     <string name="second_acc_mentions">第二帐号内的提及</string>
-    <string name="using_second_account">正在使用 %s 帐户！</string>
+    <string name="using_second_account">正在使用 %s 帐号！</string>
     <!-- the username will replace %s -->
     <string name="error_gif">查找媒体时发生错误</string>
     <string name="saved_search">保存的搜索</string>
@@ -655,14 +657,14 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="fav_rt_multiple_accounts">跨帐号操作</string>
     <string name="fav_rt_multiple_accounts_summary">如果您拥有多个帐号，这个选项将让您选择用哪一个来执行喜欢或转推。</string>
     <string name="talon_pull_notifications">Talon Pull（即时）通知</string>
-    <string name="talon_pull_turned_on">必须先在同步设置中打开 Talon Pull 才能使用该功能。</string>
+    <string name="talon_pull_turned_on">要使用该功能请先在同步设置中开启 Talon Pull。</string>
     <string name="activity_sync_interval">活动刷新频率</string>
     <string name="mentioned_you">提及了你</string>
     <string name="favorites_lower">喜欢</string>
     <string name="favorite_lower">喜欢</string>
     <string name="retweeted_your_status">转推了你的推文</string>
     <string name="followed_you">已关注你</string>
-    <string name="new_activity">新的活动！</string>
+    <string name="new_activity">新的活动</string>
     <string name="use_interaction_drawer">启用互动抽屉</string>
     <string name="use_interaction_drawer_summary">该抽屉中显示的内容是由 Talon Pull 获取的（信息流）。</string>
     <string name="no_activity_yet">当前尚无活动！</string>
@@ -706,4 +708,10 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="open_to_web_summary">如果推文中包含有网页链接，点击后将直接打开该网页页面而非推文本身。</string>
     <string name="open_webpage">打开链接</string>
     <string name="get_android">获取 Android 表情符号</string>
+    <string name="play_gif">播放</string>
+    <string name="add_to_tweet_gif">添加至推文</string>
+    <string name="find_a_gif">查找 GIF</string>
+    <string name="three_mb_limit">5MB 大小限制</string>
+    <string name="three_mb_message">Twitter 仅允许用户发布不大于 5MB 的 GIF 图片。 Talon 将会从 Giphy 上抓取符合该项规定的最高画质 GIF 图片。\n\n您看到的所有显示结果都将有符合这一限制的版本存在，而那些降低图像画质以满足发布规定的图片将不被显示。</string>
+    <string name="quoted_you">引用了你</string>
 </resources>

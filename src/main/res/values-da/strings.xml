@@ -64,8 +64,8 @@
     <string name="favorite_users">Favorit profiler</string>
     <string name="favorite_users_tweets">Favorit tweets</string>
     <string name="trends">Trends</string>
-    <string name="local_trends">Lokale trends</string>
-    <string name="world_trends">Globale trends</string>
+    <string name="local_trends">Lokale</string>
+    <string name="world_trends">Global</string>
     <string name="search">Søg</string>
     <string name="lists">Lister</string>
     <string name="search_hint">Søg...</string>
@@ -127,7 +127,11 @@
     <string name="back_to_timeline">Vis mig min tidslinje!</string>
     <string name="initial_sync">Synkronisér nu!</string>
     <string name="first_info">Log ind og synkroniser med twitter</string>
-    <string name="second_info">Super!\n\nFlere data hentes\n\n- det kan tage lidt tid, afhængig af din internet hastighed</string>
+    <string name="second_info">Super!
+
+Flere data hentes
+
+- det kan tage lidt tid, afhængig af din internet hastighed</string>
     <string name="third_info">Jeg håber du får glæde af Talon!\n\n- Luke Klinker</string>
     <string name="syncing_timeline">Synkroniserer tidslinjen...</string>
     <string name="syncing_mentions">Synkroniserer meninger...</string>
@@ -221,7 +225,7 @@
     <string name="tweet_youtube">YouTube</string>
     <string name="gif">Tweet medie</string>
     <string name="vine">Vine</string>
-    <string name="menu_quote">Retweet redigeret</string>
+    <string name="menu_quote">Retweet citeret</string>
     <string name="deleted_tweet">Tweet slettet</string>
     <string name="error_deleting">Fejl, tweet ikke slettet</string>
     <string name="sending">Sender</string>
@@ -255,6 +259,8 @@
     <string name="part_1_phone">\nÅbn\nnav.oversigt ved\nswipe fra venstre\nkant mod højre!</string>
     <string name="part_2">\nSkift mell.\nlister ved swipe\npå midten eller fra \nvenstre side\naf skærmen</string>
     <string name="part_3">Færdig!\n\nTap på\nskærmen for\nat starte!</string>
+    <string name="part_4">" Tap på top\nbaren for at\nvise positionen\npå tidslinjen"</string>
+    <string name="part_5">" Tap og hold\npå top baren\nfor at komme\ntil toppen af\ntidslinjen"</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Tema indstillinger</string>
     <string name="theme_options">Tema indstillinger</string>
@@ -273,8 +279,8 @@ Hvis dit profil billede ikke vises som det skal, enten i en cirkel eller firkant
     <string name="layout_summary">Skift af layout vil slette cache</string>
     <string name="text_size">Tekststørrelse</string>
     <string name="night_mode">Nat tilstand</string>
-    <string name="night_mode_night">Vælg starttidspunkt for nat tilstand</string>
-    <string name="night_mode_day">Vælg starttidspunkt for dag tilstand</string>
+    <string name="night_mode_night">Vælg starttidspunkt</string>
+    <string name="night_mode_day">Vælg sluttidspunkt</string>
     <string name="night_mode_theme">Vælg tema for nat tilstand</string>
     <string name="device_font">Brug enhedens skrifttype</string>
     <string name="device_font_summary">Regular \"Roboto\" på de fleste enheder. Talon\'s standard skrifttype er \"Roboto light\"</string>
@@ -296,7 +302,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="theme_light">Lyst tema</string>
     <string name="theme_dark">Mørkt tema</string>
     <string name="theme_black">Sort tema</string>
-    <string name="sync_settings">Synkr. indstillinger</string>
+    <string name="sync_settings">Baggrundssynkronisering</string>
     <string name="sync_mobile_data">Synkroniser over mobildata</string>
     <string name="sync_mobile_data_summary">Opdater automatisk over WiFi og mobildata forbindelser</string>
     <string name="auto_sync_notifications">Opdater notifikationer automatisk</string>
@@ -326,7 +332,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">Aktiverer overvågning for nye interaktioner såsom direkte beskeder, meninger, likes, retweets og nye følgere</string>
     <string name="push_notification_warning">Tap her for at læse mere om Talon Pull</string>
-    <string name="notification_settings">Notifikationsindstillinger</string>
+    <string name="notification_settings">Notifikationer</string>
     <string name="pebble_notifications">Pebble notifikationer</string>
     <string name="pebble_notifications_summary">Bruges sammen med Pebble Smart Watch. Deaktiveres hvis du får 2 notifikationer på dit ur</string>
     <string name="advanced_settings">Avancerede indstillinger</string>
@@ -416,8 +422,8 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="new_followers">Nye følgere</string>
     <string name="discussion">Kommentarer</string>
     <string name="no_replies">Ingen kommentarer</string>
-    <string name="rt_style_quotes">Vis \"RT\" for redigeret tweets</string>
-    <string name="rt_style_quotes_summary">Viser original \"RT @brugernavn: ...\" for redigeret tweets i stedet for Talon\'s måde\n\nTilgåes via funktions linjen eller menuen</string>
+    <string name="rt_style_quotes">Vis \"RT\" for citerede tweets</string>
+    <string name="rt_style_quotes_summary">Viser original \"RT @brugernavn: ...\" for citerede tweets i stedet for Talon\'s måde\n\nTilgåes via funktions linjen eller menuen</string>
     <string name="absolute_date">Vis absolut dato</string>
     <string name="clear_searches">Slet gemte søgninger</string>
     <string name="compose_with_search">Skriv tweet via søge funktion</string>
@@ -593,7 +599,7 @@ Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="viewer_page">Vis ved tap på tweet</string>
     <string name="viewer_page_summary">Standard visning ved tap på tweet</string>
     <string name="browser_settings">Browser indstillinger</string>
-    <string name="memory_manage">Hukommelses indstillinger</string>
+    <string name="memory_manage">App hukommelse</string>
     <string name="protected_account">Profil har en beskyttet konto</string>
     <string name="mute_rt">Mute retweets</string>
     <string name="unmute_rt">Un-mute retweets</string>
@@ -625,7 +631,7 @@ Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="pick_time">Vælg tidspunkt</string>
     <string name="pick_date">Vælg dato</string>
     <string name="both_accounts">Begge konti</string>
-    <string name="attach_gif">Animeret GIF</string>
+    <string name="attach_gif">Animeret GIF fra enhed</string>
     <string name="attach_video">Video</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">Sekundær konto</string>
@@ -644,7 +650,7 @@ Jeg håber du er tilfreds med Talon!</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <string name="page">Side %s</string>
     <string name="set_as_default">Brug som standard</string>
-    <string name="main_pages_and_drawer">Start sider og oversigt</string>
+    <string name="main_pages_and_drawer">Swipable sider og app oversigt</string>
     <string name="drawer_elements">Synlige emner i oversigt</string>
     <string name="drawer_elements_summary">Vis eller skjul emner i applikationens navigations oversigt</string>
     <string name="second_acc_mentions">Sekundær konto\'s meninger</string>
@@ -657,7 +663,7 @@ Jeg håber du er tilfreds med Talon!</string>
     <string name="fav_rt_multiple_accounts">Konti indstillinger</string>
     <string name="fav_rt_multiple_accounts_summary">Hvis du har flere konti, kan du her vælge hvilken konto du ønsker at retweete og like fra</string>
     <string name="talon_pull_notifications">Talon Pull (øjeblikkelige) notifikationer</string>
-    <string name="talon_pull_turned_on">Talon Pull skal aktiveres under synk. indstillinger for at bruge denne funktion</string>
+    <string name="talon_pull_turned_on">Talon Pull skal aktiveres under indstillinger for [Baggrundssynkronisering] for at bruge denne funktion</string>
     <string name="activity_sync_interval">Opdateringsinterval for aktiviteter</string>
     <string name="mentioned_you">nævnte dig</string>
     <string name="favorites_lower">Likes</string>
@@ -708,4 +714,10 @@ Nye meninger, følgere, retweets og likes bliver vist her</string>
     <string name="open_to_web_summary">Indeholder et tweet et link til en webside, åbnes websiden i stedet for at vise tweetet</string>
     <string name="open_webpage">Åbn link</string>
     <string name="get_android">Hent Android Emojis</string>
+    <string name="play_gif">Afspil</string>
+    <string name="add_to_tweet_gif">Tilføj til tweet</string>
+    <string name="find_a_gif">Find en GIF</string>
+    <string name="three_mb_limit">Max. 5MB</string>
+    <string name="three_mb_message">Twitter tillader kun afspilning af GIFs på max. 5MB. Talon vil bruge versionen med den bedste kvalitet fra Giphy, der ligger inden for denne grænse\n\nDe viste vil alle være versioner der ligger inden for denne grænse. Ingen GIFs hvor kvaliteten er forringet for at overholde grænsen på de 5 MB, er vist</string>
+    <string name="quoted_you">citerede dig</string>
 </resources>
