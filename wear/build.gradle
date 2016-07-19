@@ -25,15 +25,6 @@ android {
                 keyPassword project.RELEASE_KEY_SIGNATURE
             }
         }
-
-        buildTypes {
-            release {
-                minifyEnabled true
-                shrinkResources true
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
-                signingConfig signingConfigs.release
-            }
-        }
     }
 
     compileOptions {
@@ -54,5 +45,4 @@ android {
 dependencies {
     compile (project(":shared_assets"))
     compile 'com.google.android.support:wearable:1.0.0'
-    //compile 'com.google.android.gms:play-services-wearable:6.5.87'
 }

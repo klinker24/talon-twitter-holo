@@ -30,8 +30,8 @@ public class APIKeys {
      *
      * For steps to creating an application, view the Readme.md
      */
-    public static String TWITTER_CONSUMER_KEY = "";
-    public static String TWITTER_CONSUMER_SECRET = "";
+    public static String TWITTER_CONSUMER_KEY = BuildConfig.CONSUMER_KEY;
+    public static String TWITTER_CONSUMER_SECRET = BuildConfig.CONSUMER_SECRET;
 
     /**
      * For the In-App Youtube Player
@@ -41,7 +41,7 @@ public class APIKeys {
      * Here is how you can get a key for yourself:
      * https://developers.google.com/youtube/android/player/register
      */
-    public static String YOUTUBE_API_KEY = "";
+    public static String YOUTUBE_API_KEY = BuildConfig.YOUTUBE_API_KEY;
 
     /**
      * These are third party service API keys for Talon.
@@ -53,8 +53,8 @@ public class APIKeys {
      * For Twitlonger, you must request access to their API for your app. I do not know if he would grant an Open Source Api key or not.
      * TwitPic is dead, but I kept its classes in here so that you can still learn from them. The service no longer is supported.
      */
-    public static final String TWEETMARKER_API_KEY = "";
-    public static final String TWITLONGER_API_KEY = "";
-    public static final String TWITPIC_API_KEY = "";
-    public static final String GIPHY_API_KEY = "dc6zaTOxFJmzC"; // this is just the generic beta key. Nothing for Talon.
+    public static final String TWEETMARKER_API_KEY = BuildConfig.TWEETMARKER_KEY;
+    public static final String TWITLONGER_API_KEY = BuildConfig.TWITLONGER_KEY;
+    public static final String TWITPIC_API_KEY = BuildConfig.TWITPIC_API_KEY;
+    public static final String GIPHY_API_KEY = BuildConfig.GIPHY_KEY;
 }

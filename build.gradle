@@ -5,8 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
+        classpath "com.android.tools.build:gradle:${ANDROID_GRADLE_VERSION}"
     }
 }
 
@@ -16,121 +15,5 @@ allprojects {
         jcenter()
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
         flatDir { dirs 'lib' }
-    }
-}
-
-apply plugin: 'com.android.application'
-
-android {
-    packagingOptions {
-        exclude 'LICENSE'
-        exclude 'README.md'
-        exclude 'Other/'
-        exclude 'keystore.jks'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE'
-	exclude 'META-INF/DEPENDENCIES'
-    }
-
-    compileSdkVersion Integer.parseInt(project.TARGET_SDK)
-    buildToolsVersion project.BUILD_TOOLS_VERSION
-
-    defaultConfig {
-        applicationId "com.klinker.android.twitter"
-        minSdkVersion Integer.parseInt(project.MIN_SDK)
-        targetSdkVersion Integer.parseInt(project.TARGET_SDK)
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        versionName project.VERSION_NAME
-        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
-    }
-
-    File keystore = new File("keystore")
-    if (keystore.exists()) {
-        signingConfigs {
-            release {
-                storeFile file("keystore")
-                storePassword project.RELEASE_KEY_SIGNATURE
-                keyAlias "talon"
-                keyPassword project.RELEASE_KEY_SIGNATURE
-            }
-        }
-
-        buildTypes {
-            release {
-                minifyEnabled true
-                shrinkResources true
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                signingConfig signingConfigs.release
-            }
-        }
-    }
-
-    sourceSets {
-        androidTest {
-            setRoot('src/test')
-        }
-    }
-
-    lintOptions {
-        abortOnError false
-    }
-
-    aaptOptions {
-        noCompress 'apk'
-    }
-
-    useLibrary 'org.apache.http.legacy'
-}
-
-dependencies {
-
-    wearApp project(':wear')
-
-    androidTestCompile 'org.hamcrest:hamcrest-integration:1.1',
-            'org.hamcrest:hamcrest-core:1.1',
-            'org.hamcrest:hamcrest-library:1.1'
-    androidTestCompile 'junit:junit:4.11'
-    androidTestCompile 'org.robolectric:robolectric:3.0'
-    androidTestCompile 'com.squareup:fest-android:1.0.8'
-    androidTestCompile 'org.mockito:mockito-all:1.9.5'
-
-    provided 'org.projectlombok:lombok:1.14.8'
-
-    compile "com.android.support:customtabs:23.2.1"
-    compile "com.android.support:appcompat-v7:23.1.1"
-
-    compile 'com.klinkerapps:searchview:2.2.5'
-    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
-    compile 'com.github.castorflex.smoothprogressbar:library:0.5.1'
-    compile 'com.github.chrisbanes.photoview:library:1.2.3'
-    compile 'de.timroes.android:EnhancedListView:0.3.2@aar'
-    compile 'org.lucasr.smoothie:smoothie:0.1.0'
-    compile 'com.klinkerapps:simple_videoview:1.1.2@aar'
-    compile 'com.klinkerapps:launcher-apis:1.1.0@aar'
-    compile 'com.google.android.apps.dashclock:dashclock-api:+'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.yalantis:ucrop:1.5.0'
-
-    compile 'org.twitter4j:twitter4j-core:4.0.4'
-    compile 'org.twitter4j:twitter4j-stream:4.0.4'
-
-    compile 'org.apache.httpcomponents:httpmime:4.3.5'
-    compile 'org.apache.httpcomponents:httpcore:4.3.2'
-    compile 'org.jsoup:jsoup:1.7.3'
-
-    compile files('lib/YouTubeAndroidPlayerApi.jar') // version 1.2.1
-    compile(name: 'datetimepicker', ext: 'aar')
-    compile(name: 'bitmap-cache', ext: 'aar')
-    compile(name: 'sectioned-recyclerview', ext: 'aar')
-
-    compile(project(":shared_assets"))
-}
-
-apply plugin: 'idea'
-
-idea {
-    module {
-        testOutputDir = file('build/test-classes/debug')
     }
 }

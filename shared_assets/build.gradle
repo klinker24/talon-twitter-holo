@@ -35,7 +35,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../app/proguard-rules.pro'
         }
     }
 
@@ -45,7 +45,7 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services-location:7.8.0'
-    compile 'com.google.android.gms:play-services-wearable:7.8.0'
-    compile 'com.android.support:support-v13:20.0.0'
+    compile "com.google.android.gms:play-services-location:${project.GOOGLE_PLAY_SERVICES_VERSION}"
+    compile "com.google.android.gms:play-services-wearable:${project.GOOGLE_PLAY_SERVICES_VERSION}"
+    compile "com.android.support:support-v13:${project.ANDROID_SUPPORT_VERSION}"
 }

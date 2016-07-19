@@ -38,3 +38,6 @@ proguard/
 Other/Video/
 *.mp4
 keystore
+
+secrets.properties
+keystore.properties

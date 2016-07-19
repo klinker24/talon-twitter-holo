@@ -9,7 +9,7 @@ I made the majority of this app when I was 19 years old, with one high school ja
 As of now, it doesn't have too many comments throughout it, most of it is pretty easy to understand if you just dig for awhile, but as time goes on, I will go through and attempt to comment more of it.
 
 
-### What you can use this for ###
+### What you can use this for
 
 There are some pretty neat things in this app, not just twitter related either. Someone looking at this can get the full rundown of things like:
 
@@ -26,7 +26,7 @@ Feel free to use this as a resource for those kinds of thing, that's one of the 
 I ask that you do not redistribute this application for your own gain though. If you make a build and want to share it with people, that's great, that's what this should be for. Do not charge them for that build though. I have spent a hard year creating this project and this is what I ask if you choose to make it for yourself.
 
 
-### Compiling Talon ###
+### Compiling Talon
 
 Please don't try to compile it as an ANT build. I beg you, just use Android Studio or IntelliJ and compile it with Gradle. It will make your life so much easier and I will not be answering questions about dependencies and compiling for Eclipse. We spent a long time changing all of our projects over to Gradle and I want it to help some people.
 
@@ -47,24 +47,38 @@ To get your Twitter API key, go through these steps:
 6. After it is created, you can change the icon and add some other info from the settings page.
 7. You NEED to go to the *Permissions* page of the app and select the *Read, Write and Access direct messages* option, or else you won't be able to do anything but view your timeline.
 
-Once you get signed up and everything, just copy and paste your API key and API secret into the APIKeys class.
+##### Adding API Keys to the app
 
-If you get TwitLonger or TweetMarker support, you can paste the keys for that into APIKeys class as well. If you do not get them, then those services WILL NOT work.
+In the `.gitignore` file, I have ignored `secrets.properties`, this is the file you should create for yourself, to input your keys. Go ahead and create it in the root of the project. Then, fill it with the following information:
+
+```
+CONSUMER_KEY="xxxx"
+CONSUMER_SECRET="xxxx"
+YOUTUBE_API_KEY="xxxx"
+TWEETMARKER_KEY="xxxx"
+TWITLONGER_KEY="xxxx"
+TWITPIC_API_KEY="xxxx"
+GIPHY_KEY="dc6zaTOxFJmzC"
+```
+
+The Giphy key is their default beta key. For the others, you should go ahead and replace the xxxx value with whatever key you generate.
+
+This allows me to keep the keys out of source control, but still build the app without any hassle.
 
 
-### Pull Requests ###
+### Pull Requests
 
 One of the reasons that I decided to open source this wasn't just because people would be able to learn from it. I also need help. There are somethings that I just don't know how to do any better. I don't have experience or knowledge yet to understand what is going wrong with them or why they randomly fail for some people.
 
 I have done the absolute best I can with this app, but the more minds working on it, the better. Chances are if you are here and actually reading the readme, you have far more experience programming than me anyways and know how things can be improved.
 
 
-### Issues ###
+### Issues
 
 If you think something could be done better, then tell me. I am not saying that I will agree with you on it or that it will ever be the way you think it should be, but there is no hurt in asking.
 
 
-### Wrap Up ###
+### Wrap Up
 
 There isn't to much more I have to say about this. I have put a ton of time and effort into this project and I truly hope that this helps someone out there. Take the leap, try something you never have before, see what you can learn from me and my mistakes.
 

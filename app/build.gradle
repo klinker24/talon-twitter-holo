@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+
+android {
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'README.md'
+        exclude 'Other/'
+        exclude 'keystore.jks'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+	exclude 'META-INF/DEPENDENCIES'
+    }
+
+    compileSdkVersion Integer.parseInt(project.TARGET_SDK)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.klinker.android.twitter"
+        minSdkVersion Integer.parseInt(project.MIN_SDK)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+
+        File secretsExists = new File("secrets.properties")
+        if (secretsExists.exists()) {
+            def secretsFile = rootProject.file('secrets.properties')
+            def secrets = new Properties()
+            secrets.load(new FileInputStream(secretsFile))
+
+            buildConfigField "String", "CONSUMER_KEY", secrets.getProperty('CONSUMER_KEY')
+            buildConfigField "String", "CONSUMER_SECRET", secrets.getProperty('CONSUMER_SECRET')
+            buildConfigField "String", "YOUTUBE_API_KEY", secrets.getProperty('YOUTUBE_API_KEY')
+            buildConfigField "String", "TWEETMARKER_KEY", secrets.getProperty('TWEETMARKER_KEY')
+            buildConfigField "String", "TWITLONGER_KEY", secrets.getProperty('TWITLONGER_KEY')
+            buildConfigField "String", "TWITPIC_API_KEY", secrets.getProperty('TWITPIC_API_KEY')
+            buildConfigField "String", "GIPHY_KEY", secrets.getProperty('GIPHY_KEY')
+        } else {
+            buildConfigField "String", "CONSUMER_KEY", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "CONSUMER_SECRET", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "YOUTUBE_API_KEY", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "TWEETMARKER_KEY", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "TWITLONGER_KEY", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "TWITPIC_API_KEY", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "GIPHY_KEY", "View Talon's readme to learn about inserting your keys."
+        }
+    }
+
+    File keystore = new File("keystore")
+    File keystoreProperties = new File("keystore.properties")
+    if (keystore.exists() && keystoreProperties.exists()) {
+        def keystoreFile = rootProject.file('keystore.properties')
+        def keystoreProps = new Properties()
+        keystoreProps.load(new FileInputStream(keystoreFile))
+
+        signingConfigs {
+            release {
+                storeFile file("keystore")
+                storePassword keystoreProps.getProperty('KEY_SIGNATURE')
+                keyAlias keystoreProps.getProperty('KEY_ALIAS')
+                keyPassword keystoreProps.getProperty('KEY_SIGNATURE')
+            }
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled true
+                shrinkResources true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    aaptOptions {
+        noCompress 'apk'
+    }
+
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+
+    wearApp project(':wear')
+    
+    provided 'org.projectlombok:lombok:1.14.8'
+
+    compile "com.android.support:appcompat-v7:${project.ANDROID_SUPPORT_VERSION}"
+    compile "com.android.support:customtabs:${project.ANDROID_SUPPORT_VERSION}"
+
+    compile 'com.klinkerapps:searchview:2.2.5'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile 'com.github.castorflex.smoothprogressbar:library:0.5.1'
+    compile 'com.github.chrisbanes.photoview:library:1.2.3'
+    compile 'de.timroes.android:EnhancedListView:0.3.2@aar'
+    compile 'org.lucasr.smoothie:smoothie:0.1.0'
+    compile 'com.klinkerapps:simple_videoview:1.1.2@aar'
+    compile 'com.klinkerapps:launcher-apis:1.1.0@aar'
+    compile 'com.google.android.apps.dashclock:dashclock-api:+'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.yalantis:ucrop:1.5.0'
+
+    compile 'org.twitter4j:twitter4j-core:4.0.4'
+    compile 'org.twitter4j:twitter4j-stream:4.0.4'
+
+    compile 'org.apache.httpcomponents:httpmime:4.3.5'
+    compile 'org.apache.httpcomponents:httpcore:4.3.2'
+    compile 'org.jsoup:jsoup:1.7.3'
+
+    compile files('lib/YouTubeAndroidPlayerApi.jar') // version 1.2.1
+    compile(name: 'datetimepicker', ext: 'aar')
+    compile(name: 'bitmap-cache', ext: 'aar')
+    compile(name: 'sectioned-recyclerview', ext: 'aar')
+
+    compile project(':shared_assets')
+}

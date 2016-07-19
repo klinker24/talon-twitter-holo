@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':shared_assets', ':wear'
+include ':app', ':wear', ':shared_assets'
