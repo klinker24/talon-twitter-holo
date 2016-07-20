@@ -65,6 +65,14 @@ The Giphy key is their default beta key. For the others, you should go ahead and
 
 This allows me to keep the keys out of source control, but still build the app without any hassle.
 
+##### Providing a Signing Configuration
+
+For release builds, add your keystore simply as `keystore` to the root of the project, then add a `keystore.properties` file to the root with (no quotation marks around these strings!):
+
+```
+KEY_SIGNATURE=xxxx
+KEY_ALIAS=xxxx
+```
 
 ### Pull Requests
 

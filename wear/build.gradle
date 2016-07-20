@@ -16,13 +16,28 @@ android {
         versionName project.VERSION_NAME
     }
 
-    if (file("../keystore").exists()) {
+    File keystore = new File("../keystore")
+    File keystoreProperties = new File("../keystore.properties")
+    if (keystore.exists() && keystoreProperties.exists()) {
+        def keystoreFile = rootProject.file('keystore.properties')
+        def keystoreProps = new Properties()
+        keystoreProps.load(new FileInputStream(keystoreFile))
+
         signingConfigs {
             release {
-                storeFile file("../keystore")
-                storePassword project.RELEASE_KEY_SIGNATURE
-                keyAlias "talon"
-                keyPassword project.RELEASE_KEY_SIGNATURE
+                storeFile rootProject.file("keystore")
+                storePassword keystoreProps.getProperty('KEY_SIGNATURE')
+                keyAlias keystoreProps.getProperty('KEY_ALIAS')
+                keyPassword keystoreProps.getProperty('KEY_SIGNATURE')
+            }
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled true
+                shrinkResources true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), '../app/proguard-rules.pro'
+                signingConfig signingConfigs.release
             }
         }
     }
@@ -30,12 +45,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
     lintOptions {
         abortOnError false

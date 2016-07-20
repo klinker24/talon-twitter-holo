@@ -55,7 +55,7 @@ android {
 
         signingConfigs {
             release {
-                storeFile file("keystore")
+                storeFile rootProject.file("keystore")
                 storePassword keystoreProps.getProperty('KEY_SIGNATURE')
                 keyAlias keystoreProps.getProperty('KEY_ALIAS')
                 keyPassword keystoreProps.getProperty('KEY_SIGNATURE')
