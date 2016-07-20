@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.8.4">
+        <text>Clean up the project</text>
+    </version>
+
     <version name="4.8.1">
         <text>Apply the image editor to profile picture and banner picture uploads</text>
         <text>Auto fill the current profile info when you try to update it from within Talon</text>

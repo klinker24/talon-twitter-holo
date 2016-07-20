@@ -39,7 +39,7 @@ public class SetAccount extends IntentService {
         Log.v("talon_setting_account", "setting account to " + intent.getIntExtra("current_account", 1));
 
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         int launcherAccount = intent.getIntExtra("current_account", 1);
 

@@ -173,7 +173,7 @@ public class IOUtils {
 
             input = new ObjectInputStream(new FileInputStream(src));
             SharedPreferences.Editor prefEdit = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE)
+                    0)
                     .edit();
 
             prefEdit.clear();
@@ -228,7 +228,7 @@ public class IOUtils {
 
             output = new ObjectOutputStream(new FileOutputStream(dst));
             SharedPreferences pref = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                    0);
 
             output.writeObject(pref.getAll());
 
@@ -297,7 +297,7 @@ public class IOUtils {
         try {
             AppSettings settings = AppSettings.getInstance(context);
             SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                    0);
 
             InteractionsDataSource interactions = InteractionsDataSource.getInstance(context);
             Cursor inters = interactions.getCursor(account);

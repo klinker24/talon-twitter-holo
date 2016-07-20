@@ -62,7 +62,7 @@ public class PreCacheService extends IntentService {
 
         // if they want it only over wifi and they are on mobile data
         if (getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE)
+                0)
                 .getBoolean("pre_cache_wifi_only", false) &&
                 Utils.getConnectionStatus(this)) {
 

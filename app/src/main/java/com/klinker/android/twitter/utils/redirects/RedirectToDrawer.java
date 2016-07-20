@@ -35,7 +35,7 @@ public class RedirectToDrawer extends Activity {
         Intent drawer = new Intent(this, MainActivity.class);
 
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
         sharedPrefs.edit().putBoolean("open_interactions", true).commit();
 
         finish();

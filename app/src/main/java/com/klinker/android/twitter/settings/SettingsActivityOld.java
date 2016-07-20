@@ -105,7 +105,7 @@ public class SettingsActivityOld extends FragmentActivity {
         };
 
         sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         if (sharedPrefs.getBoolean("version_1.20_1", true)) {
             // necessary because i didnt start out by using sets

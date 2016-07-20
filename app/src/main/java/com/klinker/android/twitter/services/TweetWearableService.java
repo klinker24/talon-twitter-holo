@@ -176,7 +176,7 @@ public class TweetWearableService extends WearableListenerService {
                     sendBroadcast(new Intent("com.klinker.android.twitter.CLEAR_PULL_UNREAD"));
 
                     final SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                            Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                            0);
 
                     // mark tweetmarker if they use it
                     if (AppSettings.getInstance(TweetWearableService.this).tweetmarker) {

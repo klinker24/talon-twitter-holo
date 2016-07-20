@@ -51,7 +51,7 @@ public class ThemeConfigurationReceiver extends BroadcastReceiver {
 
             if (themeType.startsWith("version")) {
                 context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                        Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE).edit()
+                        0).edit()
                         .putString("addon_theme_package", themePackage)
                         .putBoolean("addon_themes", true);
 

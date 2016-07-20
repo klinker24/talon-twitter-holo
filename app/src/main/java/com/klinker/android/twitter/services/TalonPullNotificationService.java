@@ -115,7 +115,7 @@ public class TalonPullNotificationService extends Service {
         mCache = App.getInstance(this).getBitmapCache();
 
         sharedPreferences = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         showNotification = sharedPreferences.getBoolean("show_pull_notification", true);
         pullUnread = sharedPreferences.getInt("pull_unread", 0);

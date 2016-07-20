@@ -82,7 +82,7 @@ public class UnreadWidgetProvider extends AppWidgetProvider {
 
             int res = 0;
             switch (Integer.parseInt(getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE)
+                    0)
                     .getString("widget_theme", "3"))) {
                 case 0:
                     res = R.layout.widget_unread_trans_light;
@@ -133,7 +133,7 @@ public class UnreadWidgetProvider extends AppWidgetProvider {
                 // get the counts
                 try {
                     SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                            Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                            0);
                     int currentAccount = sharedPrefs.getInt("current_account", 1);
                     String dm = sharedPrefs.getInt("dm_unread_" + currentAccount, 0) + "";
                     String mention = MentionsDataSource.getInstance(this).getUnreadCount(currentAccount) + "";

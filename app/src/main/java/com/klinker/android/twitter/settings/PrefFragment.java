@@ -180,7 +180,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
             public boolean onPreferenceClick(Preference preference) {
 
                 final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                        Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                        0);
 
                 List<Integer> pageTypes = new ArrayList<Integer>();
                 List<String> pageNames = new ArrayList<String>();
@@ -304,7 +304,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
     public void setUpMemManagementSettings() {
         final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         Preference clearSearch = findPreference("clear_searches");
         clearSearch.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -505,7 +505,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
     public void setUpTimelinesSettings() {
         final SharedPreferences sharedPrefs = getActivity().getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         final Preference showHandle = findPreference("display_screen_name");
         if (sharedPrefs.getBoolean("both_handle_name", false)) {
@@ -731,7 +731,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
     public void setUpThemeSettings() {
 
         final SharedPreferences sharedPrefs = getActivity().getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         final Preference deviceFont = findPreference("font_type");
         deviceFont.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -1001,7 +1001,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
     public void setUpNotificationSettings() {
 
         final SharedPreferences sharedPrefs = getActivity().getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         final Preference quietHours = findPreference("quiet_hours");
         if(sharedPrefs.getBoolean("quiet_hours", false)) {
@@ -1093,7 +1093,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
         final AppSettings settings = AppSettings.getInstance(context);
         final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         final Preference timeline = findPreference("timeline_sync_interval");
         final Preference mentions = findPreference("mentions_sync_interval");
@@ -1247,7 +1247,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
     public void setUpAdvancedSettings() {
         final Context context = getActivity();
         final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         final Preference cities = findPreference("city");
 
@@ -1337,7 +1337,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
     public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
 
         SharedPreferences worldPrefs = getActivity().getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         // get the values and write them to our world prefs
         try {
@@ -1641,7 +1641,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
                 HomeDataSource.getInstance(context).markUnreadFilling(currentAccount);
 
                 context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                        Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE).edit().putBoolean("refresh_me", true).commit();
+                        0).edit().putBoolean("refresh_me", true).commit();
 
             } catch (TwitterException e) {
                 // Error in updating status
@@ -1778,7 +1778,7 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
     public void setUpGetHelpSettings() {
         final SharedPreferences sharedPrefs = getActivity().getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         Preference tutorial = findPreference("tutorial");
         tutorial.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

@@ -34,7 +34,7 @@ public class SwitchAccountsRedirect extends Activity {
         super.onCreate(savedInstanceState);
 
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         int page = -1;
         int currentAccount = sharedPrefs.getInt("current_account", 1);

@@ -39,7 +39,7 @@ public class StartPull extends IntentService {
         Log.v("talon_launcher", "starting pull from launcher service");
 
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         sharedPrefs.edit()
                 .putBoolean("launcher_frag_switch", true)

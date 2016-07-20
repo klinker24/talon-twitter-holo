@@ -52,7 +52,7 @@ public class MarkReadService extends IntentService {
         this.sendBroadcast(lightFlow);
 
         sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
         final Context context = getApplicationContext();
         final int currentAccount = sharedPrefs.getInt("current_account", 1);
 

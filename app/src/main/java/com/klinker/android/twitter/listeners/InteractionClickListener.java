@@ -59,7 +59,7 @@ public class InteractionClickListener implements AdapterView.OnItemClickListener
         this.viewPager = viewPager;
 
         sharedPreferences = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         int currentAccount = sharedPreferences.getInt("current_account", 1);
 

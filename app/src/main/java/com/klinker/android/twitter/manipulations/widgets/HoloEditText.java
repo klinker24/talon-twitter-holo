@@ -45,7 +45,7 @@ public class HoloEditText extends EditText {
     private void setUp(Context context) {
         if (sharedPreferences == null) {
             sharedPreferences = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                    0);
         }
 
         setTypeface(context);
@@ -57,7 +57,7 @@ public class HoloEditText extends EditText {
     private void setTypeface(Context context) {
         if (typeface == null) {
             String type = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE)
+                    0)
                     .getString("font_type", "1");
 
             useDeviceFont = type.equals("0");

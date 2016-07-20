@@ -60,7 +60,7 @@ public class ActivityDataSource {
     public ActivityDataSource(Context context) {
         dbHelper = new ActivitySQLiteHelper(context);
         sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
         this.context = context;
     }
 

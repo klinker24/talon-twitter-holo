@@ -91,7 +91,7 @@ public class SearchPager extends Activity {
 
         context = this;
         sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
         settings = AppSettings.getInstance(this);
 
         try {

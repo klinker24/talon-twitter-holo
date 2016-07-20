@@ -27,7 +27,7 @@ public class NotiTweetPager extends TweetPager {
     @Override
     public void getFromIntent() {
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         name = sharedPrefs.getString("fav_user_tweet_name", "");
         screenName = sharedPrefs.getString("fav_user_tweet_screenname", "");

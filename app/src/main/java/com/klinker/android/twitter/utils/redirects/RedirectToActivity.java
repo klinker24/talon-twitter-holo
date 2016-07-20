@@ -19,7 +19,7 @@ public class RedirectToActivity extends Activity {
         overridePendingTransition(0, 0);
 
         SharedPreferences sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         int currentAccount = sharedPrefs.getInt("current_account", 1);
 

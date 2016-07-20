@@ -37,7 +37,7 @@ public class NotificationComposeSecondAcc extends ComposeActivity {
         mNotificationManager.cancel(9);
 
         sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
         Context context = getApplicationContext();
         int currentAccount = sharedPrefs.getInt("current_account", 1);
 

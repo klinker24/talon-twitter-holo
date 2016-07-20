@@ -64,7 +64,7 @@ public class WorldTrends extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
         sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
         settings = AppSettings.getInstance(context);
 
         layout = inflater.inflate(R.layout.trends_list_view, null);

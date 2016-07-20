@@ -93,7 +93,7 @@ public class UpdateUtils {
             }
 
             SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                    Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                    0);
             sharedPrefs.edit().putBoolean("version_2_2_7_1", false).commit();
 
             PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean("version_2_2_7_1", false).commit();
@@ -131,7 +131,7 @@ public class UpdateUtils {
 
     public static void checkUpdate(final Context context) {
         final SharedPreferences sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         if (sharedPrefs.getBoolean("3.1.5", true)) {
             sharedPrefs.edit().putBoolean("3.1.5", false).commit();

@@ -61,7 +61,7 @@ public class WidgetRefreshService  extends IntentService {
         }
         WidgetRefreshService.isRunning = true;
         sharedPrefs = getSharedPreferences("com.klinker.android.twitter_world_preferences",
-                Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
+                0);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
