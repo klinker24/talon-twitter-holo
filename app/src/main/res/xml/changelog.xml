@@ -16,7 +16,8 @@
 
 <changelog>
 
-    <version name="4.8.4">
+    <version name="4.9.0">
+        <text>Works on Android Nougat (7.0)</text>
         <text>Clean up the project</text>
     </version>
 
