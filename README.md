@@ -49,19 +49,7 @@ To get your Twitter API key, go through these steps:
 
 ##### Adding API Keys to the app
 
-In the `.gitignore` file, I have ignored `secrets.properties`, this is the file you should create for yourself, to input your keys. Go ahead and create it in the root of the project. Then, fill it with the following information:
-
-```
-CONSUMER_KEY="xxxx"
-CONSUMER_SECRET="xxxx"
-YOUTUBE_API_KEY="xxxx"
-TWEETMARKER_KEY="xxxx"
-TWITLONGER_KEY="xxxx"
-TWITPIC_API_KEY="xxxx"
-GIPHY_KEY="dc6zaTOxFJmzC"
-```
-
-The Giphy key is their default beta key. For the others, you should go ahead and replace the xxxx value with whatever key you generate.
+In the `.gitignore` file, I have ignored `secrets.properties` which should contain your keys. Go ahead, copy the `secrets.properties.sample` to `secrets.properties` and fill in the keys in it.
 
 This allows me to keep the keys out of source control, but still build the app without any hassle.
 
