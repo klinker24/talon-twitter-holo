@@ -36,13 +36,13 @@ android {
             buildConfigField "String", "TWITPIC_API_KEY", secrets.getProperty('TWITPIC_API_KEY')
             buildConfigField "String", "GIPHY_KEY", secrets.getProperty('GIPHY_KEY')
         } else {
-            buildConfigField "String", "CONSUMER_KEY", "View Talon's readme to learn about inserting your keys."
-            buildConfigField "String", "CONSUMER_SECRET", "View Talon's readme to learn about inserting your keys."
-            buildConfigField "String", "YOUTUBE_API_KEY", "View Talon's readme to learn about inserting your keys."
-            buildConfigField "String", "TWEETMARKER_KEY", "View Talon's readme to learn about inserting your keys."
-            buildConfigField "String", "TWITLONGER_KEY", "View Talon's readme to learn about inserting your keys."
-            buildConfigField "String", "TWITPIC_API_KEY", "View Talon's readme to learn about inserting your keys."
-            buildConfigField "String", "GIPHY_KEY", "View Talon's readme to learn about inserting your keys."
+            buildConfigField "String", "CONSUMER_KEY", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "CONSUMER_SECRET", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "YOUTUBE_API_KEY", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "TWEETMARKER_KEY", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "TWITLONGER_KEY", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "TWITPIC_API_KEY", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "GIPHY_KEY", "\"View Talon's readme to learn about inserting your keys.\""
         }
     }
 
