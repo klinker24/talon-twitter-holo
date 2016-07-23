@@ -16,7 +16,7 @@ android {
         applicationId "com.klinker.android.twitter"
         minSdkVersion Integer.parseInt(project.MIN_SDK)
         targetSdkVersion Integer.parseInt(project.TARGET_SDK)
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionCode (System.getenv("BUILD_NUMBER") as Integer ?: Integer.parseInt(project.VERSION_CODE)) + 250
         versionName project.VERSION_NAME
     }
 
