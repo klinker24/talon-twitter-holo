@@ -13,10 +13,13 @@ android {
     buildToolsVersion project.BUILD_TOOLS_VERSION
 
     defaultConfig {
+        def code = System.getenv("BUILD_NUMBER") as Integer ?: Integer.parseInt(project.VERSION_CODE)
+        code += 250
+        
         applicationId "com.klinker.android.twitter"
         minSdkVersion Integer.parseInt(project.MIN_SDK)
         targetSdkVersion Integer.parseInt(project.TARGET_SDK)
-        versionCode (System.getenv("BUILD_NUMBER") as Integer ?: Integer.parseInt(project.VERSION_CODE)) + 250
+        versionCode code
         versionName project.VERSION_NAME
     }
 
