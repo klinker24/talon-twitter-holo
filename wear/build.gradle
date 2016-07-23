@@ -1,7 +1,11 @@
 apply plugin: 'com.android.application'
 
-repositories {
-    jcenter()
+File keystoreProperties = rootProject.file("keystore.properties")
+def props = new Properties()
+if (keystoreProperties.exists()) {
+    props.load(new FileInputStream(keystoreProperties))
+} else {
+    props['keystorefile'] = 'none';
 }
 
 android {
@@ -16,18 +20,14 @@ android {
         versionName project.VERSION_NAME
     }
 
-    File keystore = rootProject.file("talon_classic.jks")
-    File keystoreProperties = rootProject.file("keystore.properties")
-    if (keystore.exists() && keystoreProperties.exists()) {
-        def keystoreProps = new Properties()
-        keystoreProps.load(new FileInputStream(keystoreProperties))
-
+    File keystore = new File(props['keystorefile'])
+    if (keystore.exists()) {
         signingConfigs {
             release {
                 storeFile keystore
-                storePassword keystoreProps.getProperty('KEY_SIGNATURE')
-                keyAlias keystoreProps.getProperty('KEY_ALIAS')
-                keyPassword keystoreProps.getProperty('KEY_SIGNATURE')
+                storePassword props['keystorepassword']
+                keyAlias props['keyalias']
+                keyPassword props['keypassword']
             }
         }
 
