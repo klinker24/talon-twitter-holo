@@ -34,7 +34,7 @@
     <string name="menu_change_bio">更改个人资料信息</string>
     <string name="menu_change_banner">更改个人资料横幅图</string>
     <string name="menu_direct_message">新私信</string>
-    <string name="menu_save_image">保存图像</string>
+    <string name="menu_save_image">保存图片</string>
     <string name="menu_favorite">收藏用户</string>
     <string name="menu_unfavorite">取消收藏用户</string>
     <string name="menu_create_list">创建新列表</string>
@@ -71,7 +71,7 @@
     <string name="search_hint">搜索...</string>
     <string name="new_tweet">条新推文</string>
     <string name="new_tweets">条新推文</string>
-    <string name="no_new_tweets">没有新的推文</string>
+    <string name="no_new_tweets">没有新推文</string>
     <string name="new_mention">条新提及</string>
     <string name="new_mentions">条新提及</string>
     <string name="no_new_mentions">没有新的提及</string>
@@ -98,10 +98,10 @@
     <string name="mark_read">标记已读</string>
     <string name="noti_reply">回复</string>
     <string name="popup">弹出</string>
-    <string name="fav_user_tweets">收藏用户的新推文</string>
+    <string name="fav_user_tweets">收藏用户有新推文</string>
     <string name="sec_acc">第二帐号</string>
     <string name="talon_pull">Talon Pull</string>
-    <string name="talon_pull_summary">警告：在 Lollipop 系统上启用该选项可能会导致耗电严重。</string>
+    <string name="talon_pull_summary">警告：在 Lollipop 系统上启用该选项可能会导致耗电严重</string>
     <string name="listening">正在侦听</string>
     <string name="listening_for_mentions">正在侦听互动信息</string>
     <string name="refreshing">更新中</string>
@@ -140,7 +140,7 @@
     <string name="follow_me">关注！</string>
     <string name="follow_me_description">点击查看可自动关注我们的技术支持帐号，您也可以按返回键选择跳过</string>
     <!-- Compose New Activity -->
-    <string name="compose_activity">新的推文</string>
+    <string name="compose_activity">撰写新推文</string>
     <string name="compose_tweet_hint">输入推文…</string>
     <string name="send_to">输入用户名...</string>
     <string name="direct_message_sent">私信已发送</string>
@@ -165,7 +165,7 @@
     <string name="delete">删除</string>
     <string name="cancel">取消</string>
     <string name="delete_direct_message">删除信息？</string>
-    <string name="save_image">图像已保存</string>
+    <string name="save_image">图片已保存</string>
     <string name="tweet_success">推文已发送</string>
     <string name="error_sending_tweet">推文发送失败</string>
     <string name="tweet_to_long">推文内容过长！</string>
@@ -175,8 +175,8 @@
     <string name="changelog">更新日志</string>
     <string name="created_by">创建者：</string>
     <string name="no_location">找不到地理信息</string>
-    <string name="take_picture">拍摄图像</string>
-    <string name="from_file">添加图像</string>
+    <string name="take_picture">拍摄图片</string>
+    <string name="from_file">添加图片</string>
     <string name="via">通过</string>
     <string name="version">版本</string>
     <string name="from">从</string>
@@ -219,7 +219,7 @@
     <string name="conversation">对话</string>
     <string name="webpage">网页</string>
     <string name="tweet_youtube">Youtube</string>
-    <string name="gif">撰写多媒体推文</string>
+    <string name="gif">推文媒体</string>
     <string name="vine">Vine</string>
     <string name="menu_quote">引用推文</string>
     <string name="deleted_tweet">推文已删除</string>
@@ -229,7 +229,7 @@
     <string name="youtube_error">视频播放失败</string>
     <string name="no_conversation">没有更早的推文了</string>
     <string name="saving_picture">正在保存图片</string>
-    <string name="saved_picture">保存图像成功</string>
+    <string name="saved_picture">保存图片成功</string>
     <string name="retweet_success">转推成功</string>
     <string name="favorite_success">喜欢推文成功</string>
     <string name="success">成功</string>
@@ -289,7 +289,7 @@
     <string name="inline_pics">显示内嵌的图片</string>
     <string name="use_screen_name">显示用户昵称</string>
     <string name="use_screen_name_summary">在时间线上显示用户的昵称而非用户名</string>
-    <string name="timestamp">使用 24 小时格式</string>
+    <string name="timestamp">使用 24 小时制</string>
     <string name="enable_emojis">使用 iOS 表情符号</string>
     <string name="to_market">跳转至Play Store</string>
     <string name="get_ios">下载插件</string>
@@ -325,19 +325,19 @@
     <string name="push_notification_options">"推送通知选项"</string>
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">该选项将会启用一个侦听进程并在有新的互动时发出通知提醒（包含提及，私信，喜欢，转推以及新的关注者）。</string>
-    <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，请点击这里</string>
+    <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，请点击这里。</string>
     <string name="notification_settings">通知</string>
     <string name="pebble_notifications">Pebble 通知</string>
-    <string name="pebble_notifications_summary">用来设置 Pebble 智能手表。如果在您的手表上收到了重复的通知请关闭该选项。</string>
+    <string name="pebble_notifications_summary">用来设置 Pebble 智能手表。如果在您的手表上收到了重复的通知请关闭该选项</string>
     <string name="advanced_settings">高级设置</string>
     <string name="app_feel_category">应用外观选项</string>
     <string name="advance_windowed">高级窗口模式</string>
     <string name="advance_windowed_summary">在位于时间线上层的窗口内打开个人资料和推文页面</string>
     <string name="full_screen_browsers">全屏浏览器</string>
     <string name="full_screen_browsers_summary">在全屏模式下打开含有网页的推文</string>
-    <string name="reverse_click_actions">调换点击动作</string>
-    <string name="reverse_click_actions_summary">调换点击推文时的动作。\n\n
-默认状态（禁用调换动作时）：\n
+    <string name="reverse_click_actions">交换点击动作</string>
+    <string name="reverse_click_actions_summary">交换点击推文时的动作。\n\n
+默认（当禁用时）：\n
 - 长按时打开推文\n
 - 短按时展开推文</string>
     <string name="extra_pages">追加扩展栏目</string>
@@ -368,7 +368,7 @@
     <string name="backup_success">备份成功</string>
     <string name="restore_success">还原成功</string>
     <string name="restore_settings">还原设置</string>
-    <string name="restore_settings_summary">将清除缓存以应用主题的变化。</string>
+    <string name="restore_settings_summary">含主题更改时将清除缓存</string>
     <string name="get_help_settings">获取帮助</string>
     <string name="rerun_tutorial">显示初始教学页</string>
     <string name="faq">常见问题</string>
@@ -433,10 +433,10 @@
     <string name="auto_insert_hashtags">自动插入话题</string>
     <string name="to_replies">在回复里自动插入原推文中的所有话题</string>
     <string name="clean_now">清理当前数据库</string>
-    <string name="clean_now_summary">优化数据库并移除其中的重复项。</string>
+    <string name="clean_now_summary">优化数据库并移除当中的重复项</string>
     <string name="delete_conversation">删除对话？</string>
     <string name="deleting_messages">删除信息</string>
-    <string name="type_message">输入信息...</string>
+    <string name="type_message">输入消息...</string>
     <string name="fill_gaps">补全时间线上的空隙</string>
     <string name="fill_gaps_summary">填补当开启实时流后因信息流连接不稳定而造成的版面空隙</string>
     <string name="filling_timeline">正在补全时间线上的空隙</string>
@@ -461,7 +461,7 @@
     <string name="remove_retweet">移除转推</string>
     <string name="edit">编辑</string>
     <string name="use_twitpic">使用TwitPic</string>
-    <string name="twitpic_summary">使用 Twitpic 来为推文添加图像而非 Twitter 官方的图片上传服务。</string>
+    <string name="twitpic_summary">使用 Twitpic 来为推文添加图片而非 Twitter 官方的图片上传服务。</string>
     <string name="verified">已验证</string>
     <string name="use_tweetmarker">TweetMarker</string>
     <string name="tweetmarker_summary">在多部设备间同步您的阅读位置</string>
@@ -480,7 +480,7 @@
     <string name="jumping_workaround_summary">如果在刷新信息后发现时间线向下位移可尝试开启此项修复。</string>
     <string name="menu_share_link">分享链接</string>
     <string name="no_links">无链接</string>
-    <string name="configure_pages">配置可滑动标签页</string>
+    <string name="configure_pages">配置可滑动页面</string>
     <string name="picture_page">图片时间线</string>
     <string name="link_page">链接时间线</string>
     <string name="list_page">列表时间线</string>
@@ -492,11 +492,11 @@
     <string name="load_tweets">加载推文</string>
     <string name="download_portal">下载主题商店应用</string>
     <string name="download_portal_summary">这是 Klinker 应用系列里的 \"Portal\"。你可以在这里了解到我们最新的消息还可以找到所有关于 EvolveSMS 和 Talon 程序的精美主题。</string>
-    <string name="compose_dm_hint">输入信息…</string>
+    <string name="compose_dm_hint">输入消息...</string>
     <string name="pwiccer">Pwiccer</string>
     <string name="select_shortening_service">选择一个推文短缩服务或重新编辑推文</string>
     <string name="use_shortening_service">使用短缩服务</string>
-    <string name="use_shortening_service_summary">你可以选择使用 TwitLonger 或 Pwiccer（这些服务可以将您的长推文转换为图像格式以便发布）。</string>
+    <string name="use_shortening_service_summary">你可以选择使用 TwitLonger 或 Pwiccer（这些服务可以将您的长推文转换为图片格式以便发布）。</string>
     <string name="view_retweeters">转推者</string>
     <string name="view_favoriters">喜欢</string>
     <string name="no_tweets">没有推文</string>
@@ -534,7 +534,7 @@
     <string name="mute_expression">静音表达式</string>
     <string name="view_muted_expressions">移除静音表达式</string>
     <string name="no_expression">无表达式</string>
-    <string name="regex_disclaimer">静音过多的表达式可能将影响到应用启动和刷新操作的时间。</string>
+    <string name="regex_disclaimer">静音过多的表达式可能将影响到应用启动和刷新操作的时间</string>
     <string name="cleaning_cache">正在清理缓存…</string>
     <string name="floating_compose">浮动撰写按钮</string>
     <string name="settings_links">设置链接</string>
@@ -543,7 +543,7 @@
     <string name="third_party_services">第三方服务</string>
     <string name="open_keyboard">自动打开键盘</string>
     <string name="open_keyboard_summary">在推文查看器中自动打开键盘以进行回复。</string>
-    <string name="no_retweets">无转推</string>
+    <string name="no_retweets">没有转推</string>
     <string name="profile">个人资料</string>
     <string name="favorites">喜欢</string>
     <string name="load_pictures">加载图片</string>
@@ -569,28 +569,28 @@
     <string name="no_tweet">没有推文！</string>
     <string name="menu_attach_picture">添加图片</string>
     <string name="twitpic_disclaimer">TwitPic免责声明</string>
-    <string name="twitpic_disclaimer_summary">Twitter 的 API 不允许用户在私信内直接添加图像。因此 Talon 会先将图像上传至 TwitPic 然后把指向图像的链接地址发送给私信的收件人。\n\n
-发送出的图像可在您的 TwitPic 资料中查看到。</string>
+    <string name="twitpic_disclaimer_summary">Twitter 的 API 不允许用户在私信内直接添加图片。因此 Talon 会先将图片上传至 TwitPic 然后把指向图片的链接地址发送给私信的收件人。\n\n
+发送出的图片可在您的 TwitPic 资料中查看到。</string>
     <string name="dont_show_again">不再显示</string>
-    <string name="error_attaching_image">添加图像时发生错误！</string>
+    <string name="error_attaching_image">添加图片时发生错误！</string>
     <string name="sending_tweet">正在发送推文...</string>
     <string name="attached_images">已添加</string>
-    <string name="twitpic_disclaimer_multi_summary">Twitter 的 API 不支持在一条推文内添加多张图像。\n\n
-Talon 将选择把图像上传至 TwitPic。</string>
+    <string name="twitpic_disclaimer_multi_summary">Twitter 的 API 不支持在一条推文内添加多张图片。\n\n
+Talon 将选择把图片上传至 TwitPic。</string>
     <string name="loading_webpage">载入网页...</string>
     <string name="plain_text_browser">纯文本浏览器</string>
-    <string name="plain_text_summary">移除网页内的图像和页面格式仅显示其中的文字内容。</string>
+    <string name="plain_text_summary">移除网页内的图片和页面格式仅显示其中的文字内容</string>
     <string name="plain_text_on_data">在使用移动数据时显示纯文本</string>
     <string name="plain_text_on_data_summary">仅在移动数据下使用纯文本浏览器，WiFi 网络下不启用</string>
     <string name="layout_full_screen">全屏</string>
-    <string name="pre_cache_images">预缓存图像</string>
-    <string name="pre_cache_summary">在获得实时信息流或时间线后台刷新取得数据时立即下载当中的图像</string>
+    <string name="pre_cache_images">预缓存图片</string>
+    <string name="pre_cache_summary">在获得实时信息流或时间线后台刷新取得数据时立即下载当中的图片</string>
     <string name="pre_cache_settings">预缓存选项</string>
     <string name="pre_cache_only_wifi">只在WiFi下</string>
     <string name="tweet_page">推文页</string>
     <string name="web_page">网页</string>
     <string name="conversation_page">对话页</string>
-    <string name="viewer_page">推文浏览器</string>
+    <string name="viewer_page">推文查看器</string>
     <string name="viewer_page_summary">当查看推文时要打开的默认页。</string>
     <string name="browser_settings">浏览器设置</string>
     <string name="memory_manage">存储管理</string>
@@ -618,10 +618,10 @@ Talon 将选择把图像上传至 TwitPic。</string>
     <string name="muted_clients">已静音的客户端</string>
     <string name="mute_client">静音客户端</string>
     <string name="no_clients">无客户端</string>
-    <string name="muted_clients_summary">可以让您静音掉来自某种特定客户端的所有推文信息。</string>
+    <string name="muted_clients_summary">允许您静音掉来自某种特定客户端的所有推文信息</string>
     <string name="client_not_found">未找到客户端！</string>
     <string name="favorite">喜欢</string>
-    <string name="menu_share_image">分享图像</string>
+    <string name="menu_share_image">分享图片</string>
     <string name="pick_time">选择时间</string>
     <string name="pick_date">选择日期</string>
     <string name="both_accounts">每个帐号</string>
@@ -634,30 +634,33 @@ Talon 将选择把图像上传至 TwitPic。</string>
     <string name="rate_limit_reached">已达到刷新上限</string>
     <string name="info">说明</string>
     <string name="help_and_feedback">帮助/反馈</string>
-    <string name="faq_first">您好，非常高兴您愿意协助我改进 Talon！\n\n
-如果有任何疑问或反馈，请随时给我发送电子邮件或推文。不过在此之前，您是否已经阅读过了 \"常见问题\" 部分呢？\n\n
-Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑的等待我回复之前，不妨先去查看一下吧。（尽管我已在尽自己所能的去尽快回复您的消息...）\n\n
+    <string name="faq_first">您好，非常感激您愿意协助我改进 Talon！
+
+如果有任何疑问或想进行反馈，请随时给我发送电子邮件或推文。不过在此之前，您是否已经阅读过了 \"常见问题\" 部分呢？
+
+Talon 程序内已内置了丰富的帮助说明。在焦急等待我的回复之前，不妨先去查看一下吧。（尽管我已在竭尽所能的去回复您的消息...）
+
 希望您能满意我的作品！</string>
     <string name="contact">联系</string>
     <string name="follow">关注</string>
-    <string name="menu_number_of_pages">额外分页数量</string>
+    <string name="menu_number_of_pages">额外页面数目</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <string name="page">页面 %s</string>
     <string name="set_as_default">设为默认</string>
-    <string name="main_pages_and_drawer">可滑动标签页和应用抽屉</string>
+    <string name="main_pages_and_drawer">可滑动页面和应用抽屉</string>
     <string name="drawer_elements">可见的抽屉项目</string>
     <string name="drawer_elements_summary">选择在应用导航抽屉内显示或隐藏的项目</string>
     <string name="second_acc_mentions">第二帐号内的提及</string>
     <string name="using_second_account">正在使用 %s 帐号！</string>
     <!-- the username will replace %s -->
-    <string name="error_gif">查找媒体时发生错误</string>
+    <string name="error_gif">查找媒体时出错</string>
     <string name="saved_search">保存的搜索</string>
     <string name="activity">活动</string>
     <string name="sending_direct_message">正在发送私信</string>
     <string name="fav_rt_multiple_accounts">跨帐号操作</string>
-    <string name="fav_rt_multiple_accounts_summary">如果您拥有多个帐号，这个选项将让您选择用哪一个来执行喜欢或转推。</string>
+    <string name="fav_rt_multiple_accounts_summary">如果有多个帐号，这将可以让您选择使用哪一个来执行喜欢或转推</string>
     <string name="talon_pull_notifications">Talon Pull（即时）通知</string>
-    <string name="talon_pull_turned_on">要使用该功能请先在同步设置中开启 Talon Pull。</string>
+    <string name="talon_pull_turned_on">要使用该功能请先在后台同步设置中启用 Talon Pull</string>
     <string name="activity_sync_interval">活动刷新频率</string>
     <string name="mentioned_you">提及了你</string>
     <string name="favorites_lower">喜欢</string>
@@ -676,19 +679,19 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="item">条项目</string>
     <string name="items">条项目</string>
     <string name="and">和</string>
-    <string name="no_favorites">无喜欢的推文</string>
+    <string name="no_favorites">没有喜欢</string>
     <string name="quote_style">引用样式</string>
     <string name="quote_style_twitter">Twitter 样式（推文链接）</string>
     <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
     <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
-    <string name="show_pull_notification">显示可持续通知</string>
+    <string name="show_pull_notification">显示可持续性通知</string>
     <string name="show_pull_notification_summary">如果禁用该通知，安卓系统可能会随时关闭掉信息流的传输。请谨慎使用</string>
     <string name="custom_tab_title">Chrome 自定义标签页</string>
-    <string name="custom_tab_message">您的系统不允许 Talon 自动开启 Chrome 自定义标签页。想要使用这项功能，您需要将 Chrome 设置成系统的默认浏览器，否则 Talon 将继续使用其内置的浏览器。\n\n如果 Chrome 是您系统的默认浏览器请点击选择 \"确认\"，如不想将其设为默认浏览器请点“取消”。</string>
+    <string name="custom_tab_message">您的系统不允许 Talon 自动启用 Chrome 自定义标签页。想要使用该功能，请先将 Chrome 设为系统默认浏览器，否则 Talon 将继续使用内置的浏览器。\n\n如果 Chrome 已为系统默认浏览器请点击选择“确认”，如不想将其设为默认浏览器请点击“取消”。</string>
     <string name="learn_more">了解更多</string>
     <!-- Long click methods -->
     <string name="open_profile">打开用户资料</string>
-    <string name="copy_handle">复制用户昵称</string>
+    <string name="copy_handle">复制用户名</string>
     <string name="search_user">搜索用户</string>
     <string name="mute_user">静音用户</string>
     <string name="mute_retweets">静音转推</string>
@@ -704,7 +707,7 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="copy_cashtag">复制现金标签</string>
     <string name="copied">已复制文本</string>
     <string name="favorite_user_text">收藏用户</string>
-    <string name="open_to_web">向网页开放</string>
+    <string name="open_to_web">打开网页</string>
     <string name="open_to_web_summary">如果推文中包含有网页链接，点击后将直接打开该网页页面而非推文本身。</string>
     <string name="open_webpage">打开链接</string>
     <string name="get_android">获取 Android 表情符号</string>
@@ -712,6 +715,6 @@ Talon 应用内已经内置了丰富的帮助说明和请求信息。在焦虑�
     <string name="add_to_tweet_gif">添加至推文</string>
     <string name="find_a_gif">查找 GIF</string>
     <string name="three_mb_limit">5MB 大小限制</string>
-    <string name="three_mb_message">Twitter 仅允许用户发布不大于 5MB 的 GIF 图片。 Talon 将会从 Giphy 上抓取符合该项规定的最高画质 GIF 图片。\n\n您看到的所有显示结果都将有符合这一限制的版本存在，而那些降低图像画质以满足发布规定的图片将不被显示。</string>
+    <string name="three_mb_message">Twitter 仅允许用户发布不大于 5MB 的 GIF 图片。 Talon 将会从 Giphy 上抓取符合该项规定的最高画质 GIF 图片。\n\n您看到的所有显示结果都将有符合这一限制的版本存在，而那些降低图片质量以满足发布规定的图片将不被显示。</string>
     <string name="quoted_you">引用了你</string>
 </resources>

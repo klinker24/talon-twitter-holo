@@ -16,6 +16,12 @@
 
 <changelog>
 
+    <version name="4.9.1">
+        <text>Translation updates</text>
+        <text>Bug fixes</text>
+        <text>Dependecy updates</text>
+    </version>
+
     <version name="4.9.0">
         <text>Works on Android Nougat (7.0)</text>
         <text>Clean up the project</text>

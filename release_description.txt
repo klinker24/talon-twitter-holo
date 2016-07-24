@@ -1,0 +1,1 @@
+v4.9.1 adds new translations, fixes some bugs, and updates a number of dependencies in the app.

@@ -382,10 +382,10 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="youtube">YouTube Video</string>
     <string name="google_plus">Google+ forum</string>
     <string name="xda_thread">XDA tråd</string>
-    <string name="email_me">Send mig en email</string>
-    <string name="tweet_me">Send mig et tweet</string>
+    <string name="email_me">Send en email til udvikleren</string>
+    <string name="tweet_me">Send et tweet til udvikleren</string>
     <string name="follow_talon">Følg Talon på Twitter</string>
-    <string name="credits">Credits</string>
+    <string name="credits">Kredit</string>
     <string name="disclaimer">Ansvarsfraskrivelse</string>
     <string name="other_apps">Klinker\'s applikationer</string>
     <string name="whats_new">Hvad er nyt</string>
@@ -674,8 +674,8 @@ Jeg håber du er tilfreds med Talon!</string>
     <string name="use_interaction_drawer">Aktivér oversigt for interaktioner</string>
     <string name="use_interaction_drawer_summary">Indholdet af denne oversigt er genereret via Talon Pull (streaming)</string>
     <string name="no_activity_yet">Ingen aktivitet</string>
-    <string name="no_activity_yet_desc">Der vil blive vist indhold i denne sektion efterhånden som du kommunikerer mere på Twitter\n\n
-Nye meninger, følgere, retweets og likes bliver vist her</string>
+    <string name="no_activity_yet_desc">Der bliver vist indhold i denne sektion efterhånden som du kommunikerer mere på Twitter\n\n
+Nye meninger, følgere, retweets og likes vises</string>
     <string name="retweet">Retweet</string>
     <string name="new_follower_lower">ny følger</string>
     <string name="new_followers_lower">nye følgere</string>
