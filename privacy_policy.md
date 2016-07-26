@@ -1,3 +1,5 @@
+![promo](Other/klinker_apps_promo.png)
+
 # Klinker Apps Privacy Policy
 
 My privacy policy is really simple. 
