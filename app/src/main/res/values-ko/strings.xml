@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <!-- Action Bar -->
+    <string name="menu_save_image">사진 저장</string>
+    <string name="menu_create_list">새 리스트 만들기</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="minutes_ago">%s 분 전</string>
+    <string name="hours_ago">%s 시간 전</string>
+    <string name="yesterday">어제</string>
+    <string name="days_ago">%s 일 전</string>
+    <!-- Muting -->
+    <string name="mute">뮤트</string>
+    <string name="unmute">뮤트 해제</string>
+    <!-- Main Activity -->
+    <string name="pictures">사진</string>
+    <string name="mentions">멘션</string>
+    <string name="direct_messages">쪽지</string>
+    <string name="search">검색</string>
+    <string name="lists">리스트</string>
+    <string name="no_new_mentions">멘션 없음</string>
+    <string name="new_account">새 계정</string>
+    <!-- Notifications -->
+    <string name="tweet">트윗</string>
+    <string name="mention">멘션</string>
+    <string name="popup">팝업</string>
+    <!-- Login Screen -->
+    <!-- Compose New Activity -->
+    <string name="compose_activity">새 트윗</string>
+    <!-- Actionbar Done-Discard -->
+    <string name="send">전송</string>
+    <!-- Other -->
+    <string name="delete">삭제</string>
+    <string name="cancel">취소</string>
+    <string name="delete_direct_message">메시지를 지우시겠습니까?</string>
+    <string name="save_image">이미지가 저장되었습니다.</string>
+    <string name="yes">예</string>
+    <!-- User Profile Activity -->
+    <string name="update">업데이트</string>
+    <!-- Retweets Activity -->
+    <!-- Tweet Activity -->
+    <string name="menu_delete_tweet">트윗 삭제</string>
+    <string name="success">성공</string>
+    <!-- User Lists -->
+    <string name="delete_list">리스트 삭제</string>
+    <string name="remove">제거</string>
+    <!-- Tutorial Activity -->
+    <!-- Settings Menu -->
+    <string name="theme_options">테마 설정</string>
+    <string name="other_options">기타 설정</string>
+    <string name="theme">테마</string>
+    <string name="addon_themes">애드온 테마</string>
+    <string name="quiet_hours">방해 금지 모드</string>
+    <!-- Emoji Keyboard -->
+    <!-- Array value for translation -->
+    <!-- added after release -->
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <!-- the username will replace %s -->
+    <string name="retweet">리트윗</string>
+    <!-- Long click methods -->
+</resources>

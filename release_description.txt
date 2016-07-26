@@ -1,1 +1,1 @@
-v4.9.1 adds new translations, fixes some bugs, and updates a number of dependencies in the app.
+v4.9.2 adds new translations, fixes some bugs, updates a number of dependencies in the app, and adds a link to our privacy policy(https://goo.gl/4doMgz)

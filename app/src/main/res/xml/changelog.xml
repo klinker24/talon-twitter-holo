@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.9.2">
+        <text>Added a link to our privacy policy (https://goo.gl/4doMgz)</text>
+    </version>
+
     <version name="4.9.1">
         <text>Translation updates</text>
         <text>Bug fixes</text>
