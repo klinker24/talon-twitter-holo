@@ -20,9 +20,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -83,7 +85,12 @@ public class TweetYouTubeFragment extends YouTubePlayerFragment implements
         player = (YouTubePlayerView) layout.findViewById(R.id.youtube_view);
         error = (HoloTextView) layout.findViewById(R.id.error);
 
-        player.initialize(AppSettings.YOUTUBE_API_KEY, this);
+        if (!TextUtils.isEmpty(AppSettings.YOUTUBE_API_KEY)) {
+            player.initialize(AppSettings.YOUTUBE_API_KEY, this);
+        } else {
+            onInitializationFailure(null, null); // workaround for uniform error handling, failure handler doesn't use arguments anyway
+            Toast.makeText(getActivity(), R.string.youtube_no_api_key, Toast.LENGTH_SHORT).show();
+        }
 
         listener = this;
 
