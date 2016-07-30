@@ -17,14 +17,11 @@
 package com.klinker.android.twitter.utils.redirects;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 
-import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
+import com.klinker.android.twitter.activities.MainActivity;
 
 public class RedirectToDrawer extends Activity {
 

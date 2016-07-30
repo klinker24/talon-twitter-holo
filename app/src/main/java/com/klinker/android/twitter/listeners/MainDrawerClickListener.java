@@ -22,9 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,17 +31,16 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.MainDrawerArrayAdapter;
 import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.ui.drawer_activities.FavoriteUsersActivity;
-import com.klinker.android.twitter.ui.drawer_activities.FavoritesActivity;
-import com.klinker.android.twitter.ui.drawer_activities.RetweetActivity;
-import com.klinker.android.twitter.ui.drawer_activities.SavedSearchesActivity;
-import com.klinker.android.twitter.ui.drawer_activities.discover.DiscoverPager;
-import com.klinker.android.twitter.ui.drawer_activities.lists.ListsActivity;
-import com.klinker.android.twitter.manipulations.widgets.NotificationDrawerLayout;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.activities.drawer_activities.FavoriteUsersActivity;
+import com.klinker.android.twitter.activities.drawer_activities.FavoritesActivity;
+import com.klinker.android.twitter.activities.drawer_activities.RetweetActivity;
+import com.klinker.android.twitter.activities.drawer_activities.SavedSearchesActivity;
+import com.klinker.android.twitter.activities.drawer_activities.discover.DiscoverPager;
+import com.klinker.android.twitter.activities.drawer_activities.lists.ListsActivity;
+import com.klinker.android.twitter.views.NotificationDrawerLayout;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class MainDrawerClickListener implements AdapterView.OnItemClickListener {

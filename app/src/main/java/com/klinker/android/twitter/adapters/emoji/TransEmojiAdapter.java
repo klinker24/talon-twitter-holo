@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.EmojiKeyboard;
+import com.klinker.android.twitter.views.EmojiKeyboard;
 import com.klinker.android.twitter.utils.EmojiUtils;
 
 public class TransEmojiAdapter extends BaseEmojiAdapter {

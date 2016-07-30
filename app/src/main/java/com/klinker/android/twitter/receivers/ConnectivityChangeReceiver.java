@@ -21,18 +21,13 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.os.Handler;
 import android.util.Log;
 
 import com.klinker.android.twitter.services.CatchupPull;
-import com.klinker.android.twitter.services.TimelineRefreshService;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
 import com.klinker.android.twitter.utils.Utils;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class ConnectivityChangeReceiver extends BroadcastReceiver {
 

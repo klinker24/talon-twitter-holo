@@ -26,7 +26,7 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.text.TextUtils;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.tweet_viewer.fragments.*;
+import com.klinker.android.twitter.activities.tweet_viewer.fragments.*;
 import com.klinker.android.twitter.utils.Utils;
 
 import java.util.ArrayList;

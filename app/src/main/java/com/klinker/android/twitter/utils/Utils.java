@@ -16,7 +16,6 @@
 
 package com.klinker.android.twitter.utils;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -32,7 +31,6 @@ import android.util.TypedValue;
 import android.view.Display;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.widgets.ActionBarDrawerToggle;
 import com.klinker.android.twitter.settings.AppSettings;
 
 import java.util.Date;

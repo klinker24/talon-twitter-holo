@@ -17,12 +17,11 @@
 package com.klinker.android.twitter.utils.redirects;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.launcher_page.LauncherPopup;
+import com.klinker.android.twitter.activities.launcher_page.LauncherPopup;
 
 
 public class RedirectToLauncherPopup extends Activity {

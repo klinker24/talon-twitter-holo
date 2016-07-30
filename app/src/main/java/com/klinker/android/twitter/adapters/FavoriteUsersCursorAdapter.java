@@ -26,7 +26,7 @@ import android.view.View;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.FavoriteUsersDataSource;
 import com.klinker.android.twitter.data.sq_lite.FavoriteUsersSQLiteHelper;
-import com.klinker.android.twitter.ui.drawer_activities.FavoriteUsersActivity;
+import com.klinker.android.twitter.activities.drawer_activities.FavoriteUsersActivity;
 
 public class FavoriteUsersCursorAdapter extends PeopleCursorAdapter {
     public FavoriteUsersCursorAdapter(Context context, Cursor cursor) {

@@ -29,15 +29,14 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.ui.compose.RetryCompose;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.activities.compose.RetryCompose;
 import com.klinker.android.twitter.utils.IOUtils;
 import com.klinker.android.twitter.utils.Utils;
 import com.klinker.android.twitter.utils.api_helper.TwitLongerHelper;

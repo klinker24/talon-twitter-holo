@@ -19,11 +19,9 @@ package com.klinker.android.twitter.listeners;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -38,11 +36,11 @@ import com.klinker.android.twitter.adapters.MainDrawerArrayAdapter;
 import com.klinker.android.twitter.adapters.TimelinePagerAdapter;
 import com.klinker.android.twitter.data.sq_lite.InteractionsDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
-import com.klinker.android.twitter.ui.drawer_activities.DrawerActivity;
-import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
-import com.klinker.android.twitter.manipulations.widgets.NotificationDrawerLayout;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.activities.profile_viewer.ProfilePager;
+import com.klinker.android.twitter.activities.drawer_activities.DrawerActivity;
+import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.NotificationDrawerLayout;
 
 public class InteractionClickListener implements AdapterView.OnItemClickListener {
 

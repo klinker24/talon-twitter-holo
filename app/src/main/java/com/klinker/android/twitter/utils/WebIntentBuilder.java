@@ -1,33 +1,17 @@
 package com.klinker.android.twitter.utils;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.BrowserActivity;
-import com.klinker.android.twitter.ui.PlainTextBrowserActivity;
-import com.klinker.android.twitter.utils.Utils;
-
-import java.lang.reflect.Method;
+import com.klinker.android.twitter.activities.BrowserActivity;
+import com.klinker.android.twitter.activities.PlainTextBrowserActivity;
 
 /**
  * Used to handle URLs.

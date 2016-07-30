@@ -32,7 +32,7 @@ import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
+import com.klinker.android.twitter.activities.MainActivity;
 
 import java.io.File;
 import java.util.HashSet;

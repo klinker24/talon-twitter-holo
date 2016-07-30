@@ -28,7 +28,6 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +44,7 @@ import com.klinker.android.twitter.data.DirectMessage;
 import com.klinker.android.twitter.data.sq_lite.DMDataSource;
 import com.klinker.android.twitter.data.sq_lite.DMSQLiteHelper;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.DirectMessageConversation;
+import com.klinker.android.twitter.activities.DirectMessageConversation;
 import com.klinker.android.twitter.utils.ImageUtils;
 import com.klinker.android.twitter.utils.Utils;
 

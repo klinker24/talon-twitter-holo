@@ -22,10 +22,10 @@ import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.ui.drawer_activities.discover.NearbyTweets;
-import com.klinker.android.twitter.ui.drawer_activities.discover.people.CategoryFragment;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.LocalTrends;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.WorldTrends;
+import com.klinker.android.twitter.activities.drawer_activities.discover.NearbyTweets;
+import com.klinker.android.twitter.activities.drawer_activities.discover.people.CategoryFragment;
+import com.klinker.android.twitter.activities.drawer_activities.discover.trends.LocalTrends;
+import com.klinker.android.twitter.activities.drawer_activities.discover.trends.WorldTrends;
 
 public class TrendsPagerAdapter extends FragmentPagerAdapter {
 

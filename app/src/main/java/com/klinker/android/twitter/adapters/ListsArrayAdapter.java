@@ -30,13 +30,12 @@ import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.drawer_activities.lists.ChoosenListActivity;
-import com.klinker.android.twitter.ui.drawer_activities.lists.ViewUsers;
+import com.klinker.android.twitter.activities.drawer_activities.lists.ChoosenListActivity;
+import com.klinker.android.twitter.activities.drawer_activities.lists.ViewUsers;
 import com.klinker.android.twitter.utils.Utils;
 
 import twitter4j.ResponseList;
 import twitter4j.Twitter;
-import twitter4j.User;
 import twitter4j.UserList;
 
 public class ListsArrayAdapter extends ArrayAdapter<UserList> {

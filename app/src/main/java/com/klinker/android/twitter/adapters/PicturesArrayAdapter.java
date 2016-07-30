@@ -26,10 +26,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
-import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
+import com.klinker.android.twitter.activities.photo_viewer.PhotoViewerActivity;
+import com.klinker.android.twitter.views.NetworkedCacheableImageView;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.tweet_viewer.TweetPager;
+import com.klinker.android.twitter.activities.tweet_viewer.TweetPager;
 import com.klinker.android.twitter.utils.TweetLinkUtils;
 
 import java.util.ArrayList;

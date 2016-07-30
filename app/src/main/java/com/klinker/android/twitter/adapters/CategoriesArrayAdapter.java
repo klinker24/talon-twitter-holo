@@ -16,7 +16,6 @@
 
 package com.klinker.android.twitter.adapters;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -27,10 +26,7 @@ import android.widget.TextView;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.drawer_activities.discover.people.PeopleSearch;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.SearchedTrendsActivity;
-
-import java.util.ArrayList;
+import com.klinker.android.twitter.activities.drawer_activities.discover.people.PeopleSearch;
 
 import twitter4j.Category;
 import twitter4j.ResponseList;

@@ -25,9 +25,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
-import com.klinker.android.twitter.ui.profile_viewer.fragments.ProfileFragment;
-import com.klinker.android.twitter.utils.ImageUtils;
+import com.klinker.android.twitter.activities.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.utils.Utils;
 
 import java.util.ArrayList;

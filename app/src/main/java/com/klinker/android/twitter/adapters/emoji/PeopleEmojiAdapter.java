@@ -26,7 +26,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.EmojiKeyboard;
+import com.klinker.android.twitter.views.EmojiKeyboard;
 import com.klinker.android.twitter.utils.EmojiUtils;
 
 public class PeopleEmojiAdapter extends BaseEmojiAdapter {

@@ -16,7 +16,7 @@
   limitations under the License.
   -->
 
-<com.klinker.android.twitter.manipulations.widgets.HoloTextView
+<com.klinker.android.twitter.views.HoloTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/text"
@@ -26,4 +26,4 @@
     android:paddingBottom="10dp" android:paddingTop="10dp"
     android:background="@drawable/pressed_toast">
 
-</com.klinker.android.twitter.manipulations.widgets.HoloTextView>
+</com.klinker.android.twitter.views.HoloTextView>

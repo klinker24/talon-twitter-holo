@@ -22,9 +22,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.klinker.android.twitter.data.sq_lite.FavoriteUsersSQLiteHelper;
-import com.klinker.android.twitter.manipulations.widgets.HoloEditText;
 import com.klinker.android.twitter.utils.AutoCompleteHelper;
-import com.klinker.android.twitter.utils.ImageUtils;
 
 public class AutoCompletePeopleAdapter extends SearchedPeopleCursorAdapter {
 

@@ -20,25 +20,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+    <com.klinker.android.twitter.views.HoloEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/optional_name"
         android:id="@+id/name"/>
 
-    <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+    <com.klinker.android.twitter.views.HoloEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/optional_url"
         android:id="@+id/url"/>
 
-    <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+    <com.klinker.android.twitter.views.HoloEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/optional_location"
         android:id="@+id/location"/>
 
-    <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+    <com.klinker.android.twitter.views.HoloEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/optional_description"

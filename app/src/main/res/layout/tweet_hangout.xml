@@ -32,7 +32,7 @@
         android:gravity="center_horizontal">
 
         <!-- The tweeters picture -->
-        <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+        <com.klinker.android.twitter.views.NetworkedCacheableImageView
             android:layout_width="@dimen/pro_pic_size"
             android:layout_height="@dimen/pro_pic_size"
             android:id="@+id/profile_pic"
@@ -60,7 +60,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+            <com.klinker.android.twitter.views.HoloTextView
                 android:id="@+id/name"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="8dp"/>
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+            <com.klinker.android.twitter.views.HoloTextView
                 android:id="@+id/screenname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                           android:layout_alignTop="@id/name"
                           android:orientation="horizontal">
 
-                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                <com.klinker.android.twitter.views.HoloTextView
                         android:id="@+id/time"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
             </LinearLayout>
 
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+            <com.klinker.android.twitter.views.HoloTextView
                 android:id="@+id/tweet"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
@@ -123,7 +123,7 @@
                 android:paddingBottom="10dp"
                 android:layoutDirection="locale"/>
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+            <com.klinker.android.twitter.views.HoloTextView
                 android:id="@+id/retweeter"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
@@ -138,7 +138,7 @@
                 android:text="@string/placeholder"
                 android:visibility="gone" />
 
-            <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+            <com.klinker.android.twitter.views.NetworkedCacheableImageView
                 android:id="@+id/image"
                 android:layout_below="@id/retweeter"
                 android:layout_height="96dp"
@@ -150,7 +150,7 @@
                 android:visibility="gone"
                 />
 
-            <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+            <com.klinker.android.twitter.views.NetworkedCacheableImageView
                 android:id="@+id/play_button"
                 android:layout_below="@id/retweeter"
                 android:src="@drawable/ic_action_play"
@@ -216,7 +216,7 @@
                     android:background="@drawable/pressed_button"
                     android:layout_marginLeft="8dp" />
 
-                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                <com.klinker.android.twitter.views.HoloTextView
                     android:layout_height="37dp"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="3dp"
@@ -236,7 +236,7 @@
                     android:layout_marginLeft="8dp"
                     android:background="@drawable/pressed_button" />
 
-                <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                <com.klinker.android.twitter.views.HoloTextView
                     android:layout_height="37dp"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="3dp"
@@ -254,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom">
 
-                <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+                <com.klinker.android.twitter.views.HoloEditText
                     android:id="@+id/reply"
                     android:layout_height="50dp"
                     android:layout_width="0dp"
@@ -270,7 +270,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical">
 
-                    <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+                    <com.klinker.android.twitter.views.HoloTextView
                         android:layout_height="13dp"
                         android:layout_width="match_parent"
                         android:layout_marginLeft="3dp"

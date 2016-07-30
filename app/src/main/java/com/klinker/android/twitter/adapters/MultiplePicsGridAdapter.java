@@ -23,9 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.manipulations.photo_viewer.PhotoPagerActivity;
-import com.klinker.android.twitter.manipulations.photo_viewer.PhotoViewerActivity;
-import com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView;
+import com.klinker.android.twitter.activities.photo_viewer.PhotoPagerActivity;
+import com.klinker.android.twitter.views.NetworkedCacheableImageView;
 import twitter4j.Status;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 

@@ -64,13 +64,13 @@
             android:exported="true"
             android:authorities="com.klinker.android.twitter.provider" />
 
-        <activity android:name=".ui.setup.TutorialActivity"
+        <activity android:name=".activities.setup.TutorialActivity"
             android:theme="@style/Theme.Tutorial"/>
 
         <activity android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
-        <activity android:name=".ui.MainActivity"
+        <activity android:name=".activities.MainActivity"
                   android:label="@string/app_name"
                   android:configChanges="orientation|screenSize"
                   android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
@@ -94,25 +94,25 @@
 
         </activity>
 
-        <activity android:name=".ui.GiphySearch"
+        <activity android:name=".activities.GiphySearch"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:launchMode="singleInstance"
             android:theme="@style/Theme.TalonLight" />
 
-        <activity android:name=".ui.drawer_activities.RetweetActivity"
+        <activity android:name=".activities.drawer_activities.RetweetActivity"
                   android:label="@string/retweets"
                   android:configChanges="orientation|screenSize"
                   android:windowSoftInputMode="adjustResize"
                   android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".manipulations.photo_viewer.PhotoViewerActivity"
+        <activity android:name=".activities.photo_viewer.PhotoViewerActivity"
                     android:configChanges="orientation|screenSize"
                     android:theme="@style/Theme.PhotoViewerDark" />
 
-        <activity android:name=".manipulations.photo_viewer.PhotoPagerActivity"
+        <activity android:name=".activities.photo_viewer.PhotoPagerActivity"
                   android:configChanges="orientation|screenSize"
                   android:theme="@style/Theme.PhotoViewerDark" />
 
@@ -122,70 +122,70 @@
             android:launchMode="singleInstance"
             android:theme="@style/Theme.PhotoViewerDark.Popup" />
 
-        <activity android:name=".ui.drawer_activities.FavoritesActivity"
+        <activity android:name=".activities.drawer_activities.FavoritesActivity"
                   android:label="@string/favorite_tweets"
                   android:configChanges="orientation|screenSize"
                   android:windowSoftInputMode="adjustResize"
                   android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.drawer_activities.FavoriteUsersActivity"
+        <activity android:name=".activities.drawer_activities.FavoriteUsersActivity"
             android:label="@string/favorite_users"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.drawer_activities.lists.ViewUsers"
+        <activity android:name=".activities.drawer_activities.lists.ViewUsers"
             android:label="@string/favorite_users"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.drawer_activities.discover.DiscoverPager"
+        <activity android:name=".activities.drawer_activities.discover.DiscoverPager"
             android:label="@string/local_trends"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.drawer_activities.lists.ListsActivity"
+        <activity android:name=".activities.drawer_activities.lists.ListsActivity"
             android:label="@string/lists"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.scheduled_tweets.NewScheduledTweet"
+        <activity android:name=".activities.scheduled_tweets.NewScheduledTweet"
             android:label="@string/scheduled_tweets"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.scheduled_tweets.ViewScheduledTweets"
+        <activity android:name=".activities.scheduled_tweets.ViewScheduledTweets"
             android:label="@string/scheduled_tweets"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.drawer_activities.SavedSearchesActivity"
+        <activity android:name=".activities.drawer_activities.SavedSearchesActivity"
             android:label="@string/saved_searches"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.drawer_activities.lists.ChoosenListActivity"
+        <activity android:name=".activities.drawer_activities.lists.ChoosenListActivity"
             android:label="@string/lists"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.DirectMessageConversation"
+        <activity android:name=".activities.DirectMessageConversation"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
@@ -207,7 +207,7 @@ S
             android:theme="@style/Theme.TalonDark"
             />
 
-        <activity android:name=".ui.search.SearchPager"
+        <activity android:name=".activities.search.SearchPager"
             android:label="@string/search"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
@@ -278,7 +278,7 @@ S
                 android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name=".ui.drawer_activities.discover.trends.SearchedTrendsActivity"
+        <activity android:name=".activities.drawer_activities.discover.trends.SearchedTrendsActivity"
             android:label="@string/trends"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
@@ -293,7 +293,7 @@ S
                 android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name=".ui.drawer_activities.discover.trends.LauncherSearchedTrends"
+        <activity android:name=".activities.drawer_activities.discover.trends.LauncherSearchedTrends"
             android:label="@string/trends"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
@@ -309,38 +309,38 @@ S
                 android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name=".ui.setup.LoginActivity"
+        <activity android:name=".activities.setup.LoginActivity"
                   android:label="@string/app_name_full"
                   android:configChanges="orientation|screenSize"
                   android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.setup.Version2Setup"
+        <activity android:name=".activities.setup.Version2Setup"
             android:label="@string/app_name_full"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.BrowserActivity"
+        <activity android:name=".activities.BrowserActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/app_name_full"
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.PlainTextBrowserActivity"
+        <activity android:name=".activities.PlainTextBrowserActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/app_name_full"
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.MainActivityPopup"
+        <activity android:name=".activities.MainActivityPopup"
             android:label="@string/app_name"
             android:theme="@style/Theme.TalonDark.Popup"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
 
-        <activity android:name=".ui.launcher_page.LauncherPopup"
+        <activity android:name=".activities.launcher_page.LauncherPopup"
             android:label="@string/app_name"
             android:theme="@style/Theme.TalonDark.Popup"
             android:configChanges="orientation|screenSize"
@@ -415,7 +415,7 @@ S
                   android:theme="@style/Theme.TalonDark" >
         </activity>
 
-        <activity android:name=".ui.compose.ComposeActivity"
+        <activity android:name=".activities.compose.ComposeActivity"
                   android:label="@string/app_name"
                   android:configChanges="orientation|screenSize"
                   android:launchMode="singleTop"
@@ -424,7 +424,7 @@ S
 
         </activity>
 
-        <activity android:name=".ui.compose.ComposeSecAccActivity"
+        <activity android:name=".activities.compose.ComposeSecAccActivity"
                   android:label="@string/app_name"
                   android:configChanges="orientation|screenSize"
                   android:launchMode="singleTop"
@@ -433,7 +433,7 @@ S
 
         </activity>
 
-        <activity android:name=".ui.compose.NotificationCompose"
+        <activity android:name=".activities.compose.NotificationCompose"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -442,7 +442,7 @@ S
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.compose.NotificationComposeSecondAcc"
+        <activity android:name=".activities.compose.NotificationComposeSecondAcc"
                   android:label="@string/app_name"
                   android:configChanges="orientation|screenSize"
                   android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -451,7 +451,7 @@ S
                   android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.compose.NotificationDMCompose"
+        <activity android:name=".activities.compose.NotificationDMCompose"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -460,7 +460,7 @@ S
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.compose.RetryCompose"
+        <activity android:name=".activities.compose.RetryCompose"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -481,7 +481,7 @@ S
 
         </activity>
 
-        <activity android:name=".ui.compose.WidgetCompose"
+        <activity android:name=".activities.compose.WidgetCompose"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -490,7 +490,7 @@ S
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.compose.LauncherCompose"
+        <activity android:name=".activities.compose.LauncherCompose"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -500,7 +500,7 @@ S
             android:theme="@style/Theme.TalonDark.Popup" >
         </activity>
 
-        <activity android:name=".ui.compose.ComposeDMActivity"
+        <activity android:name=".activities.compose.ComposeDMActivity"
                   android:label="@string/compose_activity"
                   android:configChanges="orientation|screenSize"
                   android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
@@ -521,14 +521,14 @@ S
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.TweetPager"
+        <activity android:name=".activities.tweet_viewer.TweetPager"
                   android:label="@string/app_name"
                   android:configChanges="orientation"
                   android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
                   android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.LauncherTweetPager"
+        <activity android:name=".activities.tweet_viewer.LauncherTweetPager"
             android:label="@string/app_name"
             android:configChanges="orientation"
             android:launchMode="singleInstance"
@@ -538,7 +538,7 @@ S
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.NotiTweetPager"
+        <activity android:name=".activities.tweet_viewer.NotiTweetPager"
             android:label="@string/app_name"
             android:configChanges="orientation"
             android:launchMode="singleInstance"
@@ -547,28 +547,28 @@ S
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.users_popup.ViewUsersPopup"
+        <activity android:name=".activities.tweet_viewer.users_popup.ViewUsersPopup"
             android:label="@string/user"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.ViewPictures"
+        <activity android:name=".activities.tweet_viewer.ViewPictures"
             android:label="@string/pictures"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.drawer_activities.discover.people.PeopleSearch"
+        <activity android:name=".activities.drawer_activities.discover.people.PeopleSearch"
             android:label="@string/suggested_users"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.tweet_viewer.TweetActivityWidget"
+        <activity android:name=".activities.tweet_viewer.TweetActivityWidget"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
@@ -576,14 +576,14 @@ S
             android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.profile_viewer.ProfilePager"
+        <activity android:name=".activities.profile_viewer.ProfilePager"
                   android:label="@string/app_name"
                   android:configChanges="orientation|screenSize"
                   android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
                   android:theme="@style/Theme.TalonDark.Popup">
         </activity>
 
-        <activity android:name=".ui.profile_viewer.LauncherProfilePager"
+        <activity android:name=".activities.profile_viewer.LauncherProfilePager"
             android:label="@string/app_name"
             android:configChanges="orientation"
             android:launchMode="singleInstance"
@@ -667,15 +667,15 @@ S
         <service android:name=".services.TrimDataService">
         </service>
 
-        <service android:name=".ui.launcher_page.HandleScrollService"
+        <service android:name=".activities.launcher_page.HandleScrollService"
             android:exported="true" >
         </service>
 
-        <service android:name=".ui.launcher_page.SetAccount"
+        <service android:name=".activities.launcher_page.SetAccount"
                  android:exported="true" >
         </service>
 
-        <service android:name=".ui.launcher_page.StartPull"
+        <service android:name=".activities.launcher_page.StartPull"
                  android:exported="true" >
         </service>
 

@@ -16,7 +16,6 @@
 
 package com.klinker.android.twitter.services;
 
-import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -41,8 +40,8 @@ import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
 import com.klinker.android.twitter.data.sq_lite.InteractionsDataSource;
 import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.ui.compose.WidgetCompose;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.activities.compose.WidgetCompose;
 import com.klinker.android.twitter.utils.ImageUtils;
 import com.klinker.android.twitter.utils.NotificationUtils;
 import com.klinker.android.twitter.utils.TweetLinkUtils;
@@ -55,9 +54,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 
-import twitter4j.ConnectionLifeCycleListener;
 import twitter4j.DirectMessage;
 import twitter4j.IDs;
 import twitter4j.StallWarning;

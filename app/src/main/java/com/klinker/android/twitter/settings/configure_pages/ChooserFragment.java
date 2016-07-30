@@ -23,22 +23,12 @@ import android.content.*;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.settings.configure_pages.ListChooser;
-import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.SavedSearchFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.SecondAccMentionsFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
 import java.util.ArrayList;
 import java.util.List;

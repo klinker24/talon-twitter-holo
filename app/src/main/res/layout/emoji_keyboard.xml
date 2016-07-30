@@ -16,7 +16,7 @@
   limitations under the License.
   -->
 
-<com.klinker.android.twitter.manipulations.EmojiKeyboard
+<com.klinker.android.twitter.views.EmojiKeyboard
               xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -77,4 +77,4 @@
             android:layout_height="200dp">
 
     </android.support.v4.view.ViewPager>
-</com.klinker.android.twitter.manipulations.EmojiKeyboard>
+</com.klinker.android.twitter.views.EmojiKeyboard>

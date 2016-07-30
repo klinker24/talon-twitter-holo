@@ -25,13 +25,13 @@ import android.support.v13.app.FragmentPagerAdapter;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.*;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.FavUsersFragment;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.LinksFragment;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.extentions.PicFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.LocalTrendsFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.trends.WorldTrendsFragment;
+import com.klinker.android.twitter.activities.main_fragments.other_fragments.*;
+import com.klinker.android.twitter.activities.main_fragments.home_fragments.extentions.FavUsersFragment;
+import com.klinker.android.twitter.activities.main_fragments.home_fragments.HomeFragment;
+import com.klinker.android.twitter.activities.main_fragments.home_fragments.extentions.LinksFragment;
+import com.klinker.android.twitter.activities.main_fragments.home_fragments.extentions.PicFragment;
+import com.klinker.android.twitter.activities.main_fragments.other_fragments.trends.LocalTrendsFragment;
+import com.klinker.android.twitter.activities.main_fragments.other_fragments.trends.WorldTrendsFragment;
 
 import java.util.ArrayList;
 import java.util.List;

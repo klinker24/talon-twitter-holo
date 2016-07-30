@@ -43,7 +43,7 @@ import android.widget.TextView;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.profile_viewer.ProfilePager;
+import com.klinker.android.twitter.activities.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.utils.ImageUtils;
 import com.klinker.android.twitter.utils.SDK11;
 

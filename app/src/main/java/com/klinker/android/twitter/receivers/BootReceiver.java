@@ -28,11 +28,11 @@ import com.klinker.android.twitter.data.ScheduledTweet;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
 import com.klinker.android.twitter.services.*;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.ActivityFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.DMFragment;
-import com.klinker.android.twitter.ui.main_fragments.home_fragments.HomeFragment;
-import com.klinker.android.twitter.ui.main_fragments.other_fragments.MentionsFragment;
-import com.klinker.android.twitter.ui.scheduled_tweets.ViewScheduledTweets;
+import com.klinker.android.twitter.activities.main_fragments.other_fragments.ActivityFragment;
+import com.klinker.android.twitter.activities.main_fragments.other_fragments.DMFragment;
+import com.klinker.android.twitter.activities.main_fragments.home_fragments.HomeFragment;
+import com.klinker.android.twitter.activities.main_fragments.other_fragments.MentionsFragment;
+import com.klinker.android.twitter.activities.scheduled_tweets.ViewScheduledTweets;
 
 import java.util.ArrayList;
 import java.util.Date;

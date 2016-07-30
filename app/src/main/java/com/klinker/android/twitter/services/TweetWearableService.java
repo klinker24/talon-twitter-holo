@@ -16,7 +16,6 @@
 
 package com.klinker.android.twitter.services;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -40,9 +39,8 @@ import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
 import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.transaction.KeyProperties;
-import com.klinker.android.twitter.ui.launcher_page.HandleScrollService;
+import com.klinker.android.twitter.activities.launcher_page.HandleScrollService;
 import com.klinker.android.twitter.utils.IOUtils;
-import com.klinker.android.twitter.utils.ImageUtils;
 import com.klinker.android.twitter.utils.Utils;
 import com.klinker.android.twitter.utils.WearableUtils;
 import com.klinker.android.twitter.utils.api_helper.TweetMarkerHelper;

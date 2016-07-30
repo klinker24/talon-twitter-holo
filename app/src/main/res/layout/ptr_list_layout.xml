@@ -44,7 +44,7 @@
         android:gravity="center"
         android:visibility="gone">
 
-        <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+        <com.klinker.android.twitter.views.HoloTextView
             android:id="@+id/no_retweeters_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
 
 
 
-    <com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout
+    <com.klinker.android.twitter.views.swipe_refresh_layout.FullScreenSwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/swipe_refresh_layout">
@@ -71,7 +71,7 @@
             android:visibility="gone"
             />
 
-        </com.klinker.android.twitter.manipulations.widgets.swipe_refresh_layout.FullScreenSwipeRefreshLayout>
+        </com.klinker.android.twitter.views.swipe_refresh_layout.FullScreenSwipeRefreshLayout>
 
 
 </RelativeLayout>

@@ -22,40 +22,20 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.TypedArray;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.*;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import android.widget.Toast;
-import com.klinker.android.launcher.api.BaseLauncherPage;
+
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.ChangelogAdapter;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
+import com.klinker.android.twitter.activities.MainActivity;
 import com.klinker.android.twitter.utils.Utils;
 import com.klinker.android.twitter.utils.XmlChangelogUtils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SettingsActivity extends Activity {
 

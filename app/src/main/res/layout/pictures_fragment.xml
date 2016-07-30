@@ -27,7 +27,7 @@
         android:layout_width="fill_parent"
         android:gravity="center">
 
-        <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+        <com.klinker.android.twitter.views.HoloTextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="@string/pic_search_disclaimer"

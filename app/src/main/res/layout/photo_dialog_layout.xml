@@ -35,7 +35,7 @@
             android:indeterminateOnly="true" />
     </LinearLayout>
 
-    <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+    <com.klinker.android.twitter.views.NetworkedCacheableImageView
         android:id="@+id/picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

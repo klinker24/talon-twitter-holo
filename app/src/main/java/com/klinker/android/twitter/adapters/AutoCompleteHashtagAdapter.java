@@ -17,9 +17,7 @@
 package com.klinker.android.twitter.adapters;
 
 import android.app.Activity;
-import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,14 +26,8 @@ import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.data.sq_lite.FavoriteUsersSQLiteHelper;
-import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
 import com.klinker.android.twitter.data.sq_lite.HashtagSQLiteHelper;
-import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.SearchedTrendsActivity;
 import com.klinker.android.twitter.utils.AutoCompleteHelper;
-
-import java.util.ArrayList;
 
 public class AutoCompleteHashtagAdapter extends CursorAdapter {
 

@@ -20,14 +20,12 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.klinker.android.twitter.data.sq_lite.HomeContentProvider;
 import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
+import com.klinker.android.twitter.activities.MainActivity;
 import com.klinker.android.twitter.utils.NotificationUtils;
 import com.klinker.android.twitter.utils.Utils;
 
@@ -39,8 +37,6 @@ import java.util.List;
 import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.User;
 
 public class TimelineRefreshService extends IntentService {
 

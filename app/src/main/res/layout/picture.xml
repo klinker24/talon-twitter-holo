@@ -22,7 +22,7 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp">
 
-    <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+    <com.klinker.android.twitter.views.NetworkedCacheableImageView
         android:id="@+id/picture"
         android:layout_height="match_parent"
         android:layout_width="match_parent"

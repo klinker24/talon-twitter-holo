@@ -5,12 +5,8 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.ui.drawer_activities.discover.NearbyTweets;
-import com.klinker.android.twitter.ui.drawer_activities.discover.people.CategoryFragment;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.LocalTrends;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.WorldTrends;
-import com.klinker.android.twitter.ui.tweet_viewer.users_popup.FavoritersFragment;
-import com.klinker.android.twitter.ui.tweet_viewer.users_popup.RetweetersFragment;
+import com.klinker.android.twitter.activities.tweet_viewer.users_popup.FavoritersFragment;
+import com.klinker.android.twitter.activities.tweet_viewer.users_popup.RetweetersFragment;
 
 
 public class UserListPagerAdapter extends FragmentPagerAdapter {

@@ -16,19 +16,16 @@
 
 package com.klinker.android.twitter.settings;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,10 +34,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.klinker.android.launcher.api.BaseLauncherPage;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.manipulations.widgets.HoloTextView;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.views.HoloTextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;

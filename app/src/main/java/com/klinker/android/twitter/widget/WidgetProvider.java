@@ -25,17 +25,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.RemoteViews;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.services.WidgetRefreshService;
-import com.klinker.android.twitter.ui.compose.ComposeActivity;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.ui.compose.RetryCompose;
-import com.klinker.android.twitter.ui.compose.WidgetCompose;
-import com.klinker.android.twitter.ui.tweet_viewer.TweetActivityWidget;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.activities.compose.WidgetCompose;
+import com.klinker.android.twitter.activities.tweet_viewer.TweetActivityWidget;
 
 public class WidgetProvider extends AppWidgetProvider {
 

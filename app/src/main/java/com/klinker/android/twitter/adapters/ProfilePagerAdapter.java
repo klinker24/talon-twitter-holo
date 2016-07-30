@@ -23,10 +23,10 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.ui.profile_viewer.fragments.ProfileFragment;
-import com.klinker.android.twitter.ui.profile_viewer.fragments.sub_fragments.ProfileFavoritesFragment;
-import com.klinker.android.twitter.ui.profile_viewer.fragments.sub_fragments.ProfileMentionsFragment;
-import com.klinker.android.twitter.ui.profile_viewer.fragments.sub_fragments.ProfilePicturesFragment;
+import com.klinker.android.twitter.activities.profile_viewer.fragments.ProfileFragment;
+import com.klinker.android.twitter.activities.profile_viewer.fragments.sub_fragments.ProfileFavoritesFragment;
+import com.klinker.android.twitter.activities.profile_viewer.fragments.sub_fragments.ProfileMentionsFragment;
+import com.klinker.android.twitter.activities.profile_viewer.fragments.sub_fragments.ProfilePicturesFragment;
 
 public class ProfilePagerAdapter extends FragmentPagerAdapter {
     private Context context;

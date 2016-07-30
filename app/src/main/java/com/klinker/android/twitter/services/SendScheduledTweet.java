@@ -30,13 +30,12 @@ import android.util.Patterns;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.MainActivity;
-import com.klinker.android.twitter.ui.compose.RetryCompose;
-import com.klinker.android.twitter.ui.scheduled_tweets.ViewScheduledTweets;
+import com.klinker.android.twitter.activities.MainActivity;
+import com.klinker.android.twitter.activities.compose.RetryCompose;
+import com.klinker.android.twitter.activities.scheduled_tweets.ViewScheduledTweets;
 import com.klinker.android.twitter.utils.Utils;
 import com.klinker.android.twitter.utils.api_helper.TwitLongerHelper;
 
-import java.util.Set;
 import java.util.regex.Matcher;
 
 import twitter4j.Twitter;

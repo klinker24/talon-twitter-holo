@@ -109,7 +109,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_toRightOf="@+id/emojiButton">
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+            <com.klinker.android.twitter.views.HoloEditText
                     android:id="@+id/tweet_content"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -124,7 +124,7 @@
                     android:textSize="17sp" />
 
 
-            <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+            <com.klinker.android.twitter.views.HoloTextView
                     android:id="@+id/char_remaining"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"

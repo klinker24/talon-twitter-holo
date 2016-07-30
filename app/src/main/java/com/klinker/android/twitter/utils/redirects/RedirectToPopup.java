@@ -20,7 +20,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.klinker.android.twitter.ui.MainActivityPopup;
+import com.klinker.android.twitter.activities.MainActivityPopup;
 
 public class RedirectToPopup extends Activity {
 

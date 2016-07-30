@@ -19,7 +19,7 @@ package com.klinker.android.twitter.widget;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import com.klinker.android.twitter.ui.MainActivity;
+import com.klinker.android.twitter.activities.MainActivity;
 
 
 public class WidgetProxyActivity extends MainActivity {

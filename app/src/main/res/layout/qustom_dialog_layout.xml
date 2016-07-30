@@ -61,7 +61,7 @@
         android:divider="@null"
         android:dividerHeight="0dp"/>
 
-    <com.klinker.android.twitter.manipulations.widgets.HoloEditText
+    <com.klinker.android.twitter.views.HoloEditText
         android:id="@+id/content"
         android:contentDescription="Contact Entry"
         android:layout_width="match_parent"

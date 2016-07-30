@@ -28,7 +28,7 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp">
 
-    <com.klinker.android.twitter.manipulations.widgets.NetworkedCacheableImageView
+    <com.klinker.android.twitter.views.NetworkedCacheableImageView
         android:id="@+id/picture"
         android:layout_width="@dimen/pro_pic_size"
         android:layout_height="@dimen/pro_pic_size"
@@ -43,7 +43,7 @@
         android:paddingStart="6dp"
         android:orientation="vertical">
 
-        <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+        <com.klinker.android.twitter.views.HoloTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:textColor="?textColor"
             />
 
-        <com.klinker.android.twitter.manipulations.widgets.HoloTextView
+        <com.klinker.android.twitter.views.HoloTextView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

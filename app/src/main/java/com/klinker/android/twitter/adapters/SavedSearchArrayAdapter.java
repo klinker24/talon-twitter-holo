@@ -28,8 +28,8 @@ import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
-import com.klinker.android.twitter.ui.drawer_activities.SavedSearchesActivity;
-import com.klinker.android.twitter.ui.drawer_activities.discover.trends.SearchedTrendsActivity;
+import com.klinker.android.twitter.activities.drawer_activities.SavedSearchesActivity;
+import com.klinker.android.twitter.activities.drawer_activities.discover.trends.SearchedTrendsActivity;
 import com.klinker.android.twitter.utils.Utils;
 
 import java.util.ArrayList;

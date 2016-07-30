@@ -26,7 +26,7 @@ import android.widget.ImageView;
 
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.Recent;
-import com.klinker.android.twitter.manipulations.EmojiKeyboard;
+import com.klinker.android.twitter.views.EmojiKeyboard;
 
 import java.util.ArrayList;
 
