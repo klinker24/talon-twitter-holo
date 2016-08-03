@@ -1321,17 +1321,6 @@ public class TweetFragment extends Fragment {
                     ((Activity) context).runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
-                            // you can't retweet a protected account
-                            if (status.getUser().isProtected()) {
-                                retweetButton.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Toast.makeText(context, getString(R.string.protected_account), Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                            }
-
                             retweetCount.setText(" " + retCount);
 
                             if (retweetButton instanceof ImageButton) {
