@@ -1,5 +1,6 @@
 package com.klinker.android.twitter.activities.photo_viewer;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -8,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,6 +22,9 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresPermission;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
@@ -50,6 +55,8 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 public class PhotoViewerActivity extends Activity {
 
     private static final String LOGGER_TAG = "PhotoViewerActivity";
+
+    private static final int REQUEST_CODE_DOWNLOAD_IMAGE = 1;
 
     private Context context;
     private String url;
@@ -131,6 +138,16 @@ public class PhotoViewerActivity extends Activity {
         }
     }
 
+    private void safeDownloadImage() {
+        final int result = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            downloadImage();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_DOWNLOAD_IMAGE);
+        }
+    }
+
+    @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     private void downloadImage() {
         new Thread(new Runnable() {
             @Override
@@ -217,7 +234,7 @@ public class PhotoViewerActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.menu_save_image:
-                downloadImage();
+                safeDownloadImage();
                 return true;
 
             case R.id.menu_share_image:
@@ -372,5 +389,20 @@ public class PhotoViewerActivity extends Activity {
                 overridePendingTransition(0, 0);
             }
         }, 250);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_DOWNLOAD_IMAGE: {
+                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //noinspection MissingPermission // we know it is safe now
+                    downloadImage();
+                } else {
+                    Toast.makeText(this, "Please grant permission to save images", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            }
+        }
     }
 }
