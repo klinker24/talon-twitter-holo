@@ -16,25 +16,47 @@
 
 package com.klinker.android.twitter.utils;
 
+import android.Manifest;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresPermission;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.data.sq_lite.*;
+import com.klinker.android.twitter.data.sq_lite.ActivityDataSource;
+import com.klinker.android.twitter.data.sq_lite.ActivitySQLiteHelper;
+import com.klinker.android.twitter.data.sq_lite.DMDataSource;
+import com.klinker.android.twitter.data.sq_lite.FavoriteTweetsDataSource;
+import com.klinker.android.twitter.data.sq_lite.FavoriteTweetsSQLiteHelper;
+import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
+import com.klinker.android.twitter.data.sq_lite.HashtagSQLiteHelper;
+import com.klinker.android.twitter.data.sq_lite.HomeDataSource;
+import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
+import com.klinker.android.twitter.data.sq_lite.InteractionsDataSource;
+import com.klinker.android.twitter.data.sq_lite.InteractionsSQLiteHelper;
+import com.klinker.android.twitter.data.sq_lite.ListDataSource;
+import com.klinker.android.twitter.data.sq_lite.ListSQLiteHelper;
+import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Date;
@@ -44,25 +66,35 @@ import java.util.Stack;
 
 public class IOUtils {
 
-    public static Uri saveImage(Bitmap finalBitmap, String d, Context context) {
-        String root = Environment.getExternalStorageDirectory().toString();
-        File myDir = new File(root + "/Talon");
-        myDir.mkdirs();
+    private static final String LOGGER_TAG = "IOUtils";
+
+    private static File getPicturesDirectory() throws IOException {
+        final File picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File talonDir = new File(picturesDir, "Talon");
+        if (!talonDir.exists()) {
+            boolean created = talonDir.mkdirs();
+            if (!created) {
+                throw new IOException("Couldn't create folder: " + talonDir);
+            }
+        }
+        return talonDir;
+    }
+
+    @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    public static Uri saveImage(Bitmap finalBitmap, String d, Context context) throws IOException {
+        File talonDir = getPicturesDirectory();
         String fname = d + ".jpg";
-        File file = new File(myDir, fname);
+        File file = new File(talonDir, fname);
         if (file.exists()) file.delete();
         try {
             FileOutputStream out = new FileOutputStream(file);
             finalBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.flush();
             out.close();
-
-        } catch (Exception e) {
-            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e(LOGGER_TAG, "Error while saving image", e);
+            throw e;
         }
 
-        //context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory())));
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.DATA, file.getAbsolutePath());
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
@@ -72,7 +104,7 @@ public class IOUtils {
         return Uri.fromFile(file);
     }
 
-    public static final Uri saveVideo(String videoUrl) throws Exception {
+    public static Uri saveVideo(String videoUrl) throws Exception {
 
         File myDir = new File(Environment.getExternalStorageDirectory() + "/Talon");
         myDir.mkdirs();
