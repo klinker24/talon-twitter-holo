@@ -12,7 +12,7 @@ Privacy usually isn't simple, but with _Klinker Apps_, it is. Your data is your 
 
 #### Policy Application
 
-This policy applies to all of _Klinker Apps_ work on the _Google Play Store_, including, but not limited to:
+This policy applies to the following _Klinker Apps_ work on the _Google Play Store_:
 
 - [Talon for Twitter](talon.klinker.xyz)
 - [EvolveSMS](evolve.klinker.xyz)
@@ -20,3 +20,9 @@ This policy applies to all of _Klinker Apps_ work on the _Google Play Store_, in
 - [Blur Launcher](blur.klinker.xyz)
 - [Sliding Messaging Pro](https://play.google.com/store/apps/details?id=com.klinker.android.messaging_donate)
 - [Sliding Emoji Keyboard](https://play.google.com/store/apps/details?id=com.klinker.android.emoji_keyboard)
+
+#### Policy Exclusion
+
+Our latest messaging app, [Messenger](https://play.google.com/store/apps/details?id=xyz.klinker.messenger) cannot use this same privacy policy. It needs user data for a unique account to access the service. 
+
+The privacy policy for this application can be found here: https://privacy.messenger.klinkerapps.com
