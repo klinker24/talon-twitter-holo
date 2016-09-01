@@ -23,6 +23,6 @@ This policy applies to the following _Klinker Apps_ work on the _Google Play Sto
 
 #### Policy Exclusion
 
-Our latest messaging app, [Messenger](https://play.google.com/store/apps/details?id=xyz.klinker.messenger) cannot use this same privacy policy. It needs user data for a unique account to access the service. 
+Our latest messaging app, [Messenger](https://play.google.com/store/apps/details?id=xyz.klinker.messenger), cannot use this same privacy policy. It needs user data for a unique account to access the service. 
 
 The privacy policy for this application can be found here: https://privacy.messenger.klinkerapps.com
