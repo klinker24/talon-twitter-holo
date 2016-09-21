@@ -144,26 +144,24 @@ public abstract class Compose extends Activity implements
         public void run() {
             String text = reply.getText().toString();
 
+            if (replyText != null && !replyText.contains("/status/")) {
+                String replaceable = replyText.replaceAll("#[a-zA-Z]+ ", "");
+                text = text.replaceAll(replaceable, "");
+            }
+
             if (!Patterns.WEB_URL.matcher(text).find()) { // no links, normal tweet
                 try {
-                    charRemaining.setText(140 - reply.getText().length() - (settings.twitpic ? imagesAttached * 23 : imagesAttached > 0 ? 23 : 0) + "");
+                    charRemaining.setText(140 - text.length() + "");
                 } catch (Exception e) {
                     charRemaining.setText("0");
                 }
             } else {
                 int count = text.length();
                 Matcher m = p.matcher(text);
-                while(m.find()) {
+                while (m.find()) {
                     String url = m.group();
                     count -= url.length(); // take out the length of the url
                     count += 23; // add 23 for the shortened url
-                }
-
-                if (imagesAttached > 0) {
-                    if (settings.twitpic)
-                        count += imagesAttached * 23;
-                    else
-                        count += 23;
                 }
 
                 charRemaining.setText(140 - count + "");
@@ -1098,7 +1096,15 @@ public abstract class Compose extends Activity implements
 
                     return isDone;
                 } else {
+                    boolean autoPopulateMetadata = false;
+                    if (replyText != null && !replyText.contains("/status/")) {
+                        String replaceable = replyText.replaceAll("#[a-zA-Z]+ ", "");
+                        status = status.replaceAll(replaceable, "");
+                        autoPopulateMetadata = true;
+                    }
+
                     StatusUpdate media = new StatusUpdate(status);
+                    media.setAutoPopulateReplyMetadata(autoPopulateMetadata);
 
                     if (notiId != 0) {
                         media.setInReplyToStatusId(notiId);
