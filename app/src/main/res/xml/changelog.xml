@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.10.0">
+        <text>Use Twitter's new character counting methods!</text>
+    </version>
+
     <version name="4.9.2">
         <text>Added a link to our privacy policy (http://privacy.klinkerapps.com)</text>
     </version>
