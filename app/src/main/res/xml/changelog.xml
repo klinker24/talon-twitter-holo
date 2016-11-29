@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.11.0">
+        <text>Brand new, readability style web browser</text>
+    </version>
+
     <version name="4.10.0">
         <text>Use Twitter's new character counting methods!</text>
     </version>

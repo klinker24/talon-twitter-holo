@@ -1,6 +1,5 @@
 package com.klinker.android.twitter.utils;
 
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -8,10 +7,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.customtabs.CustomTabsIntent;
 
+import com.klinker.android.twitter.APIKeys;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.activities.BrowserActivity;
-import com.klinker.android.twitter.activities.PlainTextBrowserActivity;
+
+import java.util.Random;
+
+import xyz.klinker.android.article.ArticleIntent;
 
 /**
  * Used to handle URLs.
@@ -41,20 +44,17 @@ public class WebIntentBuilder {
 
     private Context context;
     private AppSettings settings;
-    private boolean mobilizedBrowser;
 
-    private Intent intent;
     private String webpage;
     private boolean forceExternal;
 
-    private CustomTabsIntent customTabIntent;
-    private SimpleCustomChromeTabsHelper customTabHelper;
+    private Intent intent;
+    private CustomTabsIntent customTab;
+    private ArticleIntent articleIntent;
 
     public WebIntentBuilder(Context context) {
         this.context = context;
         this.settings = AppSettings.getInstance(context);
-        this.mobilizedBrowser = settings.alwaysMobilize ||
-                (settings.mobilizeOnData && Utils.getConnectionStatus(context));
     }
 
     public WebIntentBuilder setUrl(String url) {
@@ -72,48 +72,29 @@ public class WebIntentBuilder {
             throw new RuntimeException("URL cannot be null.");
         }
 
-        if (forceExternal || !settings.inAppBrowser || shouldAlwaysForceExternal(webpage)) {
+        if (forceExternal || shouldAlwaysForceExternal(webpage) || settings.browserSelection.equals("external")) {
             // request the external browser
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(webpage));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        } else if (!mobilizedBrowser) {
-            customTabHelper = new SimpleCustomChromeTabsHelper((Activity) context);
-            customTabHelper.prepareUrl(webpage);
-            customTabHelper.setFallback(new SimpleCustomChromeTabsHelper.CustomTabFallback() {
-                @Override
-                public void onCustomTabsNotAvailableFallback() {
-                    intent = new Intent(context, BrowserActivity.class);
-                    intent.putExtra("url", webpage);
-                    intent.setFlags(0);
-                    context.startActivity(intent);
-                }
-            });
-
-            int color = context.getResources().getColor(R.color.action_bar_light);
-            int bitmapRes = R.drawable.ic_action_share_light;
-            switch (settings.theme) {
-                case AppSettings.THEME_BLACK:
-                    color = context.getResources().getColor(R.color.action_bar_black);
-                    bitmapRes = R.drawable.ic_action_share_dark;
-                    break;
-                case AppSettings.THEME_DARK:
-                    color = context.getResources().getColor(R.color.action_bar_dark);
-                    bitmapRes = R.drawable.ic_action_share_dark;
-                    break;
-            }
-
+        } else if (settings.browserSelection.equals("article")) {
+            articleIntent = new ArticleIntent.Builder(context, APIKeys.ARTICLE_API_KEY)
+                    .build();
+        } else if (settings.browserSelection.equals("custom_tab")) {
             // add the share action
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_TEXT, webpage);
+            String extraText = webpage;
+            shareIntent.putExtra(Intent.EXTRA_TEXT, extraText);
             shareIntent.setType("text/plain");
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, shareIntent, 0);
+            Random random = new Random();
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, random.nextInt(Integer.MAX_VALUE), shareIntent, 0);
 
-            customTabIntent = new CustomTabsIntent.Builder(null)
-                    .setActionButton(((BitmapDrawable)context.getResources().getDrawable(bitmapRes)).getBitmap(), "Share link", pendingIntent)
-                    .setToolbarColor(color).build();
+            customTab = new CustomTabsIntent.Builder(null)
+                    .setShowTitle(true)
+                    .setActionButton(((BitmapDrawable) context.getResources().getDrawable(R.drawable.ic_action_share_light)).getBitmap(), "Share", pendingIntent)
+                    .build();
         } else {
             // fallback to in app browser
-            intent = new Intent(context, PlainTextBrowserActivity.class);
+            intent = new Intent(context, BrowserActivity.class);
             intent.putExtra("url", webpage);
             intent.setFlags(0);
         }
@@ -122,8 +103,10 @@ public class WebIntentBuilder {
     }
 
     public void start() {
-        if (customTabHelper != null) {
-            customTabHelper.openUrl(webpage, customTabIntent);
+        if (customTab != null) {
+            customTab.launchUrl(context, Uri.parse(webpage));
+        } else if (articleIntent != null) {
+            articleIntent.launchUrl(context, Uri.parse(webpage));
         } else {
             context.startActivity(intent);
         }
@@ -136,5 +119,4 @@ public class WebIntentBuilder {
 
         return false;
     }
-
 }

@@ -102,6 +102,7 @@ public class AppSettings {
     public String secondProfilePicUrl;
     public String favoriteUserNames;
     public String translateURL;
+    public String browserSelection;
 
     public boolean isTwitterLoggedIn;
     public boolean reverseClickActions;
@@ -271,6 +272,7 @@ public class AppSettings {
         crossAccActions = sharedPrefs.getBoolean("fav_rt_multiple_accounts", true);
         activityNot = sharedPrefs.getBoolean("activity_notifications", true);
         useInteractionDrawer = sharedPrefs.getBoolean("interaction_drawer", true);
+        browserSelection = sharedPrefs.getString("browser_selection", "article");
 
         // set up tweetmarker
         String val = sharedPrefs.getString("tweetmarker_options", "0");

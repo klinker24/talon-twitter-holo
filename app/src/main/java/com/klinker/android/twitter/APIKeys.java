@@ -57,4 +57,5 @@ public class APIKeys {
     public static final String TWITLONGER_API_KEY = BuildConfig.TWITLONGER_KEY;
     public static final String TWITPIC_API_KEY = BuildConfig.TWITPIC_API_KEY;
     public static final String GIPHY_API_KEY = BuildConfig.GIPHY_KEY;
+    public static final String ARTICLE_API_KEY = BuildConfig.ARTICLE_API_KEY;
 }
