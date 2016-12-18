@@ -1,4 +1,4 @@
-![promo](Other/klinker_apps_promo.png)
+![promo](https://raw.githubusercontent.com/klinker-apps/messenger-issues/master/promo/klinker-apps/combined_graphic_pulse.png)
 
 # Klinker Apps Privacy Policy
 
