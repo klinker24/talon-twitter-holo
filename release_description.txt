@@ -1,1 +1,1 @@
-v4.10.0 includes Twitter's new character counter so that you can say more with your tweets!
+This release improves on auto completing users when composing a tweet - the app will now search all of Twitter, instead of just your followers!
