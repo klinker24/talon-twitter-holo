@@ -38,6 +38,7 @@ import com.klinker.android.twitter.adapters.AutoCompletePeopleAdapter;
 import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
 import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
+import com.klinker.android.twitter.utils.UserAutoCompleteHelper;
 import com.klinker.android.twitter.views.HoloEditText;
 import com.klinker.android.twitter.views.HoloTextView;
 import com.klinker.android.twitter.views.NetworkedCacheableImageView;
@@ -50,16 +51,6 @@ import java.io.IOException;
 
 
 public class ComposeActivity extends Compose {
-
-    @Override
-    public void onDestroy() {
-        try {
-            ((AutoCompletePeopleAdapter) userAutoComplete.getListView().getAdapter()).getCursor().close();
-        } catch (Exception e) {
-
-        }
-        super.onDestroy();
-    }
 
     public void setUpLayout() {
         setContentView(R.layout.compose_activity);
@@ -143,20 +134,7 @@ public class ComposeActivity extends Compose {
         display.getSize(size);
         int width = size.x;
 
-        userAutoComplete = new ListPopupWindow(context);
-        userAutoComplete.setAnchorView(reply);
-        userAutoComplete.setHeight(toDP(200));
-        userAutoComplete.setWidth((int)(width * .75));
-        userAutoComplete.setAdapter(new AutoCompletePeopleAdapter(context,
-                FollowersDataSource.getInstance(context).getCursor(currentAccount, reply.getText().toString()), reply));
-        userAutoComplete.setPromptPosition(ListPopupWindow.POSITION_PROMPT_BELOW);
-
-        userAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                userAutoComplete.dismiss();
-            }
-        });
+        UserAutoCompleteHelper.applyTo(this, reply);
 
         hashtagAutoComplete = new ListPopupWindow(context);
         hashtagAutoComplete.setAnchorView(reply);
@@ -192,21 +170,6 @@ public class ComposeActivity extends Compose {
 
                 try {
                     int position = reply.getSelectionStart() - 1;
-                    if (searchText.charAt(position) == '@') {
-                        userAutoComplete.show();
-                    } else if (searchText.charAt(position) == ' ') {
-                        userAutoComplete.dismiss();
-                    } else if (userAutoComplete.isShowing()) {
-                        String adapterText = "";
-                        do {
-                            adapterText = searchText.charAt(position--) + adapterText;
-                        } while (searchText.charAt(position) != '@');
-                        adapterText = adapterText.replace("@", "");
-                        userAutoComplete.setAdapter(new AutoCompletePeopleAdapter(context,
-                                FollowersDataSource.getInstance(context).getCursor(currentAccount, adapterText), reply));
-                    }
-
-                    position = reply.getSelectionStart() - 1;
                     if (searchText.charAt(position) == '#') {
                         hashtagAutoComplete.show();
                     } else if (searchText.charAt(position) == ' ') {
@@ -222,12 +185,6 @@ public class ComposeActivity extends Compose {
                     }
                 } catch (Exception e) {
                     // there is no text
-                    try {
-                        userAutoComplete.dismiss();
-                    } catch (Exception x) {
-                        // something went really wrong I guess haha
-                    }
-
                     try {
                         hashtagAutoComplete.dismiss();
                     } catch (Exception x) {

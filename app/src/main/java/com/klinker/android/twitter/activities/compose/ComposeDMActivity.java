@@ -38,22 +38,13 @@ import android.widget.Toast;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.AutoCompletePeopleAdapter;
 import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
+import com.klinker.android.twitter.utils.UserAutoCompleteHelper;
 import com.klinker.android.twitter.views.HoloEditText;
 
 import java.io.File;
 import java.io.IOException;
 
 public class ComposeDMActivity extends Compose {
-
-    @Override
-    public void onDestroy() {
-        try {
-            ((AutoCompletePeopleAdapter) userAutoComplete.getListView().getAdapter()).getCursor().close();
-        } catch (Exception e) {
-
-        }
-        super.onDestroy();
-    }
 
     public void setUpLayout() {
         isDM = true;
@@ -73,72 +64,7 @@ public class ComposeDMActivity extends Compose {
             contactEntry.setText("@" + screenname);
             contactEntry.setSelection(contactEntry.getText().toString().length());
         }
-
-        userAutoComplete = new ListPopupWindow(context);
-        userAutoComplete.setAnchorView(contactEntry);
-        userAutoComplete.setHeight(toDP(200));
-        userAutoComplete.setWidth(toDP(275));
-        userAutoComplete.setAdapter(new AutoCompletePeopleAdapter(context,
-                FollowersDataSource.getInstance(context).getCursor(currentAccount, contactEntry.getText().toString()), contactEntry));
-        userAutoComplete.setPromptPosition(ListPopupWindow.POSITION_PROMPT_ABOVE);
-
-        userAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                userAutoComplete.dismiss();
-            }
-        });
-
-        contactEntry.addTextChangedListener(new TextWatcher() {
-
-            int length = 0;
-            int lastLength = 0;
-
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-                String searchText = contactEntry.getText().toString();
-                lastLength = length;
-                length = searchText.length();
-
-                try {
-                    if (!userAutoComplete.isShowing()) {
-                        userAutoComplete.show();
-                    } else if (length > lastLength + 1 || length == 0) {
-                        userAutoComplete.dismiss();
-                    } else if (userAutoComplete.isShowing()) {
-                        String[] split = searchText.split(" ");
-                        String adapterText;
-                        if (split.length > 1) {
-                            adapterText = split[split.length - 1];
-                        } else {
-                            adapterText = split[0];
-                        }
-                        adapterText = adapterText.replace("@", "");
-                        userAutoComplete.setAdapter(new AutoCompletePeopleAdapter(context,
-                                FollowersDataSource.getInstance(context).getCursor(currentAccount, adapterText), contactEntry));
-                    }
-                } catch (Exception e) {
-                    // there is no text
-                    try {
-                        userAutoComplete.dismiss();
-                    } catch (Exception x) {
-                        // that's weird...
-                    }
-                }
-
-            }
-        });
+        UserAutoCompleteHelper.applyTo(this, contactEntry);
 
         if (settings.addonTheme) {
             try {

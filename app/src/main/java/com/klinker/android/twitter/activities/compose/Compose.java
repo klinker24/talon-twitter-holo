@@ -116,7 +116,6 @@ public abstract class Compose extends Activity implements
     public EmojiKeyboard emojiKeyboard;
     public ImageButton overflow;
     public TextView charRemaining;
-    public ListPopupWindow userAutoComplete;
     public ListPopupWindow hashtagAutoComplete;
     public HoloTextView numberAttached;
 
