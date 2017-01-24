@@ -54,7 +54,7 @@ android {
             buildConfigField "String", "TWITLONGER_KEY", "\"View Talon's readme to learn about inserting your keys.\""
             buildConfigField "String", "TWITPIC_API_KEY", "\"View Talon's readme to learn about inserting your keys.\""
             buildConfigField "String", "GIPHY_KEY", "\"View Talon's readme to learn about inserting your keys.\""
-            buildConfigField "String", "ARTICLE_KEY", "\"View Talon's readme to learn about inserting your keys.\""
+            buildConfigField "String", "ARTICLE_API_KEY", "\"View Talon's readme to learn about inserting your keys.\""
         }
     }
 
