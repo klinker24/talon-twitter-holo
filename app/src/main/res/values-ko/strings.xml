@@ -16,6 +16,10 @@
   -->
 <resources>
     <!-- Action Bar -->
+    <string name="menu_refresh">타임라인 새로 고침</string>
+    <string name="menu_compose">새 트윗</string>
+    <string name="menu_logout">로그아웃</string>
+    <string name="menu_settings">설정</string>
     <string name="menu_save_image">사진 저장</string>
     <string name="menu_create_list">새 리스트 만들기</string>
     <!-- Times -->
@@ -69,8 +73,18 @@
     <!-- Emoji Keyboard -->
     <!-- Array value for translation -->
     <!-- added after release -->
+    <string name="attach_video">비디오</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <!-- the username will replace %s -->
     <string name="retweet">리트윗</string>
+    <string name="new_follower_lower">새로운 팔로워</string>
+    <string name="quote_style">인용 스타일</string>
+    <string name="quote_style_twitter">트위터 스타일(트윗 링크)</string>
+    <string name="custom_tab_title">크롬 커스텀 탭</string>
+    <string name="learn_more">더 알아보기</string>
     <!-- Long click methods -->
+    <string name="open_webpage">링크 열기</string>
+    <string name="play_gif">재생</string>
+    <string name="add_to_tweet_gif">트윗에 추가</string>
+    <string name="three_mb_limit">용량은 5MB로 제한됨</string>
 </resources>

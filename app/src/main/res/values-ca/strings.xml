@@ -255,6 +255,8 @@
     <string name="part_1_phone">\nObre el panell\nde navegació \nd\'esquerra \na dreta! \n</string>
     <string name="part_2">"\nCanvia de\npàgines\ndesplaçant-te \ndes del mig de\nla pantalla! "</string>
     <string name="part_3">Aixó és tot!\n\nPrem per iniciar!</string>
+    <string name="part_4">\nPremi la barra\nper a mostrar\nla posició a la\nlínia de temps</string>
+    <string name="part_5">\nPrem i aguanta\nla barra per a\nanar a dalt de\nla línia de temps</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Configuració de l\'estil</string>
     <string name="theme_options">Opcions de l\'estil</string>
@@ -309,9 +311,11 @@ Nota: les icones continuaran funcionant encara que hagi finalitzat el període d
     <string name="max_number_on_refresh">Tweets màxims a l\'actualitzar</string>
     <string name="fav_users_notifications">Notificacions d\'usuaris favorits</string>
     <string name="sync_second_mentions">Sincronitzar el compte secundari</string>
+    <string name="sync_second_mentions_summary">Comprovar automàticament i notificar-me al rebre noves mencions i missatges directes al compte secundari a més del primari</string>
     <string name="max_number_summary">Un número alt implica una càrrega més lenta</string>
     <string name="auto_refresh_category">Opcions d\'actualització automàtica</string>
     <string name="refresh_on_startup">Carregar a l\'inici</string>
+    <string name="timeline_sync_interval">Freqüència d\'actualització de la pàgina principal</string>
     <string name="mentions_sync_interval">Frequència d\'actualització de mencions</string>
     <string name="dm_sync_interval">Frequència d\'actualització de missatges</string>
     <string name="sync_friends">Sincronitzar dades d\'amics</string>
@@ -322,8 +326,11 @@ Aquestes dades son utilitzades al buscar usuaris mentre escrius un tweet.</strin
     <string name="sync_failed">Sincronització fallida</string>
     <string name="push_notification_options">"Opcions per a \"notificacions push\""</string>
     <string name="push_notifications">Talon Pull</string>
+    <string name="push_notifications_summary">Notificarà en cas de rebre noves interaccions (mencions, md\'s, m\'agrada, retweets o nous seguidors).</string>
+    <string name="push_notification_warning">Per a llegir més sobre Talon Pull, prem aquesta opció.</string>
     <string name="notification_settings">Configuració de notificacions</string>
     <string name="pebble_notifications">Notificacions per a Pebble</string>
+    <string name="pebble_notifications_summary">Utilitzat al Smartwatch Pebble. Desactiva si tens dos notificacions al rellotge.</string>
     <string name="advanced_settings">Configuració avançada</string>
     <string name="app_feel_category">Experiència amb l\'aplicació</string>
     <string name="advance_windowed">Finestres avançades</string>
@@ -344,6 +351,7 @@ Predeterminat (al desactivar):\n
     <string name="not_cache">Això no aplica a la memòria cau de l\'aplicació.</string>
     <string name="current_cache_size">Mida actual de la memòria cau</string>
     <string name="cache_dialog_summary">Aquesta acció no es pot desfer.</string>
+    <string name="timeline_size">Tamany de la pàgina principal</string>
     <string name="timeline_size_summary">Número màxim de tweets guardats.</string>
     <string name="mentions_size">Mida de les mencions</string>
     <string name="mentions_size_summary">Número màxim de mencions guardades.</string>
@@ -400,18 +408,24 @@ Predeterminat (al desactivar):\n
     <string name="manual">Manual</string>
     <string name="layout_hangouts">Hangouts</string>
     <!-- added after release -->
+    <string name="use_inapp_browser">Utilitzar navegador integrat</string>
     <string name="use_browser_on_tweet">Pàgina del navegador al Tweet</string>
     <string name="dismiss_all">Descartar-ho tot</string>
+    <string name="handle_and_name">Mostrar nom i nick</string>
     <string name="notification_types">Tipus de notificacions</string>
+    <string name="with_talon_pull">Consultat vía \"Talon Pull\".</string>
+    <string name="favorited_tweet">\"M\'agrada\" donats als teus tweets</string>
     <string name="new_followers">Nous seguidors</string>
     <string name="discussion">Discusió</string>
     <string name="no_replies">No hi ha respostes</string>
     <string name="rt_style_quotes">Preferir estil \"RT\" per citar</string>
     <string name="rt_style_quotes_summary">Utilitzar l\'estil \"RT @usuari: ...\" per citar en lloc del mètode de Talon.\n\nDisponibles des-de la Barra d\'Accions o el menú de cada tweet.</string>
+    <string name="absolute_date">Utilitzar dates absolutes</string>
     <string name="clear_searches">Netejar cerques</string>
     <string name="compose_with_search">Escriure tweet incloent la cerca</string>
     <string name="use_toast">Mostrar botó \"anar a inici\"</string>
     <string name="ignore_retweets">Ignorar retweets</string>
+    <string name="ignore_retweets_summary">"No mostrar retweets al desplaçar-se a les línies de temps. "</string>
     <string name="view">Veure</string>
     <string name="muted_hashtags">Hashtags en silenci</string>
     <string name="muted_hashtags_summary">Premi el hashtag per tornar a mostrar-lo</string>
@@ -425,6 +439,7 @@ Predeterminat (al desactivar):\n
     <string name="delete_conversation">Esborrar conversa?</string>
     <string name="deleting_messages">Esborrant missatges</string>
     <string name="type_message">Escriure missatge...</string>
+    <string name="fill_gaps">Emplena buits a la línia de temps</string>
     <string name="fill_gaps_summary">Emplena els buits que succeeixen quan la actualització \"en viu\" està habilitada pero falla per problemes de connexió</string>
     <string name="filling_timeline">Emplenant buits a la cronología</string>
     <string name="follows_you">Et segueix</string>
@@ -432,10 +447,13 @@ Predeterminat (al desactivar):\n
     <string name="device">Tipografía del dispositiu</string>
     <string name="roboto_light">Roboto Light (Predeterminada)</string>
     <string name="roboto_condensed">Roboto Condensed</string>
+    <string name="font_type">Tipografia</string>
     <string name="our_website">Lloc Web</string>
     <string name="alert_types">Mètodes d\'alertes</string>
     <string name="timeline_notifications">Notificacions de la línia de temps</string>
+    <string name="interactions_notifications">Notificacions d\'interaccions</string>
     <string name="timelines_settings">Configuració de la línia de temps</string>
+    <string name="tweet_look_options">Opcions de la línia de temps</string>
     <string name="limiting_options">Opcions de límit</string>
     <string name="browser_options">Opcions del navegador</string>
     <string name="custom_ringtone">To personalitzat</string>
@@ -447,6 +465,8 @@ Predeterminat (al desactivar):\n
     <string name="use_twitpic">Utilitzar TwitPic</string>
     <string name="twitpic_summary">Utilitza TwitPic per adjuntar imatges en lloc del servei de imatges de Twitter.</string>
     <string name="verified">Verificat</string>
+    <string name="use_tweetmarker">TweetMarker</string>
+    <string name="tweetmarker_summary">Sincronitza la teva posició entre dispositius</string>
     <string name="do_not_use">No utilitzar</string>
     <string name="automatic_refresh">TweetMarker automàtic</string>
     <string name="manual_refresh">TweetMarker manual</string>
@@ -456,10 +476,13 @@ Predeterminat (al desactivar):\n
     <string name="pull_to_refresh">Estirar per actualitzar</string>
     <string name="removing_retweet">Esborrant retweet</string>
     <string name="retweeting_status">Retweetant estat</string>
+    <string name="removing_favorite">"Eliminant \"m'agrada\" "</string>
+    <string name="favoriting_status">Fent \"M\'agrada\" al estat</string>
     <string name="jumping_workaround">Solució per evitar els salts</string>
     <string name="jumping_workaround_summary">Habilita aquesta opció si la teva cronología salta a sota després de carregar.</string>
     <string name="menu_share_link">Compartir enllaç</string>
     <string name="no_links">No hi ha enllaços</string>
+    <string name="configure_pages">Escollir pàgines lliscants</string>
     <string name="picture_page">Cronología d\'imatges</string>
     <string name="link_page">Cronología d\'enllaços</string>
     <string name="list_page">Cronología de llistes</string>
@@ -471,8 +494,38 @@ Predeterminat (al desactivar):\n
     <string name="load_tweets">Carregar tweets</string>
     <string name="download_portal">Descarregar la app d\'estils Portal</string>
     <string name="download_portal_summary">Aquesta es \"Portal\" de Klinker Apps per estar al dia de les darreres notícies, així com trobar els millors estils per Talon i EvolveSMS a un sol lloc!</string>
+    <string name="compose_dm_hint">Escriure missatge...</string>
     <string name="pwiccer">Pwiccer</string>
+    <string name="select_shortening_service">Escull un servei d\'acurtament o edita el tweet</string>
+    <string name="use_shortening_service">Utilizar un servei d\'acurtament</string>
+    <string name="use_shortening_service_summary">"Podràs seleccionar TwitLonger o Pwiccer (un servei que transforma el teu tweet llarg en una imatge) "</string>
+    <string name="view_retweeters">Retweeters</string>
     <string name="view_favoriters">M\'agrada</string>
+    <string name="no_tweets">No hi ha tweets</string>
+    <string name="only_7_days">Nomes disponible 7 dies</string>
+    <string name="saved_searches">Cerques guardades</string>
+    <string name="error_check_network">"Error al carregar perfil. Comprova la teva conexió a la xarxa. "</string>
+    <string name="error_loading_timeline">"No s\'ha pogut carregar la línia de temps. Comprova la teva conexió. "</string>
+    <string name="currently_in_beta">Actualment en proves.</string>
+    <string name="changed_screenname">"Has canviat el teu nom d'usuari abans que Talon pogués guardar el teu ID. Hauràs de tancar la sessió i tornar a entrar. "</string>
+    <string name="menu_save_search">Guardar cerca</string>
+    <string name="saving_search">Guardant la cerca</string>
+    <string name="delete_saved_search">Cerca eliminada</string>
+    <string name="deleting_search">Esborrant la cerca</string>
+    <string name="none">Cap</string>
+    <string name="start">"Començar! "</string>
+    <string name="version_two">Versió 2.0.0</string>
+    <string name="cleaning_databases">"Netejant bases de dades... "</string>
+    <string name="setup_version_two">"Moltes coses han canviat recentment a Talon, i per assegurar-nos que puguis gaudir l'aplicació, hem de fer neteja abans d'entrar-hi. \n\nAixò pot trigar una mica depenent del número de twits que tinguis. "</string>
+    <string name="setting_up_timeline">"Configurant línia de temps principal... "</string>
+    <string name="setting_up_mentions">"Configurant mencions... "</string>
+    <string name="setting_up_dms">"Configurant missatges directes... "</string>
+    <string name="setting_up_lists">"Configurant llistes... "</string>
+    <string name="version_two_setup_done">"Talon 2.0 ha finalitzat la configuració. Gaudeix! "</string>
+    <string name="no_content">"Res a mostrar! "</string>
+    <string name="discover">"Descobreix "</string>
+    <string name="suggested_users">Usuaris suggerits</string>
+    <string name="nearby_tweets">Proper</string>
     <string name="attach_video">Vídeo</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <!-- the username will replace %s -->
@@ -497,4 +550,10 @@ Predeterminat (al desactivar):\n
     <string name="open_to_web_summary">Si el tweet contiene un enlace web, este se abrirá directamente en lugar de abrir el tweet.</string>
     <string name="open_webpage">Obrir enllaç</string>
     <string name="get_android">Descarregar emoticones d\'Android</string>
+    <string name="play_gif">Reproduir</string>
+    <string name="add_to_tweet_gif">Afegir a Tweet</string>
+    <string name="find_a_gif">Trobar un GIF</string>
+    <string name="three_mb_limit">"Màxim 5MB "</string>
+    <string name="three_mb_message">Twitter només permet pujar GIF\'s més petits de 5MB. Talon agafarà el GIF amb major qualitat de Giphy que coincideixi amb aquests requeriments. \n\nEls resultats que veus tenen una versió que és compatible amb aquest límit, no es mostren GIF\'s que s\'han adaptat per a complir el límit de 5MB</string>
+    <string name="quoted_you">t\'ha citat</string>
 </resources>
