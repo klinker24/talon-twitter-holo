@@ -57,7 +57,7 @@
     <string name="links">リンク</string>
     <string name="pictures">画像</string>
     <string name="timeline">ホーム</string>
-    <string name="mentions">@ ツイート</string>
+    <string name="mentions">\@ ツイート</string>
     <string name="direct_messages">メッセージ</string>
     <string name="retweets">リツイート</string>
     <string name="favorite_tweets">いいねしたツイート</string>
@@ -88,12 +88,12 @@
     <!-- Notifications -->
     <string name="tweet">ツイート</string>
     <string name="tweets">ツイート</string>
-    <string name="mention">@ ツイート</string>
+    <string name="mention">\@ ツイート</string>
     <string name="message">件のメッセージ</string>
     <string name="messages">件のメッセージ</string>
     <string name="new_message">件の新着メッセージ</string>
     <string name="new_messages">件の未読メッセージ</string>
-    <string name="mentioned_by">@ ツイート by</string>
+    <string name="mentioned_by">\@ ツイート by</string>
     <string name="message_from">メッセージ from</string>
     <string name="mark_read">既読にする</string>
     <string name="noti_reply">返信</string>
@@ -130,7 +130,7 @@
     <string name="second_info">OK です！ 現在、 Twitter と接続して、あなたのアカウントを同期しています</string>
     <string name="third_info">どうぞ Talon をお楽しみください！</string>
     <string name="syncing_timeline">タイムラインを同期中...</string>
-    <string name="syncing_mentions">@ ツイートを同期中...</string>
+    <string name="syncing_mentions">\@ ツイートを同期中...</string>
     <string name="syncing_direct_messages">メッセージを同期中...</string>
     <string name="syncing_user">フォローユーザーを同期中...</string>
     <string name="done_syncing">同期完了</string>
@@ -287,7 +287,7 @@
                 - システムバーの透過(Android 4.4以降のみ)\n\n
                 有効にするとスクロールの動作に影響を与える場合があります。</string>
     <string name="inline_pics">インライン画像を表示</string>
-    <string name="use_screen_name">@ ユーザー名を表示</string>
+    <string name="use_screen_name">\@ ユーザー名を表示</string>
     <string name="use_screen_name_summary">タイムラインに名前の代わりに @ ユーザー名を表示します</string>
     <string name="timestamp">24 時間表記</string>
     <string name="enable_emojis">iOS 絵文字を使用</string>
@@ -317,7 +317,7 @@
     <string name="auto_refresh_category">自動更新オプション</string>
     <string name="refresh_on_startup">起動時に更新</string>
     <string name="timeline_sync_interval">ホームタイムライン更新間隔</string>
-    <string name="mentions_sync_interval">@ ツイート更新間隔</string>
+    <string name="mentions_sync_interval">\@ ツイート更新間隔</string>
     <string name="dm_sync_interval">メッセージ更新間隔</string>
     <string name="sync_friends">フォローデータ同期</string>
     <string name="sync_friends_summary2">ツイート作成時に使うフォローデータを再同期します</string>
@@ -353,7 +353,7 @@
     <string name="cache_dialog_summary">この操作は取り消しができません</string>
     <string name="timeline_size">ホームサイズ</string>
     <string name="timeline_size_summary">データベースに保存する最大ツイート数</string>
-    <string name="mentions_size">@ ツイートサイズ</string>
+    <string name="mentions_size">\@ ツイートサイズ</string>
     <string name="mentions_size_summary">データベースに保存する最大 @ ツイート数</string>
     <string name="dm_size">メッセージサイズ</string>
     <string name="dm_size_summary">データベースに保存す最大メッセージ数</string>
@@ -411,7 +411,7 @@
     <string name="use_inapp_browser">内部ブラウザを使用</string>
     <string name="use_browser_on_tweet">ツイートのブラウザページ</string>
     <string name="dismiss_all">すべて無視</string>
-    <string name="handle_and_name">@ ユーザー名と名前を表示</string>
+    <string name="handle_and_name">\@ ユーザー名と名前を表示</string>
     <string name="notification_types">通知形式</string>
     <string name="with_talon_pull">\"Talon Pull\" でアクセスされます</string>
     <string name="favorited_tweet">いいね</string>
@@ -518,7 +518,7 @@
     <string name="cleaning_databases">データベースを整理中...</string>
     <string name="setup_version_two">最近, and to make sure I can give you the best experience, we have to do some cleanup before heading into the app! \n\nThis could take some time depending on the number of tweets you store!</string>
     <string name="setting_up_timeline">ホームタイムラインを設定中...</string>
-    <string name="setting_up_mentions">@ ツイートを設定中...</string>
+    <string name="setting_up_mentions">\@ ツイートを設定中...</string>
     <string name="setting_up_dms">メッセージを設定中...</string>
     <string name="setting_up_lists">リストを設定中...</string>
     <string name="version_two_setup_done">Talon 2.0 を設定完了、楽しんでください！</string>
@@ -690,7 +690,7 @@ Talon はその代わりに TwitPic を使用して画像をアップロード�
     <string name="learn_more">さらに詳しく</string>
     <!-- Long click methods -->
     <string name="open_profile">プロフィールを開く</string>
-    <string name="copy_handle">@ ユーザー名をコピー</string>
+    <string name="copy_handle">\@ ユーザー名をコピー</string>
     <string name="search_user">ユーザーを検索</string>
     <string name="mute_user">ユーザーをミュート</string>
     <string name="mute_retweets">リツイートをミュート</string>
