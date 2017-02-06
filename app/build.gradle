@@ -99,7 +99,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:${project.ANDROID_SUPPORT_VERSION}"
     compile "com.android.support:customtabs:${project.ANDROID_SUPPORT_VERSION}"
 
-    compile 'com.klinkerapps:article_viewer:0.15.1'
+    compile 'com.klinkerapps:article_viewer:0.15.6'
     compile 'com.klinkerapps:searchview:2.2.5'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.github.castorflex.smoothprogressbar:library:0.5.1'
