@@ -17,7 +17,7 @@
 <resources>
     <string name="app_name">Talon</string>
     <string name="app_name_full">Talon for Twitter</string>
-    <string name="extension_description">当推文，提及和私信更新时显示未读条目的数量。</string>
+    <string name="extension_description">当推文，提及和私信更新时显示未读条目的数量</string>
     <!-- Action Bar -->
     <string name="menu_refresh">刷新时间线</string>
     <string name="menu_compose">新的推文</string>
@@ -126,15 +126,15 @@
     <string name="third_welcome">就是这些了-请尽情享受吧！</string>
     <string name="back_to_timeline">带我转到我的时间线！</string>
     <string name="initial_sync">现在同步！</string>
-    <string name="first_info">在开始之前，请先让我们带您登录到 Twitter 并同步信息吧。</string>
-    <string name="second_info">做得很棒！我们正在连接 Twitter 来同步您的帐号信息。</string>
+    <string name="first_info">在开始之前，请先让我们带您登录到 Twitter 并同步信息吧</string>
+    <string name="second_info">做得很棒！我们正在连接 Twitter 来同步您的帐号信息</string>
     <string name="third_info">希望您能喜欢 Talon ！</string>
     <string name="syncing_timeline">同步时间线中...</string>
     <string name="syncing_mentions">同步提及中...</string>
     <string name="syncing_direct_messages">同步私信中...</string>
     <string name="syncing_user">正在同步关注信息...</string>
-    <string name="done_syncing">同步完成。</string>
-    <string name="login_error">好像出现了一些错误…请重试！\n\n这可能是由于你的设备上没有设置自动确定日期和时间。这点是 Twitter 在第三方 API 内作出的要求。</string>
+    <string name="done_syncing">同步完成</string>
+    <string name="login_error">好像出现了一些错误…请重试！\n\n这可能是由于你的设备上没有设置自动确定日期和时间。这点是 Twitter 在第三方 API 内作出的要求</string>
     <string name="no_network">因特网连接失败</string>
     <string name="no_thanks">暂时还不</string>
     <string name="follow_me">关注！</string>
@@ -190,7 +190,7 @@
     <string name="unblocked_user">已取消屏蔽用户</string>
     <string name="followed_user">已关注用户</string>
     <string name="unfollowed_user">已取消关注用户</string>
-    <string name="no_description">没有可用的用户描述。</string>
+    <string name="no_description">没有可用的用户描述</string>
     <string name="favorite_user">已收藏用户</string>
     <string name="unfavorite_user">已取消收藏用户</string>
     <string name="updating_pro_pic">正在更新个人资料头像</string>
@@ -264,7 +264,7 @@
     <string name="other_options">其他设置</string>
     <string name="theme">主题</string>
     <string name="addon_themes">附加主题</string>
-    <string name="addon_note">点击这里查看新的主题\n\n注意事项：\n-这将会禁用在回复推文时所使用的内置表情符号键盘\n-请在先确定自己并没有使用第三方主题的情况下进行错误报告。</string>
+    <string name="addon_note">点击这里查看新的主题\n\n注意事项：\n-这将会禁用在回复推文时所使用的内置表情符号键盘\n-请在先确定自己并没有使用第三方主题的情况下进行错误报告</string>
     <string name="use_addon_themes">使用附加主题</string>
     <string name="make_a_theme">制作主题</string>
     <string name="layout">布局</string>
@@ -272,14 +272,14 @@
     <string name="themeing_complete_summary">\"Talon\" 程序现在将会关闭。 \n\n
 想要将更改完全应用至各时间线上，您还需要在多任务列表里选择侧滑清除 Talon 。\n\n
 如果您的个人资料头像没有如设置中一样被正确显示（如：方形或圆形），则需要先移除桌面小部件然后选择重新创建。</string>
-    <string name="layout_summary">修改此项将清除应用的缓存。</string>
+    <string name="layout_summary">修改此项将清除应用的缓存</string>
     <string name="text_size">文本大小</string>
     <string name="night_mode">夜间模式</string>
     <string name="night_mode_night">选择起始时间</string>
     <string name="night_mode_day">选择结束时间</string>
     <string name="night_mode_theme">选择夜间模式主题</string>
     <string name="device_font">使用设备字体</string>
-    <string name="device_font_summary">多数设备默认使用 \"Roboto\" 字体。Talon 的默认字体为 \"Roboto Light\"。</string>
+    <string name="device_font_summary">多数设备默认使用 \"Roboto\" 字体。Talon 的默认字体为 \"Roboto Light\"</string>
     <string name="ui_extras">UI 附加项</string>
     <string name="ui_extras_summary">包含：\n
  - 隐藏动作栏\n
@@ -310,7 +310,7 @@
     <string name="max_number_on_refresh">刷新时获取的最大推文数</string>
     <string name="fav_users_notifications">收藏用户的通知</string>
     <string name="sync_second_mentions">同步第二帐号</string>
-    <string name="sync_second_mentions_summary">自动同步检查第一帐号与第二帐号内的提及和私信并发出通知。</string>
+    <string name="sync_second_mentions_summary">自动同步检查第一帐号与第二帐号内的提及和私信并发出通知</string>
     <string name="max_number_summary">数值越高则刷新速度越慢</string>
     <string name="auto_refresh_category">自动刷新选项</string>
     <string name="refresh_on_startup">启动应用时刷新</string>
@@ -325,7 +325,7 @@
     <string name="push_notification_options">"推送通知选项"</string>
     <string name="push_notifications">Talon Pull</string>
     <string name="push_notifications_summary">该选项将会启用一个侦听进程并在有新的互动时发出通知提醒（包含提及，私信，喜欢，转推以及新的关注者）。</string>
-    <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，请点击这里。</string>
+    <string name="push_notification_warning">想要阅读关于 Talon 拉取消息的更多详情，请点击这里</string>
     <string name="notification_settings">通知</string>
     <string name="pebble_notifications">Pebble 通知</string>
     <string name="pebble_notifications_summary">用来设置 Pebble 智能手表。如果在您的手表上收到了重复的通知请关闭该选项</string>
@@ -348,7 +348,7 @@
     <string name="cache_dialog">清除缓存？</string>
     <string name="not_cache">这将不会影响到应用缓存</string>
     <string name="current_cache_size">当前缓存大小</string>
-    <string name="cache_dialog_summary">该操作将无法撤销。</string>
+    <string name="cache_dialog_summary">该操作将无法撤销</string>
     <string name="timeline_size">主页推文容量</string>
     <string name="timeline_size_summary">数据库中保存推文的最大数量</string>
     <string name="mentions_size">提及容量</string>
@@ -461,7 +461,7 @@
     <string name="remove_retweet">移除转推</string>
     <string name="edit">编辑</string>
     <string name="use_twitpic">使用TwitPic</string>
-    <string name="twitpic_summary">使用 Twitpic 来为推文添加图片而非 Twitter 官方的图片上传服务。</string>
+    <string name="twitpic_summary">使用 Twitpic 来为推文添加图片而非 Twitter 官方的图片上传服务</string>
     <string name="verified">已验证</string>
     <string name="use_tweetmarker">TweetMarker</string>
     <string name="tweetmarker_summary">在多部设备间同步您的阅读位置</string>
@@ -477,7 +477,7 @@
     <string name="removing_favorite">正在移除喜欢</string>
     <string name="favoriting_status">喜欢推文</string>
     <string name="jumping_workaround">修正时间线跳跃</string>
-    <string name="jumping_workaround_summary">如果在刷新信息后发现时间线向下位移可尝试开启此项修复。</string>
+    <string name="jumping_workaround_summary">如果在刷新信息后发现时间线向下位移可尝试开启此项修复</string>
     <string name="menu_share_link">分享链接</string>
     <string name="no_links">无链接</string>
     <string name="configure_pages">配置可滑动页面</string>
@@ -491,7 +491,7 @@
     <string name="page_2">页面 2</string>
     <string name="load_tweets">加载推文</string>
     <string name="download_portal">下载主题商店应用</string>
-    <string name="download_portal_summary">这是 Klinker 应用系列里的 \"Portal\"。你可以在这里了解到我们最新的消息还可以找到所有关于 EvolveSMS 和 Talon 程序的精美主题。</string>
+    <string name="download_portal_summary">这是 Klinker 应用系列里的 \"Portal\"。你可以在这里了解到我们最新的消息还可以找到所有关于 EvolveSMS 和 Talon 程序的精美主题</string>
     <string name="compose_dm_hint">输入消息...</string>
     <string name="pwiccer">Pwiccer</string>
     <string name="select_shortening_service">选择一个推文短缩服务或重新编辑推文</string>
@@ -504,8 +504,8 @@
     <string name="saved_searches">保存的搜索</string>
     <string name="error_check_network">加载个人资料失败。请检查您的网络连接</string>
     <string name="error_loading_timeline">无法加载时间线！请检查您的数据连接</string>
-    <string name="currently_in_beta">这目前仅是Beta阶段。</string>
-    <string name="changed_screenname">在 Talon 存储你的 ID 之前你更改了自己的用户名！现在你需要先注销帐号然后重新登录来使当前变动生效。</string>
+    <string name="currently_in_beta">这目前仅是Beta阶段</string>
+    <string name="changed_screenname">在 Talon 存储你的 ID 之前你更改了自己的用户名！现在你需要先注销帐号然后重新登录来使当前变动生效</string>
     <string name="menu_save_search">保存搜索</string>
     <string name="saving_search">正在保存搜索</string>
     <string name="delete_saved_search">删除已保存的搜索</string>
@@ -542,14 +542,14 @@
     <string name="display_options">显示选项</string>
     <string name="third_party_services">第三方服务</string>
     <string name="open_keyboard">自动打开键盘</string>
-    <string name="open_keyboard_summary">在推文查看器中自动打开键盘以进行回复。</string>
+    <string name="open_keyboard_summary">在推文查看器中自动打开键盘以进行回复</string>
     <string name="no_retweets">没有转推</string>
     <string name="profile">个人资料</string>
     <string name="favorites">喜欢</string>
     <string name="load_pictures">加载图片</string>
     <string name="pic_search_disclaimer">搜索用户的时间线以获取图片。所需时间取决于用户发布图片时距今的日期长短</string>
     <string name="widget_theme">桌面小部件主题</string>
-    <string name="widget_theme_summary">应用到手机主屏幕的窗口小部件上。</string>
+    <string name="widget_theme_summary">应用到手机主屏幕的窗口小部件上</string>
     <string name="widget_light">浅色主题</string>
     <string name="widget_dark">深色主题</string>
     <string name="widget_trans_light">浅色透明主题</string>
@@ -591,7 +591,7 @@ Talon 将选择把图片上传至 TwitPic。</string>
     <string name="web_page">网页</string>
     <string name="conversation_page">对话页</string>
     <string name="viewer_page">推文查看器</string>
-    <string name="viewer_page_summary">当查看推文时要打开的默认页。</string>
+    <string name="viewer_page_summary">当查看推文时要打开的默认页</string>
     <string name="browser_settings">浏览器设置</string>
     <string name="memory_manage">存储管理</string>
     <string name="protected_account">该用户的推文已被保护！</string>
@@ -707,7 +707,7 @@ Talon 程序内已内置了丰富的帮助说明。在焦急等待我的回复�
     <string name="copy_cashtag">复制现金标签</string>
     <string name="copied">已复制文本</string>
     <string name="favorite_user_text">收藏用户</string>
-    <string name="open_to_web">打开网页</string>
+    <string name="open_to_web">I</string>
     <string name="open_to_web_summary">如果推文中包含有网页链接，点击后将直接打开该网页页面而非推文本身。</string>
     <string name="open_webpage">打开链接</string>
     <string name="get_android">获取 Android 表情符号</string>

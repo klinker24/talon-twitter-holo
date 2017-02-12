@@ -56,14 +56,15 @@
     <!-- Main Activity -->
     <string name="links">Links</string>
     <string name="pictures">Imagens</string>
-    <string name="timeline">Timeline</string>
+    <string name="timeline">Home</string>
     <string name="mentions">Menções</string>
     <string name="direct_messages">Mensagens Diretas</string>
     <string name="retweets">Retweets</string>
-    <string name="favorite_tweets">Tweets Favoritos</string>
+    <string name="favorite_tweets">Tweets curtidos</string>
     <string name="favorite_users">Usuários Favoritos</string>
+    <string name="favorite_users_tweets">Tweets favoritos do usuário</string>
     <string name="trends">Tendências</string>
-    <string name="local_trends">Tendências Locais</string>
+    <string name="local_trends">Local</string>
     <string name="world_trends">Tendências Mundiais</string>
     <string name="search">Buscar</string>
     <string name="lists">Listas</string>
@@ -109,22 +110,24 @@
     <string name="new_interactions_lower">novas interações</string>
     <string name="new_interactions">Novas interações</string>
     <string name="retweeted">retweetou seu tweet</string>
-    <string name="favorited">favoritou seu tweet</string>
+    <string name="favorited">Status curtidos</string>
+    <string name="quoted">Citou seu status</string>
     <string name="followed">seguiu você</string>
     <string name="new_retweets">retweets</string>
-    <string name="new_favorites">favoritos</string>
+    <string name="new_favorites">Curtidas</string>
+    <string name="new_quotes">Citação</string>
     <string name="new_tweets_upper">Novos Tweets</string>
     <!-- Login Screen -->
     <string name="setup_talon">Configurar o Talon</string>
     <string name="login_to_twitter">Login no Twitter</string>
     <string name="first_welcome">Bem-vindo ao Talon!</string>
     <string name="second_welcome">Sincronizando dados</string>
-    <string name="third_welcome">Está pronto!</string>
+    <string name="third_welcome">Está pronto, aproveite!</string>
     <string name="back_to_timeline">Me leve para a timeline!</string>
     <string name="initial_sync">Sincronizar agora!</string>
-    <string name="first_info">Antes de começar, vamos fazer seu login.</string>
-    <string name="second_info">Ótimo!\n\nAgora vamos carregar seus dados iniciais.\n\nIsso pode levar algum tempo dependendo da sua conexão com a internet.</string>
-    <string name="third_info">Espero que você goste do Talon!\n\n-- Luke Klinker</string>
+    <string name="first_info">Antes de começar, vamos fazer seu login e sincronizar com o Twitter.</string>
+    <string name="second_info">Ótimo! Agora vamos nos comunicar com o Twitter para sincronizar sua conta.</string>
+    <string name="third_info">Espero que você aproveite o Talon!</string>
     <string name="syncing_timeline">Sincronizando timeline...</string>
     <string name="syncing_mentions">Sincronizando menções...</string>
     <string name="syncing_direct_messages">Sincronizando MD\'s...</string>
@@ -134,7 +137,7 @@
     <string name="no_network">"Você não está conectado à internet. "</string>
     <string name="no_thanks">Agora não</string>
     <string name="follow_me">Seguir!</string>
-    <string name="follow_me_description">Seguir @TalonAndroid e @lukeklinker para ter todas as novidades e suporte!</string>
+    <string name="follow_me_description">Use o checkbox para seguir as contas de suporte ou pressione o botão voltar para pular isso.</string>
     <!-- Compose New Activity -->
     <string name="compose_activity">Novo Tweet</string>
     <string name="compose_tweet_hint">Escreva seu tweet...</string>
@@ -167,6 +170,7 @@
     <string name="tweet_to_long">Tweet muito longo!</string>
     <string name="ok">OK</string>
     <string name="no">Não</string>
+    <string name="yes">Sim</string>
     <string name="changelog">O Que há de Novo</string>
     <string name="created_by">Criado por</string>
     <string name="no_location">Não é possível encontrar local</string>
@@ -214,6 +218,8 @@
     <string name="conversation">Conversa</string>
     <string name="webpage">Web Page</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet Media</string>
+    <string name="vine">Vine</string>
     <string name="menu_quote">Citar</string>
     <string name="deleted_tweet">Tweet deletado</string>
     <string name="error_deleting">Erro ao deletar tweet</string>
@@ -224,7 +230,7 @@
     <string name="saving_picture">Salvando Imagem</string>
     <string name="saved_picture">Imagem Salva com Sucesso</string>
     <string name="retweet_success">Retweetado</string>
-    <string name="favorite_success">Favoritado</string>
+    <string name="favorite_success">Curtido</string>
     <string name="success">Sucesso</string>
     <!-- User Lists -->
     <string name="view_users">Ver Usuários</string>
@@ -248,10 +254,12 @@
     <string name="part_1_phone">Deslize do canto\nesquerdo pro direito\npara abrir a\nbarra de navegação!</string>
     <string name="part_2">Navegue entre\nas abas deslizando,\ndo meio da tela,\npara esquerda\nou direita!</string>
     <string name="part_3">Pronto!\n\nToque na\ntela para\ncomeçar!</string>
+    <string name="part_4">Toque a barra do app para mostrar a posição a timeline.</string>
+    <string name="part_5">Dê um toque longo na barra do app para ir ao topo da timeline.</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Temas</string>
     <string name="theme_options">Opções de temas</string>
-    <string name="font_options">Opções de Fontes</string>
+    <string name="font_options">Opções de exibição</string>
     <string name="other_options">Outras Opções</string>
     <string name="theme">Temas</string>
     <string name="addon_themes">Temas Add-on</string>
@@ -281,10 +289,9 @@
     <string name="use_screen_name">Mostrar apenas @Nome</string>
     <string name="use_screen_name_summary">Mostra o @Nome no lugar do Nome Completo.</string>
     <string name="timestamp">Formato da hora: 24hs</string>
-    <string name="enable_emojis">Ativar Emojis</string>
+    <string name="enable_emojis">Usar emojis iOS</string>
     <string name="to_market">Play Store</string>
-    <string name="get_android">Adquirir Android Emojis</string>
-    <string name="get_ios">Adquirir iOS Emojis</string>
+    <string name="get_ios">Baixar plugin</string>
     <string name="emoji_dialog_summary">Para ativar emojis no app, você precisa ter o pacote \"Sliding Emoji Keyboard\" ou o \"Sliding Emoji Keyboard - iOS\" instalado pela Play Store.\n\n
                 Você pode trocar entre os 2 tipos de emojis, mas você precisa ter apenas um deles instalado no aparelho. Se ambos os pacotes estiverem instalado, Talon irá usar os emojis padrão do Android.\n\n
                 NOTA: Emojis continuará a funcionar nesse app mesmo quando a versão trial expirar! Esses pacotes são usados como um plug-in, bem como um teclado independente.</string>
@@ -292,7 +299,7 @@
     <string name="theme_dark">Tema Escuro</string>
     <string name="theme_black">Tema Preto</string>
     <string name="sync_settings">Sincronização</string>
-    <string name="sync_mobile_data">Usar Dados da Operadora</string>
+    <string name="sync_mobile_data">Sincronizar com dados móveis</string>
     <string name="sync_mobile_data_summary">Atualizar timelines automaticamente quando usando Dados e WiFi.</string>
     <string name="auto_sync_notifications">Opções para notificações automáticas</string>
     <string name="notifications">Notificações</string>
@@ -319,11 +326,11 @@
     <string name="sync_failed">Falha na Sincronização</string>
     <string name="push_notification_options">"Opções de \"Notificações Push\""</string>
     <string name="push_notifications">Talon Pull</string>
-    <string name="push_notifications_summary">Isso irá lhe notificar assim que você receber novas interações (menções, dm\'s, tweets favoritados, retweets, ou novos seguidores.\n\nIsso também vai carregar automaticamente sua timeline.</string>
-    <string name="push_notification_warning">Para ler mais sobre essa opção, toque aqui.</string>
+    <string name="push_notifications_summary">Isso iniciará um serviço que lhe notificará assim que você receber novas interações (menções, dm\'s, tweets favoritados, retweets, ou novos seguidores).</string>
+    <string name="push_notification_warning">Para ler mais sobre o serviço Talon Pull, toque aqui.</string>
     <string name="notification_settings">Notificações</string>
     <string name="pebble_notifications">Notificações no Pebble</string>
-    <string name="pebble_notifications_summary">Use com o relógio inteligente Pebble.</string>
+    <string name="pebble_notifications_summary">Usado para o smartwatch Pebble. Desabilite isso se você estiver recebendo duas notificações no seu relógio.</string>
     <string name="advanced_settings">Opções Avançadas</string>
     <string name="app_feel_category">Opções do app</string>
     <string name="advance_windowed">Janela Popup</string>
@@ -344,7 +351,7 @@
     <string name="not_cache">Isso não se aplica ao cache do app.</string>
     <string name="current_cache_size">Tamanho de cache atual</string>
     <string name="cache_dialog_summary">Essa ação não pode ser desfeita.</string>
-    <string name="timeline_size">Capacidade para Timeline</string>
+    <string name="timeline_size">Capacidade para Home</string>
     <string name="timeline_size_summary">Número máximo de tweets para armazenar</string>
     <string name="mentions_size">Capacidade para Menções</string>
     <string name="mentions_size_summary">Número máximo de menções para armazenar</string>
@@ -406,8 +413,8 @@
     <string name="dismiss_all">Descartar tudo</string>
     <string name="handle_and_name">Mostar @Nome e Nome</string>
     <string name="notification_types">Tipos de Notificações</string>
-    <string name="with_talon_pull">Necessita que o \"Talon Pull\" esteja ativado</string>
-    <string name="favorited_tweet">Seus tweets favoritados</string>
+    <string name="with_talon_pull">Necessita que o \"Talon Pull\" esteja ativado.</string>
+    <string name="favorited_tweet">Seus tweets curtidos</string>
     <string name="new_followers">Novos seguidores</string>
     <string name="discussion">Respostas</string>
     <string name="no_replies">Sem respostas</string>
@@ -446,7 +453,7 @@
     <string name="timeline_notifications">Notificações da Timeline</string>
     <string name="interactions_notifications">Notificações Interativas</string>
     <string name="timelines_settings">Configurações da Timeline</string>
-    <string name="tweet_look_options">Opções dos Tweets</string>
+    <string name="tweet_look_options">Opções da timeline</string>
     <string name="limiting_options">Opções de Limitação</string>
     <string name="browser_options">Opções do Browser</string>
     <string name="custom_ringtone">Escolher Som de Notificação</string>
@@ -458,7 +465,7 @@
     <string name="use_twitpic">Usar Twitpic</string>
     <string name="twitpic_summary">Use TwitPic para publicar imagens ao invés do serviço oficial do Twitter.</string>
     <string name="verified">Verificado</string>
-    <string name="use_tweetmarker">Ativar TweetMarker</string>
+    <string name="use_tweetmarker">TweetMarker</string>
     <string name="tweetmarker_summary">Ainda em fase experimental. Você pode ter algum problema se usar esse recurso.</string>
     <string name="do_not_use">Não Use</string>
     <string name="automatic_refresh">TweetMarker Automático</string>
@@ -469,13 +476,13 @@
     <string name="pull_to_refresh">Puxe para Atualizar</string>
     <string name="removing_retweet">Removendo retweet</string>
     <string name="retweeting_status">Retweetando</string>
-    <string name="removing_favorite">Removendo favorito</string>
-    <string name="favoriting_status">Favoritando</string>
-    <string name="jumping_workaround">Solução para a timeline "saltando"</string>
-    <string name="jumping_workaround_summary">Ative isso se sua timeline está "saltando" para baixo depois de você atualizar.</string>
+    <string name="removing_favorite">Removendo curtida</string>
+    <string name="favoriting_status">Curtindo status</string>
+    <string name="jumping_workaround">Solução para a timeline \"saltando\"</string>
+    <string name="jumping_workaround_summary">Ative isso se sua timeline está \"saltando\" para baixo depois de você atualizar.</string>
     <string name="menu_share_link">Compartilhar Link</string>
     <string name="no_links">Sem Links</string>
-    <string name="configure_pages">Configurar Páginas Extras</string>
+    <string name="configure_pages">Configurar páginas com rolagem</string>
     <string name="picture_page">Imagens</string>
     <string name="link_page">Links</string>
     <string name="list_page">Lista</string>
@@ -487,12 +494,13 @@
     <string name="load_tweets">Carregar tweets</string>
     <string name="download_portal">Portal de Temas</string>
     <string name="download_portal_summary">Este é o \"Portal\" da Klinker Apps para você ficar atualizado com as últimas novidades e encontrar os melhores temas para o Talon e o EvolveSMS em um só lugar!\"</string>
-    <string name="compose_dm_hint">Escreva sua mensagem direta aqui...</string>
+    <string name="compose_dm_hint">Escrever mensagem</string>
     <string name="pwiccer">Pwiccer</string>
     <string name="select_shortening_service">Selecione um encurtador ou edite o tweet</string>
     <string name="use_shortening_service">Use um encurtador de texto</string>
     <string name="use_shortening_service_summary">Você será capaz de selecionar tanto o TwitLonger quanto o Pwiccer (um serviço que converte seu tweet longo em uma imagem para postar).</string>
     <string name="view_retweeters">Retweetadores</string>
+    <string name="view_favoriters">Curtidas</string>
     <string name="no_tweets">Sem tweets</string>
     <string name="only_7_days">Disponível por 7 dias</string>
     <string name="saved_searches">Pesquisas Salvas</string>
@@ -517,7 +525,7 @@
     <string name="no_content">Nada aqui!</string>
     <string name="discover">Descubra</string>
     <string name="suggested_users">Usuários sugeridos</string>
-    <string name="nearby_tweets">Tweets Perto</string>
+    <string name="nearby_tweets">Próximo</string>
     <string name="local_trend_options">Opções de Tendências Locais</string>
     <string name="manually_config_location">Configure manualmente sua localização</string>
     <string name="country_region">País/Região</string>
@@ -539,10 +547,10 @@
     <string name="open_keyboard_summary">Abrir automaticamente o teclado para responder ao visualizar tweet.</string>
     <string name="no_retweets">Nenhum retweet</string>
     <string name="profile">Perfil</string>
-    <string name="favorites">Favoritos</string>
+    <string name="favorites">Curtidas</string>
     <string name="load_pictures">Carregar Imagens</string>
     <string name="pic_search_disclaimer">Busca por fotos na timeline do usuário. Vai demorar mais tempo dependendo de como são as fotos.</string>
-    <string name="widget_theme">Tema do Widget</string>
+    <string name="widget_theme">Tema do Widget de tela inicial</string>
     <string name="widget_theme_summary">Aplicado aos widgets da tela inicial.</string>
     <string name="widget_light">Tema Claro</string>
     <string name="widget_dark">Tema Escuro</string>
@@ -551,7 +559,7 @@
     <string name="ui_settings">Configurações da IU</string>
     <string name="show_pos_dashclock">Exibir Posição na Timeline</string>
     <string name="show_pos_dashclock_summary">Exibir a posição atual na timeline ao invés do número de tweets.</string>
-    <string name="talon_large_widget">Talon - Linha do Tempo</string>
+    <string name="talon_large_widget">Talon - Timeline</string>
     <string name="unread_bar_widget">Talon - Barra de Não Lidos</string>
     <string name="show_muted_mentions">Exibir Menções Silenciadas</string>
     <string name="force_overflow_summary">Sempre exibir os 3 pontos na Action Bar. Usado por telefones com botão de menu físico.</string>
@@ -587,7 +595,7 @@
     <string name="viewer_page">Visualizador de Tweets</string>
     <string name="viewer_page_summary">Página padrão a ser aberta quando visualizar um tweet.</string>
     <string name="browser_settings">Configurações do Navegador</string>
-    <string name="memory_manage">Gerenciamento de Memória</string>
+    <string name="memory_manage">Memória do app</string>
     <string name="protected_account">O usuário tem uma conta protegida!</string>
     <string name="mute_rt">Silenciar Retweets</string>
     <string name="unmute_rt">Reativar Retweets</string>
@@ -614,11 +622,14 @@
     <string name="no_clients">Nenhum Cliente</string>
     <string name="muted_clients_summary">Permite que você silencie todos os tweets de um determinado aplicativo.</string>
     <string name="client_not_found">Cliente não encontrado!</string>
+    <string name="favorite">Curtida</string>
+    <string name="menu_share_image">Compartilhar imagem</string>
     <string name="pick_time">Obter Hora</string>
     <string name="pick_date">Obter Data</string>
     <string name="both_accounts">Ambas as Contas</string>
-    <string name="attach_gif">GIF Animado</string>
-    <string name="roboto_l">Android "L" Roboto</string>
+    <string name="attach_gif">GIF Animado do dispositivo</string>
+    <string name="attach_video">Vídeo</string>
+    <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">2ª Conta</string>
     <string name="second_account_login_info">Desde que o Twitter grava algumas das suas informações de login no seu sistema, a próxima tela pode não permitir você fazer o login com uma nova informação de conta imediatamente. Se ele pular este login e for diretamente para a página de autorização, basta clicar no botão \"Sair\" no canto superior direito do site para poder fazer login em sua segunda conta.</string>
     <string name="fetch_tweetmarker">Carregar TweetMarker</string>
@@ -627,9 +638,40 @@
     <string name="help_and_feedback">Ajuda/Comentários</string>
     <string name="contact">Contato</string>
     <string name="follow">Seguir</string>
+    <string name="menu_number_of_pages">Número de páginas extras</string>
     <!-- %s will be replaced with a number for the currently selected page -->
     <string name="page">Página %s</string>
     <string name="set_as_default">Definir como Padrão</string>
+    <string name="drawer_elements">Itens visíveis no navegador</string>
+    <string name="second_acc_mentions">Menções da segunda conta</string>
+    <string name="using_second_account">Usando %s conta!</string>
+    <!-- the username will replace %s -->
+    <string name="error_gif">Erro ao encontrar media</string>
+    <string name="saved_search">Busca salva</string>
+    <string name="activity">atividade</string>
+    <string name="sending_direct_message">Enviando mensagem direta</string>
+    <string name="activity_sync_interval">Média de atualização de atividade</string>
+    <string name="mentioned_you">mencionou você</string>
+    <string name="favorites_lower">Curtidas</string>
+    <string name="favorite_lower">Curtida</string>
+    <string name="retweeted_your_status">Retwitou seu status</string>
+    <string name="followed_you">Seguiu você</string>
+    <string name="new_activity">Nova atividade</string>
+    <string name="no_activity_yet">Nenhuma atividade ainda</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">Novo seguidor</string>
+    <string name="new_followers_lower">Novos seguidores</string>
+    <string name="item">Ítem</string>
+    <string name="items">Ítens</string>
+    <string name="and">e</string>
+    <string name="no_favorites">Sem curtidas</string>
+    <string name="quote_style">Estilo da citação</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Mostrar notificação persistente</string>
+    <string name="show_pull_notification_summary">Se você desabilitar esta notificação o Android poderá desligar o stream a qualquer momento. Use com extrema cautela.</string>
+    <string name="custom_tab_title">Chrome Custom Tabs</string>
+    <string name="learn_more">Leia mais</string>
     <!-- Long click methods -->
     <string name="open_profile">Abrir Perfil</string>
     <string name="copy_handle">Copiar @Nome</string>
@@ -637,6 +679,8 @@
     <string name="mute_user">Silenciar Usuário</string>
     <string name="mute_retweets">Silenciar Retweets</string>
     <string name="share_profile">Compartilhar Perfil</string>
+    <string name="open_to_external_browser">Abrir no navegador externo</string>
+    <string name="open_to_internal_browser">Abrir no navegador interno</string>
     <string name="copy_link">Copiar Link</string>
     <string name="share_link">Compartilhar Link</string>
     <string name="search_hashtag">Buscar Hashtag</string>
@@ -649,4 +693,10 @@
     <string name="open_to_web">Tweets com links</string>
     <string name="open_to_web_summary">Se o tweet contém um link, marcar essa opção fará com que ao abrir o tweet, o navegador seja mostrado primeiro ao invés do em si.</string>
     <string name="open_webpage">Abrir Link</string>
+    <string name="get_android">Adquirir Android Emojis</string>
+    <string name="play_gif">Tocar</string>
+    <string name="add_to_tweet_gif">Adicionar ao tweet</string>
+    <string name="find_a_gif">Procure um GIF</string>
+    <string name="three_mb_limit">Limite de tamanho de 5MB</string>
+    <string name="quoted_you">Citou você</string>
 </resources>

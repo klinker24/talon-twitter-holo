@@ -525,7 +525,7 @@
     <string name="no_content">لا يوجد شيئ لعرضه!</string>
     <string name="discover">اكتشف</string>
     <string name="suggested_users">مستخدمون مقترحون</string>
-    <string name="nearby_tweets">تغريدات متقاربة</string>
+    <string name="nearby_tweets">قريب</string>
     <string name="local_trend_options">خيارات المتداول محلياً</string>
     <string name="manually_config_location">تهيئة الموقع يدوياً</string>
     <string name="country_region">الدولة/المنطقة</string>
