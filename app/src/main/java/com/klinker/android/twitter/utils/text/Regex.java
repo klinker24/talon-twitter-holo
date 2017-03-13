@@ -256,6 +256,7 @@ public class Regex {
     private static final String HASHTAG_ALPHA_NUMERIC_CHARS = "0-9\\uff10-\\uff19_" + HASHTAG_ALPHA_CHARS;
     private static final String HASHTAG_ALPHA = "[" + HASHTAG_ALPHA_CHARS +"]";
     private static final String HASHTAG_ALPHA_NUMERIC = "[" + HASHTAG_ALPHA_NUMERIC_CHARS +"]";
+    private static final String HASHTAG_SPACES = "[" + UNICODE_SPACES + "]";
 
     /* URL related hash regex collection */
     private static final String URL_VALID_PRECEEDING_CHARS = "(?:[^A-Z0-9@＠$#＃\u202A-\u202E]|^)";
@@ -388,7 +389,7 @@ public class Regex {
 
   /* Begin public constants */
 
-    public static final Pattern HASHTAG_PATTERN = Pattern.compile("(#|\uFF03)(" + HASHTAG_ALPHA_NUMERIC + "*" + HASHTAG_ALPHA + HASHTAG_ALPHA_NUMERIC + "*)", Pattern.CASE_INSENSITIVE);
+    public static final Pattern HASHTAG_PATTERN = Pattern.compile("(?:^|" + HASHTAG_SPACES + ")" + "(#|\uFF03)(" + HASHTAG_ALPHA_NUMERIC + "*" + HASHTAG_ALPHA + HASHTAG_ALPHA_NUMERIC + "*)", Pattern.CASE_INSENSITIVE);
     public static final int VALID_HASHTAG_GROUP_BEFORE = 1;
     public static final int VALID_HASHTAG_GROUP_HASH = 2;
     public static final int VALID_HASHTAG_GROUP_TAG = 3;
