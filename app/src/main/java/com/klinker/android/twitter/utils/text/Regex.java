@@ -389,7 +389,7 @@ public class Regex {
 
   /* Begin public constants */
 
-    public static final Pattern HASHTAG_PATTERN = Pattern.compile(HASHTAG_SPACES + "(#|\uFF03)(" + HASHTAG_ALPHA_NUMERIC + "*" + HASHTAG_ALPHA + HASHTAG_ALPHA_NUMERIC + "*)", Pattern.CASE_INSENSITIVE);
+    public static final Pattern HASHTAG_PATTERN = Pattern.compile("(?:^|" + HASHTAG_SPACES + ")" + "(#|\uFF03)(" + HASHTAG_ALPHA_NUMERIC + "*" + HASHTAG_ALPHA + HASHTAG_ALPHA_NUMERIC + "*)", Pattern.CASE_INSENSITIVE);
     public static final int VALID_HASHTAG_GROUP_BEFORE = 1;
     public static final int VALID_HASHTAG_GROUP_HASH = 2;
     public static final int VALID_HASHTAG_GROUP_TAG = 3;
