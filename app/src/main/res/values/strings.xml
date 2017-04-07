@@ -460,6 +460,7 @@
     <string name="post_with_twitlonger">Tweet is greater than 140 characters.\n\nWould you like to post using TwitLonger?</string>
     <string name="remove_retweet">Remove Retweet</string>
     <string name="edit">Edit</string>
+    <string name="split_tweet">Split Tweet</string>
     <string name="use_twitpic">Use TwitPic</string>
     <string name="twitpic_summary">Use TwitPic to attach images to tweets instead of Twitter\'s image upload service.</string>
     <string name="verified">Verified</string>
@@ -494,7 +495,7 @@
     <string name="download_portal_summary">This is the Klinker Apps \"Portal\" app to stay up to date with the latest news as well as find all the best themes for Talon and EvolveSMS in one place!</string>
     <string name="compose_dm_hint">Type message...</string>
     <string name="pwiccer">Pwiccer</string>
-    <string name="select_shortening_service">Select a shortening service or edit the tweet.</string>
+    <string name="select_shortening_service">Select a shortening service. Press back button to go back.</string>
     <string name="use_shortening_service">Use Shortening Service</string>
     <string name="use_shortening_service_summary">You will be able to select either TwitLonger or Pwiccer (a service that converts your long tweet to an image for posting).</string>
     <string name="view_retweeters">Retweeters</string>

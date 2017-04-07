@@ -139,7 +139,7 @@ public class ComposeActivity extends Compose {
         hashtagAutoComplete = new ListPopupWindow(context);
         hashtagAutoComplete.setAnchorView(reply);
         hashtagAutoComplete.setHeight(toDP(200));
-        hashtagAutoComplete.setWidth((int)(width * .75));
+        hashtagAutoComplete.setWidth((int) (width * .75));
         hashtagAutoComplete.setAdapter(new AutoCompleteHashtagAdapter(context,
                 HashtagDataSource.getInstance(context).getCursor(reply.getText().toString()), reply));
         hashtagAutoComplete.setPromptPosition(ListPopupWindow.POSITION_PROMPT_ABOVE);
@@ -441,7 +441,7 @@ public class ComposeActivity extends Compose {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                InputMethodManager imm = (InputMethodManager)getSystemService(
+                                InputMethodManager imm = (InputMethodManager) getSystemService(
                                         INPUT_METHOD_SERVICE);
                                 imm.showSoftInput(reply, 0);
                             }
@@ -452,7 +452,7 @@ public class ComposeActivity extends Compose {
                         a.recycle();
                         emojiButton.setImageResource(resource);
                     } else {
-                        InputMethodManager imm = (InputMethodManager)getSystemService(
+                        InputMethodManager imm = (InputMethodManager) getSystemService(
                                 INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(reply.getWindowToken(), 0);
 
@@ -482,7 +482,7 @@ public class ComposeActivity extends Compose {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setItems(R.array.attach_options, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
-                if(item == 0) { // take picture
+                if (item == 0) { // take picture
                     Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     File f = new File(Environment.getExternalStorageDirectory() + "/Talon/", "photoToTweet.jpg");
 
@@ -501,7 +501,7 @@ public class ComposeActivity extends Compose {
                     Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                     photoPickerIntent.setType("image/*");
                     startActivityForResult(Intent.createChooser(photoPickerIntent,
-                                "Select Picture"), SELECT_PHOTO);
+                            "Select Picture"), SELECT_PHOTO);
                 } else if (item == 2) {
                     Toast.makeText(ComposeActivity.this, "GIFs must be less than 3 MB", Toast.LENGTH_SHORT).show();
 
@@ -533,7 +533,7 @@ public class ComposeActivity extends Compose {
         String to = getIntent().getStringExtra("user") + (isDM ? "" : " ");
 
         if ((!to.equals("null ") && !isDM) || (isDM && !to.equals("null"))) {
-            if(!isDM) {
+            if (!isDM) {
                 Log.v("username_for_noti", "to place: " + to);
                 reply.setText(to);
                 reply.setSelection(reply.getText().toString().length());
@@ -590,16 +590,9 @@ public class ComposeActivity extends Compose {
         // Check for blank text
         if (Integer.parseInt(charRemaining.getText().toString()) >= 0 || settings.twitlonger) {
             // update status
-            if (Integer.parseInt(charRemaining.getText().toString()) < 0) {
-                onBackPressed();
-                doneClicked = true;
-                sendStatus(status, Integer.parseInt(charRemaining.getText().toString()));
-                return true;
-            } else {
-                doneClicked = true;
-                sendStatus(status, Integer.parseInt(charRemaining.getText().toString()));
-                return true;
-            }
+            doneClicked = true;
+            sendStatus(status, Integer.parseInt(charRemaining.getText().toString()));
+            return true;
         } else {
             if (editText.getText().length() + (attachedUri.equals("") ? 0 : 22) <= 140) {
                 // EditText is empty

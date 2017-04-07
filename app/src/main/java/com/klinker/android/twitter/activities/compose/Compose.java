@@ -62,9 +62,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.BooleanResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.data.ScheduledTweet;
 import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
 import com.klinker.android.twitter.views.HoloTextView;
@@ -87,6 +89,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -123,7 +128,7 @@ public abstract class Compose extends Activity implements
     protected boolean useAccTwo = false;
 
     // attach up to four images
-    public String[] attachedUri = new String[] {"","","",""};
+    public String[] attachedUri = new String[]{"", "", "", ""};
     public int imagesAttached = 0;
 
     public PhotoViewAttacher mAttacher;
@@ -200,7 +205,7 @@ public abstract class Compose extends Activity implements
         try {
             ViewConfiguration config = ViewConfiguration.get(this);
             Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            if(menuKeyField != null) {
+            if (menuKeyField != null) {
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
@@ -329,9 +334,13 @@ public abstract class Compose extends Activity implements
                                             }
                                         }
                                     })
-                                    .setNegativeButton(R.string.edit, new DialogInterface.OnClickListener() {
+                                    .setNegativeButton(R.string.split_tweet, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
+                                            boolean close = doneClick();
+                                            if (close) {
+                                                onBackPressed();
+                                            }
                                         }
                                     })
                                     .create()
@@ -375,7 +384,7 @@ public abstract class Compose extends Activity implements
             @Override
             public void onClick(View v) {
                 Log.v("talon_input", "clicked the view");
-                ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
+                ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
                         .showSoftInput(reply, InputMethodManager.SHOW_FORCED);
             }
         });
@@ -537,7 +546,7 @@ public abstract class Compose extends Activity implements
 
         Log.v("talon_composing_image", "rotation: " + orientation);
 
-        try{
+        try {
             Matrix matrix = new Matrix();
             switch (orientation) {
                 case ExifInterface.ORIENTATION_NORMAL:
@@ -697,7 +706,7 @@ public abstract class Compose extends Activity implements
                     if (settings.vibrate) {
                         Log.v("talon_vibrate", "vibrate on compose");
                         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                        long[] pattern = { 0, 50, 500 };
+                        long[] pattern = {0, 50, 500};
                         v.vibrate(pattern, -1);
                     }
 
@@ -763,6 +772,7 @@ public abstract class Compose extends Activity implements
     public static final int PWICCER = 420;
 
     public boolean pwiccer = false;
+    private boolean multiTweets = true;
 
     public String attachmentType = "";
 
@@ -770,9 +780,9 @@ public abstract class Compose extends Activity implements
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent imageReturnedIntent) {
         Log.v("talon_image_attach", "got the result, code: " + requestCode);
-        switch(requestCode) {
+        switch (requestCode) {
             case UCrop.REQUEST_CROP:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     try {
                         Uri selectedImage = UCrop.getOutput(imageReturnedIntent);
 
@@ -798,13 +808,13 @@ public abstract class Compose extends Activity implements
                 countHandler.post(getCount);
                 break;
             case SELECT_PHOTO:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     startUcrop(imageReturnedIntent.getData());
                 }
 
                 break;
             case CAPTURE_IMAGE:
-                if(resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     Uri selectedImage = Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/Talon/", "photoToTweet.jpg"));
                     startUcrop(selectedImage);
                 }
@@ -852,7 +862,7 @@ public abstract class Compose extends Activity implements
                 break;
             case FIND_GIF:
             case SELECT_GIF:
-                if(resultCode == RESULT_OK){
+                if (resultCode == RESULT_OK) {
                     try {
                         Uri selectedImage = imageReturnedIntent.getData();
 
@@ -876,7 +886,7 @@ public abstract class Compose extends Activity implements
                 countHandler.post(getCount);
                 break;
             case SELECT_VIDEO:
-                if(resultCode == RESULT_OK){
+                if (resultCode == RESULT_OK) {
                     try {
                         Uri selectedImage = imageReturnedIntent.getData();
 
@@ -1040,95 +1050,154 @@ public abstract class Compose extends Activity implements
             }, 200);
         }
 
+        /**
+         * Helper method for posting the status update using TweetLonger
+         *
+         * @param twitter the account to tweet from
+         * @return bool true if successful else false
+         */
+        private boolean tweetUsingTweetLonger(Twitter twitter) {
+            boolean isDone = false;
+            TwitLongerHelper helper = new TwitLongerHelper(text, twitter);
+
+            if (notiId != 0) {
+                helper.setInReplyToStatusId(notiId);
+            }
+            if (addLocation) {
+                //waitForLocation();
+                if (waitForLocation()) {
+                    Location location = mLastLocation;
+                    GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
+                    helper.setLocation(geolocation);
+                }
+            }
+            if (helper.createPost() != 0) {
+                isDone = true;
+            }
+            return isDone;
+        }
+
+        private List<String> getMultipeTweets(String message) {
+            int totalNoTweets = 0;
+            List<String> multiTweets = new Vector<String>();
+            String[] tokens = message.split(" ");
+            String tempString = "";
+            /* Only check for 132 as we are adding (xx/xx) at the end of long tweets */
+            for (int i = 0; i < tokens.length; i++) {
+                if (tempString.length() + tokens[i].length() + 1 <= 132) {
+                    tempString += tokens[i] + " ";
+                } else {
+                    /* We have our split tweet */
+                    multiTweets.add(tempString);
+                    tempString = tokens[i] + " ";
+                }
+            }
+            /* Last tweet will fall out of loop */
+            multiTweets.add(tempString);
+            return multiTweets;
+        }
+
+        /**
+         * Helper function to tweet updates without attaching images. Set the tweet to
+         * scheduled as a workaround for the rate-limit from twitter. Provide a time if the
+         * tweet is scheduled.
+         *
+         * @param twitter The account used to tweet
+         * @param scheduled True if tweet needs to be scheduled
+         */
+        private void tweetWithoutImages(Twitter twitter, boolean scheduled, long time) throws Exception {
+            if(scheduled) {
+                ScheduledTweet tweet = new ScheduledTweet(getApplicationContext(), context, status, time, 0);
+                tweet.createScheduledTweet();
+            } else {
+                boolean autoPopulateMetadata = false;
+                if (replyText != null && !replyText.contains("/status/")) {
+                    String replaceable = replyText.replaceAll("#[a-zA-Z]+ ", "");
+                    status = status.replaceAll(replaceable, "");
+                    autoPopulateMetadata = true;
+                }
+
+                StatusUpdate media = new StatusUpdate(status);
+                media.setAutoPopulateReplyMetadata(autoPopulateMetadata);
+
+                if (notiId != 0) {
+                    media.setInReplyToStatusId(notiId);
+                }
+
+                // Update status
+                if (addLocation) {
+                    if (waitForLocation()) {
+                        Location location = mLastLocation;
+                        GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
+                        media.setLocation(geolocation);
+                    }
+                }
+                twitter.updateStatus(media);
+            }
+        }
+
         protected Boolean doInBackground(String... args) {
             status = args[0];
             try {
                 Twitter twitter = Utils.getTwitter(getApplicationContext(), settings);
                 Twitter twitter2 = Utils.getSecondTwitter(getApplicationContext());
 
-                if (remaining < 0 && !pwiccer) {
+                if (remaining < 0 && !pwiccer && !multiTweets) {
                     // twitlonger goes here
-
                     boolean isDone = false;
-
                     if (useAccOne) {
-                        TwitLongerHelper helper = new TwitLongerHelper(text, twitter);
-
-                        if (notiId != 0) {
-                            helper.setInReplyToStatusId(notiId);
-                        }
-
-                        if (addLocation) {
-                            if (waitForLocation()) {
-                                Location location = mLastLocation;
-                                GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
-                                helper.setLocation(geolocation);
-                            }
-                        }
-
-                        if (helper.createPost() != 0) {
-                            isDone = true;
-                        }
+                        isDone = tweetUsingTweetLonger(twitter);
                     }
 
                     if (useAccTwo) {
-                        TwitLongerHelper helper = new TwitLongerHelper(text, twitter2);
-
-                        if (notiId != 0) {
-                            helper.setInReplyToStatusId(notiId);
-                        }
-
-                        if (addLocation) {
-                            waitForLocation();
-
-                            if (waitForLocation()) {
-                                Location location = mLastLocation;
-                                GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
-                                helper.setLocation(geolocation);
-                            }
-                        }
-
-                        if (helper.createPost() != 0) {
-                            isDone = true;
-                        }
+                        isDone = tweetUsingTweetLonger(twitter2);
                     }
 
                     return isDone;
-                } else {
-                    boolean autoPopulateMetadata = false;
-                    if (replyText != null && !replyText.contains("/status/")) {
-                        String replaceable = replyText.replaceAll("#[a-zA-Z]+ ", "");
-                        status = status.replaceAll(replaceable, "");
-                        autoPopulateMetadata = true;
-                    }
-
-                    StatusUpdate media = new StatusUpdate(status);
-                    media.setAutoPopulateReplyMetadata(autoPopulateMetadata);
-
-                    if (notiId != 0) {
-                        media.setInReplyToStatusId(notiId);
-                    }
-
-                    if (imagesAttached == 0) {
-                        // Update status
-                        if(addLocation) {
-                            if (waitForLocation()) {
-                                Location location = mLastLocation;
-                                GeoLocation geolocation = new GeoLocation(location.getLatitude(), location.getLongitude());
-                                media.setLocation(geolocation);
-                            }
-                        }
-
+                } else if (multiTweets && remaining < 0) {
+                    /* We need to schedule this activity because we are hitting the
+                    *  rate limit quite easily. We will hardcode to schedule to tweeet every
+                    *  minute */
+                    List<String> multiTweets = getMultipeTweets(status);
+                    int noOfTweets = multiTweets.size();
+                    int tweetNo = 1;
+                    Date schedDate = new Date();
+                    for (int i = 0; i < noOfTweets; i++) {
+                        status = multiTweets.get(i) + "(" + tweetNo + "/" + noOfTweets + ")";
+                        tweetNo++;
                         if (useAccOne) {
-                            twitter.updateStatus(media);
+                            tweetWithoutImages(twitter, true, schedDate.getTime());
                         }
                         if (useAccTwo) {
-                            twitter2.updateStatus(media);
+                            tweetWithoutImages(twitter2, true, schedDate.getTime());
+                        }
+                        schedDate.setTime(schedDate.getTime()+ 60000);
+                    }
+                    return true;
+                } else {
+                    if (imagesAttached == 0) {
+                        if (useAccOne) {
+                            tweetWithoutImages(twitter, false, 0);
+                        }
+                        if (useAccTwo) {
+                            tweetWithoutImages(twitter2, false, 0);
+                        }
+                        return true;
+                    } else {
+                        boolean autoPopulateMetadata = false;
+                        if (replyText != null && !replyText.contains("/status/")) {
+                            String replaceable = replyText.replaceAll("#[a-zA-Z]+ ", "");
+                            status = status.replaceAll(replaceable, "");
+                            autoPopulateMetadata = true;
                         }
 
-                        return true;
+                        StatusUpdate media = new StatusUpdate(status);
+                        media.setAutoPopulateReplyMetadata(autoPopulateMetadata);
 
-                    } else {
+                        if (notiId != 0) {
+                            media.setInReplyToStatusId(notiId);
+                        }
+
                         // status with picture(s)
                         File[] files = new File[imagesAttached];
                         File outputDir = context.getCacheDir();
@@ -1401,7 +1470,9 @@ public abstract class Compose extends Activity implements
     }
 
     public abstract boolean doneClick();
+
     public abstract void setUpLayout();
+
     public abstract void setUpReplyText();
 
     public int toDP(int px) {
