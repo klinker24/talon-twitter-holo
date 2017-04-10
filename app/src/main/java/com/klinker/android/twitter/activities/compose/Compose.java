@@ -1161,17 +1161,15 @@ public abstract class Compose extends Activity implements
                     List<String> multiTweets = getMultipeTweets(status);
                     int noOfTweets = multiTweets.size();
                     int tweetNo = 1;
-                    Date schedDate = new Date();
                     for (int i = 0; i < noOfTweets; i++) {
                         status = multiTweets.get(i) + "(" + tweetNo + "/" + noOfTweets + ")";
                         tweetNo++;
                         if (useAccOne) {
-                            tweetWithoutImages(twitter, true, schedDate.getTime());
+                            tweetWithoutImages(twitter, false, 0);
                         }
                         if (useAccTwo) {
-                            tweetWithoutImages(twitter2, true, schedDate.getTime());
+                            tweetWithoutImages(twitter2, false, 0);
                         }
-                        schedDate.setTime(schedDate.getTime()+ 60000);
                     }
                     return true;
                 } else {
