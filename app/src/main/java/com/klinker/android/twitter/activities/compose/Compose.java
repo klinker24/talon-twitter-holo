@@ -43,6 +43,7 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.util.Pair;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -337,6 +338,7 @@ public abstract class Compose extends Activity implements
                                     .setNegativeButton(R.string.split_tweet, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
+                                            multiTweet = true;
                                             boolean close = doneClick();
                                             if (close) {
                                                 onBackPressed();
@@ -772,7 +774,7 @@ public abstract class Compose extends Activity implements
     public static final int PWICCER = 420;
 
     public boolean pwiccer = false;
-    private boolean multiTweets = true;
+    private boolean multiTweet = false;
 
     public String attachmentType = "";
 
@@ -1051,12 +1053,12 @@ public abstract class Compose extends Activity implements
         }
 
         /**
-         * Helper method for posting the status update using TweetLonger
+         * Helper method for posting the status update using TwitLonger
          *
          * @param twitter the account to tweet from
          * @return bool true if successful else false
          */
-        private boolean tweetUsingTweetLonger(Twitter twitter) {
+        private boolean tweetUsingTwitLonger(Twitter twitter) {
             boolean isDone = false;
             TwitLongerHelper helper = new TwitLongerHelper(text, twitter);
 
@@ -1077,13 +1079,20 @@ public abstract class Compose extends Activity implements
             return isDone;
         }
 
-        private List<String> getMultipeTweets(String message) {
-            int totalNoTweets = 0;
+        private Pair<String, List<String>> getMultipeTweets(String message) {
             List<String> multiTweets = new Vector<String>();
+            String mentions = "";
             String[] tokens = message.split(" ");
             String tempString = "";
             /* Only check for 132 as we are adding (xx/xx) at the end of long tweets */
             for (int i = 0; i < tokens.length; i++) {
+                if(notiId != 0) {
+                    /* This is a reply tweet Take any mentions out of the tweets */
+                    if(tokens[i].contains("@")) {
+                        mentions += tokens[i] + " ";
+                        continue;
+                    }
+                }
                 if (tempString.length() + tokens[i].length() + 1 <= 132) {
                     tempString += tokens[i] + " ";
                 } else {
@@ -1094,7 +1103,15 @@ public abstract class Compose extends Activity implements
             }
             /* Last tweet will fall out of loop */
             multiTweets.add(tempString);
-            return multiTweets;
+            return Pair.create(mentions, multiTweets);
+        }
+
+        /**
+         * Helper function to tweet the updates without attaching images.
+         * @param twitter The account used to tweet
+         */
+        private void tweetWithoutImages(Twitter twitter) throws Exception {
+            tweetWithoutImages(twitter, false, 0);
         }
 
         /**
@@ -1142,43 +1159,43 @@ public abstract class Compose extends Activity implements
                 Twitter twitter = Utils.getTwitter(getApplicationContext(), settings);
                 Twitter twitter2 = Utils.getSecondTwitter(getApplicationContext());
 
-                if (remaining < 0 && !pwiccer && !multiTweets) {
+                if (remaining < 0 && !pwiccer && !multiTweet) {
                     // twitlonger goes here
                     boolean isDone = false;
                     if (useAccOne) {
-                        isDone = tweetUsingTweetLonger(twitter);
+                        isDone = tweetUsingTwitLonger(twitter);
                     }
 
                     if (useAccTwo) {
-                        isDone = tweetUsingTweetLonger(twitter2);
+                        isDone = tweetUsingTwitLonger(twitter2);
                     }
 
                     return isDone;
-                } else if (multiTweets && remaining < 0) {
-                    /* We need to schedule this activity because we are hitting the
-                    *  rate limit quite easily. We will hardcode to schedule to tweeet every
-                    *  minute */
-                    List<String> multiTweets = getMultipeTweets(status);
-                    int noOfTweets = multiTweets.size();
+                } else if (multiTweet && remaining < 0) {
+                    Pair<String, List<String>> multiTweets = getMultipeTweets(status);
+                    int noOfTweets = multiTweets.second.size();
                     int tweetNo = 1;
                     for (int i = 0; i < noOfTweets; i++) {
-                        status = multiTweets.get(i) + "(" + tweetNo + "/" + noOfTweets + ")";
+                        status = multiTweets.first.length()!=0?multiTweets.first:"";
+                        status += multiTweets.second.get(i) + "(" + tweetNo + "/" + noOfTweets + ")";
+                        replyText = status.replace("/status/", "");
                         tweetNo++;
                         if (useAccOne) {
-                            tweetWithoutImages(twitter, false, 0);
+                            tweetWithoutImages(twitter);
                         }
                         if (useAccTwo) {
-                            tweetWithoutImages(twitter2, false, 0);
+                            tweetWithoutImages(twitter2);
                         }
                     }
+                    multiTweet = false;
                     return true;
                 } else {
                     if (imagesAttached == 0) {
                         if (useAccOne) {
-                            tweetWithoutImages(twitter, false, 0);
+                            tweetWithoutImages(twitter);
                         }
                         if (useAccTwo) {
-                            tweetWithoutImages(twitter2, false, 0);
+                            tweetWithoutImages(twitter2);
                         }
                         return true;
                     } else {
