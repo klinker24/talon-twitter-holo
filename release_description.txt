@@ -1,1 +1,1 @@
-This release improves on auto completing users when composing a tweet - the app will now search all of Twitter, instead of just your followers!
+This release adds a new style, for longer tweets: Tweet Storms! This style will break apart long tweets by placing a counter at the end (1/x), so that people never have to leave Twitter, to see your whole tweet!
