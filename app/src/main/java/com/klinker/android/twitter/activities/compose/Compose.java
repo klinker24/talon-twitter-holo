@@ -1149,7 +1149,11 @@ public abstract class Compose extends Activity implements
                         media.setLocation(geolocation);
                     }
                 }
-                twitter.updateStatus(media);
+                    
+                Status status = twitter.updateStatus(media);
+                if (status != null) {
+                    notiId = status.getId();
+                }
             }
         }
 
