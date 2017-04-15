@@ -1150,7 +1150,7 @@ public abstract class Compose extends Activity implements
                     }
                 }
                     
-                Status status = twitter.updateStatus(media);
+                twitter4j.Status status = twitter.updateStatus(media);
                 if (status != null) {
                     notiId = status.getId();
                 }
