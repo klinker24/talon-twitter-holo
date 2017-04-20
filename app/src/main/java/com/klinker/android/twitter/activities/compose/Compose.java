@@ -318,7 +318,10 @@ public abstract class Compose extends Activity implements
                                     .setPositiveButton(R.string.twitlonger, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            doneClick();
+                                            boolean close = doneClick();
+                                            if (close) {
+                                                onBackPressed();
+                                            }
                                         }
                                     })
                                     .setNeutralButton(R.string.pwiccer, new DialogInterface.OnClickListener() {
@@ -1182,7 +1185,6 @@ public abstract class Compose extends Activity implements
                     for (int i = 0; i < noOfTweets; i++) {
                         status = multiTweets.first.length()!=0?multiTweets.first:"";
                         status += multiTweets.second.get(i) + "(" + tweetNo + "/" + noOfTweets + ")";
-                        replyText = status.replace("/status/", "");
                         tweetNo++;
                         if (useAccOne) {
                             tweetWithoutImages(twitter);
