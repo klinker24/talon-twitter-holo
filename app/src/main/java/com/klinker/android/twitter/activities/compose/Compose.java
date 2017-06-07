@@ -37,6 +37,7 @@ import android.media.ExifInterface;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -89,6 +90,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -769,6 +771,10 @@ public abstract class Compose extends Activity implements
         }
     }
 
+    public static boolean isAndroidN() {
+        return Build.VERSION.SDK_INT > Build.VERSION_CODES.M || Build.VERSION.CODENAME.equals("N");
+    }
+
     public static final int SELECT_PHOTO = 100;
     public static final int CAPTURE_IMAGE = 101;
     public static final int SELECT_GIF = 102;
@@ -960,29 +966,25 @@ public abstract class Compose extends Activity implements
             try {
                 Twitter twitter = Utils.getTwitter(getApplicationContext(), settings);
 
+                String sendTo = contactEntry.getText().toString().replace("@", "").replace(" ", "");
+                User user = twitter.showUser(sendTo);
+                MessageData data = new MessageData(user.getId(), status);
+
                 if (!attachedUri.equals("")) {
                     try {
-                        for (int i = 0; i < imagesAttached; i++) {
-                            File outputDir = context.getCacheDir();
-                            File f = File.createTempFile("compose", "picture_" + i, outputDir);
+                        File f;
 
-                            Bitmap bitmap = getBitmapToSend(Uri.parse(attachedUri[i]));
-                            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
-                            byte[] bitmapdata = bos.toByteArray();
-
-                            FileOutputStream fos = new FileOutputStream(f);
-                            fos.write(bitmapdata);
-                            fos.flush();
-                            fos.close();
-
-                            // we wont attach any text to this image at least, since it is a direct message
-                            TwitPicHelper helper = new TwitPicHelper(twitter, " ", f, context);
-                            String url = helper.uploadForUrl();
-
-                            status += " " + url;
+                        if (attachmentType == null) {
+                            // image file
+                            f = ImageUtils.scaleToSend(context, Uri.parse(attachedUri[0]));
+                        } else {
+                            f = new File(URI.create(attachedUri[0]));
                         }
+
+                        UploadedMedia media = twitter.uploadMedia(f);
+                        data.setMediaId(media.getMediaId());
                     } catch (Exception e) {
+                        e.printStackTrace();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -993,11 +995,8 @@ public abstract class Compose extends Activity implements
 
                 }
 
-                String sendTo = contactEntry.getText().toString().replace("@", "").replace(" ", "");
-
-                twitter.sendDirectMessage(sendTo, status);
-
-                return true;
+                DirectMessageEvent event = twitter.createMessage(data);
+                return event != null;
 
             } catch (TwitterException e) {
                 e.printStackTrace();
@@ -1468,7 +1467,7 @@ public abstract class Compose extends Activity implements
         }
     }
 
-    public int calculateInSampleSize(BitmapFactory.Options opt, int reqWidth, int reqHeight) {
+    public static int calculateInSampleSize(BitmapFactory.Options opt, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = opt.outHeight;
         final int width = opt.outWidth;

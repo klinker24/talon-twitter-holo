@@ -16,18 +16,37 @@
 
 package com.klinker.android.twitter.utils;
 
-import android.util.Log;
-
 import com.klinker.android.twitter.settings.AppSettings;
 
 import java.util.ArrayList;
 
-import twitter4j.*;
+import twitter4j.DirectMessage;
+import twitter4j.DirectMessageEvent;
+import twitter4j.HashtagEntity;
+import twitter4j.MediaEntity;
+import twitter4j.Status;
+import twitter4j.URLEntity;
+import twitter4j.UserMentionEntity;
 
 public class TweetLinkUtils {
 
     public static String[] getLinksInStatus(Status status) {
-        UserMentionEntity[] users = status.getUserMentionEntities();
+        return getLinksInStatus(status.getText(), status.getUserMentionEntities(),
+                status.getHashtagEntities(), status.getURLEntities(), status.getMediaEntities());
+    }
+
+    public static String[] getLinksInStatus(DirectMessage status) {
+        return getLinksInStatus(status.getText(), status.getUserMentionEntities(),
+                status.getHashtagEntities(), status.getURLEntities(), status.getMediaEntities());
+    }
+
+    public static String[] getLinksInStatus(DirectMessageEvent event) {
+        return getLinksInStatus(event.getText(), event.getUserMentionEntities(), event.getHashtagEntities(),
+                event.getUrlEntities(), event.getMediaEntities());
+    }
+
+    private static String[] getLinksInStatus(String tweetTexts, UserMentionEntity[] users, HashtagEntity[] hashtags,
+                                             URLEntity[] urls, MediaEntity[] medias) {
         String mUsers = "";
 
         for(UserMentionEntity name : users) {
@@ -37,7 +56,6 @@ public class TweetLinkUtils {
             }
         }
 
-        HashtagEntity[] hashtags = status.getHashtagEntities();
         String mHashtags = "";
 
         for (HashtagEntity hashtagEntity : hashtags) {
@@ -47,7 +65,6 @@ public class TweetLinkUtils {
             }
         }
 
-        URLEntity[] urls = status.getURLEntities();
         String expandedUrls = "";
         String compressedUrls = "";
 
@@ -59,7 +76,6 @@ public class TweetLinkUtils {
             }
         }
 
-        MediaEntity[] medias = status.getMediaEntities();
         String mediaExp = "";
         String mediaComp = "";
         String mediaDisplay = "";
@@ -109,8 +125,6 @@ public class TweetLinkUtils {
             sMediaDisplay = new String[0];
         }
 
-        String tweetTexts = status.getText();
-
         String imageUrl = "";
         String otherUrl = "";
 
@@ -139,8 +153,8 @@ public class TweetLinkUtils {
                 if (str.contains("instag") && !str.contains("blog.insta")) {
                     imageUrl = exp + "media/?size=l";
                     otherUrl += exp + "  ";
-                } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user"))) {
-                    // first get the youtube video code
+                } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user") || str.contains("playlist"))) {
+                    // first get the youtube surfaceView code
                     int start = exp.indexOf("v=") + 2;
                     int end = exp.length();
                     if (exp.substring(start).contains("&")) {
@@ -155,7 +169,7 @@ public class TweetLinkUtils {
                     }
                     otherUrl += exp + "  ";
                 } else if (str.contains("youtu.be")) {
-                    // first get the youtube video code
+                    // first get the youtube surfaceView code
                     int start = exp.indexOf(".be/") + 4;
                     int end = exp.length();
                     if (exp.substring(start).contains("&")) {
@@ -173,12 +187,12 @@ public class TweetLinkUtils {
                     int start = exp.indexOf(".com/") + 5;
                     imageUrl = "http://twitpic.com/show/full/" + exp.substring(start).replace("/", "");
                     otherUrl += exp + "  ";
-                } else if (str.contains("i.imgur") && !str.contains("/a/")) {
+                } else if (str.contains("i.imgur") && !str.contains("/a/") && !str.contains(".gifv")) {
                     int start = exp.indexOf(".com/") + 5;
                     imageUrl = "http://i.imgur.com/" + exp.replace("http://i.imgur.com/", "").replace(".jpg", "") + "l.jpg";
                     imageUrl = imageUrl.replace("gallery/", "");
                     otherUrl += exp + "  ";
-                } else if (str.contains("imgur") && !str.contains("/a/")) {
+                } else if (str.contains("imgur") && !str.contains("/a/") && !str.contains(".gifv")) {
                     int start = exp.indexOf(".com/") + 6;
                     imageUrl = "http://i.imgur.com/" + exp.replace("http://imgur.com/", "").replace(".jpg", "") + "l.jpg";
                     imageUrl = imageUrl.replace("gallery/", "").replace("a/", "");
@@ -222,11 +236,13 @@ public class TweetLinkUtils {
 
                     tweetTexts = tweetTexts.replace(comp, replacement);
                 } catch (Exception e) {
+                    e.printStackTrace();
                     tweetTexts = tweetTexts.replace(comp, sMediaDisplay[i].replace("http://", "").replace("https://", "").replace("www.", ""));
                 }
-                imageUrl = status.getMediaEntities()[0].getMediaURL();
 
-                for (MediaEntity m : status.getMediaEntities()) {
+                imageUrl = medias[0].getMediaURL();
+
+                for (MediaEntity m : medias) {
                     if (m.getType().equals("photo")) {
                         if (!imageUrl.contains(m.getMediaURL())) {
                             imageUrl += " " + m.getMediaURL();
@@ -235,170 +251,6 @@ public class TweetLinkUtils {
                 }
 
                 otherUrl += sMediaDisplay[i];
-            }
-        }
-
-        return new String[] { tweetTexts, imageUrl, otherUrl, mHashtags, mUsers };
-    }
-
-    public static String[] getLinksInStatus(DirectMessage status) {
-        UserMentionEntity[] users = status.getUserMentionEntities();
-        String mUsers = "";
-
-        for(UserMentionEntity name : users) {
-            String n = name.getScreenName();
-            if (n.length() > 1) {
-                mUsers += n + "  ";
-            }
-        }
-
-        HashtagEntity[] hashtags = status.getHashtagEntities();
-        String mHashtags = "";
-
-        for (HashtagEntity hashtagEntity : hashtags) {
-            String text = hashtagEntity.getText();
-            if (text.length() > 1) {
-                mHashtags += text + "  ";
-            }
-        }
-
-        URLEntity[] urls = status.getURLEntities();
-        String expandedUrls = "";
-        String compressedUrls = "";
-
-        for (URLEntity entity : urls) {
-            String url = entity.getExpandedURL();
-            if (url.length() > 1) {
-                expandedUrls += url + "  ";
-                compressedUrls += entity.getURL() + "  ";
-            }
-        }
-
-        MediaEntity[] medias = status.getMediaEntities();
-        String mediaExp = "";
-        String mediaComp = "";
-        String mediaDisplay = "";
-
-        for (MediaEntity e : medias) {
-            String url = e.getURL();
-            if (url.length() > 1) {
-                mediaComp += url + "  ";
-                mediaExp += e.getExpandedURL() + "  ";
-                mediaDisplay += e.getDisplayURL() + "  ";
-            }
-        }
-
-        String[] sExpandedUrls;
-        String[] sCompressedUrls;
-        String[] sMediaExp;
-        String[] sMediaComp;
-        String[] sMediaDisply;
-
-        try {
-            sCompressedUrls = compressedUrls.split("  ");
-        } catch (Exception e) {
-            sCompressedUrls = new String[0];
-        }
-
-        try {
-            sExpandedUrls = expandedUrls.split("  ");
-        } catch (Exception e) {
-            sExpandedUrls = new String[0];
-        }
-
-        try {
-            sMediaComp = mediaComp.split("  ");
-        } catch (Exception e) {
-            sMediaComp = new String[0];
-        }
-
-        try {
-            sMediaExp = mediaExp.split("  ");
-        } catch (Exception e) {
-            sMediaExp = new String[0];
-        }
-
-        try {
-            sMediaDisply = mediaDisplay.split("  ");
-        } catch (Exception e) {
-            sMediaDisply = new String[0];
-        }
-
-        String tweetTexts = status.getText();
-
-        String imageUrl = "";
-        String otherUrl = "";
-
-        for (int i = 0; i < sCompressedUrls.length; i++) {
-            String comp = sCompressedUrls[i];
-            String exp = sExpandedUrls[i];
-
-            if (comp.length() > 1 && exp.length() > 1) {
-                String str = exp.toLowerCase();
-
-                tweetTexts = tweetTexts.replace(comp, exp.replace("http://", "").replace("https://", "").replace("www.", ""));
-
-                if(str.contains("instag") && !str.contains("blog.instag")) {
-                    imageUrl = exp + "media/?size=m";
-                    otherUrl += exp + "  ";
-                } else if (str.contains("youtub") && !(str.contains("channel") || str.contains("user"))) { // normal youtube link
-                    // first get the youtube video code
-                    int start = exp.indexOf("v=") + 2;
-                    int end = exp.length();
-                    if (exp.substring(start).contains("&")) {
-                        end = exp.indexOf("&");
-                    } else if (exp.substring(start).contains("?")) {
-                        end = exp.indexOf("?");
-                    }
-                    imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, end) + "/hqdefault.jpg";
-                    otherUrl += exp + "  ";
-                } else if (str.contains("youtu.be")) { // shortened youtube link
-                    // first get the youtube video code
-                    int start = exp.indexOf(".be/") + 4;
-                    int end = exp.length();
-                    if (exp.substring(start).contains("&")) {
-                        end = exp.indexOf("&");
-                    } else if (exp.substring(start).contains("?")) {
-                        end = exp.indexOf("?");
-                    }
-                    imageUrl = "http://img.youtube.com/vi/" + exp.substring(start, end) + "/hqdefault.jpg";
-                    otherUrl += exp + "  ";
-                } else if (str.contains("twitpic")) {
-                    int start = exp.indexOf(".com/") + 5;
-                    imageUrl = "http://twitpic.com/show/full/" + exp.substring(start).replace("/", "");
-                    otherUrl += exp + "  ";
-                } else if (str.contains("imgur") && !str.contains("/a/")) {
-                    int start = exp.indexOf(".com/") + 6;
-                    imageUrl = "http://i.imgur.com/" + exp.substring(start) + "l.jpg" ;
-                    imageUrl = imageUrl.replace("gallery/", "").replace("a/", ""); 
-                    otherUrl += exp + "  ";
-                } else if (str.contains("pbs.twimg.com")) {
-                    imageUrl = exp;
-                    otherUrl += exp + "  ";
-                } else if (str.contains("ow.ly/i/")) {
-                    Log.v("talon_owly", exp);
-                    imageUrl = "http://static.ow.ly/photos/original/" + exp.substring(exp.lastIndexOf("/")).replaceAll("/", "") + ".jpg";
-                    otherUrl += exp + "  ";
-                } else if (str.contains(".jpg") || str.contains(".png")) {
-                    imageUrl = exp;
-                    otherUrl += exp + "  ";
-                } else if (str.contains("img.ly")) {
-                    imageUrl = exp.replace("https", "http").replace("http://img.ly/", "http://img.ly/show/large/");
-                    otherUrl += exp + "  ";
-                } else {
-                    otherUrl += exp + "  ";
-                }
-            }
-        }
-
-        for (int i = 0; i < sMediaComp.length; i++) {
-            String comp = sMediaComp[i];
-            String exp = sMediaExp[i];
-
-            if (comp.length() > 1 && exp.length() > 1) {
-                tweetTexts = tweetTexts.replace(comp, sMediaDisply[i]);
-                imageUrl = status.getMediaEntities()[0].getMediaURL();
-                otherUrl += sMediaDisply[i];
             }
         }
 
@@ -470,8 +322,8 @@ public class TweetLinkUtils {
 
                 if(str.contains("instag") && !str.contains("blog.insta")) {
                     images.add(exp + "media/?size=m");
-                } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user"))) {
-                    // first get the youtube video code
+                } else if (exp.toLowerCase().contains("youtub") && !(str.contains("channel") || str.contains("user") || str.contains("playlist"))) {
+                    // first get the youtube surfaceView code
                     int start = exp.indexOf("v=") + 2;
                     int end = exp.length();
                     if (exp.substring(start).contains("&")) {
@@ -485,7 +337,7 @@ public class TweetLinkUtils {
                         images.add("http://img.youtube.com/vi/" + exp.substring(start, exp.length() - 1) + "/hqdefault.jpg");
                     }
                 } else if (str.contains("youtu.be")) {
-                    // first get the youtube video code
+                    // first get the youtube surfaceView code
                     int start = exp.indexOf(".be/") + 4;
                     int end = exp.length();
                     if (exp.substring(start).contains("&")) {
@@ -541,35 +393,64 @@ public class TweetLinkUtils {
         return text;
     }
 
-    public static String getGIFUrl(Status s, String otherUrls) {
+    public static String getGIFUrl(Status status, String otherUrls) {
+        return getGIFUrl(status.getMediaEntities(), otherUrls);
+    }
 
-        // this will be used after twitter begins to support them
-        for (MediaEntity e : s.getMediaEntities()) {
+    public static String getGIFUrl(MediaEntity[] entities, String otherUrls) {
 
-            if (e.getType().equals("animated_gif")) {
-                return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4").replace(".jpg",".mp4").replace(".jpeg", ".mp4");
-            } else if (e.getType().equals("video")) {
+        for (MediaEntity e : entities) {
+            if (e.getType().contains("gif")) {
                 if (e.getVideoVariants().length > 0) {
                     String url = "";
-                    for (MediaEntity.Variant v : e.getVideoVariants()) {
+                    MediaEntity.Variant variants[] = e.getVideoVariants();
+
+                    if (variants.length == 0) {
+                        return url;
+                    }
+
+                    for (int i = variants.length - 1; i >= 0; i--) {
+                        MediaEntity.Variant v = variants[i];
+                        if (v.getUrl().contains(".mp4") || v.getUrl().contains(".m3u8")) {
+                            url = v.getUrl();
+                        }
+                    }
+
+                    return url;
+                }
+                return e.getMediaURL().replace("tweet_video_thumb", "tweet_video").replace(".png", ".mp4").replace(".jpg", ".mp4").replace(".jpeg", ".mp4");
+            } else if (e.getType().equals("surfaceView") || e.getType().equals("video")) {
+                if (e.getVideoVariants().length > 0) {
+                    String url = "";
+                    MediaEntity.Variant variants[] = e.getVideoVariants();
+
+                    if (variants.length == 0) {
+                        return url;
+                    }
+
+                    for (int i = variants.length - 1; i >= 0; i--) {
+                        MediaEntity.Variant v = variants[i];
                         if (v.getUrl().contains(".mp4")) {
                             url = v.getUrl();
                         }
                     }
 
-                    Log.v("talon_video_link", url);
+                    if (url.isEmpty()) {
+                        for (int i = variants.length - 1; i >= 0; i--) {
+                            MediaEntity.Variant v = variants[i];
+                            if (v.getUrl().contains(".m3u8")) {
+                                url = v.getUrl();
+                            }
+                        }
+                    }
+
                     return url;
                 }
             }
         }
 
-        // this is how the urls are currently stored
-        String gifUrl = "twitter.com/" + s.getUser().getScreenName() + "/status/" + s.getId() + "/photo/1";
-        if (otherUrls.contains(gifUrl)) {
-            return gifUrl;
-        }
-
         // otherwise, lets just go with a blank string
         return "";
     }
+
 }

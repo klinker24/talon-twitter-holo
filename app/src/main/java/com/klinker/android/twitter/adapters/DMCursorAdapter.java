@@ -22,9 +22,6 @@ import android.view.View;
 
 import com.klinker.android.twitter.data.sq_lite.HomeSQLiteHelper;
 
-/**
- * Created by luke on 1/20/14.
- */
 public class DMCursorAdapter extends TimeLineCursorAdapter {
     public DMCursorAdapter(Context context, Cursor cursor, boolean isDM) {
         super(context, cursor, isDM);

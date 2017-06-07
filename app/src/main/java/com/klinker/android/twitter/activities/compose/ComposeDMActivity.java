@@ -22,9 +22,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -35,7 +37,9 @@ import android.widget.ImageView;
 import android.widget.ListPopupWindow;
 import android.widget.Toast;
 
+import com.klinker.android.twitter.BuildConfig;
 import com.klinker.android.twitter.R;
+import com.klinker.android.twitter.activities.GiphySearch;
 import com.klinker.android.twitter.adapters.AutoCompletePeopleAdapter;
 import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
 import com.klinker.android.twitter.utils.UserAutoCompleteHelper;
@@ -79,37 +83,7 @@ public class ComposeDMActivity extends Compose {
         attachButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (imagesAttached > 0 && !sharedPrefs.getBoolean("know_twitpic_for_mult_attach", false)) {
-                    new AlertDialog.Builder(context)
-                            .setTitle(context.getResources().getString(R.string.twitpic_disclaimer))
-                            .setMessage(getResources().getString(R.string.twitpic_disclaimer_multi_summary))
-                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    attachImage();
-                                    dialogInterface.dismiss();
-                                }
-                            })
-                            .setNeutralButton(R.string.dont_show_again, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    sharedPrefs.edit().putBoolean("know_twitpic_for_mult_attach", true).commit();
-                                    attachImage();
-                                    dialogInterface.dismiss();
-                                }
-                            })
-                            .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.dismiss();
-                                }
-                            })
-                            .create()
-                            .show();
-                } else {
-                    attachImage();
-                }
-
+                attachImage();
             }
         });
 
@@ -231,7 +205,7 @@ public class ComposeDMActivity extends Compose {
 
     public void attachImage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setItems(R.array.attach_options, new DialogInterface.OnClickListener() {
+        builder.setItems(R.array.attach_dm_options, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
                 if(item == 0) { // take picture
                     Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -246,35 +220,50 @@ public class ComposeDMActivity extends Compose {
                         }
                     }
 
-                    captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-                    startActivityForResult(captureIntent, CAPTURE_IMAGE);
-                } else { // attach picture
-                    if (attachedUri == null || attachedUri.equals("")) {
-                        Intent photoPickerIntent = new Intent();
-                        photoPickerIntent.setType("image/*");
-                        photoPickerIntent.setAction(Intent.ACTION_GET_CONTENT);
-                        try {
-                            startActivityForResult(Intent.createChooser(photoPickerIntent,
-                                    "Select Picture"), SELECT_PHOTO);
-                        } catch (Throwable t) {
-                            // no app to preform this..? hmm, tell them that I guess
-                            Toast.makeText(context, "No app available to select pictures!", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        attachedUri = "";
-                        attachImage.setImageDrawable(null);
-                        attachImage.setVisibility(View.GONE);
-                        Intent photoPickerIntent = new Intent();
-                        photoPickerIntent.setType("image/*");
-                        photoPickerIntent.setAction(Intent.ACTION_GET_CONTENT);
-                        try {
-                            startActivityForResult(Intent.createChooser(photoPickerIntent,
-                                    "Select Picture"), SELECT_PHOTO);
-                        } catch (Throwable t) {
-                            // no app to preform this..? hmm, tell them that I guess
-                            Toast.makeText(context, "No app available to select pictures!", Toast.LENGTH_SHORT).show();
+                    captureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
+                            | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+
+                    try {
+                        Uri photoURI = FileProvider.getUriForFile(context,
+                                BuildConfig.APPLICATION_ID + ".provider", f);
+
+                        captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                        startActivityForResult(captureIntent, CAPTURE_IMAGE);
+                    } catch (Exception e) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            Toast.makeText(ComposeDMActivity.this, "Have you given Talon the storage permission?", Toast.LENGTH_LONG).show();
                         }
                     }
+
+                } else if (item == 1) { // attach picture
+                    try {
+                        Intent intent = new Intent();
+                        intent.setType("image/*");
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                        startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PHOTO);
+                    } catch (Exception e) {
+                        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                        photoPickerIntent.setType("image/*");
+                        startActivityForResult(Intent.createChooser(photoPickerIntent,
+                                "Select Picture"), SELECT_PHOTO);
+                    }
+                } else if (item == 2) {
+                    Toast.makeText(ComposeDMActivity.this, "GIFs must be less than 5 MB", Toast.LENGTH_SHORT).show();
+
+                    try {
+                        Intent gifIntent = new Intent();
+                        gifIntent.setType("image/gif");
+                        gifIntent.setAction(Intent.ACTION_GET_CONTENT);
+                        startActivityForResult(gifIntent, SELECT_GIF);
+                    } catch (Exception e) {
+                        Intent gifIntent = new Intent();
+                        gifIntent.setType("image/gif");
+                        gifIntent.setAction(Intent.ACTION_PICK);
+                        startActivityForResult(gifIntent, SELECT_GIF);
+                    }
+                } else if (item == 3) {
+                    Intent gif = new Intent(context, GiphySearch.class);
+                    startActivityForResult(gif, FIND_GIF);
                 }
             }
         });
