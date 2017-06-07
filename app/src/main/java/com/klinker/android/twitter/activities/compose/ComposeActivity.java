@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -32,6 +33,7 @@ import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 
+import com.klinker.android.twitter.BuildConfig;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.AutoCompleteHashtagAdapter;
 import com.klinker.android.twitter.adapters.AutoCompletePeopleAdapter;
@@ -495,7 +497,10 @@ public class ComposeActivity extends Compose {
                         }
                     }
 
-                    captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                    Uri photoURI = FileProvider.getUriForFile(context,
+                            BuildConfig.APPLICATION_ID + ".provider", f);
+
+                    captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                     startActivityForResult(captureIntent, CAPTURE_IMAGE);
                 } else if (item == 1) { // attach picture
                     Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
