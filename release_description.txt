@@ -1,1 +1,1 @@
-This release adds a new style, for longer tweets: Tweet Storms! This style will break apart long tweets by placing a counter at the end (1/x), so that people never have to leave Twitter, to see your whole tweet!
+This release allows you to attach images and GIFs to your direct messages!

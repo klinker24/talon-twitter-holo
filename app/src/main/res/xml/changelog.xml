@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.14.0">
+        <text>Attach images and GIFs to direct messages</text>
+    </version>
+
     <version name="4.13.0">
         <text>New option for longer tweets: Tweet Storms! Break apart longer tweets by appending a count (1/x) on the end.</text>
     </version>
