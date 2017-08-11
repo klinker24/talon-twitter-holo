@@ -29,7 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.text.HoloTextView;
 import com.klinker.android.twitter.settings.AppSettings;
 
 import org.jsoup.Jsoup;

@@ -23,7 +23,7 @@ import android.os.Bundle;
 import android.support.v4.app.RemoteInput;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.data.sq_lite.MentionsDataSource;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.text.HoloTextView;
 import com.klinker.android.twitter.views.NetworkedCacheableImageView;
 
 public class NotificationComposeSecondAcc extends ComposeActivity {

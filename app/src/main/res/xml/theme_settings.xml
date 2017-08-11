@@ -19,7 +19,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="@string/theme_options" >
+        android:title="@string/theme_options"
+        android:key="theme_options_category">
 
         <ListPreference
             android:key="layout"
@@ -36,6 +37,14 @@
             android:defaultValue="1"
             android:entries="@array/choose_theme"
             android:entryValues="@array/choose_theme_inserted"
+            />
+
+        <ListPreference
+            android:key="emoji_style"
+            android:title="@string/emoji_style"
+            android:defaultValue="default"
+            android:entries="@array/emoji_style"
+            android:entryValues="@array/emoji_style_values"
             />
 
         <CheckBoxPreference

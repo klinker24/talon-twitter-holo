@@ -43,7 +43,7 @@
         android:paddingStart="6dp"
         android:orientation="vertical">
 
-        <com.klinker.android.twitter.views.HoloTextView
+        <com.klinker.android.twitter.views.text.HoloTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:textColor="?textColor"
             />
 
-        <com.klinker.android.twitter.views.HoloTextView
+        <com.klinker.android.twitter.views.text.HoloTextView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

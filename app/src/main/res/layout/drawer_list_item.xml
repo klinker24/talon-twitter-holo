@@ -27,7 +27,7 @@
         android:scaleType="fitCenter"
         android:layout_marginLeft="5dp" />
 
-    <com.klinker.android.twitter.views.HoloTextView
+    <com.klinker.android.twitter.views.text.HoloTextView
         android:id="@+id/title"
         android:layout_height="wrap_content"
         android:layout_width="300dp"

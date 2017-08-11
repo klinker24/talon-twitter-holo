@@ -267,7 +267,7 @@
                             android:gravity="bottom|right"
                             android:layoutDirection="ltr">
 
-                            <com.klinker.android.twitter.views.HoloTextView
+                            <com.klinker.android.twitter.views.text.HoloTextView
                                 android:layout_height="wrap_content"
                                 android:layout_width="wrap_content"
                                 android:layout_marginLeft="-4dp"
@@ -324,7 +324,7 @@
                             android:gravity="bottom|right"
                             android:layoutDirection="ltr">
 
-                            <com.klinker.android.twitter.views.HoloTextView
+                            <com.klinker.android.twitter.views.text.HoloTextView
                                 android:layout_height="wrap_content"
                                 android:layout_width="wrap_content"
                                 android:layout_marginLeft="-4dp"
@@ -387,7 +387,7 @@
                 android:contentDescription="Overflow Options"
                 android:background="@drawable/pressed_button" />
 
-            <com.klinker.android.twitter.views.HoloEditText
+            <com.klinker.android.twitter.views.text.HoloEditText
                 android:id="@+id/reply"
                 android:layout_height="wrap_content"
                 android:maxLines="5"
@@ -403,7 +403,7 @@
                 android:layout_width="48dp"
                 android:layout_height="wrap_content">
 
-                <com.klinker.android.twitter.views.HoloTextView
+                <com.klinker.android.twitter.views.text.HoloTextView
                     android:layout_height="13dp"
                     android:layout_width="match_parent"
                     android:textSize="10dp"

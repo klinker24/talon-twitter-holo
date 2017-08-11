@@ -61,7 +61,7 @@ import com.klinker.android.twitter.activities.setup.LoginActivity;
 import com.klinker.android.twitter.activities.MainActivity;
 import com.klinker.android.twitter.activities.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.views.ActionBarDrawerToggle;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.text.HoloTextView;
 import com.klinker.android.twitter.views.NotificationDrawerLayout;
 import com.klinker.android.twitter.utils.ImageUtils;
 import com.klinker.android.twitter.utils.Utils;

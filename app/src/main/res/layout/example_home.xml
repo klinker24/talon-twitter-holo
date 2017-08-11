@@ -22,7 +22,7 @@
     android:layout_gravity="center"
     android:gravity="center">
 
-    <com.klinker.android.twitter.views.HoloTextView
+    <com.klinker.android.twitter.views.text.HoloTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/here_is_home"

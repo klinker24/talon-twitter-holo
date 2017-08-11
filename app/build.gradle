@@ -26,6 +26,12 @@ if (keystoreProperties.exists()) {
 }
 
 android {
+
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+
     packagingOptions {
         exclude 'LICENSE'
         exclude 'README.md'
@@ -33,7 +39,7 @@ android {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE'
-    exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/DEPENDENCIES'
     }
 
     compileSdkVersion Integer.parseInt(project.TARGET_SDK)
@@ -48,6 +54,8 @@ android {
         targetSdkVersion Integer.parseInt(project.TARGET_SDK)
         versionCode code
         versionName project.VERSION_NAME
+
+        multiDexEnabled true
 
         File secretsExists = new File("secrets.properties")
         if (secretsExists.exists()) {
@@ -117,9 +125,12 @@ dependencies {
 
     compile "com.android.support:appcompat-v7:${project.ANDROID_SUPPORT_VERSION}"
     compile "com.android.support:customtabs:${project.ANDROID_SUPPORT_VERSION}"
+    compile "com.android.support:support-emoji:${project.ANDROID_SUPPORT_VERSION}"
 
-    compile 'com.klinkerapps:article_viewer:0.15.6'
-    compile 'com.klinkerapps:searchview:2.2.5'
+    compile ('com.klinkerapps:searchview:2.2.5') {
+        exclude module: 'recyclerview-v7'
+    }
+    compile 'com.klinkerapps:article_viewer:0.23.2'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.github.castorflex.smoothprogressbar:library:0.5.1'
     compile 'de.timroes.android:EnhancedListView:0.3.2@aar'

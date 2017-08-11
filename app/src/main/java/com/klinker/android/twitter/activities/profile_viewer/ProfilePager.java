@@ -58,7 +58,7 @@ import com.klinker.android.twitter.services.TalonPullNotificationService;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.activities.compose.ComposeActivity;
 import com.klinker.android.twitter.activities.compose.ComposeDMActivity;
-import com.klinker.android.twitter.views.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloEditText;
 import com.klinker.android.twitter.utils.IOUtils;
 import com.klinker.android.twitter.utils.MySuggestionsProvider;
 import com.klinker.android.twitter.utils.Utils;

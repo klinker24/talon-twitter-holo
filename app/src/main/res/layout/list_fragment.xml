@@ -33,7 +33,7 @@
             style="@android:style/Widget.Holo.Light.ProgressBar.Large"
             android:indeterminateOnly="true" />
 
-        <com.klinker.android.twitter.views.HoloTextView
+        <com.klinker.android.twitter.views.text.HoloTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading_tweets"
@@ -87,7 +87,7 @@
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                 android:layout_width="0dp"
                 android:layout_weight="1.5"
                 android:layout_height="match_parent"
@@ -108,7 +108,7 @@
                 android:background="@android:color/white"
                 android:alpha="20"/>
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"

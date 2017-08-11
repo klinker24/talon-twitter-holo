@@ -56,7 +56,7 @@
                             android:scaleType="centerCrop" android:adjustViewBounds="true"
                             android:maxWidth="42dp" android:maxHeight="42dp"/>
 
-                    <com.klinker.android.twitter.views.HoloTextView
+                    <com.klinker.android.twitter.views.text.HoloTextView
                             android:id="@+id/current_name"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
 
             </LinearLayout>
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                 android:id="@+id/reply_to"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
                 android:textColor="?dateColor"
                 android:visibility="gone"/>
 
-            <com.klinker.android.twitter.views.HoloEditText
+            <com.klinker.android.twitter.views.text.HoloEditText
                     android:id="@+id/tweet_content"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"

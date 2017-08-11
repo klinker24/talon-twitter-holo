@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                     android:id="@+id/tweet"
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
@@ -44,7 +44,7 @@
                     android:textIsSelectable="true"
                     android:paddingBottom="15dp" />
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                     android:id="@+id/time"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                     android:background="@drawable/pressed_button"
                     android:textColor="?dateColor"  />
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                     android:id="@+id/retweeter"
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"

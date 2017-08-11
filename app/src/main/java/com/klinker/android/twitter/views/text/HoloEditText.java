@@ -14,27 +14,39 @@
  * limitations under the License.
  */
 
-package com.klinker.android.twitter.views;
+package com.klinker.android.twitter.views.text;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.widget.EditText;
 
-public class HoloTextView extends TextView {
+public class HoloEditText extends EmojiableEditText {
 
-    public HoloTextView(Context context) {
+    private static SharedPreferences sharedPreferences;
+
+    public HoloEditText(Context context) {
         super(context);
-        setTypeface(context);
+        setUp(context);
     }
 
-    public HoloTextView(Context context, AttributeSet attrs) {
+    public HoloEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setTypeface(context);
+        setUp(context);
     }
 
-    public HoloTextView(Context context, AttributeSet attrs, int defStyle) {
+    public HoloEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        setUp(context);
+    }
+
+    private void setUp(Context context) {
+        if (sharedPreferences == null) {
+            sharedPreferences = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",
+                    0);
+        }
+
         setTypeface(context);
     }
 

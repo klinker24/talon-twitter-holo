@@ -67,7 +67,7 @@ import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
 import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
 import com.klinker.android.twitter.utils.ExpansionAnimation;
-import com.klinker.android.twitter.views.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloEditText;
 import com.klinker.android.twitter.services.SendTweet;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.activities.compose.ComposeActivity;

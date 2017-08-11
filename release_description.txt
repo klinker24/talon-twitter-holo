@@ -1,1 +1,1 @@
-This release allows you to attach images and GIFs to your direct messages!
+Users on Android 4.4+: You can now use the Android O style emojis! Turn them on from "Theme Settings".

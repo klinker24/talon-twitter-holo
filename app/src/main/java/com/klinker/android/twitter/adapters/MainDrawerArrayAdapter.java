@@ -29,7 +29,7 @@ import android.widget.ImageView;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.activities.drawer_activities.DrawerActivity;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.text.HoloTextView;
 
 import java.util.ArrayList;
 import java.util.HashSet;

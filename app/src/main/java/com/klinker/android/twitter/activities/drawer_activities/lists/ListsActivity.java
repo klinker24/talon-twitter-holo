@@ -37,7 +37,7 @@ import com.klinker.android.twitter.adapters.ListsArrayAdapter;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.activities.setup.LoginActivity;
 import com.klinker.android.twitter.activities.drawer_activities.DrawerActivity;
-import com.klinker.android.twitter.views.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloEditText;
 import com.klinker.android.twitter.utils.Utils;
 
 import org.lucasr.smoothie.AsyncListView;

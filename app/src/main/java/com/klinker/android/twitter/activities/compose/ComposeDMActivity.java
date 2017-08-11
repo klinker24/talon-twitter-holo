@@ -27,23 +27,17 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListPopupWindow;
 import android.widget.Toast;
 
 import com.klinker.android.twitter.BuildConfig;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.activities.GiphySearch;
-import com.klinker.android.twitter.adapters.AutoCompletePeopleAdapter;
-import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
 import com.klinker.android.twitter.utils.UserAutoCompleteHelper;
-import com.klinker.android.twitter.views.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloEditText;
 
 import java.io.File;
 import java.io.IOException;

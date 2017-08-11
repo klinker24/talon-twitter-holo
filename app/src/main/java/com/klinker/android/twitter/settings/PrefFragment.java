@@ -31,6 +31,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.*;
@@ -67,8 +68,9 @@ import com.klinker.android.twitter.activities.profile_viewer.ProfilePager;
 import com.klinker.android.twitter.activities.main_fragments.other_fragments.DMFragment;
 import com.klinker.android.twitter.activities.main_fragments.home_fragments.HomeFragment;
 import com.klinker.android.twitter.activities.main_fragments.other_fragments.MentionsFragment;
-import com.klinker.android.twitter.views.HoloEditText;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.utils.text.EmojiInitializer;
+import com.klinker.android.twitter.views.text.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloTextView;
 
 import java.io.File;
 import java.util.*;
@@ -727,6 +729,11 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
 
         final SharedPreferences sharedPrefs = getActivity().getSharedPreferences("com.klinker.android.twitter_world_preferences",
                 0);
+
+        if (EmojiInitializer.INSTANCE.isAlreadyUsingGoogleAndroidO() || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            ((PreferenceCategory) getPreferenceScreen().findPreference("theme_options_category"))
+                    .removePreference(findPreference("emoji_style"));
+        }
 
         final Preference deviceFont = findPreference("font_type");
         deviceFont.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {

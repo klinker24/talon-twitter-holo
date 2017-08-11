@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.SearchedPeopleCursorAdapter;
 import com.klinker.android.twitter.data.sq_lite.FollowersDataSource;
-import com.klinker.android.twitter.views.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloEditText;
 
 public class QustomDialogBuilder extends AlertDialog.Builder{
 

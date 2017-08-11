@@ -20,13 +20,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     
-    <com.klinker.android.twitter.views.HoloEditText
+    <com.klinker.android.twitter.views.text.HoloEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/list_name"
         android:id="@+id/name"/>
     
-    <com.klinker.android.twitter.views.HoloEditText
+    <com.klinker.android.twitter.views.text.HoloEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/list_description"

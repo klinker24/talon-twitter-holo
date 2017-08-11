@@ -20,6 +20,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.klinker.android.twitter.utils.EmojiUtils;
+import com.klinker.android.twitter.utils.text.EmojiInitializer;
 
 import java.io.File;
 
@@ -57,7 +58,7 @@ public class App extends Application {
                 EmojiUtils.init(App.this);
             }
         }).start();
-
+        EmojiInitializer.INSTANCE.initializeEmojiCompat(this);
     }
 
     public BitmapLruCache getBitmapCache() {

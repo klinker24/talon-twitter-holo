@@ -3,7 +3,7 @@ package com.klinker.android.twitter.activities.compose;
 import android.content.Intent;
 import android.util.Log;
 import com.klinker.android.twitter.R;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.text.HoloTextView;
 import com.klinker.android.twitter.views.NetworkedCacheableImageView;
 
 public class ComposeSecAccActivity extends ComposeActivity {

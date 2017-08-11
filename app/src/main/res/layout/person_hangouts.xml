@@ -58,7 +58,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                 android:id="@+id/name"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="8dp"/>
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                 android:id="@+id/following"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 android:textAllCaps="true"
                 android:singleLine="true"/>
 
-            <com.klinker.android.twitter.views.HoloTextView
+            <com.klinker.android.twitter.views.text.HoloTextView
                 android:id="@+id/screen_name"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"

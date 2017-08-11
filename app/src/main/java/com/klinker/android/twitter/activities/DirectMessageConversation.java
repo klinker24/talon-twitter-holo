@@ -68,21 +68,17 @@ import com.klinker.android.twitter.data.App;
 import com.klinker.android.twitter.data.sq_lite.DMDataSource;
 import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.utils.ImageUtils;
-import com.klinker.android.twitter.views.HoloEditText;
-import com.klinker.android.twitter.views.HoloTextView;
+import com.klinker.android.twitter.views.text.HoloEditText;
+import com.klinker.android.twitter.views.text.HoloTextView;
 import com.klinker.android.twitter.activities.setup.LoginActivity;
 import com.klinker.android.twitter.utils.IOUtils;
 import com.klinker.android.twitter.utils.Utils;
-import com.klinker.android.twitter.utils.api_helper.TwitPicHelper;
 import com.yalantis.ucrop.UCrop;
 
 import org.lucasr.smoothie.AsyncListView;
 import org.lucasr.smoothie.ItemManager;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;

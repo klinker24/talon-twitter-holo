@@ -719,4 +719,8 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="youtube_no_api_key">Please set Youtube API key to play videos!</string>
     <string name="browser_selection">Web Browser for Tapped Links</string>
+
+    <string name="emoji_style">Emoji Style</string>
+    <string name="emoji_style_default">System Default</string>
+    <string name="emoji_style_android_o">Google\'s Android O</string>
 </resources>

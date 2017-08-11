@@ -87,7 +87,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp" >
 
-                    <com.klinker.android.twitter.views.HoloTextView
+                    <com.klinker.android.twitter.views.text.HoloTextView
                         android:id="@+id/name_2"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                         android:textStyle="bold"
                         android:textColor="?textColor"/>
 
-                    <com.klinker.android.twitter.views.HoloTextView
+                    <com.klinker.android.twitter.views.text.HoloTextView
                         android:id="@+id/screen_name_2"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"

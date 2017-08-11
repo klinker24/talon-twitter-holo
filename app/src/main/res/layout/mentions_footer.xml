@@ -21,7 +21,7 @@
     android:layout_height="match_parent"
     android:gravity="center" >
 
-    <com.klinker.android.twitter.views.HoloTextView
+    <com.klinker.android.twitter.views.text.HoloTextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/only_7_days"

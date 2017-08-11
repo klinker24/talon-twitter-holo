@@ -28,7 +28,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.klinker.android.twitter.APIKeys;
+import com.klinker.android.twitter.data.EmojiStyle;
 import com.klinker.android.twitter.utils.EmojiUtils;
+import com.klinker.android.twitter.utils.text.EmojiInitializer;
 
 import java.util.Calendar;
 
@@ -190,6 +192,8 @@ public class AppSettings {
     public long activityRefresh;
     public long myId;
 
+    public EmojiStyle emojiStyle;
+
 
     public AppSettings(Context context) {
 
@@ -313,6 +317,19 @@ public class AppSettings {
             useEmoji = sharedPrefs.getBoolean("use_emojis", false);
         } else { // otherwise it is false
             useEmoji = false;
+        }
+
+        if (EmojiInitializer.INSTANCE.isAlreadyUsingGoogleAndroidO()) {
+            this.emojiStyle = EmojiStyle.ANDROID_O;
+        } else {
+            String emojiStyle = sharedPrefs.getString("emoji_style", "android_o");
+            switch (emojiStyle) {
+                case "android_o":
+                    this.emojiStyle = EmojiStyle.ANDROID_O;
+                    break;
+                default:
+                    this.emojiStyle = EmojiStyle.DEFAULT;
+            }
         }
 
         // Integers

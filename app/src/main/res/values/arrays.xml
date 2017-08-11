@@ -29,6 +29,16 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="emoji_style">
+        <item>@string/emoji_style_default</item>
+        <item>@string/emoji_style_android_o</item>
+    </string-array>
+
+    <string-array name="emoji_style_values">
+        <item>default</item>
+        <item>android_o</item>
+    </string-array>
+
     <string-array name="viewer_page">
         <item>@string/tweet_page</item>
         <item>@string/web_page</item>
