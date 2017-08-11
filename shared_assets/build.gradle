@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Jacob Klinker
+ * Copyright (C) 2014 Luke Klinker
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 repositories {
         mavenCentral()
@@ -45,7 +46,10 @@ android {
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:${KOTLIN_VERSION}"
+
     compile "com.google.android.gms:play-services-location:${project.GOOGLE_PLAY_SERVICES_VERSION}"
     compile "com.google.android.gms:play-services-wearable:${project.GOOGLE_PLAY_SERVICES_VERSION}"
+
     compile "com.android.support:support-v13:${project.ANDROID_SUPPORT_VERSION}"
 }

@@ -3,10 +3,12 @@ buildscript {
         mavenLocal()
         mavenCentral()
         jcenter()
+        google()
     }
 
     dependencies {
         classpath "com.android.tools.build:gradle:${ANDROID_GRADLE_VERSION}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
     }
 }
 
@@ -14,6 +16,7 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        google()
         maven { url "https://jitpack.io" }
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
         flatDir { dirs 'lib' }

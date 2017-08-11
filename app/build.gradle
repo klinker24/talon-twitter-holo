@@ -1,4 +1,21 @@
+/*
+ * Copyright (C) 2014 Luke Klinker
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 File keystoreProperties = rootProject.file("keystore.properties")
 def props = new Properties()
@@ -92,6 +109,8 @@ android {
 
 dependencies {
 
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:${KOTLIN_VERSION}"
+
     wearApp project(':wear')
     
     provided 'org.projectlombok:lombok:1.14.8'
@@ -115,8 +134,8 @@ dependencies {
     //compile 'org.twitter4j:twitter4j-stream:4.0.4'
 
     compile 'org.apache.httpcomponents:httpmime:4.3.5'
-    compile 'org.apache.httpcomponents:httpcore:4.3.2'
-    compile 'org.jsoup:jsoup:1.7.3'
+    compile 'org.apache.httpcomponents:httpcore:4.4.6'
+    compile 'org.jsoup:jsoup:1.10.2'
 
     compile files('lib/YouTubeAndroidPlayerApi.jar') // version 1.2.1
     compile files('lib/twitter4j-klinker24-fork.jar')
