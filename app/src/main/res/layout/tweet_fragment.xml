@@ -387,7 +387,7 @@
                 android:contentDescription="Overflow Options"
                 android:background="@drawable/pressed_button" />
 
-            <com.klinker.android.twitter.views.text.HoloEditText
+            <EditText
                 android:id="@+id/reply"
                 android:layout_height="wrap_content"
                 android:maxLines="5"

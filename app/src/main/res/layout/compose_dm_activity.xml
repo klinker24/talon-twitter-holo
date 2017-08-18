@@ -78,7 +78,7 @@
                     android:textColor="?dateColor"
                     android:visibility="gone"/>
 
-            <com.klinker.android.twitter.views.text.HoloEditText
+            <EditText
                     android:id="@+id/contact_entry"
                     android:layout_width="match_parent"
                     android:contentDescription="Enter Contact"
@@ -90,7 +90,7 @@
                     android:background="@android:color/transparent" />
 
 
-            <com.klinker.android.twitter.views.text.HoloEditText
+            <EditText
                     android:id="@+id/tweet_content"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
