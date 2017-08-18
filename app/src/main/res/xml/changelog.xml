@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.15.1">
+        <text>Bug fixes</text>
+    </version>
+
     <version name="4.15.0">
         <text>Android 4.4+: You can now use the Android O style emojis! Turn them on from "Theme Settings"</text>
     </version>
