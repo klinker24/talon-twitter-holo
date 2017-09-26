@@ -56,7 +56,7 @@
     <!-- Main Activity -->
     <string name="links">Link</string>
     <string name="pictures">Immagini</string>
-    <string name="timeline">Timeline</string>
+    <string name="timeline">Home</string>
     <string name="mentions">Menzioni</string>
     <string name="direct_messages">Messaggi diretti</string>
     <string name="retweets">Retweet</string>
@@ -413,7 +413,7 @@ Predefinito (quando è disabilitato):\n
     <string name="dismiss_all">Scarta tutto</string>
     <string name="handle_and_name">Visualizza username e nome completo</string>
     <string name="notification_types">Tipi di notifiche</string>
-    <string name="with_talon_pull">Accessibili attraverso \"Talon Pull\"</string>
+    <string name="with_talon_pull">Accessibili attraverso \"Talon Pull\".</string>
     <string name="favorited_tweet">Mi piace sui tuoi tweet</string>
     <string name="new_followers">Nuovi follower</string>
     <string name="discussion">Risposte</string>
@@ -462,6 +462,7 @@ Predefinito (quando è disabilitato):\n
     <string name="post_with_twitlonger">Il tweet supera la soglia dei 140 caratteri.\n\nVuoi postarlo utilizzando TwitLonger?</string>
     <string name="remove_retweet">Rimuovi retweet</string>
     <string name="edit">Modifica</string>
+    <string name="split_tweet">Tweet diviso</string>
     <string name="use_twitpic">Usa TwitPic</string>
     <string name="twitpic_summary">Usa TwitPic per allegare immagini al Tweet invece di utilizzare il servizio di caricamento foto di Twitter.</string>
     <string name="verified">Verificato</string>
@@ -496,7 +497,7 @@ Predefinito (quando è disabilitato):\n
     <string name="download_portal_summary">Questa è l\'applicazione \"Portal\" di Klinker Apps per rimanere aggiornato con le ultime notizie e trovare i migliori temi per Talon ed EvolveSMS in un unico posto!</string>
     <string name="compose_dm_hint">Scrivi messaggio...</string>
     <string name="pwiccer">Pwiccer</string>
-    <string name="select_shortening_service">Seleziona un servizio di abbreviazione link o modifica il tweet.</string>
+    <string name="select_shortening_service">Seleziona un servizio di abbreviazione link o premi indietro per modificare il tweet.</string>
     <string name="use_shortening_service">Usa un servizio di abbreviazione</string>
     <string name="use_shortening_service_summary">Avrai la possibilità di selezionare TwitLonger o Pwiccer (un servizio che converte il tuo tweet superiore ai 140 caratteri in un\'immagine da condividere).</string>
     <string name="view_retweeters">Ritwittatori</string>
@@ -525,7 +526,7 @@ Predefinito (quando è disabilitato):\n
     <string name="no_content">Nulla da visualizzare!</string>
     <string name="discover">Scopri</string>
     <string name="suggested_users">Utenti suggeriti</string>
-    <string name="nearby_tweets">Tweet vicino a te</string>
+    <string name="nearby_tweets">Vicino a te</string>
     <string name="local_trend_options">Opzioni tendenze locali</string>
     <string name="manually_config_location">Configura manualmente la posizione</string>
     <string name="country_region">Paese/Regione</string>
@@ -628,7 +629,7 @@ Talon invece caricherà le immagini usando TwitPic.</string>
     <string name="pick_date">Seleziona data</string>
     <string name="both_accounts">Entrambi gli account</string>
     <string name="attach_gif">GIF animata dal dispositivo</string>
-    <string name="attach_video">Video</string>
+    <string name="attach_video">Seleziona Video</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">Secondo account</string>
     <string name="second_account_login_info">Dal momento che Twitter detiene alcuni dei tuoi dati di accesso nel suo sistema, la schermata successiva potrebbe non consentirti di effettuare il login con il tuo nuovo account. Se salta questo login e va direttamente alla pagina di autorizzazione, è sufficiente che premi il pulsante \"Esci\" nell\'angolo in alto a destra del sito web per consentire all\'applicazione di farti accedere con il tuo secondo account.</string>
@@ -716,4 +717,5 @@ Menzioni, nuovi follower e retweet/mi piace sul tuo stato inizieranno a comparir
     <string name="three_mb_limit">Limite di 5MB</string>
     <string name="three_mb_message">Twitter permette di postare GIF che non superano i 5 MB. Talon userà la versione da Giphy con la qualità più alta che rispetta questo vincolo.\n\nI risultati che vedrai hanno una versione che rispetta questo limite, io non ho mostrato GIF la cui qualità è stata ridotta per rientrare nel limite di 5 MB.</string>
     <string name="quoted_you">ti ha citato</string>
+    <string name="privacy_policy">Politica sulla Privacy</string>
 </resources>

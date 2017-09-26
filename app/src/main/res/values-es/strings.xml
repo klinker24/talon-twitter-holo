@@ -19,7 +19,7 @@
     <string name="app_name_full">Talon para Twitter</string>
     <string name="extension_description">Muestra la cantidad de tweets no leídos, menciones y mensajes directos en tiempo real.</string>
     <!-- Action Bar -->
-    <string name="menu_refresh">Actualizar Timeline</string>
+    <string name="menu_refresh">Actualizar cronología</string>
     <string name="menu_compose">Nuevo Tweet</string>
     <string name="menu_logout">Salir</string>
     <string name="menu_settings">Ajustes</string>
@@ -68,7 +68,7 @@
     <string name="world_trends">Mundo</string>
     <string name="search">Buscar</string>
     <string name="lists">Listas</string>
-    <string name="search_hint">Búsqueda...</string>
+    <string name="search_hint">Buscar...</string>
     <string name="new_tweet">Nuevo tweet</string>
     <string name="new_tweets">nuevos tweets</string>
     <string name="no_new_tweets">No hay tweets nuevos</string>
@@ -134,7 +134,7 @@
     <string name="syncing_direct_messages">Sincronizando mensajes directos...</string>
     <string name="syncing_user">Sincronizando amigos...</string>
     <string name="done_syncing">Sincronización completada.</string>
-    <string name="login_error">Algo ha salido mal... ¡Por favor reintenta!</string>
+    <string name="login_error">Algo ha salido mal... ¡Por favor reintenta!\n\nPuede que sea que la hora de tu dispositivo no se establece automáticamente. Esto es requerido por la API de Twitter</string>
     <string name="no_network">No estás conectado a Internet</string>
     <string name="no_thanks">Ahora no</string>
     <string name="follow_me">¡Seguir!</string>
@@ -294,7 +294,7 @@
     <string name="to_market">Ir a la tienda de aplicaciones</string>
     <string name="get_ios">Descargar complemento</string>
     <string name="emoji_dialog_summary">Para habilitar los emoticonos, debes instalar el paquete \"Sliding Emoji Keyboard\" o \"Sliding Emoji Keyboard - iOS\" desde Play Store.\n\n
-                Puedes cambiar entre los dos tipos de emoticonos desinstalando uno de los paquetes e instalando el otro. Si ambos están instalados, Talon usará los emojis de Android.\n\n
+                Puedes cambiar entre los dos tipos de emoticonos desinstalando uno de los paquetes e instalando el otro. Si ambos están instalados, Talon usará los emoticonos de Android.\n\n
                 NOTA: ¡Los emoticonos continuarán funcionando en Talon después del periodo de prueba! Ese paquete es utilizado como una extensión además de como un teclado extra.</string>
     <string name="theme_light">Tema claro</string>
     <string name="theme_dark">Tema oscuro</string>
@@ -426,7 +426,7 @@
     <string name="compose_with_search">Escribir tweet incluyendo la búsqueda</string>
     <string name="use_toast">Mostrar botón \"Ir al inicio\"</string>
     <string name="ignore_retweets">Ignorar retweets</string>
-    <string name="ignore_retweets_summary">No mostrar ningún retweet en el timeline principal</string>
+    <string name="ignore_retweets_summary">No mostrar ningún retweet en la cronolgía principal</string>
     <string name="view">Ver</string>
     <string name="muted_hashtags">Hashtags silenciados</string>
     <string name="muted_hashtags_summary">Toque el hashtag para volver a mostrarlo</string>
@@ -551,7 +551,7 @@
     <string name="favorites">Me gustas</string>
     <string name="load_pictures">Cargar imágenes</string>
     <string name="pic_search_disclaimer">Busca imágenes en la cronología del usuario. Puede tardar algún tiempo dependiendo de cuán recientes sean sus imágenes.</string>
-    <string name="widget_theme">Tema del widget</string>
+    <string name="widget_theme">Tema del Widget</string>
     <string name="widget_theme_summary">Aplicado a los widgets de la pantalla principal.</string>
     <string name="widget_light">Tema claro</string>
     <string name="widget_dark">Tema oscuro</string>
@@ -560,7 +560,7 @@
     <string name="ui_settings">Ajustes de interfaz</string>
     <string name="show_pos_dashclock">Mostrar posición de la cronología</string>
     <string name="show_pos_dashclock_summary">Muestra la posición actual en la cronología principal en ligar del número de tweets nuevos.</string>
-    <string name="talon_large_widget">Talon - Cronología</string>
+    <string name="talon_large_widget">Talon - Inicio</string>
     <string name="unread_bar_widget">Talon - Barra de no leídos</string>
     <string name="show_muted_mentions">Mostrar menciones silenciadas</string>
     <string name="force_overflow_summary">Mostrar siempre el menú de 3 puntos en la barra de acciones. Útil en teléfonos con botones de menú físicos.</string>
@@ -596,7 +596,7 @@
     <string name="viewer_page">Visor de tweet</string>
     <string name="viewer_page_summary">Página por defecto que abrir al ver un tweet.</string>
     <string name="browser_settings">Ajustes de navegador</string>
-    <string name="memory_manage">Administración de memoria</string>
+    <string name="memory_manage">Memoria de la aplicación</string>
     <string name="protected_account">¡Usuario con cuenta protegida!</string>
     <string name="mute_rt">Silenciar Retweets</string>
     <string name="unmute_rt">No silenciar Retweets</string>
@@ -628,10 +628,11 @@
     <string name="pick_time">Escoge tiempo</string>
     <string name="pick_date">Escoge fecha</string>
     <string name="both_accounts">Ambas cuentas</string>
-    <string name="attach_gif">GIF animado</string>
-    <string name="attach_video">Vídeo</string>
+    <string name="attach_gif">GIF animado desde el dispostivo</string>
+    <string name="attach_video">Seleccionar un vídeo</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">Segunda cuenta</string>
+    <string name="second_account_login_info">Desde que Twitter tiene alguna información sobre el inicio de sesión en su sistema, puede que la siguiente pantalla no le permita iniciar sesión con su nueva cuenta al instante. Si salta el inicio de sesión, se irá automáticamente a la página de autorización, simplemente pulse en \"Cerrar sesión\" en el botón de la esquina de arriba a la derecha para permitir a la aplicación iniciar sesión con tu segunda cuenta.</string>
     <string name="fetch_tweetmarker">Obtener TweetMarker</string>
     <string name="rate_limit_reached">Tasa límite alcanzada</string>
     <string name="info">Información</string>
@@ -659,6 +660,7 @@ Espero que le guste mi trabajo!</string>
     <string name="fav_rt_multiple_accounts">Acciones de cuenta cruzada</string>
     <string name="fav_rt_multiple_accounts_summary">Si tiene varias cuentas, esto te permitirá seleccionar con que cuenta le das me gusta o retweet.</string>
     <string name="talon_pull_notifications">Talon Pull Notificaciones (Instantáneas)</string>
+    <string name="talon_pull_turned_on">Tallon Pull debe activarse desde las Opciones de Actualización para utilizar esta función.</string>
     <string name="activity_sync_interval">Tasa de actualización</string>
     <string name="mentioned_you">te ha mencionado</string>
     <string name="favorites_lower">Me gusta</string>

@@ -62,6 +62,7 @@
     <string name="retweets">Retweets</string>
     <string name="favorite_tweets">Favoris</string>
     <string name="favorite_users">Utilisateurs favoris</string>
+    <string name="favorite_users_tweets">Tweets utilisateurs préférés</string>
     <string name="trends">Tendances</string>
     <string name="local_trends">Tendances locales</string>
     <string name="world_trends">Tendances mondiales</string>
@@ -111,9 +112,11 @@
     <string name="new_interactions">Nouvelles Interactions</string>
     <string name="retweeted">a retweeté votre statut</string>
     <string name="favorited">a mis en favoris votre statut</string>
+    <string name="quoted">cité votre statut</string>
     <string name="followed">Vous suit</string>
     <string name="new_retweets">retweets</string>
     <string name="new_favorites">favoris</string>
+    <string name="new_quotes">citations</string>
     <string name="new_tweets_upper">Nouveaux Tweets</string>
     <!-- Login Screen -->
     <string name="setup_talon">Configurer Talon</string>
@@ -168,6 +171,7 @@
     <string name="tweet_to_long">"Tweet trop long ! "</string>
     <string name="ok">OK</string>
     <string name="no">Non</string>
+    <string name="yes">Oui</string>
     <string name="changelog">Quoi de neuf</string>
     <string name="created_by">Créer par</string>
     <string name="no_location">Impossible de trouver l\'emplacement</string>
@@ -215,6 +219,7 @@
     <string name="conversation">Conversation</string>
     <string name="webpage">Page Web</string>
     <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweeter un Média</string>
     <string name="vine">Vine</string>
     <string name="menu_quote">Citer le Tweet</string>
     <string name="deleted_tweet">Tweet supprimé</string>
@@ -456,6 +461,7 @@ Défaut (quand c\'est désactivé) \n
     <string name="post_with_twitlonger">Ce Tweet fait plus de 140 caractères.\n\nVoulez-vous le poster en utilisant TwitLonger ?</string>
     <string name="remove_retweet">Retirer le Retweet</string>
     <string name="edit">Modifier</string>
+    <string name="split_tweet">Séparer le Tweet</string>
     <string name="use_twitpic">Utiliser TwitPic</string>
     <string name="twitpic_summary">Utilise TwitPic pour envoyer les images au lieu du service d\'image de Twitter.</string>
     <string name="verified">Vérifié</string>
@@ -494,6 +500,7 @@ Défaut (quand c\'est désactivé) \n
     <string name="use_shortening_service">Utiliser le service de raccourcissement</string>
     <string name="use_shortening_service_summary">Vous serez en mesure de sélectionner l\'une ou l\'autre, TwitLonger ou Pwiccer (un service qui convertit les longs tweets par une image).</string>
     <string name="view_retweeters">Retweeters</string>
+    <string name="view_favoriters">J\'aime</string>
     <string name="no_tweets">Pas de Tweets</string>
     <string name="only_7_days">Seulement disponible 7 jours</string>
     <string name="saved_searches">Recherches enregistrées</string>
@@ -621,8 +628,10 @@ A la place, Talon permettra le téléchargement des photos via TwitPic.</string>
     <string name="pick_date">Choisir la date</string>
     <string name="both_accounts">Deux comptes à la fois</string>
     <string name="attach_gif">GIF animé</string>
+    <string name="attach_video">Sélectionner une vidéo</string>
     <string name="roboto_l">Android \"L\" Roboto</string>
     <string name="second_account">2ème Compte</string>
+    <string name="rate_limit_reached">Taux limite atteint</string>
     <string name="info">Info</string>
     <string name="help_and_feedback">Aide/Réaction</string>
     <string name="contact">Contact</string>
@@ -634,19 +643,37 @@ A la place, Talon permettra le téléchargement des photos via TwitPic.</string>
     <string name="main_pages_and_drawer">Pages principales et Drawer</string>
     <string name="drawer_elements">Éléments visibles dans le drawer</string>
     <string name="second_acc_mentions">Mentions du second compte</string>
+    <string name="using_second_account">Utiliser le compte de %s</string>
     <!-- the username will replace %s -->
     <string name="error_gif">Erreur pour trouver le GIF</string>
     <string name="saved_search">Recherche sauvegardée</string>
     <string name="activity">Activité</string>
     <string name="sending_direct_message">Envoi du Message Privé</string>
+    <string name="fav_rt_multiple_accounts">Actions de compte croisé</string>
     <string name="fav_rt_multiple_accounts_summary">Si vous avez plusieurs comptes, cela vous permettra de sélectionner le compte avec lequel vous souhaitez retweeter ou mettre en favoris.</string>
+    <string name="activity_sync_interval">Taux d\'actualisation de l\'activité</string>
     <string name="mentioned_you">vous a mentionné</string>
     <string name="favorites_lower">favoris</string>
+    <string name="favorite_lower">J\'aime</string>
     <string name="retweeted_your_status">a retweeté votre status</string>
     <string name="followed_you">Vous suis</string>
     <string name="new_activity">Nouvelle activité!</string>
     <string name="use_interaction_drawer">Activer les interactions dans le drawer</string>
     <string name="no_activity_yet">Pas encore d\'activité!</string>
+    <string name="no_activity_yet_desc">Cette section sera remplie lorsque vous interagirez plus sur Twitter.\n\n
+Les mentions, les nouveaux abonnés et les retweets / j\'aimes sur votre statuts commenceront à apparaître ici.</string>
+    <string name="retweet">Retweeter</string>
+    <string name="new_follower_lower">nouvel abonné</string>
+    <string name="new_followers_lower">nouveaux abonnés</string>
+    <string name="item">article</string>
+    <string name="items">articles</string>
+    <string name="and">et</string>
+    <string name="no_favorites">Pas de J\'aime</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Afficher la notification persistante</string>
+    <string name="show_pull_notification_summary">Si vous désactivez cette notification, le système Android pourrait arrêter le flux à tout moment. Soyez extrêmement prudent.</string>
+    <string name="learn_more">En savoir d\'avantage</string>
     <!-- Long click methods -->
     <string name="open_profile">Ouvrir le profil</string>
     <string name="search_user">Chercher un utilisateur</string>
@@ -668,4 +695,10 @@ A la place, Talon permettra le téléchargement des photos via TwitPic.</string>
     <string name="open_to_web_summary">Si un tweet contient un lien, il ouvrira directement ce lien à la place du tweet.</string>
     <string name="open_webpage">Ouvrir le lien</string>
     <string name="get_android">Obtenir les Emojis Android</string>
+    <string name="play_gif">Lire</string>
+    <string name="add_to_tweet_gif">Ajouter au Tweet</string>
+    <string name="find_a_gif">Trouver un GIF</string>
+    <string name="three_mb_limit">Taille limite de 5MB</string>
+    <string name="quoted_you">vous a cité</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
 </resources>

@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  Copyright 2014 Luke Klinker
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <string name="app_name">Talon</string>
+    <string name="app_name_full">Talon for Twitter</string>
+    <string name="extension_description">Viser antall uleste tweets, nevninger og direkte meldinger som de er oppdatert.</string>
+    <!-- Action Bar -->
+    <string name="menu_refresh">Oppdater Tidslinje</string>
+    <string name="menu_compose">Ny Tweet</string>
+    <string name="menu_logout">Logg ut</string>
+    <string name="menu_settings">Innstillinger</string>
+    <string name="menu_follow">Følg Bruker</string>
+    <string name="menu_unfollow">Ikke Følg Bruker</string>
+    <string name="menu_tweet">Send Tweet</string>
+    <string name="menu_dm">Send Direkte Melding</string>
+    <string name="menu_block">Blokker Bruker</string>
+    <string name="menu_unblock">Ikke Blokker Bruker</string>
+    <string name="menu_add_to_list">Legg til i Listen</string>
+    <string name="menu_change_picture">Endre Profilbilde</string>
+    <string name="menu_change_bio">Endre Profilinfo</string>
+    <string name="menu_change_banner">Endre Profilfane</string>
+    <string name="menu_direct_message">Ny Direkte Melding</string>
+    <string name="menu_save_image">Lagre Bildet</string>
+    <string name="menu_favorite">Favoritt Bruker</string>
+    <string name="menu_unfavorite">Ikke Favoritt Bruker</string>
+    <string name="menu_create_list">Lag Ny Liste</string>
+    <string name="menu_spam">Marker som Spam</string>
+    <!-- Times -->
+    <!-- When translating: put the %s where the number should go in the string. -->
+    <string name="just_now">akkuratt nå</string>
+    <string name="a_min_ago">et minutt siden</string>
+    <string name="minutes_ago">%s minutter siden</string>
+    <string name="an_hour_ago">en time siden</string>
+    <string name="hours_ago">%s timer siden</string>
+    <string name="yesterday">i går</string>
+    <string name="days_ago">%s dager siden</string>
+    <!-- Muting -->
+    <string name="mute">Mute</string>
+    <string name="unmute">Ikke Mute</string>
+    <string name="muted_users">Mutede Brukere</string>
+    <string name="no_users">Ingen Brukere</string>
+    <!-- Main Activity -->
+    <string name="links">Linker</string>
+    <string name="pictures">Bilder</string>
+    <string name="timeline">Hjem</string>
+    <string name="mentions">Nevninger</string>
+    <string name="direct_messages">Direktemeldinger</string>
+    <string name="retweets">Retweets</string>
+    <string name="favorite_tweets">Likte Tweets</string>
+    <string name="favorite_users">Favorittbrukere</string>
+    <string name="favorite_users_tweets">Favoritt Bruker Tweets</string>
+    <string name="trends">Populært</string>
+    <string name="local_trends">Lokalt</string>
+    <string name="world_trends">Verden</string>
+    <string name="search">Søk</string>
+    <string name="lists">Lister</string>
+    <string name="search_hint">Søk...</string>
+    <string name="new_tweet">ny tweet</string>
+    <string name="new_tweets">nye tweets</string>
+    <string name="no_new_tweets">Ingen nye tweets</string>
+    <string name="new_mention">ny nevning</string>
+    <string name="new_mentions">nye nevninger</string>
+    <string name="no_new_mentions">Ingen nye nevninger</string>
+    <string name="new_direct_message">Ny direkte melding</string>
+    <string name="new_direct_messages">nye direktemeldinger</string>
+    <string name="no_new_direct_messages">Ingen nye direktemeldinger</string>
+    <string name="tap_to_setup">Trykk for å konfigurere</string>
+    <string name="new_account">Ny Konto</string>
+    <string name="from_top">fra toppen</string>
+    <string name="jump_to_top">Til Første</string>
+    <string name="all_read">Alt Lest!</string>
+    <string name="view_new">Laste?</string>
+    <string name="old_interactions">Alle Interaksjoner</string>
+    <!-- Notifications -->
+    <string name="tweet">Tweet</string>
+    <string name="tweets">Tweets</string>
+    <string name="mention">Nevning</string>
+    <string name="message">Melding</string>
+    <string name="messages">Meldinger</string>
+    <string name="new_message">ny melding</string>
+    <string name="new_messages">nye meldinger</string>
+    <string name="mentioned_by">Nevnt av</string>
+    <string name="message_from">Melding fra</string>
+    <string name="mark_read">Les</string>
+    <string name="noti_reply">Svar</string>
+    <string name="popup">Popopp</string>
+    <string name="fav_user_tweets">nye favoritt bruker tweets</string>
+    <string name="sec_acc">Andre Konto</string>
+    <string name="talon_pull">Talon Pull</string>
+    <string name="talon_pull_summary">ADVARSEL: Aktivering av dette alternativet kan forårsake betydelig batteridrift på Android Lollipop.</string>
+    <string name="listening">Lytter</string>
+    <string name="listening_for_mentions">Lytter etter interaksjoner</string>
+    <string name="refreshing">Laster inn på nytt</string>
+    <string name="refreshing_widget">Laster inn widgetten på nytt</string>
+    <string name="downloading">Laster ned</string>
+    <string name="new_interaction_upper">Ny Interaksjon</string>
+    <string name="new_interactions_lower">Nye Interaksjoner</string>
+    <string name="new_interactions">Nye Interaksjoner</string>
+    <string name="retweeted">retweetet statusen din</string>
+    <string name="favorited">likte statusen din</string>
+    <string name="quoted">siterte statusen din</string>
+    <string name="followed">følgte deg</string>
+    <string name="new_retweets">retweets</string>
+    <string name="new_favorites">liker</string>
+    <string name="new_quotes">sitater</string>
+    <string name="new_tweets_upper">Nye Tweets</string>
+    <!-- Login Screen -->
+    <string name="setup_talon">Set opp Talon</string>
+    <string name="login_to_twitter">Logg inn på Twitter</string>
+    <string name="first_welcome">Velkommen til Talon!</string>
+    <string name="second_welcome">Synkroniserer Data</string>
+    <string name="third_welcome">Det var det - kos deg!</string>
+    <string name="back_to_timeline">Ta meg til min tidslinje!</string>
+    <string name="initial_sync">Synkroniser Nå!</string>
+    <string name="first_info">Før vi begynner, la oss få deg innlogget og synkronisert med Twitter.</string>
+    <string name="second_info">Flott! Vi snakker nå med Twitter for å synkronisere kontoen din.</string>
+    <string name="third_info">Håper du liker Talon!</string>
+    <string name="syncing_timeline">Synkroniserer tidslinje...</string>
+    <string name="syncing_mentions">Synkroniserer nevninger...</string>
+    <string name="syncing_direct_messages">Synkroniserer direktemeldinger...</string>
+    <string name="syncing_user">Synkroniserer venner...</string>
+    <string name="done_syncing">Ferdig med synkroniseringen</string>
+    <string name="login_error">Noe gikk galt ... Prøv igjen!\n\nDet kan være at dato og klokkeslett på enheten din ikke er satt til automatisk. Dette er et krav på Twitters tredjeparts API.</string>
+    <string name="no_network">Du er ikke koblet til Internett</string>
+    <string name="no_thanks">Ikke nå</string>
+    <string name="follow_me">Følg!</string>
+    <string name="follow_me_description">Bruk sjekk-knappen for å automatisk følge støttekontoer, eller trykk på tilbakeknappen for å hoppe over dette.</string>
+    <!-- Compose New Activity -->
+    <string name="compose_activity">Ny Tweet</string>
+    <string name="compose_tweet_hint">Skriv tweet...</string>
+    <string name="send_to">Skriv brukerens navn...</string>
+    <string name="direct_message_sent">Direktemelding sendt</string>
+    <string name="type_user">Skriv inn Bruker</string>
+    <string name="add_user">Legg til Bruker</string>
+    <string name="location_connected">Plassering vedlagt</string>
+    <string name="location_disconnected">Plassering tapt</string>
+    <string name="finding_location">Ser etter posisjoner</string>
+    <string name="draft_found">Utkast funnet</string>
+    <string name="apply">Legg til?</string>
+    <string name="tweet_failed">Feil ved sending av tweet</string>
+    <string name="tap_to_retry">Trykk for å prøve igjen</string>
+    <string name="one_recepient">Du kan bare sende direkte-meldinger til en bruker!</string>
+    <!-- Actionbar Done-Discard -->
+    <string name="discard">Forkast</string>
+    <string name="send">Send</string>
+    <!-- Other -->
+    <string name="placeholder">Plassholder</string>
+    <string name="reply">Svar...</string>
+    <string name="error">Feil</string>
+    <string name="error_loading_page">Feil ved lasting av nettside</string>
+    <string name="delete">Slett</string>
+    <string name="cancel">Avbryt</string>
+    <string name="delete_direct_message">Slett Melding?</string>
+    <string name="save_image">Bilde Laget</string>
+    <string name="tweet_success">Tweet Vellykket</string>
+    <string name="error_sending_tweet">Feil ved sending av Tweet</string>
+    <string name="tweet_to_long">Tweet for lang!</string>
+    <string name="ok">OK</string>
+    <string name="no">Nei</string>
+    <string name="yes">Ja</string>
+    <string name="changelog">Hva er nytt</string>
+    <string name="created_by">Laget av</string>
+    <string name="no_location">Kunne ikke finne posisjon</string>
+    <string name="take_picture">Ta Bilde</string>
+    <string name="from_file">Legg til et Bilde</string>
+    <string name="via">via</string>
+    <string name="version">Versjon</string>
+    <string name="from">Fra</string>
+    <string name="save">Lagre</string>
+    <string name="stop">Stopp</string>
+    <string name="tweeted">tweetet</string>
+    <!-- User Profile Activity -->
+    <string name="followers">Følgere</string>
+    <string name="following">Følger</string>
+    <string name="blocked_user">Blokkerte Brukere</string>
+    <string name="unblocked_user">Ublokkerte Bruker</string>
+    <string name="followed_user">Følgte Bruker</string>
+    <string name="unfollowed_user">Sluttet å følge Bruker</string>
+    <string name="no_description">Ingen bruker-beskrivelse tilgjengelig</string>
+    <string name="favorite_user">Favorittiserte Bruker</string>
+    <string name="unfavorite_user">Ufavorittiserte Bruker</string>
+    <string name="updating_pro_pic">Oppdaterer Profil Bilde</string>
+    <string name="updating_banner_pic">Oppdaterer Fane Bildet</string>
+    <string name="uploaded">Fil Opplastet</string>
+    <string name="change_profile_info">Endre Profilinfo</string>
+    <string name="update">Oppdater</string>
+    <string name="optional_name">Navn (Valgfritt)</string>
+    <string name="optional_url">URL (Valgfritt)</string>
+    <string name="optional_location">Plassering (Valgfritt)</string>
+    <string name="optional_description">Beskrivelse (Valgfritt)</string>
+    <string name="updated_profile">Oppdatere Profil</string>
+    <string name="name_char_length">Navn: 20 tegngrense</string>
+    <string name="url_char_length">URL: 100 tegngrense</string>
+    <string name="location_char_length">Plassering: 30 tegngrense</string>
+    <string name="description_char_length">Beskrivelse: 160 tegngrense</string>
+    <!-- Retweets Activity -->
+    <string name="retweets_lower">retweets</string>
+    <string name="retweet_lower">retweet</string>
+    <string name="retweeter">retweetet av @</string>
+    <!-- Tweet Activity -->
+    <string name="menu_open_web">Åpne Nettlink</string>
+    <string name="menu_copy_text">Kopier Tweet Tekst</string>
+    <string name="menu_share">Del Tweet</string>
+    <string name="menu_delete_tweet">Slett Tweet</string>
+    <string name="conversation">Samtale</string>
+    <string name="webpage">Nettside</string>
+    <string name="tweet_youtube">YouTube</string>
+    <string name="gif">Tweet Media</string>
+    <string name="vine">Vine</string>
+    <string name="menu_quote">Siter Tweet</string>
+    <string name="deleted_tweet">Tweet slettet</string>
+    <string name="error_deleting">Feil ved sletting av tweet</string>
+    <string name="sending">Sender</string>
+    <string name="open_what">Åpne hva</string>
+    <string name="youtube_error">Feil ved avspilling av video</string>
+    <string name="no_conversation">Ingen Tidligere Tweets</string>
+    <string name="saving_picture">Lager Bildet</string>
+    <string name="saved_picture">Bilde Laget Vellykket</string>
+    <string name="retweet_success">Retweet Vellykket</string>
+    <string name="favorite_success">Lik Vellykket</string>
+    <string name="success">Vellykket</string>
+    <!-- User Lists -->
+    <string name="view_users">Se Brukere</string>
+    <string name="delete_list">Slett Liste</string>
+    <string name="remove_user">Fjern Bruker</string>
+    <string name="remove">Fjern</string>
+    <string name="from_list">fra liste</string>
+    <string name="removed_user">Fjernet Bruker</string>
+    <string name="create_new_list">Lag Ny Liste</string>
+    <string name="list_name">Listenavn...</string>
+    <string name="list_description">Valgfri listebeskrivelse...</string>
+    <string name="deleted_list">Slettet Liste</string>
+    <string name="back_to_refresh">Gå ut for å laste inn listene på nytt</string>
+    <string name="sPrivate">Privat</string>
+    <string name="sPublic">Offentlig</string>
+    <string name="finding_lists">Finner Lister...</string>
+    <string name="choose_list">Velg Liste</string>
+    <string name="added_to_list">Lagt til i listen</string>
+    <!-- Tutorial Activity -->
+    <string name="part_1_tablet">\nFå tilgang til funksjoner\nved å trykke på elementer\ni\nnavigasjon\nskuffen!</string>
+    <string name="part_1_phone">\nTrekk åpen\nnavigasjons skuffen\nmed en venstre\nsidesvipe!</string>
+    <string name="part_2">\nBla mellom\ntidslinjer med\net sveip en valgfri\nvei fra midten\nav skjermen!</string>
+    <string name="part_3">Det er det!\n\nTrykk på\nskjerm for å\nstarte!</string>
+    <string name="part_4">\nTrykk på app\nbaren for å vise\ntidslinje\nposisjonen.</string>
+    <string name="part_5">\nHold inne på\napp baren for å\nhoppe til toppen\nav tidslinjen.</string>
+    <!-- Settings Menu -->
+    <string name="theme_settings">Temainnstillinger</string>
+    <string name="theme_options">Temaalternativer</string>
+    <string name="font_options">Visningsalternativer</string>
+    <string name="other_options">Andre alternativer</string>
+    <string name="theme">Tema</string>
+    <string name="addon_themes">Tillegg Temaer</string>
+    <string name="addon_note">Klikk her for å finne nye temaer.\n\nMERKNADER:\n- Dette vil deaktivere bruken av det innebygde emoji-tastaturet når du svarer på en tweet.\n- Vennligst ikke rapporter feil, med mindre du kan bekrefte dem UTEN et tilpasset tema brukt.</string>
+    <string name="use_addon_themes">Bruk Tilleggs Temaet</string>
+    <string name="make_a_theme">Lag et Tema</string>
+    <string name="layout">Oppsett</string>
+    <string name="themeing_complete">Aktivert Tema</string>
+    <string name="themeing_complete_summary">\"Talon\" vil nå avslutte.
+
+
+Du må sveipe \"Talon\" ut av de nyeste appene dine for å se endringene fullt ut påvirke tidslinjene dine.
+
+
+Hvis profilbildene dine ikke vises slik de burde (dvs. sirkel eller firkant), må du fjerne og legge til widgeten igjen.</string>
+    <string name="layout_summary">Hvis du endrer dette, slettes appens cache.</string>
+    <string name="text_size">Tekststørrelse</string>
+    <string name="night_mode">Nattmodus</string>
+    <string name="night_mode_night">Velg Start Tid</string>
+    <string name="night_mode_day">Velg Slutt Tid</string>
+    <string name="night_mode_theme">Velg Tema for Nattmodus</string>
+    <string name="device_font">Bruk Enhetens Font</string>
+    <string name="device_font_summary">Vanlig \"Roboto\" på de fleste enheter. Talons standard skrift er \"Roboto Light\".</string>
+    <string name="ui_extras">UI Ekstra</string>
+    <string name="ui_extras_summary">Inkluderer:
+
+- Skjul Handlingslinje
+
+- Åpenbar Toastbar
+
+- Transparente Systembars (Kun Android 4.4)
+
+
+Aktivering av denne innstillingen påvirker rullingsytelsen.</string>
+    <string name="inline_pics">Vis På-Linje Bilder</string>
+    <string name="use_screen_name">Vis \"Twitter Handle\"</string>
+    <string name="use_screen_name_summary">Vis brukerens \"Twitter Handle\" i stedet for deres navn på tidslinjer.</string>
+    <string name="timestamp">24-timers Tidsstempel</string>
+    <string name="enable_emojis">Bruk iOS emojis</string>
+    <string name="to_market">Til Play Butikk</string>
+    <string name="get_ios">Last ned \"Plug-in\"</string>
+    <string name="emoji_dialog_summary">For å aktivere iOS emojis i denne appen må du ha våres gratis \"Sliding Emoji Keyboard - iOS\" -app installert fra play butikken.
+
+
+MERK: Emojis vil fortsette å fungere i denne appen selv om prøveperioden er utløpt! Den pakken brukes som et \"plugin\" og et frittstående tastatur.</string>
+    <string name="theme_light">Lyst Tema</string>
+    <string name="theme_dark">Mørkt Tema</string>
+    <string name="theme_black">Svart Tema</string>
+    <string name="sync_settings">Bakgrunnssynkronisering</string>
+    <string name="sync_mobile_data">Synkroniser over Mobildata</string>
+    <string name="sync_mobile_data_summary">Automatisk oppdater tidslinjer over både mobildata og WiFi.</string>
+    <string name="auto_sync_notifications">Automatisk Oppdater Varslingsalternativer</string>
+    <string name="notifications">Varsler</string>
+    <string name="vibrate">Vibrer</string>
+    <string name="led">Flash LED</string>
+    <string name="wake_screen">Vekk Skjermen</string>
+    <string name="sound">Varslingslyd</string>
+    <string name="quiet_hours">Ikke Forstyrr Modus</string>
+    <string name="max_number_on_refresh">Maks Tweets å Oppdatere</string>
+    <string name="fav_users_notifications">Favorittbrukervarsler</string>
+    <string name="sync_second_mentions">Synkroniser Andre Konto</string>
+    <string name="sync_second_mentions_summary">Kontroller og varsle automatisk om nye meldinger og direktemeldinger på den andre kontoen din i tillegg til den første.</string>
+    <string name="max_number_summary">Høyere maks betyr en langsommere oppdatering.</string>
+    <string name="auto_refresh_category">Alternativer for Automatisk Oppdatering</string>
+    <string name="refresh_on_startup">Oppdater på Oppstart</string>
+    <string name="timeline_sync_interval">Hjem Tidslinje Oppdateringsfrekvens</string>
+    <string name="mentions_sync_interval">Nemninger Oppdateringsfrekvens</string>
+    <string name="dm_sync_interval">Direkte Meldingers Oppdateringsfrekvens</string>
+    <string name="sync_friends">Synkroniser vennedata</string>
+    <string name="sync_friends_summary2">Synkroniser vennedata igjen til å bruke når du komponerer tweets.</string>
+    <string name="sync_friends_summary">Synkroniser vennelisten manuelt.
+
+Dette ble gjort ved innlogging for deg, og de blir automatisk lagt til når du følger noen fra Talon, men dette alternativet vil trekke alle dine siste \"følgende\".
+
+
+Disse dataene brukes når du søker etter brukere når du skriver en tweet.</string>
+    <string name="sync_success">Synkronisering Vellykket</string>
+    <string name="sync_failed">Synkronisering Mislyktes</string>
+    <string name="push_notification_options">"\"Push Varsler\" Alternativer"</string>
+    <string name="push_notifications">Talon Pull</string>
+    <string name="push_notifications_summary">Dette vil starte en lytter til å legge inn varsler når du mottar nye interaksjoner (nevninger, dm, liker, retweets eller nye følgere).</string>
+    <string name="push_notification_warning">For å lese mer om Talon Pull, klikk denne preferansen.</string>
+    <string name="notification_settings">Varsler</string>
+    <string name="pebble_notifications">Pebble Varsler</string>
+    <string name="pebble_notifications_summary">Brukes til Pebble smartwatch. Deaktiver dette hvis du får to varsler på klokken din.</string>
+    <string name="advanced_settings">Avanserte Innstillinger</string>
+    <string name="app_feel_category">App Følsomhetsalternativer</string>
+    <string name="advance_windowed">Avansering \"Windowed\"</string>
+    <string name="advance_windowed_summary">Åpne profiler og tweets i en \"windowed\" visning over tidslinjene.</string>
+    <string name="full_screen_browsers">Fullskjerm Nettlesere</string>
+    <string name="full_screen_browsers_summary">Åpne tweets som inneholder en nettside i fullskjermmodus.</string>
+    <string name="reverse_click_actions">Omvendt Klikk-handlinger</string>
+    <string name="reverse_click_actions_summary">Gjør klikkaksjonene omvendt på tweets.
+
+
+Standard (når deaktivert):
+
+- Hold inne for å åpne tweet
+
+- Trykk kort for å utvide tweet</string>
+    <string name="extra_pages">Bruk Ekstra Sider</string>
+    <string name="extra_pages_summary">Legg til link og bilde sider til venstre for tidslinjen.</string>
+    <string name="live_streaming">Direktesending</string>
+    <string name="memory_management">Minnehåndteringsalternativer</string>
+    <string name="delete_cache">Slett Hurtigbuffer Nå</string>
+    <string name="cache_dialog">Slette Hurtigbuffer?</string>
+    <string name="not_cache">Dette gjelder ikke for appbufferen.</string>
+    <string name="current_cache_size">Nåværende hurtigbuff størrelse</string>
+    <string name="cache_dialog_summary">Denne handlingen kan ikke gjøres omigjen.</string>
+    <string name="timeline_size">Hjemstørrelse</string>
+    <string name="timeline_size_summary">Maks antall tweets å lagre i databasen.</string>
+    <string name="mentions_size">Nevningerstørrelse</string>
+    <string name="mentions_size_summary">Maks antall nevninger å lagre i databasen.</string>
+    <string name="dm_size">Direktemeldingsstørrelse</string>
+    <string name="dm_size_summary">Maks antall direktemeldinger som skal lagres i databasen.</string>
+    <string name="auto_trim">Auto-trim Databaser</string>
+    <string name="trim_now">Trim Databaser nå</string>
+    <string name="trim_dialog">Trim databaser nå?</string>
+    <string name="trimming">Trimmer...</string>
+    <string name="trim_success">Trimming Vellykket</string>
+    <string name="trim_fail">Trimming Mislyktes</string>
+    <string name="backup_category">Sikkerhetskopierings- og gjenopprettingsalternativer</string>
+    <string name="backup_settings">Sikkerhetskopieringsinnstillinger</string>
+    <string name="backup_settings_dialog">Opprett ny sikkerhetskopi?</string>
+    <string name="backup_settings_dialog_summary">Dette vil overskrive alle tidligere sikkerhetskopier.</string>
+    <string name="backup_success">" Sikkerhetskopiering Vellykket"</string>
+    <string name="restore_success">Gjenoppretting Vellykket</string>
+    <string name="restore_settings">Gjenopprettingsinnstillinger</string>
+    <string name="restore_settings_summary">Vil fjerne hurtigbuffen for å bruke noen temaendringer.</string>
+    <string name="get_help_settings">Få Hjelp</string>
+    <string name="rerun_tutorial">Kjør Oppstartstutorial</string>
+    <string name="faq">Ofte Stilte Spørsmål</string>
+    <string name="features_explained">Funksjoner Forklart</string>
+    <string name="youtube">YouTube Video</string>
+    <string name="google_plus">Google+ Samfunnet</string>
+    <string name="xda_thread">XDA Tråd</string>
+    <string name="email_me">Mail Meg</string>
+    <string name="tweet_me">Tweet Meg</string>
+    <string name="follow_talon">Følg Talon på Twitter</string>
+    <string name="credits">Kreditter</string>
+    <string name="disclaimer">Ansvarsfraskrivelse</string>
+    <string name="other_apps">Våre Andre Apper</string>
+    <string name="whats_new">Hva er Nytt</string>
+    <string name="rate_it">Vurder Talon</string>
+    <string name="talon_settings">Talon Innstillinger</string>
+    <string name="feature_requests">Funksjonsforespørsler</string>
+    <!-- Emoji Keyboard -->
+    <string name="recent">Siste</string>
+    <string name="people">Folk</string>
+    <string name="things">Objekter</string>
+    <string name="nature">Natur</string>
+    <string name="places">Plasser</string>
+    <string name="symbols">Symboler</string>
+    <!-- Array value for translation -->
+    <string name="five_mins">5 Minutter</string>
+    <string name="ten_mins">10 Minutter</string>
+    <string name="twenty_mins">20 Minutter</string>
+    <string name="thirty_mins">30 Minutter</string>
+    <string name="fourty_five_mins">45 Minutter</string>
+    <string name="one_hour">1 Time</string>
+    <string name="two_hours">2 Timer</string>
+    <string name="three_hours">3 Timer</string>
+    <string name="four_hours">4 Timer</string>
+    <string name="manual">Manuell</string>
+    <string name="layout_hangouts">Hangouts</string>
+    <!-- added after release -->
+    <string name="use_inapp_browser">Bruk Appnettleser</string>
+    <string name="use_browser_on_tweet">Nettstedside på Tweet</string>
+    <string name="dismiss_all">Avvis Alle</string>
+    <string name="handle_and_name">Vis \"Handle\" og Navn</string>
+    <string name="notification_types">Varseltyper</string>
+    <string name="with_talon_pull">Tilgang gjennom \"Talon Pull\".</string>
+    <string name="favorited_tweet">Liker på dine tweets</string>
+    <string name="new_followers">Nye følgere</string>
+    <string name="discussion">Diskusjon</string>
+    <string name="no_replies">Ingen Svar</string>
+    <string name="rt_style_quotes">Foretrekk \"RT\" Stilkvoter</string>
+    <string name="rt_style_quotes_summary">Bruker gammelt \" RT @brukernavn: ...\" for å sitere i stedet for Talons sitatmetode.\n\nTilgang fra Handlingslinjen eller Menyen på hvilken som helst tweet.</string>
+    <string name="absolute_date">Bruk Absolutte Datoer</string>
+    <string name="clear_searches">Tøm Søk</string>
+    <string name="compose_with_search">Skriv Tweet sammen med Søk</string>
+    <string name="use_toast">Bruk \"To First\" Toast</string>
+    <string name="ignore_retweets">Ignorer Retweets</string>
+    <string name="ignore_retweets_summary">Ikke vis noen retweets mens du ruller på dine viktigste tidslinjer.</string>
+    <string name="view">Se</string>
+    <string name="muted_hashtags">Mutet Hashtags</string>
+    <string name="muted_hashtags_summary">Trykk på Hashtag for å fjerne muten.</string>
+    <string name="no_hashtags">Ingen hashtags</string>
+    <string name="mute_hashtags">Mute Hashtags</string>
+    <string name="muted">Mutet</string>
+    <string name="auto_insert_hashtags">Auto-Sett inn Hashtags</string>
+    <string name="to_replies">Sett inn hvilken som helst hashtag inneholdt i tweetet i svaret.</string>
+    <string name="clean_now">Rengjør Databaser Nå</string>
+    <string name="clean_now_summary">Inkluderer trimming og fjerning av duplikater i din database.</string>
+    <string name="delete_conversation">Slett Samtalen?</string>
+    <string name="deleting_messages">Sletter Meldinger</string>
+    <string name="type_message">Skriv Melding...</string>
+    <string name="fill_gaps">Fyll Tidslinje-Mellomrom</string>
+    <string name="fill_gaps_summary">Fyll mellomrom som oppstår fra en dårlig streaming-forbindelse mens direktesending er aktivert.</string>
+    <string name="filling_timeline">Fyller Tidslinje-Mellomrom</string>
+    <string name="follows_you">Følger Deg</string>
+    <string name="not_following_you">Følger Ikke Deg</string>
+    <string name="device">Enhet Font</string>
+    <string name="roboto_light">Roboto Light (Standard)</string>
+    <string name="roboto_condensed">Roboto Kondensert</string>
+    <string name="font_type">Font Type</string>
+    <string name="our_website">Nettside</string>
+    <string name="alert_types">Advarselsmetoder</string>
+    <string name="timeline_notifications">Tidslinjevarsler</string>
+    <string name="interactions_notifications">Interaksjonsvarsler</string>
+    <string name="timelines_settings">Tidslinjeinnstillinger</string>
+    <string name="tweet_look_options">Tidslinjealternativer</string>
+    <string name="limiting_options">Begrensningsalternativer</string>
+    <string name="browser_options">Nettleseralternativer</string>
+    <string name="custom_ringtone">Egendefinert Ringetone</string>
+    <string name="use_twitlonger">Aktiver TwitLenger</string>
+    <string name="twitlonger">TwitLenger</string>
+    <string name="post_with_twitlonger">Tweet er større enn 140 tegn.\n\nVil du legge ut med TwitLenger?</string>
+    <string name="remove_retweet">Fjern Retweet</string>
+    <string name="edit">Endre</string>
+    <string name="split_tweet">Delt Tweet</string>
+    <string name="use_twitpic">Bruk TwitBilde</string>
+    <string name="twitpic_summary">Bruk TwitBilde til å legge til bilder på tweets i stedet for Twitters bildeopplasningservice.</string>
+    <string name="verified">Verifisert</string>
+    <string name="use_tweetmarker">TweetMarkerer</string>
+    <string name="tweetmarker_summary">Brukes til å synkronisere din synkronisering av posisjonen din mellom enheter</string>
+    <string name="do_not_use">Ikke Bruk</string>
+    <string name="automatic_refresh">Automatisk TweetMarkerer</string>
+    <string name="manual_refresh">Manuell TweetMarkerer</string>
+    <string name="finding_tweetmarker">Finnende TweetMarkerer</string>
+    <string name="loading">Laster​</string>
+    <string name="loading_tweets">Laster Tweets...</string>
+    <string name="pull_to_refresh">Dra for å Oppdatere</string>
+    <string name="removing_retweet">Fjerner Retweet</string>
+    <string name="retweeting_status">Retweeter Status</string>
+    <string name="removing_favorite">Fjerner Liker</string>
+    <string name="favoriting_status">Liker Status</string>
+    <string name="jumping_workaround">Hoppe Løsning</string>
+    <string name="jumping_workaround_summary">Aktiver dette hvis tidslinjen din hopper ned et sted etter at du oppdaterer strømmen din.</string>
+    <string name="menu_share_link">Del Link</string>
+    <string name="no_links">Ingen Linker</string>
+    <string name="configure_pages">Velg \"Swipe-able\" Sider</string>
+    <string name="picture_page">Bildetidslinje</string>
+    <string name="link_page">Linktidslinje</string>
+    <string name="list_page">Listetidslinje</string>
+    <string name="current">Nåværende</string>
+    <string name="here_is_home">Her er din hjemmetidslinje!</string>
+    <string name="dont_use">Ikke bruk denne siden</string>
+    <string name="page_1">Side 1</string>
+    <string name="page_2">Side 2</string>
+    <string name="load_tweets">Last inn Tweets</string>
+    <string name="download_portal">Last ned Tema-Portal Appen</string>
+    <string name="download_portal_summary">Dette er Klinker Appens \"Portal\" for å holde deg oppdatert med de siste nyhetene, samt finne alle de beste temaene for Talon og EvolveSMS på ett sted!</string>
+    <string name="compose_dm_hint">Skriv melding...</string>
+    <string name="pwiccer">Pwiccer</string>
+    <string name="select_shortening_service">Velg en forkortertjeneste eller rediger tweeten.</string>
+    <string name="use_shortening_service">Bruk Forkortingstjenesten</string>
+    <string name="use_shortening_service_summary">Du vil kunne velge enten TwitLenger eller Pwiccer (en tjeneste som konverterer din lange tweeter til et bilde for å legge ut).</string>
+    <string name="view_retweeters">Retweetere</string>
+    <string name="view_favoriters">Liker</string>
+    <string name="no_tweets">Ingen Tweets</string>
+    <string name="only_7_days">Bare 7 dager tilgjengelig</string>
+    <string name="saved_searches">Lagrede Søk</string>
+    <string name="error_check_network">Feil ved innlasting av profil. Sjekk nettverksforbindelsen din.</string>
+    <string name="error_loading_timeline">Kunne ikke laste inn tidslinjen! Prøv å sjekke dataforbindelsen din.</string>
+    <string name="currently_in_beta">For tiden i BETA.</string>
+    <string name="changed_screenname">Du har endret brukernavnet ditt før Talon kunne lagre din ID! Du må logge ut og tilbake på en gang for å gjøre de riktige endringene!</string>
+    <string name="menu_save_search">Lagre Søk</string>
+    <string name="saving_search">Lager Søk</string>
+    <string name="delete_saved_search">Slett Lagrede Søk</string>
+    <string name="deleting_search">Sletter Søk</string>
+    <string name="none">Ingen</string>
+    <string name="start">Start!</string>
+    <string name="version_two">Versjon 2.0.0</string>
+    <string name="cleaning_databases">Renser databaser...</string>
+    <string name="setup_version_two">Mange har forandret seg nylig med Talon, og for å sikre at jeg kan gi deg den beste opplevelsen, må vi gjøre litt opprydding før du går inn i appen!\n\nDette kan ta litt tid, avhengig av antall tweets du lagrer!</string>
+    <string name="setting_up_timeline">Setter opp hjem tidslinjen...</string>
+    <string name="setting_up_mentions">Setter opp nevninger</string>
+    <string name="setting_up_dms">Setter opp direktemeldinger</string>
+    <string name="setting_up_lists">Setter opp lister...</string>
+    <string name="version_two_setup_done">Ferdig med å sette opp Talon 2.0, kos deg!</string>
+    <string name="no_content">Ingenting å vise!</string>
+    <string name="discover">Oppdag</string>
+    <string name="suggested_users">Foreslåtte Brukere</string>
+    <string name="nearby_tweets">Nærliggende</string>
+    <string name="local_trend_options">Lokale Trend Alternativer</string>
+    <string name="manually_config_location">Manuelt Konfigurer posisjon</string>
+    <string name="country_region">Land/Region</string>
+    <string name="city">By</string>
+    <string name="menu_apply_picture_filter">Legg til bildefilter</string>
+    <string name="menu_remove_rt">Fjern Retweets</string>
+    <string name="input_expression">Uttrykk for å mute...</string>
+    <string name="mute_expression">Mute Uttrykk</string>
+    <string name="view_muted_expressions">Fjernet Mutet Utrykk</string>
+    <string name="no_expression">Ingen Utrykk!</string>
+    <string name="regex_disclaimer">Muting av for mange uttrykk kan påvirke oppstart og oppdateringstider.</string>
+    <string name="cleaning_cache">Renser hurtigbuffen...</string>
+    <string name="floating_compose">Svevende Komponer Knapp</string>
+    <string name="settings_links">Innstillinger Linker</string>
+    <string name="other_links">Andre Linker</string>
+    <string name="display_options">Visningsalternativer</string>
+    <string name="third_party_services">Tredjeparts Tjenester</string>
+    <string name="open_keyboard">Auto-Åpne Tastatur</string>
+    <string name="open_keyboard_summary">Åpne tastaturet automatisk for å svare i tweet-visningsprogrammet.</string>
+    <string name="no_retweets">Ingen retweets</string>
+    <string name="profile">Profil</string>
+    <string name="favorites">Liker</string>
+    <string name="load_pictures">Last inn Bilder</string>
+    <string name="pic_search_disclaimer">Søker på brukerens tidslinje for bilder. Vil ta mer tid avhengig av hvor nåværende bildene deres er.</string>
+    <string name="widget_theme">Hjemsjerm Widget Tema</string>
+    <string name="widget_theme_summary">Brukt på hjemmeskjerm widgets.</string>
+    <string name="widget_light">Lyst Tema</string>
+    <string name="widget_dark">Mørkt Tema</string>
+    <string name="widget_trans_light">Gjennomsiktig Lyst Tema</string>
+    <string name="widget_trans_black">Gjennomsiktig Mørkt Tema</string>
+    <string name="ui_settings">UI Innstillinger</string>
+    <string name="show_pos_dashclock">Vis Tidslinje Posisjon</string>
+    <string name="show_pos_dashclock_summary">Vis gjeldende posisjon på hjemmtidslinjen i stedet for antall nye tweets.</string>
+    <string name="talon_large_widget">Talon - Hjem Tidslinje</string>
+    <string name="unread_bar_widget">Talon - Ulest Bar</string>
+    <string name="show_muted_mentions">Vis Mutet Nevninger</string>
+    <string name="force_overflow_summary">Vis alltid 3-punkts \"Overflytmeny\" i handlingslinjen. Brukes til telefoner med en fysisk menyknapp.</string>
+    <string name="menu_view_drafts">Se Utkast</string>
+    <string name="menu_schedule_tweet">Planlegg en Tweet</string>
+    <string name="menu_save_draft">Lagre Utkast</string>
+    <string name="saved_draft">Lagret Utkast</string>
+    <string name="delete_draft">Slett Utkast</string>
+    <string name="no_tweet">Ingen Tweet!</string>
+    <string name="menu_attach_picture">Legg til Bilde</string>
+    <string name="twitpic_disclaimer">TwitBilde Ansvarsfraskrivelse</string>
+    <string name="twitpic_disclaimer_summary">Twitters APIer støtter ikke å legge til et bilde i en direktemelding. Av denne grunn vil Talon laste opp bildet til TwitBilde og dele linken til bildet med mottakeren.
+
+
+Dette bildet vil være tilgjengelig for å se på TwitBilde-profilen din.</string>
+    <string name="dont_show_again">Ikke vis igjen</string>
+    <string name="error_attaching_image">Feil ved pålegging av bilde!</string>
+    <string name="sending_tweet">Sender Tweet...</string>
+    <string name="attached_images">Vedlagt</string>
+    <string name="twitpic_disclaimer_multi_summary">Twitters APIer støtter ikke å legge til mer enn ett bilde til en tweet.
+
+
+Talon vil laste opp bildene ved hjelp av TwitBilde i stedet.</string>
+    <string name="loading_webpage">Laster Nettside...</string>
+    <string name="plain_text_browser">Vanlig Tekstleser</string>
+    <string name="plain_text_summary">Fjern bilder og formatering fra nettleseren og vis bare teksten på en nettside.</string>
+    <string name="plain_text_on_data">Vanlig tekst på Mobildata</string>
+    <string name="plain_text_on_data_summary">Aktiver vanlig tekstleser bare når du er i en mobil dataforbindelse, ikke over WiFi.</string>
+    <string name="layout_full_screen">Fullskjerm</string>
+    <string name="pre_cache_images">Forhåndsbuff Bilder</string>
+    <string name="pre_cache_summary">Last ned bilder umiddelbart ettersom de er direktesendt eller hentet fra en bakgrunnsoppdatering av tidslinjen.</string>
+    <string name="pre_cache_settings">Forhåndsbuff Alternativer</string>
+    <string name="pre_cache_only_wifi">Bare Over WiFi</string>
+    <string name="tweet_page">Tweet Side</string>
+    <string name="web_page">Nettside</string>
+    <string name="conversation_page">Samtale Side</string>
+    <string name="viewer_page">Tweet Viser</string>
+    <string name="viewer_page_summary">Standard side å åpne når du ser en tweet.</string>
+    <string name="browser_settings">Nettleser Innstillinger</string>
+    <string name="memory_manage">App Hukommelse</string>
+    <string name="protected_account">Brukeren har en beskyttet konto!</string>
+    <string name="mute_rt">Mute Retweets</string>
+    <string name="unmute_rt">U-mute Retweets</string>
+    <string name="muted_rts">Mutet Retweetere</string>
+    <string name="twitter">Twitter</string>
+    <string name="user">Brukere</string>
+    <string name="menu_translate">Oversett Tweet</string>
+    <string name="add_new_tweet">Legg til Ny Tweet</string>
+    <string name="scheduled_tweets">Planlagte Tweets</string>
+    <string name="done_label">Ferdig</string>
+    <string name="tweet_queued">Tweet i kø!</string>
+    <string name="only_queue_no_pic">Vi kan bare kø tweets uten bilder!</string>
+    <string name="menu_view_queued">Vis Tweets i kø</string>
+    <string name="keep_queued_tweet">Behold Tweet i kø?</string>
+    <string name="date_picker">Velg en Dato</string>
+    <string name="time_picker">Velg en Tid</string>
+    <string name="complete_form">Fullfør formen!</string>
+    <string name="no_drafts">Ingen utkast funnet</string>
+    <string name="no_queued">Ingen kø tweets</string>
+    <string name="menu_show_top_tweets">Filter \"Topp Tweets\"</string>
+    <string name="delete_all">Slett alle utkast</string>
+    <string name="muted_clients">Mutet Klienter</string>
+    <string name="mute_client">Mute Klient</string>
+    <string name="no_clients">Ingen Klient</string>
+    <string name="muted_clients_summary">Lar deg mute alle tweets fra en spesifikk app.</string>
+    <string name="client_not_found">Klient ikke funnet!</string>
+    <string name="favorite">Liker</string>
+    <string name="menu_share_image">Del Bilde</string>
+    <string name="pick_time">Velg Tid</string>
+    <string name="pick_date">Velg Dato</string>
+    <string name="both_accounts">Begge Kontoer</string>
+    <string name="attach_gif">Animerte GIFs fra Enhet</string>
+    <string name="attach_video">Video</string>
+    <string name="roboto_l">Android Lollipop Roboto</string>
+    <string name="second_account">2 Konto</string>
+    <string name="second_account_login_info">Siden Twitter inneholder noe av din innloggingsinformasjonen i systemet, kan det ikke hende at neste skjerm kan tillate deg å logge inn med din nye kontoinformasjon umiddelbart. Hvis den hopper over denne innloggingen og går direkte til autorisasjonssiden, klikker du bare på \"Logg Ut\" -knappen øverst til høyre på nettstedet for å tillate appen å logge deg på din andre konto.</string>
+    <string name="fetch_tweetmarker">Hent TweetMarkør</string>
+    <string name="rate_limit_reached">Frekvensgrense Oppnådd</string>
+    <string name="info">Info</string>
+    <string name="help_and_feedback">Hjelp/Tilbakemelding</string>
+    <string name="faq_first">"Hei der, glad du vil hjelpe meg med å forbedre Talon!
+
+
+"</string>
+    <string name="contact">Kontakt</string>
+    <string name="follow">Følg</string>
+    <string name="menu_number_of_pages">Nummer av Ekstra Sider</string>
+    <!-- %s will be replaced with a number for the currently selected page -->
+    <string name="page">Side %s</string>
+    <string name="set_as_default">Sett som Standard</string>
+    <string name="main_pages_and_drawer">\"Swipeable\" Sider og Appskuff</string>
+    <string name="drawer_elements">Synlige Skuffe Elementer</string>
+    <string name="drawer_elements_summary">Vis eller skjul elementene i hovednavigasjonsskuffen til apper.</string>
+    <string name="second_acc_mentions">Andre Konto Nevninger</string>
+    <string name="using_second_account">Bruker %s konto!</string>
+    <!-- the username will replace %s -->
+    <string name="error_gif">Feil ved leting etter media</string>
+    <string name="saved_search">Lagrede Søk</string>
+    <string name="activity">Aktivitet</string>
+    <string name="sending_direct_message">Sender Direktemelding</string>
+    <string name="fav_rt_multiple_accounts">Kryss kontohandlinger</string>
+    <string name="fav_rt_multiple_accounts_summary">Hvis du har flere kontoer, lar dette deg velge hvilken konto du skal utføre liken eller retweet med.</string>
+    <string name="talon_pull_notifications">Talon Pull (Umiddelbare) Varsler</string>
+    <string name="talon_pull_turned_on">Talon Pull må være slått på fra bakgrunnsoppdateringsalternativer for å bruke denne funksjonen.</string>
+    <string name="activity_sync_interval">Aktivitetsoppdateringsfrekvens</string>
+    <string name="mentioned_you">nevnte deg</string>
+    <string name="favorites_lower">Liker</string>
+    <string name="favorite_lower">Liker</string>
+    <string name="retweeted_your_status">Retweetet din status</string>
+    <string name="followed_you">Følgte deg</string>
+    <string name="new_activity">Ny Aktivitet</string>
+    <string name="use_interaction_drawer">Aktiver interaksjonsskuff</string>
+    <string name="use_interaction_drawer_summary">Innholdet i denne skuffen er fylt av Talon Pull (Streaming).</string>
+    <string name="no_activity_yet">Ingen aktivitet enda!</string>
+    <string name="no_activity_yet_desc">Denne delen blir fylt ut når du samhandler mer på Twitter.
+
+
+Nevninger, nye følgere og retweets/liker på statusene dine begynner å dukke opp her.</string>
+    <string name="retweet">Retweet</string>
+    <string name="new_follower_lower">ny følger</string>
+    <string name="new_followers_lower">nye følgere</string>
+    <string name="item">element</string>
+    <string name="items">elementer</string>
+    <string name="and">og</string>
+    <string name="no_favorites">Ingen liker</string>
+    <string name="quote_style">Sitat Stil</string>
+    <string name="quote_style_twitter">Twitter Stil (Link til tweet)</string>
+    <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
+    <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
+    <string name="show_pull_notification">Vis Vedvarende Varsling</string>
+    <string name="show_pull_notification_summary">Hvis du deaktiverer denne varselen, kan Android-systemet når som helst slå av streamen. Bruk ekstrem forsiktighet.</string>
+    <string name="custom_tab_title">Chrome-tilpassede Faner</string>
+    <string name="custom_tab_message">Systemet tillater ikke at Talon automatisk starter Chrome-tilpasset Faner. For å bruke denne funksjonen må du sette Chrome som standard systemnettleser, ellers vil Talon fortsette å bruke dens originale appnettleser.</string>
+    <string name="learn_more">Lær Mer</string>
+    <!-- Long click methods -->
+    <string name="open_profile">Åpne Profil</string>
+    <string name="copy_handle">Kopierings Handling</string>
+    <string name="search_user">Søk etter Bruker</string>
+    <string name="mute_user">Mute Bruker</string>
+    <string name="mute_retweets">Mute Retweets</string>
+    <string name="share_profile">Del Profil</string>
+    <string name="open_to_external_browser">Åpne i Ekstern Nettleser</string>
+    <string name="open_to_internal_browser">Åpne i Innvendig Nettleser</string>
+    <string name="copy_link">Kopier Link</string>
+    <string name="share_link">Del Link</string>
+    <string name="search_hashtag">Søk Hashtag</string>
+    <string name="mute_hashtag">Mute Hashtag</string>
+    <string name="copy_hashtag">Kopier Hashtag</string>
+    <string name="search_cashtag">Søk Cashtag</string>
+    <string name="copy_cashtag">Kopier Cashtah</string>
+    <string name="copied">Kopierte Tekst</string>
+    <string name="favorite_user_text">Favorittbruker</string>
+    <string name="open_to_web">Åpne til Nettside</string>
+    <string name="open_to_web_summary">Hvis en tweet inneholder en nettadresse, vil den åpne direkte til den URL-en i stedet for tweetet selv.</string>
+    <string name="open_webpage">Åpne Linken</string>
+    <string name="get_android">Få Android Emojis</string>
+    <string name="play_gif">Spill</string>
+    <string name="add_to_tweet_gif">Legg til på Tweet</string>
+    <string name="find_a_gif">Finn en GIF</string>
+    <string name="three_mb_limit">5MB Størrelsesgrense</string>
+    <string name="three_mb_message">Twitter tillater bare at GIFs som blir lagt ut er mindre enn 5MB. Talon vil ta GIF-versjonen av høyeste kvalitet fra Giphy som passer innenfor disse begrensningene.\n\nResultatene du ser har alle en versjon som passer innenfor denne grensen, jeg har ikke vist GIF-er der kvaliteten er nedsamplet for å passe innenfor 5MB grensen.</string>
+    <string name="quoted_you">siterte deg</string>
+    <string name="privacy_policy">Personvernregler</string>
+</resources>

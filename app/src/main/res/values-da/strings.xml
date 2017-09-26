@@ -132,7 +132,9 @@
 Flere data hentes
 
 - det kan tage lidt tid, afhængig af din internet hastighed</string>
-    <string name="third_info">Jeg håber du får glæde af Talon!\n\n- Luke Klinker</string>
+    <string name="third_info">Jeg håber du får glæde af Talon!
+
+- Luke Klinker</string>
     <string name="syncing_timeline">Synkroniserer tidslinjen...</string>
     <string name="syncing_mentions">Synkroniserer meninger...</string>
     <string name="syncing_direct_messages">Synkroniserer beskeder...</string>
@@ -216,7 +218,7 @@ Flere data hentes
     <string name="retweet_lower">retweet</string>
     <string name="retweeter">retweetet af @</string>
     <!-- Tweet Activity -->
-    <string name="menu_open_web">Åbn weblink</string>
+    <string name="menu_open_web">Åbn web link</string>
     <string name="menu_copy_text">Kopiér tweet tekst</string>
     <string name="menu_share">Del tweet</string>
     <string name="menu_delete_tweet">Slet tweet</string>
@@ -236,7 +238,7 @@ Flere data hentes
     <string name="saved_picture">Billede gemt</string>
     <string name="retweet_success">Retweetet</string>
     <string name="favorite_success">Succes</string>
-    <string name="success">Succes</string>
+    <string name="success">Udført</string>
     <!-- User Lists -->
     <string name="view_users">Vis profiler</string>
     <string name="delete_list">Slet lister</string>
@@ -318,7 +320,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="sync_second_mentions_summary">Tjek og informer automatisk for nye meninger, både for din primære og sekundære konto</string>
     <string name="max_number_summary">Høj max. grænse betyder langsommere opdatering</string>
     <string name="auto_refresh_category">Auto-opdatér indstillinger</string>
-    <string name="refresh_on_startup">Opdater ved åbn af Talon</string>
+    <string name="refresh_on_startup">Opdater ved start af applikation</string>
     <string name="timeline_sync_interval">Opdateringsinterval for tidslinje</string>
     <string name="mentions_sync_interval">Opdateringsinterval for meninger</string>
     <string name="dm_sync_interval">Opdateringsinterval for direkte beskeder</string>
@@ -338,7 +340,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="advanced_settings">Avancerede indstillinger</string>
     <string name="app_feel_category">Indstillinger af app oplevelsen</string>
     <string name="advance_windowed">Avanceret visning</string>
-    <string name="advance_windowed_summary">Åbn profiler og tweets i et \"vindue\" der vises foran tidslinjen</string>
+    <string name="advance_windowed_summary">Åbn profiler og tweets i en popup der vises ovenpå tidslinjen</string>
     <string name="full_screen_browsers">Fuldskærmsbrowser</string>
     <string name="full_screen_browsers_summary">Åbn tweets der indeholder links til websider med fuldskærmsvisning</string>
     <string name="reverse_click_actions">Omvendt tap funktion</string>
@@ -372,7 +374,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="backup_settings_dialog">Tilføj ny backup?</string>
     <string name="backup_settings_dialog_summary">Dette overskriver sidst gemte backup</string>
     <string name="backup_success">Backup oprettet</string>
-    <string name="restore_success">Gendannelse lykkedes</string>
+    <string name="restore_success">Gendannelse udført</string>
     <string name="restore_settings">Gendan indstillinger</string>
     <string name="restore_settings_summary">Sletter cache for at tilføje ændringer i tema</string>
     <string name="get_help_settings">Hjælp</string>
@@ -466,6 +468,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="post_with_twitlonger">Tweet er længere end 140 tegn\n\nVil du bruge TwitLonger?</string>
     <string name="remove_retweet">Fjern retweet status</string>
     <string name="edit">Redigér</string>
+    <string name="split_tweet">Split Tweet</string>
     <string name="use_twitpic">Brug TwitPic</string>
     <string name="twitpic_summary">Brug Twitpic ved upload af billeder i stedet for Twitter\'s egen</string>
     <string name="verified">Bekræftet</string>
@@ -500,7 +503,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="download_portal_summary">Klinker Apps \"Portal\" applikation giver dig mulighed for at være opdateret med de seneste nyheder, og de bedste temaer for både Talon og EvolveSMS</string>
     <string name="compose_dm_hint">Skriv besked...</string>
     <string name="pwiccer">Pwiccer</string>
-    <string name="select_shortening_service">Vælg en service til at forkorte tweetet eller redigér det</string>
+    <string name="select_shortening_service">Vælg en service til at forkorte tweetet eller tap tilbage for at redigere det</string>
     <string name="use_shortening_service">Brug service til at forkorte tweet</string>
     <string name="use_shortening_service_summary">Du kan vælge at bruge enten Pwiccer eller TwitLonger. (Pwiccer er en service der konverterer dit lange tweet om til et billede, for at det kan sendes)</string>
     <string name="view_retweeters">Retweet\'ers</string>
@@ -529,7 +532,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="no_content">Ingenting at vise!</string>
     <string name="discover">Opdag</string>
     <string name="suggested_users">Foreslåede profiler</string>
-    <string name="nearby_tweets">Lokale tweets</string>
+    <string name="nearby_tweets">Lokalt</string>
     <string name="local_trend_options">Lokale trends indstillinger</string>
     <string name="manually_config_location">Konfigurér lokation manuelt</string>
     <string name="country_region">Land/region</string>
@@ -632,7 +635,7 @@ Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="pick_date">Vælg dato</string>
     <string name="both_accounts">Begge konti</string>
     <string name="attach_gif">Animeret GIF fra enhed</string>
-    <string name="attach_video">Video</string>
+    <string name="attach_video">Vælg Video</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">Sekundær konto</string>
     <string name="second_account_login_info">Eftersom Twitter ikke videregiver noget af din log ind information fra deres system, vil du fra den næste skærm muligvis ikke kunne logge ind med din nyoprettet profil. Hvis det sker og du sendes direkte til deres side for bekræftelse af din identitet, tap på \"Log af\" i toppen øverst til højre på hjemmesiden, for at lade app\'en logge dig ind med din sekundære konto</string>
@@ -720,4 +723,5 @@ Nye meninger, følgere, retweets og likes vises</string>
     <string name="three_mb_limit">Max. 5MB</string>
     <string name="three_mb_message">Twitter tillader kun afspilning af GIFs på max. 5MB. Talon vil bruge versionen med den bedste kvalitet fra Giphy, der ligger inden for denne grænse\n\nDe viste vil alle være versioner der ligger inden for denne grænse. Ingen GIFs hvor kvaliteten er forringet for at overholde grænsen på de 5 MB, er vist</string>
     <string name="quoted_you">citerede dig</string>
+    <string name="privacy_policy">Privatlivspolitik</string>
 </resources>

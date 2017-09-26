@@ -462,6 +462,7 @@
     <string name="post_with_twitlonger">التغريدة أطول من 140 رمز.\n\nهل تريد نشرها عن طريق إستخدام تويت لونجر؟</string>
     <string name="remove_retweet">إزالة إعادة التغريد</string>
     <string name="edit">تعديل</string>
+    <string name="split_tweet">تقسيم التغريدة</string>
     <string name="use_twitpic">أستخدم تويت بيك</string>
     <string name="twitpic_summary">أستخدم تويت بيك لإضافة الصور إلى التغريدات بدلا من خدمة رفع الصور الخاصة ب تويتر.</string>
     <string name="verified">موثق</string>
@@ -496,7 +497,7 @@
     <string name="download_portal_summary">هذه هي تطبيقات كلينكر \"بوابة\" التطبيق للبقاء مع أحدث الأخبار وكذلك تجد كل الخلفيات الأفضل لتالون وإيفولف أس أم أس في مكان واحد!</string>
     <string name="compose_dm_hint">اكتب رسالة خاصة...</string>
     <string name="pwiccer">Pwiccer (خدمة لتحويل تغريدتك الطويلة لصورة قابلة للنشر)</string>
-    <string name="select_shortening_service">اختر خدمة الاختصار أو قم بتعديل التغريدة</string>
+    <string name="select_shortening_service">اختر خدمة الاختصار أو اضغط مرة أخرى لتعديل التغريدة</string>
     <string name="use_shortening_service">استخدم خدمة اختصار الروابط</string>
     <string name="use_shortening_service_summary">ستكون قادر على اختيار TwitLonger أو Pwiccer (خدمة لتحويل تغريدتك الطويلة لصورة قابلة للنشر)</string>
     <string name="view_retweeters">المغردين</string>
@@ -628,7 +629,7 @@
     <string name="pick_date">اختيار التاريخ</string>
     <string name="both_accounts">كلا الحسابين</string>
     <string name="attach_gif">صور GIF المتحركة من الجهاز</string>
-    <string name="attach_video">فيديو</string>
+    <string name="attach_video">اختر فيديو</string>
     <string name="roboto_l">روبوت أندرويد لولي بوب</string>
     <string name="second_account">الحساب الثاني</string>
     <string name="second_account_login_info">بما أن تويتر يحمل بعض معلومات تسجيل الدخول في نظامها ، الشاشة التالية قد لا تسمح لك الدخول مع حسابك الجديد على الفور . إذا كان يتخطى هذا الدخول ويذهب مباشرة إلى صفحة إذن ، بمجرد الضغط على زر \" تسجيل الخروج \" في الزاوية اليمنى العليا من الموقع سيسمح للتطبيق تسجيل دخولك إلى حساب الثاني .</string>
@@ -717,4 +718,5 @@
     <string name="three_mb_limit">5 ميغابايت الحد الأقصى للحجم</string>
     <string name="three_mb_message">تويتر يسمح فقط بنشر الصورة المتحركة GIF التي هي أقل من 5MB. تالون سوف  يجلب أعلى جودة لنسخة GIF من Giphy الذي يناسب ضمن هذه القيود.\n\nالنتائج التي تراها كلها لديها الإصدار الذي يتناسب ضمن هذا الحد ،أنا لم اظهر صور GIF التي بجودة مماثلة  لتناسب في حدود 5MB الجودة.</string>
     <string name="quoted_you">نقلت لك</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
 </resources>

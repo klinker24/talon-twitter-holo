@@ -460,6 +460,7 @@
     <string name="post_with_twitlonger">启用后推文字数可超过 140 字。\n\n您希望使用 TwitLonger 来发送推文吗？</string>
     <string name="remove_retweet">移除转推</string>
     <string name="edit">编辑</string>
+    <string name="split_tweet">分割推文</string>
     <string name="use_twitpic">使用TwitPic</string>
     <string name="twitpic_summary">使用 Twitpic 来为推文添加图片而非 Twitter 官方的图片上传服务</string>
     <string name="verified">已验证</string>
@@ -523,7 +524,7 @@
     <string name="no_content">无内容可显示！</string>
     <string name="discover">发现</string>
     <string name="suggested_users">建议的用户</string>
-    <string name="nearby_tweets">附近的推文</string>
+    <string name="nearby_tweets">附近</string>
     <string name="local_trend_options">本地趋势选项</string>
     <string name="manually_config_location">手动更改位置</string>
     <string name="country_region">国家/地区</string>
@@ -626,7 +627,7 @@ Talon 将选择把图片上传至 TwitPic。</string>
     <string name="pick_date">选择日期</string>
     <string name="both_accounts">每个帐号</string>
     <string name="attach_gif">添加 GIF 动画</string>
-    <string name="attach_video">视频</string>
+    <string name="attach_video">选择视频</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">第二帐号</string>
     <string name="second_account_login_info">由于 Twitter 会在它的系统中保留您的一部分登录信息，在接下来出现的页面中您可能无法立即使用新的帐号信息登录。如果它跳过了登录步骤而直接进入到授权页面，只需点击位于网页右上角的  “登出”  按钮来让应用带您进入到第二帐号的登录页面。</string>
@@ -717,4 +718,5 @@ Talon 程序内已内置了丰富的帮助说明。在焦急等待我的回复�
     <string name="three_mb_limit">5MB 大小限制</string>
     <string name="three_mb_message">Twitter 仅允许用户发布不大于 5MB 的 GIF 图片。 Talon 将会从 Giphy 上抓取符合该项规定的最高画质 GIF 图片。\n\n您看到的所有显示结果都将有符合这一限制的版本存在，而那些降低图片质量以满足发布规定的图片将不被显示。</string>
     <string name="quoted_you">引用了你</string>
+    <string name="privacy_policy">隐私策略</string>
 </resources>
