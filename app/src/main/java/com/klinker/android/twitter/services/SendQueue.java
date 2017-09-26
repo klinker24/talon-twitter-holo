@@ -99,12 +99,12 @@ public class SendQueue extends Service {
 
             Log.v("talon_queued", "sending: " + message);
 
-            if (size > 140 && settings.twitlonger) {
+            if (size > AppSettings.getInstance(this).tweetCharacterCount && settings.twitlonger) {
                 // twitlonger goes here
                 TwitLongerHelper helper = new TwitLongerHelper(message, twitter);
 
                 return helper.createPost() != 0;
-            } else if (size <= 140) {
+            } else if (size <= AppSettings.getInstance(this).tweetCharacterCount) {
                 twitter4j.StatusUpdate reply = new twitter4j.StatusUpdate(message);
                 twitter.updateStatus(reply);
             } else {

@@ -1298,7 +1298,8 @@ public class TimeLineCursorAdapter extends CursorAdapter {
                 }
             });
 
-            holder.charRemaining.setText(140 - holder.reply.getText().length() + "");
+            holder.charRemaining.setText(AppSettings.getInstance(context).tweetCharacterCount -
+                    holder.reply.getText().length() + "");
 
             holder.reply.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
@@ -1315,7 +1316,8 @@ public class TimeLineCursorAdapter extends CursorAdapter {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    holder.charRemaining.setText(140 - holder.reply.getText().length() + "");
+                    holder.charRemaining.setText(AppSettings.getInstance(context).tweetCharacterCount -
+                            holder.reply.getText().length() + "");
                 }
 
                 @Override

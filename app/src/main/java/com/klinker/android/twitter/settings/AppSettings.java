@@ -193,7 +193,7 @@ public class AppSettings {
     public long myId;
 
     public EmojiStyle emojiStyle;
-
+    public int tweetCharacterCount = 140;
 
     public AppSettings(Context context) {
 
@@ -228,7 +228,9 @@ public class AppSettings {
             favoriteUserNames = sharedPrefs.getString("favorite_user_names_2", "");
             myId = sharedPrefs.getLong("twitter_id_2", 0);
         }
+
         translateURL = sharedPrefs.getString("translate_url", "");
+        tweetCharacterCount = sharedPrefs.getInt("tweet_character_count_limit", 140);
 
         SharedPreferences defaultPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -767,5 +769,12 @@ public class AppSettings {
         }
 
         return theme;
+    }
+
+    public static void setTweetCharacterCountLimit(Context context, int newCount) {
+        SharedPreferences sharedPreferences = AppSettings.getInstance(context).sharedPrefs;
+        sharedPreferences.edit().putInt("tweet_character_count_limit", newCount).apply();
+
+        AppSettings.getInstance(context).tweetCharacterCount = newCount;
     }
 }

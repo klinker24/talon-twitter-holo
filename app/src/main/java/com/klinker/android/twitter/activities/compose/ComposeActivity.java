@@ -38,6 +38,7 @@ import com.klinker.android.twitter.R;
 import com.klinker.android.twitter.adapters.AutoCompleteHashtagAdapter;
 import com.klinker.android.twitter.data.sq_lite.HashtagDataSource;
 import com.klinker.android.twitter.data.sq_lite.QueuedDataSource;
+import com.klinker.android.twitter.settings.AppSettings;
 import com.klinker.android.twitter.utils.UserAutoCompleteHelper;
 import com.klinker.android.twitter.views.text.HoloEditText;
 import com.klinker.android.twitter.views.text.HoloTextView;
@@ -597,7 +598,7 @@ public class ComposeActivity extends Compose {
             sendStatus(status, Integer.parseInt(charRemaining.getText().toString()));
             return true;
         } else {
-            if (editText.getText().length() + (attachedUri.equals("") ? 0 : 22) <= 140) {
+            if (editText.getText().length() + (attachedUri.equals("") ? 0 : 22) <= AppSettings.getInstance(this).tweetCharacterCount) {
                 // EditText is empty
                 Toast.makeText(context, context.getResources().getString(R.string.error_sending_tweet), Toast.LENGTH_SHORT).show();
             } else {
