@@ -16,6 +16,10 @@
 
 <changelog>
 
+    <version name="4.16.0">
+        <text>Tweet with 280 characters</text>
+    </version>
+
     <version name="4.15.1">
         <text>Bug fixes</text>
     </version>

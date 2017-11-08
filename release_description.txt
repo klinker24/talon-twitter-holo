@@ -1,1 +1,1 @@
-Users on Android 4.4+: You can now use the Android O style emojis! Turn them on from "Theme Settings".
+You can now use 280 characters in your tweets, instead of just 140!
