@@ -214,13 +214,6 @@ public abstract class Compose extends Activity implements
             // Ignore
         }
 
-        int currentOrientation = getResources().getConfiguration().orientation;
-        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        } else {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-        }
-
         currentAccount = sharedPrefs.getInt("current_account", 1);
 
         buildGoogleApiClient();
