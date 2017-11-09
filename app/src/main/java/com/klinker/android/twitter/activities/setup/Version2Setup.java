@@ -75,7 +75,6 @@ public class Version2Setup extends Activity {
 
         Utils.setUpTheme(context, settings);
         setContentView(R.layout.login_activity);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         contButton = (Button) findViewById(R.id.btnLoginTwitter);
         title = (TextSwitcher) findViewById(R.id.welcome);

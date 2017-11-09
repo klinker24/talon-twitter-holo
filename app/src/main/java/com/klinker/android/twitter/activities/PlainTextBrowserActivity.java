@@ -46,13 +46,6 @@ public class PlainTextBrowserActivity extends BrowserActivity {
         scrollView = (ScrollView) findViewById(R.id.scrollview);
         spinner = (LinearLayout) findViewById(R.id.spinner);
 
-        int currentOrientation = getResources().getConfiguration().orientation;
-        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        } else {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-        }
-
         getTextFromSite();
     }
 

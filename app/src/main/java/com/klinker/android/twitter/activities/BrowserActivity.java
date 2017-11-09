@@ -64,13 +64,6 @@ public class BrowserActivity extends Activity {
             return;
         }
 
-        int currentOrientation = getResources().getConfiguration().orientation;
-        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        } else {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-        }
-
         context = this;
 
         overridePendingTransition(R.anim.slide_in_left, R.anim.activity_zoom_exit);

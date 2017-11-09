@@ -114,7 +114,6 @@ public class LoginActivity extends Activity {
 
         Utils.setUpTheme(context, settings);
         setContentView(R.layout.login_activity);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         ConfigurationBuilder builder = new ConfigurationBuilder();
         builder.setOAuthConsumerKey(settings.TWITTER_CONSUMER_KEY);
