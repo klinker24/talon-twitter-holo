@@ -16,6 +16,11 @@
 
 <changelog>
 
+    <version name="4.17.0">
+        <text>Save tweets for later from the three dot overflow menu on a tweet</text>
+        <text>View those saved tweets by adding the "Saved Tweets" swipe-able page in settings</text>
+    </version>
+
     <version name="4.16.0">
         <text>Tweet with 280 characters</text>
     </version>

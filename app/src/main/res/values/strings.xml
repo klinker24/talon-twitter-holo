@@ -723,4 +723,7 @@
     <string name="emoji_style">Emoji Style</string>
     <string name="emoji_style_default">System Default</string>
     <string name="emoji_style_android_o">Google\'s Android O</string>
+    <string name="saved_tweets">Saved Tweets</string>
+    <string name="save_for_later">Save for Later</string>
+    <string name="remove_from_saved_tweets">Remove From Saved Tweets</string>
 </resources>

@@ -61,6 +61,8 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
     private boolean secondAcc;
     private boolean mobilizedBrowser = false;
 
+    public TweetFragment tweetFragment;
+
     public TweetPagerAdapter(FragmentManager fm, Context context,
          String name, String screenName, String tweet, long time, String retweeter, String webpage,
          String proPic, long tweetId, boolean picture, String[] users, String[] hashtags, String[] links,
@@ -171,7 +173,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
         if (pageCount == 2) {
             switch (i) {
                 case 0:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 1:
@@ -186,7 +188,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     youTube.setArguments(getYouTubeBundle());
                     return youTube;
                 case 1:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 2:
@@ -201,7 +203,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     gif.setArguments(getGIFBundle());
                     return gif;
                 case 1:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 2:
@@ -216,7 +218,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     web.setArguments(getMobilizedBundle());
                     return web;
                 case 1:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 2:
@@ -235,7 +237,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     web.setArguments(getMobilizedBundle());
                     return web;
                 case 2:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 3:
@@ -254,7 +256,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     web.setArguments(getMobilizedBundle());
                     return web;
                 case 2:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 3:
@@ -277,7 +279,7 @@ public class TweetPagerAdapter extends FragmentPagerAdapter {
                     gif.setArguments(getGIFBundle());
                     return gif;
                 case 3:
-                    TweetFragment tweetFragment = new TweetFragment();
+                    tweetFragment = new TweetFragment();
                     tweetFragment.setArguments(getTweetBundle());
                     return tweetFragment;
                 case 4:

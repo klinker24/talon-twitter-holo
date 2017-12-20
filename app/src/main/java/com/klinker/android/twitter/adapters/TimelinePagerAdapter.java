@@ -175,6 +175,8 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                 return new PicFragment();
             case AppSettings.PAGE_TYPE_FAV_USERS:
                 return new FavUsersFragment();
+            case AppSettings.PAGE_TYPE_SAVED_TWEET:
+                return new SavedTweetsFragment();
         }
 
         return null;
@@ -190,6 +192,8 @@ public class TimelinePagerAdapter extends FragmentPagerAdapter {
                 return context.getResources().getString(R.string.pictures);
             case AppSettings.PAGE_TYPE_FAV_USERS:
                 return context.getString(R.string.favorite_users);
+            case AppSettings.PAGE_TYPE_SAVED_TWEET:
+                return context.getString(R.string.saved_tweets);
         }
 
         return null;

@@ -1251,7 +1251,7 @@ public class TweetFragment extends Fragment {
         }
     }
 
-    private Status status = null;
+    public Status status = null;
 
     public void getInfo(final View favButton, final TextView favCount, final TextView retweetCount, final long tweetId, final View retweetButton) {
 

@@ -86,6 +86,7 @@ public class ChooserFragment extends Fragment {
         list.add(getString(R.string.saved_search));
         list.add(getString(R.string.activity));
         list.add(getString(R.string.favorite_tweets));
+        list.add(getString(R.string.saved_tweets));
 
         View layout = inflater.inflate(R.layout.configuration_page, null);
 
@@ -168,6 +169,9 @@ public class ChooserFragment extends Fragment {
             case AppSettings.PAGE_TYPE_ACTIVITY:
                 spinner.setSelection(12);
                 break;
+            case AppSettings.PAGE_TYPE_SAVED_TWEET:
+                spinner.setSelection(14);
+                break;
             default:
                 spinner.setSelection(0);
                 break;
@@ -224,6 +228,9 @@ public class ChooserFragment extends Fragment {
                         break;
                     case 13:
                         setType(AppSettings.PAGE_TYPE_FAVORITE_STATUS);
+                        break;
+                    case 14:
+                        setType(AppSettings.PAGE_TYPE_SAVED_TWEET);
                         break;
                     default:
                         setType(AppSettings.PAGE_TYPE_NONE);

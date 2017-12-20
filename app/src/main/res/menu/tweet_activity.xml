@@ -55,4 +55,14 @@
         android:orderInCategory="7"
         android:showAsAction="never" />
 
+    <item android:id="@+id/menu_save_tweet"
+        android:title="@string/save_for_later"
+        android:orderInCategory="8"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/menu_remove_saved_tweet"
+        android:title="@string/remove_from_saved_tweets"
+        android:orderInCategory="9"
+        android:showAsAction="never" />
+
 </menu>

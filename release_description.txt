@@ -1,1 +1,1 @@
-You can now use 280 characters in your tweets, instead of just 140!
+You can now save a tweet to view it later, like a bookmark. Open any tweet and use the "Save for Later" option in the three dot overflow menu, then look at those saved tweets by adding the "Saved Tweets" swipeable page, from settings.
