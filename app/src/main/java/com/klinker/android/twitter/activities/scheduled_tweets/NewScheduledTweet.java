@@ -88,7 +88,7 @@ public class NewScheduledTweet extends Activity {
     private TextView dateDisplay;
 
     private EditText mEditText;
-    private HoloTextView counter;
+    private TextView counter;
     private ImageButton emojiButton;
     private EmojiKeyboard emojiKeyboard;
 
@@ -151,7 +151,7 @@ public class NewScheduledTweet extends Activity {
         context = this;
 
         mEditText = (EditText) findViewById(R.id.tweet_content);
-        counter = (HoloTextView) findViewById(R.id.char_remaining);
+        counter = (TextView) findViewById(R.id.char_remaining);
         emojiButton = (ImageButton) findViewById(R.id.emojiButton);
         emojiKeyboard = (EmojiKeyboard) findViewById(R.id.emojiKeyboard);
 

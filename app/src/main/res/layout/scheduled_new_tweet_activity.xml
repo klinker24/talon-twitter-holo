@@ -17,127 +17,142 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?windowBackground">
+
+    <View
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/black" />
 
     <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/selectDate"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+            android:id="@+id/selectDate"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp">
 
             <Button
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:id="@+id/setDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/pick_date"/>
+                android:id="@+id/setDate"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pick_date"
+                android:textColor="?textColor" />
+
             <Button
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:id="@+id/setTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/pick_time"/>
+                android:id="@+id/setTime"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pick_time"
+                android:textColor="?textColor" />
         </LinearLayout>
 
         <LinearLayout
-                android:id="@+id/time_and_date"
+            android:id="@+id/time_and_date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/selectDate"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:id="@+id/currentDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/selectDate"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="?dateColor"
+                android:textSize="25sp" />
 
             <TextView
-                    android:id="@+id/currentDate"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent"
-                    android:layout_weight="1"
-                    android:textSize="25sp"
-                    android:gravity="center"/>
-
-            <TextView
-                    android:id="@+id/currentTime"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent"
-                    android:layout_weight="1"
-                    android:textSize="25sp"
-                    android:gravity="center"/>
+                android:id="@+id/currentTime"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="?dateColor"
+                android:textSize="25sp" />
 
         </LinearLayout>
 
     </RelativeLayout>
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/sendBar"
-            android:layout_alignParentBottom="true">
+        android:id="@+id/sendBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
         <ImageButton
-                android:id="@+id/emojiButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignTop="@+id/messageEntry2"
-                android:layout_alignBottom="@+id/messageEntry2"
-                android:src="?emoji_button"
-                android:background="@drawable/pressed_button"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginRight="-7dp"
-                android:scaleType="fitCenter"/>
+            android:id="@+id/emojiButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/messageEntry2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/messageEntry2"
+            android:layout_marginRight="-7dp"
+            android:background="?android:selectableItemBackground"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:scaleType="fitCenter"
+            android:src="?emoji_button" />
 
         <LinearLayout
-                android:id="@+id/messageEntry2"
-                android:layout_width="match_parent"
+            android:id="@+id/messageEntry2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/emojiButton"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tweet_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true"
-                android:layout_toRightOf="@+id/emojiButton">
-
-            <com.klinker.android.twitter.views.text.HoloEditText
-                    android:id="@+id/tweet_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="10dp"
-                    android:ems="10"
-                    android:hint="@string/compose_tweet_hint"
-                    android:inputType="textCapSentences|textMultiLine|textShortMessage"
-                    android:maxLines="8"
-                    android:minHeight="50dp"
-                    android:minLines="2"
-                    android:textSize="17sp" />
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/compose_tweet_hint"
+                android:inputType="textCapSentences|textMultiLine|textShortMessage"
+                android:maxLines="8"
+                android:minHeight="50dp"
+                android:minLines="2"
+                android:paddingRight="10dp"
+                android:textColor="?textColor"
+                android:textSize="17sp" />
 
 
-            <com.klinker.android.twitter.views.text.HoloTextView
-                    android:id="@+id/char_remaining"
-                    android:layout_width="48dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:gravity="center"/>
-
-
+            <TextView
+                android:id="@+id/char_remaining"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:textColor="?dateColor"
+                android:textSize="10dp" />
 
         </LinearLayout>
 
-
-        <include layout="@layout/emoji_keyboard"
-                 android:layout_below="@+id/messageEntry2"/>
+        <include
+            layout="@layout/emoji_keyboard"
+            android:layout_below="@+id/messageEntry2" />
 
     </RelativeLayout>
 
