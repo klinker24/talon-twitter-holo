@@ -61,6 +61,8 @@ import java.util.Random;
 
 import twitter4j.Twitter;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class TweetPager extends YouTubeBaseActivity {
 
     private TweetPagerAdapter mSectionsPagerAdapter;
@@ -590,7 +592,7 @@ public class TweetPager extends YouTubeBaseActivity {
 
                         try {
                             NotificationCompat.Builder mBuilder =
-                                    new NotificationCompat.Builder(context)
+                                    new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                             .setSmallIcon(R.drawable.ic_stat_icon)
                                             .setTicker(getResources().getString(R.string.downloading) + "...")
                                             .setContentTitle(getResources().getString(R.string.app_name))
@@ -623,7 +625,7 @@ public class TweetPager extends YouTubeBaseActivity {
                             PendingIntent pending = PendingIntent.getActivity(context, 91, intent, 0);
 
                             mBuilder =
-                                    new NotificationCompat.Builder(context)
+                                    new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                             .setContentIntent(pending)
                                             .setSmallIcon(R.drawable.ic_stat_icon)
                                             .setTicker(getResources().getString(R.string.saved_picture) + "...")
@@ -635,7 +637,7 @@ public class TweetPager extends YouTubeBaseActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                             NotificationCompat.Builder mBuilder =
-                                    new NotificationCompat.Builder(context)
+                                    new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                             .setSmallIcon(R.drawable.ic_stat_icon)
                                             .setTicker(getResources().getString(R.string.error) + "...")
                                             .setContentTitle(getResources().getString(R.string.app_name))

@@ -196,6 +196,9 @@ public class AppSettings {
     public EmojiStyle emojiStyle;
     public int tweetCharacterCount = 280;
 
+    public static String TALON_SERVICE_CHANNEL_ID = "TALON_SERVICE_ID";
+    public static String TALON_SERVICE_CHANNEL_DESCRIPTION = "Talon Service Channel";
+
     public AppSettings(Context context) {
 
         sharedPrefs = context.getSharedPreferences("com.klinker.android.twitter_world_preferences",

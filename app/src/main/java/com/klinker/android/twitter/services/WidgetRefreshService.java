@@ -40,6 +40,8 @@ import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.Twitter;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class WidgetRefreshService  extends IntentService {
 
     SharedPreferences sharedPrefs;
@@ -60,7 +62,7 @@ public class WidgetRefreshService  extends IntentService {
                 0);
 
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_stat_icon)
                         .setTicker(getResources().getString(R.string.refreshing) + "...")
                         .setContentTitle(getResources().getString(R.string.app_name))

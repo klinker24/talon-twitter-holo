@@ -69,6 +69,8 @@ import twitter4j.User;
 import uk.co.senab.bitmapcache.BitmapLruCache;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class NotificationUtils {
 
     // Key for the string that's delivered in the action's intent
@@ -137,7 +139,7 @@ public class NotificationUtils {
 
             Intent deleteIntent = new Intent(context, NotificationDeleteReceiverOne.class);
 
-            mBuilder = new NotificationCompat.Builder(context)
+            mBuilder = new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                     .setContentTitle(title[0])
                     .setContentText(TweetLinkUtils.removeColorHtml(shortText, settings))
                     .setSmallIcon(R.drawable.ic_stat_icon)
@@ -666,7 +668,7 @@ public class NotificationUtils {
 
         Intent deleteIntent = new Intent(context, NotificationDeleteReceiverOne.class);
 
-        mBuilder = new NotificationCompat.Builder(context)
+        mBuilder = new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(TweetLinkUtils.removeColorHtml(shortText, settings))
                 .setSmallIcon(smallIcon)
@@ -798,7 +800,7 @@ public class NotificationUtils {
 
         Intent deleteIntent = new Intent(context, NotificationDeleteReceiverTwo.class);
 
-        mBuilder = new NotificationCompat.Builder(context)
+        mBuilder = new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(TweetLinkUtils.removeColorHtml(message, settings))
                 .setSmallIcon(smallIcon)
@@ -922,7 +924,7 @@ public class NotificationUtils {
 
         Intent deleteIntent = new Intent(context, NotificationDeleteReceiverTwo.class);
 
-        mBuilder = new NotificationCompat.Builder(context)
+        mBuilder =  new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(TweetLinkUtils.removeColorHtml(message, settings))
                 .setSmallIcon(smallIcon)
@@ -1148,7 +1150,7 @@ public class NotificationUtils {
 
         Intent deleteIntent = new Intent(context, NotificationDeleteReceiverOne.class);
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(Html.fromHtml(settings.addonTheme ? smallText.replaceAll("FF8800", settings.accentColor) : smallText))
                 .setSmallIcon(R.drawable.ic_stat_icon)
@@ -1255,7 +1257,7 @@ public class NotificationUtils {
 
             Intent deleteIntent = new Intent(context, NotificationDeleteReceiverOne.class);
 
-            mBuilder = new NotificationCompat.Builder(context)
+            mBuilder = new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                     .setContentTitle(shortText)
                     .setContentText(longText)
                     .setSmallIcon(R.drawable.ic_stat_icon)

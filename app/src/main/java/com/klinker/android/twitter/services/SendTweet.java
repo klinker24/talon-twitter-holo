@@ -50,6 +50,8 @@ import java.io.InputStream;
 
 import twitter4j.Twitter;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 
 public class SendTweet extends Service {
 
@@ -308,7 +310,7 @@ public class SendTweet extends Service {
     public void sendingNotification() {
         // first we will make a notification to let the user know we are tweeting
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_stat_icon)
                         .setContentTitle(getResources().getString(R.string.sending_tweet))
                                 //.setTicker(getResources().getString(R.string.sending_tweet))
@@ -336,7 +338,7 @@ public class SendTweet extends Service {
     public void makeFailedNotification(String text, AppSettings settings) {
         try {
             NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(this)
+                    new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                             .setSmallIcon(R.drawable.ic_stat_icon)
                             .setContentTitle(getResources().getString(R.string.tweet_failed))
                             .setContentText(getResources().getString(R.string.tap_to_retry));
@@ -376,7 +378,7 @@ public class SendTweet extends Service {
 
         try {
             NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(MainActivity.sContext)
+                    new NotificationCompat.Builder(MainActivity.sContext, TALON_SERVICE_CHANNEL_ID)
                             .setSmallIcon(R.drawable.ic_stat_icon)
                             .setContentTitle(getResources().getString(R.string.tweet_success))
                             .setOngoing(false)

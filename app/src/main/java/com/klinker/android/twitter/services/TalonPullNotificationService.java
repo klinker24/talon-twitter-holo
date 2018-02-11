@@ -69,6 +69,8 @@ import twitter4j.UserStreamListener;
 import uk.co.senab.bitmapcache.BitmapLruCache;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class TalonPullNotificationService extends Service {
 
     public static final int FOREGROUND_SERVICE_ID = 11;
@@ -155,7 +157,7 @@ public class TalonPullNotificationService extends Service {
         }
 
         mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                         .setSmallIcon(android.R.color.transparent)
                         .setContentTitle(getResources().getString(R.string.talon_pull) + (multAcc ? " - @" + settings.myScreenName : ""))
                         .setContentText(text)

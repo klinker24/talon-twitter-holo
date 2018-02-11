@@ -52,6 +52,8 @@ import java.util.Random;
 import uk.co.senab.bitmapcache.CacheableBitmapDrawable;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class PhotoViewerActivity extends Activity {
 
     private static final String LOGGER_TAG = "PhotoViewerActivity";
@@ -156,7 +158,7 @@ public class PhotoViewerActivity extends Activity {
 
                 try {
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(getResources().getString(R.string.downloading) + "...")
                                     .setContentTitle(getResources().getString(R.string.app_name))
@@ -191,7 +193,7 @@ public class PhotoViewerActivity extends Activity {
                     PendingIntent pending = PendingIntent.getActivity(context, 91, intent, 0);
 
                     mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setContentIntent(pending)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(getResources().getString(R.string.saved_picture) + "...")
@@ -203,7 +205,7 @@ public class PhotoViewerActivity extends Activity {
                 } catch (Exception e) {
                     Log.e(LOGGER_TAG, "Exception while saving photo", e);
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(getResources().getString(R.string.error) + "...")
                                     .setContentTitle(getResources().getString(R.string.app_name))

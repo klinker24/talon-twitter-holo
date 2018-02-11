@@ -22,6 +22,8 @@ import twitter4j.*;
 
 import java.util.*;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class ActivityUtils {
 
     private static String TAG = "ActivityUtils";
@@ -150,7 +152,7 @@ public class ActivityUtils {
             return;
         }
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID);
         mBuilder.setContentTitle(notificationTitle);
         mBuilder.setSmallIcon(R.drawable.ic_stat_icon);
         mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),

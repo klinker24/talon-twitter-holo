@@ -48,6 +48,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Date;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class TrimDataService extends IntentService {
 
     SharedPreferences sharedPrefs;
@@ -103,7 +105,7 @@ public class TrimDataService extends IntentService {
         Intent goToStore = new Intent(this, RedirectToPlayStore.class);
         PendingIntent storePending = PendingIntent.getActivity(this, 0, goToStore, 0);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID);
         builder.setContentTitle("Talon Version " + version);
         builder.setContentText("Click to update.");
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),
