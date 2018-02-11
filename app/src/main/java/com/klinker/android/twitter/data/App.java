@@ -17,7 +17,10 @@
 package com.klinker.android.twitter.data;
 
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.os.Build;
 
 import com.klinker.android.twitter.utils.EmojiUtils;
 import com.klinker.android.twitter.utils.text.EmojiInitializer;
@@ -25,6 +28,9 @@ import com.klinker.android.twitter.utils.text.EmojiInitializer;
 import java.io.File;
 
 import uk.co.senab.bitmapcache.BitmapLruCache;
+
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_DESCRIPTION;
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
 
 public class App extends Application {
     private BitmapLruCache mCache;
@@ -35,7 +41,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        initChannel();
         File cacheDir = new File(getCacheDir(), "talon");
         cacheDir.mkdirs();
 
@@ -60,7 +66,13 @@ public class App extends Application {
         }).start();
         EmojiInitializer.INSTANCE.initializeEmojiCompat(this);
     }
+    public void initChannel(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nm.createNotificationChannel(new NotificationChannel(TALON_SERVICE_CHANNEL_ID, TALON_SERVICE_CHANNEL_DESCRIPTION, NotificationManager.IMPORTANCE_DEFAULT));
 
+        }
+    }
     public BitmapLruCache getBitmapCache() {
         return mCache;
     }

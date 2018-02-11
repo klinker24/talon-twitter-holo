@@ -31,6 +31,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public class VideoFragment extends Fragment {
 
     public Context context;
@@ -219,7 +221,7 @@ public class VideoFragment extends Fragment {
             public void run() {
                 try {
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(context.getResources().getString(R.string.downloading) + "...")
                                     .setContentTitle(context.getResources().getString(R.string.app_name))
@@ -239,7 +241,7 @@ public class VideoFragment extends Fragment {
                     PendingIntent pending = PendingIntent.getActivity(context, 91, intent, 0);
 
                     mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setContentIntent(pending)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setContentTitle(context.getResources().getString(R.string.app_name))
@@ -250,7 +252,7 @@ public class VideoFragment extends Fragment {
                     e.printStackTrace();
 
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setTicker(context.getResources().getString(R.string.error) + "...")
                                     .setContentTitle(context.getResources().getString(R.string.app_name))

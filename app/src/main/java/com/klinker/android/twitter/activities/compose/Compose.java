@@ -102,6 +102,8 @@ import com.yalantis.ucrop.UCrop;
 import twitter4j.*;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
+import static com.klinker.android.twitter.settings.AppSettings.TALON_SERVICE_CHANNEL_ID;
+
 public abstract class Compose extends Activity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -622,7 +624,7 @@ public abstract class Compose extends Activity implements
         }
 
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_stat_icon)
                         .setContentTitle(getResources().getString(R.string.tweet_failed))
                         .setContentText(e.getMessage());
@@ -634,7 +636,7 @@ public abstract class Compose extends Activity implements
 
     public void makeFailedNotification(String text) {
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_stat_icon)
                         .setContentTitle(getResources().getString(R.string.tweet_failed))
                         .setContentText(getResources().getString(R.string.tap_to_retry));
@@ -662,7 +664,7 @@ public abstract class Compose extends Activity implements
 
     public void makeTweetingNotification() {
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(this, TALON_SERVICE_CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_stat_icon)
                         .setOngoing(true)
                         .setProgress(100, 0, true);
@@ -695,7 +697,7 @@ public abstract class Compose extends Activity implements
             public void run() {
                 try {
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(context)
+                            new NotificationCompat.Builder(context, TALON_SERVICE_CHANNEL_ID)
                                     .setSmallIcon(R.drawable.ic_stat_icon)
                                     .setContentTitle(getResources().getString(R.string.tweet_success))
                                     .setOngoing(false)
