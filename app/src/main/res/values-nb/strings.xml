@@ -24,7 +24,7 @@
     <string name="menu_logout">Logg ut</string>
     <string name="menu_settings">Innstillinger</string>
     <string name="menu_follow">Følg Bruker</string>
-    <string name="menu_unfollow">Ikke Følg Bruker</string>
+    <string name="menu_unfollow">Slutt å Følge Bruker</string>
     <string name="menu_tweet">Send Tweet</string>
     <string name="menu_dm">Send Direkte Melding</string>
     <string name="menu_block">Blokker Bruker</string>
@@ -33,7 +33,7 @@
     <string name="menu_change_picture">Endre Profilbilde</string>
     <string name="menu_change_bio">Endre Profilinfo</string>
     <string name="menu_change_banner">Endre Profilfane</string>
-    <string name="menu_direct_message">Ny Direkte Melding</string>
+    <string name="menu_direct_message">Ny Direktemelding</string>
     <string name="menu_save_image">Lagre Bildet</string>
     <string name="menu_favorite">Favoritt Bruker</string>
     <string name="menu_unfavorite">Ikke Favoritt Bruker</string>
@@ -49,9 +49,9 @@
     <string name="yesterday">i går</string>
     <string name="days_ago">%s dager siden</string>
     <!-- Muting -->
-    <string name="mute">Mute</string>
-    <string name="unmute">Ikke Mute</string>
-    <string name="muted_users">Mutede Brukere</string>
+    <string name="mute">Demp</string>
+    <string name="unmute">Ikke Demp</string>
+    <string name="muted_users">Dempet Brukere</string>
     <string name="no_users">Ingen Brukere</string>
     <!-- Main Activity -->
     <string name="links">Linker</string>
@@ -269,12 +269,8 @@
     <string name="make_a_theme">Lag et Tema</string>
     <string name="layout">Oppsett</string>
     <string name="themeing_complete">Aktivert Tema</string>
-    <string name="themeing_complete_summary">\"Talon\" vil nå avslutte.
-
-
-Du må sveipe \"Talon\" ut av de nyeste appene dine for å se endringene fullt ut påvirke tidslinjene dine.
-
-
+    <string name="themeing_complete_summary">\"Talon\" vil nå avslutte.\n\n
+Du må sveipe \"Talon\" ut av de nyeste appene dine for å se endringene fullt ut påvirke tidslinjene dine.\n\n
 Hvis profilbildene dine ikke vises slik de burde (dvs. sirkel eller firkant), må du fjerne og legge til widgeten igjen.</string>
     <string name="layout_summary">Hvis du endrer dette, slettes appens cache.</string>
     <string name="text_size">Tekststørrelse</string>
@@ -285,15 +281,10 @@ Hvis profilbildene dine ikke vises slik de burde (dvs. sirkel eller firkant), m�
     <string name="device_font">Bruk Enhetens Font</string>
     <string name="device_font_summary">Vanlig \"Roboto\" på de fleste enheter. Talons standard skrift er \"Roboto Light\".</string>
     <string name="ui_extras">UI Ekstra</string>
-    <string name="ui_extras_summary">Inkluderer:
-
-- Skjul Handlingslinje
-
-- Åpenbar Toastbar
-
-- Transparente Systembars (Kun Android 4.4)
-
-
+    <string name="ui_extras_summary">Inkluderer:\n
+- Skjul Handlingslinje\n
+- Åpenbar Toastbar\n
+- Transparente Systembars (Kun Android 4.4)\n\n
 Aktivering av denne innstillingen påvirker rullingsytelsen.</string>
     <string name="inline_pics">Vis På-Linje Bilder</string>
     <string name="use_screen_name">Vis \"Twitter Handle\"</string>
@@ -516,7 +507,7 @@ Standard (når deaktivert):
     <string name="download_portal_summary">Dette er Klinker Appens \"Portal\" for å holde deg oppdatert med de siste nyhetene, samt finne alle de beste temaene for Talon og EvolveSMS på ett sted!</string>
     <string name="compose_dm_hint">Skriv melding...</string>
     <string name="pwiccer">Pwiccer</string>
-    <string name="select_shortening_service">Velg en forkortertjeneste eller rediger tweeten.</string>
+    <string name="select_shortening_service">Velg en forkortertjeneste, eller trykk tilbake for å rediger tweeten.</string>
     <string name="use_shortening_service">Bruk Forkortingstjenesten</string>
     <string name="use_shortening_service_summary">Du vil kunne velge enten TwitLenger eller Pwiccer (en tjeneste som konverterer din lange tweeter til et bilde for å legge ut).</string>
     <string name="view_retweeters">Retweetere</string>
@@ -652,7 +643,7 @@ Talon vil laste opp bildene ved hjelp av TwitBilde i stedet.</string>
     <string name="pick_date">Velg Dato</string>
     <string name="both_accounts">Begge Kontoer</string>
     <string name="attach_gif">Animerte GIFs fra Enhet</string>
-    <string name="attach_video">Video</string>
+    <string name="attach_video">Velg Video</string>
     <string name="roboto_l">Android Lollipop Roboto</string>
     <string name="second_account">2 Konto</string>
     <string name="second_account_login_info">Siden Twitter inneholder noe av din innloggingsinformasjonen i systemet, kan det ikke hende at neste skjerm kan tillate deg å logge inn med din nye kontoinformasjon umiddelbart. Hvis den hopper over denne innloggingen og går direkte til autorisasjonssiden, klikker du bare på \"Logg Ut\" -knappen øverst til høyre på nettstedet for å tillate appen å logge deg på din andre konto.</string>
@@ -712,7 +703,7 @@ Nevninger, nye følgere og retweets/liker på statusene dine begynner å dukke o
     <string name="show_pull_notification">Vis Vedvarende Varsling</string>
     <string name="show_pull_notification_summary">Hvis du deaktiverer denne varselen, kan Android-systemet når som helst slå av streamen. Bruk ekstrem forsiktighet.</string>
     <string name="custom_tab_title">Chrome-tilpassede Faner</string>
-    <string name="custom_tab_message">Systemet tillater ikke at Talon automatisk starter Chrome-tilpasset Faner. For å bruke denne funksjonen må du sette Chrome som standard systemnettleser, ellers vil Talon fortsette å bruke dens originale appnettleser.</string>
+    <string name="custom_tab_message">Systemet tillater ikke at Talon automatisk starter Chrome-tilpasset Faner. For å bruke denne funksjonen må du sette Chrome som standard systemnettleser, ellers vil Talon fortsette å bruke dens originale appnettleser.\n\nVennligst velg «Ja» hvis Chrome skal vere din standard nettleser eller «nei» hvis du ikke vil bruke den som standard.</string>
     <string name="learn_more">Lær Mer</string>
     <!-- Long click methods -->
     <string name="open_profile">Åpne Profil</string>

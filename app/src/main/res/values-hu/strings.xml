@@ -127,8 +127,14 @@
     <string name="back_to_timeline">Ugrás az idővonalhoz!</string>
     <string name="initial_sync">Szinkronizálás!</string>
     <string name="first_info">Mielőtt elkezdené, jelentkezzen be.</string>
-    <string name="second_info">Nagyszerű!\n\nMost lekérdezünk pár szükséges adatot.\n\nAz internet kapcsolattól függően ez eltarthat egy ideig.</string>
-    <string name="third_info">Reméljük élvezni fogja a Talon használatát!\n\n-- Luke Klinker</string>
+    <string name="second_info">Nagyszerű!
+
+Most lekérdezünk pár szükséges adatot.
+
+Az internet kapcsolattól függően ez eltarthat egy ideig.</string>
+    <string name="third_info">Reméljük élvezni fogja a Talon használatát!
+
+-- Luke Klinker</string>
     <string name="syncing_timeline">Idővonal szinkronizálása...</string>
     <string name="syncing_mentions">Említések szinkronizálása...</string>
     <string name="syncing_direct_messages">Közvetlen üzenetek szinkronizálása...</string>
@@ -255,6 +261,8 @@
     <string name="part_1_phone">Nyissa meg\na navigációs sávot\negy balra\ncsúsztatással!</string>
     <string name="part_2">Lapozzon\naz idővonalak között\na kijelző közepéről\nindított\ncsúsztatással!</string>
     <string name="part_3">Ennyi!\n\nÉrintse meg a\nkijelzőt a\nkezdéshez!</string>
+    <string name="part_4">\nÉrintse meg az \nalkalmazás sávot\naz idővonal pozíciójának \nmutatásához.</string>
+    <string name="part_5">\nNyomjon hosszan \naz alkalmazás sávon \naz idővonal \ntetejére ugráshoz.</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Téma beállítások</string>
     <string name="theme_options">Téma beállítások</string>
@@ -324,7 +332,9 @@
     <string name="sync_failed">Szinkronizáció sikertelen</string>
     <string name="push_notification_options">"\"Push értesítések\" beállítás"</string>
     <string name="push_notifications">Talon Pull</string>
-    <string name="push_notifications_summary">Egy figyelő szolgáltatást indít, hogy azonnali értesítéseket küldjön új események érkezésekor (említések, közvetlen üzenetek, kedvencek, retweetek, új követők).\n\nAz idővonalán is azonnal élőben jeleníti a tweeteket.</string>
+    <string name="push_notifications_summary">Egy figyelő szolgáltatást indít, hogy azonnali értesítéseket küldjön új események érkezésekor (említések, közvetlen üzenetek, kedvencek, retweetek, új követők).
+
+Az idővonalán is azonnal élőben jeleníti a tweeteket.</string>
     <string name="push_notification_warning">További információkért kattintson ide.</string>
     <string name="notification_settings">Értesítés beállítások</string>
     <string name="pebble_notifications">Pebble értesítések</string>
@@ -460,6 +470,7 @@
     <string name="post_with_twitlonger">A tweet több, mint 140 karakter.\n\nSzeretné közzétenni TwitLonger használatával?</string>
     <string name="remove_retweet">Retweet eltávolítása</string>
     <string name="edit">Szerkeszt</string>
+    <string name="split_tweet">Tweet felosztása</string>
     <string name="use_twitpic">TwitPic használata</string>
     <string name="twitpic_summary">Képek csatolásakor a TwitPic használata a Twitter képfeltöltés szolgáltatás helyett.</string>
     <string name="verified">Ellenőrizve</string>
@@ -708,4 +719,11 @@ Említések, új követők, retweetek/állapot kedvelések itt fognak megjelenni
     <string name="open_to_web_summary">Ha a tweet URL-t tartalmaz, akkor a tweet helyett közvetlenül az URL-t nyitja meg.</string>
     <string name="open_webpage">Link megnyitása</string>
     <string name="get_android">Android Emojik beszerzése</string>
+    <string name="play_gif">Lejátszás</string>
+    <string name="add_to_tweet_gif">Hozzáadás a Tweethez</string>
+    <string name="find_a_gif">GIF keresése</string>
+    <string name="three_mb_limit">5MB méret korlát</string>
+    <string name="three_mb_message">A Twitter csak 5MB-nál kisebb GIFek közzétételét engedélyezi. A Talon a legjobb minőségű GIF verziót szedi le a Giphy-ről, ami belefér ebbe a korlátba.\n\nAz összes eredmény amit látsz belefér ebbe a korlátba. Nem jeleníti meg azokat a GIFeket, melyek minősége csökkentett hogy beleférjen az 5MB korlátba.</string>
+    <string name="quoted_you">idézett téged</string>
+    <string name="privacy_policy">Adatvédelmi irányelvek</string>
 </resources>

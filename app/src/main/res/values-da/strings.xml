@@ -35,8 +35,8 @@
     <string name="menu_change_banner">Rediger profilbanner</string>
     <string name="menu_direct_message">Ny besked</string>
     <string name="menu_save_image">Gem billede</string>
-    <string name="menu_favorite">Favorit bruger</string>
-    <string name="menu_unfavorite">Fjern favorit bruger</string>
+    <string name="menu_favorite">Vælg som favorit</string>
+    <string name="menu_unfavorite">Fravælg som favorit</string>
     <string name="menu_create_list">Opret ny liste</string>
     <string name="menu_spam">Rapportér som spam</string>
     <!-- Times -->
@@ -49,9 +49,9 @@
     <string name="yesterday">1 dag siden</string>
     <string name="days_ago">%s dage siden</string>
     <!-- Muting -->
-    <string name="mute">Muting</string>
+    <string name="mute">Mute</string>
     <string name="unmute">Fjern mute</string>
-    <string name="muted_users">Mutede profiler</string>
+    <string name="muted_users">Mute profiler</string>
     <string name="no_users">Ingen profiler</string>
     <!-- Main Activity -->
     <string name="links">Links</string>
@@ -64,7 +64,7 @@
     <string name="favorite_users">Favorit profiler</string>
     <string name="favorite_users_tweets">Favorit tweets</string>
     <string name="trends">Trends</string>
-    <string name="local_trends">Lokale</string>
+    <string name="local_trends">Lokal</string>
     <string name="world_trends">Global</string>
     <string name="search">Søg</string>
     <string name="lists">Lister</string>
@@ -148,8 +148,8 @@ Flere data hentes
     <!-- Compose New Activity -->
     <string name="compose_activity">Nyt tweet</string>
     <string name="compose_tweet_hint">Skriv tweet...</string>
-    <string name="send_to">Skriv kaldenavn for profil</string>
-    <string name="direct_message_sent">Sendt besked</string>
+    <string name="send_to">Skriv brugernavn for profil</string>
+    <string name="direct_message_sent">Besked sendt</string>
     <string name="type_user">Skriv profil</string>
     <string name="add_user">Tilføj profil</string>
     <string name="location_connected">Lokation vedhæftet</string>
@@ -197,13 +197,13 @@ Flere data hentes
     <string name="followed_user">Følger profil</string>
     <string name="unfollowed_user">Følger ikke profil</string>
     <string name="no_description">Ingen profilbeskrivelse tilgængelig</string>
-    <string name="favorite_user">Favoritprofil</string>
-    <string name="unfavorite_user">Ikke favoritprofil</string>
+    <string name="favorite_user">Favorit</string>
+    <string name="unfavorite_user">Ikke favorit</string>
     <string name="updating_pro_pic">Opdaterer profilbillede</string>
     <string name="updating_banner_pic">Opdaterer bannerbillede</string>
-    <string name="uploaded">Fil oploadet</string>
+    <string name="uploaded">Fil uploadet</string>
     <string name="change_profile_info">Rediger profilinformation</string>
-    <string name="update">Opdatér</string>
+    <string name="update">Opdater</string>
     <string name="optional_name">Navn (valgfrit)</string>
     <string name="optional_url">URL (valgfrit)</string>
     <string name="optional_location">Lokation (valgfrit)</string>
@@ -257,12 +257,12 @@ Flere data hentes
     <string name="choose_list">Vælg liste</string>
     <string name="added_to_list">Tilføjet til liste</string>
     <!-- Tutorial Activity -->
-    <string name="part_1_tablet">Tilgå indstillinger\nved tap på enheder\ni\nnavigations\nlisten!</string>
+    <string name="part_1_tablet">\nTilgå indstillinger\nved et\ntap i\nnavigations\noversigten!</string>
     <string name="part_1_phone">\nÅbn\nnav.oversigt ved\nswipe fra venstre\nkant mod højre!</string>
-    <string name="part_2">\nSkift mell.\nlister ved swipe\npå midten eller fra \nvenstre side\naf skærmen</string>
+    <string name="part_2">\nSkift mell.\nlister ved swipe\npå midten - eller fra \nvenstre side\naf skærmen</string>
     <string name="part_3">Færdig!\n\nTap på\nskærmen for\nat starte!</string>
-    <string name="part_4">" Tap på top\nbaren for at\nvise positionen\npå tidslinjen"</string>
-    <string name="part_5">" Tap og hold\npå top baren\nfor at komme\ntil toppen af\ntidslinjen"</string>
+    <string name="part_4">" Tap på top\nfeltet for at\nvise positionen\npå tidslinjen"</string>
+    <string name="part_5">" Tap og hold\npå top feltet\nfor at komme\ntil toppen af\ntidslinjen"</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Tema indstillinger</string>
     <string name="theme_options">Tema indstillinger</string>
@@ -270,7 +270,7 @@ Flere data hentes
     <string name="other_options">Andre indstillinger</string>
     <string name="theme">Tema</string>
     <string name="addon_themes">Add-on temaer</string>
-    <string name="addon_note">Tap her for at finde nye temaer\n\nBEMÆRK:\n- Dette vil déaktivere brugen af det medfølgende Emoji tastatur\n- Rapportér venligst ikke fejl med mindre du kan genskabe dem UDEN at have et add-on tema i brug</string>
+    <string name="addon_note">Tap her for at finde nye temaer\n\nBEMÆRK:\n- Dette vil déaktivere brugen af det medfølgende Emoji tastatur\n- Rapportér venligst ikke fejl med mindre du kan genskabe dem, UDEN at have et add-on tema i brug</string>
     <string name="use_addon_themes">Brug add-on tema</string>
     <string name="make_a_theme">Lav dit eget tema</string>
     <string name="layout">Layout</string>
@@ -278,7 +278,7 @@ Flere data hentes
     <string name="themeing_complete_summary">\"Talon\" lukker nu ned\n\n
  Du skal swipe \"Talon\" væk fra listen af senest brugte app\'s, før ændringer slår fuldt igennem på tidslinjen\n\n
 Hvis dit profil billede ikke vises som det skal, enten i en cirkel eller firkant, skal du fjerne widget\'en og tilføje den igen</string>
-    <string name="layout_summary">Skift af layout vil slette cache</string>
+    <string name="layout_summary">Skift af layout vil slette cachen</string>
     <string name="text_size">Tekststørrelse</string>
     <string name="night_mode">Nat tilstand</string>
     <string name="night_mode_night">Vælg starttidspunkt</string>
@@ -286,7 +286,7 @@ Hvis dit profil billede ikke vises som det skal, enten i en cirkel eller firkant
     <string name="night_mode_theme">Vælg tema for nat tilstand</string>
     <string name="device_font">Brug enhedens skrifttype</string>
     <string name="device_font_summary">Regular \"Roboto\" på de fleste enheder. Talon\'s standard skrifttype er \"Roboto light\"</string>
-    <string name="ui_extras">Ekstra UI indstillinger</string>
+    <string name="ui_extras">Flere UI indstillinger</string>
     <string name="ui_extras_summary">Inkluderer:\n
                 - Gemmer funktions linje\n
                 - Aktiv info linje\n
@@ -297,7 +297,7 @@ Hvis dit profil billede ikke vises som det skal, enten i en cirkel eller firkant
     <string name="use_screen_name_summary">Vis brugers Twitter kaldenavn i stedet for eget navn i tidslinjen</string>
     <string name="timestamp">24 timers tidsvisning</string>
     <string name="enable_emojis">Brug IOS emojis</string>
-    <string name="to_market">Til Play Store</string>
+    <string name="to_market">Til Google Play</string>
     <string name="get_ios">Download tilføjelse</string>
     <string name="emoji_dialog_summary">For at aktivére emojis i denne app, skal du have \"Sliding Emoji Keyboard\" eller \"Sliding Emoji Keyboard - iOS\" pakken installeret fra Google Play\n\n
 BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveperioden er udløbet! Pakken bruges både som en tilføjelse, såvel som en uafhængig tastatur applikation</string>
@@ -319,13 +319,13 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="sync_second_mentions">Synkroniser sekundær konto</string>
     <string name="sync_second_mentions_summary">Tjek og informer automatisk for nye meninger, både for din primære og sekundære konto</string>
     <string name="max_number_summary">Høj max. grænse betyder langsommere opdatering</string>
-    <string name="auto_refresh_category">Auto-opdatér indstillinger</string>
+    <string name="auto_refresh_category">Indstillinger for automatisk opdatering</string>
     <string name="refresh_on_startup">Opdater ved start af applikation</string>
     <string name="timeline_sync_interval">Opdateringsinterval for tidslinje</string>
     <string name="mentions_sync_interval">Opdateringsinterval for meninger</string>
     <string name="dm_sync_interval">Opdateringsinterval for direkte beskeder</string>
-    <string name="sync_friends">Synkronisér venners data</string>
-    <string name="sync_friends_summary2">Synkronisérer venners @brugernavn til brug ved skrivning af tweets</string>
+    <string name="sync_friends">Synkroniser venners data</string>
+    <string name="sync_friends_summary2">Synkroniser venners @brugernavn til brug ved skrivning af tweets</string>
     <string name="sync_friends_summary">Synkronisérer manuelt venne listen\n\nDet blev gjort ved log ind og de bliver automatisk tilføjet når du vælger at følge nogen via Talon. Funktionen vil tilføje de allersidste personer du har valgt at følge\n\n
  Disse data bliver brugt når der søges efter profiler ifbm. skrivning af tweets</string>
     <string name="sync_success">Synkroniseret</string>
@@ -340,7 +340,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="advanced_settings">Avancerede indstillinger</string>
     <string name="app_feel_category">Indstillinger af app oplevelsen</string>
     <string name="advance_windowed">Avanceret visning</string>
-    <string name="advance_windowed_summary">Åbn profiler og tweets i en popup der vises ovenpå tidslinjen</string>
+    <string name="advance_windowed_summary">Åbn profiler og tweets i en popup over tidslinjen</string>
     <string name="full_screen_browsers">Fuldskærmsbrowser</string>
     <string name="full_screen_browsers_summary">Åbn tweets der indeholder links til websider med fuldskærmsvisning</string>
     <string name="reverse_click_actions">Omvendt tap funktion</string>
@@ -363,11 +363,11 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="mentions_size_summary">Max. antal meninger der gemmes i databasen</string>
     <string name="dm_size">Størrelse for beskeder</string>
     <string name="dm_size_summary">Max. antal beskeder der gemmes i databasen</string>
-    <string name="auto_trim">Auto-trim databaser</string>
-    <string name="trim_now">Trim databaser nu</string>
-    <string name="trim_dialog">Trim databaser nu?</string>
+    <string name="auto_trim">Auto-trim database</string>
+    <string name="trim_now">Trim database nu</string>
+    <string name="trim_dialog">Trim database?</string>
     <string name="trimming">Trimmer...</string>
-    <string name="trim_success">Databaser trimmet</string>
+    <string name="trim_success">Database trimmet</string>
     <string name="trim_fail">Fejl ved trimning</string>
     <string name="backup_category">Backup og gendan indstillinger</string>
     <string name="backup_settings">Backup indstillinger</string>
@@ -419,7 +419,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="dismiss_all">Annuller alle</string>
     <string name="handle_and_name">Vis kaldenavn og navn</string>
     <string name="notification_types">Notifikations typer</string>
-    <string name="with_talon_pull">Tilgåes via \"Talon Pull\"</string>
+    <string name="with_talon_pull">Tilgås via \"Talon Pull\"</string>
     <string name="favorited_tweet">Likes dine tweets</string>
     <string name="new_followers">Nye følgere</string>
     <string name="discussion">Kommentarer</string>
@@ -433,21 +433,21 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="ignore_retweets">Ignorér retweets</string>
     <string name="ignore_retweets_summary">Skjul retweets når du scroller igennem tidslinjen</string>
     <string name="view">Vis</string>
-    <string name="muted_hashtags">Muted hash tags</string>
-    <string name="muted_hashtags_summary">Tap på hash tag\'et for at fjerne mute</string>
-    <string name="no_hashtags">Ingen hash tags</string>
-    <string name="mute_hashtags">Mute hash tags</string>
+    <string name="muted_hashtags">Muted hashtags</string>
+    <string name="muted_hashtags_summary">Tap på hashtag\'et for at fjerne mute</string>
+    <string name="no_hashtags">Ingen hashtags</string>
+    <string name="mute_hashtags">Mute hashtags</string>
     <string name="muted">Muted</string>
-    <string name="auto_insert_hashtags">Indsæt hash tags automatisk</string>
-    <string name="to_replies">Indsæt hash tag der er indeholdt i tweetet</string>
-    <string name="clean_now">Slet databaser nu</string>
+    <string name="auto_insert_hashtags">Indsæt hashtags automatisk</string>
+    <string name="to_replies">Indsæt hashtag der er indeholdt i tweetet</string>
+    <string name="clean_now">Rens database nu</string>
     <string name="clean_now_summary">Inkluderer trimning og fjerner dubletter i databasen</string>
     <string name="delete_conversation">Slet samtale?</string>
     <string name="deleting_messages">Sletter beskeder</string>
     <string name="type_message">Skriv besked...</string>
     <string name="fill_gaps">Luk hul i tidslinje</string>
-    <string name="fill_gaps_summary">Lukker \"hul\" der kan opstå i Tidslinjen grundet dårlig streaming forbindelse, når live-streaming er aktiveret</string>
-    <string name="filling_timeline">Lukker hullet i tidslinje</string>
+    <string name="fill_gaps_summary">Lukker \"hul\" der kan opstå i tidslinjen grundet dårlig streaming forbindelse, når live-streaming er aktiveret</string>
+    <string name="filling_timeline">Lukker huller i tidslinje</string>
     <string name="follows_you">Følger dig</string>
     <string name="not_following_you">Følger ikke dig</string>
     <string name="device">Enhedens tekst type</string>
@@ -460,7 +460,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="interactions_notifications">Interaktion notifikationer</string>
     <string name="timelines_settings">Tidslinje indstillinger</string>
     <string name="tweet_look_options">Tidslinje indstillinger</string>
-    <string name="limiting_options">Begrænsnings indstillinger</string>
+    <string name="limiting_options">Indstillinger for restriktioner</string>
     <string name="browser_options">Browser indstillinger</string>
     <string name="custom_ringtone">Vælg notifikations lyd</string>
     <string name="use_twitlonger">Aktivér TwitLonger</string>
@@ -500,7 +500,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="page_2">Side 2</string>
     <string name="load_tweets">Hent tweets</string>
     <string name="download_portal">Hent Theme Portal App</string>
-    <string name="download_portal_summary">Klinker Apps \"Portal\" applikation giver dig mulighed for at være opdateret med de seneste nyheder, og de bedste temaer for både Talon og EvolveSMS</string>
+    <string name="download_portal_summary">Klinker Apps \"Portal\" applikation giver dig mulighed for at være opdateret med de seneste nyheder, samt de bedste temaer for både Talon og EvolveSMS</string>
     <string name="compose_dm_hint">Skriv besked...</string>
     <string name="pwiccer">Pwiccer</string>
     <string name="select_shortening_service">Vælg en service til at forkorte tweetet eller tap tilbage for at redigere det</string>
@@ -522,7 +522,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="none">Ingen</string>
     <string name="start">Start</string>
     <string name="version_two">Version 2.0.0</string>
-    <string name="cleaning_databases">Rydder op i databaser...</string>
+    <string name="cleaning_databases">Rydder op i database...</string>
     <string name="setup_version_two">Der er sket meget med Talon på det seneste og for at sikre du får den bedste oplevelse, er det nødvendigt at rydde op inden du bruger applikationen! \n\nDette kan tage lidt tid, afhængig af hvor mange tweets du gemmer!</string>
     <string name="setting_up_timeline">Konfigurére tidslinje...</string>
     <string name="setting_up_mentions">Konfigurére meninger...</string>
@@ -630,7 +630,7 @@ Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="muted_clients_summary">Gør mute alle tweets fra en specifik applikation, muligt</string>
     <string name="client_not_found">Klient ikke fundet!</string>
     <string name="favorite">Like</string>
-    <string name="menu_share_image">Del billed</string>
+    <string name="menu_share_image">Del billede</string>
     <string name="pick_time">Vælg tidspunkt</string>
     <string name="pick_date">Vælg dato</string>
     <string name="both_accounts">Begge konti</string>
@@ -691,9 +691,9 @@ Nye meninger, følgere, retweets og likes vises</string>
     <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
     <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
     <string name="show_pull_notification">Vis notifikation konstant</string>
-    <string name="show_pull_notification_summary">Hvis du deaktiverer notifikationen kan styresystemet lukke din tråd til enhver tid. Bruges med ekstrem forsigtighed</string>
+    <string name="show_pull_notification_summary">Hvis du deaktiverer notifikationen, kan styresystemet lukke din tråd til enhver tid. Brug med ekstrem forsigtighed</string>
     <string name="custom_tab_title">Chrome standard faner</string>
-    <string name="custom_tab_message">Dit system tillader ikke Talon at starte Chrome standard faner automatisk. Sæt Chrome som din standard browser for at tillade det, ellers vil Talon fortsætte med at bruge dens egen interne browser.\n\nVælg venligst \"Ja\" eller \"Nej\" om Chrome skal være din standard browser</string>
+    <string name="custom_tab_message">Dit system tillader ikke Talon at starte Chrome standard faner automatisk. Sæt Chrome som din standard browser for at tillade det, ellers vil Talon fortsætte med at bruge sin egen interne browser.\n\nVælg venligst \"Ja\" eller \"Nej\" om Chrome skal være din standard browser</string>
     <string name="learn_more">Lær mere</string>
     <!-- Long click methods -->
     <string name="open_profile">Åbn profil</string>
@@ -721,7 +721,7 @@ Nye meninger, følgere, retweets og likes vises</string>
     <string name="add_to_tweet_gif">Tilføj til tweet</string>
     <string name="find_a_gif">Find en GIF</string>
     <string name="three_mb_limit">Max. 5MB</string>
-    <string name="three_mb_message">Twitter tillader kun afspilning af GIFs på max. 5MB. Talon vil bruge versionen med den bedste kvalitet fra Giphy, der ligger inden for denne grænse\n\nDe viste vil alle være versioner der ligger inden for denne grænse. Ingen GIFs hvor kvaliteten er forringet for at overholde grænsen på de 5 MB, er vist</string>
+    <string name="three_mb_message">Twitter tillader kun afspilning af GIFs på max. 5MB. Talon vil bruge versionen med den bedste kvalitet fra Giphy, der ligger inden for denne grænse\n\nDe viste vil alle være versioner der ligger inden for grænsen. Ingen GIFs hvor kvaliteten er forringet for at overholde grænsen på de 5 MB, er vist</string>
     <string name="quoted_you">citerede dig</string>
     <string name="privacy_policy">Privatlivspolitik</string>
 </resources>

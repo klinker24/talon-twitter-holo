@@ -21,7 +21,7 @@
     <!-- Action Bar -->
     <string name="menu_refresh">Actualizar cronología</string>
     <string name="menu_compose">Nuevo Tweet</string>
-    <string name="menu_logout">Salir</string>
+    <string name="menu_logout">Cerrar sesión</string>
     <string name="menu_settings">Ajustes</string>
     <string name="menu_follow">Seguir usuario</string>
     <string name="menu_unfollow">Dejar de seguir usuario</string>
@@ -116,7 +116,7 @@
     <string name="followed">te ha seguido</string>
     <string name="new_retweets">retweets</string>
     <string name="new_favorites">me gustas</string>
-    <string name="new_quotes">menciones</string>
+    <string name="new_quotes">Menciones</string>
     <string name="new_tweets_upper">Nuevos Tweets</string>
     <!-- Login Screen -->
     <string name="setup_talon">Configurar Talon</string>
@@ -497,7 +497,7 @@
     <string name="download_portal_summary">¡Esta es \"Portal\" de Klinker Apps para estar al día con las últimas noticias, así como encontrar los mejores temas para Talon y EvolveSMS en un solo lugar!</string>
     <string name="compose_dm_hint">Escribe un mensaje...</string>
     <string name="pwiccer">Pwiccer</string>
-    <string name="select_shortening_service">Selecciona un servicio de acortamiento o edita el tweet.</string>
+    <string name="select_shortening_service">Selecciona un servicio de acortamiento o pulsa atrás editar el tweet.</string>
     <string name="use_shortening_service">Usar un servicio de acortamiento</string>
     <string name="use_shortening_service_summary">Podrás elegir entre TwitLonger o Pwiccer (un servicio que convierte tus tweets largos en una imagen para publicar).</string>
     <string name="view_retweeters">Retweeteadores</string>
@@ -681,14 +681,14 @@ Menciones,nuevos seguidores, y retweets/me gusta a tus estado se empezarán a mo
     <string name="and">y</string>
     <string name="no_favorites">Sin me gustas</string>
     <string name="quote_style">Estilo de la mención</string>
-    <string name="quote_style_twitter">Estilo de Twitter(Enlace al tweet)</string>
+    <string name="quote_style_twitter">Estilo de Twitter (Enlace al tweet)</string>
     <string name="quote_style_talon">\"\@lukeklinker &#8230;\"</string>
     <string name="quote_style_rt">RT \@lukeklinker &#8230;</string>
-    <string name="show_pull_notification">Mostrar notificación persistente</string>
-    <string name="show_pull_notification_summary">Si desactivas esta notificación,Android puede cancelar el streaming en cualquier momento. Úsela con extrema precaución</string>
+    <string name="show_pull_notification">Mostrar notificación continua</string>
+    <string name="show_pull_notification_summary">Si desactivas esta notificación, el sistema Android puede cancelar la transmisión en cualquier momento. Úsela con extrema precaución.</string>
     <string name="custom_tab_title">Pestañas personalizadas de Chrome</string>
-    <string name="custom_tab_message">Tu sistema no está permitiendo a Talon abrir pestañas personalizadas de Chrome. Para usar está característica es necesario establecer Chrome como reproductor predeterminado, si no, Talon continuará usando el predeterminado de la aplicación \n\nPor favor seleccione \"Si\" si quiere que Chrome sea su navegador predeterminado o no si no lo quiere usar como predeterminado</string>
-    <string name="learn_more">Aprende más</string>
+    <string name="custom_tab_message">Tu sistema o está permitiendo a Talon abrir pestañas personalizadas de Chrome. Para usar esta característica es necesario establecer Chrome como tú navegador predeterminado, si no, Talon continuará usando el navegador predeterminado de la aplicación.\n\nPor favor seleccione \"Si\" si quiere que Chrome sea su navegador predeterminado o \"No\" si no lo usará como predeterminado.</string>
+    <string name="learn_more">Aprender más</string>
     <!-- Long click methods -->
     <string name="open_profile">Abrir Perfil</string>
     <string name="copy_handle">Copiar nombre de usuario</string>
@@ -707,9 +707,9 @@ Menciones,nuevos seguidores, y retweets/me gusta a tus estado se empezarán a mo
     <string name="copy_cashtag">Copiar Cashtag</string>
     <string name="copied">Texto Copiado</string>
     <string name="favorite_user_text">Usuario Favorito</string>
-    <string name="open_to_web">Abrir la página web</string>
+    <string name="open_to_web">Abrir en la página web</string>
     <string name="open_to_web_summary">Si el tweet contiene un enlace web, este se abrirá directamente en lugar de abrir el tweet.</string>
-    <string name="open_webpage">Abrir Enlace</string>
+    <string name="open_webpage">Abrir enlace</string>
     <string name="get_android">Bajar emoticonos de Android</string>
     <string name="play_gif">Reproducir</string>
     <string name="add_to_tweet_gif">Añadir al Tweet</string>

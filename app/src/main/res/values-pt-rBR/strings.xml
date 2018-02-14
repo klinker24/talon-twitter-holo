@@ -466,7 +466,7 @@
     <string name="twitpic_summary">Use TwitPic para publicar imagens ao invés do serviço oficial do Twitter.</string>
     <string name="verified">Verificado</string>
     <string name="use_tweetmarker">TweetMarker</string>
-    <string name="tweetmarker_summary">Ainda em fase experimental. Você pode ter algum problema se usar esse recurso.</string>
+    <string name="tweetmarker_summary">Usado para sincronizar sua posição entre os dispositivos.</string>
     <string name="do_not_use">Não Use</string>
     <string name="automatic_refresh">TweetMarker Automático</string>
     <string name="manual_refresh">TweetMarker Manual</string>
