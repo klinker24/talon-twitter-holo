@@ -726,4 +726,10 @@ Említések, új követők, retweetek/állapot kedvelések itt fognak megjelenni
     <string name="three_mb_message">A Twitter csak 5MB-nál kisebb GIFek közzétételét engedélyezi. A Talon a legjobb minőségű GIF verziót szedi le a Giphy-ről, ami belefér ebbe a korlátba.\n\nAz összes eredmény amit látsz belefér ebbe a korlátba. Nem jeleníti meg azokat a GIFeket, melyek minősége csökkentett hogy beleférjen az 5MB korlátba.</string>
     <string name="quoted_you">idézett téged</string>
     <string name="privacy_policy">Adatvédelmi irányelvek</string>
+    <string name="emoji_style">Emoji stílus</string>
+    <string name="emoji_style_default">Rendszer alapértelmezett</string>
+    <string name="emoji_style_android_o">Google Android Oreo</string>
+    <string name="saved_tweets">Elmentett Tweetek</string>
+    <string name="save_for_later">Mentés későbbre</string>
+    <string name="remove_from_saved_tweets">Eltávolítás az elmentett Tweetekből</string>
 </resources>

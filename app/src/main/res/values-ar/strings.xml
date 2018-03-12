@@ -719,4 +719,10 @@
     <string name="three_mb_message">تويتر يسمح فقط بنشر الصورة المتحركة GIF التي هي أقل من 5MB. تالون سوف  يجلب أعلى جودة لنسخة GIF من Giphy الذي يناسب ضمن هذه القيود.\n\nالنتائج التي تراها كلها لديها الإصدار الذي يتناسب ضمن هذا الحد ،أنا لم اظهر صور GIF التي بجودة مماثلة  لتناسب في حدود 5MB الجودة.</string>
     <string name="quoted_you">نقلت لك</string>
     <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="emoji_style">نمط الرموز التعبيرية</string>
+    <string name="emoji_style_default">النظام الافتراضي</string>
+    <string name="emoji_style_android_o">نظام قوقل أندرويد اوريو (Oreo)</string>
+    <string name="saved_tweets">التغريدات المحفوظة</string>
+    <string name="save_for_later">احفظ لوقت لاحق</string>
+    <string name="remove_from_saved_tweets">إزالة من التغريدات المحفوظة</string>
 </resources>

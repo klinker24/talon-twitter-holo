@@ -468,7 +468,7 @@ BEMÆRK: Emojis vil fortsætte med at virke i applikationen selv efter prøveper
     <string name="post_with_twitlonger">Tweet er længere end 140 tegn\n\nVil du bruge TwitLonger?</string>
     <string name="remove_retweet">Fjern retweet status</string>
     <string name="edit">Redigér</string>
-    <string name="split_tweet">Split Tweet</string>
+    <string name="split_tweet">Split tweet</string>
     <string name="use_twitpic">Brug TwitPic</string>
     <string name="twitpic_summary">Brug Twitpic ved upload af billeder i stedet for Twitter\'s egen</string>
     <string name="verified">Bekræftet</string>
@@ -622,12 +622,12 @@ Billedet vil være tilgængeligt på din TwitPic profil</string>
     <string name="complete_form">Udfyld venligst felterne</string>
     <string name="no_drafts">Ingen kladder fundet</string>
     <string name="no_queued">Ingen tweets i kø</string>
-    <string name="menu_show_top_tweets">Filter \"Top Tweets\"</string>
+    <string name="menu_show_top_tweets">Filter \"Top tweets\"</string>
     <string name="delete_all">Slet alle kladder</string>
     <string name="muted_clients">Muted apps</string>
     <string name="mute_client">Mute app</string>
     <string name="no_clients">Ingen apps</string>
-    <string name="muted_clients_summary">Gør mute alle tweets fra en specifik applikation, muligt</string>
+    <string name="muted_clients_summary">Gør mute alle tweets fra en specifik applikation muligt</string>
     <string name="client_not_found">Klient ikke fundet!</string>
     <string name="favorite">Like</string>
     <string name="menu_share_image">Del billede</string>
@@ -700,7 +700,7 @@ Nye meninger, følgere, retweets og likes vises</string>
     <string name="copy_handle">Kopiér indhold</string>
     <string name="search_user">Søg profil</string>
     <string name="mute_user">Mute profil</string>
-    <string name="mute_retweets">Mute Retweets</string>
+    <string name="mute_retweets">Mute retweets</string>
     <string name="share_profile">Del profil</string>
     <string name="open_to_external_browser">Åbn i ekstern browser</string>
     <string name="open_to_internal_browser">Åbn i intern browser</string>
@@ -713,8 +713,8 @@ Nye meninger, følgere, retweets og likes vises</string>
     <string name="copy_cashtag">Kopiér cashtag</string>
     <string name="copied">Kopieret tekst</string>
     <string name="favorite_user_text">Favorit profil</string>
-    <string name="open_to_web">Åbn webside</string>
-    <string name="open_to_web_summary">Indeholder et tweet et link til en webside, åbnes websiden i stedet for at vise tweetet</string>
+    <string name="open_to_web">Åbn Webside</string>
+    <string name="open_to_web_summary">Indeholder et tweet et link til en webside, åbnes Websiden i stedet for at vise tweetet</string>
     <string name="open_webpage">Åbn link</string>
     <string name="get_android">Hent Android Emojis</string>
     <string name="play_gif">Afspil</string>
@@ -724,4 +724,10 @@ Nye meninger, følgere, retweets og likes vises</string>
     <string name="three_mb_message">Twitter tillader kun afspilning af GIFs på max. 5MB. Talon vil bruge versionen med den bedste kvalitet fra Giphy, der ligger inden for denne grænse\n\nDe viste vil alle være versioner der ligger inden for grænsen. Ingen GIFs hvor kvaliteten er forringet for at overholde grænsen på de 5 MB, er vist</string>
     <string name="quoted_you">citerede dig</string>
     <string name="privacy_policy">Privatlivspolitik</string>
+    <string name="emoji_style">Emoji stil</string>
+    <string name="emoji_style_default">System standard</string>
+    <string name="emoji_style_android_o">Google\'s Android Oreo</string>
+    <string name="saved_tweets">Gemte tweets</string>
+    <string name="save_for_later">Gem tweet</string>
+    <string name="remove_from_saved_tweets">Fjern fra gemte tweets</string>
 </resources>

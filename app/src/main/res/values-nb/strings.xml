@@ -119,7 +119,7 @@
     <string name="new_quotes">sitater</string>
     <string name="new_tweets_upper">Nye Tweets</string>
     <!-- Login Screen -->
-    <string name="setup_talon">Set opp Talon</string>
+    <string name="setup_talon">Sett opp Talon</string>
     <string name="login_to_twitter">Logg inn på Twitter</string>
     <string name="first_welcome">Velkommen til Talon!</string>
     <string name="second_welcome">Synkroniserer Data</string>
@@ -228,10 +228,10 @@
     <string name="open_what">Åpne hva</string>
     <string name="youtube_error">Feil ved avspilling av video</string>
     <string name="no_conversation">Ingen Tidligere Tweets</string>
-    <string name="saving_picture">Lager Bildet</string>
-    <string name="saved_picture">Bilde Laget Vellykket</string>
-    <string name="retweet_success">Retweet Vellykket</string>
-    <string name="favorite_success">Lik Vellykket</string>
+    <string name="saving_picture">Lagre bildet</string>
+    <string name="saved_picture">Bilde lagret vellykket</string>
+    <string name="retweet_success">Retweet vellykket</string>
+    <string name="favorite_success">Lik vellykket</string>
     <string name="success">Vellykket</string>
     <!-- User Lists -->
     <string name="view_users">Se Brukere</string>
@@ -561,7 +561,7 @@ Standard (når deaktivert):
     <string name="favorites">Liker</string>
     <string name="load_pictures">Last inn Bilder</string>
     <string name="pic_search_disclaimer">Søker på brukerens tidslinje for bilder. Vil ta mer tid avhengig av hvor nåværende bildene deres er.</string>
-    <string name="widget_theme">Hjemsjerm Widget Tema</string>
+    <string name="widget_theme">Hjemskjerm Widget Tema</string>
     <string name="widget_theme_summary">Brukt på hjemmeskjerm widgets.</string>
     <string name="widget_light">Lyst Tema</string>
     <string name="widget_dark">Mørkt Tema</string>
@@ -720,7 +720,7 @@ Nevninger, nye følgere og retweets/liker på statusene dine begynner å dukke o
     <string name="mute_hashtag">Mute Hashtag</string>
     <string name="copy_hashtag">Kopier Hashtag</string>
     <string name="search_cashtag">Søk Cashtag</string>
-    <string name="copy_cashtag">Kopier Cashtah</string>
+    <string name="copy_cashtag">Kopier Cashtag</string>
     <string name="copied">Kopierte Tekst</string>
     <string name="favorite_user_text">Favorittbruker</string>
     <string name="open_to_web">Åpne til Nettside</string>
@@ -734,4 +734,10 @@ Nevninger, nye følgere og retweets/liker på statusene dine begynner å dukke o
     <string name="three_mb_message">Twitter tillater bare at GIFs som blir lagt ut er mindre enn 5MB. Talon vil ta GIF-versjonen av høyeste kvalitet fra Giphy som passer innenfor disse begrensningene.\n\nResultatene du ser har alle en versjon som passer innenfor denne grensen, jeg har ikke vist GIF-er der kvaliteten er nedsamplet for å passe innenfor 5MB grensen.</string>
     <string name="quoted_you">siterte deg</string>
     <string name="privacy_policy">Personvernregler</string>
+    <string name="emoji_style">Emoji stil</string>
+    <string name="emoji_style_default">System standard</string>
+    <string name="emoji_style_android_o">Google\'s Android Oreo</string>
+    <string name="saved_tweets">Lagrede Tweets</string>
+    <string name="save_for_later">Lagre for senere</string>
+    <string name="remove_from_saved_tweets">Fjern fra lagrede tweets</string>
 </resources>

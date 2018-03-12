@@ -50,13 +50,13 @@
     <string name="days_ago">vor %s Tagen</string>
     <!-- Muting -->
     <string name="mute">Stummschalten</string>
-    <string name="unmute">Lautschalten</string>
+    <string name="unmute">Stummschaltung aufheben</string>
     <string name="muted_users">Stummgeschaltete Nutzer</string>
     <string name="no_users">Keine Benutzer</string>
     <!-- Main Activity -->
     <string name="links">Links</string>
     <string name="pictures">Bilder</string>
-    <string name="timeline">Zeitlinie</string>
+    <string name="timeline">Timeline</string>
     <string name="mentions">Erwähnungen</string>
     <string name="direct_messages">Direktnachrichten</string>
     <string name="retweets">Retweets</string>
@@ -138,7 +138,7 @@ Dieser Vorgang könnte etwas länger dauern, je nachdem, wie Du mit dem Internet
     <string name="syncing_direct_messages">Direktnachrichten werden synchronisiert...</string>
     <string name="syncing_user">Freunde werden synchronisiert...</string>
     <string name="done_syncing">Synchronisation abgeschlossen.</string>
-    <string name="login_error">"Etwas ist schief gelaufen... Bitte versuche es erneut!\n\nEs könnte daran liegen, dass das Datum und die Uhrzeit Ihres Gerätes nicht automatisch festgelegt wird. Dies ist für die Drittanbieter-API von Twitter erforderlich. "</string>
+    <string name="login_error">Etwas ist schief gelaufen... Bitte versuche es erneut!\n\nEs könnte daran liegen, dass das Datum und die Uhrzeit Deines Gerätes nicht automatisch festgelegt wird. Dies ist für die Drittanbieter-API von Twitter erforderlich.</string>
     <string name="no_network">Du bist nicht mit dem Internet verbunden</string>
     <string name="no_thanks">Später</string>
     <string name="follow_me">Folgen!</string>
@@ -214,7 +214,7 @@ Dieser Vorgang könnte etwas länger dauern, je nachdem, wie Du mit dem Internet
     <!-- Retweets Activity -->
     <string name="retweets_lower">Retweets</string>
     <string name="retweet_lower">Retweet</string>
-    <string name="retweeter">retweetet von @</string>
+    <string name="retweeter">geretweetet von @</string>
     <!-- Tweet Activity -->
     <string name="menu_open_web">Link öffnen</string>
     <string name="menu_copy_text">Tweet-Text kopieren</string>
@@ -242,7 +242,7 @@ Dieser Vorgang könnte etwas länger dauern, je nachdem, wie Du mit dem Internet
     <string name="delete_list">Liste löschen</string>
     <string name="remove_user">Nutzer entfernen</string>
     <string name="remove">Entferne</string>
-    <string name="from_list">von der Liste?</string>
+    <string name="from_list">von der Liste</string>
     <string name="removed_user">Nutzer entfernt</string>
     <string name="create_new_list">Neue Liste erstellen</string>
     <string name="list_name">Name der Liste...</string>
@@ -255,12 +255,12 @@ Dieser Vorgang könnte etwas länger dauern, je nachdem, wie Du mit dem Internet
     <string name="choose_list">Liste wählen</string>
     <string name="added_to_list">Zur Liste hinzugefügt</string>
     <!-- Tutorial Activity -->
-    <string name="part_1_tablet">\nFunktionen verwenden,\nindem Sie Einträge\nim \nNavigationsmenü\nantippen!</string>
+    <string name="part_1_tablet">\nVerwende die Funktionen,\nindem Du Einträge\nim Navigationsmenü antippst!</string>
     <string name="part_1_phone">\nÖffnen Sie das\nNavigationsmenü\nmit einer Wischgeste\nvom linken Bildschirmrand!</string>
     <string name="part_2">\nWechslen Sie die\nAnsicht mit\neiner Wischgeste\nvon der Mitte des\nBildschirms!</string>
-    <string name="part_3">Das war\'s!\n\nBerühre den\nBildschirm um\nzu beginnen!</string>
+    <string name="part_3">Das war’s!\n\nBerühre den\nBildschirm um\nzu beginnen!</string>
     <string name="part_4">Die Titelleiste der App berühren um die Position in der Zeitleiste zu zeigen.</string>
-    <string name="part_5">Die Titelleiste der App lange berühren um zum Beginn der Zeitleiste zu springen.</string>
+    <string name="part_5">\nDie Titelleiste der App\nlange berühren,\num zum Beginn\nder Timeline zu springen.</string>
     <!-- Settings Menu -->
     <string name="theme_settings">Theme</string>
     <string name="theme_options">Theme</string>
@@ -339,7 +339,7 @@ HINWEIS: Emojis werden auch nach Ablauf der Testversion weiterhin in dieser App 
     <string name="pebble_notifications">Pebble-Benachrichtigungen</string>
     <string name="pebble_notifications_summary">Wird mit der Pebble-Smartwatch verwendet. Abschalten falls zwei Benachrichtigungen auf der Uhr erscheinen.</string>
     <string name="advanced_settings">Erweiterte Einstellungen</string>
-    <string name="app_feel_category">App</string>
+    <string name="app_feel_category">App-Feeling</string>
     <string name="advance_windowed">Pop-Up-Fenster</string>
     <string name="advance_windowed_summary">Profile und Tweets in einer Fensteransicht über der Timeline öffnen.</string>
     <string name="full_screen_browsers">Vollbild-Browser</string>
@@ -460,7 +460,7 @@ HINWEIS: Emojis werden auch nach Ablauf der Testversion weiterhin in dieser App 
     <string name="timeline_notifications">Timeline-Benachrichtigungen</string>
     <string name="interactions_notifications">Interaktionen-Benachrichtigungen</string>
     <string name="timelines_settings">Timeline</string>
-    <string name="tweet_look_options">Zeitleisten-Aussehen</string>
+    <string name="tweet_look_options">Timeline-Aussehen</string>
     <string name="limiting_options">Limitierungen</string>
     <string name="browser_options">Browser</string>
     <string name="custom_ringtone">Eigener Klingelton</string>
@@ -567,7 +567,7 @@ HINWEIS: Emojis werden auch nach Ablauf der Testversion weiterhin in dieser App 
     <string name="ui_settings">Benutzeroberfläche</string>
     <string name="show_pos_dashclock">Timeline-Position anzeigen</string>
     <string name="show_pos_dashclock_summary">Die aktuelle Position der Startseiten-Timeline anstatt der Anzahl neuer Tweets anzeigen.</string>
-    <string name="talon_large_widget">Talon - Haupt-Timeline</string>
+    <string name="talon_large_widget">Talon – Haupt-Timeline</string>
     <string name="unread_bar_widget">Talon - \"Ungelesen\"-Leiste</string>
     <string name="show_muted_mentions">Stummgeschaltete Erwähnungen anzeigen</string>
     <string name="force_overflow_summary">Das 3-Punkte-Menü (\"Overflow-Menü\") immer in der Aktionsleiste anzeigen.</string>

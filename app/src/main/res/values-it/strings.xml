@@ -718,4 +718,10 @@ Menzioni, nuovi follower e retweet/mi piace sul tuo stato inizieranno a comparir
     <string name="three_mb_message">Twitter permette di postare GIF che non superano i 5 MB. Talon userà la versione da Giphy con la qualità più alta che rispetta questo vincolo.\n\nI risultati che vedrai hanno una versione che rispetta questo limite, io non ho mostrato GIF la cui qualità è stata ridotta per rientrare nel limite di 5 MB.</string>
     <string name="quoted_you">ti ha citato</string>
     <string name="privacy_policy">Politica sulla Privacy</string>
+    <string name="emoji_style">Stile emoji</string>
+    <string name="emoji_style_default">Predefinito di sistema</string>
+    <string name="emoji_style_android_o">Google Android Oreo</string>
+    <string name="saved_tweets">Tweet salvati</string>
+    <string name="save_for_later">Salva per dopo</string>
+    <string name="remove_from_saved_tweets">Rimuovi dai Tweet salvati</string>
 </resources>
