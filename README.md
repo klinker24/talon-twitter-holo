@@ -1,3 +1,9 @@
+### Notice
+
+This was the old version of Talon for Twitter. I have since open-sourced the Material Design version of the app. All future contributions will go to that version. This classic version should be considered "deprecated", but the project will remain up, for anyone that wants to look through it. 
+
+The new version of Talon, can be found here: https://github.com/klinker24/talon-twitter-material
+
 # Talon for Twitter (Classic) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Talon%20for%20Twitter-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/1067)
 
 ![Main Drawer](https://raw.githubusercontent.com/klinker24/Talon-for-Twitter/master/Other/Promo%20Stuff/Graphics/Classic/Final%20Promos/Feature%20graphic.png)
