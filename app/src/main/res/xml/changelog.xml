@@ -16,6 +16,11 @@
 
 <changelog>
 
+    <version name="4.17.1">
+        <text>This version of Talon is now deprecated, the Material Design version of Talon is open source. https://github.com/klinker24/talon-for-twitter-android</text>
+        <text>Fix login issue</text>
+    </version>
+
     <version name="4.17.0">
         <text>Save tweets for later from the three dot overflow menu on a tweet</text>
         <text>View those saved tweets by adding the "Saved Tweets" swipe-able page in settings</text>

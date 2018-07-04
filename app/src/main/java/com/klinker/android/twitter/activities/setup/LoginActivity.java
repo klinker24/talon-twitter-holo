@@ -82,6 +82,8 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class LoginActivity extends Activity {
 
+    private static final String OAUTH_CALLBACK = "http://talonfortwitter.com";
+
     private Context context;
     private SharedPreferences sharedPrefs;
 
@@ -198,7 +200,7 @@ public class LoginActivity extends Activity {
             public boolean shouldOverrideUrlLoading(WebView webView, String url)
             {
                 Log.v("talon_login", "url: " + url);
-                if (url != null && url.startsWith("oauth:///talonforandroid")) {
+                if (url != null && url.startsWith(OAUTH_CALLBACK)) {
                     handleTwitterCallback(url);
                 } else if (url.equals("https://twitter.com/")) {
                     webView.loadUrl(requestUrl);
@@ -387,7 +389,7 @@ public class LoginActivity extends Activity {
 
         private void loginToTwitter() {
             try {
-                requestToken = twitter.getOAuthRequestToken("oauth:///talonforandroid");
+                requestToken = twitter.getOAuthRequestToken(OAUTH_CALLBACK);
             } catch (TwitterException ex) {
                 ex.printStackTrace();
                 try {
